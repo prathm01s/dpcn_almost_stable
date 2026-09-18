@@ -1,0 +1,4 @@
+Strategy,Seed_Node,Final_Outbreak_Size,Final_Outbreak_Pct,Time_To_Peak
+Highest Degree,87,81.26,99.09756097560977,2.18
+Highest Betweenness,55,81.26,99.09756097560977,2.42
+Random Low-Degree,17,81.24,99.07317073170732,3.18
