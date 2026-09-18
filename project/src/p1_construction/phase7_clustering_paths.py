@@ -16,7 +16,6 @@ import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib
-import seaborn as sns
 
 matplotlib.use("Agg")
 
@@ -156,6 +155,21 @@ else:
 
 print(f"  → {ranking_msg}")
 
+# One-row machine-readable handoff table for global clustering and path metrics.
+df_path_summary = pd.DataFrame([{
+    "full_nodes": G_full.number_of_nodes(),
+    "gcc_nodes": G_giant.number_of_nodes(),
+    "global_clustering_unweighted": global_cc_unweighted,
+    "global_clustering_weighted": global_cc_weighted,
+    "gcc_average_path_length_unweighted": avg_path_len,
+    "gcc_average_path_length_weighted_1_minus_similarity": avg_path_len_weighted,
+    "gcc_diameter": diameter,
+    "gcc_radius": radius,
+    "closeness_rank_spearman_unweighted_vs_weighted": spearman_cc,
+}])
+df_path_summary.to_csv(os.path.join(TABLES_DIR, "path_metrics_summary.csv"), index=False)
+print(f"  → Saved: path_metrics_summary.csv")
+
 # ──────────────────────────────────────────────────────────────
 # 5. Plots
 # ──────────────────────────────────────────────────────────────
@@ -239,8 +253,12 @@ with open(report_path, "r", encoding="utf-8") as f:
     report = f.read()
 
 # Determine clustering-degree relationship
+from scipy.stats import pearsonr
 slope = z[0] if len(x_data) > 2 else 0
-if slope > 0.001:
+pearson_r, pearson_p = pearsonr(x_data, y_data) if len(x_data) > 2 else (np.nan, np.nan)
+if pearson_p >= 0.05:
+    cc_deg_interpretation = f"The degree–clustering relationship is weak (r={pearson_r:.3f}, p={pearson_p:.3f}) and does not provide sufficient evidence that high-degree respondents systematically occupy a different local structural role."
+elif slope > 0.001:
     cc_deg_interpretation = "Higher-degree nodes tend to also have higher clustering coefficients, suggesting that well-connected respondents form tightly-knit local opinion clusters rather than serving as bridges between disparate groups."
 elif slope < -0.001:
     cc_deg_interpretation = "Higher-degree nodes tend to have *lower* clustering coefficients, suggesting that the most connected respondents act as bridges between different opinion clusters rather than being embedded in a single tight-knit group."
@@ -274,7 +292,7 @@ The network exhibits a **global average clustering coefficient of {global_cc_unw
 
 {cc_deg_interpretation}
 
-Path analysis on the Giant Connected Component reveals an **average shortest path length of {avg_path_len:.2f}** (unweighted) and a **diameter of {diameter}** (the longest shortest path between any two respondents). The compact diameter and short average path length suggest that any two respondents in the main consensus group can be connected through at most {diameter} intermediaries — a characteristic consistent with small-world network structure. A secondary check using weighted distances (distance = 1 − similarity) yielded an average path length of {avg_path_len_weighted:.2f}. {ranking_msg} The full small-world analysis (comparison against Erdős–Rényi random graphs) will be conducted in Phase 10.
+Path analysis on the Giant Connected Component reveals an **average shortest path length of {avg_path_len:.2f}** (unweighted) and a **diameter of {diameter}**. Thus, any two GCC respondents are separated by at most {diameter} edges, or {max(diameter - 1, 0)} intermediate respondents. A secondary check using weighted distances (distance = 1 − similarity) yielded an average path length of {avg_path_len_weighted:.2f}. {ranking_msg} A small-world conclusion is deferred until the Erdős–Rényi comparison in Phase 10.
 """
 
 report = report.replace(

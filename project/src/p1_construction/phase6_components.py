@@ -15,7 +15,6 @@ import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib
-import seaborn as sns
 
 matplotlib.use("Agg")
 
@@ -272,8 +271,13 @@ edge_weights = [float(G_full[u][v].get('weight', 0.8)) for u, v in G_full.edges(
 min_ew, max_ew = min(edge_weights), max(edge_weights)
 edge_alphas = [0.03 + 0.25 * ((w - min_ew) / (max_ew - min_ew + 1e-9)) for w in edge_weights]
 
-# Layout
-pos = nx.spring_layout(G_full, seed=SEED, k=0.3, iterations=100)
+# Lay out the GCC with a force-directed layout and place isolates on an outer ring.
+# This keeps the dense component readable instead of letting isolates compress it.
+pos = nx.spring_layout(G_giant, seed=SEED, k=0.22, iterations=200, scale=0.72)
+outlier_nodes = sorted((n for n in G_full.nodes() if n not in gcc_nodes), key=int)
+angles = np.linspace(0, 2 * np.pi, len(outlier_nodes), endpoint=False)
+for node, angle in zip(outlier_nodes, angles):
+    pos[node] = np.array([1.05 * np.cos(angle), 1.05 * np.sin(angle)])
 
 fig, ax = plt.subplots(figsize=(14, 14))
 
@@ -288,13 +292,11 @@ nx.draw_networkx_nodes(G_full, pos, ax=ax,
                         node_color=node_colors,
                         edgecolors='white', linewidths=0.5)
 
-# Label only outlier nodes
-outlier_nodes = {n for n in G_full.nodes() if n not in gcc_nodes}
-outlier_labels = {n: n for n in outlier_nodes}
-nx.draw_networkx_labels(G_full, pos, labels=outlier_labels, ax=ax,
-                         font_size=7, font_color='#C44E52', font_weight='bold')
+# Label all respondents; outliers are additionally distinguished by color.
+nx.draw_networkx_labels(G_full, pos, labels={n: n for n in G_full.nodes()}, ax=ax,
+                        font_size=5.5, font_color='#222222')
 
-ax.set_title("Opinion Similarity Network\n(Node size proportional to degree; blue = GCC, red = outlier)", fontsize=16)
+ax.set_title("Opinion Similarity Network\n(Node size scales with degree; blue = GCC, red = isolate)", fontsize=16)
 ax.axis('off')
 
 # Legend
@@ -326,7 +328,7 @@ with open(report_path, "r", encoding="utf-8") as f:
 modeling_para = """
 ## Network Modeling Approach
 
-Each of the **91 survey respondents** (after dropping 5 fully blank responses) becomes a **node** in the network. To determine edges, every respondent's 60-item response vector is ordinal-encoded (−2 to +2) and median-imputed. **Pairwise cosine similarity** is then computed between all respondent pairs, producing a 91×91 similarity matrix. A **threshold τ\\* = 0.731** (the 50th percentile of pairwise similarities, selected as the knee-point where the Giant Connected Component retains ≥90% of nodes) converts this continuous matrix into a binary adjacency structure: respondent pairs with similarity ≥ τ\\* are connected by an edge, and the **edge weight** is the cosine similarity value itself. The result is an **undirected, weighted graph** where edges represent opinion alignment and weights encode the strength of that alignment.
+Each of the **91 survey respondents** (after dropping 5 fully blank responses) becomes a **node** in the network. To determine edges, every respondent's 60-item response vector is ordinal-encoded (−2 to +2) and median-imputed. **Pairwise cosine similarity** is then computed between all respondent pairs, producing a 91×91 similarity matrix. A **threshold τ\\* = 0.731** (the 50th percentile of pairwise similarities) converts this continuous matrix into a binary adjacency structure. It is the highest tested threshold that retains at least 90% of respondents in the GCC, a constraint-based choice rather than a geometric knee estimate. Respondent pairs with similarity ≥ τ\\* are connected, and the **edge weight** is the cosine similarity value.
 
 """
 report = report.replace("## Overview", modeling_para.strip() + "\n\n## Overview")
@@ -345,7 +347,7 @@ net_viz_section = """
 ### The Opinion Network
 
 ![Opinion Similarity Network](outputs/figures/phase6_network_visualization.png)
-*Figure: Force-directed layout of the full opinion similarity network. Node size is proportional to degree (number of connections). Blue nodes belong to the Giant Connected Component (82 nodes, 90.1%); red nodes are structural outliers (9 nodes) whose opinion profiles deviated too strongly from the class consensus to form above-threshold connections. The network's dense core and peripheral outliers are clearly visible.*
+*Figure: Labeled force-directed layout of the full opinion similarity network. Node size scales with degree. Blue nodes belong to the Giant Connected Component (82 nodes, 90.1%); red nodes are isolates at the selected threshold and are placed on an outer ring for legibility.*
 
 """
 report = report.replace("### Exploratory Data Analysis", net_viz_section.strip() + "\n\n### Exploratory Data Analysis")
@@ -361,7 +363,7 @@ question_means_section = f"""
 ![Question Mean Scores](outputs/figures/phase2_question_means.png)
 *Figure: Mean encoded response score per question (−2 = Strongly Disagree, +2 = Strongly Agree), sorted ascending and colored by topic block. Error bars show ±1 standard deviation. The class shows near-universal agreement on Environment and Ethics questions (right side), while Education questions like class attendance and exam accuracy provoke the most disagreement (left side).*
 
-The most agreed-upon question is **{qtext_agreed['question_id']}** ("{qtext_agreed['question_text']}", mean = {most_agreed['Mean']:.2f}). The question with the lowest average agreement is **{qtext_disagreed['question_id']}** ("{qtext_disagreed['question_text']}", mean = {most_disagreed['Mean']:.2f}), which is the only question with a negative mean — indicating the class, on average, *disagrees* with this statement. The most divisive question (highest standard deviation = {most_divisive['Std']:.2f}) is **{qtext_divisive['question_id']}** ("{qtext_divisive['question_text']}"), reflecting a genuine split in opinion.
+The most agreed-upon question is **{qtext_agreed['question_id']}** ("{qtext_agreed['question_text']}", mean = {most_agreed['Mean']:.2f}). The question with the lowest average agreement is **{qtext_disagreed['question_id']}** ("{qtext_disagreed['question_text']}", mean = {most_disagreed['Mean']:.2f}). The most divisive question (highest standard deviation = {most_divisive['Std']:.2f}) is **{qtext_divisive['question_id']}** ("{qtext_divisive['question_text']}"), reflecting a genuine split in opinion.
 
 """
 report = report.replace(
@@ -380,15 +382,15 @@ By executing a threshold explicitly designed to maintain a 90% inclusiveness thr
 
 new_component = f"""## Component Analysis
 
-The full network partitions into **{n_components_full} connected components**: one Giant Connected Component (GCC) of {gcc_size} nodes ({gcc_size/total_nodes*100:.1f}%) and {n_components_full - 1} isolated singletons. The 9 outlier respondents (IDs: {', '.join(sorted(outlier_nodes, key=lambda x: int(x)))}) represent individuals whose opinion vectors across all four domains deviated too strongly from the class consensus to form above-threshold connections with any peer.
+The full network partitions into **{n_components_full} connected components**: one Giant Connected Component (GCC) of {gcc_size} nodes ({gcc_size/total_nodes*100:.1f}%) and {n_components_full - 1} isolated singletons. The 9 isolates (IDs: {', '.join(sorted(outlier_nodes, key=lambda x: int(x)))}) have no pairwise cosine similarity reaching the selected threshold. This is a threshold-dependent structural statement, not a claim that their opinions are intrinsically anomalous.
 
-Comparing fragmentation across the block-specific sub-networks reveals meaningful structural differences. The **{most_cohesive['Network']}** network is the most cohesive (GCC = {most_cohesive['GCC_Pct']}%), while the **{most_fragmented['Network']}** network is the most fragmented (GCC = {most_fragmented['GCC_Pct']}%). This suggests that respondents' opinions on {most_fragmented['Network'].split('(')[1].rstrip(')') if '(' in most_fragmented['Network'] else most_fragmented['Network']} topics are the most heterogeneous, producing a sparser, more disconnected sub-network even at its own individually-tuned threshold.
+Under the block-specific threshold rule, **{most_cohesive['Network']}** has the largest GCC ({most_cohesive['GCC_Pct']}%), while **{most_fragmented['Network']}** has the smallest ({most_fragmented['GCC_Pct']}%). Because the selected percentiles differ by block, this is a descriptive comparison rather than a controlled ranking of intrinsic topic cohesion.
 
 ![Component Size Distribution](outputs/figures/phase6_component_sizes.png)
 *Figure: Size of each connected component in the full network. Component 0 is the GCC ({gcc_size} nodes); all remaining components are isolated singletons.*
 
 ![GCC Comparison Across Networks](outputs/figures/phase6_gcc_comparison.png)
-*Figure: Giant Connected Component percentage for the full network and each topic block. The 90% target threshold line is shown. Block-specific thresholds were individually tuned, yet the resulting GCC percentages differ substantially, reflecting differing levels of opinion consensus per topic.*"""
+*Figure: Giant Connected Component percentage for the full network and each topic block. The 90% target threshold line is shown. Because block-specific thresholds differ, the percentages are descriptive rather than a controlled measure of topic cohesion.*"""
 
 report = report.replace(old_component, new_component)
 
@@ -404,8 +406,8 @@ with open(summary_path, "a", encoding="utf-8") as f:
     f.write(f"- **Components**: {n_components_full} total ({gcc_size}-node GCC + {n_components_full-1} singletons).\n")
     f.write(f"- **Laplacian cross-check**: {zero_eigenvalues} zero eigenvalues = {n_components_full} components. ✓ Match.\n")
     f.write(f"- **G_giant extracted**: {G_giant.number_of_nodes()} nodes, {G_giant.number_of_edges()} edges.\n")
-    f.write(f"- **Most cohesive block**: {most_cohesive['Network']} ({most_cohesive['GCC_Pct']}% GCC).\n")
-    f.write(f"- **Most fragmented block**: {most_fragmented['Network']} ({most_fragmented['GCC_Pct']}% GCC).\n")
+    f.write(f"- **Largest GCC under selected thresholds**: {most_cohesive['Network']} ({most_cohesive['GCC_Pct']}%).\n")
+    f.write(f"- **Smallest GCC under selected thresholds**: {most_fragmented['Network']} ({most_fragmented['GCC_Pct']}%); thresholds differ, so this is descriptive.\n")
     f.write(f"\n### Phase 6A: Question-Wise Analysis\n")
     f.write(f"- **Most agreed**: {most_agreed['qid']} (mean={most_agreed['Mean']:.2f}).\n")
     f.write(f"- **Most disagreed**: {most_disagreed['qid']} (mean={most_disagreed['Mean']:.2f}).\n")

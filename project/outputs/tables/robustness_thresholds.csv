@@ -1,0 +1,4 @@
+strategy,threshold_definition,removal_count_at_threshold,fraction_removed_at_threshold,gcc_fraction_before_threshold,gcc_fraction_at_threshold,robustness_auc,random_orderings
+random_failure_mean,first fraction removed where GCC/original_N < 0.5,40,0.43956043956043955,0.5068131868131869,0.49725274725274715,0.4445224006762466,100.0
+static_degree_attack,first fraction removed where GCC/original_N < 0.5,34,0.37362637362637363,0.5054945054945055,0.4945054945054945,0.3660185967878276,
+static_betweenness_attack,first fraction removed where GCC/original_N < 0.5,33,0.3626373626373626,0.5054945054945055,0.4945054945054945,0.35321821036106754,

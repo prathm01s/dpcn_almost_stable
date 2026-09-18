@@ -16,7 +16,6 @@ import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib
-import seaborn as sns
 
 matplotlib.use("Agg")
 
@@ -72,7 +71,7 @@ print(f"  → Saved: degree_distribution.csv")
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
 
 # Linear histogram
-sns.histplot(df_degree["degree_unweighted"], bins=15, ax=ax1, color="#4C72B0", edgecolor="white")
+ax1.hist(df_degree["degree_unweighted"], bins=15, color="#4C72B0", edgecolor="white")
 ax1.set_title("Degree Distribution (Linear)")
 ax1.set_xlabel("Degree (k)")
 ax1.set_ylabel("Frequency")
@@ -139,7 +138,7 @@ analysis_update = """
 ### Network Topology and Connectivity
 
 ![Degree Distribution](outputs/figures/phase5_degree_distribution.png)
-*Figure: The unweighted degree distribution of the full opinion network shown on linear (left) and log-log (right) scales. The absence of a strict heavy-tail in the log-log plot implies opinions are relatively uniformly distributed without extreme hub monopolies.*
+*Figure: The unweighted degree distribution of the full opinion network shown on linear (left) and log-log (right) scales. This plot is descriptive; no formal power-law model comparison is inferred from it.*
 
 ![Laplacian Spectrum](outputs/figures/phase5_laplacian_spectrum.png)
 *Figure: The eigenvalue spectrum of the graph's weighted Laplacian matrix. The algebraic connectivity ($\\lambda_2$) is explicitly flagged.*
@@ -151,12 +150,17 @@ report_content = report_content.replace(
 
 # Update Results and Discussion
 conn_status_str = "fully connected" if is_connected else "disconnected"
+connectivity_explanation = (
+    "Because $\\lambda_2 > 0$, the network is connected."
+    if is_connected else
+    "Because $\\lambda_2 \\approx 0$, the network contains multiple connected components."
+)
 results_update = f"""
 ## Graph Topology
 
 The resulting full network is undirected and weighted, comprising {n_nodes} nodes and {n_edges} edges. The edge weights (Cosine Similarities) range from a minimum of {min_w:.3f} to a maximum of {max_w:.3f}, with a mean of {mean_w:.3f}. 
 
-Analysis of the Laplacian matrix reveals an algebraic connectivity ($\\lambda_2$) of **{lambda_2:.3f}**. Because $\\lambda_2 > 0$, the network is mathematically verified to be {conn_status_str}. This robust connectivity indicates that, despite varying topical clusters, the class forms a cohesive whole without any structurally isolated ideological islands. The degree distribution shows a relatively bounded topology without extreme scale-free hubs, implying a democratic spread of overlapping opinions rather than a few highly dominant opinion dictators.
+Analysis of the Laplacian matrix reveals an algebraic connectivity ($\\lambda_2$) of **{lambda_2:.3f}**. {connectivity_explanation} The observed degree distribution is bounded in this sample, although no formal power-law model comparison was performed.
 """
 report_content = report_content.replace(
     "validating the survey's thematic structure.",
@@ -171,7 +175,7 @@ summary_path = os.path.join(PROJECT_ROOT, "results_summary.md")
 with open(summary_path, "a", encoding="utf-8") as f:
     f.write("\n### Phase 5: Basic Graph Description\n")
     f.write(f"- **Graph Properties**: Undirected, weighted. Edge weights: Min={min_w:.3f}, Mean={mean_w:.3f}, Max={max_w:.3f}.\n")
-    f.write(f"- **Degree Distribution**: Captured in degree_distribution.csv. Lacks strict power-law structure, indicative of high consensus overlapping.\n")
+    f.write(f"- **Degree Distribution**: Captured in degree_distribution.csv; no formal power-law model comparison has been performed.\n")
     f.write(f"- **Connectivity**: $\\lambda_2$ = {lambda_2:.3f}. Network is structurally {conn_status_str}.\n")
 
 print("  → Updated report_draft.md and results_summary.md")

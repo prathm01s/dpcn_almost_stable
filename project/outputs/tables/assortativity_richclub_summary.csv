@@ -1,0 +1,2 @@
+degree_assortativity,mixing_classification,node_degree_vs_neighbor_degree_spearman,node_degree_vs_neighbor_degree_p,high_degree_cutoff_75th_percentile,rich_club_verdict,significant_high_degree_thresholds,null_realizations,swaps_per_null_min
+-0.21313115398756496,disassortative,-0.9282643089887957,4.1361285398411463e-36,66,no statistically supported normalized rich club,none,30,4096

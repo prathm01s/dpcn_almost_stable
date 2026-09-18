@@ -63,6 +63,12 @@ sim_pearson_full = df_features.T.corr(method='pearson').values
 np.save(os.path.join(PROJECT_ROOT, "similarity_cosine_full.npy"), sim_cosine_full)
 np.save(os.path.join(PROJECT_ROOT, "similarity_pearson_full.npy"), sim_pearson_full)
 
+# Complete-case cosine matrix for the listwise-deletion sensitivity analysis.
+df_listwise = pd.read_csv(os.path.join(PROCESSED_DATA_DIR, "encoded_matrix_listwise.csv"))
+sim_cosine_listwise = cosine_similarity(df_listwise.drop(columns=["ResponseID"]).values)
+np.save(os.path.join(PROJECT_ROOT, "similarity_cosine_full_listwise.npy"), sim_cosine_listwise)
+print(f"  Complete-case sensitivity matrix: {sim_cosine_listwise.shape[0]} respondents")
+
 # ──────────────────────────────────────────────────────────────
 # 3. Compare Cosine vs Pearson (Spearman on off-diagonals)
 # ──────────────────────────────────────────────────────────────
@@ -85,10 +91,18 @@ else:
 # ──────────────────────────────────────────────────────────────
 print("\n[Step 3] Computing block-specific cosine similarity matrices...")
 sim_cosine_blocks = {}
+zero_vector_records = []
 for block in BLOCK_ORDER:
     block_path = os.path.join(PROCESSED_DATA_DIR, f"block_{block}.csv")
     df_block = pd.read_csv(block_path)
     X_block = df_block.drop(columns=["ResponseID"]).values
+    zero_rows = np.flatnonzero(np.linalg.norm(X_block, axis=1) == 0)
+    for row_idx in zero_rows:
+        zero_vector_records.append({
+            "ResponseID": df_block.iloc[row_idx]["ResponseID"],
+            "block": block,
+            "handling": "cosine similarity set to 0 by sklearn for comparisons involving the zero vector",
+        })
     
     sim_block = cosine_similarity(X_block)
     sim_cosine_blocks[block] = sim_block
@@ -96,6 +110,13 @@ for block in BLOCK_ORDER:
     out_path = os.path.join(PROJECT_ROOT, f"similarity_cosine_{block}.npy")
     np.save(out_path, sim_block)
     print(f"  → Saved: similarity_cosine_{block}.npy")
+
+pd.DataFrame(
+    zero_vector_records,
+    columns=["ResponseID", "block", "handling"],
+).to_csv(os.path.join(TABLES_DIR, "zero_vector_respondents.csv"), index=False)
+if zero_vector_records:
+    print(f"  ⚠ Zero-vector block profiles documented: {zero_vector_records}")
 
 # ──────────────────────────────────────────────────────────────
 # 5. Generate Plots
@@ -193,7 +214,7 @@ with open(report_path, "w", encoding="utf-8") as f:
 summary_path = os.path.join(PROJECT_ROOT, "results_summary.md")
 with open(summary_path, "a", encoding="utf-8") as f:
     f.write("\n### Phase 3: Similarity Matrices\n")
-    f.write(f"- **Metric Choice**: Cosine similarity selected. Spearman correlation with Pearson was {spearman_corr:.3f}, validating metric stability.\n")
+    f.write(f"- **Metric Choice**: Cosine similarity selected. Spearman correlation with Pearson was {spearman_corr:.3f}, indicating substantial but imperfect agreement.\n")
     f.write(f"- **Distribution**: Mean pairwise cosine similarity across the full network is {np.mean(cosine_off_diag):.3f}.\n")
     f.write("- **Structure**: Hierarchical clustering on the similarity matrix reveals early visual evidence of distinct opinion groupings (blocks on the diagonal).\n")
 

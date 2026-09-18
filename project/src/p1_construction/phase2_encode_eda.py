@@ -96,6 +96,11 @@ encoded_matrix_path = os.path.join(PROCESSED_DATA_DIR, "encoded_matrix.csv")
 df_imputed.to_csv(encoded_matrix_path, index=False)
 print(f"  → Saved: {encoded_matrix_path}")
 
+# Save the complete-case dataset used for the listwise-deletion sensitivity check.
+listwise_matrix_path = os.path.join(PROCESSED_DATA_DIR, "encoded_matrix_listwise.csv")
+df_listwise.to_csv(listwise_matrix_path, index=False)
+print(f"  → Saved: {listwise_matrix_path}")
+
 # Block sub-matrices
 block_cols_map = {block: [] for block in BLOCK_ORDER}
 for col in question_cols:
@@ -230,7 +235,7 @@ with open(report_path, "r", encoding="utf-8") as f:
 dataset_doc_update = """
 ## Encoding and Preprocessing
 
-Survey responses were ordinal encoded from -2 (Strongly Disagree) to +2 (Strongly Agree), with missing items or "No Comments" treated as NaN. Fully blank respondents (5 cases) were dropped entirely from the analysis. To resolve remaining sporadic missing values, we employed **column median imputation** as our primary method. A separate listwise-deleted dataset (dropping any respondent with ≥1 missing value) was retained for sensitivity checks.
+Survey responses were ordinal encoded from -2 (Strongly Disagree) to +2 (Strongly Agree), with missing items or "No Comments" treated as NaN. Fully blank respondents (5 cases) were dropped entirely from the analysis. To resolve remaining sporadic missing values, we employed **column median imputation** as our primary method. A separate listwise-deleted dataset (dropping any respondent with ≥1 missing value) was saved as `encoded_matrix_listwise.csv` for the downstream sensitivity check.
 """
 report_content = report_content.replace(
     "# Pipeline Followed", 
@@ -248,7 +253,7 @@ analysis_update = """
 *Figure: Heatmap of Pearson correlations between all 60 survey items. The black dividing lines separate the T, E, S, and V blocks. We observe strong intra-block correlations.*
 
 ![Respondent Block Means](outputs/figures/phase2_block_means_violin.png)
-*Figure: Violin plot of the respondents' mean scores across the four blocks. The highest agreement is concentrated in the Environment block.*
+*Figure: Violin plot of respondent mean scores across the four blocks. Environment has the highest median; Technology has the widest full range, while Ethics/Society and Environment have the largest IQRs.*
 """
 report_content = report_content.replace(
     "*(Figures and tables are embedded here incrementally as each phase produces them)*",
@@ -257,7 +262,7 @@ report_content = report_content.replace(
 
 # Update Results and Discussion
 results_update = """
-Across the four topic blocks, respondents showed the strongest consensus and highest average scores on the **Environment** (V) block, while the **Education** (E) block exhibited the widest variance in opinions. The question-question correlation matrix reveals distinct clusters, with intra-block correlations consistently higher than inter-block correlations, validating the survey's thematic structure.
+Across the four topic blocks, respondents had the highest average scores on the **Environment** (V) block. Technology had the widest full range, while Ethics/Society and Environment had the largest IQRs. The question-question correlation matrix reveals distinct clusters, with intra-block correlations higher on average than cross-block correlations.
 """
 report_content = report_content.replace(
     "class on most survey items.",

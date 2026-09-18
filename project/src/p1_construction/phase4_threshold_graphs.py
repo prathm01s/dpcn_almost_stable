@@ -2,7 +2,7 @@
 Phase 4 — Threshold Selection & Adjacency/Graph Construction
 =============================================================
 1. Threshold sweep (50th-99th percentile) on similarity matrices.
-2. Select tau* (knee-point where GCC >= 90%).
+2. Select tau* (highest tested threshold where GCC >= 90%).
 3. Build thresholded graphs (Full + 4 blocks) and mutual k-NN (k=8) graph.
 4. Save to `graphs/*.graphml`.
 5. Plot dual-axis sweep curve and spring layouts of graphs.
@@ -51,11 +51,12 @@ for block in BLOCK_ORDER:
 # Helper Functions
 # ──────────────────────────────────────────────────────────────
 def run_threshold_sweep(sim_matrix, network_name):
+    matrix_n = sim_matrix.shape[0]
     # Extract off-diagonals
-    upper_tri_indices = np.triu_indices(n_nodes, k=1)
+    upper_tri_indices = np.triu_indices(matrix_n, k=1)
     off_diag = sim_matrix[upper_tri_indices]
     
-    # 50th to 99th percentile, 2-point steps
+    # 50th to 98th percentile, 2-point steps
     percentiles = np.arange(50, 100, 2)
     taus = np.percentile(off_diag, percentiles)
     
@@ -63,7 +64,7 @@ def run_threshold_sweep(sim_matrix, network_name):
     for p, tau in zip(percentiles, taus):
         # Build temp graph
         G_temp = nx.Graph()
-        G_temp.add_nodes_from(range(n_nodes))
+        G_temp.add_nodes_from(range(matrix_n))
         
         # Edges
         rows, cols = np.where(sim_matrix >= tau)
@@ -81,8 +82,8 @@ def run_threshold_sweep(sim_matrix, network_name):
         else:
             gcc_size = 0
             
-        gcc_pct = (gcc_size / n_nodes) * 100
-        mean_degree = np.mean([d for _, d in G_temp.degree()]) if n_nodes > 0 else 0
+        gcc_pct = (gcc_size / matrix_n) * 100
+        mean_degree = np.mean([d for _, d in G_temp.degree()]) if matrix_n > 0 else 0
         
         results.append({
             "network": network_name,
@@ -126,9 +127,10 @@ def build_mutual_knn_graph(sim_matrix, node_ids, k=8):
     for i, nid in enumerate(node_ids):
         G.add_node(nid, label=nid)
         
+    graph_n = len(node_ids)
     # For each node, find top k neighbors (excluding self)
     top_k_neighbors = {}
-    for i in range(n_nodes):
+    for i in range(graph_n):
         # Sort indices by similarity descending
         sorted_indices = np.argsort(sim_matrix[i])[::-1]
         # Remove self
@@ -136,8 +138,8 @@ def build_mutual_knn_graph(sim_matrix, node_ids, k=8):
         top_k_neighbors[i] = set(sorted_indices[:k])
         
     # Add mutual edges
-    for i in range(n_nodes):
-        for j in range(i+1, n_nodes):
+    for i in range(graph_n):
+        for j in range(i+1, graph_n):
             if j in top_k_neighbors[i] and i in top_k_neighbors[j]:
                 G.add_edge(node_ids[i], node_ids[j], weight=float(sim_matrix[i, j]))
                 
@@ -182,6 +184,48 @@ for block in BLOCK_ORDER:
 df_all_sweeps = pd.concat(sweep_results, ignore_index=True)
 df_all_sweeps.to_csv(os.path.join(TABLES_DIR, "threshold_sweep.csv"), index=False)
 print("  → Saved threshold_sweep.csv and all .graphml files")
+
+# Complete-case/listwise-deletion sensitivity analysis using the same selection rule.
+df_listwise = pd.read_csv(os.path.join(PROCESSED_DATA_DIR, "encoded_matrix_listwise.csv"))
+listwise_ids = df_listwise["ResponseID"].astype(str).tolist()
+sim_listwise = np.load(os.path.join(PROJECT_ROOT, "similarity_cosine_full_listwise.npy"))
+df_listwise_sweep, tau_listwise, pct_listwise = run_threshold_sweep(sim_listwise, "Full_Listwise")
+G_listwise = build_threshold_graph(sim_listwise, tau_listwise, listwise_ids)
+components_listwise = sorted(nx.connected_components(G_listwise), key=len, reverse=True)
+G_listwise_gcc = G_listwise.subgraph(components_listwise[0]).copy()
+primary_gcc_nodes = max(nx.connected_components(G_full), key=len)
+G_primary_gcc = G_full.subgraph(primary_gcc_nodes)
+
+listwise_summary = pd.DataFrame([{
+    "analysis": "median_imputed_primary",
+    "respondents": G_full.number_of_nodes(),
+    "selected_percentile": pct_full,
+    "tau": tau_star_full,
+    "edges": G_full.number_of_edges(),
+    "density": nx.density(G_full),
+    "components": nx.number_connected_components(G_full),
+    "gcc_size": len(primary_gcc_nodes),
+    "gcc_pct": 100 * len(primary_gcc_nodes) / G_full.number_of_nodes(),
+    "average_clustering": nx.average_clustering(G_full),
+    "gcc_average_path_length": nx.average_shortest_path_length(G_primary_gcc),
+    "gcc_diameter": nx.diameter(G_primary_gcc),
+}, {
+    "analysis": "listwise_complete_cases",
+    "respondents": G_listwise.number_of_nodes(),
+    "selected_percentile": pct_listwise,
+    "tau": tau_listwise,
+    "edges": G_listwise.number_of_edges(),
+    "density": nx.density(G_listwise),
+    "components": nx.number_connected_components(G_listwise),
+    "gcc_size": len(components_listwise[0]),
+    "gcc_pct": 100 * len(components_listwise[0]) / G_listwise.number_of_nodes(),
+    "average_clustering": nx.average_clustering(G_listwise),
+    "gcc_average_path_length": nx.average_shortest_path_length(G_listwise_gcc),
+    "gcc_diameter": nx.diameter(G_listwise_gcc),
+}])
+df_listwise_sweep.to_csv(os.path.join(TABLES_DIR, "listwise_threshold_sweep.csv"), index=False)
+listwise_summary.to_csv(os.path.join(TABLES_DIR, "listwise_sensitivity_summary.csv"), index=False)
+print(f"  → Saved complete-case sensitivity outputs (tau={tau_listwise:.4f}, percentile={pct_listwise:.0f})")
 
 # ──────────────────────────────────────────────────────────────
 # 3. Plots
@@ -250,7 +294,7 @@ with open(report_path, "r", encoding="utf-8") as f:
 pipeline_update = f"""
 ## Graph Construction
 
-To binarize the dense similarity matrix into a network structure, we performed a threshold sweep across the 50th to 99th percentiles of pairwise similarities. Our objective was to identify the sparsest structure (the "knee-point") that still maintains a cohesive global topology, defined as a Giant Connected Component (GCC) retaining at least 90% of the respondents.
+To binarize the dense similarity matrix into a network structure, we performed a threshold sweep across the 50th to 98th percentiles of pairwise similarities. We selected the highest tested threshold that retained at least 90% of respondents in the Giant Connected Component (GCC). This is a constraint-based selection rule, not a geometric knee-detection algorithm.
 
 The selected thresholds ($\\tau^*$) are:
 - **Full Network**: {tau_stars['Full']:.3f}
@@ -277,7 +321,7 @@ with open(report_path, "w", encoding="utf-8") as f:
 summary_path = os.path.join(PROJECT_ROOT, "results_summary.md")
 with open(summary_path, "a", encoding="utf-8") as f:
     f.write("\n### Phase 4: Graph Construction\n")
-    f.write(f"- **Thresholds**: Applied knee-point thresholding (GCC >= 90%). Full network $\\tau^*$ = {tau_stars['Full']:.3f}.\n")
+    f.write(f"- **Thresholds**: Applied constraint-based thresholding (highest tested threshold with GCC >= 90%). Full network $\\tau^*$ = {tau_stars['Full']:.3f}.\n")
     f.write("- **Graphs Created**: 5 primary threshold graphs (Full, T, E, S, V) and 1 alternative (mutual k-NN, k=8).\n")
 
 print("  → Updated report_draft.md and results_summary.md")

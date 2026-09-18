@@ -1,0 +1,2 @@
+full_nodes,gcc_nodes,global_clustering_unweighted,global_clustering_weighted,gcc_average_path_length_unweighted,gcc_average_path_length_weighted_1_minus_similarity,gcc_diameter,gcc_radius,closeness_rank_spearman_unweighted_vs_weighted
+91,82,0.7508575681159128,0.6351928074618249,1.394459500150557,0.26478703741246234,3,2,0.9860574453033131

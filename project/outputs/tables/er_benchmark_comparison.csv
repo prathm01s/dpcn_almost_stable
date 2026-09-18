@@ -1,0 +1,6 @@
+comparison_basis,metric,real_value,er_mean,er_std,theoretical_value,theoretical_reference,dense_two_hop_path_approximation
+full_n_and_mean_degree,average_clustering,0.7508575681159128,0.49861631055732597,0.008057158169643436,0.5001221001221001,ER: C ≈ p,
+full_n_and_mean_degree,average_path_length,1.394459500150557,1.5011159951159951,0.007698325577161159,1.1849146588419144,ER sparse asymptotic: ln(n)/ln(<k>),1.4998778998778999
+full_n_and_mean_degree,diameter,3.0,2.0,0.0,,no single formula used,
+full_n_and_mean_degree,giant_component_size,82.0,91.0,0.0,,no single formula used,
+full_n_and_mean_degree,giant_component_fraction,0.9010989010989011,1.0,0.0,,no single formula used,

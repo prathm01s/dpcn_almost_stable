@@ -1,0 +1,2 @@
+ResponseID,block,handling
+119,E,cosine similarity set to 0 by sklearn for comparisons involving the zero vector
