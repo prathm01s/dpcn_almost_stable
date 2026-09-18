@@ -1,0 +1,11 @@
+metric,value
+total_respondents,96.0
+total_questions,60.0
+total_cells,5760.0
+total_missing_cells,542.0
+total_missing_pct,9.41
+respondents_with_zero_missing,68.0
+respondents_flagged_gt_50pct_missing,9.0
+respondents_fully_blank,5.0
+missing_type_blank_nan,505.0
+missing_type_no_comments,37.0

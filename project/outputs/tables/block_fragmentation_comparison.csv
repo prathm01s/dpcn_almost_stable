@@ -1,0 +1,6 @@
+Network,Nodes,Edges,Density,Components,GCC_Size,GCC_Pct,Isolates,Mean_Degree
+Full,91,2048,0.5001,10,82,90.1,9,45.01
+T (Technology),91,902,0.2203,9,83,91.2,8,19.82
+E (Education),91,1392,0.3399,9,82,90.1,7,30.59
+S (Ethics/Society),91,2048,0.5001,11,81,89.0,10,45.01
+V (Environment),91,2048,0.5001,12,80,87.9,11,45.01

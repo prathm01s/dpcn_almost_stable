@@ -1,0 +1,61 @@
+Question,Mean,Std
+T01. Artificial Intelligence will improve society more than it will create problems.,0.6373626373626373,0.9833783437888832
+T02. Generative AI tools should be allowed as learning aids in higher education.,1.0,0.9888264649460884
+T03. Students should disclose the use of AI in assignments and reports.,1.010989010989011,0.8365870545722662
+T04. Every engineering student should receive formal education in AI.,1.2087912087912087,0.8368789042426032
+T05. Artificial Intelligence will significantly accelerate scientific discovery.,1.1868131868131868,0.9056868223997854
+T06. Most repetitive jobs will eventually be replaced by intelligent automation.,1.2087912087912087,0.8884003541507564
+T07. Robots should replace humans in hazardous occupations whenever possible.,1.2087912087912087,1.038337169778718
+T08. AI-assisted diagnosis should become routine in healthcare.,0.07692307692307693,1.0876148136661175
+T09. Autonomous vehicles will ultimately make transportation safer.,0.27472527472527475,0.9552886017200836
+T10. Protection of personal data is more important than technological convenience.,1.1538461538461537,0.8809474309335241
+T11. Technology companies should explain how recommendation algorithms work.,1.1538461538461537,0.8682431421244593
+T12. Governments should introduce stricter regulations for Artificial Intelligence.,1.021978021978022,0.9997557699316366
+T13. Cybersecurity deserves greater investment than the development of new digital technologies.,0.978021978021978,0.8941541251437581
+T14. Social media algorithms contribute to opinion polarization.,1.5054945054945055,0.7655590023509526
+T15. Society will increasingly depend on AI-assisted decision making.,1.164835164835165,0.7783706095818405
+E01. Project-based learning develops deeper understanding than examination-oriented learning.,1.3516483516483517,0.8990566212996868
+E02. Traditional written examinations accurately measure a student's knowledge.,-0.15384615384615385,1.0946646053886087
+E03. Class attendance should be compulsory for all courses.,-0.945054945054945,1.0991171948698684
+E04. High-quality online learning can effectively complement classroom teaching.,0.46153846153846156,1.1480194762932892
+E05. Students should be encouraged to take courses outside their primary discipline.,1.0879120879120878,0.8774755665905289
+E06. Every undergraduate student should participate in at least one research project.,0.8791208791208791,0.9289799045209014
+"E07. Publishing research before graduation should be encouraged, but not mandatory.",1.2857142857142858,0.734630886692453
+E08. Maintaining academic honesty is more important than obtaining high grades.,1.2417582417582418,0.7794679002821141
+E09. Collaborative learning is generally more effective than individual learning.,0.8021978021978022,1.0134624941783623
+E10. Universities should prioritize innovation and problem-solving over rote learning.,1.5494505494505495,0.687406337276194
+E11. University curricula should be updated more frequently to match emerging technologies.,1.6373626373626373,0.6239031890086708
+E12. Artificial intelligence should be integrated into teaching and personalized learning.,0.9340659340659341,1.0088739355472605
+E13. Universities should invest more resources in research than in expanding infrastructure.,0.31868131868131866,0.9174738370974084
+E14. Strong collaborations between universities and industry improve student education.,1.5494505494505495,0.687406337276194
+E15. Continuous learning and skill development are essential throughout one's career.,1.7252747252747254,0.49589277662580034
+S01. Every individual has a responsibility to contribute positively to society.,1.2637362637362637,0.8798379249127501
+S02. Universities should encourage students to participate in community service activities.,0.8461538461538461,1.0319676666239428
+S03. New technologies should be evaluated for their societal impact before widespread deployment.,1.2527472527472527,0.851056945390803
+S04. Technology companies should be accountable for unethical use of their platforms.,1.1428571428571428,0.9726416328904218
+S05. Individuals should have greater control over how their personal data are collected and used.,1.6483516483516483,0.5844964855635504
+"S06. Combating online misinformation requires shared responsibility among users, platforms, and governments.",1.4175824175824177,0.8036850414868041
+S07. Equal opportunities should be prioritized regardless of a person's background.,1.4615384615384615,0.7789978221006827
+S08. Diverse teams generally make better decisions than homogeneous teams.,0.9230769230769231,0.9801447651667383
+S09. Universities should promote an inclusive environment where different viewpoints can be discussed respectfully.,1.5054945054945055,0.5844964855635504
+S10. Scientific evidence should play an important role in public policy decisions.,1.2307692307692308,0.7004272200580804
+S11. People should be free to express differing opinions as long as they do not promote harm or discrimination.,1.5714285714285714,0.598940864134481
+S12. Young people should actively participate in addressing societal challenges.,1.2417582417582418,0.7650803783577158
+S13. Critical evaluation of online information should be taught as a core educational skill.,1.2527472527472527,0.7085730040551236
+S14. Leaders should prioritize ethical decision-making even when it reduces short-term gains.,1.2747252747252746,0.7159443501951199
+S15. Building public trust is essential for responsible adoption of emerging technologies.,1.2307692307692308,0.8442869848697852
+V01. Climate change requires immediate global action.,1.5494505494505495,0.6193856501716711
+V02. Governments should prioritize investment in renewable energy over fossil fuels.,1.4725274725274726,0.7201953336986561
+V03. Individuals should actively reduce their personal energy consumption.,0.967032967032967,0.9000067833145539
+V04. Public transportation and non-motorized transport should be promoted even if they require additional public investment.,1.4175824175824177,0.71594435019512
+V05. Single-use plastics should be significantly restricted.,1.4065934065934067,0.7885009966600054
+"V06. Water conservation should be a priority in households, institutions, and industries.",1.5494505494505495,0.5824037595982182
+V07. Protecting biodiversity is essential for long-term human well-being.,1.5274725274725274,0.6723203492492638
+V08. Universities should adopt environmentally sustainable campus practices even if implementation costs increase.,1.2747252747252746,0.71594435019512
+"V09. Products should be designed to encourage reuse, repair, and recycling.",1.6263736263736264,0.6935953294785664
+V10. Consumers should consider environmental impact when purchasing products.,1.032967032967033,0.8360030495764347
+V11. Technological innovation is essential for addressing environmental challenges.,1.2967032967032968,0.6748581002206727
+V12. Environmental sustainability should be integrated into higher education curricula.,1.10989010989011,0.8875753420358113
+V13. Companies should be held accountable for the environmental impacts of their activities.,1.6923076923076923,0.5516099203907634
+V14. International cooperation is necessary to effectively address environmental challenges.,1.5824175824175823,0.6336128166831867
+V15. Current generations have a responsibility to protect natural resources for future generations.,1.5384615384615385,0.6201736729460422
