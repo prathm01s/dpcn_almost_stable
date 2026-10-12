@@ -1,0 +1,28 @@
+years:
+  start: 2016
+  end: 2026
+
+collection_date: "2026-10-13"
+
+openalex:
+  per_page: 100
+  corpus: core
+  max_spend_usd_per_run: 0.80
+  max_rps: 20
+  concurrency: 8
+
+roster:
+  min_delay_s: 1.0
+  respect_robots: true
+
+matching:
+  fuzzy_threshold_auto: 92
+  fuzzy_threshold_review: 85
+
+former_faculty_heuristic:
+  min_papers: 10
+  min_distinct_years: 3
+
+stats:
+  hist_bin_width: 5
+  partial_year_note: "2026 is partial (data to 13 Oct 2026)"

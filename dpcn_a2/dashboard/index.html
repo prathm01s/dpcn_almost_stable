@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DPCN Research Mapping — Group 24 Dashboard</title>
+  <link rel="stylesheet" href="vendor/tabulator.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <h1>DPCN Research Mapping: CSIR Chemistry Cluster</h1>
+        <div class="header-subtitle">
+          CSIR-NCL (Pune) · CSIR-IICT (Hyderabad) · CSIR-CECRI (Karaikudi) | 2016–2026
+        </div>
+      </div>
+      <div class="header-group-label">GROUP 24</div>
+    </div>
+  </header>
+
+  <!-- Sticky Controls & Filters Bar -->
+  <div class="controls-bar">
+    <div class="controls-inner">
+      <div class="inst-segmented">
+        <button class="inst-btn active" data-inst="all">All Three (Combined)</button>
+        <button class="inst-btn" data-inst="iict">CSIR-IICT</button>
+        <button class="inst-btn" data-inst="ncl">CSIR-NCL</button>
+        <button class="inst-btn" data-inst="cecri">CSIR-CECRI</button>
+        <button class="inst-btn" data-inst="compare">Compare Labs</button>
+      </div>
+
+      <div class="filter-toolbar">
+        <div class="filter-group">
+          <label>Years</label>
+          <select id="filter-year-min" class="filter-select">
+            <option value="2016" selected>2016</option>
+            <option value="2018">2018</option>
+            <option value="2020">2020</option>
+            <option value="2022">2022</option>
+            <option value="2024">2024</option>
+          </select>
+          <span>–</span>
+          <select id="filter-year-max" class="filter-select">
+            <option value="2020">2020</option>
+            <option value="2022">2022</option>
+            <option value="2024">2024</option>
+            <option value="2026" selected>2026</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Type</label>
+          <select id="filter-type" class="filter-select">
+            <option value="all" selected>All Types</option>
+            <option value="journal">Journal Articles</option>
+            <option value="conference">Conference Proceedings</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Quartile</label>
+          <select id="filter-quartile" class="filter-select">
+            <option value="all" selected>All Quartiles</option>
+            <option value="Q1">Q1 Only</option>
+            <option value="Q2">Q2 Only</option>
+            <option value="Q3">Q3 Only</option>
+            <option value="Q4">Q4 Only</option>
+            <option value="Unranked">Unranked</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Field</label>
+          <select id="filter-field" class="filter-select">
+            <option value="all" selected>All Disciplines</option>
+          </select>
+        </div>
+
+        <button id="btn-reset-filters" class="btn-reset">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="dashboard-main">
+
+    <!-- KPI Summary Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total Distinct Papers</div>
+        <div id="kpi-total-papers" class="kpi-val">-</div>
+        <div class="kpi-sub">Peer-reviewed 2016–2026</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Journal Papers</div>
+        <div id="kpi-journal-papers" class="kpi-val">-</div>
+        <div class="kpi-sub">Articles & Reviews</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Q1 Journal Share</div>
+        <div id="kpi-q1-share" class="kpi-val" style="color: var(--q1);">-</div>
+        <div class="kpi-sub">SCImago SJR Ranked</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Citations</div>
+        <div id="kpi-total-citations" class="kpi-val">-</div>
+        <div class="kpi-sub">Accrued up to Oct 2026</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Mean Citations / Paper</div>
+        <div id="kpi-mean-citations" class="kpi-val">-</div>
+        <div class="kpi-sub">Impact per publication</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Active Cadre Faculty</div>
+        <div id="kpi-active-faculty" class="kpi-val">-</div>
+        <div class="kpi-sub">Roster scientists in corpus</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Median Corpus h-Index</div>
+        <div id="kpi-median-h" class="kpi-val">-</div>
+        <div class="kpi-sub">2016–2026 Window</div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="overview">Overview & Trends</button>
+      <button class="tab-btn" data-tab="faculty">Faculty & Divisions</button>
+      <button class="tab-btn" data-tab="venues">Venues & Landmark Papers</button>
+      <button class="tab-btn" data-tab="areas">Thematic Domains</button>
+      <button class="tab-btn" data-tab="citation-net">Citation Network <span class="tab-badge">Task 4</span></button>
+      <button class="tab-btn" data-tab="authorship-net">Authorship Network <span class="tab-badge">Task 4</span></button>
+      <button class="tab-btn" data-tab="docs">Data & Exports</button>
+    </nav>
+
+    <!-- Tab 1: Overview & Publication Trends -->
+    <div id="tab-overview" class="tab-content active">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 1: Annual Publication Output Trend</div>
+              <div class="card-subtitle">Annual peer-reviewed papers (2016–2026)</div>
+            </div>
+          </div>
+          <div id="chart-trend" class="chart-container"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 3: Journal Prestige Distribution (SJR)</div>
+              <div class="card-subtitle">SCImago Journal Rank Quartile Share</div>
+            </div>
+          </div>
+          <div id="chart-quartile" class="chart-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Faculty & Divisions -->
+    <div id="tab-faculty" class="tab-content">
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Panel 2 & 4: Faculty Directory & Performance Table</div>
+            <div class="card-subtitle">Verified scientific cadre personnel, publication output, citations, and in-corpus h-index</div>
+          </div>
+        </div>
+        <div id="table-faculty" style="height: 420px;"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 6: Faculty In-Corpus h-Index Distribution</div>
+              <div class="card-subtitle">Binned histogram of scientific cadre h-indices (2016–2026)</div>
+            </div>
+          </div>
+          <div id="chart-h-index" class="chart-container"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Department & Divisional Performance</div>
+              <div class="card-subtitle">Papers, citations, and Q1 share by research division</div>
+            </div>
+          </div>
+          <div id="chart-departments" class="chart-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Venues & Landmark Papers -->
+    <div id="tab-venues" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 5: Top 5 Publishing Journals</div>
+              <div class="card-subtitle">Most frequent publication venues with quartile ratings</div>
+            </div>
+          </div>
+          <div id="chart-top-journals" class="chart-container"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 9: Conference Rank Distribution (CORE)</div>
+              <div class="card-subtitle">CORE Conference Ratings (A*, A, B, C, Unranked)</div>
+            </div>
+          </div>
+          <div id="chart-conference-rank" class="chart-container"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Panel 8: Top 10 Most-Cited Landmark Publications</div>
+            <div class="card-subtitle">Highest-impact research papers authored by cluster scientists</div>
+          </div>
+        </div>
+        <div id="table-top-papers" style="height: 380px;"></div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Thematic Domains -->
+    <div id="tab-areas" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 7: Primary Research Area Share</div>
+              <div class="card-subtitle">OpenAlex disciplinary classification</div>
+            </div>
+          </div>
+          <div id="chart-research-fields" class="chart-container"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Specialized Subfields</div>
+              <div class="card-subtitle">Top chemical and materials science subfields</div>
+            </div>
+          </div>
+          <div id="chart-research-subfields" class="chart-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 5: Citation Network Placeholder -->
+    <div id="tab-citation-net" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Panel 10: Directed Citation Network Visualisation</div>
+            <div class="card-subtitle">Task 4 Deferred Visualisation Canvas</div>
+          </div>
+        </div>
+        <div class="placeholder-container">
+          <span class="placeholder-badge">Task 4: Citation Network Analysis (Deferred)</span>
+          <div class="placeholder-title">Interactive Directed Citation Network</div>
+          <div class="placeholder-desc">
+            This module is reserved for Task 4. The raw directed citation network has been compiled and saved into <code>data/final/citation_edges_raw.parquet</code> (27,816 directed citation edges). In Task 4, this container will host an interactive Cytoscape.js directed graph supporting PageRank, in-degree hub sizing, and community clustering.
+          </div>
+          <div class="placeholder-stats">
+            <div><strong>27,816</strong><br><small>Citation Edges</small></div>
+            <div><strong>14,353</strong><br><small>Network Nodes</small></div>
+            <div><strong>55.7%</strong><br><small>Cites Indian Labs</small></div>
+            <div><strong>61.2%</strong><br><small>Cited By Indian Labs</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 6: Authorship Network Placeholder -->
+    <div id="tab-authorship-net" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Panel 11: Co-Authorship Network Visualisation</div>
+            <div class="card-subtitle">Task 4 Deferred Visualisation Canvas</div>
+          </div>
+        </div>
+        <div class="placeholder-container">
+          <span class="placeholder-badge">Task 4: Co-Authorship Network Analysis (Deferred)</span>
+          <div class="placeholder-title">Interactive Co-Authorship Community Graph</div>
+          <div class="placeholder-desc">
+            This module is reserved for Task 4. Co-authorship relationships across 42,406 author attributions and 910 canonical Indian institution registries have been preserved. In Task 4, an undirected graph canvas will map collaborative research clusters via the Louvain/Leiden community detection algorithm.
+          </div>
+          <div class="placeholder-stats">
+            <div><strong>42,406</strong><br><small>Authorship Attributions</small></div>
+            <div><strong>505</strong><br><small>Cadre Faculty Members</small></div>
+            <div><strong>910</strong><br><small>Mapped Partner Institutes</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 7: Documentation & Data Downloads -->
+    <div id="tab-docs" class="tab-content">
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Project Deliverables & Data Exports</div>
+            <div class="card-subtitle">Authoritative data artifacts and reports generated for Group 24</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem;">
+          <a href="../data/final/group24_data.csv" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: var(--primary); color: white; border: none; text-decoration: none; border-radius: 4px;">Primary Dataset (group24_data.csv)</a>
+          <a href="../data/final/citation_network.csv" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #0284c7; color: white; border: none; text-decoration: none; border-radius: 4px;">Citation Network (CSV)</a>
+          <a href="../data/final/authorship_network.csv" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #0d9488; color: white; border: none; text-decoration: none; border-radius: 4px;">Authorship Network (CSV)</a>
+          <a href="../data/final/indian_connections.csv" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #d97706; color: white; border: none; text-decoration: none; border-radius: 4px;">Indian Connections (CSV)</a>
+          <a href="../stats/report/group24_stats_report.pdf" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: var(--secondary); color: white; border: none; text-decoration: none; border-radius: 4px;">Stats Report (PDF)</a>
+          <a href="../stats/report/group24_stats_report.pptx" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #37474f; color: white; border: none; text-decoration: none; border-radius: 4px;">Slides (PPTX)</a>
+          <a href="../data/MANIFEST.json" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #64748b; color: white; border: none; text-decoration: none; border-radius: 4px;">MANIFEST.json</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Methodological Disclosures & Source Provenance</div>
+            <div class="card-subtitle">Adherence to scientific bibliometric integrity rules</div>
+          </div>
+        </div>
+        <div style="font-size: 0.875rem; color: var(--text); line-height: 1.6;">
+          <p><strong>Zero Data Fabrication:</strong> All 14,353 publications and 42,406 authorship records correspond to indexed entities in the OpenAlex API (October 2026 snapshot). Citation counts reflect actual cited-by counts as of October 2026.</p>
+          <p style="margin-top: 0.5rem;"><strong>SJR Historical Panel:</strong> Journal quartiles (Q1–Q4) are resolved from the official SCImago Journal Rank (SJR) database (1999–2025). 2026 publications use the latest available 2024/2025 SJR release as standard bibliometric practice.</p>
+          <p style="margin-top: 0.5rem;"><strong>Row Granularity:</strong> The primary dataset is structured at the <em>paper × assigned-institute author</em> granularity. Summing citations directly across rows in the raw CSV will double-count collaborative papers; all dashboard metrics aggregate at the distinct work ID level.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+
+  <!-- Scripts -->
+  <script src="vendor/echarts.min.js"></script>
+  <script src="vendor/tabulator.min.js"></script>
+  <script src="data/g24_data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

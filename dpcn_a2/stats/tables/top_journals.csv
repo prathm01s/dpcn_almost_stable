@@ -1,0 +1,21 @@
+institution,rank,journal_name,paper_count,share_pct,total_citations,quartile,issn
+CSIR-IICT,1,ChemistrySelect,239,3.93,1942,Q2,2365-6549
+CSIR-IICT,2,Organic & Biomolecular Chemistry,144,2.37,1875,Q1,1477-0520
+CSIR-IICT,3,Tetrahedron Letters,128,2.1,1194,Q2,0040-4039
+CSIR-IICT,4,ChemInform,122,2.0,2,,0009-2975
+CSIR-IICT,5,The Journal of Organic Chemistry,120,1.97,2200,Q1,0022-3263
+CSIR-NCL,1,ChemistrySelect,140,2.62,1264,Q2,2365-6549
+CSIR-NCL,2,Chemical Communications,116,2.17,3896,Q1,1359-7345
+CSIR-NCL,3,The Journal of Organic Chemistry,106,1.98,1674,Q1,0022-3263
+CSIR-NCL,4,ACS Omega,97,1.81,1890,Q1,2470-1343
+CSIR-NCL,5,Organic Letters,94,1.76,2653,Q1,1523-7052
+CSIR-CECRI,1,Electrochimica Acta,77,2.72,2981,Q1,0013-4686
+CSIR-CECRI,2,Journal of Materials Chemistry A,68,2.4,3134,Q1,2050-7488
+CSIR-CECRI,3,ChemistrySelect,67,2.37,1477,Q2,2365-6549
+CSIR-CECRI,4,New Journal of Chemistry,64,2.26,1243,Q1,0398-9836
+CSIR-CECRI,5,International Journal of Hydrogen Energy,59,2.08,1699,Q1,0360-3199
+Group 24 Combined,1,ChemistrySelect,443,3.13,4668,Q2,2365-6549
+Group 24 Combined,2,New Journal of Chemistry,270,1.91,4877,Q1,0398-9836
+Group 24 Combined,3,RSC Advances,245,1.73,6699,Q1,2046-2069
+Group 24 Combined,4,Chemical Communications,239,1.69,6318,Q1,1359-7345
+Group 24 Combined,5,The Journal of Organic Chemistry,225,1.59,3908,Q1,0022-3263

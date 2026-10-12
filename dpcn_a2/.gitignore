@@ -1,0 +1,14 @@
+.env
+.env.local
+__pycache__/
+*.py[cod]
+*$py.class
+*.parquet
+.venv/
+env/
+venv/
+data/raw/
+data/cache/
+data/interim/
+.pytest_cache/
+logs/*.log

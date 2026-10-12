@@ -1,0 +1,104 @@
+ncl:
+  display_name: "CSIR-NCL"
+  full_name: "CSIR – National Chemical Laboratory"
+  city: "Pune"
+  state: "Maharashtra"
+  ror: "https://ror.org/057mn3690"
+  official_site: "https://www.ncl-india.org"
+  openalex_institution_ids:
+    - "https://openalex.org/I3125981224"
+  name_variants:
+    - "National Chemical Laboratory"
+    - "CSIR-NCL"
+    - "CSIR National Chemical Laboratory"
+    - "NCL Pune"
+    - "Dr. Homi Bhabha Road"
+    - "NCL Innovation Park"
+  confusable_entities_to_exclude:
+    - "Newcastle University"
+    - "Institute of Chemical Technology"
+    - "CSIR-Indian Institute of Chemical Biology"
+    - "CSIR-IICB"
+    - "CSIR-CSMCRI"
+    - "CSIR-CLRI"
+    - "CSIR-CFTRI"
+    - "CSIR-NIIST"
+    - "CSIR-NML"
+    - "CSIR-NPL"
+    - "CSIR-CSIO"
+    - "CSIR-CGCRI"
+  roster_urls:
+    - "https://www.ncl-india.org/people/scientific-staff"
+  cluster: "CSIR"
+  sector: "Synthetic & Organic Chemistry"
+
+iict:
+  display_name: "CSIR-IICT"
+  full_name: "CSIR – Indian Institute of Chemical Technology"
+  city: "Hyderabad"
+  state: "Telangana"
+  ror: "https://ror.org/040dky007"
+  official_site: "https://www.iict.res.in"
+  openalex_institution_ids:
+    - "https://openalex.org/I55664587"
+  name_variants:
+    - "Indian Institute of Chemical Technology"
+    - "CSIR-IICT"
+    - "CSIR Indian Institute of Chemical Technology"
+    - "Regional Research Laboratory Hyderabad"
+    - "IICT Hyderabad"
+    - "Tarnaka"
+    - "Uppal Road"
+  confusable_entities_to_exclude:
+    - "Institute of Chemical Technology"
+    - "ICT Mumbai"
+    - "CSIR-Indian Institute of Chemical Biology"
+    - "CSIR-IICB"
+    - "CSIR-CSMCRI"
+    - "CSIR-CLRI"
+    - "CSIR-CFTRI"
+    - "CSIR-NIIST"
+    - "CSIR-NML"
+    - "CSIR-NPL"
+    - "CSIR-CSIO"
+    - "CSIR-CGCRI"
+  roster_urls:
+    - "https://www.iict.res.in/SCIENTIFIC_STAFF"
+  cluster: "CSIR"
+  sector: "Synthetic & Organic Chemistry"
+
+cecri:
+  display_name: "CSIR-CECRI"
+  full_name: "CSIR – Central Electrochemical Research Institute"
+  city: "Karaikudi"
+  state: "Tamil Nadu"
+  ror: "https://ror.org/01qek3q18"
+  official_site: "https://www.cecri.res.in"
+  openalex_institution_ids:
+    - "https://openalex.org/I106349282"
+  name_variants:
+    - "Central Electrochemical Research Institute"
+    - "CSIR-CECRI"
+    - "CSIR Central Electrochemical Research Institute"
+    - "CECRI Karaikudi"
+    - "Karaikudi"
+  confusable_entities_to_exclude:
+    - "CSIR-CEERI"
+    - "CSIR-CMERI"
+    - "CSIR-CRRI"
+    - "CSIR-CBRI"
+    - "CSIR-CIMFR"
+    - "CSIR-CDRI"
+    - "CSIR-CLRI"
+  roster_urls:
+    - "https://www.cecri.res.in/People/Scientists.aspx"
+  cluster: "CSIR"
+  sector: "Electrochemistry & Materials"
+
+parent_csir:
+  display_name: "CSIR"
+  full_name: "Council of Scientific and Industrial Research"
+  city: "New Delhi"
+  ror: "https://ror.org/021wm7p51"
+  openalex_institution_ids:
+    - "https://openalex.org/I66760702"

@@ -1,0 +1,33 @@
+institution,department,total_faculty,active_faculty,papers,citations,mean_citations_per_paper,q1_papers,q1_share_pct,mean_faculty_h_index,top_field
+CSIR-CECRI,ELECTROCHEMICAL PROCESS ENGINEERING,9,6,350,19335,55.24,312,89.14,16.5,Energy
+CSIR-CECRI,ELECTRODICS AND ELECTROCATALYSIS,5,2,142,5464,38.48,107,75.35,29.5,Engineering
+CSIR-CECRI,DIRECTOR’S TECHNICAL CELL,2,1,119,3584,30.12,58,48.74,31.0,Materials Science
+CSIR-CECRI,CECRI CHENNAI UNIT,6,4,88,3128,35.55,72,81.82,12.5,Energy
+CSIR-CECRI,CENTRAL INSTRUMENTATION FACILITY,9,3,85,1784,20.99,77,90.59,10.0,Energy
+CSIR-CECRI,ELECTROCHEMICAL POWER SOURCES,5,3,58,2055,35.43,47,81.03,10.0,Engineering
+CSIR-CECRI,CECRI MANDAPAM UNIT,4,2,6,48,8.0,3,50.0,2.0,Environmental Science
+CSIR-CECRI,ELECTROPLATING AND ELECTROMETALLURGY,4,3,6,91,15.17,1,16.67,1.33,Engineering
+CSIR-CECRI,CORROSION AND MATERIALS PROTECTION,6,2,4,77,19.25,0,0.0,1.5,Engineering
+CSIR-CECRI,DIRECTOR OFFICE,1,0,0,0,0.0,0,0.0,0.0,
+CSIR-IICT,Applied Biology,30,21,509,11106,21.82,285,55.99,10.05,Medicine
+CSIR-IICT,Polymers & Functional Materials,29,19,504,10676,21.18,342,67.86,9.05,Materials Science
+CSIR-IICT,Energy & Environmental Engg.,17,10,372,13573,36.49,298,80.11,12.0,Engineering
+CSIR-IICT,Organic Synthesis & Process Chemistry,31,21,355,4179,11.77,220,61.97,6.38,Chemistry
+CSIR-IICT,Analytical & Structural Chemistry,33,15,320,4059,12.68,159,49.69,5.8,Chemistry
+CSIR-IICT,Fluoro-Agrochemicals,29,19,303,3351,11.06,119,39.27,4.68,Chemistry
+CSIR-IICT,Natural Products & Medicinal Chemistry,18,14,297,4714,15.87,180,60.61,6.93,Chemistry
+CSIR-IICT,Catalysis & Fine Chemicals,20,12,287,7777,27.1,210,73.17,9.33,Energy
+CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),30,16,198,3277,16.55,121,61.11,6.12,Engineering
+CSIR-IICT,"Oils, Lipid Science & Technology",17,12,102,1253,12.28,26,25.49,4.33,Chemistry
+CSIR-IICT,Business Development & Research Management (BDRM),10,5,25,92,3.68,10,40.0,2.0,Chemistry
+CSIR-IICT,Knowledge and Information Management,13,2,5,35,7.0,2,40.0,1.0,Chemistry
+CSIR-IICT,Centre for I.T. Services,10,1,1,6,6.0,0,0.0,1.0,Environmental Science
+CSIR-NCL,Physical and Materials Chemistry Division,27,26,1195,28179,23.58,873,73.05,13.31,Chemistry
+CSIR-NCL,Organic Chemistry Division,38,37,764,14145,18.51,450,58.9,8.46,Chemistry
+CSIR-NCL,Catalysis Division,16,13,516,11754,22.78,344,66.67,14.0,Chemistry
+CSIR-NCL,Polymer Science and Engineering Division,30,25,515,11543,22.41,349,67.77,9.24,Materials Science
+CSIR-NCL,Biochemical Science Division,18,17,420,11751,27.98,274,65.24,11.18,"Biochemistry, Genetics and Molecular Biology"
+CSIR-NCL,Chemical Engineering & Process Development,22,21,368,5908,16.05,244,66.3,6.76,Engineering
+CSIR-NCL,Contact Number:,12,10,165,4279,25.93,116,70.3,6.8,Chemistry
+CSIR-NCL,Plant Tissue Culture Division,3,2,8,200,25.0,2,25.0,3.5,"Biochemistry, Genetics and Molecular Biology"
+CSIR-NCL,Outreach of Science to Society,1,0,0,0,0.0,0,0.0,0.0,

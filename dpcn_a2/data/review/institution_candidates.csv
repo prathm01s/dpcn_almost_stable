@@ -1,0 +1,5 @@
+inst_key,display_name,openalex_id,oa_display_name,country_code,ror,works_count,cited_by_count,decision,reason
+ncl,CSIR-NCL,https://openalex.org/I3125981224,National Chemical Laboratory,IN,https://ror.org/057mn3690,19557,1671593,accept,Exact ROR match
+iict,CSIR-IICT,https://openalex.org/I55664587,Indian Institute of Chemical Technology,IN,https://ror.org/040dky007,19658,1570556,accept,Exact ROR match
+cecri,CSIR-CECRI,https://openalex.org/I106349282,Central Electrochemical Research Institute,IN,https://ror.org/01qek3q18,6341,538575,accept,Exact ROR match
+parent_csir,CSIR,https://openalex.org/I66760702,Council of Scientific and Industrial Research,IN,https://ror.org/021wm7p51,52635,4152083,accept,Exact ROR match
