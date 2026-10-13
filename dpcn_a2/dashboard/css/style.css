@@ -407,3 +407,121 @@ body {
 .badge-q3 { background: var(--q3); }
 .badge-q4 { background: var(--q4); }
 .badge-un { background: var(--unranked); }
+
+/* Task 4: Interactive Network Visualisation Styles */
+.net-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.net-control-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.net-search-input {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: white;
+  min-width: 190px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.net-search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(43, 92, 143, 0.15);
+}
+
+.net-slider {
+  accent-color: var(--primary);
+  cursor: pointer;
+  width: 90px;
+}
+
+.net-slider-val {
+  display: inline-block;
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.net-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.825rem;
+}
+
+.net-table th {
+  background: #f8fafc;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.net-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.net-table tr:hover {
+  background: #f8fafc;
+}
+
+.net-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.net-matrix-table th {
+  background: #f8fafc;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 2px solid var(--border);
+  font-weight: 700;
+}
+
+.net-matrix-table td {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid #f1f5f9;
+}
+
+.net-matrix-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+
+.net-matrix-table td.matrix-diag {
+  background: #f8fafc;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.net-matrix-table td.matrix-cross {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.net-badge-lab {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+}
+

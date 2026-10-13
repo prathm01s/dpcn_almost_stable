@@ -192,13 +192,25 @@ def run_tests():
                 print(f"✓ Venues Tab: {top_rows} top papers visible")
                 assert top_rows >= 10
             elif tab_id == "citation-net":
-                badge = client.evaluate("document.querySelector('#tab-citation-net .placeholder-badge').textContent")
-                print(f"✓ Citation Net Tab: {badge}")
-                assert "Task 4" in badge
+                c_canvas = client.evaluate("document.querySelectorAll('#chart-citation-network canvas, #chart-citation-network svg').length")
+                pr_rows = client.evaluate("document.querySelectorAll('#tbody-net-pagerank tr').length")
+                flow_rows = client.evaluate("document.querySelectorAll('#tbody-net-cite-matrix tr').length")
+                cite_edges = client.evaluate("document.getElementById('net-cite-kpi-edges').textContent")
+                print(f"✓ Citation Net Tab: Canvas={c_canvas}, Top PR Rows={pr_rows}, Flow Matrix Rows={flow_rows}, Edges={cite_edges}")
+                assert c_canvas > 0
+                assert pr_rows == 10
+                assert flow_rows == 3
+                assert cite_edges == "27,816"
             elif tab_id == "authorship-net":
-                badge = client.evaluate("document.querySelector('#tab-authorship-net .placeholder-badge').textContent")
-                print(f"✓ Authorship Net Tab: {badge}")
-                assert "Task 4" in badge
+                a_canvas = client.evaluate("document.querySelectorAll('#chart-authorship-network canvas, #chart-authorship-network svg').length")
+                bridge_rows = client.evaluate("document.querySelectorAll('#tbody-net-bridges tr').length")
+                collab_rows = client.evaluate("document.querySelectorAll('#tbody-net-auth-matrix tr').length")
+                auth_edges = client.evaluate("document.getElementById('net-auth-kpi-edges').textContent")
+                print(f"✓ Authorship Net Tab: Canvas={a_canvas}, Bridge Rows={bridge_rows}, Collab Matrix Rows={collab_rows}, Edges={auth_edges}")
+                assert a_canvas > 0
+                assert bridge_rows == 10
+                assert collab_rows == 3
+                assert auth_edges == "65,059"
             elif tab_id == "docs":
                 download_links = client.evaluate("document.querySelectorAll('#tab-docs a[download]').length")
                 print(f"✓ Docs Tab: {download_links} downloadable deliverable links")

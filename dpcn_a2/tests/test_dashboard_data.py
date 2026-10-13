@@ -107,3 +107,31 @@ def test_spot_check_10_random_numbers():
     top_j_ncl_csv = df_tj[df_tj["institution"] == "CSIR-NCL"].iloc[0]["journal_name"]
     top_j_ncl_dash = dashboard_data["by_institute"]["ncl"]["top_journals"][0]["journal_name"]
     assert top_j_ncl_csv == top_j_ncl_dash
+
+
+def test_network_payload_integrity():
+    """Verify Task 4 citation and authorship network structures embedded in dashboard payload."""
+    data = get_dashboard_data()
+    assert "network" in data
+    net = data["network"]
+
+    # Citation network
+    assert "citation" in net
+    c_net = net["citation"]
+    assert len(c_net["nodes"]) >= 100
+    assert len(c_net["links"]) >= 100
+    assert c_net["stats"]["total_edges"] == 27816
+    assert c_net["stats"]["inter_lab_citations"] == 1654
+    assert len(c_net["top_pagerank"]) == 10
+    assert len(c_net["flow_matrix"]) == 3
+
+    # Authorship network
+    assert "authorship" in net
+    a_net = net["authorship"]
+    assert len(a_net["nodes"]) >= 100
+    assert len(a_net["links"]) >= 100
+    assert a_net["stats"]["total_edges"] == 65059
+    assert a_net["stats"]["inter_lab_pairs"] == 525
+    assert len(a_net["top_bridges"]) == 10
+    assert len(a_net["collab_matrix"]) == 3
+

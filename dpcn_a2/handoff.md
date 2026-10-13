@@ -138,17 +138,33 @@
   - Preserved all existing content in the destination repository (`DPCN_Assignment_1.pdf`, `Survey_Results_UC.csv`, `project/`).
   - Retained full active local workspace integrity in `/home/prathm_s/Desktop/dpcn_a2`.
 
+- [x] **Task 4: Interactive Network Visualisation & Analytics Integration (October 13, 2026)** — Completed.
+  - Implemented graph analytics engine in `src/dashboard/build_data.py` leveraging NetworkX 3.6.1.
+  - Ingested authoritative edge lists: `data/final/citation_network.csv` (27,816 edges, 11,008 nodes) and `data/final/authorship_network.csv` (65,059 edges, 7,864 nodes).
+  - Computed full topological network statistics:
+    - Directed Citation: PageRank centrality, in-degree citation frequencies, 3x3 cross-institute citation flow matrix (1,654 inter-lab citations), Top 10 landmark papers by PageRank, curated core subgraph (~173 nodes, 346 directed edges).
+    - Undirected Authorship: Weighted degree centrality, Louvain community detection (130 communities), sampled betweenness centrality, 3x3 cross-institute co-authorship matrix (525 inter-lab pairs), Top 10 collaborative bridges, curated core subgraph (~150 nodes, 670 edges).
+  - Upgraded dashboard (`dashboard/index.html`, `dashboard/js/app.js`, `dashboard/css/style.css`):
+    - Converted placeholder tabs 5 and 6 into full interactive ECharts 5 canvases (`#chart-citation-network` and `#chart-authorship-network`).
+    - Added interactive toolbars: institute filter dropdowns, dynamic in-degree/edge weight sliders, real-time node search, reset buttons.
+    - Integrated network KPI strips, deep-dive tables (Top 10 PageRank landmarks, Top 10 collaborative bridges), and 3x3 cross-institute flow/collaboration matrices.
+  - Updated automated test suite (`tests/test_dashboard_data.py` and `scripts/test_browser.py`):
+    - 15/15 unit & integration tests passing in 0.64s.
+    - Automated CDP headless Chrome tests pass with 0 console errors on both HTTP and offline `file://` protocol.
+  - Updated `final_submission/dashboard.zip`, `final_submission/CHECKSUMS.sha256`, and logged Decision D-12 in `docs/DECISIONS.md`.
+
 ---
 
 ## 4. Current Execution Step & Summary
-- **Current Status**: **All Phases (1, 2, and 3) Fully Completed, Verified in Live Headless Browser, and Pushed to Remote.**
+- **Current Status**: **All Tasks (Task 1: Data Collection, Task 2: Statistics Report, Task 3: Interactive Dashboard, and Task 4: Network Analytics & Visualization) 100% Completed, Verified in Live Headless Browser, and Fully Packaged.**
 - **Verification Summary**:
   1. Primary dataset `data/final/group24_data.csv` satisfies all schema, domain, and consistency rules with zero fabricated data.
-  2. All three Week 2 network deliverables (`citation_network.csv`, `authorship_network.csv`, `indian_connections.csv`) exported, validated, and tested.
+  2. All three network edge lists (`citation_network.csv`, `authorship_network.csv`, `indian_connections.csv`) exported, validated, and tested.
   3. Statistics presentation report strictly meets the $\le 10$ slides constraint in PPTX and PDF formats.
-  4. Interactive dashboard runs seamlessly offline by opening `dashboard/index.html` via double-click, with all 11 panels, synchronized KPI cards, Tabulator tables, and department explorer charts functioning cleanly.
+  4. Interactive dashboard runs seamlessly offline by opening `dashboard/index.html` via double-click, with all 11 panels (including live interactive Directed Citation and Co-Authorship networks), synchronized KPI cards, Tabulator tables, and department explorer charts functioning cleanly.
   5. Live browser verification suite confirms 0 console errors on both HTTP (`http://127.0.0.1:8080/dashboard/index.html`) and local `file://` protocol.
-  6. Task 4 graph raw materials (27,816 citation edges, 910 canonical partner institutions) are safely preserved for deferred execution.
+  6. Task 4 interactive network graphs render in <300ms with physics simulation, pan/zoom, node drag, and rich tooltips.
   7. Exhaustive documentation provided in `docs/DATA_COLLECTION_REPORT.md`, `docs/QA_REPORT.md`, `docs/DECISIONS.md`, `docs/DATA_DICTIONARY.md`, and `docs/LIMITATIONS.md`.
-  8. Successfully mirrored to GitHub repository `prathm01s/dpcn_almost_stable` under folder `dpcn_a2/`.
+  8. Synchronized with GitHub repository `prathm01s/dpcn_almost_stable` on `main` branch.
 <!-- GOAL_COMPLETE -->
+

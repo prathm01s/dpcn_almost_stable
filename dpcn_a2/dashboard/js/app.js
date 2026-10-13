@@ -89,6 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.values(charts).forEach(c => c && c.resize && c.resize());
         if (facultyTable) facultyTable.redraw(true);
         if (topPapersTable) topPapersTable.redraw(true);
+        if (activeTab === "citation-net") renderCitationNetwork();
+        if (activeTab === "authorship-net") renderAuthorshipNetwork();
       }, 50);
     });
   });
@@ -137,6 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderFacultyPanels();
     renderVenuesPanels();
     renderResearchAreasCharts();
+    if (activeTab === "citation-net") renderCitationNetwork();
+    if (activeTab === "authorship-net") renderAuthorshipNetwork();
   }
 
   // 1. KPI Strip Rendering
@@ -464,6 +468,418 @@ document.addEventListener("DOMContentLoaded", () => {
         itemStyle: { color: "#0288d1" },
       }],
     }, true);
+  }
+
+  // 6. Directed Citation Network Engine
+  let citeNetworkInitialized = false;
+  let citeFilterInst = "all";
+  let citeMinDeg = 2;
+  let citeSearchQuery = "";
+
+  function renderCitationNetwork() {
+    const cEl = document.getElementById("chart-citation-network");
+    if (!cEl || !data.network || !data.network.citation) return;
+    if (!charts.citationNet) {
+      charts.citationNet = echarts.init(cEl);
+    }
+
+    const cData = data.network.citation;
+
+    if (!citeNetworkInitialized) {
+      citeNetworkInitialized = true;
+      initCitationControls();
+      populateCitationTables(cData);
+    }
+
+    const q = citeSearchQuery.toLowerCase().trim();
+    let nodes = cData.nodes.filter(n => {
+      if (n.in_degree < citeMinDeg) return false;
+      if (citeFilterInst !== "all" && citeFilterInst !== "cross") {
+        if (n.inst !== citeFilterInst) return false;
+      }
+      if (q) {
+        const matchTitle = (n.full_title || n.name || "").toLowerCase().includes(q);
+        const matchJournal = (n.journal || "").toLowerCase().includes(q);
+        const matchDoi = (n.doi || "").toLowerCase().includes(q);
+        if (!matchTitle && !matchJournal && !matchDoi) return false;
+      }
+      return true;
+    });
+
+    const nodeIds = new Set(nodes.map(n => n.id));
+    let links = cData.links.filter(l => {
+      if (!nodeIds.has(l.source) || !nodeIds.has(l.target)) return false;
+      if (citeFilterInst === "cross") return l.is_cross;
+      return true;
+    });
+
+    if (citeFilterInst === "cross") {
+      const crossConnected = new Set();
+      links.forEach(l => {
+        crossConnected.add(l.source);
+        crossConnected.add(l.target);
+      });
+      nodes = nodes.filter(n => crossConnected.has(n.id));
+    }
+
+    charts.citationNet.setOption({
+      tooltip: {
+        trigger: "item",
+        backgroundColor: "rgba(255, 255, 255, 0.96)",
+        borderColor: "#cbd5e1",
+        borderWidth: 1,
+        padding: [10, 14],
+        textStyle: { color: "#1e293b", fontFamily: "Inter, sans-serif" },
+        formatter: function(params) {
+          if (params.dataType === "node") {
+            const d = params.data;
+            return `
+              <div style="font-weight:700; margin-bottom:4px; max-width:320px; white-space:normal; font-size:12px; color:#0f172a;">${d.full_title || d.name}</div>
+              <div style="font-size:11px; color:#64748b; margin-bottom:6px;"><strong>${d.journal}</strong> (${d.year})</div>
+              <div style="font-size:11px; line-height:1.6;">
+                <div><strong>Institution:</strong> <span style="font-weight:600; color:#2b5c8f;">${d.inst}</span></div>
+                <div><strong>In-Degree (Citations in Corpus):</strong> <strong>${d.in_degree}</strong></div>
+                <div><strong>Total OpenAlex Citations:</strong> ${d.citations}</div>
+                <div><strong>PageRank Centrality:</strong> ${d.pagerank}</div>
+                <div style="margin-top:6px; font-size:10px; color:#0284c7;">DOI: ${d.doi}</div>
+              </div>
+            `;
+          } else if (params.dataType === "edge") {
+            const d = params.data;
+            return `
+              <div style="font-size:11px; line-height:1.5;">
+                <div style="font-weight:700; color:#334155; margin-bottom:3px;">Directed Citation Edge</div>
+                <div><strong>Citing Institute:</strong> ${d.s_inst}</div>
+                <div><strong>Cited Institute:</strong> ${d.t_inst}</div>
+                <div><strong>Connection Type:</strong> ${d.is_cross ? '<span style="color:#0284c7; font-weight:700;">Inter-Lab Citation</span>' : '<span style="color:#64748b;">Intra-Lab Citation</span>'}</div>
+              </div>
+            `;
+          }
+        }
+      },
+      legend: [{
+        data: data.network.categories.map(c => c.name),
+        top: "bottom",
+        textStyle: { fontSize: 11, color: "#475569" },
+      }],
+      series: [{
+        name: "Citation Network",
+        type: "graph",
+        layout: "force",
+        data: nodes,
+        links: links,
+        categories: data.network.categories,
+        roam: true,
+        edgeSymbol: ["none", "arrow"],
+        edgeSymbolSize: [4, 8],
+        label: {
+          show: false,
+          position: "right",
+          formatter: "{b}",
+          fontSize: 10,
+        },
+        force: {
+          repulsion: 220,
+          gravity: 0.12,
+          edgeLength: [60, 160],
+          friction: 0.6,
+        },
+        lineStyle: {
+          color: "source",
+          curveness: 0.2,
+          opacity: 0.55,
+          width: 1.5,
+        },
+        emphasis: {
+          focus: "adjacency",
+          lineStyle: { width: 3.5, opacity: 0.95 },
+          label: { show: true },
+        },
+      }],
+    }, true);
+  }
+
+  function initCitationControls() {
+    const filterInstEl = document.getElementById("net-cite-filter-inst");
+    const sliderDegEl = document.getElementById("net-cite-slider-deg");
+    const sliderDegVal = document.getElementById("net-cite-deg-val");
+    const searchEl = document.getElementById("net-cite-search");
+    const btnResetEl = document.getElementById("net-cite-btn-reset");
+
+    if (filterInstEl) {
+      filterInstEl.addEventListener("change", (e) => {
+        citeFilterInst = e.target.value;
+        renderCitationNetwork();
+      });
+    }
+
+    if (sliderDegEl) {
+      sliderDegEl.addEventListener("input", (e) => {
+        citeMinDeg = parseInt(e.target.value, 10);
+        if (sliderDegVal) sliderDegVal.textContent = citeMinDeg;
+        renderCitationNetwork();
+      });
+    }
+
+    if (searchEl) {
+      searchEl.addEventListener("input", (e) => {
+        citeSearchQuery = e.target.value;
+        renderCitationNetwork();
+      });
+    }
+
+    if (btnResetEl) {
+      btnResetEl.addEventListener("click", () => {
+        citeFilterInst = "all";
+        citeMinDeg = 2;
+        citeSearchQuery = "";
+        if (filterInstEl) filterInstEl.value = "all";
+        if (sliderDegEl) sliderDegEl.value = "2";
+        if (sliderDegVal) sliderDegVal.textContent = "2";
+        if (searchEl) searchEl.value = "";
+        renderCitationNetwork();
+        if (charts.citationNet) charts.citationNet.dispatchAction({ type: "restore" });
+      });
+    }
+  }
+
+  function populateCitationTables(cData) {
+    const tbodyPr = document.getElementById("tbody-net-pagerank");
+    if (tbodyPr && cData.top_pagerank) {
+      tbodyPr.innerHTML = cData.top_pagerank.map(p => {
+        const labColor = p.inst === "CSIR-IICT" ? "#2b5c8f" : p.inst === "CSIR-NCL" ? "#2e7d32" : "#d95f02";
+        return `
+          <tr>
+            <td style="font-weight:700; color:#64748b;">${p.rank}</td>
+            <td>
+              <div style="font-weight:600; color:#1e293b; max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${p.title}">${p.title}</div>
+              <div style="font-size:0.75rem; color:#64748b;">${p.journal} (${p.year}) &bull; <span class="badge-q badge-q1">${p.quartile}</span></div>
+            </td>
+            <td><span class="net-badge-lab" style="background:${labColor};">${p.inst}</span></td>
+            <td style="font-weight:700;">${p.in_degree}</td>
+            <td style="font-family:monospace; font-weight:600; color:#0284c7;">${p.score.toFixed(5)}</td>
+            <td><a href="${p.doi}" target="_blank" style="color:#0284c7; text-decoration:none; font-size:0.75rem;">DOI ↗</a></td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    const tbodyFlow = document.getElementById("tbody-net-cite-matrix");
+    if (tbodyFlow && cData.flow_matrix) {
+      tbodyFlow.innerHTML = cData.flow_matrix.map(row => {
+        const tot = row.iict + row.ncl + row.cecri;
+        return `
+          <tr>
+            <td><strong>${row.source_inst}</strong></td>
+            <td class="${row.source_inst === 'CSIR-IICT' ? 'matrix-diag' : 'matrix-cross'}">${row.iict.toLocaleString()}</td>
+            <td class="${row.source_inst === 'CSIR-NCL' ? 'matrix-diag' : 'matrix-cross'}">${row.ncl.toLocaleString()}</td>
+            <td class="${row.source_inst === 'CSIR-CECRI' ? 'matrix-diag' : 'matrix-cross'}">${row.cecri.toLocaleString()}</td>
+            <td style="font-weight:700; background:#f8fafc;">${tot.toLocaleString()}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+  }
+
+  // 7. Undirected Co-Authorship Network Engine
+  let authNetworkInitialized = false;
+  let authFilterInst = "all";
+  let authMinWeight = 2;
+  let authSearchQuery = "";
+
+  function renderAuthorshipNetwork() {
+    const aEl = document.getElementById("chart-authorship-network");
+    if (!aEl || !data.network || !data.network.authorship) return;
+    if (!charts.authorshipNet) {
+      charts.authorshipNet = echarts.init(aEl);
+    }
+
+    const aData = data.network.authorship;
+
+    if (!authNetworkInitialized) {
+      authNetworkInitialized = true;
+      initAuthorshipControls();
+      populateAuthorshipTables(aData);
+    }
+
+    const q = authSearchQuery.toLowerCase().trim();
+    let nodes = aData.nodes.filter(n => {
+      if (authFilterInst !== "all" && authFilterInst !== "cross") {
+        if (n.inst !== authFilterInst) return false;
+      }
+      if (q) {
+        const matchName = (n.name || "").toLowerCase().includes(q);
+        const matchDept = (n.department || "").toLowerCase().includes(q);
+        if (!matchName && !matchDept) return false;
+      }
+      return true;
+    });
+
+    const nodeIds = new Set(nodes.map(n => n.id));
+    let links = aData.links.filter(l => {
+      if (!nodeIds.has(l.source) || !nodeIds.has(l.target)) return false;
+      if (l.weight < authMinWeight) return false;
+      if (authFilterInst === "cross") return l.is_cross;
+      return true;
+    });
+
+    const connectedNodeIds = new Set();
+    links.forEach(l => {
+      connectedNodeIds.add(l.source);
+      connectedNodeIds.add(l.target);
+    });
+    nodes = nodes.filter(n => connectedNodeIds.has(n.id));
+
+    charts.authorshipNet.setOption({
+      tooltip: {
+        trigger: "item",
+        backgroundColor: "rgba(255, 255, 255, 0.96)",
+        borderColor: "#cbd5e1",
+        borderWidth: 1,
+        padding: [10, 14],
+        textStyle: { color: "#1e293b", fontFamily: "Inter, sans-serif" },
+        formatter: function(params) {
+          if (params.dataType === "node") {
+            const d = params.data;
+            return `
+              <div style="font-weight:700; font-size:13px; margin-bottom:4px; color:#0f172a;">${d.name}</div>
+              <div style="font-size:11px; color:#64748b; margin-bottom:6px;">${d.designation} &bull; ${d.department}</div>
+              <div style="font-size:11px; line-height:1.6;">
+                <div><strong>Institution:</strong> <span style="font-weight:600; color:#2b5c8f;">${d.inst}</span></div>
+                <div><strong>Collaborator Degree:</strong> <strong>${d.degree}</strong> researchers</div>
+                <div><strong>Betweenness Centrality:</strong> ${d.betweenness}</div>
+                <div><strong>Louvain Community:</strong> Cluster #${d.community}</div>
+              </div>
+            `;
+          } else if (params.dataType === "edge") {
+            const d = params.data;
+            return `
+              <div style="font-size:11px; line-height:1.5;">
+                <div style="font-weight:700; color:#334155; margin-bottom:3px;">Co-Authorship Edge</div>
+                <div><strong>Collaborators:</strong> ${d.source} &harr; ${d.target}</div>
+                <div><strong>Joint Publications:</strong> <strong>${d.weight}</strong></div>
+                <div><strong>Connection Type:</strong> ${d.is_cross ? '<span style="color:#d97706; font-weight:700;">Inter-Lab Collaboration</span>' : '<span style="color:#64748b;">Intra-Lab Collaboration</span>'}</div>
+              </div>
+            `;
+          }
+        }
+      },
+      legend: [{
+        data: data.network.categories.map(c => c.name),
+        top: "bottom",
+        textStyle: { fontSize: 11, color: "#475569" },
+      }],
+      series: [{
+        name: "Authorship Network",
+        type: "graph",
+        layout: "force",
+        data: nodes,
+        links: links,
+        categories: data.network.categories,
+        roam: true,
+        label: {
+          show: true,
+          position: "right",
+          formatter: "{b}",
+          fontSize: 10,
+        },
+        force: {
+          repulsion: 180,
+          gravity: 0.1,
+          edgeLength: [50, 140],
+          friction: 0.65,
+        },
+        lineStyle: {
+          color: "source",
+          curveness: 0.1,
+          opacity: 0.6,
+          width: 1.5,
+        },
+        emphasis: {
+          focus: "adjacency",
+          lineStyle: { width: 4, opacity: 0.95 },
+        },
+      }],
+    }, true);
+  }
+
+  function initAuthorshipControls() {
+    const filterInstEl = document.getElementById("net-auth-filter-inst");
+    const sliderWeightEl = document.getElementById("net-auth-slider-weight");
+    const sliderWeightVal = document.getElementById("net-auth-weight-val");
+    const searchEl = document.getElementById("net-auth-search");
+    const btnResetEl = document.getElementById("net-auth-btn-reset");
+
+    if (filterInstEl) {
+      filterInstEl.addEventListener("change", (e) => {
+        authFilterInst = e.target.value;
+        renderAuthorshipNetwork();
+      });
+    }
+
+    if (sliderWeightEl) {
+      sliderWeightEl.addEventListener("input", (e) => {
+        authMinWeight = parseInt(e.target.value, 10);
+        if (sliderWeightVal) sliderWeightVal.textContent = authMinWeight;
+        renderAuthorshipNetwork();
+      });
+    }
+
+    if (searchEl) {
+      searchEl.addEventListener("input", (e) => {
+        authSearchQuery = e.target.value;
+        renderAuthorshipNetwork();
+      });
+    }
+
+    if (btnResetEl) {
+      btnResetEl.addEventListener("click", () => {
+        authFilterInst = "all";
+        authMinWeight = 2;
+        authSearchQuery = "";
+        if (filterInstEl) filterInstEl.value = "all";
+        if (sliderWeightEl) sliderWeightEl.value = "2";
+        if (sliderWeightVal) sliderWeightVal.textContent = "2";
+        if (searchEl) searchEl.value = "";
+        renderAuthorshipNetwork();
+        if (charts.authorshipNet) charts.authorshipNet.dispatchAction({ type: "restore" });
+      });
+    }
+  }
+
+  function populateAuthorshipTables(aData) {
+    const tbodyBridges = document.getElementById("tbody-net-bridges");
+    if (tbodyBridges && aData.top_bridges) {
+      tbodyBridges.innerHTML = aData.top_bridges.map(b => {
+        const labColor = b.institution === "CSIR-IICT" ? "#2b5c8f" : b.institution === "CSIR-NCL" ? "#2e7d32" : "#d95f02";
+        return `
+          <tr>
+            <td style="font-weight:700; color:#64748b;">${b.rank}</td>
+            <td style="font-weight:600; color:#1e293b;">${b.author}</td>
+            <td><span class="net-badge-lab" style="background:${labColor};">${b.institution}</span></td>
+            <td style="font-weight:700;">${b.collaborators_count}</td>
+            <td style="font-family:monospace; font-weight:600; color:#0d9488;">${b.betweenness.toFixed(4)}</td>
+            <td><span style="font-size:0.75rem; color:#64748b; background:#f1f5f9; padding:2px 6px; border-radius:4px;">Cluster #${b.community_id}</span></td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    const tbodyCollab = document.getElementById("tbody-net-auth-matrix");
+    if (tbodyCollab && aData.collab_matrix) {
+      tbodyCollab.innerHTML = aData.collab_matrix.map(row => {
+        const totInter = (row.inst === 'CSIR-IICT' ? (row.ncl + row.cecri) : row.inst === 'CSIR-NCL' ? (row.iict + row.cecri) : (row.iict + row.ncl));
+        return `
+          <tr>
+            <td><strong>${row.inst}</strong></td>
+            <td class="${row.inst === 'CSIR-IICT' ? 'matrix-diag' : 'matrix-cross'}">${row.iict.toLocaleString()}</td>
+            <td class="${row.inst === 'CSIR-NCL' ? 'matrix-diag' : 'matrix-cross'}">${row.ncl.toLocaleString()}</td>
+            <td class="${row.inst === 'CSIR-CECRI' ? 'matrix-diag' : 'matrix-cross'}">${row.cecri.toLocaleString()}</td>
+            <td style="font-weight:700; background:#f8fafc; color:#d97706;">${totInter.toLocaleString()}</td>
+          </tr>
+        `;
+      }).join("");
+    }
   }
 
   // Window resize handler

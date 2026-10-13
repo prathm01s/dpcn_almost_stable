@@ -19180,7 +19180,7 @@ window.G24_DATA = {
       "f": "Engineering",
       "c": 0,
       "ti": "AI Enabled Digital Twin Framework for Renewable Integrated Electric Vehicle Charging and V2G Systems",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/iceesi68020.2026.11583622"
     },
     {
@@ -22204,7 +22204,7 @@ window.G24_DATA = {
       "f": "Agricultural and Biological Sciences",
       "c": 0,
       "ti": "Electrochemical-based In situ Fingerprinting of Bioactive Phlorotannins from Isolates of Marine Algae",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/icbmesh66209.2025.11182015"
     },
     {
@@ -26860,7 +26860,7 @@ window.G24_DATA = {
       "f": "Materials Science",
       "c": 11,
       "ti": "Synthesis and Electrochemical Characterization of Activated Porous Carbon Derived from Walnut Shells as an Electrode Material for Symmetric Supercapacitor Application",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.3390/engproc2023059175"
     },
     {
@@ -27616,7 +27616,7 @@ window.G24_DATA = {
       "f": "Engineering",
       "c": 0,
       "ti": "Control of Hydrothermal Power System Development of Hybrid Controller for Load Frequency",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/icicacs57338.2023.10099707"
     },
     {
@@ -42880,7 +42880,7 @@ window.G24_DATA = {
       "f": "Engineering",
       "c": 5,
       "ti": "Tracking the hydration dynamics of Nafion fuel cell membranes using terahertz spectroscopy",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1117/12.2511029"
     },
     {
@@ -55288,7 +55288,7 @@ window.G24_DATA = {
       "f": "Engineering",
       "c": 0,
       "ti": "Efficient Hot Hole Extraction from Perovskites Nanocrystals into Corrole Revealed by Ultrafast Spectroscopy",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1364/cleo_at.2026.jw1.119"
     },
     {
@@ -57376,7 +57376,7 @@ window.G24_DATA = {
       "f": "Biochemistry, Genetics and Molecular Biology",
       "c": 0,
       "ti": "Rethinking H3K4me3: A Consequence, Not a Cause, of Active Transcription",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.67831/sci.factors.2026.1577"
     },
     {
@@ -59932,7 +59932,7 @@ window.G24_DATA = {
       "f": "Neuroscience",
       "c": 1,
       "ti": "Deep Learning-Based Brain Tumour Detection: A Comparative Study of ResNet50, AlexNet, and SqueezeNet",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/icamida64673.2025.11209675"
     },
     {
@@ -61948,7 +61948,7 @@ window.G24_DATA = {
       "f": "Materials Science",
       "c": 0,
       "ti": "Low Temperature Formation of 2D-Sodium Titanate Nanostructures and Evaluation of Electrochemical Energy Storage Performance",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/elexcom67950.2025.11451503"
     },
     {
@@ -63676,7 +63676,7 @@ window.G24_DATA = {
       "f": "Chemistry",
       "c": 0,
       "ti": "Silver-Catalyzed Synthesis of Functionalized 1,7-Naphthyridine Derivatives Using 2-Aminobenzamide Derivatives and ortho-Alkynylquinoline Carbaldehydes as Starting Materials",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.3390/ecsoc-29-26846"
     },
     {
@@ -64000,7 +64000,7 @@ window.G24_DATA = {
       "f": "Health Professions",
       "c": 1,
       "ti": "Stroke Risk Assessment Using LIME to Interpret Deep Learning Predictions: An Application of XAI in Health Care",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/icamida64673.2025.11209657"
     },
     {
@@ -65260,7 +65260,7 @@ window.G24_DATA = {
       "f": "Energy",
       "c": 0,
       "ti": "A Mini Review on Spectroscopic Characterization of Green Nanostructured Photocatalysts",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/seb4sdg60871.2024.10630242"
     },
     {
@@ -70768,7 +70768,7 @@ window.G24_DATA = {
       "f": "Materials Science",
       "c": 0,
       "ti": "Synthesis and Characterisation of Amino Functionalised Mesoporous Silica-based Nanomaterials for Isoniazid Drug Delivery",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/seb4sdg60871.2024.10630215"
     },
     {
@@ -74836,7 +74836,7 @@ window.G24_DATA = {
       "f": "Medicine",
       "c": 2,
       "ti": "Indian Chemical Industry",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.51167/acm00035"
     },
     {
@@ -86992,7 +86992,7 @@ window.G24_DATA = {
       "f": "Engineering",
       "c": 0,
       "ti": "Liquid\u2013Liquid Equilibria of Water + Acetic Acid + Ethyl Acetate, Water + Acetic Acid + MIBK, Water + Acetic Acid + Mixed Solvent (Ethyl Acetate + MIBK) and Its Reliability",
-      "j": "nan",
+      "j": "",
       "doi": ""
     },
     {
@@ -95548,7 +95548,7 @@ window.G24_DATA = {
       "f": "Materials Science",
       "c": 1,
       "ti": "Ultrafast photophysical studies and femtosecond third-order nonlinear optical properties of a Soret-band excited zinc phthalocyanine",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1117/12.2558067"
     },
     {
@@ -96556,7 +96556,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 0,
       "ti": "Anti-inflammatory Potentials of Various Oxine Compound Series as Cyclooxygenase-2 (COX-2) and Lipoxygenase (LOX) Inhibitors: Induced-Fit Molecular Docking and Pharmacokinetic Prediction Studies",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.37591/rrjocb.v7i3.508"
     },
     {
@@ -98788,7 +98788,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 1,
       "ti": "In silico Screening of Some Natural Sesquiterpenes Against Diverse Therapeutic Targets: A Multitargeted Approach",
-      "j": "nan",
+      "j": "",
       "doi": ""
     },
     {
@@ -98812,7 +98812,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 1,
       "ti": "Induced-Fit Molecular Docking and Pharmacokinetic Prediction Studies of Two Phenanthrene Compound Series as Potential Cyclooxygenase-2 (COX-2) and Lipoxygenase (LOX) Inhibitors: Edema Reducing Prospects of the Emerging Candidates",
-      "j": "nan",
+      "j": "",
       "doi": ""
     },
     {
@@ -99520,7 +99520,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 1,
       "ti": "Multifarious Pharmacotherapeutic Perspectives of Some Natural Bromophenol Compounds: In silico Enzyme Inhibitory Potentials",
-      "j": "nan",
+      "j": "",
       "doi": ""
     },
     {
@@ -102352,7 +102352,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 1,
       "ti": "A Nascent Step towards the Discovery of New Generation Non-Steroidal Anti-inflammatory Agents (NSAIDs): Induced-Fit Molecular Docking and Pharmacokinetic Prediction Studies of Some Chromene Derivatives as Potential Cyclooxygenase-2 (COX-2) and Lipoxygenase (LOX) Inhibitors",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.37591/(rrjobi).v5i2.241"
     },
     {
@@ -103048,7 +103048,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 3,
       "ti": "Bacterial DNA Gyrase (Topoisomerase) Inhibitory Potentials of Heterocyclic Natural Products: Investigations through Induced-Fit Molecular Docking Approach",
-      "j": "nan",
+      "j": "",
       "doi": ""
     },
     {
@@ -104188,7 +104188,7 @@ window.G24_DATA = {
       "f": "Medicine",
       "c": 4,
       "ti": "Discovery and Development of Neuroprotective Agents from Natural products:Natural Product Drug Discovery",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.18520/cs/v115/i11/2164-2165"
     },
     {
@@ -105160,7 +105160,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 0,
       "ti": "In Silico Induced-Fit Molecular Docking and Pharmacokinetic Investigations of Pentacyclic Compounds as Promising Inhibitors of Cyclooxygenase-2 (COX-2) and Lipoxygenase (LOX)",
-      "j": "nan",
+      "j": "",
       "doi": ""
     },
     {
@@ -110380,7 +110380,7 @@ window.G24_DATA = {
       "f": "Materials Science",
       "c": 0,
       "ti": "Area dependent analysis of CdS and CdSe quantum dot- sensitized solar cells with quantum dots prepared by successive ionic layer adsorption and reaction",
-      "j": "nan",
+      "j": "",
       "doi": ""
     },
     {
@@ -112324,7 +112324,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 2,
       "ti": "Evaluation and analysis of network coding at network layer",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/pic.2017.8359567"
     },
     {
@@ -123028,7 +123028,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 6,
       "ti": "Interference-Fault Free Data Aggregation in Tree-Based WSNs",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/icit.2016.046"
     },
     {
@@ -127312,7 +127312,7 @@ window.G24_DATA = {
       "f": "Computer Science",
       "c": 8,
       "ti": "Towards Semantic-based Hybrid Machine Translation between Bulgarian and English",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.18653/v1/w16-0604"
     },
     {
@@ -129472,7 +129472,7 @@ window.G24_DATA = {
       "f": "Agricultural and Biological Sciences",
       "c": 0,
       "ti": "How Plants Talk Under Attack: The Future of Natural Crop Protection",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.67831/sci.factors.2026.1583"
     },
     {
@@ -130804,7 +130804,7 @@ window.G24_DATA = {
       "f": "Medicine",
       "c": 0,
       "ti": "Reprogramming Yeast to Produce Life-Saving Antibiotics",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.67831/sci.factors.2026.1463"
     },
     {
@@ -137692,7 +137692,7 @@ window.G24_DATA = {
       "f": "Engineering",
       "c": 0,
       "ti": "AQUEOUS PHASE EXTRACTION OF LIQUID POTASH FROM SPENTWASH INCINERATOR FLY ASH ALONG WITH SULFUR/SILICA/MAGNESIUM AND BIO-CHAR CONTAINING SOIL MANURE",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.69794/82sac/978-81-969264-0-3/424-429"
     },
     {
@@ -144628,7 +144628,7 @@ window.G24_DATA = {
       "f": "Engineering",
       "c": 1,
       "ti": "Development of Polydimethylsiloxane (PDMS) Functionalized MWCNT Based Flexible Pressure Sensors for Tactile Sensing",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/incoft60753.2023.10425156"
     },
     {
@@ -148000,7 +148000,7 @@ window.G24_DATA = {
       "f": "Materials Science",
       "c": 0,
       "ti": "Ultrafast dynamics of plasmons and free carriers in 2D MXenes",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1364/cleo_fs.2023.ff1g.2"
     },
     {
@@ -174172,7 +174172,7 @@ window.G24_DATA = {
       "f": "Engineering",
       "c": 1,
       "ti": "Opto-electronic Analysis of Cs2PdCl2Br4 Perovskites Compounds for Photovoltaic Applications",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.23919/icue-gesd.2018.8635653"
     },
     {
@@ -178624,7 +178624,7 @@ window.G24_DATA = {
       "f": "Engineering",
       "c": 0,
       "ti": "Development of ARM based embedded controller for mass flow controller system",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1109/tima.2017.8064779"
     },
     {
@@ -187072,7 +187072,7 @@ window.G24_DATA = {
       "f": "Environmental Science",
       "c": 2,
       "ti": "Effect of orifice shape on water disinfection efficacy",
-      "j": "nan",
+      "j": "",
       "doi": ""
     },
     {
@@ -189076,7 +189076,7 @@ window.G24_DATA = {
       "f": "Arts and Humanities",
       "c": 0,
       "ti": "M. V. Bhatt (1924\u20132016)",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.18520/cs/v110/i10/2026-2028"
     },
     {
@@ -189388,7 +189388,7 @@ window.G24_DATA = {
       "f": "Medicine",
       "c": 5,
       "ti": "NETWORK STRUCTURE AND ENZYMATIC EVOLUTION IN LEISHMANIA METABOLISM: A COMPUTATIONAL STUDY",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.1142/9789813141919_0001"
     },
     {
@@ -192460,7 +192460,7 @@ window.G24_DATA = {
       "f": "Arts and Humanities",
       "c": 0,
       "ti": "Venkataraman Jagannathan (1921\u20132015)",
-      "j": "nan",
+      "j": "",
       "doi": "https://doi.org/10.18520/cs/v110/i2/263-263"
     },
     {
@@ -192573,8 +192573,11957 @@ window.G24_DATA = {
     }
   ],
   "network": {
-    "status": "Task 4 Deferred Module",
-    "citation_edges_count": 27816,
-    "notes": "Directed citation network and undirected authorship network modules reserved for Task 4."
+    "categories": [
+      {
+        "name": "CSIR-IICT",
+        "itemStyle": {
+          "color": "#2b5c8f"
+        }
+      },
+      {
+        "name": "CSIR-NCL",
+        "itemStyle": {
+          "color": "#2e7d32"
+        }
+      },
+      {
+        "name": "CSIR-CECRI",
+        "itemStyle": {
+          "color": "#d95f02"
+        }
+      }
+    ],
+    "citation": {
+      "stats": {
+        "total_edges": 27816,
+        "total_nodes": 11008,
+        "inter_lab_citations": 1654,
+        "top_pagerank_paper": "Recent Trends and Perspectives in Electrochemical Water Splitting with an Emphasis on..."
+      },
+      "nodes": [
+        {
+          "id": "https://doi.org/10.1016/j.ijhydene.2021.06.033",
+          "name": "Constructing Cu/BN@PANI ternary heterostructure for efficient photocatalytic hydrogen...",
+          "full_title": "Constructing Cu/BN@PANI ternary heterostructure for efficient photocatalytic hydrogen generation: A combined experimental and DFT studies",
+          "journal": "International Journal of Hydrogen Energy",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 37,
+          "in_degree": 17,
+          "pagerank": 0.00026,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1016/j.ijhydene.2021.06.033"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.jphotochemrev.2023.100621",
+          "name": "Dye sensitization of TiO2 relevant to photocatalytic hydrogen generation: Current res...",
+          "full_title": "Dye sensitization of TiO2 relevant to photocatalytic hydrogen generation: Current research trends and prospects",
+          "journal": "Journal of Photochemistry and Photobiology C Photochemistry Reviews",
+          "year": 2023,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 114,
+          "in_degree": 23,
+          "pagerank": 0.00014,
+          "symbolSize": 42,
+          "value": 23,
+          "doi": "https://doi.org/10.1016/j.jphotochemrev.2023.100621"
+        },
+        {
+          "id": "https://doi.org/10.1039/c5nr07401k",
+          "name": "Large area chemical vapor deposition of monolayer transition metal dichalcogenides an...",
+          "full_title": "Large area chemical vapor deposition of monolayer transition metal dichalcogenides and their temperature dependent Raman spectroscopy studies",
+          "journal": "Nanoscale",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 226,
+          "in_degree": 16,
+          "pagerank": 0.00067,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1039/c5nr07401k"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.0c16680",
+          "name": "Realizing Catalytic Acetophenone Hydrodeoxygenation with Palladium-Equipped Porous Or...",
+          "full_title": "Realizing Catalytic Acetophenone Hydrodeoxygenation with Palladium-Equipped Porous Organic Polymers",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 92,
+          "in_degree": 15,
+          "pagerank": 0.00018,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1021/acsami.0c16680"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.accounts.6b00188",
+          "name": "Employing Arynes in Diels\u2013Alder Reactions and Transition-Metal-Free Multicomponent Co...",
+          "full_title": "Employing Arynes in Diels\u2013Alder Reactions and Transition-Metal-Free Multicomponent Coupling and Arylation Reactions",
+          "journal": "Accounts of Chemical Research",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 304,
+          "in_degree": 22,
+          "pagerank": 0.00041,
+          "symbolSize": 40,
+          "value": 22,
+          "doi": "https://doi.org/10.1021/acs.accounts.6b00188"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.jpcc.7b06661",
+          "name": "Metallic Cobalt to Spinel Co3O4\u2014Electronic Structure Evolution by Near-Ambient Pressu...",
+          "full_title": "Metallic Cobalt to Spinel Co3O4\u2014Electronic Structure Evolution by Near-Ambient Pressure Photoelectron Spectroscopy",
+          "journal": "The Journal of Physical Chemistry C",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 77,
+          "in_degree": 21,
+          "pagerank": 0.00041,
+          "symbolSize": 39,
+          "value": 21,
+          "doi": "https://doi.org/10.1021/acs.jpcc.7b06661"
+        },
+        {
+          "id": "https://doi.org/10.1039/c9sc01446b",
+          "name": "Nickel-catalyzed C\u2013H alkylation of indoles with unactivated alkyl chlorides: evidence...",
+          "full_title": "Nickel-catalyzed C\u2013H alkylation of indoles with unactivated alkyl chlorides: evidence of a Ni( i )/Ni( iii ) pathway",
+          "journal": "Chemical Science",
+          "year": 2019,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 57,
+          "in_degree": 17,
+          "pagerank": 0.00018,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1039/c9sc01446b"
+        },
+        {
+          "id": "https://doi.org/10.1039/c6ra27331a",
+          "name": "All-solid-state asymmetric supercapacitors based on cobalt hexacyanoferrate-derived C...",
+          "full_title": "All-solid-state asymmetric supercapacitors based on cobalt hexacyanoferrate-derived CoS and activated carbon",
+          "journal": "RSC Advances",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 255,
+          "in_degree": 19,
+          "pagerank": 0.00029,
+          "symbolSize": 36,
+          "value": 19,
+          "doi": "https://doi.org/10.1039/c6ra27331a"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.orglett.7b04027",
+          "name": "Synthesis of Furo[2,3-b]pyran-2-ones through Ag(I)- or Ag(I)\u2013Au(I)-Catalyzed Cascade ...",
+          "full_title": "Synthesis of Furo[2,3-b]pyran-2-ones through Ag(I)- or Ag(I)\u2013Au(I)-Catalyzed Cascade Annulation of Alkynols and \u03b1-Ketoesters",
+          "journal": "Organic Letters",
+          "year": 2018,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 34,
+          "in_degree": 17,
+          "pagerank": 0.00031,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1021/acs.orglett.7b04027"
+        },
+        {
+          "id": "https://doi.org/10.1039/d0ta09788h",
+          "name": "A vast exploration of improvising synthetic strategies for enhancing the OER kinetics...",
+          "full_title": "A vast exploration of improvising synthetic strategies for enhancing the OER kinetics of LDH structures: a review",
+          "journal": "Journal of Materials Chemistry A",
+          "year": 2020,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 414,
+          "in_degree": 64,
+          "pagerank": 0.00065,
+          "symbolSize": 42,
+          "value": 64,
+          "doi": "https://doi.org/10.1039/d0ta09788h"
+        },
+        {
+          "id": "https://doi.org/10.1021/acscatal.7b04054",
+          "name": "Rhodium-Catalyzed Highly Regio- and Enantioselective Reductive Cyclization of Alkyne-...",
+          "full_title": "Rhodium-Catalyzed Highly Regio- and Enantioselective Reductive Cyclization of Alkyne-Tethered Cyclohexadienones",
+          "journal": "ACS Catalysis",
+          "year": 2018,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 77,
+          "in_degree": 19,
+          "pagerank": 0.00061,
+          "symbolSize": 36,
+          "value": 19,
+          "doi": "https://doi.org/10.1021/acscatal.7b04054"
+        },
+        {
+          "id": "https://doi.org/10.1021/acscatal.7b01044",
+          "name": "Nickel-Catalyzed C(sp2)\u2013H/C(sp3)\u2013H Oxidative Coupling of Indoles with Toluene Derivat...",
+          "full_title": "Nickel-Catalyzed C(sp2)\u2013H/C(sp3)\u2013H Oxidative Coupling of Indoles with Toluene Derivatives",
+          "journal": "ACS Catalysis",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 85,
+          "in_degree": 21,
+          "pagerank": 0.00035,
+          "symbolSize": 39,
+          "value": 21,
+          "doi": "https://doi.org/10.1021/acscatal.7b01044"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.corsci.2019.108101",
+          "name": "Capped and uncapped nickel tungstate (NiWO4) nanomaterials: A comparison study for an...",
+          "full_title": "Capped and uncapped nickel tungstate (NiWO4) nanomaterials: A comparison study for anti-corrosion of copper metal in NaCl solution",
+          "journal": "Corrosion Science",
+          "year": 2019,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 54,
+          "in_degree": 17,
+          "pagerank": 0.00039,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1016/j.corsci.2019.108101"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.ijhydene.2017.08.101",
+          "name": "Supercritical fluid processing of N-doped graphene and its application in high energy...",
+          "full_title": "Supercritical fluid processing of N-doped graphene and its application in high energy symmetric supercapacitor",
+          "journal": "International Journal of Hydrogen Energy",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 57,
+          "in_degree": 16,
+          "pagerank": 0.0003,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1016/j.ijhydene.2017.08.101"
+        },
+        {
+          "id": "https://doi.org/10.1039/c7cc02311a",
+          "name": "Benz-amidinato calcium iodide catalyzed aldehyde and ketone hydroboration with unprec...",
+          "full_title": "Benz-amidinato calcium iodide catalyzed aldehyde and ketone hydroboration with unprecedented functional group tolerance",
+          "journal": "Chemical Communications",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 98,
+          "in_degree": 16,
+          "pagerank": 0.0005,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1039/c7cc02311a"
+        },
+        {
+          "id": "https://doi.org/10.1039/c6cy02282k",
+          "name": "Petal-like hierarchical array of ultrathin Ni(OH) 2 nanosheets decorated with Ni(OH) ...",
+          "full_title": "Petal-like hierarchical array of ultrathin Ni(OH) 2 nanosheets decorated with Ni(OH) 2 nanoburls: a highly efficient OER electrocatalyst",
+          "journal": "Catalysis Science & Technology",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 162,
+          "in_degree": 15,
+          "pagerank": 0.0006,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1039/c6cy02282k"
+        },
+        {
+          "id": "https://doi.org/10.1039/c7ee03457a",
+          "name": "Precision and correctness in the evaluation of electrocatalytic water splitting: revi...",
+          "full_title": "Precision and correctness in the evaluation of electrocatalytic water splitting: revisiting activity parameters with a critical assessment",
+          "journal": "Energy & Environmental Science",
+          "year": 2018,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 1623,
+          "in_degree": 110,
+          "pagerank": 0.00174,
+          "symbolSize": 42,
+          "value": 110,
+          "doi": "https://doi.org/10.1039/c7ee03457a"
+        },
+        {
+          "id": "https://doi.org/10.1002/slct.201600792",
+          "name": "Facile and Scalable Ultra\u2013fine Cobalt Oxide/Reduced Graphene Oxide Nanocomposites for...",
+          "full_title": "Facile and Scalable Ultra\u2013fine Cobalt Oxide/Reduced Graphene Oxide Nanocomposites for High Energy Asymmetric Supercapacitors\u2020",
+          "journal": "ChemistrySelect",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 71,
+          "in_degree": 18,
+          "pagerank": 0.0008,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1002/slct.201600792"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.biortech.2017.07.176",
+          "name": "Food waste biorefinery: Sustainable strategy for circular bioeconomy",
+          "full_title": "Food waste biorefinery: Sustainable strategy for circular bioeconomy",
+          "journal": "Bioresource Technology",
+          "year": 2017,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 702,
+          "in_degree": 28,
+          "pagerank": 0.00037,
+          "symbolSize": 42,
+          "value": 28,
+          "doi": "https://doi.org/10.1016/j.biortech.2017.07.176"
+        },
+        {
+          "id": "https://doi.org/10.1021/acscatal.0c05580",
+          "name": "Unactivated Alkyl Halides in Transition-Metal-Catalyzed C\u2013H Bond Alkylation",
+          "full_title": "Unactivated Alkyl Halides in Transition-Metal-Catalyzed C\u2013H Bond Alkylation",
+          "journal": "ACS Catalysis",
+          "year": 2021,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 97,
+          "in_degree": 18,
+          "pagerank": 0.00015,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1021/acscatal.0c05580"
+        },
+        {
+          "id": "https://doi.org/10.1039/c7cc03668j",
+          "name": "Lewis acid catalyzed cascade annulation of alkynols with \u03b1-ketoesters: a facile acces...",
+          "full_title": "Lewis acid catalyzed cascade annulation of alkynols with \u03b1-ketoesters: a facile access to \u03b3-spiroketal-\u03b3-lactones",
+          "journal": "Chemical Communications",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 45,
+          "in_degree": 20,
+          "pagerank": 0.0007,
+          "symbolSize": 38,
+          "value": 20,
+          "doi": "https://doi.org/10.1039/c7cc03668j"
+        },
+        {
+          "id": "https://doi.org/10.1039/d0gc03063e",
+          "name": "Low carbon hydrogen production from a waste-based biorefinery system and environmenta...",
+          "full_title": "Low carbon hydrogen production from a waste-based biorefinery system and environmental sustainability assessment",
+          "journal": "Green Chemistry",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 147,
+          "in_degree": 36,
+          "pagerank": 0.00033,
+          "symbolSize": 42,
+          "value": 36,
+          "doi": "https://doi.org/10.1039/d0gc03063e"
+        },
+        {
+          "id": "https://doi.org/10.1007/s12031-018-1111-5",
+          "name": "Prion-Like Propagation of Post-Translationally Modified Tau in Alzheimer\u2019s Disease: A...",
+          "full_title": "Prion-Like Propagation of Post-Translationally Modified Tau in Alzheimer\u2019s Disease: A Hypothesis",
+          "journal": "Journal of Molecular Neuroscience",
+          "year": 2018,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 113,
+          "in_degree": 28,
+          "pagerank": 0.00027,
+          "symbolSize": 42,
+          "value": 28,
+          "doi": "https://doi.org/10.1007/s12031-018-1111-5"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "name": "Pt \u2013 g-C3N4 \u2013 (Au/TiO2): Electronically integrated nanocomposite for solar hydrogen g...",
+          "full_title": "Pt \u2013 g-C3N4 \u2013 (Au/TiO2): Electronically integrated nanocomposite for solar hydrogen generation",
+          "journal": "International Journal of Hydrogen Energy",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 70,
+          "in_degree": 21,
+          "pagerank": 0.00029,
+          "symbolSize": 39,
+          "value": 21,
+          "doi": "https://doi.org/10.1016/j.ijhydene.2017.11.057"
+        },
+        {
+          "id": "https://doi.org/10.1021/acscatal.6b02479",
+          "name": "Recent Trends and Perspectives in Electrochemical Water Splitting with an Emphasis on...",
+          "full_title": "Recent Trends and Perspectives in Electrochemical Water Splitting with an Emphasis on Sulfide, Selenide, and Phosphide Catalysts of Fe, Co, and Ni: A Review",
+          "journal": "ACS Catalysis",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 2493,
+          "in_degree": 129,
+          "pagerank": 0.00301,
+          "symbolSize": 42,
+          "value": 129,
+          "doi": "https://doi.org/10.1021/acscatal.6b02479"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.jhazmat.2021.125588",
+          "name": "Metal chalcogenide-based core/shell photocatalysts for solar hydrogen production: Rec...",
+          "full_title": "Metal chalcogenide-based core/shell photocatalysts for solar hydrogen production: Recent advances, properties and technology challenges",
+          "journal": "Journal of Hazardous Materials",
+          "year": 2021,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 98,
+          "in_degree": 6,
+          "pagerank": 0.00013,
+          "symbolSize": 18,
+          "value": 6,
+          "doi": "https://doi.org/10.1016/j.jhazmat.2021.125588"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.biortech.2019.122128",
+          "name": "Algal biorefinery models with self-sustainable closed loop approach: Trends and prosp...",
+          "full_title": "Algal biorefinery models with self-sustainable closed loop approach: Trends and prospective for blue-bioeconomy",
+          "journal": "Bioresource Technology",
+          "year": 2019,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 175,
+          "in_degree": 21,
+          "pagerank": 0.00019,
+          "symbolSize": 39,
+          "value": 21,
+          "doi": "https://doi.org/10.1016/j.biortech.2019.122128"
+        },
+        {
+          "id": "https://doi.org/10.1002/adsu.202500483",
+          "name": "Advances and Outlook of Nickel\u2010Based MOFs\u2013LDHs Materials for Energy Conversion",
+          "full_title": "Advances and Outlook of Nickel\u2010Based MOFs\u2013LDHs Materials for Energy Conversion",
+          "journal": "Advanced Sustainable Systems",
+          "year": 2025,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 6,
+          "in_degree": 0,
+          "pagerank": 4e-05,
+          "symbolSize": 12,
+          "value": 0,
+          "doi": "https://doi.org/10.1002/adsu.202500483"
+        },
+        {
+          "id": "https://doi.org/10.1039/c7cc05145j",
+          "name": "C(sp 3 )\u2013F, C(sp 2 )\u2013F and C(sp 3 )\u2013H bond activation at silicon( ii ) centers",
+          "full_title": "C(sp 3 )\u2013F, C(sp 2 )\u2013F and C(sp 3 )\u2013H bond activation at silicon( ii ) centers",
+          "journal": "Chemical Communications",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 44,
+          "in_degree": 15,
+          "pagerank": 0.00103,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1039/c7cc05145j"
+        },
+        {
+          "id": "https://doi.org/10.1038/s41598-017-06849-x",
+          "name": "Possibly scalable solar hydrogen generation with quasi-artificial leaf approach",
+          "full_title": "Possibly scalable solar hydrogen generation with quasi-artificial leaf approach",
+          "journal": "Scientific Reports",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 58,
+          "in_degree": 27,
+          "pagerank": 0.00063,
+          "symbolSize": 42,
+          "value": 27,
+          "doi": "https://doi.org/10.1038/s41598-017-06849-x"
+        },
+        {
+          "id": "https://doi.org/10.1002/slct.202202705",
+          "name": "Rhus Semialata Derived Carbon Quantum Dots Decorated Pt Deposited TiO 2 for Efficient...",
+          "full_title": "Rhus Semialata Derived Carbon Quantum Dots Decorated Pt Deposited TiO 2 for Efficient Light\u2010Driven Hydrogen Production",
+          "journal": "ChemistrySelect",
+          "year": 2022,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 3,
+          "in_degree": 0,
+          "pagerank": 4e-05,
+          "symbolSize": 12,
+          "value": 0,
+          "doi": "https://doi.org/10.1002/slct.202202705"
+        },
+        {
+          "id": "https://doi.org/10.1039/c8ta11307f",
+          "name": "Direct solar-to-hydrogen generation by quasi-artificial leaf approach: possibly scala...",
+          "full_title": "Direct solar-to-hydrogen generation by quasi-artificial leaf approach: possibly scalable and economical device",
+          "journal": "Journal of Materials Chemistry A",
+          "year": 2019,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 36,
+          "in_degree": 19,
+          "pagerank": 0.00032,
+          "symbolSize": 36,
+          "value": 19,
+          "doi": "https://doi.org/10.1039/c8ta11307f"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.inorgchem.0c03514",
+          "name": "Enabling and Inducing Oxygen Vacancies in Cobalt Iron Layer Double Hydroxide via Sele...",
+          "full_title": "Enabling and Inducing Oxygen Vacancies in Cobalt Iron Layer Double Hydroxide via Selenization as Precatalysts for Electrocatalytic Hydrogen and Oxygen Evolution Reactions",
+          "journal": "Inorganic Chemistry",
+          "year": 2021,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 136,
+          "in_degree": 34,
+          "pagerank": 0.00039,
+          "symbolSize": 42,
+          "value": 34,
+          "doi": "https://doi.org/10.1021/acs.inorgchem.0c03514"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.orglett.0c01533",
+          "name": "A Sequential Activation of Alkyne and C\u2013H Bonds for the Tandem Cyclization and Annula...",
+          "full_title": "A Sequential Activation of Alkyne and C\u2013H Bonds for the Tandem Cyclization and Annulation of Alkynols and Maleimides through Cooperative Sc(III) and Cp*-Free Co(II) Catalysis",
+          "journal": "Organic Letters",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 39,
+          "in_degree": 16,
+          "pagerank": 0.00033,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acs.orglett.0c01533"
+        },
+        {
+          "id": "https://doi.org/10.1039/c6nr02263d",
+          "name": "Cumulative effect of transition metals on nitrogen and fluorine co-doped graphite nan...",
+          "full_title": "Cumulative effect of transition metals on nitrogen and fluorine co-doped graphite nanofibers: an efficient and highly durable non-precious metal catalyst for the oxygen reduction reaction",
+          "journal": "Nanoscale",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 71,
+          "in_degree": 17,
+          "pagerank": 0.00025,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1039/c6nr02263d"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.orglett.0c01588",
+          "name": "Ag-Catalyzed Oxidative ipso-Cyclization via Decarboxylative Acylation/Alkylation: Acc...",
+          "full_title": "Ag-Catalyzed Oxidative ipso-Cyclization via Decarboxylative Acylation/Alkylation: Access to 3-Acyl/Alkyl-spiro[4.5]trienones",
+          "journal": "Organic Letters",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 88,
+          "in_degree": 24,
+          "pagerank": 0.00033,
+          "symbolSize": 42,
+          "value": 24,
+          "doi": "https://doi.org/10.1021/acs.orglett.0c01588"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.jpcc.6b12869",
+          "name": "Donor-\u03c0\u2013Acceptor Based Stable Porphyrin Sensitizers for Dye-Sensitized Solar Cells: E...",
+          "full_title": "Donor-\u03c0\u2013Acceptor Based Stable Porphyrin Sensitizers for Dye-Sensitized Solar Cells: Effect of \u03c0-Conjugated Spacers",
+          "journal": "The Journal of Physical Chemistry C",
+          "year": 2017,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 128,
+          "in_degree": 35,
+          "pagerank": 0.00067,
+          "symbolSize": 42,
+          "value": 35,
+          "doi": "https://doi.org/10.1021/acs.jpcc.6b12869"
+        },
+        {
+          "id": "https://doi.org/10.1039/c9tc00416e",
+          "name": "Viologen-based electrochromic materials and devices",
+          "full_title": "Viologen-based electrochromic materials and devices",
+          "journal": "Journal of Materials Chemistry C",
+          "year": 2019,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 487,
+          "in_degree": 15,
+          "pagerank": 0.00034,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1039/c9tc00416e"
+        },
+        {
+          "id": "https://doi.org/10.1007/s00018-019-03132-2",
+          "name": "Microglial priming of antigen presentation and adaptive stimulation in Alzheimer\u2019s di...",
+          "full_title": "Microglial priming of antigen presentation and adaptive stimulation in Alzheimer\u2019s disease",
+          "journal": "Cellular and Molecular Life Sciences",
+          "year": 2019,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 145,
+          "in_degree": 18,
+          "pagerank": 0.00018,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1007/s00018-019-03132-2"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "name": "Enhancing electrocatalytic total water splitting at few layer Pt-NiFe layered double ...",
+          "full_title": "Enhancing electrocatalytic total water splitting at few layer Pt-NiFe layered double hydroxide interfaces",
+          "journal": "Nano Energy",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 291,
+          "in_degree": 31,
+          "pagerank": 0.00068,
+          "symbolSize": 42,
+          "value": 31,
+          "doi": "https://doi.org/10.1016/j.nanoen.2017.06.027"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.6b12730",
+          "name": "Effect of Out-of-Plane Alkyl Group\u2019s Position in Dye-Sensitized Solar Cell Efficiency...",
+          "full_title": "Effect of Out-of-Plane Alkyl Group\u2019s Position in Dye-Sensitized Solar Cell Efficiency: A Structure\u2013Property Relationship Utilizing Indoline-Based Unsymmetrical Squaraine Dyes",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 77,
+          "in_degree": 31,
+          "pagerank": 0.0009,
+          "symbolSize": 42,
+          "value": 31,
+          "doi": "https://doi.org/10.1021/acsami.6b12730"
+        },
+        {
+          "id": "https://doi.org/10.1007/s12031-018-1174-3",
+          "name": "Tau Protein Squired by Molecular Chaperones During Alzheimer\u2019s Disease",
+          "full_title": "Tau Protein Squired by Molecular Chaperones During Alzheimer\u2019s Disease",
+          "journal": "Journal of Molecular Neuroscience",
+          "year": 2018,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 114,
+          "in_degree": 22,
+          "pagerank": 0.00027,
+          "symbolSize": 40,
+          "value": 22,
+          "doi": "https://doi.org/10.1007/s12031-018-1174-3"
+        },
+        {
+          "id": "https://doi.org/10.1039/c8ra09982k",
+          "name": "Why the thin film form of a photocatalyst is better than the particulate form for dir...",
+          "full_title": "Why the thin film form of a photocatalyst is better than the particulate form for direct solar-to-hydrogen conversion: a poor man's approach",
+          "journal": "RSC Advances",
+          "year": 2019,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 113,
+          "in_degree": 29,
+          "pagerank": 0.00029,
+          "symbolSize": 42,
+          "value": 29,
+          "doi": "https://doi.org/10.1039/c8ra09982k"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.6b15980",
+          "name": "Microwave-Initiated Facile Formation of Ni3Se4 Nanoassemblies for Enhanced and Stable...",
+          "full_title": "Microwave-Initiated Facile Formation of Ni3Se4 Nanoassemblies for Enhanced and Stable Water Splitting in Neutral and Alkaline Media",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 174,
+          "in_degree": 21,
+          "pagerank": 0.00064,
+          "symbolSize": 39,
+          "value": 21,
+          "doi": "https://doi.org/10.1021/acsami.6b15980"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.cej.2018.08.138",
+          "name": "Selective control of volatile fatty acids production from food waste by regulating bi...",
+          "full_title": "Selective control of volatile fatty acids production from food waste by regulating biosystem buffering: A comprehensive study",
+          "journal": "Chemical Engineering Journal",
+          "year": 2018,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 72,
+          "in_degree": 20,
+          "pagerank": 0.00028,
+          "symbolSize": 38,
+          "value": 20,
+          "doi": "https://doi.org/10.1016/j.cej.2018.08.138"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.jpclett.3c02347",
+          "name": "Single-Atom Ru Catalyst-Decorated CNF(ZnO) Nanocages for Efficient H 2 Evolution and ...",
+          "full_title": "Single-Atom Ru Catalyst-Decorated CNF(ZnO) Nanocages for Efficient H 2 Evolution and CH 3 OH Production",
+          "journal": "The Journal of Physical Chemistry Letters",
+          "year": 2023,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 37,
+          "in_degree": 17,
+          "pagerank": 0.00016,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1021/acs.jpclett.3c02347"
+        },
+        {
+          "id": "https://doi.org/10.1039/c5ra27775b",
+          "name": "Facile and scalable route to sheets-on-sheet mesoporous Ni\u2013Co-hydroxide/reduced graph...",
+          "full_title": "Facile and scalable route to sheets-on-sheet mesoporous Ni\u2013Co-hydroxide/reduced graphene oxide nanocomposites and their electrochemical and magnetic properties",
+          "journal": "RSC Advances",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 31,
+          "in_degree": 18,
+          "pagerank": 0.00149,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1039/c5ra27775b"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.electacta.2016.03.150",
+          "name": "High performance supercapacitor using N-doped graphene prepared via supercritical flu...",
+          "full_title": "High performance supercapacitor using N-doped graphene prepared via supercritical fluid processing with an oxime nitrogen source",
+          "journal": "Electrochimica Acta",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 84,
+          "in_degree": 15,
+          "pagerank": 0.0006,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1016/j.electacta.2016.03.150"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.jpowsour.2024.235086",
+          "name": "Static and dynamic properties investigation of modified polyethersulfone membrane for...",
+          "full_title": "Static and dynamic properties investigation of modified polyethersulfone membrane for direct methanol fuel cell applications",
+          "journal": "Journal of Power Sources",
+          "year": 2024,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 8,
+          "in_degree": 0,
+          "pagerank": 4e-05,
+          "symbolSize": 12,
+          "value": 0,
+          "doi": "https://doi.org/10.1016/j.jpowsour.2024.235086"
+        },
+        {
+          "id": "https://doi.org/10.1039/c6cc02943d",
+          "name": "Pharmaceutical cocrystals: walking the talk",
+          "full_title": "Pharmaceutical cocrystals: walking the talk",
+          "journal": "Chemical Communications",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 557,
+          "in_degree": 36,
+          "pagerank": 0.00156,
+          "symbolSize": 42,
+          "value": 36,
+          "doi": "https://doi.org/10.1039/c6cc02943d"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsanm.3c01721",
+          "name": "Discrete Cu-Metalloporous Polycarbazole as a Nanoelectromediator for Effective Electr...",
+          "full_title": "Discrete Cu-Metalloporous Polycarbazole as a Nanoelectromediator for Effective Electrocarboxylation of Benzyl Bromide with CO2",
+          "journal": "ACS Applied Nano Materials",
+          "year": 2023,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 23,
+          "in_degree": 6,
+          "pagerank": 0.0001,
+          "symbolSize": 18,
+          "value": 6,
+          "doi": "https://doi.org/10.1021/acsanm.3c01721"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsaem.0c02966",
+          "name": "D\u2013A\u2013D Based Complementary Unsymmetrical Squaraine Dyes for Co-sensitized Solar Cells:...",
+          "full_title": "D\u2013A\u2013D Based Complementary Unsymmetrical Squaraine Dyes for Co-sensitized Solar Cells: Enhanced Photocurrent Generation and Suppressed Charge Recombination Processes by Controlled Aggregation",
+          "journal": "ACS Applied Energy Materials",
+          "year": 2021,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 36,
+          "in_degree": 17,
+          "pagerank": 0.00014,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1021/acsaem.0c02966"
+        },
+        {
+          "id": "https://doi.org/10.3762/bjoc.12.47",
+          "name": "Recent advances in N-heterocyclic carbene (NHC)-catalysed benzoin reactions",
+          "full_title": "Recent advances in N-heterocyclic carbene (NHC)-catalysed benzoin reactions",
+          "journal": "Beilstein Journal of Organic Chemistry",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 296,
+          "in_degree": 28,
+          "pagerank": 0.00145,
+          "symbolSize": 42,
+          "value": 28,
+          "doi": "https://doi.org/10.3762/bjoc.12.47"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.apcatb.2016.03.042",
+          "name": "CO and soot oxidation activity of doped ceria: Influence of dopants",
+          "full_title": "CO and soot oxidation activity of doped ceria: Influence of dopants",
+          "journal": "Applied Catalysis B: Environmental",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 241,
+          "in_degree": 15,
+          "pagerank": 0.0005,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1016/j.apcatb.2016.03.042"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.eurpolymj.2020.109775",
+          "name": "Renewing polyethylene: Insertion copolymerization of sugar derived hydrophilic monome...",
+          "full_title": "Renewing polyethylene: Insertion copolymerization of sugar derived hydrophilic monomers with ethylene",
+          "journal": "European Polymer Journal",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 14,
+          "in_degree": 3,
+          "pagerank": 0.0001,
+          "symbolSize": 14,
+          "value": 3,
+          "doi": "https://doi.org/10.1016/j.eurpolymj.2020.109775"
+        },
+        {
+          "id": "https://doi.org/10.1038/s41598-018-37566-8",
+          "name": "Fabrication of 9.6 V High-performance Asymmetric Supercapacitors Stack Based on Nicke...",
+          "full_title": "Fabrication of 9.6 V High-performance Asymmetric Supercapacitors Stack Based on Nickel Hexacyanoferrate-derived Ni(OH)2 Nanosheets and Bio-derived Activated Carbon",
+          "journal": "Scientific Reports",
+          "year": 2019,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 153,
+          "in_degree": 15,
+          "pagerank": 0.00021,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1038/s41598-018-37566-8"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.cogsc.2020.100392",
+          "name": "A critical view on the environmental sustainability of biorefinery systems",
+          "full_title": "A critical view on the environmental sustainability of biorefinery systems",
+          "journal": "Current Opinion in Green and Sustainable Chemistry",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 94,
+          "in_degree": 19,
+          "pagerank": 0.00018,
+          "symbolSize": 36,
+          "value": 19,
+          "doi": "https://doi.org/10.1016/j.cogsc.2020.100392"
+        },
+        {
+          "id": "https://doi.org/10.1039/c8cy02620c",
+          "name": "Electrospun cobalt-ZIF micro-fibers for efficient water oxidation under unique pH con...",
+          "full_title": "Electrospun cobalt-ZIF micro-fibers for efficient water oxidation under unique pH conditions",
+          "journal": "Catalysis Science & Technology",
+          "year": 2019,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 51,
+          "in_degree": 17,
+          "pagerank": 0.00047,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1039/c8cy02620c"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.cogsc.2020.100434",
+          "name": "The circular chemistry conceptual framework: A way forward to sustainability in indus...",
+          "full_title": "The circular chemistry conceptual framework: A way forward to sustainability in industry 4.0",
+          "journal": "Current Opinion in Green and Sustainable Chemistry",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 118,
+          "in_degree": 22,
+          "pagerank": 0.00022,
+          "symbolSize": 40,
+          "value": 22,
+          "doi": "https://doi.org/10.1016/j.cogsc.2020.100434"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.biochem.8b01013",
+          "name": "The Folding and Aggregation Energy Landscapes of Tethered RRM Domains of Human TDP-43...",
+          "full_title": "The Folding and Aggregation Energy Landscapes of Tethered RRM Domains of Human TDP-43 Are Coupled via a Metastable Molten Globule-like Oligomer",
+          "journal": "Biochemistry",
+          "year": 2018,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 30,
+          "in_degree": 15,
+          "pagerank": 0.00041,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1021/acs.biochem.8b01013"
+        },
+        {
+          "id": "https://doi.org/10.1039/c5ra24199e",
+          "name": "An investigation on the influence of support type for Ni catalysed vapour phase hydro...",
+          "full_title": "An investigation on the influence of support type for Ni catalysed vapour phase hydrogenation of aqueous levulinic acid to \u03b3-valerolactone",
+          "journal": "RSC Advances",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 105,
+          "in_degree": 16,
+          "pagerank": 0.00063,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1039/c5ra24199e"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.chemmater.6b01370",
+          "name": "Cobalt-Modified Covalent Organic Framework as a Robust Water Oxidation Electrocatalys...",
+          "full_title": "Cobalt-Modified Covalent Organic Framework as a Robust Water Oxidation Electrocatalyst",
+          "journal": "Chemistry of Materials",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 483,
+          "in_degree": 24,
+          "pagerank": 0.00046,
+          "symbolSize": 42,
+          "value": 24,
+          "doi": "https://doi.org/10.1021/acs.chemmater.6b01370"
+        },
+        {
+          "id": "https://doi.org/10.1002/slct.201701857",
+          "name": "Orange Peel Derived Activated Carbon for Fabrication of High\u2010Energy and High\u2010Rate Sup...",
+          "full_title": "Orange Peel Derived Activated Carbon for Fabrication of High\u2010Energy and High\u2010Rate Supercapacitors",
+          "journal": "ChemistrySelect",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 176,
+          "in_degree": 25,
+          "pagerank": 0.00029,
+          "symbolSize": 42,
+          "value": 25,
+          "doi": "https://doi.org/10.1002/slct.201701857"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.organomet.8b00568",
+          "name": "Alkaline Earth Metal Compounds of Methylpyridinato \u03b2-Diketiminate Ligands and Their C...",
+          "full_title": "Alkaline Earth Metal Compounds of Methylpyridinato \u03b2-Diketiminate Ligands and Their Catalytic Application in Hydroboration of Aldehydes and Ketones",
+          "journal": "Organometallics",
+          "year": 2018,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 67,
+          "in_degree": 18,
+          "pagerank": 0.00031,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1021/acs.organomet.8b00568"
+        },
+        {
+          "id": "https://doi.org/10.1021/cr500344e",
+          "name": "Cooperativity in Noncovalent Interactions",
+          "full_title": "Cooperativity in Noncovalent Interactions",
+          "journal": "Chemical Reviews",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 932,
+          "in_degree": 15,
+          "pagerank": 0.00044,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1021/cr500344e"
+        },
+        {
+          "id": "https://doi.org/10.1039/d0se00232a",
+          "name": "A novel nonheme manganese( ii ) complex for (electro) catalytic oxidation of water",
+          "full_title": "A novel nonheme manganese( ii ) complex for (electro) catalytic oxidation of water",
+          "journal": "Sustainable Energy & Fuels",
+          "year": 2020,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 8,
+          "in_degree": 1,
+          "pagerank": 8e-05,
+          "symbolSize": 12,
+          "value": 1,
+          "doi": "https://doi.org/10.1039/d0se00232a"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.inorgchem.9b00418",
+          "name": "Synthesis and Reactivity of a Hypersilylsilylene",
+          "full_title": "Synthesis and Reactivity of a Hypersilylsilylene",
+          "journal": "Inorganic Chemistry",
+          "year": 2019,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 54,
+          "in_degree": 17,
+          "pagerank": 0.00027,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1021/acs.inorgchem.9b00418"
+        },
+        {
+          "id": "https://doi.org/10.1021/acscatal.6b00965",
+          "name": "Pt Nanoparticle Anchored Molecular Self-Assemblies of DNA: An Extremely Stable and Ef...",
+          "full_title": "Pt Nanoparticle Anchored Molecular Self-Assemblies of DNA: An Extremely Stable and Efficient HER Electrocatalyst with Ultralow Pt Content",
+          "journal": "ACS Catalysis",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 243,
+          "in_degree": 41,
+          "pagerank": 0.00282,
+          "symbolSize": 42,
+          "value": 41,
+          "doi": "https://doi.org/10.1021/acscatal.6b00965"
+        },
+        {
+          "id": "https://doi.org/10.1021/acscatal.8b04267",
+          "name": "Nickel-Catalyzed Straightforward and Regioselective C\u2013H Alkenylation of Indoles with ...",
+          "full_title": "Nickel-Catalyzed Straightforward and Regioselective C\u2013H Alkenylation of Indoles with Alkenyl Bromides: Scope and Mechanistic Aspect",
+          "journal": "ACS Catalysis",
+          "year": 2018,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 60,
+          "in_degree": 15,
+          "pagerank": 0.00019,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1021/acscatal.8b04267"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.joc.1c00477",
+          "name": "Harnessing Rhodium-Catalyzed C\u2013H Activation: Regioselective Cascade Annulation for Fu...",
+          "full_title": "Harnessing Rhodium-Catalyzed C\u2013H Activation: Regioselective Cascade Annulation for Fused Polyheterocycles",
+          "journal": "The Journal of Organic Chemistry",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 23,
+          "in_degree": 15,
+          "pagerank": 0.00024,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1021/acs.joc.1c00477"
+        },
+        {
+          "id": "https://doi.org/10.1021/jacs.2c10351",
+          "name": "Engineering the Charge Density on an In2.77S4/Porous Organic Polymer Hybrid Photocata...",
+          "full_title": "Engineering the Charge Density on an In2.77S4/Porous Organic Polymer Hybrid Photocatalyst for CO2-to-Ethylene Conversion Reaction",
+          "journal": "Journal of the American Chemical Society",
+          "year": 2022,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 151,
+          "in_degree": 17,
+          "pagerank": 0.00016,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1021/jacs.2c10351"
+        },
+        {
+          "id": "https://doi.org/10.1002/tcr.202100136",
+          "name": "Transition\u2010Metal Catalyzed Stereoselective Desymmetrization of Prochiral Cyclohexadie...",
+          "full_title": "Transition\u2010Metal Catalyzed Stereoselective Desymmetrization of Prochiral Cyclohexadienones",
+          "journal": "The Chemical Record",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 50,
+          "in_degree": 17,
+          "pagerank": 0.00032,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1002/tcr.202100136"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.7b12320",
+          "name": "Tetraphenylethylene-Based AIE-Active Probes for Sensing Applications",
+          "full_title": "Tetraphenylethylene-Based AIE-Active Probes for Sensing Applications",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2017,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 585,
+          "in_degree": 15,
+          "pagerank": 0.0004,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1021/acsami.7b12320"
+        },
+        {
+          "id": "https://doi.org/10.1039/d1cc02292j",
+          "name": "Hot injection-induced synthesis of ZnCdS\u2013rGO/MoS 2 heterostructures for efficient hyd...",
+          "full_title": "Hot injection-induced synthesis of ZnCdS\u2013rGO/MoS 2 heterostructures for efficient hydrogen production and CO 2 photoreduction",
+          "journal": "Chemical Communications",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 51,
+          "in_degree": 22,
+          "pagerank": 0.00023,
+          "symbolSize": 40,
+          "value": 22,
+          "doi": "https://doi.org/10.1039/d1cc02292j"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.orglett.6b03433",
+          "name": "Gold-Catalyzed Intramolecular Regioselective 7-exo-dig Cyclization To Access 3-Methyl...",
+          "full_title": "Gold-Catalyzed Intramolecular Regioselective 7-exo-dig Cyclization To Access 3-Methylene-3,4-dihydrobenzo[b]oxepinones",
+          "journal": "Organic Letters",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 57,
+          "in_degree": 23,
+          "pagerank": 0.00061,
+          "symbolSize": 42,
+          "value": 23,
+          "doi": "https://doi.org/10.1021/acs.orglett.6b03433"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.carbon.2016.06.021",
+          "name": "Platinum nanoparticles supported on nitrogen and fluorine co-doped graphite nanofiber...",
+          "full_title": "Platinum nanoparticles supported on nitrogen and fluorine co-doped graphite nanofibers as an excellent and durable oxygen reduction catalyst for polymer electrolyte fuel cells",
+          "journal": "Carbon",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 98,
+          "in_degree": 22,
+          "pagerank": 0.00066,
+          "symbolSize": 40,
+          "value": 22,
+          "doi": "https://doi.org/10.1016/j.carbon.2016.06.021"
+        },
+        {
+          "id": "https://doi.org/10.1039/d3ta00836c",
+          "name": "An ultrathin 2D NiCo-LDH nanosheet decorated NH 2 -UiO-66 MOF-nanocomposite with exce...",
+          "full_title": "An ultrathin 2D NiCo-LDH nanosheet decorated NH 2 -UiO-66 MOF-nanocomposite with exceptional chemical stability for electrocatalytic water splitting",
+          "journal": "Journal of Materials Chemistry A",
+          "year": 2023,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 92,
+          "in_degree": 19,
+          "pagerank": 0.00014,
+          "symbolSize": 36,
+          "value": 19,
+          "doi": "https://doi.org/10.1039/d3ta00836c"
+        },
+        {
+          "id": "https://doi.org/10.1039/c9dt03941d",
+          "name": "Cobalt tungsten oxide hydroxide hydrate (CTOHH) on DNA scaffold: an excellent bi-func...",
+          "full_title": "Cobalt tungsten oxide hydroxide hydrate (CTOHH) on DNA scaffold: an excellent bi-functional catalyst for oxygen evolution reaction (OER) and aromatic alcohol oxidation",
+          "journal": "Dalton Transactions",
+          "year": 2019,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 36,
+          "in_degree": 15,
+          "pagerank": 0.00024,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1039/c9dt03941d"
+        },
+        {
+          "id": "https://doi.org/10.1002/anie.201609335",
+          "name": "Oxidative Intramolecular 1,2\u2010Amino\u2010Oxygenation of Alkynes under AuI/AuIII Catalysis: ...",
+          "full_title": "Oxidative Intramolecular 1,2\u2010Amino\u2010Oxygenation of Alkynes under AuI/AuIII Catalysis: Discovery of a Pyridinium\u2010Oxazole Dyad as an Ionic Fluorophore",
+          "journal": "Angewandte Chemie International Edition",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 62,
+          "in_degree": 17,
+          "pagerank": 0.00044,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1002/anie.201609335"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.ijhydene.2022.08.006",
+          "name": "Polyaniline encapsulated Ti-MOF/CoS for efficient photocatalytic hydrogen evolution",
+          "full_title": "Polyaniline encapsulated Ti-MOF/CoS for efficient photocatalytic hydrogen evolution",
+          "journal": "International Journal of Hydrogen Energy",
+          "year": 2022,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 90,
+          "in_degree": 16,
+          "pagerank": 0.00016,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1016/j.ijhydene.2022.08.006"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.4c19097",
+          "name": "Bifunctional Nanoelectrocatalyst: Semi-Amorphous Cobalt Tungstate-Based Nanocomposite...",
+          "full_title": "Bifunctional Nanoelectrocatalyst: Semi-Amorphous Cobalt Tungstate-Based Nanocomposites Surpassing Amorphous and Crystalline Counterparts",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2025,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 20,
+          "in_degree": 1,
+          "pagerank": 6e-05,
+          "symbolSize": 12,
+          "value": 1,
+          "doi": "https://doi.org/10.1021/acsami.4c19097"
+        },
+        {
+          "id": "https://doi.org/10.1039/d0ta09619a",
+          "name": "A scalable and thin film approach for solar hydrogen generation: a review on enhanced...",
+          "full_title": "A scalable and thin film approach for solar hydrogen generation: a review on enhanced photocatalytic water splitting",
+          "journal": "Journal of Materials Chemistry A",
+          "year": 2020,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 215,
+          "in_degree": 44,
+          "pagerank": 0.00059,
+          "symbolSize": 42,
+          "value": 44,
+          "doi": "https://doi.org/10.1039/d0ta09619a"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.jnatprod.5c00322",
+          "name": "Peganutonin A: Computationally Informed Synthesis of Its Revised Structure",
+          "full_title": "Peganutonin A: Computationally Informed Synthesis of Its Revised Structure",
+          "journal": "Journal of Natural Products",
+          "year": 2025,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 12,
+          "in_degree": 4,
+          "pagerank": 0.00013,
+          "symbolSize": 15,
+          "value": 4,
+          "doi": "https://doi.org/10.1021/acs.jnatprod.5c00322"
+        },
+        {
+          "id": "https://doi.org/10.1039/c6gc00771f",
+          "name": "Ionic liquids catalyzed lignin liquefaction: mechanistic studies using TPO-MS, FT-IR,...",
+          "full_title": "Ionic liquids catalyzed lignin liquefaction: mechanistic studies using TPO-MS, FT-IR, RAMAN and 1D, 2D-HSQC/NOSEY NMR",
+          "journal": "Green Chemistry",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 92,
+          "in_degree": 16,
+          "pagerank": 0.00047,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1039/c6gc00771f"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsaem.1c03080",
+          "name": "Aqueous Methanol to Formaldehyde and Hydrogen on Pd/TiO 2 by Photocatalysis in Direct...",
+          "full_title": "Aqueous Methanol to Formaldehyde and Hydrogen on Pd/TiO 2 by Photocatalysis in Direct Sunlight: Structure Dependent Activity of Nano-Pd and Atomic Pt-Coated Counterparts",
+          "journal": "ACS Applied Energy Materials",
+          "year": 2021,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 45,
+          "in_degree": 16,
+          "pagerank": 0.00013,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acsaem.1c03080"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.molpharmaceut.6b00230",
+          "name": "Glucocorticoid Receptor-Targeted Liposomal Codelivery of Lipophilic Drug and Anti-Hsp...",
+          "full_title": "Glucocorticoid Receptor-Targeted Liposomal Codelivery of Lipophilic Drug and Anti-Hsp90 Gene: Strategy to Induce Drug-Sensitivity, EMT-Reversal, and Reduced Malignancy in Aggressive Tumors",
+          "journal": "Molecular Pharmaceutics",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 30,
+          "in_degree": 18,
+          "pagerank": 0.00033,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1021/acs.molpharmaceut.6b00230"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.renene.2019.06.175",
+          "name": "Surface modification of sulfonated polyethersulfone membrane with polyaniline nanopar...",
+          "full_title": "Surface modification of sulfonated polyethersulfone membrane with polyaniline nanoparticles for application in direct methanol fuel cell",
+          "journal": "Renewable Energy",
+          "year": 2019,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 66,
+          "in_degree": 7,
+          "pagerank": 0.00011,
+          "symbolSize": 19,
+          "value": 7,
+          "doi": "https://doi.org/10.1016/j.renene.2019.06.175"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.jpcc.9b07171",
+          "name": "Photoinduced Fabrication of Cu/TiO2 Core\u2013Shell Heterostructures Derived from Cu-MOF f...",
+          "full_title": "Photoinduced Fabrication of Cu/TiO2 Core\u2013Shell Heterostructures Derived from Cu-MOF for Solar Hydrogen Generation: The Size of the Cu Nanoparticle Matters",
+          "journal": "The Journal of Physical Chemistry C",
+          "year": 2019,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 55,
+          "in_degree": 22,
+          "pagerank": 0.00022,
+          "symbolSize": 40,
+          "value": 22,
+          "doi": "https://doi.org/10.1021/acs.jpcc.9b07171"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsanm.1c04419",
+          "name": "Ternary Cu(OH)2/P(g-C3N4)/MoS2 Nanostructures for Photocatalytic Hydrogen Production",
+          "full_title": "Ternary Cu(OH)2/P(g-C3N4)/MoS2 Nanostructures for Photocatalytic Hydrogen Production",
+          "journal": "ACS Applied Nano Materials",
+          "year": 2022,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 49,
+          "in_degree": 19,
+          "pagerank": 0.00016,
+          "symbolSize": 36,
+          "value": 19,
+          "doi": "https://doi.org/10.1021/acsanm.1c04419"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.inorgchem.6b02929",
+          "name": "Core-Oxidized Amorphous Cobalt Phosphide Nanostructures: An Advanced and Highly Effic...",
+          "full_title": "Core-Oxidized Amorphous Cobalt Phosphide Nanostructures: An Advanced and Highly Efficient Oxygen Evolution Catalyst",
+          "journal": "Inorganic Chemistry",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 132,
+          "in_degree": 16,
+          "pagerank": 0.00063,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acs.inorgchem.6b02929"
+        },
+        {
+          "id": "https://doi.org/10.1021/jacs.7b06640",
+          "name": "Selective Molecular Separation by Interfacially Crystallized Covalent Organic Framewo...",
+          "full_title": "Selective Molecular Separation by Interfacially Crystallized Covalent Organic Framework Thin Films",
+          "journal": "Journal of the American Chemical Society",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 1060,
+          "in_degree": 15,
+          "pagerank": 0.00029,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1021/jacs.7b06640"
+        },
+        {
+          "id": "https://doi.org/10.1186/s12974-019-1694-y",
+          "name": "Phagocytosis of full-length Tau oligomers by Actin-remodeling of activated microglia",
+          "full_title": "Phagocytosis of full-length Tau oligomers by Actin-remodeling of activated microglia",
+          "journal": "Journal of Neuroinflammation",
+          "year": 2020,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 128,
+          "in_degree": 18,
+          "pagerank": 0.00018,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1186/s12974-019-1694-y"
+        },
+        {
+          "id": "https://doi.org/10.1039/c6cc10292a",
+          "name": "N-Heterocyclic carbene (NHC)-catalysed atom economical construction of 2,3-disubstitu...",
+          "full_title": "N-Heterocyclic carbene (NHC)-catalysed atom economical construction of 2,3-disubstituted indoles",
+          "journal": "Chemical Communications",
+          "year": 2017,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 89,
+          "in_degree": 31,
+          "pagerank": 0.00054,
+          "symbolSize": 42,
+          "value": 31,
+          "doi": "https://doi.org/10.1039/c6cc10292a"
+        },
+        {
+          "id": "https://doi.org/10.1007/s42824-020-00007-x",
+          "name": "Biobased Products and Life Cycle Assessment in the Context of Circular Economy and Su...",
+          "full_title": "Biobased Products and Life Cycle Assessment in the Context of Circular Economy and Sustainability",
+          "journal": "Materials Circular Economy",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 184,
+          "in_degree": 21,
+          "pagerank": 0.00027,
+          "symbolSize": 39,
+          "value": 21,
+          "doi": "https://doi.org/10.1007/s42824-020-00007-x"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.jpcc.1c01922",
+          "name": "Controlled Loading of MoS2 on Hierarchical Porous TiO2 for Enhanced Photocatalytic Hy...",
+          "full_title": "Controlled Loading of MoS2 on Hierarchical Porous TiO2 for Enhanced Photocatalytic Hydrogen Evolution",
+          "journal": "The Journal of Physical Chemistry C",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 67,
+          "in_degree": 25,
+          "pagerank": 0.00023,
+          "symbolSize": 42,
+          "value": 25,
+          "doi": "https://doi.org/10.1021/acs.jpcc.1c01922"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.jcat.2017.02.032",
+          "name": "Multifunctional Cu/Ag quantum dots on TiO 2 nanotubes as highly efficient photocataly...",
+          "full_title": "Multifunctional Cu/Ag quantum dots on TiO 2 nanotubes as highly efficient photocatalysts for enhanced solar hydrogen evolution",
+          "journal": "Journal of Catalysis",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 126,
+          "in_degree": 18,
+          "pagerank": 0.00039,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1016/j.jcat.2017.02.032"
+        },
+        {
+          "id": "https://doi.org/10.1039/d2cp02089k",
+          "name": "Recent advances in solution assisted synthesis of transition metal chalcogenides for ...",
+          "full_title": "Recent advances in solution assisted synthesis of transition metal chalcogenides for photo-electrocatalytic hydrogen evolution",
+          "journal": "Physical Chemistry Chemical Physics",
+          "year": 2022,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 81,
+          "in_degree": 32,
+          "pagerank": 0.00024,
+          "symbolSize": 42,
+          "value": 32,
+          "doi": "https://doi.org/10.1039/d2cp02089k"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.phymed.2021.153729",
+          "name": "Dehydrozingerone ameliorates Lipopolysaccharide induced acute respiratory distress sy...",
+          "full_title": "Dehydrozingerone ameliorates Lipopolysaccharide induced acute respiratory distress syndrome by inhibiting cytokine storm, oxidative stress via modulating the MAPK/NF-\u03baB pathway",
+          "journal": "Phytomedicine",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 64,
+          "in_degree": 20,
+          "pagerank": 0.00045,
+          "symbolSize": 38,
+          "value": 20,
+          "doi": "https://doi.org/10.1016/j.phymed.2021.153729"
+        },
+        {
+          "id": "https://doi.org/10.1039/d1ta01407b",
+          "name": "Current perspectives on 3D ZIFs incorporated with 1D carbon matrices as fibers via el...",
+          "full_title": "Current perspectives on 3D ZIFs incorporated with 1D carbon matrices as fibers via electrospinning processes towards electrocatalytic water splitting: a review",
+          "journal": "Journal of Materials Chemistry A",
+          "year": 2021,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 77,
+          "in_degree": 18,
+          "pagerank": 0.00021,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1039/d1ta01407b"
+        },
+        {
+          "id": "https://doi.org/10.1002/adfm.202403795",
+          "name": "Emerging Photoreforming Process to Hydrogen Production: A Future Energy",
+          "full_title": "Emerging Photoreforming Process to Hydrogen Production: A Future Energy",
+          "journal": "Advanced Functional Materials",
+          "year": 2024,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 106,
+          "in_degree": 23,
+          "pagerank": 0.00014,
+          "symbolSize": 42,
+          "value": 23,
+          "doi": "https://doi.org/10.1002/adfm.202403795"
+        },
+        {
+          "id": "https://doi.org/10.1039/d4ta00586d",
+          "name": "Atomically dispersed Ru sites on MOF-derived NC-ZnO for efficient oxygen evolution re...",
+          "full_title": "Atomically dispersed Ru sites on MOF-derived NC-ZnO for efficient oxygen evolution reaction in acid media",
+          "journal": "Journal of Materials Chemistry A",
+          "year": 2024,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 24,
+          "in_degree": 11,
+          "pagerank": 0.00011,
+          "symbolSize": 25,
+          "value": 11,
+          "doi": "https://doi.org/10.1039/d4ta00586d"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.0c07431",
+          "name": "Can Half-a-Monolayer of Pt Simulate Activity Like That of Bulk Pt? Solar Hydrogen Act...",
+          "full_title": "Can Half-a-Monolayer of Pt Simulate Activity Like That of Bulk Pt? Solar Hydrogen Activity Demonstration with Quasi-artificial Leaf Device",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2020,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 30,
+          "in_degree": 21,
+          "pagerank": 0.00017,
+          "symbolSize": 39,
+          "value": 21,
+          "doi": "https://doi.org/10.1021/acsami.0c07431"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "name": "Evolution of layered double hydroxides (LDH) as high performance water oxidation elec...",
+          "full_title": "Evolution of layered double hydroxides (LDH) as high performance water oxidation electrocatalysts: A review with insights on structure, activity and mechanism",
+          "journal": "Materials Today Energy",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 460,
+          "in_degree": 38,
+          "pagerank": 0.00079,
+          "symbolSize": 42,
+          "value": 38,
+          "doi": "https://doi.org/10.1016/j.mtener.2017.07.016"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.orglett.9b03041",
+          "name": "Rh(III)-Catalyzed Tandem Bicyclization of 2-Arylimidazo[1,2-a]pyridines with Cyclic E...",
+          "full_title": "Rh(III)-Catalyzed Tandem Bicyclization of 2-Arylimidazo[1,2-a]pyridines with Cyclic Enones for the Construction of Bridged Scaffolds",
+          "journal": "Organic Letters",
+          "year": 2019,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 41,
+          "in_degree": 19,
+          "pagerank": 0.00072,
+          "symbolSize": 36,
+          "value": 19,
+          "doi": "https://doi.org/10.1021/acs.orglett.9b03041"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.9b19809",
+          "name": "Alkyl-Group-Wrapped Unsymmetrical Squaraine Dyes for Dye-Sensitized Solar Cells: Bran...",
+          "full_title": "Alkyl-Group-Wrapped Unsymmetrical Squaraine Dyes for Dye-Sensitized Solar Cells: Branched Alkyl Chains Modulate the Aggregation of Dyes and Charge Recombination Processes",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2019,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 50,
+          "in_degree": 24,
+          "pagerank": 0.00023,
+          "symbolSize": 42,
+          "value": 24,
+          "doi": "https://doi.org/10.1021/acsami.9b19809"
+        },
+        {
+          "id": "https://doi.org/10.1039/d1nr07255b",
+          "name": "Organogel-assisted porous organic polymer embedding Cu NPs for selectivity control in...",
+          "full_title": "Organogel-assisted porous organic polymer embedding Cu NPs for selectivity control in the semi hydrogenation of alkynes",
+          "journal": "Nanoscale",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 22,
+          "in_degree": 7,
+          "pagerank": 0.0001,
+          "symbolSize": 19,
+          "value": 7,
+          "doi": "https://doi.org/10.1039/d1nr07255b"
+        },
+        {
+          "id": "https://doi.org/10.1021/acscatal.1c03326",
+          "name": "Supported MoO x and WO x Solid Acids for Biomass Valorization: Interplay of Coordinat...",
+          "full_title": "Supported MoO x and WO x Solid Acids for Biomass Valorization: Interplay of Coordination Chemistry, Acidity, and Catalysis",
+          "journal": "ACS Catalysis",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 94,
+          "in_degree": 6,
+          "pagerank": 0.00022,
+          "symbolSize": 18,
+          "value": 6,
+          "doi": "https://doi.org/10.1021/acscatal.1c03326"
+        },
+        {
+          "id": "https://doi.org/10.1039/c5sc04714e",
+          "name": "Unprotected and interconnected Ru 0 nano-chain networks: advantages of unprotected su...",
+          "full_title": "Unprotected and interconnected Ru 0 nano-chain networks: advantages of unprotected surfaces in catalysis and electrocatalysis",
+          "journal": "Chemical Science",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 126,
+          "in_degree": 30,
+          "pagerank": 0.0027,
+          "symbolSize": 42,
+          "value": 30,
+          "doi": "https://doi.org/10.1039/c5sc04714e"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.foodres.2022.111394",
+          "name": "Chemical profiling of marine seaweed Halimeda gracilis using UPLC-ESI-Q-TOF-MSE and e...",
+          "full_title": "Chemical profiling of marine seaweed Halimeda gracilis using UPLC-ESI-Q-TOF-MSE and evaluation of anticancer activity targeting PI3K/AKT and intrinsic apoptosis signaling pathway",
+          "journal": "Food Research International",
+          "year": 2022,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 36,
+          "in_degree": 19,
+          "pagerank": 0.0003,
+          "symbolSize": 36,
+          "value": 19,
+          "doi": "https://doi.org/10.1016/j.foodres.2022.111394"
+        },
+        {
+          "id": "https://doi.org/10.1039/d1se01193f",
+          "name": "Current progressions in transition metal based hydroxides as bi-functional catalysts ...",
+          "full_title": "Current progressions in transition metal based hydroxides as bi-functional catalysts towards electrocatalytic total water splitting",
+          "journal": "Sustainable Energy & Fuels",
+          "year": 2021,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 90,
+          "in_degree": 16,
+          "pagerank": 0.00019,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1039/d1se01193f"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.6b10704",
+          "name": "Aloe vera Derived Activated High-Surface-Area Carbon for Flexible and High-Energy Sup...",
+          "full_title": "Aloe vera Derived Activated High-Surface-Area Carbon for Flexible and High-Energy Supercapacitors",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 268,
+          "in_degree": 31,
+          "pagerank": 0.0004,
+          "symbolSize": 42,
+          "value": 31,
+          "doi": "https://doi.org/10.1021/acsami.6b10704"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.electacta.2017.01.095",
+          "name": "Electrochemical Studies on Corncob Derived Activated Porous Carbon for Supercapacitor...",
+          "full_title": "Electrochemical Studies on Corncob Derived Activated Porous Carbon for Supercapacitors Application in Aqueous and Non-aqueous Electrolytes",
+          "journal": "Electrochimica Acta",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 223,
+          "in_degree": 24,
+          "pagerank": 0.00036,
+          "symbolSize": 42,
+          "value": 24,
+          "doi": "https://doi.org/10.1016/j.electacta.2017.01.095"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.jpcb.8b01657",
+          "name": "Exploring GPCR\u2013Lipid Interactions by Molecular Dynamics Simulations: Excitements, Cha...",
+          "full_title": "Exploring GPCR\u2013Lipid Interactions by Molecular Dynamics Simulations: Excitements, Challenges, and the Way Forward",
+          "journal": "The Journal of Physical Chemistry B",
+          "year": 2018,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 77,
+          "in_degree": 17,
+          "pagerank": 0.00026,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1021/acs.jpcb.8b01657"
+        },
+        {
+          "id": "https://doi.org/10.1002/anie.201611268",
+          "name": "N\u2010Heterocyclic\u2010Carbene\u2010Catalyzed Umpolung of Imines",
+          "full_title": "N\u2010Heterocyclic\u2010Carbene\u2010Catalyzed Umpolung of Imines",
+          "journal": "Angewandte Chemie International Edition",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 114,
+          "in_degree": 15,
+          "pagerank": 0.00028,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1002/anie.201611268"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.inorgchem.1c02571",
+          "name": "Metallic Gold-Incorporated Ni(OH) 2 for Enhanced Water Oxidation in an Alkaline Mediu...",
+          "full_title": "Metallic Gold-Incorporated Ni(OH) 2 for Enhanced Water Oxidation in an Alkaline Medium: A Simple Wet-Chemical Approach",
+          "journal": "Inorganic Chemistry",
+          "year": 2021,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 37,
+          "in_degree": 16,
+          "pagerank": 0.00018,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acs.inorgchem.1c02571"
+        },
+        {
+          "id": "https://doi.org/10.1002/ajoc.201900554",
+          "name": "C\u2212H Functionalization of Indoles by 3d Transition\u2010Metal Catalysis",
+          "full_title": "C\u2212H Functionalization of Indoles by 3d Transition\u2010Metal Catalysis",
+          "journal": "Asian Journal of Organic Chemistry",
+          "year": 2019,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 96,
+          "in_degree": 22,
+          "pagerank": 0.00026,
+          "symbolSize": 40,
+          "value": 22,
+          "doi": "https://doi.org/10.1002/ajoc.201900554"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "name": "Self-Assembled Molecular Hybrids of CoS-DNA for Enhanced Water Oxidation with Low Cob...",
+          "full_title": "Self-Assembled Molecular Hybrids of CoS-DNA for Enhanced Water Oxidation with Low Cobalt Content",
+          "journal": "Inorganic Chemistry",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 109,
+          "in_degree": 41,
+          "pagerank": 0.00085,
+          "symbolSize": 42,
+          "value": 41,
+          "doi": "https://doi.org/10.1021/acs.inorgchem.7b00855"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.chemrev.6b00160",
+          "name": "Functional Naphthalene Diimides: Synthesis, Properties, and Applications",
+          "full_title": "Functional Naphthalene Diimides: Synthesis, Properties, and Applications",
+          "journal": "Chemical Reviews",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 927,
+          "in_degree": 53,
+          "pagerank": 0.00199,
+          "symbolSize": 42,
+          "value": 53,
+          "doi": "https://doi.org/10.1021/acs.chemrev.6b00160"
+        },
+        {
+          "id": "https://doi.org/10.1039/c7ob00405b",
+          "name": "ipso-Cyclization: an emerging tool for multifunctional spirocyclohexadienones",
+          "full_title": "ipso-Cyclization: an emerging tool for multifunctional spirocyclohexadienones",
+          "journal": "Organic & Biomolecular Chemistry",
+          "year": 2017,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 184,
+          "in_degree": 28,
+          "pagerank": 0.00048,
+          "symbolSize": 42,
+          "value": 28,
+          "doi": "https://doi.org/10.1039/c7ob00405b"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.inorgchem.8b02680",
+          "name": "Nanosheets of Nickel Iron Hydroxy Carbonate Hydrate with Pronounced OER Activity unde...",
+          "full_title": "Nanosheets of Nickel Iron Hydroxy Carbonate Hydrate with Pronounced OER Activity under Alkaline and Near-Neutral Conditions",
+          "journal": "Inorganic Chemistry",
+          "year": 2019,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 93,
+          "in_degree": 16,
+          "pagerank": 0.00029,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acs.inorgchem.8b02680"
+        },
+        {
+          "id": "https://doi.org/10.1002/adma.201603945",
+          "name": "Selective Molecular Sieving in Self\u2010Standing Porous Covalent\u2010Organic\u2010Framework Membra...",
+          "full_title": "Selective Molecular Sieving in Self\u2010Standing Porous Covalent\u2010Organic\u2010Framework Membranes",
+          "journal": "Advanced Materials",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 714,
+          "in_degree": 15,
+          "pagerank": 0.00051,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1002/adma.201603945"
+        },
+        {
+          "id": "https://doi.org/10.1039/d2su00145d",
+          "name": "Biomass components toward H 2 and value-added products by sunlight-driven photocataly...",
+          "full_title": "Biomass components toward H 2 and value-added products by sunlight-driven photocatalysis with electronically integrated Au \u03b4 \u2212 \u2013TiO 2 : concurrent utilization of electrons and holes",
+          "journal": "RSC Sustainability",
+          "year": 2023,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 33,
+          "in_degree": 17,
+          "pagerank": 0.00012,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1039/d2su00145d"
+        },
+        {
+          "id": "https://doi.org/10.1021/jacs.8b10334",
+          "name": "Covalent Organic Frameworks: Chemistry beyond the Structure",
+          "full_title": "Covalent Organic Frameworks: Chemistry beyond the Structure",
+          "journal": "Journal of the American Chemical Society",
+          "year": 2018,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 1574,
+          "in_degree": 17,
+          "pagerank": 0.00027,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1021/jacs.8b10334"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsanm.0c00434",
+          "name": "Polymeric Nanofibers Containing CoNi-Based Zeolitic Imidazolate Framework Nanoparticl...",
+          "full_title": "Polymeric Nanofibers Containing CoNi-Based Zeolitic Imidazolate Framework Nanoparticles for Electrocatalytic Water Oxidation",
+          "journal": "ACS Applied Nano Materials",
+          "year": 2020,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 45,
+          "in_degree": 16,
+          "pagerank": 0.0002,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acsanm.0c00434"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsaem.5c02877",
+          "name": "Ta-NiFe-LDH@La-ZIF-67 Composite Heterostructures for Efficient Electrocatalytic Hydro...",
+          "full_title": "Ta-NiFe-LDH@La-ZIF-67 Composite Heterostructures for Efficient Electrocatalytic Hydrogen Generation and Overall Water Splitting",
+          "journal": "ACS Applied Energy Materials",
+          "year": 2025,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 3,
+          "in_degree": 0,
+          "pagerank": 4e-05,
+          "symbolSize": 12,
+          "value": 0,
+          "doi": "https://doi.org/10.1021/acsaem.5c02877"
+        },
+        {
+          "id": "https://doi.org/10.1039/c9se00604d",
+          "name": "Electron-regulated flux towards biogas upgradation \u2013 triggering catabolism for an aug...",
+          "full_title": "Electron-regulated flux towards biogas upgradation \u2013 triggering catabolism for an augmented methanogenic activity",
+          "journal": "Sustainable Energy & Fuels",
+          "year": 2019,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 41,
+          "in_degree": 24,
+          "pagerank": 0.00022,
+          "symbolSize": 42,
+          "value": 24,
+          "doi": "https://doi.org/10.1039/c9se00604d"
+        },
+        {
+          "id": "https://doi.org/10.1039/d0qi01060j",
+          "name": "Investigation on nanostructured Cu-based electrocatalysts for improvising water split...",
+          "full_title": "Investigation on nanostructured Cu-based electrocatalysts for improvising water splitting: a review",
+          "journal": "Inorganic Chemistry Frontiers",
+          "year": 2020,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 177,
+          "in_degree": 22,
+          "pagerank": 0.00031,
+          "symbolSize": 40,
+          "value": 22,
+          "doi": "https://doi.org/10.1039/d0qi01060j"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.orglett.6b00659",
+          "name": "Formal Total Synthesis of (\u00b1)-Cephalotaxine and Congeners via Aryne Insertion Reactio...",
+          "full_title": "Formal Total Synthesis of (\u00b1)-Cephalotaxine and Congeners via Aryne Insertion Reaction",
+          "journal": "Organic Letters",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 65,
+          "in_degree": 16,
+          "pagerank": 0.00083,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acs.orglett.6b00659"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.jwpe.2022.103132",
+          "name": "Design of hydrodynamic cavitation assisted intensified tertiary treatment unit for ef...",
+          "full_title": "Design of hydrodynamic cavitation assisted intensified tertiary treatment unit for effective degradation of organic micropollutants in pharmaceutical industrial effluent: A Case study with triclosan",
+          "journal": "Journal of Water Process Engineering",
+          "year": 2022,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 22,
+          "in_degree": 5,
+          "pagerank": 9e-05,
+          "symbolSize": 17,
+          "value": 5,
+          "doi": "https://doi.org/10.1016/j.jwpe.2022.103132"
+        },
+        {
+          "id": "https://doi.org/10.1149/2.0501706jes",
+          "name": "Simultaneous Co-Doping of Nitrogen and Fluorine into MWCNTs: An In-Situ Conversion to...",
+          "full_title": "Simultaneous Co-Doping of Nitrogen and Fluorine into MWCNTs: An In-Situ Conversion to Graphene Like Sheets and Its Electro-Catalytic Activity toward Oxygen Reduction Reaction",
+          "journal": "Journal of The Electrochemical Society",
+          "year": 2017,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 43,
+          "in_degree": 15,
+          "pagerank": 0.00019,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1149/2.0501706jes"
+        },
+        {
+          "id": "https://doi.org/10.1002/cctc.201600937",
+          "name": "Bimetallic and Plasmonic Ag\u2013Au on TiO2 for Solar Water Splitting: An Active Nanocompo...",
+          "full_title": "Bimetallic and Plasmonic Ag\u2013Au on TiO2 for Solar Water Splitting: An Active Nanocomposite for Entire Visible\u2010Light\u2010Region Absorption",
+          "journal": "ChemCatChem",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 124,
+          "in_degree": 30,
+          "pagerank": 0.00123,
+          "symbolSize": 42,
+          "value": 30,
+          "doi": "https://doi.org/10.1002/cctc.201600937"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsaem.2c02388",
+          "name": "Electronically Modified Ce 3+ Ion Doped 2D NiFe-LDH Nanosheets over a 1D Microfiber: ...",
+          "full_title": "Electronically Modified Ce 3+ Ion Doped 2D NiFe-LDH Nanosheets over a 1D Microfiber: A High-Performance Electrocatalyst for Overall Water Splitting",
+          "journal": "ACS Applied Energy Materials",
+          "year": 2022,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 76,
+          "in_degree": 20,
+          "pagerank": 0.00018,
+          "symbolSize": 38,
+          "value": 20,
+          "doi": "https://doi.org/10.1021/acsaem.2c02388"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.energy.2016.12.017",
+          "name": "Acidogenesis driven by hydrogen partial pressure towards bioethanol production throug...",
+          "full_title": "Acidogenesis driven by hydrogen partial pressure towards bioethanol production through fatty acids reduction",
+          "journal": "Energy",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 50,
+          "in_degree": 16,
+          "pagerank": 0.00031,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1016/j.energy.2016.12.017"
+        },
+        {
+          "id": "https://doi.org/10.1039/d5sc01955a",
+          "name": "Advancements in supercapacitors: breaking barriers and enabling amazing applications",
+          "full_title": "Advancements in supercapacitors: breaking barriers and enabling amazing applications",
+          "journal": "Chemical Science",
+          "year": 2025,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 75,
+          "in_degree": 2,
+          "pagerank": 5e-05,
+          "symbolSize": 12,
+          "value": 2,
+          "doi": "https://doi.org/10.1039/d5sc01955a"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.procbio.2020.09.032",
+          "name": "A paradoxical role of reactive oxygen species in cancer signaling pathway: Physiology...",
+          "full_title": "A paradoxical role of reactive oxygen species in cancer signaling pathway: Physiology and pathology",
+          "journal": "Process Biochemistry",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 60,
+          "in_degree": 22,
+          "pagerank": 0.00043,
+          "symbolSize": 40,
+          "value": 22,
+          "doi": "https://doi.org/10.1016/j.procbio.2020.09.032"
+        },
+        {
+          "id": "https://doi.org/10.1038/s41467-022-28288-7",
+          "name": "Enantioselective Cu(I)-catalyzed borylative cyclization of enone-tethered cyclohexadi...",
+          "full_title": "Enantioselective Cu(I)-catalyzed borylative cyclization of enone-tethered cyclohexadienones and mechanistic insights",
+          "journal": "Nature Communications",
+          "year": 2022,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 39,
+          "in_degree": 15,
+          "pagerank": 0.0002,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1038/s41467-022-28288-7"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.jclepro.2019.119342",
+          "name": "Microcrystalline cellulose production from sugarcane bagasse: Sustainable process dev...",
+          "full_title": "Microcrystalline cellulose production from sugarcane bagasse: Sustainable process development and life cycle assessment",
+          "journal": "Journal of Cleaner Production",
+          "year": 2019,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 173,
+          "in_degree": 20,
+          "pagerank": 0.00033,
+          "symbolSize": 38,
+          "value": 20,
+          "doi": "https://doi.org/10.1016/j.jclepro.2019.119342"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.phymed.2020.153298",
+          "name": "Biochanin-A ameliorates pulmonary fibrosis by suppressing the TGF-\u03b2 mediated EMT, myo...",
+          "full_title": "Biochanin-A ameliorates pulmonary fibrosis by suppressing the TGF-\u03b2 mediated EMT, myofibroblasts differentiation and collagen deposition in in vitro and in vivo systems",
+          "journal": "Phytomedicine",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 181,
+          "in_degree": 20,
+          "pagerank": 0.00091,
+          "symbolSize": 38,
+          "value": 20,
+          "doi": "https://doi.org/10.1016/j.phymed.2020.153298"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.est.2022.106036",
+          "name": "Flexible ultracapacitor device fabricated with an organic electrode material- naphtha...",
+          "full_title": "Flexible ultracapacitor device fabricated with an organic electrode material- naphthalene diimide nitrile/reduced graphene oxide",
+          "journal": "Journal of Energy Storage",
+          "year": 2022,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 29,
+          "in_degree": 10,
+          "pagerank": 0.00012,
+          "symbolSize": 24,
+          "value": 10,
+          "doi": "https://doi.org/10.1016/j.est.2022.106036"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.biteb.2019.100277",
+          "name": "Can circular bioeconomy be fueled by waste biorefineries \u2014 A closer look",
+          "full_title": "Can circular bioeconomy be fueled by waste biorefineries \u2014 A closer look",
+          "journal": "Bioresource Technology Reports",
+          "year": 2019,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 224,
+          "in_degree": 32,
+          "pagerank": 0.00037,
+          "symbolSize": 42,
+          "value": 32,
+          "doi": "https://doi.org/10.1016/j.biteb.2019.100277"
+        },
+        {
+          "id": "https://doi.org/10.1039/d4ya00249k",
+          "name": "A review on the recent advances in the design and structure\u2013activity relationship of ...",
+          "full_title": "A review on the recent advances in the design and structure\u2013activity relationship of TiO 2 -based photocatalysts for solar hydrogen production",
+          "journal": "Energy Advances",
+          "year": 2024,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 69,
+          "in_degree": 11,
+          "pagerank": 9e-05,
+          "symbolSize": 25,
+          "value": 11,
+          "doi": "https://doi.org/10.1039/d4ya00249k"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.9b07070",
+          "name": "Electronic Integration and Thin Film Aspects of Au\u2013Pd/rGO/TiO2 for Improved Solar Hyd...",
+          "full_title": "Electronic Integration and Thin Film Aspects of Au\u2013Pd/rGO/TiO2 for Improved Solar Hydrogen Generation",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2019,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 97,
+          "in_degree": 24,
+          "pagerank": 0.00026,
+          "symbolSize": 42,
+          "value": 24,
+          "doi": "https://doi.org/10.1021/acsami.9b07070"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "name": "Waste biorefinery models towards sustainable circular bioeconomy: Critical review and...",
+          "full_title": "Waste biorefinery models towards sustainable circular bioeconomy: Critical review and future perspectives",
+          "journal": "Bioresource Technology",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 811,
+          "in_degree": 71,
+          "pagerank": 0.0017,
+          "symbolSize": 42,
+          "value": 71,
+          "doi": "https://doi.org/10.1016/j.biortech.2016.03.130"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.cej.2017.11.005",
+          "name": "Electrofermentation of food waste \u2013 Regulating acidogenesis towards enhanced volatile...",
+          "full_title": "Electrofermentation of food waste \u2013 Regulating acidogenesis towards enhanced volatile fatty acids production",
+          "journal": "Chemical Engineering Journal",
+          "year": 2017,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 93,
+          "in_degree": 17,
+          "pagerank": 0.00019,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1016/j.cej.2017.11.005"
+        },
+        {
+          "id": "https://doi.org/10.1039/d1ta09627c",
+          "name": "Stabilization of ruthenium nanoparticles over NiV-LDH surface for enhanced electroche...",
+          "full_title": "Stabilization of ruthenium nanoparticles over NiV-LDH surface for enhanced electrochemical water splitting: an oxygen vacancy approach",
+          "journal": "Journal of Materials Chemistry A",
+          "year": 2022,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 120,
+          "in_degree": 21,
+          "pagerank": 0.00024,
+          "symbolSize": 39,
+          "value": 21,
+          "doi": "https://doi.org/10.1039/d1ta09627c"
+        },
+        {
+          "id": "https://doi.org/10.1002/adfm.201504765",
+          "name": "Nanoporous Graphene Enriched with Fe/Co\u2010N Active Sites as a Promising Oxygen Reductio...",
+          "full_title": "Nanoporous Graphene Enriched with Fe/Co\u2010N Active Sites as a Promising Oxygen Reduction Electrocatalyst for Anion Exchange Membrane Fuel Cells",
+          "journal": "Advanced Functional Materials",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 342,
+          "in_degree": 17,
+          "pagerank": 0.00113,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1002/adfm.201504765"
+        },
+        {
+          "id": "https://doi.org/10.1002/solr.201900557",
+          "name": "Cu\u2013Ni Bimetal Integrated TiO 2 Thin Film for Enhanced Solar Hydrogen Generation",
+          "full_title": "Cu\u2013Ni Bimetal Integrated TiO 2 Thin Film for Enhanced Solar Hydrogen Generation",
+          "journal": "Solar RRL",
+          "year": 2020,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 46,
+          "in_degree": 17,
+          "pagerank": 0.00016,
+          "symbolSize": 33,
+          "value": 17,
+          "doi": "https://doi.org/10.1002/solr.201900557"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsbiomaterials.7b00457",
+          "name": "Pro-angiogenic Properties of Terbium Hydroxide Nanorods: Molecular Mechanisms and The...",
+          "full_title": "Pro-angiogenic Properties of Terbium Hydroxide Nanorods: Molecular Mechanisms and Therapeutic Applications in Wound Healing",
+          "journal": "ACS Biomaterials Science & Engineering",
+          "year": 2017,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 52,
+          "in_degree": 19,
+          "pagerank": 0.00035,
+          "symbolSize": 36,
+          "value": 19,
+          "doi": "https://doi.org/10.1021/acsbiomaterials.7b00457"
+        },
+        {
+          "id": "https://doi.org/10.1002/cctc.201600365",
+          "name": "C\u2212H Activation of Methane to Syngas on MnxCe1\u2212x\u2212yZryO2: A Molecular Beam Study",
+          "full_title": "C\u2212H Activation of Methane to Syngas on MnxCe1\u2212x\u2212yZryO2: A Molecular Beam Study",
+          "journal": "ChemCatChem",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 17,
+          "in_degree": 15,
+          "pagerank": 0.00064,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1002/cctc.201600365"
+        },
+        {
+          "id": "https://doi.org/10.1002/aenm.201600110",
+          "name": "Low\u2010Overpotential Electrocatalytic Water Splitting with Noble\u2010Metal\u2010Free Nanoparticle...",
+          "full_title": "Low\u2010Overpotential Electrocatalytic Water Splitting with Noble\u2010Metal\u2010Free Nanoparticles Supported in a sp 3 N\u2010Rich Flexible COF",
+          "journal": "Advanced Energy Materials",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 148,
+          "in_degree": 15,
+          "pagerank": 0.00053,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1002/aenm.201600110"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.fuel.2021.122487",
+          "name": "A review on energy storage devices based on rylene imide dyes: Synthesis, application...",
+          "full_title": "A review on energy storage devices based on rylene imide dyes: Synthesis, applications and challenges",
+          "journal": "Fuel",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 55,
+          "in_degree": 16,
+          "pagerank": 0.00024,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1016/j.fuel.2021.122487"
+        },
+        {
+          "id": "https://doi.org/10.1039/c5ra24254a",
+          "name": "Regulation of acidogenic metabolism towards enhanced short chain fatty acid biosynthe...",
+          "full_title": "Regulation of acidogenic metabolism towards enhanced short chain fatty acid biosynthesis from waste: metagenomic profiling",
+          "journal": "RSC Advances",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 111,
+          "in_degree": 40,
+          "pagerank": 0.0016,
+          "symbolSize": 42,
+          "value": 40,
+          "doi": "https://doi.org/10.1039/c5ra24254a"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.biortech.2019.03.106",
+          "name": "Microalgae-biorefinery with cascading resource recovery design associated to dairy wa...",
+          "full_title": "Microalgae-biorefinery with cascading resource recovery design associated to dairy wastewater treatment",
+          "journal": "Bioresource Technology",
+          "year": 2019,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 191,
+          "in_degree": 18,
+          "pagerank": 0.00024,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1016/j.biortech.2019.03.106"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsaem.0c00684",
+          "name": "Nanostructured Polyaniline/Graphene/Fe 2 O 3 Composites Hydrogel as a High-Performanc...",
+          "full_title": "Nanostructured Polyaniline/Graphene/Fe 2 O 3 Composites Hydrogel as a High-Performance Flexible Supercapacitor Electrode Material",
+          "journal": "ACS Applied Energy Materials",
+          "year": 2020,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 179,
+          "in_degree": 15,
+          "pagerank": 0.00044,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1021/acsaem.0c00684"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.orglett.6b00175",
+          "name": "Gold vs Rhodium Catalysis: Tuning Reactivity through Catalyst Control in the C\u2013H Alky...",
+          "full_title": "Gold vs Rhodium Catalysis: Tuning Reactivity through Catalyst Control in the C\u2013H Alkynylation of Isoquinolones",
+          "journal": "Organic Letters",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 97,
+          "in_degree": 18,
+          "pagerank": 0.00102,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1021/acs.orglett.6b00175"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.tibtech.2016.02.012",
+          "name": "A Circular Bioeconomy with Biobased Products from CO 2 Sequestration",
+          "full_title": "A Circular Bioeconomy with Biobased Products from CO 2 Sequestration",
+          "journal": "Trends in biotechnology",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 299,
+          "in_degree": 35,
+          "pagerank": 0.00103,
+          "symbolSize": 42,
+          "value": 35,
+          "doi": "https://doi.org/10.1016/j.tibtech.2016.02.012"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsomega.9b03615",
+          "name": "Transition-Metal-Based Zeolite Imidazolate Framework Nanofibers via an Electrospinnin...",
+          "full_title": "Transition-Metal-Based Zeolite Imidazolate Framework Nanofibers via an Electrospinning Approach: A Review",
+          "journal": "ACS Omega",
+          "year": 2019,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 64,
+          "in_degree": 16,
+          "pagerank": 0.00015,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acsomega.9b03615"
+        },
+        {
+          "id": "https://doi.org/10.1002/ejic.201701427",
+          "name": "Substituent\u2010Induced Deformed Ni\u2013Porphyrin as an Electrocatalyst for the Electrochemic...",
+          "full_title": "Substituent\u2010Induced Deformed Ni\u2013Porphyrin as an Electrocatalyst for the Electrochemical Conversion of Water into Dioxygen",
+          "journal": "European Journal of Inorganic Chemistry",
+          "year": 2018,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 10,
+          "in_degree": 2,
+          "pagerank": 8e-05,
+          "symbolSize": 12,
+          "value": 2,
+          "doi": "https://doi.org/10.1002/ejic.201701427"
+        },
+        {
+          "id": "https://doi.org/10.1039/c6qm00070c",
+          "name": "Stable and charge recombination minimized \u03c0-extended thioalkyl substituted tetrathiaf...",
+          "full_title": "Stable and charge recombination minimized \u03c0-extended thioalkyl substituted tetrathiafulvalene dye-sensitized solar cells",
+          "journal": "Materials Chemistry Frontiers",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 34,
+          "in_degree": 16,
+          "pagerank": 0.00106,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1039/c6qm00070c"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.orglett.1c02890",
+          "name": "Rhodium-Catalyzed Annulation of Phenacyl Ammonium Salts with Propargylic Alcohols via...",
+          "full_title": "Rhodium-Catalyzed Annulation of Phenacyl Ammonium Salts with Propargylic Alcohols via a Sequential Dual C\u2013H and a C\u2013C Bond Activation: Modular Entry to Diverse Isochromenones",
+          "journal": "Organic Letters",
+          "year": 2021,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 26,
+          "in_degree": 16,
+          "pagerank": 0.00021,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acs.orglett.1c02890"
+        },
+        {
+          "id": "https://doi.org/10.1039/c6sc01456a",
+          "name": "Carbonyl-assisted reverse regioselective cascade annulation of 2-acetylenic ketones t...",
+          "full_title": "Carbonyl-assisted reverse regioselective cascade annulation of 2-acetylenic ketones triggered by Ru-catalyzed C\u2013H activation",
+          "journal": "Chemical Science",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 81,
+          "in_degree": 15,
+          "pagerank": 0.0011,
+          "symbolSize": 31,
+          "value": 15,
+          "doi": "https://doi.org/10.1039/c6sc01456a"
+        },
+        {
+          "id": "https://doi.org/10.1007/s10562-020-03205-z",
+          "name": "Highly Dispersed MnOx Nanoparticles on Shape-Controlled SiO2 Spheres for Ecofriendly ...",
+          "full_title": "Highly Dispersed MnOx Nanoparticles on Shape-Controlled SiO2 Spheres for Ecofriendly Selective Allylic Oxidation of Cyclohexene",
+          "journal": "Catalysis Letters",
+          "year": 2020,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 10,
+          "in_degree": 1,
+          "pagerank": 6e-05,
+          "symbolSize": 12,
+          "value": 1,
+          "doi": "https://doi.org/10.1007/s10562-020-03205-z"
+        },
+        {
+          "id": "https://doi.org/10.1016/j.abb.2019.108119",
+          "name": "Baicalein suppresses Repeat Tau fibrillization by sequestering oligomers",
+          "full_title": "Baicalein suppresses Repeat Tau fibrillization by sequestering oligomers",
+          "journal": "Archives of Biochemistry and Biophysics",
+          "year": 2019,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 98,
+          "in_degree": 18,
+          "pagerank": 0.00017,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1016/j.abb.2019.108119"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.joc.6b02670",
+          "name": "Panchromatic Sensitizer for Dye-Sensitized Solar Cells: Unsymmetrical Squaraine Dyes ...",
+          "full_title": "Panchromatic Sensitizer for Dye-Sensitized Solar Cells: Unsymmetrical Squaraine Dyes Incorporating Benzodithiophene \u03c0-Spacer with Alkyl Chains to Extend Conjugation, Control the Dye Assembly on TiO2, and Retard Charge Recombination",
+          "journal": "The Journal of Organic Chemistry",
+          "year": 2017,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 51,
+          "in_degree": 18,
+          "pagerank": 0.00041,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1021/acs.joc.6b02670"
+        },
+        {
+          "id": "https://doi.org/10.1002/slct.201600182",
+          "name": "Is there any Real Effect of Low Dimensional Morphologies towards Light Harvesting? A ...",
+          "full_title": "Is there any Real Effect of Low Dimensional Morphologies towards Light Harvesting? A Case Study of Au\u2013rGO\u2010TiO 2 Nanocomposites",
+          "journal": "ChemistrySelect",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 29,
+          "in_degree": 20,
+          "pagerank": 0.00109,
+          "symbolSize": 38,
+          "value": 20,
+          "doi": "https://doi.org/10.1002/slct.201600182"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.energyfuels.6b01829",
+          "name": "Biomass-Derived Activated Porous Carbon from Rice Straw for a High-Energy Symmetric S...",
+          "full_title": "Biomass-Derived Activated Porous Carbon from Rice Straw for a High-Energy Symmetric Supercapacitor in Aqueous and Non-aqueous Electrolytes",
+          "journal": "Energy & Fuels",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "citations": 436,
+          "in_degree": 21,
+          "pagerank": 0.00034,
+          "symbolSize": 39,
+          "value": 21,
+          "doi": "https://doi.org/10.1021/acs.energyfuels.6b01829"
+        },
+        {
+          "id": "https://doi.org/10.1021/acsami.4c03245",
+          "name": "Purification of Waste-Generated Biogas Mixtures Using Covalent Organic Framework\u2019s Hi...",
+          "full_title": "Purification of Waste-Generated Biogas Mixtures Using Covalent Organic Framework\u2019s High CO2 Selectivity",
+          "journal": "ACS Applied Materials & Interfaces",
+          "year": 2024,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 27,
+          "in_degree": 5,
+          "pagerank": 8e-05,
+          "symbolSize": 17,
+          "value": 5,
+          "doi": "https://doi.org/10.1021/acsami.4c03245"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.orglett.4c02619",
+          "name": "Synthesis of Stereochemical Library of a Potent Antimalarial Monocerin Derivative and...",
+          "full_title": "Synthesis of Stereochemical Library of a Potent Antimalarial Monocerin Derivative and Its Stereochemical Revision",
+          "journal": "Organic Letters",
+          "year": 2024,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 11,
+          "in_degree": 5,
+          "pagerank": 0.0001,
+          "symbolSize": 17,
+          "value": 5,
+          "doi": "https://doi.org/10.1021/acs.orglett.4c02619"
+        },
+        {
+          "id": "https://doi.org/10.1111/febs.14084",
+          "name": "Inhibiting epidermal growth factor receptor signalling potentiates mesenchymal\u2013epithe...",
+          "full_title": "Inhibiting epidermal growth factor receptor signalling potentiates mesenchymal\u2013epithelial transition of breast cancer stem cells and their responsiveness to anticancer drugs",
+          "journal": "FEBS Journal",
+          "year": 2017,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 65,
+          "in_degree": 18,
+          "pagerank": 0.00036,
+          "symbolSize": 35,
+          "value": 18,
+          "doi": "https://doi.org/10.1111/febs.14084"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.joc.7b00417",
+          "name": "Ag-Catalyzed Intramolecular Sequential Vicinal Diamination of Alkynes with Isocyanate...",
+          "full_title": "Ag-Catalyzed Intramolecular Sequential Vicinal Diamination of Alkynes with Isocyanates: Synthesis of Fused Indole-Cyclic Urea Derivatives",
+          "journal": "The Journal of Organic Chemistry",
+          "year": 2017,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 43,
+          "in_degree": 16,
+          "pagerank": 0.0005,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1021/acs.joc.7b00417"
+        },
+        {
+          "id": "https://doi.org/10.1002/anie.202215825",
+          "name": "Propargyl Alcohols as Bifunctional Reagents for Divergent Annulations of Biphenylamin...",
+          "full_title": "Propargyl Alcohols as Bifunctional Reagents for Divergent Annulations of Biphenylamines via Dual C\u2212H Functionalization/Dual Oxidative Cyclization",
+          "journal": "Angewandte Chemie International Edition",
+          "year": 2022,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 32,
+          "in_degree": 16,
+          "pagerank": 0.00014,
+          "symbolSize": 32,
+          "value": 16,
+          "doi": "https://doi.org/10.1002/anie.202215825"
+        },
+        {
+          "id": "https://doi.org/10.1021/acscatal.6b02003",
+          "name": "Unified Strategy for Nickel-Catalyzed C-2 Alkylation of Indoles through Chelation Ass...",
+          "full_title": "Unified Strategy for Nickel-Catalyzed C-2 Alkylation of Indoles through Chelation Assistance",
+          "journal": "ACS Catalysis",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "citations": 88,
+          "in_degree": 27,
+          "pagerank": 0.00076,
+          "symbolSize": 42,
+          "value": 27,
+          "doi": "https://doi.org/10.1021/acscatal.6b02003"
+        },
+        {
+          "id": "https://doi.org/10.1021/acs.joc.3c01987",
+          "name": "Comprehensive Study on Solomonamides: Total Synthesis, Stereochemical Revision, and S...",
+          "full_title": "Comprehensive Study on Solomonamides: Total Synthesis, Stereochemical Revision, and SAR Studies toward Identification of Simplified Lead",
+          "journal": "The Journal of Organic Chemistry",
+          "year": 2023,
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "citations": 7,
+          "in_degree": 2,
+          "pagerank": 9e-05,
+          "symbolSize": 12,
+          "value": 2,
+          "doi": "https://doi.org/10.1021/acs.joc.3c01987"
+        }
+      ],
+      "links": [
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2021.06.033",
+          "target": "https://doi.org/10.1039/d0ta09619a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-NCL",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.jpcc.7b06661",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9sc01446b",
+          "target": "https://doi.org/10.1021/acscatal.7b01044",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9sc01446b",
+          "target": "https://doi.org/10.1021/acscatal.6b02003",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c6ra27331a",
+          "target": "https://doi.org/10.1002/slct.201600792",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c6ra27331a",
+          "target": "https://doi.org/10.1039/c5ra27775b",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.orglett.7b04027",
+          "target": "https://doi.org/10.1039/c7cc03668j",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09788h",
+          "target": "https://doi.org/10.1021/acs.inorgchem.8b02680",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09788h",
+          "target": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09788h",
+          "target": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09788h",
+          "target": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09788h",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09788h",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.7b04054",
+          "target": "https://doi.org/10.1039/c6sc01456a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.7b01044",
+          "target": "https://doi.org/10.1021/acscatal.6b02003",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2017.08.101",
+          "target": "https://doi.org/10.1039/c5ra27775b",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2017.08.101",
+          "target": "https://doi.org/10.1021/acsami.6b10704",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2017.08.101",
+          "target": "https://doi.org/10.1016/j.electacta.2017.01.095",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2017.08.101",
+          "target": "https://doi.org/10.1016/j.electacta.2016.03.150",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2017.08.101",
+          "target": "https://doi.org/10.1021/acs.energyfuels.6b01829",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c6cy02282k",
+          "target": "https://doi.org/10.1039/c5sc04714e",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c6cy02282k",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c6cy02282k",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c7ee03457a",
+          "target": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c7ee03457a",
+          "target": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c7ee03457a",
+          "target": "https://doi.org/10.1021/acs.inorgchem.6b02929",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c7ee03457a",
+          "target": "https://doi.org/10.1039/c5sc04714e",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c7ee03457a",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c7ee03457a",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c7ee03457a",
+          "target": "https://doi.org/10.1021/acsami.6b15980",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c7ee03457a",
+          "target": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c7ee03457a",
+          "target": "https://doi.org/10.1039/c6cy02282k",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/slct.201600792",
+          "target": "https://doi.org/10.1039/c5ra27775b",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2017.07.176",
+          "target": "https://doi.org/10.1016/j.tibtech.2016.02.012",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2017.07.176",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2017.07.176",
+          "target": "https://doi.org/10.1039/c5ra24254a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.0c05580",
+          "target": "https://doi.org/10.1002/ajoc.201900554",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.0c05580",
+          "target": "https://doi.org/10.1039/c9sc01446b",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.0c05580",
+          "target": "https://doi.org/10.1021/acscatal.8b04267",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.0c05580",
+          "target": "https://doi.org/10.1021/acscatal.6b02003",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0gc03063e",
+          "target": "https://doi.org/10.1016/j.biteb.2019.100277",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0gc03063e",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0gc03063e",
+          "target": "https://doi.org/10.1016/j.jclepro.2019.119342",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0gc03063e",
+          "target": "https://doi.org/10.1007/s42824-020-00007-x",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0gc03063e",
+          "target": "https://doi.org/10.1039/c5ra24254a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "target": "https://doi.org/10.1038/s41598-017-06849-x",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.6b02479",
+          "target": "https://doi.org/10.1039/c5sc04714e",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.6b02479",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.jhazmat.2021.125588",
+          "target": "https://doi.org/10.1016/j.jcat.2017.02.032",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2019.122128",
+          "target": "https://doi.org/10.1016/j.biteb.2019.100277",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2019.122128",
+          "target": "https://doi.org/10.1016/j.tibtech.2016.02.012",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2019.122128",
+          "target": "https://doi.org/10.1016/j.biortech.2019.03.106",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2019.122128",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/adsu.202500483",
+          "target": "https://doi.org/10.1039/d0ta09788h",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1002/adsu.202500483",
+          "target": "https://doi.org/10.1021/acsanm.1c04419",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/adsu.202500483",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1002/adsu.202500483",
+          "target": "https://doi.org/10.1039/d3ta00836c",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/adsu.202500483",
+          "target": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1038/s41598-017-06849-x",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/slct.202202705",
+          "target": "https://doi.org/10.1016/j.jcat.2017.02.032",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1039/c8ta11307f",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8ta11307f",
+          "target": "https://doi.org/10.1038/s41598-017-06849-x",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.0c03514",
+          "target": "https://doi.org/10.1039/d0ta09788h",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.0c03514",
+          "target": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.0c03514",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.0c03514",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.0c03514",
+          "target": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.orglett.0c01533",
+          "target": "https://doi.org/10.1021/acs.joc.7b00417",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c6nr02263d",
+          "target": "https://doi.org/10.1016/j.carbon.2016.06.021",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.orglett.0c01588",
+          "target": "https://doi.org/10.1039/c7ob00405b",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.jpcc.6b12869",
+          "target": "https://doi.org/10.1039/c6qm00070c",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "target": "https://doi.org/10.1021/acs.inorgchem.6b02929",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "target": "https://doi.org/10.1039/c5sc04714e",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "target": "https://doi.org/10.1021/acsami.6b15980",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "target": "https://doi.org/10.1039/c6cy02282k",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8ra09982k",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8ra09982k",
+          "target": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8ra09982k",
+          "target": "https://doi.org/10.1038/s41598-017-06849-x",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8ra09982k",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8ra09982k",
+          "target": "https://doi.org/10.1039/c8ta11307f",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.6b15980",
+          "target": "https://doi.org/10.1039/c5sc04714e",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.6b15980",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.6b15980",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cej.2018.08.138",
+          "target": "https://doi.org/10.1039/c5ra24254a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cej.2018.08.138",
+          "target": "https://doi.org/10.1016/j.biortech.2017.07.176",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.jpclett.3c02347",
+          "target": "https://doi.org/10.1039/d0ta09619a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-NCL",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1016/j.jpowsour.2024.235086",
+          "target": "https://doi.org/10.1016/j.renene.2019.06.175",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-IICT",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1021/acsanm.3c01721",
+          "target": "https://doi.org/10.1039/d1nr07255b",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsanm.3c01721",
+          "target": "https://doi.org/10.1021/jacs.2c10351",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.0c02966",
+          "target": "https://doi.org/10.1021/acs.joc.6b02670",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.0c02966",
+          "target": "https://doi.org/10.1021/acsami.6b12730",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.0c02966",
+          "target": "https://doi.org/10.1021/acsami.9b19809",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1038/s41598-018-37566-8",
+          "target": "https://doi.org/10.1039/c5ra27775b",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1038/s41598-018-37566-8",
+          "target": "https://doi.org/10.1021/acsami.6b10704",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1038/s41598-018-37566-8",
+          "target": "https://doi.org/10.1039/c6ra27331a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1038/s41598-018-37566-8",
+          "target": "https://doi.org/10.1002/slct.201701857",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1038/s41598-018-37566-8",
+          "target": "https://doi.org/10.1002/slct.201600792",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1038/s41598-018-37566-8",
+          "target": "https://doi.org/10.1021/acs.energyfuels.6b01829",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100392",
+          "target": "https://doi.org/10.1016/j.biteb.2019.100277",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100392",
+          "target": "https://doi.org/10.1016/j.biortech.2019.122128",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100392",
+          "target": "https://doi.org/10.1007/s42824-020-00007-x",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100392",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100392",
+          "target": "https://doi.org/10.1016/j.jclepro.2019.119342",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8cy02620c",
+          "target": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8cy02620c",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8cy02620c",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c8cy02620c",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100434",
+          "target": "https://doi.org/10.1016/j.biteb.2019.100277",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100434",
+          "target": "https://doi.org/10.1039/d0gc03063e",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100434",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100434",
+          "target": "https://doi.org/10.1007/s42824-020-00007-x",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100434",
+          "target": "https://doi.org/10.1016/j.jclepro.2019.119342",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cogsc.2020.100434",
+          "target": "https://doi.org/10.1016/j.cogsc.2020.100392",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/slct.201701857",
+          "target": "https://doi.org/10.1039/c5ra27775b",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/slct.201701857",
+          "target": "https://doi.org/10.1021/acsami.6b10704",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/slct.201701857",
+          "target": "https://doi.org/10.1039/c6ra27331a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/slct.201701857",
+          "target": "https://doi.org/10.1016/j.electacta.2017.01.095",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/slct.201701857",
+          "target": "https://doi.org/10.1002/slct.201600792",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/slct.201701857",
+          "target": "https://doi.org/10.1021/acs.energyfuels.6b01829",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.organomet.8b00568",
+          "target": "https://doi.org/10.1039/c7cc02311a",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0se00232a",
+          "target": "https://doi.org/10.1002/ejic.201701427",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0se00232a",
+          "target": "https://doi.org/10.1021/acs.chemmater.6b01370",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-NCL",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.9b00418",
+          "target": "https://doi.org/10.1039/c7cc05145j",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.8b04267",
+          "target": "https://doi.org/10.1021/acscatal.7b01044",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acscatal.8b04267",
+          "target": "https://doi.org/10.1021/acscatal.6b02003",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.joc.1c00477",
+          "target": "https://doi.org/10.1021/acs.orglett.0c01533",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/tcr.202100136",
+          "target": "https://doi.org/10.1021/acscatal.7b04054",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.7b12320",
+          "target": "https://doi.org/10.1021/acs.chemrev.6b00160",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1cc02292j",
+          "target": "https://doi.org/10.1039/d0ta09619a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-NCL",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1039/d3ta00836c",
+          "target": "https://doi.org/10.1016/j.ijhydene.2022.08.006",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d3ta00836c",
+          "target": "https://doi.org/10.1039/d2cp02089k",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d3ta00836c",
+          "target": "https://doi.org/10.1021/acs.jpcc.1c01922",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9dt03941d",
+          "target": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9dt03941d",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9dt03941d",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9dt03941d",
+          "target": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2022.08.006",
+          "target": "https://doi.org/10.1016/j.ijhydene.2021.06.033",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2022.08.006",
+          "target": "https://doi.org/10.1021/acsanm.1c04419",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2022.08.006",
+          "target": "https://doi.org/10.1039/d0ta09619a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-NCL",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2022.08.006",
+          "target": "https://doi.org/10.1039/d1cc02292j",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.ijhydene.2022.08.006",
+          "target": "https://doi.org/10.1021/acs.jpcc.1c01922",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09619a",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09619a",
+          "target": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09619a",
+          "target": "https://doi.org/10.1039/c8ra09982k",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09619a",
+          "target": "https://doi.org/10.1021/acsami.0c07431",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09619a",
+          "target": "https://doi.org/10.1038/s41598-017-06849-x",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09619a",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09619a",
+          "target": "https://doi.org/10.1021/acsami.9b07070",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09619a",
+          "target": "https://doi.org/10.1039/c8ta11307f",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0ta09619a",
+          "target": "https://doi.org/10.1002/solr.201900557",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.jnatprod.5c00322",
+          "target": "https://doi.org/10.1021/acs.orglett.4c02619",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.1c03080",
+          "target": "https://doi.org/10.1039/c8ra09982k",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.1c03080",
+          "target": "https://doi.org/10.1021/acsami.0c07431",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.1c03080",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.1c03080",
+          "target": "https://doi.org/10.1038/s41598-017-06849-x",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.1c03080",
+          "target": "https://doi.org/10.1021/acsami.9b07070",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.1c03080",
+          "target": "https://doi.org/10.1039/d0ta09619a",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.1c03080",
+          "target": "https://doi.org/10.1002/solr.201900557",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.1c03080",
+          "target": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsanm.1c04419",
+          "target": "https://doi.org/10.1016/j.ijhydene.2021.06.033",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.6b02929",
+          "target": "https://doi.org/10.1039/c5sc04714e",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.6b02929",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.6b02929",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/jacs.7b06640",
+          "target": "https://doi.org/10.1002/adma.201603945",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1186/s12974-019-1694-y",
+          "target": "https://doi.org/10.1007/s12031-018-1111-5",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1186/s12974-019-1694-y",
+          "target": "https://doi.org/10.1007/s00018-019-03132-2",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1186/s12974-019-1694-y",
+          "target": "https://doi.org/10.1007/s12031-018-1174-3",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1007/s42824-020-00007-x",
+          "target": "https://doi.org/10.1016/j.biteb.2019.100277",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1007/s42824-020-00007-x",
+          "target": "https://doi.org/10.1016/j.cej.2018.08.138",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1007/s42824-020-00007-x",
+          "target": "https://doi.org/10.1016/j.jclepro.2019.119342",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1007/s42824-020-00007-x",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1007/s42824-020-00007-x",
+          "target": "https://doi.org/10.1039/c5ra24254a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1007/s42824-020-00007-x",
+          "target": "https://doi.org/10.1016/j.cogsc.2020.100392",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1007/s42824-020-00007-x",
+          "target": "https://doi.org/10.1016/j.biortech.2017.07.176",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2cp02089k",
+          "target": "https://doi.org/10.1021/acsanm.1c04419",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2cp02089k",
+          "target": "https://doi.org/10.1039/c8ra09982k",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-NCL",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1039/d2cp02089k",
+          "target": "https://doi.org/10.1039/d1cc02292j",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2cp02089k",
+          "target": "https://doi.org/10.1021/acs.jpcc.1c01922",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.phymed.2021.153729",
+          "target": "https://doi.org/10.1016/j.phymed.2020.153298",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta01407b",
+          "target": "https://doi.org/10.1021/acsanm.0c00434",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta01407b",
+          "target": "https://doi.org/10.1039/c8cy02620c",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta01407b",
+          "target": "https://doi.org/10.1021/acsomega.9b03615",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta01407b",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta01407b",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/adfm.202403795",
+          "target": "https://doi.org/10.1016/j.ijhydene.2021.06.033",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/adfm.202403795",
+          "target": "https://doi.org/10.1016/j.ijhydene.2022.08.006",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/adfm.202403795",
+          "target": "https://doi.org/10.1039/d3ta00836c",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/adfm.202403795",
+          "target": "https://doi.org/10.1039/d1cc02292j",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/adfm.202403795",
+          "target": "https://doi.org/10.1021/acs.jpclett.3c02347",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/adfm.202403795",
+          "target": "https://doi.org/10.1021/acs.jpcc.9b07171",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ta00586d",
+          "target": "https://doi.org/10.1039/d2cp02089k",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ta00586d",
+          "target": "https://doi.org/10.1039/d3ta00836c",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ta00586d",
+          "target": "https://doi.org/10.1021/acs.jpclett.3c02347",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.0c07431",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.0c07431",
+          "target": "https://doi.org/10.1039/c8ra09982k",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.0c07431",
+          "target": "https://doi.org/10.1038/s41598-017-06849-x",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.0c07431",
+          "target": "https://doi.org/10.1021/acsami.9b07070",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.0c07431",
+          "target": "https://doi.org/10.1039/c8ta11307f",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "target": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "target": "https://doi.org/10.1021/acs.inorgchem.6b02929",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "target": "https://doi.org/10.1039/c5sc04714e",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "target": "https://doi.org/10.1021/acsami.6b15980",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "target": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "target": "https://doi.org/10.1039/c6cy02282k",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.9b19809",
+          "target": "https://doi.org/10.1021/acs.joc.6b02670",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.9b19809",
+          "target": "https://doi.org/10.1021/acsami.6b12730",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1nr07255b",
+          "target": "https://doi.org/10.1021/acsami.0c16680",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1nr07255b",
+          "target": "https://doi.org/10.1021/acs.chemmater.6b01370",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-NCL",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1039/d1se01193f",
+          "target": "https://doi.org/10.1039/c9dt03941d",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1se01193f",
+          "target": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1se01193f",
+          "target": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1se01193f",
+          "target": "https://doi.org/10.1021/acs.inorgchem.1c02571",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1se01193f",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1se01193f",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1se01193f",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.6b10704",
+          "target": "https://doi.org/10.1002/slct.201600792",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.6b10704",
+          "target": "https://doi.org/10.1039/c5ra27775b",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.electacta.2017.01.095",
+          "target": "https://doi.org/10.1002/slct.201600792",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.electacta.2017.01.095",
+          "target": "https://doi.org/10.1016/j.electacta.2016.03.150",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/anie.201611268",
+          "target": "https://doi.org/10.3762/bjoc.12.47",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.1c02571",
+          "target": "https://doi.org/10.1039/c9dt03941d",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.1c02571",
+          "target": "https://doi.org/10.1039/d0ta09788h",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.1c02571",
+          "target": "https://doi.org/10.1039/d0qi01060j",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.1c02571",
+          "target": "https://doi.org/10.1021/acs.inorgchem.0c03514",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.1c02571",
+          "target": "https://doi.org/10.1039/c5sc04714e",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/ajoc.201900554",
+          "target": "https://doi.org/10.1021/acscatal.7b01044",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/ajoc.201900554",
+          "target": "https://doi.org/10.1039/c9sc01446b",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/ajoc.201900554",
+          "target": "https://doi.org/10.1021/acscatal.8b04267",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/ajoc.201900554",
+          "target": "https://doi.org/10.1021/acscatal.6b02003",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "target": "https://doi.org/10.1021/acs.inorgchem.6b02929",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "target": "https://doi.org/10.1039/c5sc04714e",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "target": "https://doi.org/10.1039/c6cy02282k",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.8b02680",
+          "target": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.8b02680",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.8b02680",
+          "target": "https://doi.org/10.1021/acscatal.6b00965",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.inorgchem.8b02680",
+          "target": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1039/c8ra09982k",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1021/acsami.0c07431",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1038/s41598-017-06849-x",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1021/acsami.9b07070",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1021/acsaem.1c03080",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1039/c8ta11307f",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1039/d0ta09619a",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d2su00145d",
+          "target": "https://doi.org/10.1002/solr.201900557",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/jacs.8b10334",
+          "target": "https://doi.org/10.1002/adma.201603945",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/jacs.8b10334",
+          "target": "https://doi.org/10.1021/jacs.7b06640",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsanm.0c00434",
+          "target": "https://doi.org/10.1039/c8cy02620c",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsanm.0c00434",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsanm.0c00434",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.5c02877",
+          "target": "https://doi.org/10.1021/acsanm.1c04419",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.5c02877",
+          "target": "https://doi.org/10.1039/d4ta00586d",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.5c02877",
+          "target": "https://doi.org/10.1039/d3ta00836c",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9se00604d",
+          "target": "https://doi.org/10.1016/j.tibtech.2016.02.012",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9se00604d",
+          "target": "https://doi.org/10.1016/j.energy.2016.12.017",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9se00604d",
+          "target": "https://doi.org/10.1016/j.cej.2017.11.005",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9se00604d",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/c9se00604d",
+          "target": "https://doi.org/10.1016/j.cej.2018.08.138",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0qi01060j",
+          "target": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0qi01060j",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d0qi01060j",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1149/2.0501706jes",
+          "target": "https://doi.org/10.1016/j.carbon.2016.06.021",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1149/2.0501706jes",
+          "target": "https://doi.org/10.1039/c6nr02263d",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/cctc.201600937",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.2c02388",
+          "target": "https://doi.org/10.1039/d0ta09788h",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.2c02388",
+          "target": "https://doi.org/10.1021/acs.inorgchem.8b02680",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.2c02388",
+          "target": "https://doi.org/10.1039/c8cy02620c",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.2c02388",
+          "target": "https://doi.org/10.1016/j.mtener.2017.07.016",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.2c02388",
+          "target": "https://doi.org/10.1021/acs.inorgchem.0c03514",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.2c02388",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.2c02388",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsaem.2c02388",
+          "target": "https://doi.org/10.1016/j.nanoen.2017.06.027",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.energy.2016.12.017",
+          "target": "https://doi.org/10.1039/c5ra24254a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.energy.2016.12.017",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d5sc01955a",
+          "target": "https://doi.org/10.1016/j.est.2022.106036",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d5sc01955a",
+          "target": "https://doi.org/10.1016/j.fuel.2021.122487",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d5sc01955a",
+          "target": "https://doi.org/10.1039/c9tc00416e",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1039/d5sc01955a",
+          "target": "https://doi.org/10.1021/acs.chemrev.6b00160",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1038/s41467-022-28288-7",
+          "target": "https://doi.org/10.1021/acscatal.7b04054",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.jclepro.2019.119342",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biteb.2019.100277",
+          "target": "https://doi.org/10.1016/j.biortech.2019.03.106",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biteb.2019.100277",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biteb.2019.100277",
+          "target": "https://doi.org/10.1016/j.biortech.2017.07.176",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1039/d2su00145d",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1039/c8ra09982k",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1021/acsami.0c07431",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1021/acsami.9b07070",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1021/acsaem.1c03080",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1039/d0ta09619a",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1002/solr.201900557",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1021/acs.jpcc.9b07171",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-IICT",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1016/j.jcat.2017.02.032",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1039/d4ya00249k",
+          "target": "https://doi.org/10.1039/c8ta11307f",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.9b07070",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.9b07070",
+          "target": "https://doi.org/10.1016/j.ijhydene.2017.11.057",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.9b07070",
+          "target": "https://doi.org/10.1039/c8ra09982k",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.9b07070",
+          "target": "https://doi.org/10.1038/s41598-017-06849-x",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.9b07070",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.9b07070",
+          "target": "https://doi.org/10.1039/c8ta11307f",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "target": "https://doi.org/10.1016/j.tibtech.2016.02.012",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "target": "https://doi.org/10.1039/c5ra24254a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.cej.2017.11.005",
+          "target": "https://doi.org/10.1039/c5ra24254a",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta09627c",
+          "target": "https://doi.org/10.1039/d0ta09788h",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta09627c",
+          "target": "https://doi.org/10.1021/acs.inorgchem.7b00855",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta09627c",
+          "target": "https://doi.org/10.1039/d0qi01060j",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta09627c",
+          "target": "https://doi.org/10.1021/acs.inorgchem.0c03514",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta09627c",
+          "target": "https://doi.org/10.1021/acscatal.6b02479",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta09627c",
+          "target": "https://doi.org/10.1039/d1ta01407b",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1039/d1ta09627c",
+          "target": "https://doi.org/10.1039/c7ee03457a",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/solr.201900557",
+          "target": "https://doi.org/10.1002/cctc.201600937",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/solr.201900557",
+          "target": "https://doi.org/10.1021/acs.jpcc.7b06661",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/solr.201900557",
+          "target": "https://doi.org/10.1039/c8ra09982k",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/solr.201900557",
+          "target": "https://doi.org/10.1038/s41598-017-06849-x",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/solr.201900557",
+          "target": "https://doi.org/10.1002/slct.201600182",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/solr.201900557",
+          "target": "https://doi.org/10.1021/acsami.9b07070",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/solr.201900557",
+          "target": "https://doi.org/10.1039/c8ta11307f",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.fuel.2021.122487",
+          "target": "https://doi.org/10.1021/acs.chemrev.6b00160",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2019.03.106",
+          "target": "https://doi.org/10.1016/j.tibtech.2016.02.012",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1016/j.biortech.2019.03.106",
+          "target": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsomega.9b03615",
+          "target": "https://doi.org/10.1039/c8cy02620c",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/ejic.201701427",
+          "target": "https://doi.org/10.1021/acs.jpcc.6b12869",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/ejic.201701427",
+          "target": "https://doi.org/10.1002/aenm.201600110",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-NCL",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1002/ejic.201701427",
+          "target": "https://doi.org/10.1021/acs.chemmater.6b01370",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-NCL",
+          "is_cross": true
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.orglett.1c02890",
+          "target": "https://doi.org/10.1021/acs.joc.1c00477",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.orglett.1c02890",
+          "target": "https://doi.org/10.1021/acs.orglett.0c01533",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.joc.6b02670",
+          "target": "https://doi.org/10.1021/acsami.6b12730",
+          "s_inst": "CSIR-NCL",
+          "t_inst": "CSIR-NCL",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.energyfuels.6b01829",
+          "target": "https://doi.org/10.1002/slct.201600792",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.energyfuels.6b01829",
+          "target": "https://doi.org/10.1016/j.electacta.2016.03.150",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acs.energyfuels.6b01829",
+          "target": "https://doi.org/10.1039/c5ra27775b",
+          "s_inst": "CSIR-CECRI",
+          "t_inst": "CSIR-CECRI",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.4c03245",
+          "target": "https://doi.org/10.1039/d1nr07255b",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1021/acsami.4c03245",
+          "target": "https://doi.org/10.1021/jacs.2c10351",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/anie.202215825",
+          "target": "https://doi.org/10.1021/acs.joc.1c00477",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        },
+        {
+          "source": "https://doi.org/10.1002/anie.202215825",
+          "target": "https://doi.org/10.1021/acs.orglett.1c02890",
+          "s_inst": "CSIR-IICT",
+          "t_inst": "CSIR-IICT",
+          "is_cross": false
+        }
+      ],
+      "top_pagerank": [
+        {
+          "rank": 1,
+          "doi": "https://doi.org/10.1021/acscatal.6b02479",
+          "score": 0.00301,
+          "in_degree": 129,
+          "title": "Recent Trends and Perspectives in Electrochemical Water Splitting with an Emphasis on...",
+          "journal": "ACS Catalysis",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "citations": 2493,
+          "quartile": "Q1"
+        },
+        {
+          "rank": 2,
+          "doi": "https://doi.org/10.1021/acscatal.6b00965",
+          "score": 0.00282,
+          "in_degree": 41,
+          "title": "Pt Nanoparticle Anchored Molecular Self-Assemblies of DNA: An Extremely Stable and Ef...",
+          "journal": "ACS Catalysis",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "citations": 243,
+          "quartile": "Q1"
+        },
+        {
+          "rank": 3,
+          "doi": "https://doi.org/10.1002/open.201500201",
+          "score": 0.00276,
+          "in_degree": 11,
+          "title": "Effect of Amide Hydrogen Bonding Interaction on Supramolecular Self\u2010Assembly of Napht...",
+          "journal": "ChemistryOpen",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "citations": 27,
+          "quartile": "Q1"
+        },
+        {
+          "rank": 4,
+          "doi": "https://doi.org/10.1039/c5sc04714e",
+          "score": 0.0027,
+          "in_degree": 30,
+          "title": "Unprotected and interconnected Ru 0 nano-chain networks: advantages of unprotected su...",
+          "journal": "Chemical Science",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "citations": 126,
+          "quartile": "Q1"
+        },
+        {
+          "rank": 5,
+          "doi": "https://doi.org/10.1021/acs.chemrev.6b00160",
+          "score": 0.00199,
+          "in_degree": 53,
+          "title": "Functional Naphthalene Diimides: Synthesis, Properties, and Applications",
+          "journal": "Chemical Reviews",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "citations": 927,
+          "quartile": "Q1"
+        },
+        {
+          "rank": 6,
+          "doi": "https://doi.org/10.1039/c7ee03457a",
+          "score": 0.00174,
+          "in_degree": 110,
+          "title": "Precision and correctness in the evaluation of electrocatalytic water splitting: revi...",
+          "journal": "Energy & Environmental Science",
+          "year": 2018,
+          "inst": "CSIR-CECRI",
+          "citations": 1623,
+          "quartile": "Q1"
+        },
+        {
+          "rank": 7,
+          "doi": "https://doi.org/10.1016/j.biortech.2016.03.130",
+          "score": 0.0017,
+          "in_degree": 71,
+          "title": "Waste biorefinery models towards sustainable circular bioeconomy: Critical review and...",
+          "journal": "Bioresource Technology",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "citations": 811,
+          "quartile": "Q1"
+        },
+        {
+          "rank": 8,
+          "doi": "https://doi.org/10.1039/c5ra24254a",
+          "score": 0.0016,
+          "in_degree": 40,
+          "title": "Regulation of acidogenic metabolism towards enhanced short chain fatty acid biosynthe...",
+          "journal": "RSC Advances",
+          "year": 2016,
+          "inst": "CSIR-IICT",
+          "citations": 111,
+          "quartile": "Q1"
+        },
+        {
+          "rank": 9,
+          "doi": "https://doi.org/10.1039/c6cc02943d",
+          "score": 0.00156,
+          "in_degree": 36,
+          "title": "Pharmaceutical cocrystals: walking the talk",
+          "journal": "Chemical Communications",
+          "year": 2016,
+          "inst": "CSIR-NCL",
+          "citations": 557,
+          "quartile": "Q1"
+        },
+        {
+          "rank": 10,
+          "doi": "https://doi.org/10.1039/c5ra27775b",
+          "score": 0.00149,
+          "in_degree": 18,
+          "title": "Facile and scalable route to sheets-on-sheet mesoporous Ni\u2013Co-hydroxide/reduced graph...",
+          "journal": "RSC Advances",
+          "year": 2016,
+          "inst": "CSIR-CECRI",
+          "citations": 31,
+          "quartile": "Q1"
+        }
+      ],
+      "flow_matrix": [
+        {
+          "source_inst": "CSIR-IICT",
+          "s_key": "iict",
+          "iict": 11836,
+          "ncl": 594,
+          "cecri": 162
+        },
+        {
+          "source_inst": "CSIR-NCL",
+          "s_key": "ncl",
+          "iict": 408,
+          "ncl": 8363,
+          "cecri": 164
+        },
+        {
+          "source_inst": "CSIR-CECRI",
+          "s_key": "cecri",
+          "iict": 131,
+          "ncl": 195,
+          "cecri": 5963
+        }
+      ]
+    },
+    "authorship": {
+      "stats": {
+        "total_edges": 65059,
+        "total_authors": 7864,
+        "communities_count": 130,
+        "inter_lab_pairs": 525,
+        "top_collaborator": "Balasubramanian Sridhar"
+      },
+      "nodes": [
+        {
+          "id": "Dr. Chittaranjan Patra",
+          "name": "Dr. Chittaranjan Patra",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Applied Biology",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 283,
+          "betweenness": 0.0033,
+          "symbolSize": 22,
+          "value": 283
+        },
+        {
+          "id": "Ashok Kumar Tiwari",
+          "name": "Ashok Kumar Tiwari",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 174,
+          "betweenness": 0.0066,
+          "symbolSize": 17,
+          "value": 174
+        },
+        {
+          "id": "Dr. Krishna Sai Gajula Technical Assistant",
+          "name": "Dr. Krishna Sai Gajula Technical Assistant",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 52,
+          "department": "Catalysis & Fine Chemicals",
+          "designation": "Scientist",
+          "degree": 128,
+          "betweenness": 0.0007,
+          "symbolSize": 15,
+          "value": 128
+        },
+        {
+          "id": "Dr. Subhash Ghosh",
+          "name": "Dr. Subhash Ghosh",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 6,
+          "department": "Organic Synthesis & Process Chemistry",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 151,
+          "betweenness": 0.0136,
+          "symbolSize": 16,
+          "value": 151
+        },
+        {
+          "id": "Seetha Rama Rao Kamaraju",
+          "name": "Seetha Rama Rao Kamaraju",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 50,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 212,
+          "betweenness": 0.0012,
+          "symbolSize": 19,
+          "value": 212
+        },
+        {
+          "id": "Dr. Kadhiravan Shanmuganathan",
+          "name": "Dr. Kadhiravan Shanmuganathan",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Polymer Science and Engineering Division",
+          "designation": "Scientist",
+          "degree": 130,
+          "betweenness": 0.0074,
+          "symbolSize": 15,
+          "value": 130
+        },
+        {
+          "id": "Seelam Prasanthkumar",
+          "name": "Seelam Prasanthkumar",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 10,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 172,
+          "betweenness": 0.0008,
+          "symbolSize": 17,
+          "value": 172
+        },
+        {
+          "id": "Dr A Pandikumar",
+          "name": "Dr A Pandikumar",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "ELECTROCHEMICAL PROCESS ENGINEERING",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 147,
+          "betweenness": 0.0017,
+          "symbolSize": 16,
+          "value": 147
+        },
+        {
+          "id": "Srihari Pabbaraja",
+          "name": "Srihari Pabbaraja",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 249,
+          "betweenness": 0.0256,
+          "symbolSize": 21,
+          "value": 249
+        },
+        {
+          "id": "Murugavel Kathiresan",
+          "name": "Murugavel Kathiresan",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 8,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 309,
+          "betweenness": 0.0099,
+          "symbolSize": 23,
+          "value": 309
+        },
+        {
+          "id": "Soumya Ranjan Dash",
+          "name": "Soumya Ranjan Dash",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 152,
+          "betweenness": 0.0129,
+          "symbolSize": 16,
+          "value": 152
+        },
+        {
+          "id": "Chinnakonda S. Gopinath",
+          "name": "Chinnakonda S. Gopinath",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 33,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 234,
+          "betweenness": 0.009,
+          "symbolSize": 20,
+          "value": 234
+        },
+        {
+          "id": "Dr. Ujjwal Pal",
+          "name": "Dr. Ujjwal Pal",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Catalysis & Fine Chemicals",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 382,
+          "betweenness": 0.0041,
+          "symbolSize": 27,
+          "value": 382
+        },
+        {
+          "id": "Hirekodathakallu Venkataramaiah Thulasiram",
+          "name": "Hirekodathakallu Venkataramaiah Thulasiram",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 7,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 145,
+          "betweenness": 0.0016,
+          "symbolSize": 16,
+          "value": 145
+        },
+        {
+          "id": "Dr. Sreekumar Kurungot",
+          "name": "Dr. Sreekumar Kurungot",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Physical and Materials Chemistry Division",
+          "designation": "Scientist",
+          "degree": 548,
+          "betweenness": 0.0269,
+          "symbolSize": 34,
+          "value": 548
+        },
+        {
+          "id": "Nakka Lingaiah",
+          "name": "Nakka Lingaiah",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 5,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 238,
+          "betweenness": 0.0128,
+          "symbolSize": 20,
+          "value": 238
+        },
+        {
+          "id": "Vijayanand Perupogu",
+          "name": "Vijayanand Perupogu",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 154,
+          "betweenness": 0.0091,
+          "symbolSize": 16,
+          "value": 154
+        },
+        {
+          "id": "Ragunath Madhu",
+          "name": "Ragunath Madhu",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 317,
+          "betweenness": 0.0095,
+          "symbolSize": 24,
+          "value": 317
+        },
+        {
+          "id": "Dr. Dhiman Sarkar",
+          "name": "Dr. Dhiman Sarkar",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 44,
+          "department": "Organic Chemistry Division",
+          "designation": "Scientist",
+          "degree": 218,
+          "betweenness": 0.0511,
+          "symbolSize": 19,
+          "value": 218
+        },
+        {
+          "id": "Dr. Mahesh J Kulkarni",
+          "name": "Dr. Mahesh J Kulkarni",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 7,
+          "department": "Biochemical Science Division",
+          "designation": "Scientist",
+          "degree": 218,
+          "betweenness": 0.0335,
+          "symbolSize": 19,
+          "value": 218
+        },
+        {
+          "id": "Deepak Kumar Pattanayak",
+          "name": "Deepak Kumar Pattanayak",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 8,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 187,
+          "betweenness": 0.0038,
+          "symbolSize": 18,
+          "value": 187
+        },
+        {
+          "id": "Vasu Amrutham",
+          "name": "Vasu Amrutham",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 52,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 113,
+          "betweenness": 0.0,
+          "symbolSize": 15,
+          "value": 113
+        },
+        {
+          "id": "Dr. Samir H. Chikkali",
+          "name": "Dr. Samir H. Chikkali",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Polymer Science and Engineering Division",
+          "designation": "Scientist",
+          "degree": 213,
+          "betweenness": 0.0049,
+          "symbolSize": 19,
+          "value": 213
+        },
+        {
+          "id": "Vijay Kumar Velisoju",
+          "name": "Vijay Kumar Velisoju",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 52,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 116,
+          "betweenness": 0.0048,
+          "symbolSize": 15,
+          "value": 116
+        },
+        {
+          "id": "Srinivasa Rao Mutheneni",
+          "name": "Srinivasa Rao Mutheneni",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 29,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 142,
+          "betweenness": 0.0026,
+          "symbolSize": 16,
+          "value": 142
+        },
+        {
+          "id": "Dr. Srigiridhar Kotamraju",
+          "name": "Dr. Srigiridhar Kotamraju",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Applied Biology",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 121,
+          "betweenness": 0.0081,
+          "symbolSize": 15,
+          "value": 121
+        },
+        {
+          "id": "Dr Subbiah Alwarappan",
+          "name": "Dr Subbiah Alwarappan",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 8,
+          "department": "ELECTRODICS AND ELECTROCATALYSIS",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 128,
+          "betweenness": 0.0038,
+          "symbolSize": 15,
+          "value": 128
+        },
+        {
+          "id": "David Raju Burri",
+          "name": "David Raju Burri",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 50,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 221,
+          "betweenness": 0.0011,
+          "symbolSize": 19,
+          "value": 221
+        },
+        {
+          "id": "Dr. Manjusha V. Shelke",
+          "name": "Dr. Manjusha V. Shelke",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 15,
+          "department": "Physical and Materials Chemistry Division",
+          "designation": "Scientist",
+          "degree": 213,
+          "betweenness": 0.0081,
+          "symbolSize": 19,
+          "value": 213
+        },
+        {
+          "id": "Dr. Haridas B. Rode",
+          "name": "Dr. Haridas B. Rode",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 29,
+          "department": "Natural Products & Medicinal Chemistry",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 142,
+          "betweenness": 0.0147,
+          "symbolSize": 16,
+          "value": 142
+        },
+        {
+          "id": "Dr. Andugulapati Sai Balagi",
+          "name": "Dr. Andugulapati Sai Balagi",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Applied Biology",
+          "designation": "Senior Principal Scientist",
+          "degree": 320,
+          "betweenness": 0.0184,
+          "symbolSize": 24,
+          "value": 320
+        },
+        {
+          "id": "Dr. Anthony Addlagatta",
+          "name": "Dr. Anthony Addlagatta",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 20,
+          "department": "Applied Biology",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 130,
+          "betweenness": 0.0029,
+          "symbolSize": 15,
+          "value": 130
+        },
+        {
+          "id": "Manika Pal Bhadra",
+          "name": "Manika Pal Bhadra",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 0,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 164,
+          "betweenness": 0.0074,
+          "symbolSize": 17,
+          "value": 164
+        },
+        {
+          "id": "Rajesh S. Bhosale",
+          "name": "Rajesh S. Bhosale",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 29,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 124,
+          "betweenness": 0.001,
+          "symbolSize": 15,
+          "value": 124
+        },
+        {
+          "id": "Dr. Vinod C Prabhakaran",
+          "name": "Dr. Vinod C Prabhakaran",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Catalysis Division",
+          "designation": "Scientist",
+          "degree": 225,
+          "betweenness": 0.0223,
+          "symbolSize": 20,
+          "value": 225
+        },
+        {
+          "id": "Naresh Gutta",
+          "name": "Naresh Gutta",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 52,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 113,
+          "betweenness": 0.0007,
+          "symbolSize": 15,
+          "value": 113
+        },
+        {
+          "id": "Katragadda Suresh Babu",
+          "name": "Katragadda Suresh Babu",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 260,
+          "betweenness": 0.0063,
+          "symbolSize": 21,
+          "value": 260
+        },
+        {
+          "id": "Balasubramanian Sridhar",
+          "name": "Balasubramanian Sridhar",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 4,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 853,
+          "betweenness": 0.1026,
+          "symbolSize": 42,
+          "value": 853
+        },
+        {
+          "id": "Dr. D. Srinivasa Reddy",
+          "name": "Dr. D. Srinivasa Reddy",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 18,
+          "department": "Natural Products & Medicinal Chemistry",
+          "designation": "Director",
+          "degree": 251,
+          "betweenness": 0.0295,
+          "symbolSize": 21,
+          "value": 251
+        },
+        {
+          "id": "Dr. S. Sridhar",
+          "name": "Dr. S. Sridhar",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 80,
+          "department": "Chemical Engg. & Process Technology (CE & PT)",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 129,
+          "betweenness": 0.0063,
+          "symbolSize": 15,
+          "value": 129
+        },
+        {
+          "id": "Lingamallu Giribabu",
+          "name": "Lingamallu Giribabu",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 10,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 461,
+          "betweenness": 0.0206,
+          "symbolSize": 30,
+          "value": 461
+        },
+        {
+          "id": "Veena Nayak",
+          "name": "Veena Nayak",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 0,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 134,
+          "betweenness": 0.0037,
+          "symbolSize": 16,
+          "value": 134
+        },
+        {
+          "id": "Kannimuthu Karthick",
+          "name": "Kannimuthu Karthick",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 285,
+          "betweenness": 0.0002,
+          "symbolSize": 22,
+          "value": 285
+        },
+        {
+          "id": "Dr. Sidhanath Vishwanath Bhosale",
+          "name": "Dr. Sidhanath Vishwanath Bhosale",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 29,
+          "department": "Polymers & Functional Materials",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 267,
+          "betweenness": 0.0074,
+          "symbolSize": 22,
+          "value": 267
+        },
+        {
+          "id": "Dr. Nayani Kiranmai",
+          "name": "Dr. Nayani Kiranmai",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 6,
+          "department": "Organic Synthesis & Process Chemistry",
+          "designation": "Senior Principal Scientist",
+          "degree": 117,
+          "betweenness": 0.0006,
+          "symbolSize": 15,
+          "value": 117
+        },
+        {
+          "id": "Vinay Rajput",
+          "name": "Vinay Rajput",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 24,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 125,
+          "betweenness": 0.0001,
+          "symbolSize": 15,
+          "value": 125
+        },
+        {
+          "id": "Dr. Sameena Begum",
+          "name": "Dr. Sameena Begum",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 50,
+          "department": "Energy & Environmental Engg.",
+          "designation": "Senior Scientist",
+          "degree": 121,
+          "betweenness": 0.0004,
+          "symbolSize": 15,
+          "value": 121
+        },
+        {
+          "id": "Dr. Surender Singh Jadav",
+          "name": "Dr. Surender Singh Jadav",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Natural Products & Medicinal Chemistry",
+          "designation": "Principal Scientist",
+          "degree": 179,
+          "betweenness": 0.0162,
+          "symbolSize": 18,
+          "value": 179
+        },
+        {
+          "id": "Vembu Suryanarayanan",
+          "name": "Vembu Suryanarayanan",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 8,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 135,
+          "betweenness": 0.0009,
+          "symbolSize": 16,
+          "value": 135
+        },
+        {
+          "id": "Pitchai Ragupathy",
+          "name": "Pitchai Ragupathy",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 8,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 169,
+          "betweenness": 0.009,
+          "symbolSize": 17,
+          "value": 169
+        },
+        {
+          "id": "Bankupalli Satyavathi",
+          "name": "Bankupalli Satyavathi",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 80,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 161,
+          "betweenness": 0.0067,
+          "symbolSize": 17,
+          "value": 161
+        },
+        {
+          "id": "Dr. Jayaraj Nithyanandhan",
+          "name": "Dr. Jayaraj Nithyanandhan",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Physical and Materials Chemistry Division",
+          "designation": "Scientist",
+          "degree": 158,
+          "betweenness": 0.002,
+          "symbolSize": 17,
+          "value": 158
+        },
+        {
+          "id": "Dr. Rambabu Chegondi",
+          "name": "Dr. Rambabu Chegondi",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 12,
+          "department": "Organic Synthesis & Process Chemistry",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 139,
+          "betweenness": 0.002,
+          "symbolSize": 16,
+          "value": 139
+        },
+        {
+          "id": "Rakesh S. Joshi",
+          "name": "Rakesh S. Joshi",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 7,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 109,
+          "betweenness": 0.0025,
+          "symbolSize": 14,
+          "value": 109
+        },
+        {
+          "id": "Subhendu Kumar Panda",
+          "name": "Subhendu Kumar Panda",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 76,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 115,
+          "betweenness": 0.0206,
+          "symbolSize": 15,
+          "value": 115
+        },
+        {
+          "id": "Dr. Sailaja Krishnamurty",
+          "name": "Dr. Sailaja Krishnamurty",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Physical and Materials Chemistry Division",
+          "designation": "Scientist",
+          "degree": 339,
+          "betweenness": 0.0172,
+          "symbolSize": 25,
+          "value": 339
+        },
+        {
+          "id": "Dr. B.V. Subba Reddy",
+          "name": "Dr. B.V. Subba Reddy",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 4,
+          "department": "Fluoro-Agrochemicals",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 446,
+          "betweenness": 0.0591,
+          "symbolSize": 30,
+          "value": 446
+        },
+        {
+          "id": "Krishnendu Bera",
+          "name": "Krishnendu Bera",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 144,
+          "betweenness": 0.0003,
+          "symbolSize": 16,
+          "value": 144
+        },
+        {
+          "id": "Dr Akhila Kumar Sahu",
+          "name": "Dr Akhila Kumar Sahu",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 76,
+          "department": "CECRI CHENNAI UNIT",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 124,
+          "betweenness": 0.0047,
+          "symbolSize": 15,
+          "value": 124
+        },
+        {
+          "id": "Thirumalaiswamy Raja",
+          "name": "Thirumalaiswamy Raja",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 33,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 167,
+          "betweenness": 0.0022,
+          "symbolSize": 17,
+          "value": 167
+        },
+        {
+          "id": "Dr. Pratyay Basak",
+          "name": "Dr. Pratyay Basak",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 29,
+          "department": "Polymers & Functional Materials",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 158,
+          "betweenness": 0.0172,
+          "symbolSize": 17,
+          "value": 158
+        },
+        {
+          "id": "Dr. Amitava Das",
+          "name": "Dr. Amitava Das",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 6,
+          "department": "Applied Biology",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 156,
+          "betweenness": 0.031,
+          "symbolSize": 17,
+          "value": 156
+        },
+        {
+          "id": "Dr. Ramars Amanchy",
+          "name": "Dr. Ramars Amanchy",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 20,
+          "department": "Applied Biology",
+          "designation": "Senior Principal Scientist",
+          "degree": 123,
+          "betweenness": 0.0082,
+          "symbolSize": 15,
+          "value": 123
+        },
+        {
+          "id": "Mahesh Shantappa Dharne",
+          "name": "Mahesh Shantappa Dharne",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 24,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 261,
+          "betweenness": 0.0125,
+          "symbolSize": 21,
+          "value": 261
+        },
+        {
+          "id": "Gangagni Rao Anupoju",
+          "name": "Gangagni Rao Anupoju",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 50,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 145,
+          "betweenness": 0.0005,
+          "symbolSize": 16,
+          "value": 145
+        },
+        {
+          "id": "Sheshanath Vishwanath Bhosale",
+          "name": "Sheshanath Vishwanath Bhosale",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 29,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 253,
+          "betweenness": 0.0072,
+          "symbolSize": 21,
+          "value": 253
+        },
+        {
+          "id": "Dr. Ravindar Kontham",
+          "name": "Dr. Ravindar Kontham",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Organic Chemistry Division",
+          "designation": "Scientist",
+          "degree": 133,
+          "betweenness": 0.0026,
+          "symbolSize": 15,
+          "value": 133
+        },
+        {
+          "id": "Dr. Durba Sengupta",
+          "name": "Dr. Durba Sengupta",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 7,
+          "department": "Physical and Materials Chemistry Division",
+          "designation": "Scientist",
+          "degree": 111,
+          "betweenness": 0.0032,
+          "symbolSize": 14,
+          "value": 111
+        },
+        {
+          "id": "Vishal M. Dhavale",
+          "name": "Vishal M. Dhavale",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 76,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 110,
+          "betweenness": 0.0057,
+          "symbolSize": 14,
+          "value": 110
+        },
+        {
+          "id": "Dr. Prakash Wadgaonkar",
+          "name": "Dr. Prakash Wadgaonkar",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Polymer Science and Engineering Division",
+          "designation": "Scientist",
+          "degree": 151,
+          "betweenness": 0.007,
+          "symbolSize": 16,
+          "value": 151
+        },
+        {
+          "id": "Dr. Chepuri V. Ramana",
+          "name": "Dr. Chepuri V. Ramana",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 44,
+          "department": "Organic Chemistry Division",
+          "designation": "Scientist",
+          "degree": 145,
+          "betweenness": 0.0027,
+          "symbolSize": 16,
+          "value": 145
+        },
+        {
+          "id": "Dr. Surisetti Suresh",
+          "name": "Dr. Surisetti Suresh",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 12,
+          "department": "Organic Synthesis & Process Chemistry",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 133,
+          "betweenness": 0.0004,
+          "symbolSize": 15,
+          "value": 133
+        },
+        {
+          "id": "Dr. Sakya S. Sen",
+          "name": "Dr. Sakya S. Sen",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Catalysis Division",
+          "designation": "Scientist",
+          "degree": 309,
+          "betweenness": 0.0001,
+          "symbolSize": 23,
+          "value": 309
+        },
+        {
+          "id": "Reddy Shetty Prakasham",
+          "name": "Reddy Shetty Prakasham",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 10,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 215,
+          "betweenness": 0.0183,
+          "symbolSize": 19,
+          "value": 215
+        },
+        {
+          "id": "Dr. Ramesh Ummanni",
+          "name": "Dr. Ramesh Ummanni",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Applied Biology",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 150,
+          "betweenness": 0.0076,
+          "symbolSize": 16,
+          "value": 150
+        },
+        {
+          "id": "Dr. Mohana Krishna Reddy Mudiam",
+          "name": "Dr. Mohana Krishna Reddy Mudiam",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Analytical & Structural Chemistry",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 141,
+          "betweenness": 0.0134,
+          "symbolSize": 16,
+          "value": 141
+        },
+        {
+          "id": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "name": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 234,
+          "betweenness": 0.0068,
+          "symbolSize": 20,
+          "value": 234
+        },
+        {
+          "id": "John Mondal",
+          "name": "John Mondal",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 5,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 173,
+          "betweenness": 0.0048,
+          "symbolSize": 17,
+          "value": 173
+        },
+        {
+          "id": "Dr. G. J. Sanjayan",
+          "name": "Dr. G. J. Sanjayan",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Organic Chemistry Division",
+          "designation": "Scientist",
+          "degree": 152,
+          "betweenness": 0.007,
+          "symbolSize": 16,
+          "value": 152
+        },
+        {
+          "id": "Rajashaker Bantu",
+          "name": "Rajashaker Bantu",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 112,
+          "betweenness": 0.001,
+          "symbolSize": 15,
+          "value": 112
+        },
+        {
+          "id": "Ramakrishna Sistla",
+          "name": "Ramakrishna Sistla",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 367,
+          "betweenness": 0.032,
+          "symbolSize": 26,
+          "value": 367
+        },
+        {
+          "id": "Dr. V. Ramalingam",
+          "name": "Dr. V. Ramalingam",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Natural Products & Medicinal Chemistry",
+          "designation": "Principal Scientist",
+          "degree": 109,
+          "betweenness": 0.005,
+          "symbolSize": 14,
+          "value": 109
+        },
+        {
+          "id": "Arun Karmakar",
+          "name": "Arun Karmakar",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 359,
+          "betweenness": 0.0066,
+          "symbolSize": 26,
+          "value": 359
+        },
+        {
+          "id": "Dr Subrata Kundu",
+          "name": "Dr Subrata Kundu",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "ELECTROCHEMICAL PROCESS ENGINEERING",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 787,
+          "betweenness": 0.057,
+          "symbolSize": 42,
+          "value": 787
+        },
+        {
+          "id": "Sakkarapalayam Murugesan Senthil Kumar",
+          "name": "Sakkarapalayam Murugesan Senthil Kumar",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 169,
+          "betweenness": 0.001,
+          "symbolSize": 17,
+          "value": 169
+        },
+        {
+          "id": "Srinivas Kantevari",
+          "name": "Srinivas Kantevari",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 20,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 265,
+          "betweenness": 0.0215,
+          "symbolSize": 21,
+          "value": 265
+        },
+        {
+          "id": "Vidya Shrikant Gupta",
+          "name": "Vidya Shrikant Gupta",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 7,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 144,
+          "betweenness": 0.0022,
+          "symbolSize": 16,
+          "value": 144
+        },
+        {
+          "id": "Dr. Ashok Giri",
+          "name": "Dr. Ashok Giri",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 7,
+          "department": "Biochemical Science Division",
+          "designation": "Scientist",
+          "degree": 286,
+          "betweenness": 0.0031,
+          "symbolSize": 22,
+          "value": 286
+        },
+        {
+          "id": "Dr. Arun Torris",
+          "name": "Dr. Arun Torris",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Polymer Science and Engineering Division",
+          "designation": "Scientist",
+          "degree": 244,
+          "betweenness": 0.0294,
+          "symbolSize": 20,
+          "value": 244
+        },
+        {
+          "id": "Annadanam V. Sesha Sainath",
+          "name": "Annadanam V. Sesha Sainath",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 146,
+          "betweenness": 0.0058,
+          "symbolSize": 16,
+          "value": 146
+        },
+        {
+          "id": "Suprobhat Singha Roy",
+          "name": "Suprobhat Singha Roy",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 115,
+          "betweenness": 0.0001,
+          "symbolSize": 15,
+          "value": 115
+        },
+        {
+          "id": "B. Narsaiah",
+          "name": "B. Narsaiah",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 0,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 125,
+          "betweenness": 0.0008,
+          "symbolSize": 15,
+          "value": 125
+        },
+        {
+          "id": "\u00c4hmed Kamal",
+          "name": "\u00c4hmed Kamal",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 0,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 365,
+          "betweenness": 0.016,
+          "symbolSize": 26,
+          "value": 365
+        },
+        {
+          "id": "Chada Raji Reddy",
+          "name": "Chada Raji Reddy",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 6,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 269,
+          "betweenness": 0.0044,
+          "symbolSize": 22,
+          "value": 269
+        },
+        {
+          "id": "Dr. K. Krishnamoorthy",
+          "name": "Dr. K. Krishnamoorthy",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Polymer Science and Engineering Division",
+          "designation": "Scientist",
+          "degree": 217,
+          "betweenness": 0.0147,
+          "symbolSize": 19,
+          "value": 217
+        },
+        {
+          "id": "Dr. Debendra Kumar Mohapatra",
+          "name": "Dr. Debendra Kumar Mohapatra",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 4,
+          "department": "Organic Synthesis & Process Chemistry",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 117,
+          "betweenness": 0.0026,
+          "symbolSize": 15,
+          "value": 117
+        },
+        {
+          "id": "Dr. Subashchandrabose Chinnathambi",
+          "name": "Dr. Subashchandrabose Chinnathambi",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 7,
+          "department": "Biochemical Science Division",
+          "designation": "Scientist",
+          "degree": 111,
+          "betweenness": 0.0014,
+          "symbolSize": 14,
+          "value": 111
+        },
+        {
+          "id": "Jhillu Singh Yadav",
+          "name": "Jhillu Singh Yadav",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 4,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 194,
+          "betweenness": 0.0065,
+          "symbolSize": 18,
+          "value": 194
+        },
+        {
+          "id": "Sangeetha Kumaravel",
+          "name": "Sangeetha Kumaravel",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 220,
+          "betweenness": 0.0006,
+          "symbolSize": 19,
+          "value": 220
+        },
+        {
+          "id": "Dr. R. Nandini Devi",
+          "name": "Dr. R. Nandini Devi",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Catalysis Division",
+          "designation": "Scientist",
+          "degree": 122,
+          "betweenness": 0.0112,
+          "symbolSize": 15,
+          "value": 122
+        },
+        {
+          "id": "Dr. S. Nishant Jain",
+          "name": "Dr. S. Nishant Jain",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Applied Biology",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 226,
+          "betweenness": 0.0107,
+          "symbolSize": 20,
+          "value": 226
+        },
+        {
+          "id": "Dr. Amol A. Kulkarni",
+          "name": "Dr. Amol A. Kulkarni",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Chemical Engineering & Process Development",
+          "designation": "Scientist",
+          "degree": 153,
+          "betweenness": 0.0285,
+          "symbolSize": 16,
+          "value": 153
+        },
+        {
+          "id": "Selvasundarasekar Sam Sankar",
+          "name": "Selvasundarasekar Sam Sankar",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 255,
+          "betweenness": 0.0001,
+          "symbolSize": 21,
+          "value": 255
+        },
+        {
+          "id": "Dr. Surya Prakash Singh",
+          "name": "Dr. Surya Prakash Singh",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 10,
+          "department": "Polymers & Functional Materials",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 326,
+          "betweenness": 0.0255,
+          "symbolSize": 24,
+          "value": 326
+        },
+        {
+          "id": "Rahul Banerjee",
+          "name": "Rahul Banerjee",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 155,
+          "betweenness": 0.0004,
+          "symbolSize": 16,
+          "value": 155
+        },
+        {
+          "id": "Dr. Benudhar Punji",
+          "name": "Dr. Benudhar Punji",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Organic Chemistry Division",
+          "designation": "Scientist",
+          "degree": 131,
+          "betweenness": 0.0008,
+          "symbolSize": 15,
+          "value": 131
+        },
+        {
+          "id": "Tamal Das",
+          "name": "Tamal Das",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 123,
+          "betweenness": 0.0003,
+          "symbolSize": 15,
+          "value": 123
+        },
+        {
+          "id": "Dr. Sunil Misra",
+          "name": "Dr. Sunil Misra",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 29,
+          "department": "Applied Biology",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 371,
+          "betweenness": 0.0417,
+          "symbolSize": 26,
+          "value": 371
+        },
+        {
+          "id": "Dr. Ramanuj Narayan",
+          "name": "Dr. Ramanuj Narayan",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 29,
+          "department": "Polymers & Functional Materials",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 193,
+          "betweenness": 0.0129,
+          "symbolSize": 18,
+          "value": 193
+        },
+        {
+          "id": "Dr. Kumar Vanka",
+          "name": "Dr. Kumar Vanka",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Physical and Materials Chemistry Division",
+          "designation": "Scientist",
+          "degree": 663,
+          "betweenness": 0.0353,
+          "symbolSize": 39,
+          "value": 663
+        },
+        {
+          "id": "V. Jayathirtha Rao",
+          "name": "V. Jayathirtha Rao",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 9,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 184,
+          "betweenness": 0.0101,
+          "symbolSize": 18,
+          "value": 184
+        },
+        {
+          "id": "Dr. Manohar V. Badiger",
+          "name": "Dr. Manohar V. Badiger",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 19,
+          "department": "Polymer Science and Engineering Division",
+          "designation": "Scientist",
+          "degree": 136,
+          "betweenness": 0.0083,
+          "symbolSize": 16,
+          "value": 136
+        },
+        {
+          "id": "Dr. Sanjay P. Kamble",
+          "name": "Dr. Sanjay P. Kamble",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 24,
+          "department": "Chemical Engineering & Process Development",
+          "designation": "Scientist",
+          "degree": 175,
+          "betweenness": 0.0069,
+          "symbolSize": 17,
+          "value": 175
+        },
+        {
+          "id": "Dr. S. Venkata Mohan",
+          "name": "Dr. S. Venkata Mohan",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 10,
+          "department": "Energy & Environmental Engg.",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 449,
+          "betweenness": 0.0294,
+          "symbolSize": 30,
+          "value": 449
+        },
+        {
+          "id": "Benjaram M. Reddy",
+          "name": "Benjaram M. Reddy",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 5,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 137,
+          "betweenness": 0.0016,
+          "symbolSize": 16,
+          "value": 137
+        },
+        {
+          "id": "Sreenivasan Nagappan",
+          "name": "Sreenivasan Nagappan",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 213,
+          "betweenness": 0.0016,
+          "symbolSize": 19,
+          "value": 213
+        },
+        {
+          "id": "Dr. Bathini Nagendra Babu",
+          "name": "Dr. Bathini Nagendra Babu",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 0,
+          "department": "Fluoro-Agrochemicals",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 109,
+          "betweenness": 0.0043,
+          "symbolSize": 14,
+          "value": 109
+        },
+        {
+          "id": "Dr. Maddi Sridhar Reddy",
+          "name": "Dr. Maddi Sridhar Reddy",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 12,
+          "department": "Organic Synthesis & Process Chemistry",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 119,
+          "betweenness": 0.0003,
+          "symbolSize": 15,
+          "value": 119
+        },
+        {
+          "id": "Y. Poornachandra",
+          "name": "Y. Poornachandra",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 0,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 117,
+          "betweenness": 0.0056,
+          "symbolSize": 15,
+          "value": 117
+        },
+        {
+          "id": "Marappan Sathish",
+          "name": "Marappan Sathish",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 374,
+          "betweenness": 0.033,
+          "symbolSize": 26,
+          "value": 374
+        },
+        {
+          "id": "Bandi Siva",
+          "name": "Bandi Siva",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 27,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 231,
+          "betweenness": 0.0048,
+          "symbolSize": 20,
+          "value": 231
+        },
+        {
+          "id": "Dr. Vineet Aniya",
+          "name": "Dr. Vineet Aniya",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 80,
+          "department": "Chemical Engg. & Process Technology (CE & PT)",
+          "designation": "Senior Principal Scientist",
+          "degree": 168,
+          "betweenness": 0.0172,
+          "symbolSize": 17,
+          "value": 168
+        },
+        {
+          "id": "Ahmed Kamal",
+          "name": "Ahmed Kamal",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 0,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 125,
+          "betweenness": 0.0051,
+          "symbolSize": 15,
+          "value": 125
+        },
+        {
+          "id": "Dr. Jagadeesh Babu Nanubolu",
+          "name": "Dr. Jagadeesh Babu Nanubolu",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 12,
+          "department": "Analytical & Structural Chemistry",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 572,
+          "betweenness": 0.0873,
+          "symbolSize": 35,
+          "value": 572
+        },
+        {
+          "id": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "name": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 6,
+          "department": "Energy & Environmental Engg.",
+          "designation": "Scientist",
+          "degree": 255,
+          "betweenness": 0.0091,
+          "symbolSize": 21,
+          "value": 255
+        },
+        {
+          "id": "Sumana Chakravarty",
+          "name": "Sumana Chakravarty",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 288,
+          "betweenness": 0.0076,
+          "symbolSize": 22,
+          "value": 288
+        },
+        {
+          "id": "Dr. Kaki Shiva Shanker",
+          "name": "Dr. Kaki Shiva Shanker",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 29,
+          "department": "Oils, Lipid Science & Technology",
+          "designation": "Chief Scientist (Scientist-F)",
+          "degree": 124,
+          "betweenness": 0.0031,
+          "symbolSize": 15,
+          "value": 124
+        },
+        {
+          "id": "Balasubramanian Subramanian",
+          "name": "Balasubramanian Subramanian",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 76,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 175,
+          "betweenness": 0.0052,
+          "symbolSize": 17,
+          "value": 175
+        },
+        {
+          "id": "Chityal Ganesh Kumar",
+          "name": "Chityal Ganesh Kumar",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 0,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 352,
+          "betweenness": 0.0106,
+          "symbolSize": 25,
+          "value": 352
+        },
+        {
+          "id": "Hariharan N. Dhandapani",
+          "name": "Hariharan N. Dhandapani",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 181,
+          "betweenness": 0.0002,
+          "symbolSize": 18,
+          "value": 181
+        },
+        {
+          "id": "Dr. Narendra Kadoo",
+          "name": "Dr. Narendra Kadoo",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 7,
+          "department": "Biochemical Science Division",
+          "designation": "Scientist",
+          "degree": 115,
+          "betweenness": 0.0104,
+          "symbolSize": 15,
+          "value": 115
+        },
+        {
+          "id": "Murugan Veerapandian",
+          "name": "Murugan Veerapandian",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 8,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 125,
+          "betweenness": 0.0193,
+          "symbolSize": 15,
+          "value": 125
+        },
+        {
+          "id": "Prashant S. Niphadkar",
+          "name": "Prashant S. Niphadkar",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 3,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 108,
+          "betweenness": 0.0041,
+          "symbolSize": 14,
+          "value": 108
+        },
+        {
+          "id": "Sengeni Anantharaj",
+          "name": "Sengeni Anantharaj",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 147,
+          "betweenness": 0.0011,
+          "symbolSize": 16,
+          "value": 147
+        },
+        {
+          "id": "S. Prabhakar",
+          "name": "S. Prabhakar",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 20,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 230,
+          "betweenness": 0.0181,
+          "symbolSize": 20,
+          "value": 230
+        },
+        {
+          "id": "Dr. Santhosh Babu Sukumaran",
+          "name": "Dr. Santhosh Babu Sukumaran",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Organic Chemistry Division",
+          "designation": "Scientist",
+          "degree": 206,
+          "betweenness": 0.0049,
+          "symbolSize": 19,
+          "value": 206
+        },
+        {
+          "id": "B. V. Subba Reddy",
+          "name": "B. V. Subba Reddy",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 4,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 119,
+          "betweenness": 0.0081,
+          "symbolSize": 15,
+          "value": 119
+        },
+        {
+          "id": "Dr. Rajiv Trivedi",
+          "name": "Dr. Rajiv Trivedi",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 10,
+          "department": "Catalysis & Fine Chemicals",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 117,
+          "betweenness": 0.0025,
+          "symbolSize": 15,
+          "value": 117
+        },
+        {
+          "id": "Bojja Sreedhar",
+          "name": "Bojja Sreedhar",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 204,
+          "betweenness": 0.0578,
+          "symbolSize": 19,
+          "value": 204
+        },
+        {
+          "id": "Dr. A. Venugopal",
+          "name": "Dr. A. Venugopal",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 52,
+          "department": "Catalysis & Fine Chemicals",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 120,
+          "betweenness": 0.0028,
+          "symbolSize": 15,
+          "value": 120
+        },
+        {
+          "id": "Prathama S. Mainkar",
+          "name": "Prathama S. Mainkar",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 6,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 261,
+          "betweenness": 0.0068,
+          "symbolSize": 21,
+          "value": 261
+        },
+        {
+          "id": "Chandrashekhar Vasant Rode",
+          "name": "Chandrashekhar Vasant Rode",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 24,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 162,
+          "betweenness": 0.003,
+          "symbolSize": 17,
+          "value": 162
+        },
+        {
+          "id": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "name": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 11,
+          "department": "Applied Biology",
+          "designation": "Scientist",
+          "degree": 187,
+          "betweenness": 0.0068,
+          "symbolSize": 18,
+          "value": 187
+        },
+        {
+          "id": "Syed Gulam Dastager",
+          "name": "Syed Gulam Dastager",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 24,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 236,
+          "betweenness": 0.0075,
+          "symbolSize": 20,
+          "value": 236
+        },
+        {
+          "id": "Galla Venkata Karunakar",
+          "name": "Galla Venkata Karunakar",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 4,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 132,
+          "betweenness": 0.0007,
+          "symbolSize": 15,
+          "value": 132
+        },
+        {
+          "id": "Rangasamy Thangamuthu",
+          "name": "Rangasamy Thangamuthu",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 168,
+          "betweenness": 0.0025,
+          "symbolSize": 17,
+          "value": 168
+        },
+        {
+          "id": "Dr. Rajesh G. Gonnade",
+          "name": "Dr. Rajesh G. Gonnade",
+          "inst": "CSIR-NCL",
+          "category": 1,
+          "community": 13,
+          "department": "Physical and Materials Chemistry Division",
+          "designation": "Scientist",
+          "degree": 749,
+          "betweenness": 0.0527,
+          "symbolSize": 42,
+          "value": 749
+        },
+        {
+          "id": "Dr P Murugan",
+          "name": "Dr P Murugan",
+          "inst": "CSIR-CECRI",
+          "category": 2,
+          "community": 43,
+          "department": "CENTRAL INSTRUMENTATION FACILITY",
+          "designation": "Chief Scientist (Scientist-G)",
+          "degree": 191,
+          "betweenness": 0.0091,
+          "symbolSize": 18,
+          "value": 191
+        },
+        {
+          "id": "Nama Narender",
+          "name": "Nama Narender",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 52,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 178,
+          "betweenness": 0.0023,
+          "symbolSize": 18,
+          "value": 178
+        },
+        {
+          "id": "Durgaiah Chevella",
+          "name": "Durgaiah Chevella",
+          "inst": "CSIR-IICT",
+          "category": 0,
+          "community": 52,
+          "department": "Scientific Cadre",
+          "designation": "Scientist",
+          "degree": 111,
+          "betweenness": 0.0,
+          "symbolSize": 14,
+          "value": 111
+        }
+      ],
+      "links": [
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Dr. Ramanuj Narayan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Rajesh S. Bhosale",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Bojja Sreedhar",
+          "weight": 10,
+          "value": 10,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Ramakrishna Sistla",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Sumana Chakravarty",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Dr. Sunil Misra",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Dr. Ramars Amanchy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chittaranjan Patra",
+          "target": "Srinivasa Rao Mutheneni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Dr. Ramars Amanchy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Dr. Sunil Misra",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Bandi Siva",
+          "weight": 12,
+          "value": 12,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Katragadda Suresh Babu",
+          "weight": 12,
+          "value": 12,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Reddy Shetty Prakasham",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Veena Nayak",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Dr. Mohana Krishna Reddy Mudiam",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Dr. V. Ramalingam",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Balasubramanian Sridhar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Dr. B.V. Subba Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Dr. Andugulapati Sai Balagi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Dr. Surender Singh Jadav",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Ashok Kumar Tiwari",
+          "target": "Srinivasa Rao Mutheneni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Krishna Sai Gajula Technical Assistant",
+          "target": "Durgaiah Chevella",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Krishna Sai Gajula Technical Assistant",
+          "target": "Nama Narender",
+          "weight": 21,
+          "value": 21,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Krishna Sai Gajula Technical Assistant",
+          "target": "Vasu Amrutham",
+          "weight": 17,
+          "value": 17,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Krishna Sai Gajula Technical Assistant",
+          "target": "Dr. Andugulapati Sai Balagi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Subhash Ghosh",
+          "target": "Srihari Pabbaraja",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Subhash Ghosh",
+          "target": "Chada Raji Reddy",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Subhash Ghosh",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Subhash Ghosh",
+          "target": "Prathama S. Mainkar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Subhash Ghosh",
+          "target": "Dr. Haridas B. Rode",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Subhash Ghosh",
+          "target": "Dr. Maddi Sridhar Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Subhash Ghosh",
+          "target": "Balasubramanian Sridhar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Subhash Ghosh",
+          "target": "Dr. Amitava Das",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Subhash Ghosh",
+          "target": "Dr. Pratyay Basak",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Seetha Rama Rao Kamaraju",
+          "target": "David Raju Burri",
+          "weight": 43,
+          "value": 43,
+          "is_cross": false
+        },
+        {
+          "source": "Seetha Rama Rao Kamaraju",
+          "target": "Vijayanand Perupogu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Kadhiravan Shanmuganathan",
+          "target": "Dr. Arun Torris",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Kadhiravan Shanmuganathan",
+          "target": "Dr. Samir H. Chikkali",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Kadhiravan Shanmuganathan",
+          "target": "Dr Akhila Kumar Sahu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Kadhiravan Shanmuganathan",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Kadhiravan Shanmuganathan",
+          "target": "Soumya Ranjan Dash",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Kadhiravan Shanmuganathan",
+          "target": "Dr. K. Krishnamoorthy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Seelam Prasanthkumar",
+          "target": "Lingamallu Giribabu",
+          "weight": 40,
+          "value": 40,
+          "is_cross": false
+        },
+        {
+          "source": "Seelam Prasanthkumar",
+          "target": "Dr. Surya Prakash Singh",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Seelam Prasanthkumar",
+          "target": "Chada Raji Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Seelam Prasanthkumar",
+          "target": "Dr. Pratyay Basak",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Seelam Prasanthkumar",
+          "target": "Dr. Ujjwal Pal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Seelam Prasanthkumar",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Seelam Prasanthkumar",
+          "target": "Dr. Nayani Kiranmai",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Seelam Prasanthkumar",
+          "target": "Prathama S. Mainkar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr A Pandikumar",
+          "target": "Marappan Sathish",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr A Pandikumar",
+          "target": "Dr P Murugan",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Dr A Pandikumar",
+          "target": "Subhendu Kumar Panda",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr A Pandikumar",
+          "target": "Balasubramanian Subramanian",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr A Pandikumar",
+          "target": "Sakkarapalayam Murugesan Senthil Kumar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Jhillu Singh Yadav",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Sumana Chakravarty",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Veena Nayak",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "\u00c4hmed Kamal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Balasubramanian Sridhar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Dr. Ramesh Ummanni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Chada Raji Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Prathama S. Mainkar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Manika Pal Bhadra",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Dr. Andugulapati Sai Balagi",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Ramakrishna Sistla",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Dr. Nayani Kiranmai",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Dr. Surender Singh Jadav",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Lingamallu Giribabu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Ahmed Kamal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srihari Pabbaraja",
+          "target": "Dr. Sunil Misra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "Vembu Suryanarayanan",
+          "weight": 21,
+          "value": 21,
+          "is_cross": false
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "Dr Subbiah Alwarappan",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "Deepak Kumar Pattanayak",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "Pitchai Ragupathy",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "Dr Subrata Kundu",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "Ragunath Madhu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "Marappan Sathish",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "John Mondal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "Suprobhat Singha Roy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Murugavel Kathiresan",
+          "target": "Subhendu Kumar Panda",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Dr. Kumar Vanka",
+          "weight": 36,
+          "value": 36,
+          "is_cross": false
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 10,
+          "value": 10,
+          "is_cross": false
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Dr. Sakya S. Sen",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Tamal Das",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Dr. Rambabu Chegondi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Dr. Amol A. Kulkarni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Dr. K. Krishnamoorthy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Soumya Ranjan Dash",
+          "target": "Dr. Samir H. Chikkali",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Chinnakonda S. Gopinath",
+          "target": "Dr. Vinod C Prabhakaran",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Chinnakonda S. Gopinath",
+          "target": "Thirumalaiswamy Raja",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Chinnakonda S. Gopinath",
+          "target": "Dr. K. Krishnamoorthy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ujjwal Pal",
+          "target": "Lingamallu Giribabu",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ujjwal Pal",
+          "target": "Bojja Sreedhar",
+          "weight": 13,
+          "value": 13,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ujjwal Pal",
+          "target": "Annadanam V. Sesha Sainath",
+          "weight": 20,
+          "value": 20,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ujjwal Pal",
+          "target": "Vijayanand Perupogu",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ujjwal Pal",
+          "target": "Dr. Pratyay Basak",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ujjwal Pal",
+          "target": "Arun Karmakar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Ujjwal Pal",
+          "target": "Dr Subrata Kundu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Ujjwal Pal",
+          "target": "Ragunath Madhu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Ujjwal Pal",
+          "target": "Dr. B.V. Subba Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Hirekodathakallu Venkataramaiah Thulasiram",
+          "target": "Dr. Ashok Giri",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Hirekodathakallu Venkataramaiah Thulasiram",
+          "target": "Dr. Mahesh J Kulkarni",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Hirekodathakallu Venkataramaiah Thulasiram",
+          "target": "Dr. Durba Sengupta",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Hirekodathakallu Venkataramaiah Thulasiram",
+          "target": "Vidya Shrikant Gupta",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Hirekodathakallu Venkataramaiah Thulasiram",
+          "target": "Dr. Subashchandrabose Chinnathambi",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Hirekodathakallu Venkataramaiah Thulasiram",
+          "target": "Mahesh Shantappa Dharne",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Hirekodathakallu Venkataramaiah Thulasiram",
+          "target": "Dr. Narendra Kadoo",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Rahul Banerjee",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Vishal M. Dhavale",
+          "weight": 6,
+          "value": 6,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. R. Nandini Devi",
+          "weight": 12,
+          "value": 12,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. Vinod C Prabhakaran",
+          "weight": 13,
+          "value": 13,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. Arun Torris",
+          "weight": 15,
+          "value": 15,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. Manohar V. Badiger",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. Kumar Vanka",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. Samir H. Chikkali",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. Sailaja Krishnamurty",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sreekumar Kurungot",
+          "target": "Dr. S. Venkata Mohan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Nakka Lingaiah",
+          "target": "John Mondal",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "Nakka Lingaiah",
+          "target": "Vijayanand Perupogu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Vijayanand Perupogu",
+          "target": "Bankupalli Satyavathi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Vijayanand Perupogu",
+          "target": "Bojja Sreedhar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Vijayanand Perupogu",
+          "target": "David Raju Burri",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Vijayanand Perupogu",
+          "target": "Sheshanath Vishwanath Bhosale",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Vijayanand Perupogu",
+          "target": "Naresh Gutta",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Vijayanand Perupogu",
+          "target": "Annadanam V. Sesha Sainath",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Vijayanand Perupogu",
+          "target": "Dr. Sidhanath Vishwanath Bhosale",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Arun Karmakar",
+          "weight": 43,
+          "value": 43,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Dr Subrata Kundu",
+          "weight": 68,
+          "value": 68,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Kannimuthu Karthick",
+          "weight": 17,
+          "value": 17,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Selvasundarasekar Sam Sankar",
+          "weight": 25,
+          "value": 25,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Sangeetha Kumaravel",
+          "weight": 24,
+          "value": 24,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Krishnendu Bera",
+          "weight": 21,
+          "value": 21,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Hariharan N. Dhandapani",
+          "weight": 22,
+          "value": 22,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Sreenivasan Nagappan",
+          "weight": 21,
+          "value": 21,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Dr P Murugan",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Suprobhat Singha Roy",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Dr. B.V. Subba Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Vembu Suryanarayanan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ragunath Madhu",
+          "target": "Rangasamy Thangamuthu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Dhiman Sarkar",
+          "target": "Dr. Amitava Das",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Dhiman Sarkar",
+          "target": "Dr. D. Srinivasa Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Dhiman Sarkar",
+          "target": "Dr. Manohar V. Badiger",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Dhiman Sarkar",
+          "target": "Dr. Prakash Wadgaonkar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Dhiman Sarkar",
+          "target": "Dr. G. J. Sanjayan",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Dhiman Sarkar",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Dhiman Sarkar",
+          "target": "Dr. Haridas B. Rode",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Dhiman Sarkar",
+          "target": "Dr. Sunil Misra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Dhiman Sarkar",
+          "target": "Mahesh Shantappa Dharne",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mahesh J Kulkarni",
+          "target": "Dr. Ashok Giri",
+          "weight": 12,
+          "value": 12,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mahesh J Kulkarni",
+          "target": "Vidya Shrikant Gupta",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mahesh J Kulkarni",
+          "target": "Rakesh S. Joshi",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mahesh J Kulkarni",
+          "target": "Murugan Veerapandian",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Mahesh J Kulkarni",
+          "target": "Ramakrishna Sistla",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Mahesh J Kulkarni",
+          "target": "Dr. Durba Sengupta",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mahesh J Kulkarni",
+          "target": "Dr. D. Srinivasa Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Mahesh J Kulkarni",
+          "target": "Dr. Ravindar Kontham",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mahesh J Kulkarni",
+          "target": "Mahesh Shantappa Dharne",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Deepak Kumar Pattanayak",
+          "target": "Dr Akhila Kumar Sahu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Deepak Kumar Pattanayak",
+          "target": "Dr Subrata Kundu",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Deepak Kumar Pattanayak",
+          "target": "Kannimuthu Karthick",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Deepak Kumar Pattanayak",
+          "target": "Sengeni Anantharaj",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Deepak Kumar Pattanayak",
+          "target": "Pitchai Ragupathy",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Deepak Kumar Pattanayak",
+          "target": "Marappan Sathish",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Deepak Kumar Pattanayak",
+          "target": "Vembu Suryanarayanan",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Deepak Kumar Pattanayak",
+          "target": "Balasubramanian Subramanian",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Deepak Kumar Pattanayak",
+          "target": "Sreenivasan Nagappan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Vasu Amrutham",
+          "target": "Durgaiah Chevella",
+          "weight": 9,
+          "value": 9,
+          "is_cross": false
+        },
+        {
+          "source": "Vasu Amrutham",
+          "target": "Nama Narender",
+          "weight": 19,
+          "value": 19,
+          "is_cross": false
+        },
+        {
+          "source": "Vasu Amrutham",
+          "target": "Dr. Andugulapati Sai Balagi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Samir H. Chikkali",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 10,
+          "value": 10,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Samir H. Chikkali",
+          "target": "Dr. Kumar Vanka",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Samir H. Chikkali",
+          "target": "Dr. Vinod C Prabhakaran",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Samir H. Chikkali",
+          "target": "Annadanam V. Sesha Sainath",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Vijay Kumar Velisoju",
+          "target": "Naresh Gutta",
+          "weight": 21,
+          "value": 21,
+          "is_cross": false
+        },
+        {
+          "source": "Vijay Kumar Velisoju",
+          "target": "Dr. A. Venugopal",
+          "weight": 12,
+          "value": 12,
+          "is_cross": false
+        },
+        {
+          "source": "Vijay Kumar Velisoju",
+          "target": "Benjaram M. Reddy",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Vijay Kumar Velisoju",
+          "target": "Nama Narender",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivasa Rao Mutheneni",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivasa Rao Mutheneni",
+          "target": "Bandi Siva",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivasa Rao Mutheneni",
+          "target": "Katragadda Suresh Babu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivasa Rao Mutheneni",
+          "target": "Dr. Sunil Misra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivasa Rao Mutheneni",
+          "target": "Balasubramanian Sridhar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivasa Rao Mutheneni",
+          "target": "Dr. Andugulapati Sai Balagi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivasa Rao Mutheneni",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivasa Rao Mutheneni",
+          "target": "Dr. Kaki Shiva Shanker",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "B. Narsaiah",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Dr. Surya Prakash Singh",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Rajashaker Bantu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Dr. Ramesh Ummanni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Dr. Mohana Krishna Reddy Mudiam",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Prathama S. Mainkar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Dr. Andugulapati Sai Balagi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Srigiridhar Kotamraju",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subbiah Alwarappan",
+          "target": "Dr Subrata Kundu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subbiah Alwarappan",
+          "target": "Sengeni Anantharaj",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subbiah Alwarappan",
+          "target": "Kannimuthu Karthick",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subbiah Alwarappan",
+          "target": "Murugan Veerapandian",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subbiah Alwarappan",
+          "target": "Sangeetha Kumaravel",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Manjusha V. Shelke",
+          "target": "Dr. Prakash Wadgaonkar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Manjusha V. Shelke",
+          "target": "Dr. Arun Torris",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Manjusha V. Shelke",
+          "target": "Dr. Sidhanath Vishwanath Bhosale",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Manjusha V. Shelke",
+          "target": "Dr. Sailaja Krishnamurty",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Manjusha V. Shelke",
+          "target": "Syed Gulam Dastager",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Dr. Sunil Misra",
+          "weight": 10,
+          "value": 10,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Balasubramanian Sridhar",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Prathama S. Mainkar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Dr. Bathini Nagendra Babu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Dr. Surender Singh Jadav",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Dr. Maddi Sridhar Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Dr. Andugulapati Sai Balagi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Dr. Ramars Amanchy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Sumana Chakravarty",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Haridas B. Rode",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Ramakrishna Sistla",
+          "weight": 24,
+          "value": 24,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. V. Ramalingam",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Katragadda Suresh Babu",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. Surender Singh Jadav",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Manika Pal Bhadra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. Anthony Addlagatta",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. Ramars Amanchy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Sumana Chakravarty",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Bandi Siva",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Veena Nayak",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Nama Narender",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. Nayani Kiranmai",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. Bathini Nagendra Babu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. D. Srinivasa Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. Ramesh Ummanni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Andugulapati Sai Balagi",
+          "target": "Dr. Mohana Krishna Reddy Mudiam",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Anthony Addlagatta",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Anthony Addlagatta",
+          "target": "Dr. Surender Singh Jadav",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Anthony Addlagatta",
+          "target": "Bojja Sreedhar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Anthony Addlagatta",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Anthony Addlagatta",
+          "target": "Dr. Surisetti Suresh",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Anthony Addlagatta",
+          "target": "Dr. Sunil Misra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Anthony Addlagatta",
+          "target": "Reddy Shetty Prakasham",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Anthony Addlagatta",
+          "target": "Dr. Mohana Krishna Reddy Mudiam",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Manika Pal Bhadra",
+          "target": "Dr. B.V. Subba Reddy",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Manika Pal Bhadra",
+          "target": "B. V. Subba Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Manika Pal Bhadra",
+          "target": "Ramakrishna Sistla",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Manika Pal Bhadra",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Manika Pal Bhadra",
+          "target": "Dr. Surisetti Suresh",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Manika Pal Bhadra",
+          "target": "Ahmed Kamal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Rajesh S. Bhosale",
+          "target": "Dr. Sidhanath Vishwanath Bhosale",
+          "weight": 27,
+          "value": 27,
+          "is_cross": false
+        },
+        {
+          "source": "Rajesh S. Bhosale",
+          "target": "Sheshanath Vishwanath Bhosale",
+          "weight": 27,
+          "value": 27,
+          "is_cross": false
+        },
+        {
+          "source": "Rajesh S. Bhosale",
+          "target": "Dr. Ramanuj Narayan",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Rajesh S. Bhosale",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Vinod C Prabhakaran",
+          "target": "Dr. Kumar Vanka",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Vinod C Prabhakaran",
+          "target": "Dr. Benudhar Punji",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Vinod C Prabhakaran",
+          "target": "Dr. Sailaja Krishnamurty",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Vinod C Prabhakaran",
+          "target": "Dr. R. Nandini Devi",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Vinod C Prabhakaran",
+          "target": "Prashant S. Niphadkar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Vinod C Prabhakaran",
+          "target": "Arun Karmakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Vinod C Prabhakaran",
+          "target": "Dr Subrata Kundu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Naresh Gutta",
+          "target": "Dr. A. Venugopal",
+          "weight": 13,
+          "value": 13,
+          "is_cross": false
+        },
+        {
+          "source": "Naresh Gutta",
+          "target": "Nama Narender",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Bandi Siva",
+          "weight": 31,
+          "value": 31,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Dr. Ramesh Ummanni",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Dr. Mohana Krishna Reddy Mudiam",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Ramakrishna Sistla",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Veena Nayak",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Dr. V. Ramalingam",
+          "weight": 9,
+          "value": 9,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Dr. Surender Singh Jadav",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Reddy Shetty Prakasham",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Katragadda Suresh Babu",
+          "target": "Balasubramanian Sridhar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. B.V. Subba Reddy",
+          "weight": 55,
+          "value": 55,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "B. V. Subba Reddy",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Rajiv Trivedi",
+          "weight": 9,
+          "value": 9,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Reddy Shetty Prakasham",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Surisetti Suresh",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Galla Venkata Karunakar",
+          "weight": 25,
+          "value": 25,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Y. Poornachandra",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Lingamallu Giribabu",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Amitava Das",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Srinivas Kantevari",
+          "weight": 19,
+          "value": 19,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Maddi Sridhar Reddy",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "V. Jayathirtha Rao",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Chada Raji Reddy",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Ahmed Kamal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Ramars Amanchy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Sunil Misra",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Rajashaker Bantu",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Jhillu Singh Yadav",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Ramesh Ummanni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Ramakrishna Sistla",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Surya Prakash Singh",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Nayani Kiranmai",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Prathama S. Mainkar",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. D. Srinivasa Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Dr. Debendra Kumar Mohapatra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Sridhar",
+          "target": "Bandi Siva",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. D. Srinivasa Reddy",
+          "target": "Dr. Ramesh Ummanni",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. D. Srinivasa Reddy",
+          "target": "Dr. Amitava Das",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. D. Srinivasa Reddy",
+          "target": "Dr. Amol A. Kulkarni",
+          "weight": 2,
+          "value": 2,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. D. Srinivasa Reddy",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 3,
+          "value": 3,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. D. Srinivasa Reddy",
+          "target": "Dr. Ravindar Kontham",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. D. Srinivasa Reddy",
+          "target": "Dr. S. Venkata Mohan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Sridhar",
+          "target": "Reddy Shetty Prakasham",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Sridhar",
+          "target": "Dr. Sameena Begum",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Sridhar",
+          "target": "Gangagni Rao Anupoju",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Dr. Surya Prakash Singh",
+          "weight": 20,
+          "value": 20,
+          "is_cross": false
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Dr. Rajiv Trivedi",
+          "weight": 13,
+          "value": 13,
+          "is_cross": false
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Reddy Shetty Prakasham",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Vishal M. Dhavale",
+          "weight": 6,
+          "value": 6,
+          "is_cross": true
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Chada Raji Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Dr. Pratyay Basak",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Bojja Sreedhar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Lingamallu Giribabu",
+          "target": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Veena Nayak",
+          "target": "\u00c4hmed Kamal",
+          "weight": 16,
+          "value": 16,
+          "is_cross": false
+        },
+        {
+          "source": "Veena Nayak",
+          "target": "Ahmed Kamal",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Veena Nayak",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Veena Nayak",
+          "target": "Ramakrishna Sistla",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Veena Nayak",
+          "target": "Bandi Siva",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Veena Nayak",
+          "target": "Dr. Sunil Misra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Dr Subrata Kundu",
+          "weight": 67,
+          "value": 67,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Sengeni Anantharaj",
+          "weight": 23,
+          "value": 23,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Balasubramanian Subramanian",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Selvasundarasekar Sam Sankar",
+          "weight": 33,
+          "value": 33,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Sangeetha Kumaravel",
+          "weight": 28,
+          "value": 28,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Arun Karmakar",
+          "weight": 25,
+          "value": 25,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Dr P Murugan",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Krishnendu Bera",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Hariharan N. Dhandapani",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Kannimuthu Karthick",
+          "target": "Sreenivasan Nagappan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sidhanath Vishwanath Bhosale",
+          "target": "Sheshanath Vishwanath Bhosale",
+          "weight": 77,
+          "value": 77,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sidhanath Vishwanath Bhosale",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Nayani Kiranmai",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 15,
+          "value": 15,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Nayani Kiranmai",
+          "target": "Prathama S. Mainkar",
+          "weight": 18,
+          "value": 18,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Nayani Kiranmai",
+          "target": "Dr. Surender Singh Jadav",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Vinay Rajput",
+          "target": "Mahesh Shantappa Dharne",
+          "weight": 27,
+          "value": 27,
+          "is_cross": false
+        },
+        {
+          "source": "Vinay Rajput",
+          "target": "Syed Gulam Dastager",
+          "weight": 17,
+          "value": 17,
+          "is_cross": false
+        },
+        {
+          "source": "Vinay Rajput",
+          "target": "Dr. Sanjay P. Kamble",
+          "weight": 10,
+          "value": 10,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sameena Begum",
+          "target": "Gangagni Rao Anupoju",
+          "weight": 34,
+          "value": 34,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Dr. Amitava Das",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Prathama S. Mainkar",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Chada Raji Reddy",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Dr. Ramesh Ummanni",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Dr. Bathini Nagendra Babu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Dr. Sunil Misra",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Dr. V. Ramalingam",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Ramakrishna Sistla",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Bandi Siva",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Reddy Shetty Prakasham",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Dr. Surisetti Suresh",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "B. V. Subba Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surender Singh Jadav",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Vembu Suryanarayanan",
+          "target": "Dr Subrata Kundu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Vembu Suryanarayanan",
+          "target": "Sakkarapalayam Murugesan Senthil Kumar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Pitchai Ragupathy",
+          "target": "Rangasamy Thangamuthu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Pitchai Ragupathy",
+          "target": "Sakkarapalayam Murugesan Senthil Kumar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Pitchai Ragupathy",
+          "target": "Balasubramanian Subramanian",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Bankupalli Satyavathi",
+          "target": "Dr. Vineet Aniya",
+          "weight": 19,
+          "value": 19,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jayaraj Nithyanandhan",
+          "target": "Dr. K. Krishnamoorthy",
+          "weight": 18,
+          "value": 18,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jayaraj Nithyanandhan",
+          "target": "Dr. Amol A. Kulkarni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jayaraj Nithyanandhan",
+          "target": "Dr. Sailaja Krishnamurty",
+          "weight": 9,
+          "value": 9,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jayaraj Nithyanandhan",
+          "target": "Dr. Kumar Vanka",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jayaraj Nithyanandhan",
+          "target": "Syed Gulam Dastager",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Rambabu Chegondi",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 9,
+          "value": 9,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Rambabu Chegondi",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 17,
+          "value": 17,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Rambabu Chegondi",
+          "target": "Prathama S. Mainkar",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Rambabu Chegondi",
+          "target": "Dr. Kumar Vanka",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Rakesh S. Joshi",
+          "target": "Dr. Narendra Kadoo",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Rakesh S. Joshi",
+          "target": "Vidya Shrikant Gupta",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Rakesh S. Joshi",
+          "target": "Dr. Ashok Giri",
+          "weight": 17,
+          "value": 17,
+          "is_cross": false
+        },
+        {
+          "source": "Rakesh S. Joshi",
+          "target": "Dr. G. J. Sanjayan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Rakesh S. Joshi",
+          "target": "Mahesh Shantappa Dharne",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Subhendu Kumar Panda",
+          "target": "Dr Akhila Kumar Sahu",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Subhendu Kumar Panda",
+          "target": "Balasubramanian Subramanian",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Subhendu Kumar Panda",
+          "target": "Murugan Veerapandian",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Subhendu Kumar Panda",
+          "target": "Dr P Murugan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Subhendu Kumar Panda",
+          "target": "Dr Subrata Kundu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Subhendu Kumar Panda",
+          "target": "Krishnendu Bera",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sailaja Krishnamurty",
+          "target": "Dr. Benudhar Punji",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sailaja Krishnamurty",
+          "target": "Dr. K. Krishnamoorthy",
+          "weight": 14,
+          "value": 14,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sailaja Krishnamurty",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sailaja Krishnamurty",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sailaja Krishnamurty",
+          "target": "Thirumalaiswamy Raja",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sailaja Krishnamurty",
+          "target": "Dr. Arun Torris",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sailaja Krishnamurty",
+          "target": "Dr. R. Nandini Devi",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sailaja Krishnamurty",
+          "target": "Prashant S. Niphadkar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. B.V. Subba Reddy",
+          "target": "Jhillu Singh Yadav",
+          "weight": 14,
+          "value": 14,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. B.V. Subba Reddy",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. B.V. Subba Reddy",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. B.V. Subba Reddy",
+          "target": "Rajashaker Bantu",
+          "weight": 10,
+          "value": 10,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. B.V. Subba Reddy",
+          "target": "Dr. Sunil Misra",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. B.V. Subba Reddy",
+          "target": "Dr Subrata Kundu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. B.V. Subba Reddy",
+          "target": "Dr. Debendra Kumar Mohapatra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Krishnendu Bera",
+          "target": "Arun Karmakar",
+          "weight": 17,
+          "value": 17,
+          "is_cross": false
+        },
+        {
+          "source": "Krishnendu Bera",
+          "target": "Dr Subrata Kundu",
+          "weight": 22,
+          "value": 22,
+          "is_cross": false
+        },
+        {
+          "source": "Krishnendu Bera",
+          "target": "Sangeetha Kumaravel",
+          "weight": 14,
+          "value": 14,
+          "is_cross": false
+        },
+        {
+          "source": "Krishnendu Bera",
+          "target": "Selvasundarasekar Sam Sankar",
+          "weight": 13,
+          "value": 13,
+          "is_cross": false
+        },
+        {
+          "source": "Krishnendu Bera",
+          "target": "Hariharan N. Dhandapani",
+          "weight": 14,
+          "value": 14,
+          "is_cross": false
+        },
+        {
+          "source": "Krishnendu Bera",
+          "target": "Sreenivasan Nagappan",
+          "weight": 14,
+          "value": 14,
+          "is_cross": false
+        },
+        {
+          "source": "Krishnendu Bera",
+          "target": "Dr P Murugan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Krishnendu Bera",
+          "target": "Suprobhat Singha Roy",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Pratyay Basak",
+          "target": "Dr. Ramanuj Narayan",
+          "weight": 20,
+          "value": 20,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Pratyay Basak",
+          "target": "Dr. A. Venugopal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Pratyay Basak",
+          "target": "Bojja Sreedhar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Pratyay Basak",
+          "target": "Dr. Amitava Das",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Amitava Das",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Amitava Das",
+          "target": "Dr. Rajiv Trivedi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Amitava Das",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Amitava Das",
+          "target": "Prathama S. Mainkar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramars Amanchy",
+          "target": "S. Prabhakar",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramars Amanchy",
+          "target": "Dr. Sunil Misra",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramars Amanchy",
+          "target": "Ahmed Kamal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramars Amanchy",
+          "target": "Y. Poornachandra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramars Amanchy",
+          "target": "\u00c4hmed Kamal",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramars Amanchy",
+          "target": "Bojja Sreedhar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramars Amanchy",
+          "target": "Sumana Chakravarty",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Mahesh Shantappa Dharne",
+          "target": "Syed Gulam Dastager",
+          "weight": 31,
+          "value": 31,
+          "is_cross": false
+        },
+        {
+          "source": "Mahesh Shantappa Dharne",
+          "target": "Chandrashekhar Vasant Rode",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Mahesh Shantappa Dharne",
+          "target": "Dr. Sanjay P. Kamble",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Mahesh Shantappa Dharne",
+          "target": "Dr. Amol A. Kulkarni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Mahesh Shantappa Dharne",
+          "target": "Dr. Ashok Giri",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Sheshanath Vishwanath Bhosale",
+          "target": "Dr. Ramanuj Narayan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Sheshanath Vishwanath Bhosale",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ravindar Kontham",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ravindar Kontham",
+          "target": "Dr. Kumar Vanka",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ravindar Kontham",
+          "target": "Syed Gulam Dastager",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ravindar Kontham",
+          "target": "Dr. Ashok Giri",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ravindar Kontham",
+          "target": "Vidya Shrikant Gupta",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Durba Sengupta",
+          "target": "Dr. Ashok Giri",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Durba Sengupta",
+          "target": "Dr. Chepuri V. Ramana",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Vishal M. Dhavale",
+          "target": "Dr. Surya Prakash Singh",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. Prakash Wadgaonkar",
+          "target": "Dr. Manohar V. Badiger",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Prakash Wadgaonkar",
+          "target": "Dr. Arun Torris",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Prakash Wadgaonkar",
+          "target": "Chandrashekhar Vasant Rode",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Prakash Wadgaonkar",
+          "target": "Syed Gulam Dastager",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chepuri V. Ramana",
+          "target": "Dr. Kumar Vanka",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Chepuri V. Ramana",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surisetti Suresh",
+          "target": "Galla Venkata Karunakar",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surisetti Suresh",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 12,
+          "value": 12,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surisetti Suresh",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sakya S. Sen",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 26,
+          "value": 26,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sakya S. Sen",
+          "target": "Dr. Kumar Vanka",
+          "weight": 52,
+          "value": 52,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sakya S. Sen",
+          "target": "Tamal Das",
+          "weight": 13,
+          "value": 13,
+          "is_cross": false
+        },
+        {
+          "source": "Reddy Shetty Prakasham",
+          "target": "Dr. Rajiv Trivedi",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Reddy Shetty Prakasham",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Reddy Shetty Prakasham",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Reddy Shetty Prakasham",
+          "target": "Ramakrishna Sistla",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Reddy Shetty Prakasham",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Reddy Shetty Prakasham",
+          "target": "Dr. Mohana Krishna Reddy Mudiam",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Reddy Shetty Prakasham",
+          "target": "Dr. Sunil Misra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Reddy Shetty Prakasham",
+          "target": "Bandi Siva",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramesh Ummanni",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramesh Ummanni",
+          "target": "Bandi Siva",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramesh Ummanni",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramesh Ummanni",
+          "target": "Prathama S. Mainkar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramesh Ummanni",
+          "target": "Chada Raji Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramesh Ummanni",
+          "target": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramesh Ummanni",
+          "target": "Sumana Chakravarty",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mohana Krishna Reddy Mudiam",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mohana Krishna Reddy Mudiam",
+          "target": "Prathama S. Mainkar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mohana Krishna Reddy Mudiam",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mohana Krishna Reddy Mudiam",
+          "target": "Dr. V. Ramalingam",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mohana Krishna Reddy Mudiam",
+          "target": "Dr. S. Venkata Mohan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mohana Krishna Reddy Mudiam",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Mohana Krishna Reddy Mudiam",
+          "target": "Dr. Sunil Misra",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "target": "Bojja Sreedhar",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "target": "Sumana Chakravarty",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "target": "Dr. Sunil Misra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "target": "Ramakrishna Sistla",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Rintu Banerjee\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c\u202c",
+          "target": "Annadanam V. Sesha Sainath",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "John Mondal",
+          "target": "Benjaram M. Reddy",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "John Mondal",
+          "target": "Dr. S. Venkata Mohan",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. G. J. Sanjayan",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 14,
+          "value": 14,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. G. J. Sanjayan",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. G. J. Sanjayan",
+          "target": "Dr. Kumar Vanka",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. G. J. Sanjayan",
+          "target": "Tamal Das",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. G. J. Sanjayan",
+          "target": "Dr. Arun Torris",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Rajashaker Bantu",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Rajashaker Bantu",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Rajashaker Bantu",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Rajashaker Bantu",
+          "target": "Dr. Sunil Misra",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Rajashaker Bantu",
+          "target": "B. V. Subba Reddy",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Ramakrishna Sistla",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 23,
+          "value": 23,
+          "is_cross": false
+        },
+        {
+          "source": "Ramakrishna Sistla",
+          "target": "Sumana Chakravarty",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Ramakrishna Sistla",
+          "target": "Bojja Sreedhar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Ramakrishna Sistla",
+          "target": "Bandi Siva",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ramakrishna Sistla",
+          "target": "Murugan Veerapandian",
+          "weight": 2,
+          "value": 2,
+          "is_cross": true
+        },
+        {
+          "source": "Ramakrishna Sistla",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Ramakrishna Sistla",
+          "target": "Dr. Sunil Misra",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. V. Ramalingam",
+          "target": "Bandi Siva",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. V. Ramalingam",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Arun Karmakar",
+          "target": "Dr Subrata Kundu",
+          "weight": 91,
+          "value": 91,
+          "is_cross": false
+        },
+        {
+          "source": "Arun Karmakar",
+          "target": "Sangeetha Kumaravel",
+          "weight": 31,
+          "value": 31,
+          "is_cross": false
+        },
+        {
+          "source": "Arun Karmakar",
+          "target": "Selvasundarasekar Sam Sankar",
+          "weight": 32,
+          "value": 32,
+          "is_cross": false
+        },
+        {
+          "source": "Arun Karmakar",
+          "target": "Hariharan N. Dhandapani",
+          "weight": 19,
+          "value": 19,
+          "is_cross": false
+        },
+        {
+          "source": "Arun Karmakar",
+          "target": "Sreenivasan Nagappan",
+          "weight": 25,
+          "value": 25,
+          "is_cross": false
+        },
+        {
+          "source": "Arun Karmakar",
+          "target": "Dr P Murugan",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Arun Karmakar",
+          "target": "Suprobhat Singha Roy",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Arun Karmakar",
+          "target": "Rangasamy Thangamuthu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subrata Kundu",
+          "target": "Sengeni Anantharaj",
+          "weight": 40,
+          "value": 40,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subrata Kundu",
+          "target": "Balasubramanian Subramanian",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subrata Kundu",
+          "target": "Selvasundarasekar Sam Sankar",
+          "weight": 57,
+          "value": 57,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subrata Kundu",
+          "target": "Sangeetha Kumaravel",
+          "weight": 44,
+          "value": 44,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subrata Kundu",
+          "target": "Dr P Murugan",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subrata Kundu",
+          "target": "Hariharan N. Dhandapani",
+          "weight": 31,
+          "value": 31,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subrata Kundu",
+          "target": "Sreenivasan Nagappan",
+          "weight": 42,
+          "value": 42,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subrata Kundu",
+          "target": "Suprobhat Singha Roy",
+          "weight": 21,
+          "value": 21,
+          "is_cross": false
+        },
+        {
+          "source": "Dr Subrata Kundu",
+          "target": "Rangasamy Thangamuthu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Sakkarapalayam Murugesan Senthil Kumar",
+          "target": "Rangasamy Thangamuthu",
+          "weight": 30,
+          "value": 30,
+          "is_cross": false
+        },
+        {
+          "source": "Sakkarapalayam Murugesan Senthil Kumar",
+          "target": "Dr P Murugan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Sakkarapalayam Murugesan Senthil Kumar",
+          "target": "Marappan Sathish",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivas Kantevari",
+          "target": "Ahmed Kamal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivas Kantevari",
+          "target": "Sumana Chakravarty",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivas Kantevari",
+          "target": "Dr. Sunil Misra",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivas Kantevari",
+          "target": "S. Prabhakar",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivas Kantevari",
+          "target": "Galla Venkata Karunakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Srinivas Kantevari",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Vidya Shrikant Gupta",
+          "target": "Dr. Ashok Giri",
+          "weight": 21,
+          "value": 21,
+          "is_cross": false
+        },
+        {
+          "source": "Vidya Shrikant Gupta",
+          "target": "Dr. Narendra Kadoo",
+          "weight": 13,
+          "value": 13,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ashok Giri",
+          "target": "Dr. Narendra Kadoo",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Arun Torris",
+          "target": "Dr. Manohar V. Badiger",
+          "weight": 18,
+          "value": 18,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Arun Torris",
+          "target": "Dr. R. Nandini Devi",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Arun Torris",
+          "target": "Dr. Narendra Kadoo",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Arun Torris",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Arun Torris",
+          "target": "Dr. S. Venkata Mohan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Annadanam V. Sesha Sainath",
+          "target": "Sumana Chakravarty",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Suprobhat Singha Roy",
+          "target": "Hariharan N. Dhandapani",
+          "weight": 12,
+          "value": 12,
+          "is_cross": false
+        },
+        {
+          "source": "Suprobhat Singha Roy",
+          "target": "Sreenivasan Nagappan",
+          "weight": 14,
+          "value": 14,
+          "is_cross": false
+        },
+        {
+          "source": "Suprobhat Singha Roy",
+          "target": "Rangasamy Thangamuthu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "B. Narsaiah",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "B. Narsaiah",
+          "target": "Y. Poornachandra",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "B. Narsaiah",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "\u00c4hmed Kamal",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 14,
+          "value": 14,
+          "is_cross": false
+        },
+        {
+          "source": "\u00c4hmed Kamal",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "\u00c4hmed Kamal",
+          "target": "Dr. Bathini Nagendra Babu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "\u00c4hmed Kamal",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "\u00c4hmed Kamal",
+          "target": "S. Prabhakar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Chada Raji Reddy",
+          "target": "Sumana Chakravarty",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Chada Raji Reddy",
+          "target": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Chada Raji Reddy",
+          "target": "Prathama S. Mainkar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. K. Krishnamoorthy",
+          "target": "V. Jayathirtha Rao",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "Dr. K. Krishnamoorthy",
+          "target": "Dr. Amol A. Kulkarni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. K. Krishnamoorthy",
+          "target": "Dr. Kumar Vanka",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. K. Krishnamoorthy",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. K. Krishnamoorthy",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Debendra Kumar Mohapatra",
+          "target": "Jhillu Singh Yadav",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Jhillu Singh Yadav",
+          "target": "Dr. S. Nishant Jain",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Sangeetha Kumaravel",
+          "target": "Selvasundarasekar Sam Sankar",
+          "weight": 36,
+          "value": 36,
+          "is_cross": false
+        },
+        {
+          "source": "Sangeetha Kumaravel",
+          "target": "Sengeni Anantharaj",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Sangeetha Kumaravel",
+          "target": "Hariharan N. Dhandapani",
+          "weight": 9,
+          "value": 9,
+          "is_cross": false
+        },
+        {
+          "source": "Sangeetha Kumaravel",
+          "target": "Sreenivasan Nagappan",
+          "weight": 9,
+          "value": 9,
+          "is_cross": false
+        },
+        {
+          "source": "Sangeetha Kumaravel",
+          "target": "Dr P Murugan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. R. Nandini Devi",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. R. Nandini Devi",
+          "target": "Dr. Amol A. Kulkarni",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Nishant Jain",
+          "target": "Bandi Siva",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Nishant Jain",
+          "target": "Dr. Kaki Shiva Shanker",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Nishant Jain",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Nishant Jain",
+          "target": "Ahmed Kamal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Nishant Jain",
+          "target": "Dr. S. Venkata Mohan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Nishant Jain",
+          "target": "Galla Venkata Karunakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Amol A. Kulkarni",
+          "target": "Syed Gulam Dastager",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Amol A. Kulkarni",
+          "target": "Dr. Kumar Vanka",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Selvasundarasekar Sam Sankar",
+          "target": "Sengeni Anantharaj",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Selvasundarasekar Sam Sankar",
+          "target": "Dr P Murugan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Selvasundarasekar Sam Sankar",
+          "target": "Hariharan N. Dhandapani",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "Selvasundarasekar Sam Sankar",
+          "target": "Sreenivasan Nagappan",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Surya Prakash Singh",
+          "target": "Dr. Ramanuj Narayan",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Rahul Banerjee",
+          "target": "Dr. Kumar Vanka",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Benudhar Punji",
+          "target": "Dr. Kumar Vanka",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Benudhar Punji",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 17,
+          "value": 17,
+          "is_cross": false
+        },
+        {
+          "source": "Tamal Das",
+          "target": "Dr. Kumar Vanka",
+          "weight": 24,
+          "value": 24,
+          "is_cross": false
+        },
+        {
+          "source": "Tamal Das",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 11,
+          "value": 11,
+          "is_cross": false
+        },
+        {
+          "source": "Tamal Das",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 6,
+          "value": 6,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sunil Misra",
+          "target": "Dr. Kaki Shiva Shanker",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sunil Misra",
+          "target": "S. Prabhakar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sunil Misra",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sunil Misra",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sunil Misra",
+          "target": "Bandi Siva",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sunil Misra",
+          "target": "Dr. Ramanuj Narayan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sunil Misra",
+          "target": "B. V. Subba Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sunil Misra",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramanuj Narayan",
+          "target": "Bojja Sreedhar",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramanuj Narayan",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Ramanuj Narayan",
+          "target": "Dr. Kaki Shiva Shanker",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Kumar Vanka",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 38,
+          "value": 38,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Kumar Vanka",
+          "target": "Dr. Santhosh Babu Sukumaran",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Kumar Vanka",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": true
+        },
+        {
+          "source": "V. Jayathirtha Rao",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "V. Jayathirtha Rao",
+          "target": "Y. Poornachandra",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "V. Jayathirtha Rao",
+          "target": "Galla Venkata Karunakar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "V. Jayathirtha Rao",
+          "target": "S. Prabhakar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "V. Jayathirtha Rao",
+          "target": "B. V. Subba Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "V. Jayathirtha Rao",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Manohar V. Badiger",
+          "target": "Chandrashekhar Vasant Rode",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sanjay P. Kamble",
+          "target": "Chandrashekhar Vasant Rode",
+          "weight": 7,
+          "value": 7,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sanjay P. Kamble",
+          "target": "Syed Gulam Dastager",
+          "weight": 8,
+          "value": 8,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Sanjay P. Kamble",
+          "target": "Prashant S. Niphadkar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. S. Venkata Mohan",
+          "target": "S. Prabhakar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Benjaram M. Reddy",
+          "target": "Dr. A. Venugopal",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Benjaram M. Reddy",
+          "target": "Bojja Sreedhar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Sreenivasan Nagappan",
+          "target": "Hariharan N. Dhandapani",
+          "weight": 22,
+          "value": 22,
+          "is_cross": false
+        },
+        {
+          "source": "Sreenivasan Nagappan",
+          "target": "Dr P Murugan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Sreenivasan Nagappan",
+          "target": "Rangasamy Thangamuthu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Bathini Nagendra Babu",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Bathini Nagendra Babu",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 5,
+          "value": 5,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Maddi Sridhar Reddy",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 22,
+          "value": 22,
+          "is_cross": false
+        },
+        {
+          "source": "Y. Poornachandra",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 25,
+          "value": 25,
+          "is_cross": false
+        },
+        {
+          "source": "Y. Poornachandra",
+          "target": "Dr. Kaki Shiva Shanker",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Y. Poornachandra",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Y. Poornachandra",
+          "target": "Ahmed Kamal",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Marappan Sathish",
+          "target": "Dr P Murugan",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Marappan Sathish",
+          "target": "Rangasamy Thangamuthu",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Vineet Aniya",
+          "target": "Bojja Sreedhar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Ahmed Kamal",
+          "target": "Dr. Jagadeesh Babu Nanubolu",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jagadeesh Babu Nanubolu",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jagadeesh Babu Nanubolu",
+          "target": "Galla Venkata Karunakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jagadeesh Babu Nanubolu",
+          "target": "Bojja Sreedhar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jagadeesh Babu Nanubolu",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Jagadeesh Babu Nanubolu",
+          "target": "B. V. Subba Reddy",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "target": "Prathama S. Mainkar",
+          "weight": 54,
+          "value": 54,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Sumana Chakravarty",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Kaki Shiva Shanker",
+          "target": "Chityal Ganesh Kumar",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Subramanian",
+          "target": "Sengeni Anantharaj",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Subramanian",
+          "target": "Dr P Murugan",
+          "weight": 3,
+          "value": 3,
+          "is_cross": false
+        },
+        {
+          "source": "Balasubramanian Subramanian",
+          "target": "Murugan Veerapandian",
+          "weight": 4,
+          "value": 4,
+          "is_cross": false
+        },
+        {
+          "source": "Chityal Ganesh Kumar",
+          "target": "Dr. Rajiv Trivedi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Chityal Ganesh Kumar",
+          "target": "S. Prabhakar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Chityal Ganesh Kumar",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Hariharan N. Dhandapani",
+          "target": "Dr P Murugan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Murugan Veerapandian",
+          "target": "Dr P Murugan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Prashant S. Niphadkar",
+          "target": "Chandrashekhar Vasant Rode",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Sengeni Anantharaj",
+          "target": "Dr P Murugan",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "S. Prabhakar",
+          "target": "Dr. Rajiv Trivedi",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "S. Prabhakar",
+          "target": "Bojja Sreedhar",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "S. Prabhakar",
+          "target": "Prathama S. Mainkar",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Dr. Santhosh Babu Sukumaran",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 10,
+          "value": 10,
+          "is_cross": false
+        },
+        {
+          "source": "Bojja Sreedhar",
+          "target": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+          "weight": 1,
+          "value": 1,
+          "is_cross": false
+        },
+        {
+          "source": "Syed Gulam Dastager",
+          "target": "Dr. Rajesh G. Gonnade",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Rangasamy Thangamuthu",
+          "target": "Dr P Murugan",
+          "weight": 2,
+          "value": 2,
+          "is_cross": false
+        },
+        {
+          "source": "Nama Narender",
+          "target": "Durgaiah Chevella",
+          "weight": 19,
+          "value": 19,
+          "is_cross": false
+        }
+      ],
+      "top_bridges": [
+        {
+          "rank": 1,
+          "author": "Balasubramanian Sridhar",
+          "collaborators_count": 853,
+          "betweenness": 0.1026,
+          "community_id": 4,
+          "institution": "CSIR-IICT"
+        },
+        {
+          "rank": 2,
+          "author": "Dr Subrata Kundu",
+          "collaborators_count": 787,
+          "betweenness": 0.057,
+          "community_id": 43,
+          "institution": "CSIR-CECRI"
+        },
+        {
+          "rank": 3,
+          "author": "Dr. Rajesh G. Gonnade",
+          "collaborators_count": 749,
+          "betweenness": 0.0527,
+          "community_id": 13,
+          "institution": "CSIR-NCL"
+        },
+        {
+          "rank": 4,
+          "author": "Dr. Kumar Vanka",
+          "collaborators_count": 663,
+          "betweenness": 0.0353,
+          "community_id": 13,
+          "institution": "CSIR-NCL"
+        },
+        {
+          "rank": 5,
+          "author": "Dr. Jagadeesh Babu Nanubolu",
+          "collaborators_count": 572,
+          "betweenness": 0.0873,
+          "community_id": 12,
+          "institution": "CSIR-IICT"
+        },
+        {
+          "rank": 6,
+          "author": "Dr. Sreekumar Kurungot",
+          "collaborators_count": 548,
+          "betweenness": 0.0269,
+          "community_id": 19,
+          "institution": "CSIR-NCL"
+        },
+        {
+          "rank": 7,
+          "author": "Lingamallu Giribabu",
+          "collaborators_count": 461,
+          "betweenness": 0.0206,
+          "community_id": 10,
+          "institution": "CSIR-IICT"
+        },
+        {
+          "rank": 8,
+          "author": "Dr. S. Venkata Mohan",
+          "collaborators_count": 449,
+          "betweenness": 0.0294,
+          "community_id": 10,
+          "institution": "CSIR-IICT"
+        },
+        {
+          "rank": 9,
+          "author": "Dr. B.V. Subba Reddy",
+          "collaborators_count": 446,
+          "betweenness": 0.0591,
+          "community_id": 4,
+          "institution": "CSIR-IICT"
+        },
+        {
+          "rank": 10,
+          "author": "Dr. Ujjwal Pal",
+          "collaborators_count": 382,
+          "betweenness": 0.0041,
+          "community_id": 11,
+          "institution": "CSIR-IICT"
+        }
+      ],
+      "collab_matrix": [
+        {
+          "inst": "CSIR-IICT",
+          "inst_key": "iict",
+          "iict": 34167,
+          "ncl": 345,
+          "cecri": 90
+        },
+        {
+          "inst": "CSIR-NCL",
+          "inst_key": "ncl",
+          "iict": 345,
+          "ncl": 20636,
+          "cecri": 90
+        },
+        {
+          "inst": "CSIR-CECRI",
+          "inst_key": "cecri",
+          "iict": 90,
+          "ncl": 90,
+          "cecri": 9731
+        }
+      ]
+    }
   }
 };

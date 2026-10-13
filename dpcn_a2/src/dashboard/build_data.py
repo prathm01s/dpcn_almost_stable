@@ -32,6 +32,242 @@ def load_csv(filename: str) -> pd.DataFrame:
     return pd.read_csv(p, keep_default_na=False)
 
 
+def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
+    """Compute citation and authorship network analytics for interactive visualization."""
+    import networkx as nx
+
+    logger.info("Computing network analytics for dashboard...")
+
+    # 1. CITATION NETWORK
+    df_cite = pd.read_csv("data/final/citation_network.csv", keep_default_na=False)
+    G_c = nx.DiGraph()
+    for _, r in df_cite.iterrows():
+        s, t = r["source_doi"], r["target_doi"]
+        G_c.add_edge(s, t, s_inst=r["source_inst"], t_inst=r["target_inst"], yr=int(r["year"]))
+
+    pr = nx.pagerank(G_c, max_iter=60)
+    in_deg = dict(G_c.in_degree())
+
+    # Build DOI metadata lookup
+    doi_info = {}
+    for _, r in df_ext.drop_duplicates(subset=["doi"]).iterrows():
+        d = r["doi"]
+        if d:
+            short_t = r["title"][:85] + ("..." if len(r["title"]) > 85 else "")
+            doi_info[d] = {
+                "title": short_t,
+                "full_title": r["title"],
+                "journal": r["journal_name"],
+                "year": int(r["year"]),
+                "inst": r["institution"],
+                "inst_key": INST_KEY_MAP.get(r["institution"], "all"),
+                "citations": int(r["citations"]),
+                "quartile": r["quartile"] or "Unranked",
+            }
+
+    # Cross-institute citation flow matrix (source_inst -> target_inst)
+    labs = ["CSIR-IICT", "CSIR-NCL", "CSIR-CECRI"]
+    flow_matrix = []
+    inter_lab_citations = 0
+    for s_lab in labs:
+        row = {"source_inst": s_lab, "s_key": INST_KEY_MAP.get(s_lab, "all")}
+        for t_lab in labs:
+            cnt = int(((df_cite["source_inst"] == s_lab) & (df_cite["target_inst"] == t_lab)).sum())
+            row[INST_KEY_MAP.get(t_lab, "all")] = cnt
+            if s_lab != t_lab:
+                inter_lab_citations += cnt
+        flow_matrix.append(row)
+
+    # Top 10 PageRank landmark papers
+    top_pr_sorted = sorted(pr.items(), key=lambda x: x[1], reverse=True)
+    top_pr_list = []
+    for rank_idx, (doi_item, score) in enumerate(top_pr_sorted[:10], 1):
+        meta = doi_info.get(doi_item, {})
+        top_pr_list.append({
+            "rank": rank_idx,
+            "doi": doi_item,
+            "score": round(score, 5),
+            "in_degree": in_deg.get(doi_item, 0),
+            "title": meta.get("title", doi_item),
+            "journal": meta.get("journal", ""),
+            "year": meta.get("year", ""),
+            "inst": meta.get("inst", ""),
+            "citations": meta.get("citations", 0),
+            "quartile": meta.get("quartile", ""),
+        })
+
+    # Curate high-impact citation core subgraph (~160 papers)
+    top_c_nodes = sorted(G_c.nodes(), key=lambda n: (in_deg.get(n, 0), pr.get(n, 0)), reverse=True)[:150]
+    cross_cite_edges = df_cite[df_cite["source_inst"] != df_cite["target_inst"]]
+    top_cross_sources = cross_cite_edges["source_doi"].value_counts().head(25).index.tolist()
+    top_c_nodes_set = set(top_c_nodes).union(set(top_cross_sources))
+    sub_c = G_c.subgraph(top_c_nodes_set)
+
+    c_nodes = []
+    category_order = ["iict", "ncl", "cecri"]
+    for n in sub_c.nodes():
+        meta = doi_info.get(n, {})
+        deg_val = in_deg.get(n, 0)
+        c_cat = meta.get("inst_key", "all")
+        cat_idx = category_order.index(c_cat) if c_cat in category_order else 0
+        c_nodes.append({
+            "id": n,
+            "name": meta.get("title", n[:30] + "..."),
+            "full_title": meta.get("full_title", n),
+            "journal": meta.get("journal", "Journal"),
+            "year": meta.get("year", 2020),
+            "inst": meta.get("inst", "CSIR"),
+            "category": cat_idx,
+            "citations": meta.get("citations", deg_val),
+            "in_degree": deg_val,
+            "pagerank": round(pr.get(n, 0), 5),
+            "symbolSize": max(12, min(42, int(10 + deg_val * 1.4))),
+            "value": deg_val,
+            "doi": n,
+        })
+
+    c_links = []
+    for u, v, d in sub_c.edges(data=True):
+        c_links.append({
+            "source": u,
+            "target": v,
+            "s_inst": d.get("s_inst", ""),
+            "t_inst": d.get("t_inst", ""),
+            "is_cross": d.get("s_inst") != d.get("t_inst"),
+        })
+
+    # 2. AUTHORSHIP NETWORK
+    df_auth = pd.read_csv("data/final/authorship_network.csv", keep_default_na=False)
+    G_a = nx.Graph()
+    author_inst_map = {}
+    for _, r in df_auth.iterrows():
+        u, v = r["author_a"], r["author_b"]
+        author_inst_map[u] = r["inst_a"]
+        author_inst_map[v] = r["inst_b"]
+        if G_a.has_edge(u, v):
+            G_a[u][v]["weight"] += 1
+        else:
+            G_a.add_edge(u, v, weight=1, inst_a=r["inst_a"], inst_b=r["inst_b"])
+
+    deg_a = dict(G_a.degree(weight="weight"))
+    comms = nx.community.louvain_communities(G_a, weight="weight", seed=42)
+    author_comm_map = {}
+    for c_id, comm_nodes in enumerate(comms):
+        for node in comm_nodes:
+            author_comm_map[node] = c_id
+
+    btw_a = nx.betweenness_centrality(G_a, k=100, weight="weight", seed=42)
+
+    # Cross-institute collaboration matrix
+    collab_matrix = []
+    inter_lab_pairs = 0
+    for s_lab in labs:
+        row = {"inst": s_lab, "inst_key": INST_KEY_MAP.get(s_lab, "all")}
+        for t_lab in labs:
+            if s_lab == t_lab:
+                cnt = int(((df_auth["inst_a"] == s_lab) & (df_auth["inst_b"] == t_lab)).sum())
+            else:
+                cnt = int((((df_auth["inst_a"] == s_lab) & (df_auth["inst_b"] == t_lab)) |
+                           ((df_auth["inst_a"] == t_lab) & (df_auth["inst_b"] == s_lab))).sum())
+            row[INST_KEY_MAP.get(t_lab, "all")] = cnt
+            if s_lab != t_lab:
+                inter_lab_pairs += cnt
+        collab_matrix.append(row)
+
+    inter_lab_pairs = inter_lab_pairs // 2
+
+    # Top collaborative bridges
+    top_deg_sorted = sorted(deg_a.items(), key=lambda x: x[1], reverse=True)
+    top_bridges_list = []
+    for rank_idx, (auth_name, degree_val) in enumerate(top_deg_sorted[:10], 1):
+        top_bridges_list.append({
+            "rank": rank_idx,
+            "author": auth_name,
+            "collaborators_count": degree_val,
+            "betweenness": round(btw_a.get(auth_name, 0), 4),
+            "community_id": author_comm_map.get(auth_name, 0),
+            "institution": author_inst_map.get(auth_name, ""),
+        })
+
+    # Pick top ~160 most collaborative & bridging authors
+    top_a_nodes = [a for a, _ in top_deg_sorted[:150]]
+    cross_auth_edges = df_auth[df_auth["inst_a"] != df_auth["inst_b"]]
+    cross_authors = set(cross_auth_edges["author_a"]).union(set(cross_auth_edges["author_b"]))
+    cross_authors_top = sorted(cross_authors, key=lambda a: deg_a.get(a, 0), reverse=True)[:25]
+    top_a_nodes_set = set(top_a_nodes).union(set(cross_authors_top))
+    sub_a = G_a.subgraph(top_a_nodes_set)
+
+    df_fac_meta = pd.read_csv("data/final/faculty_master.csv", keep_default_na=False)
+    fac_dept_map = dict(zip(df_fac_meta["full_name"], df_fac_meta["department"]))
+    fac_desig_map = dict(zip(df_fac_meta["full_name"], df_fac_meta["designation"]))
+
+    a_nodes = []
+    for n in sub_a.nodes():
+        inst_n = author_inst_map.get(n, "CSIR")
+        d_val = deg_a.get(n, 0)
+        a_cat = INST_KEY_MAP.get(inst_n, "all")
+        cat_idx = category_order.index(a_cat) if a_cat in category_order else 0
+        a_nodes.append({
+            "id": n,
+            "name": n,
+            "inst": inst_n,
+            "category": cat_idx,
+            "community": author_comm_map.get(n, 0),
+            "department": fac_dept_map.get(n, "Scientific Cadre"),
+            "designation": fac_desig_map.get(n, "Scientist"),
+            "degree": d_val,
+            "betweenness": round(btw_a.get(n, 0), 4),
+            "symbolSize": max(12, min(42, int(10 + d_val * 0.045))),
+            "value": d_val,
+        })
+
+    a_links = []
+    for u, v, d in sub_a.edges(data=True):
+        w = d.get("weight", 1)
+        a_links.append({
+            "source": u,
+            "target": v,
+            "weight": w,
+            "value": w,
+            "is_cross": author_inst_map.get(u) != author_inst_map.get(v),
+        })
+
+    logger.info(f"✓ Network analytics complete: Citation sub={len(c_nodes)} nodes, {len(c_links)} edges; Authorship sub={len(a_nodes)} nodes, {len(a_links)} edges")
+
+    return {
+        "categories": [
+            {"name": "CSIR-IICT", "itemStyle": {"color": "#2b5c8f"}},
+            {"name": "CSIR-NCL", "itemStyle": {"color": "#2e7d32"}},
+            {"name": "CSIR-CECRI", "itemStyle": {"color": "#d95f02"}},
+        ],
+        "citation": {
+            "stats": {
+                "total_edges": len(df_cite),
+                "total_nodes": len(set(df_cite["source_doi"]).union(set(df_cite["target_doi"]))),
+                "inter_lab_citations": inter_lab_citations,
+                "top_pagerank_paper": top_pr_list[0]["title"] if top_pr_list else "",
+            },
+            "nodes": c_nodes,
+            "links": c_links,
+            "top_pagerank": top_pr_list,
+            "flow_matrix": flow_matrix,
+        },
+        "authorship": {
+            "stats": {
+                "total_edges": len(df_auth),
+                "total_authors": len(set(df_auth["author_a"]).union(set(df_auth["author_b"]))),
+                "communities_count": len(comms),
+                "inter_lab_pairs": inter_lab_pairs,
+                "top_collaborator": top_bridges_list[0]["author"] if top_bridges_list else "",
+            },
+            "nodes": a_nodes,
+            "links": a_links,
+            "top_bridges": top_bridges_list,
+            "collab_matrix": collab_matrix,
+        },
+    }
+
+
 def run_build_dashboard_data() -> None:
     logger.info("Starting dashboard data build...")
     OUTPUT_JS.parent.mkdir(parents=True, exist_ok=True)
@@ -89,11 +325,7 @@ def run_build_dashboard_data() -> None:
         },
         "by_institute": {},
         "papers_compact": compact_papers,
-        "network": {
-            "status": "Task 4 Deferred Module",
-            "citation_edges_count": 27816,
-            "notes": "Directed citation network and undirected authorship network modules reserved for Task 4.",
-        },
+        "network": build_network_payload(df_ext),
     }
 
     # Populate by_institute bundles
