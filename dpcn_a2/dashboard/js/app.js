@@ -84,9 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
       activeTab = btn.dataset.tab;
       const target = document.getElementById(`tab-${activeTab}`);
       if (target) target.classList.add("active");
-      // Resize visible charts
+      // Resize visible charts and redraw tables
       setTimeout(() => {
         Object.values(charts).forEach(c => c && c.resize && c.resize());
+        if (facultyTable) facultyTable.redraw(true);
+        if (topPapersTable) topPapersTable.redraw(true);
       }, 50);
     });
   });
@@ -296,6 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } else if (facultyTable) {
       facultyTable.setData(bundle.faculty);
+      facultyTable.redraw(true);
     }
 
     // Faculty h-index histogram
@@ -400,6 +403,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } else if (topPapersTable) {
       topPapersTable.setData(bundle.top_papers);
+      topPapersTable.redraw(true);
     }
 
     // Conference CORE rank chart
@@ -465,6 +469,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Window resize handler
   window.addEventListener("resize", () => {
     Object.values(charts).forEach(c => c && c.resize && c.resize());
+    if (facultyTable) facultyTable.redraw(true);
+    if (topPapersTable) topPapersTable.redraw(true);
   });
 
   // Initial draw

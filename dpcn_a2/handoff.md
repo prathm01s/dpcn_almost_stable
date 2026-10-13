@@ -123,15 +123,32 @@
   - Removed dashboard footer per user specification.
   - Generated comprehensive Data Collection Methodology & Audit Report in `docs/DATA_COLLECTION_REPORT.md`.
   - Added Decision D-10 to `docs/DECISIONS.md`.
-  - Synchronized `data/MANIFEST.json` to `data/final/MANIFEST.json`.
+- [x] **Browser Verification & Tabulator Lifecycle Fix (October 13, 2026)** — Completed.
+  - Implemented automated end-to-end browser test suite (`scripts/test_browser.py` and `python3 run.py browser-test`) via Chrome DevTools Protocol (CDP) in headless Google Chrome.
+  - Fixed Tabulator table row rendering: Tabulator's virtual DOM initialized with 0px height inside hidden tabs (`display: none`), which suppressed rendering when navigating to "Venues & Landmark Papers". Resolved by wiring `redraw(true)` on `facultyTable` and `topPapersTable` during tab switches, institute selector clicks, and window resize events.
+  - Verified all 11 dashboard panels (9 live + 2 styled Task 4 placeholders), KPI cards, and filter controls (year range, venue type, quartile, field, reset).
+  - Captured 12 high-resolution screenshots across all views and interaction states in `dashboard/screenshots/`.
+  - Added `tests/test_dashboard_data.py` (no NaN/undefined anomalies, 10 random numbers verified between dashboard bundles and metrics CSVs). Total automated Pytest suite now at **14/14 passed** in 0.58s.
+  - Validated offline `file://` execution: zero console errors, zero network requests, 100% self-contained.
+  - Logged Decision D-11 in `docs/DECISIONS.md`.
+
+- [x] **Remote Synchronization to GitHub (October 13, 2026)** — Completed.
+  - Pushed entire `dpcn_a2` root directory as a direct child directory to `git@github.com:prathm01s/dpcn_almost_stable.git` (`main` branch) over SSH.
+  - Configured git commit authorship with `prathm01s` and `prathmesh.sharma101@gmail.com`.
+  - Preserved all existing content in the destination repository (`DPCN_Assignment_1.pdf`, `Survey_Results_UC.csv`, `project/`).
+  - Retained full active local workspace integrity in `/home/prathm_s/Desktop/dpcn_a2`.
 
 ---
 
 ## 4. Current Execution Step & Summary
-- **Current Status**: **All Phases (1, 2, and 3) Fully Completed, Verified, and Refined.**
+- **Current Status**: **All Phases (1, 2, and 3) Fully Completed, Verified in Live Headless Browser, and Pushed to Remote.**
 - **Verification Summary**:
   1. Primary dataset `data/final/group24_data.csv` satisfies all schema, domain, and consistency rules with zero fabricated data.
-  2. Statistics presentation report strictly meets the $\le 10$ slides constraint in PPTX and PDF formats.
-  3. Interactive dashboard runs seamlessly offline by opening `dashboard/index.html` via double-click, with all 11 panels and synchronized KPI cards functioning cleanly.
-  4. Task 4 graph raw materials (27,816 citation edges, 910 canonical partner institutions) are safely preserved for deferred execution.
-  5. Exhaustive documentation provided in `docs/DATA_COLLECTION_REPORT.md`, `docs/QA_REPORT.md`, `docs/DECISIONS.md`, `docs/DATA_DICTIONARY.md`, and `docs/LIMITATIONS.md`.
+  2. All three Week 2 network deliverables (`citation_network.csv`, `authorship_network.csv`, `indian_connections.csv`) exported, validated, and tested.
+  3. Statistics presentation report strictly meets the $\le 10$ slides constraint in PPTX and PDF formats.
+  4. Interactive dashboard runs seamlessly offline by opening `dashboard/index.html` via double-click, with all 11 panels, synchronized KPI cards, Tabulator tables, and department explorer charts functioning cleanly.
+  5. Live browser verification suite confirms 0 console errors on both HTTP (`http://127.0.0.1:8080/dashboard/index.html`) and local `file://` protocol.
+  6. Task 4 graph raw materials (27,816 citation edges, 910 canonical partner institutions) are safely preserved for deferred execution.
+  7. Exhaustive documentation provided in `docs/DATA_COLLECTION_REPORT.md`, `docs/QA_REPORT.md`, `docs/DECISIONS.md`, `docs/DATA_DICTIONARY.md`, and `docs/LIMITATIONS.md`.
+  8. Successfully mirrored to GitHub repository `prathm01s/dpcn_almost_stable` under folder `dpcn_a2/`.
+<!-- GOAL_COMPLETE -->

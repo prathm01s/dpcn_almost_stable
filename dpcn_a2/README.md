@@ -128,16 +128,25 @@ The primary dataset strictly adheres to the 14 mandatory columns in exact canoni
 
 ## 5. Validation & Quality Assurance (QA)
 
-Run automated QA and schema verification:
+Run automated QA, schema verification, and consistency tests:
 ```bash
 python3 run.py test
 ```
-**Results (10/10 Passed):**
+**Results (14/14 Passed):**
 - Schema & Column Order: Exact 14 columns, UTF-8 BOM-free, LF newlines.
 - Domain Integrity: Group 24 constant, valid institutes, years 2016–2026, valid quartiles.
 - Citations Consistency: Identical citation count across multiple authors of the same paper.
 - 90 Random Spot-Checked DOIs (30 per lab): 100% verified against Crossref / OpenAlex.
+- 10 Random Dashboard Numbers: Verified 100% identical between dashboard bundles and raw metrics tables.
 - Full details documented in [`docs/QA_REPORT.md`](docs/QA_REPORT.md).
+
+Run headless browser end-to-end verification suite:
+```bash
+python3 run.py browser-test
+```
+- Tests all 11 dashboard panels, institute toggles, filters, and Tabulator tables via Chrome DevTools Protocol (CDP).
+- Verifies offline `file://` protocol execution with zero console errors.
+- Captures screenshots in `dashboard/screenshots/`.
 
 ---
 

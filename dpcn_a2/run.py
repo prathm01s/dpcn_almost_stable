@@ -25,6 +25,9 @@ def run_target(target: str) -> None:
         run_build_dashboard_data()
     elif target == "test":
         subprocess.run([sys.executable, "-m", "pytest", "tests/"], check=True)
+    elif target == "browser-test":
+        from scripts.test_browser import run_tests
+        run_tests()
     elif target == "all":
         run_target("collect")
         run_target("stats")
@@ -32,7 +35,7 @@ def run_target(target: str) -> None:
         run_target("test")
     else:
         print(f"Unknown target: {target}")
-        print("Available targets: all, collect, stats, dashboard, test")
+        print("Available targets: all, collect, stats, dashboard, test, browser-test")
         sys.exit(1)
 
 

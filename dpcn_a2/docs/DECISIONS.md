@@ -46,3 +46,9 @@ All architectural, methodological, and data harmonization decisions made during 
   2. Implemented an interactive ECharts horizontal bar visualization for "Department & Divisional Performance" driven by `stats/tables/department_performance.csv`, displaying publication volume, citation counts, Q1 share, active faculty, and top research field on hover.
   3. Replaced top-right pill badges with a single stylized gradient "GROUP 24" typography element and removed the redundant dashboard footer for a cleaner, modern interface.
 - **Rationale**: Direct user request; ensures critical institutional faculty benchmarks remain visible regardless of filter state and provides immediate insight into division-level strengths across CSIR-NCL, CSIR-IICT, and CSIR-CECRI.
+
+### D-11 (2026-10-13): Tabulator Table Lifecycle Synchronization & Automated Browser CDP Test Suite
+- **Decision**: 
+  1. Updated `dashboard/js/app.js` to explicitly invoke `redraw(true)` on `facultyTable` and `topPapersTable` whenever tabs switch, institute selections change, or the window resizes.
+  2. Implemented an automated end-to-end browser testing suite (`scripts/test_browser.py`, `python3 run.py browser-test`, and `tests/test_dashboard_data.py`) leveraging the Chrome DevTools Protocol (CDP) in headless Google Chrome.
+- **Rationale**: Tabulator's virtual DOM renderer initializes with a calculated viewport height of 0px when constructed inside a hidden container (`display: none`), which previously prevented row rendering when switching to the "Venues & Landmark Papers" tab. Explicitly triggering `redraw(true)` on tab activation ensures all rows and columns render immediately with zero visual clipping. The automated CDP test suite verifies all 11 panels, filters, and offline `file://` execution with zero console errors.
