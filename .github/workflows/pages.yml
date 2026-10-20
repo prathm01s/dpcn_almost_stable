@@ -1,0 +1,64 @@
+# Publish the Group 24 dashboard (dpcn_a2/dashboard) to GitHub Pages.
+# Site: https://prathm01s.github.io/dpcn_almost_stable/  (redirects to /dashboard/)
+name: Deploy dashboard to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "dpcn_a2/dashboard/**"
+      - "dpcn_a2/data/final/**"
+      - "dpcn_a2/data/MANIFEST.json"
+      - "dpcn_a2/stats/report/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble site
+        run: |
+          # The dashboard itself
+          mkdir -p _site/data/final _site/stats/report
+          cp -r dpcn_a2/dashboard _site/dashboard
+          # Files the dashboard's download buttons link to (../data/final, ../stats/report)
+          cp dpcn_a2/data/final/group24_data.csv dpcn_a2/data/final/citation_network.csv \
+             dpcn_a2/data/final/authorship_network.csv dpcn_a2/data/final/indian_connections.csv \
+             _site/data/final/
+          cp dpcn_a2/data/MANIFEST.json _site/data/
+          cp dpcn_a2/stats/report/group24_stats_report.pdf dpcn_a2/stats/report/group24_stats_report.pptx \
+             _site/stats/report/
+          # Landing page: send visitors straight to the dashboard
+          cat > _site/index.html <<'EOF'
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <title>Group 24 Dashboard</title>
+            <meta http-equiv="refresh" content="0; url=dashboard/">
+          </head>
+          <body><a href="dashboard/">Open the Group 24 dashboard</a></body>
+          </html>
+          EOF
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
