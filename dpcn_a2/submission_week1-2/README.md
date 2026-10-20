@@ -3,7 +3,7 @@
 **DPCN Course Project 2026** · Instructor: Chittaranjan Hens
 **Cluster:** CSIR Labs — Synthetic & Organic Chemistry
 **Institutions:** CSIR-NCL (Pune, ROR `057mn3690`) · CSIR-IICT (Hyderabad, ROR `040dky007`) · CSIR-CECRI (Karaikudi, ROR `01qek3q18`)
-**Data:** OpenAlex, queried by ROR-verified institution IDs. Papers and citation counts collected 13 October 2026; links with other Indian institutions collected 20 October 2026. **Years:** 2016–2026 (2026 is a partial year).
+**Data:** OpenAlex, queried by ROR-verified institution IDs. Papers and citation counts collected 13 October 2026; links with other Indian institutions collected 20 October 2026. **Years:** 2016–2026 (2026 is a partial year). **Live dashboard:** https://prathm01s.github.io/dpcn_almost_stable/
 
 ## Files
 

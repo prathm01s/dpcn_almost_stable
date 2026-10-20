@@ -26,6 +26,8 @@ Parent Body: **Council of Scientific & Industrial Research (CSIR)** — ROR `021
 
 ---
 
+**Live dashboard:** https://prathm01s.github.io/dpcn_almost_stable/
+
 ## 2. Repository Layout & Deliverables
 
 ```
@@ -40,8 +42,8 @@ group24/
 │   └── MANIFEST.json                   # Cryptographic SHA256 checksums, metadata, and timestamps
 ├── stats/
 │   ├── report/
-│   │   ├── group24_stats_report.pdf    # Task 2 Presentation Report (PDF format, <= 10 slides)
-│   │   └── group24_stats_report.pptx   # Task 2 PowerPoint Presentation (10 slides)
+│   │   ├── Group24_CSIR.pdf    # Task 2 Presentation Report (PDF format, <= 10 slides)
+│   │   └── Group24_CSIR.pptx   # Task 2 PowerPoint Presentation (10 slides)
 │   ├── figures/                        # 8 publication-quality figures (300 DPI PNG + SVG)
 │   └── tables/                         # 24 metric CSV tables (incl. Indian connectivity, Sections 7a/7b)
 ├── dashboard/                          # Task 3 Interactive Standalone Dashboard

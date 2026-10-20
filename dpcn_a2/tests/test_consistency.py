@@ -68,7 +68,7 @@ def test_dashboard_json_consistency():
 
 
 def test_report_artifacts_exist():
-    assert Path("stats/report/group24_stats_report.pptx").exists()
-    assert Path("stats/report/group24_stats_report.pdf").exists()
+    assert Path("stats/report/Group24_CSIR.pptx").exists()
+    assert Path("stats/report/Group24_CSIR.pdf").exists()
     for i in range(1, 9):
         assert Path(f"stats/figures/fig{i}_*.png") or any(Path("stats/figures").glob(f"fig{i}_*.png"))

@@ -70,7 +70,7 @@ def test_dashboard_networks_match_report_tables():
 
 
 def test_report_has_at_most_ten_slides_and_quotes_the_tables():
-    prs = Presentation("stats/report/group24_stats_report.pptx")
+    prs = Presentation("stats/report/Group24_CSIR.pptx")
     assert len(prs.slides) <= 10
     text = "\n".join(sh.text_frame.text for s in prs.slides for sh in s.shapes if sh.has_text_frame)
     tables = "\n".join(c.text for s in prs.slides for sh in s.shapes if sh.has_table
@@ -84,3 +84,35 @@ def test_report_has_at_most_ten_slides_and_quotes_the_tables():
     assert top.iloc[0]["doi"].replace("https://doi.org/", "") in tables
     pr = pd.read_csv("stats/tables/network_citation_pagerank_top10.csv")
     assert f"{float(pr.iloc[0]['pagerank']):.4f}" in tables
+
+
+def test_impact_ratio_dashboard_matches_table():
+    """Recompute the dashboard's unfiltered IR numbers (same logic as app.js) and compare with the report table."""
+    data = _dashboard()
+    ir = data["impact_ratio"]
+    summ = pd.read_csv("stats/tables/impact_ratio_summary.csv").set_index("institution")
+    names = {"iict": "CSIR-IICT", "ncl": "CSIR-NCL", "cecri": "CSIR-CECRI", "all": "Group 24 Combined"}
+    papers = data["papers_compact"]
+    for key, inst in names.items():
+        if key == "all":
+            seen, sel = set(), []
+            for p in papers:
+                if p["id"] not in seen:
+                    seen.add(p["id"])
+                    sel.append(p)
+        else:
+            sel = [p for p in papers if p["inst"] == key]
+        with_refs = [p for p in sel if p["r"]]
+        assert len(with_refs) == summ.at[inst, "papers_with_references"]
+        inst_ir = sum(p["c"] for p in with_refs) / sum(p["r"] for p in with_refs)
+        assert round(inst_ir, 4) == summ.at[inst, "institute_impact_ratio"]
+        for t in ir["thresholds"] + [ir["percentile_threshold"]]:
+            n = sum(1 for p in with_refs if p["c"] / p["r"] > t)
+            assert n == summ.at[inst, f"ir_q1_gt_{t:g}"]
+
+
+def test_report_mentions_impact_ratio_and_site():
+    prs = Presentation("stats/report/Group24_CSIR.pptx")
+    text = "\n".join(sh.text_frame.text for s in prs.slides for sh in s.shapes if sh.has_text_frame)
+    assert "impact ratio" in text.lower()
+    assert "https://prathm01s.github.io/dpcn_almost_stable/" in text

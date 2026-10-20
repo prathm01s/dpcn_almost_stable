@@ -1,7 +1,7 @@
 """Pipeline runner for Phase 1: Data Collection.
 
 Sequentially executes all collection and processing stages:
-01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 10 -> 11 -> 14 -> 16 -> 17 -> 15 -> 13
+01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 10 -> 11 -> 14 -> 16 -> 17 -> 18 -> 15 -> 13
 """
 
 import importlib
@@ -23,6 +23,7 @@ STEPS = [
     ("src.collect.14_export", "run_step_14"),
     ("src.collect.16_clean_final", "run_step_16"),
     ("src.collect.17_indian_links_api", "run_step_17"),
+    ("src.collect.18_reference_counts", "run_step_18"),
     ("src.collect.15_refresh_indian_flags", "run_step_15"),
     ("src.collect.13_validation_qa", "run_step_13"),
 ]

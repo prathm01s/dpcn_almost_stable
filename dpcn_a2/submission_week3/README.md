@@ -2,14 +2,15 @@
 
 **DPCN Course Project 2026** · Instructor: Chittaranjan Hens
 **Cluster:** CSIR Labs — Synthetic & Organic Chemistry · CSIR-NCL (Pune), CSIR-IICT (Hyderabad), CSIR-CECRI (Karaikudi)
+**Live dashboard:** https://prathm01s.github.io/dpcn_almost_stable/
 **Data:** OpenAlex, 2016 – 13 Oct 2026 (2026 partial). The dataset and network files were submitted in Week 1–2 and are included again here so the dashboard's download buttons work.
 
 ## Contents
 
 | Path | What it is |
 |---|---|
-| `group24_stats_report.pdf` | Statistics report, 10 slides (PDF) |
-| `group24_stats_report.pptx` | Same report, editable PowerPoint |
+| `Group24_CSIR.pdf` | Statistics report, 10 slides (PDF) |
+| `Group24_CSIR.pptx` | Same report, editable PowerPoint |
 | `dashboard/index.html` | Interactive dashboard. **Double-click to open**; it works offline with no server or internet. |
 | `data/final/`, `data/MANIFEST.json` | Dataset and network CSVs that the dashboard's "Data & Exports" tab links to |
 | `stats/report/` | Copy of the report that the dashboard links to |
@@ -22,7 +23,7 @@
 | 1 | Title, scope and headline numbers |
 | 2 | Data coverage and method; limitations |
 | 3 | Publication trend 2016–2026 per institute; growth (CAGR 2016→2025) |
-| 4 | Journal quartile distribution and Q1 fraction per institution |
+| 4 | Journal quartile distribution and Q1 fraction per institution; **Q1 by citation impact ratio** (citations received ÷ citations made; IR-Q1 = top 25% of papers, IR > 0.59) compared with SJR Q1 |
 | 5 | Faculty h-index distribution; top faculty |
 | 6 | Top 5 journals for each institution |
 | 7 | Top 10 most-cited papers; citation summary |
@@ -38,7 +39,7 @@ Every number in the report is generated from the project's statistics tables, wh
 |---|---|
 | Publication trend chart | Overview & Trends → Panel 1 |
 | Faculty list (name, department, h-index, total papers) | Faculty & Divisions → Panel 2 & 4 |
-| Journal quartile distribution | Overview & Trends → Panel 3 |
+| Journal quartile distribution | Overview & Trends → Panel 3; impact-ratio Q1 panel below it |
 | Faculty performance table (sortable) | Faculty & Divisions → Panel 2 & 4 |
 | Top journals | Venues & Landmark Papers → Panel 5 |
 | h-index distribution | Faculty & Divisions → Panel 6 |

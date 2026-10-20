@@ -1,0 +1,5 @@
+institution,percentile_threshold,percentile,papers,papers_with_references,papers_without_references,citations_received,references_made,institute_impact_ratio,median_paper_ir,ir_q1_gt_0.59,ir_q1_gt_0.59_pct,sjr_q1_pct
+CSIR-IICT,0.59,75.0,6167,5922,245,124349,306916,0.4052,0.2293,1302,21.99,55.09
+CSIR-NCL,0.59,75.0,5404,5199,205,133858,282900,0.4732,0.2414,1255,24.14,67.41
+CSIR-CECRI,0.59,75.0,2885,2816,69,92761,156102,0.5942,0.3672,958,34.02,73.06
+Group 24 Combined,0.59,75.0,14352,13839,513,348868,740724,0.471,0.2577,3490,25.22,63.28

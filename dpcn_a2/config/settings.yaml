@@ -26,3 +26,11 @@ former_faculty_heuristic:
 stats:
   hist_bin_width: 5
   partial_year_note: "2026 is partial (data to 13 Oct 2026)"
+
+# Citation impact ratio (IR) = citations received / citations made (references), per paper.
+# A paper is "IR-Q1" when IR > threshold. The threshold is the quartile_percentile of IR over
+# all papers (75th -> top 25% of papers, the same share as a quartile). Fixed thresholds can be
+# added under `thresholds` (e.g. [5, 10]); they were dropped because they select < 1% of papers.
+impact_ratio:
+  thresholds: []
+  quartile_percentile: 75

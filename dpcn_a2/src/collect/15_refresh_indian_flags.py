@@ -127,6 +127,7 @@ def run_step_15() -> None:
         "citation_network.csv": FINAL_DIR / "citation_network.csv",
         "authorship_network.csv": FINAL_DIR / "authorship_network.csv",
         "indian_linked_works.csv": FINAL_DIR / "indian_linked_works.csv",
+        "work_reference_counts.csv": FINAL_DIR / "work_reference_counts.csv",
     }
     for manifest_path in (Path("data/MANIFEST.json"), FINAL_DIR / "MANIFEST.json"):
         refresh_manifest(manifest_path, updated)

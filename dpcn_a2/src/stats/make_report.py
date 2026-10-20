@@ -1,4 +1,4 @@
-"""Statistics report (Task 2): stats/report/group24_stats_report.pptx (10 slides) + PDF.
+"""Statistics report (Task 2): stats/report/Group24_CSIR.pptx (10 slides) + PDF.
 
 Every number on a slide is read from stats/tables/ (or data/final/ for dataset counts),
 so the report always matches the dashboard, which reads the same tables. Speaker notes
@@ -31,12 +31,13 @@ logger = get_logger("make_report")
 
 T = Path("stats/tables")
 OUT_DIR = Path("stats/report")
-PPTX = OUT_DIR / "group24_stats_report.pptx"
-PDF = OUT_DIR / "group24_stats_report.pdf"
+PPTX = OUT_DIR / "Group24_CSIR.pptx"
+PDF = OUT_DIR / "Group24_CSIR.pdf"
 
 LABS = ["CSIR-IICT", "CSIR-NCL", "CSIR-CECRI"]
 ALL = "Group 24 Combined"
 COLLECTED = "13 Oct 2026"
+SITE_URL = "https://prathm01s.github.io/dpcn_almost_stable/"
 
 # Palette: deep ink base, institute colours shared with the dashboard
 INK = RGBColor(0x1F, 0x2A, 0x37)
@@ -47,6 +48,7 @@ WHITE = RGBColor(0xFF, 0xFF, 0xFF)
 NAVY = RGBColor(0x14, 0x21, 0x3D)
 NAVY_SOFT = RGBColor(0xC9, 0xD6, 0xEA)
 AMBER = RGBColor(0xC9, 0x7C, 0x10)
+SECONDARY_LINK = RGBColor(0x1F, 0x5F, 0xA8)
 LAB_COLOR = {
     "CSIR-IICT": RGBColor(0x2B, 0x5C, 0x8F),
     "CSIR-NCL": RGBColor(0x2E, 0x7D, 0x32),
@@ -272,6 +274,30 @@ def chart_title(chart, text: str):
             r.font.name = BODY_FONT
 
 
+def link_run(slide, url: str):
+    """Make every run whose text is the URL a clickable hyperlink."""
+    for shape in slide.shapes:
+        if shape.has_text_frame:
+            for p in shape.text_frame.paragraphs:
+                for r in p.runs:
+                    if r.text == url:
+                        r.hyperlink.address = url
+
+
+def link_run_in_footer(slide, url: str):
+    """Split the footer so the URL at its end becomes a clickable run."""
+    for shape in slide.shapes:
+        if shape.name == "Source" and shape.text_frame.text.endswith(url):
+            p = shape.text_frame.paragraphs[0]
+            r0 = p.runs[0]
+            r0.text = r0.text[: -len(url)]
+            r = p.add_run()
+            r.text = url
+            r.font.size, r.font.name = r0.font.size, r0.font.name
+            r.font.color.rgb = SECONDARY_LINK
+            r.hyperlink.address = url
+
+
 def notes(slide, text: str):
     slide.notes_slide.notes_text_frame.text = text
 
@@ -295,6 +321,8 @@ class Data:
         self.partners = load("indian_partner_institutions.csv")
         self.conn = load("indian_connections_summary.csv")
         self.conf = load("conference_ranks.csv")
+        self.ir = load("impact_ratio_summary.csv")
+        self.ir_sjr = load("impact_ratio_vs_sjr.csv")
         self.net = load("network_summary.csv")
         self.pr = load("network_citation_pagerank_top10.csv")
         self.indeg = load("network_citation_indegree_distribution.csv")
@@ -340,13 +368,18 @@ def slide_title(prs, d: Data):
     for i, (v, l) in enumerate(cards):
         stat(s, MARGIN + i * (cw + Inches(0.3)), Inches(3.75), cw, Inches(1.45), v, l,
              color=WHITE, fill=RGBColor(0x22, 0x33, 0x55), label_color=NAVY_SOFT, vsize=32)
-    textbox(s, MARGIN, Inches(5.65), CONTENT_W, Inches(1.2), [
+    textbox(s, MARGIN, Inches(5.6), CONTENT_W, Inches(0.7), [
         (f"Data: OpenAlex works affiliated to the three ROR-verified institutes (collected {COLLECTED}; "
          "links with other Indian institutions 20 Oct 2026). 2026 is a partial year.", 13, False, NAVY_SOFT),
         ("Quartiles: SCImago Journal Rank (best quartile of the publication year). Faculty: official institute staff pages.",
          13, False, NAVY_SOFT),
-        ("Full detail and filters: interactive dashboard (dashboard/index.html).", 13, True, WHITE),
     ])
+    # PowerPoint draws links in the theme's link blue, so give the link a light background
+    rect(s, MARGIN, Inches(6.45), Inches(7.6), Inches(0.55), LIGHT, name="Dashboard link")
+    textbox(s, MARGIN + Inches(0.2), Inches(6.45), Inches(7.3), Inches(0.55),
+            [[("Interactive dashboard:  ", 14, True, INK), (SITE_URL, 14, True, SECONDARY_LINK)]],
+            anchor=MSO_ANCHOR.MIDDLE, name="Dashboard URL")
+    link_run(s, SITE_URL)
     notes(s, "Sources: stats/tables/citation_summary.csv, quartile_distribution.csv, h_index_summary.csv; "
              "data/final/faculty_master.csv.")
 
@@ -460,7 +493,7 @@ def slide_quartiles(prs, d: Data):
     rows = {g: d.overall(d.quart, g) for g in groups}
     for q, col in [("Q1", "q1_count"), ("Q2", "q2_count"), ("Q3", "q3_count"), ("Q4", "q4_count"), ("Unranked", "unranked_count")]:
         cd.add_series(q, [int(rows[g][col]) / int(rows[g]["total_journals"]) for g in groups])
-    w = Inches(7.6)
+    w = Inches(6.3)
     gf = add_chart(s, XL_CHART_TYPE.BAR_STACKED_100, MARGIN, Inches(1.65), w, Inches(5.1), cd)
     gf.name = "Quartile chart"
     ch = gf.chart
@@ -484,31 +517,40 @@ def slide_quartiles(prs, d: Data):
     ch.value_axis.tick_labels.number_format_is_linked = False
     chart_title(ch, "Share of journal papers by SJR quartile")
 
-    best = max(LABS, key=lambda g: rows[g]["q1_fraction_primary_pct"])
-    header(s, 4, "Journal quartiles",
-           f"{pct(rows[ALL]['q1_fraction_primary_pct'])} of ranked journal papers are in Q1; "
-           f"{short(best)} has the highest Q1 fraction ({pct(rows[best]['q1_fraction_primary_pct'])})")
+    ir = d.ir.set_index("institution")
+    thr_cols = [c for c in d.ir.columns if c.startswith("ir_q1_gt_") and not c.endswith("_pct")]
+    thr = [c[len("ir_q1_gt_"):] for c in thr_cols]  # e.g. "5", "10", "0.59"
+    p75 = f"{float(ir.at[ALL, 'percentile_threshold']):g}"
+    q1_in_sjr = d.ir_sjr[(d.ir_sjr["institution"] == ALL) & (d.ir_sjr["sjr_quartile"] == "Q1")].iloc[0]
+    header(s, 4, "Journal quartiles and citation impact ratio",
+           f"{pct(rows[ALL]['q1_fraction_primary_pct'])} of ranked journal papers are in SJR-Q1 journals; Q1 by impact ratio "
+           f"(IR > {p75}, top 25% of papers) ranges from {pct(ir.at['CSIR-IICT', f'ir_q1_gt_{p75}_pct'])} (IICT) "
+           f"to {pct(ir.at['CSIR-CECRI', f'ir_q1_gt_{p75}_pct'])} (CECRI)")
     x = MARGIN + w + Inches(0.35)
     pw = SLIDE_W - MARGIN - x
-    textbox(s, x, Inches(1.65), pw, Inches(0.35), [("Q1 fraction per institute", 16, True, INK)])
-    ch_h = Inches(1.05)
-    for i, g in enumerate(LABS):
-        y = Inches(2.1) + i * (ch_h + Inches(0.2))
-        r = rows[g]
-        rect(s, x, y, pw, ch_h, LIGHT)
-        textbox(s, x + Inches(0.2), y + Inches(0.1), Inches(1.6), ch_h - Inches(0.2),
-                [(pct(r["q1_fraction_primary_pct"]), 28, True, LAB_COLOR[g])], anchor=MSO_ANCHOR.MIDDLE)
-        textbox(s, x + Inches(1.85), y + Inches(0.1), pw - Inches(2.0), ch_h - Inches(0.2), [
-            (g, 13, True, INK),
-            (f"{fmt(r['q1_count'])} Q1 of {fmt(r['ranked_count'])} ranked · Q1 / all journal papers "
-             f"{pct(r['q1_fraction_all_pct'])}", 12, False, MUTED),
-        ], anchor=MSO_ANCHOR.MIDDLE)
-    textbox(s, x, Inches(5.95), pw, Inches(0.8), [
-        ("Q1 fraction = Q1 papers ÷ journal papers with a known quartile. Unranked = journal not found in SJR "
-         f"({pct(100 - rows[ALL]['quartile_coverage_pct'])} of journal papers).", 12, False, MUTED),
+    textbox(s, x, Inches(1.65), pw, Inches(0.35), [("Q1 by journal vs Q1 by impact ratio (% of papers)", 14, True, INK)])
+    cols = ["Institute", "Q1 by journal (SJR)"] + [f"Q1 by IR (IR > {t})" for t in thr] + ["Institute IR"]
+    df = pd.DataFrame([[short(g) if g != ALL else "All three", pct(rows[g]["q1_fraction_primary_pct"])]
+                       + [pct(ir.at[g, f"ir_q1_gt_{t}_pct"]) for t in thr]
+                       + [f"{float(ir.at[g, 'institute_impact_ratio']):.2f}"] for g in LABS + [ALL]], columns=cols)
+    table(s, x, Inches(2.05), pw, df, [1.2, 1.3] + [1.3] * len(thr) + [1.1], size=12, row_h=0.36,
+          align_right=range(1, len(cols)), colors=[LAB_COLOR[l] for l in LABS] + [None], name="IR table")
+    textbox(s, x, Inches(4.2), pw, Inches(2.6), [
+        [("Impact ratio (IR) ", 12, True, INK),
+         ("= citations received ÷ citations made (references). A paper is IR‑Q1 when IR exceeds the threshold; "
+          "the institute IR is all citations received ÷ all references made.", 12, False, INK)],
+        (f"Threshold IR > {p75} is the 75th percentile of IR over all papers, so IR‑Q1 is the top 25% of papers — "
+         f"the same share a quartile covers (median paper IR {float(ir.at[ALL, 'median_paper_ir']):.2f}).",
+         12, False, INK, True),
+        (f"The two definitions disagree: only {pct(q1_in_sjr[f'ir_q1_gt_{p75}_pct'])} of papers in SJR-Q1 journals are "
+         f"top‑25% by IR. SJR ranks the journal; IR ranks the paper.", 12, False, INK, True),
+        (f"Older papers have had longer to be cited; {fmt(ir.at[ALL, 'papers_without_references'])} papers with no "
+         "references in OpenAlex are excluded.", 12, False, INK, True),
     ])
-    footer(s, "Source: stats/tables/quartile_distribution.csv · SCImago Journal Rank best quartile (Scopus-based; JCR may differ)")
-    notes(s, "Source: stats/tables/quartile_distribution.csv (period = 2016-2026 Overall).")
+    footer(s, "Source: stats/tables/quartile_distribution.csv, impact_ratio_summary.csv, impact_ratio_vs_sjr.csv · SJR best quartile (Scopus-based); IR from OpenAlex citations (13 Oct) and references")
+    notes(s, "Sources: stats/tables/quartile_distribution.csv (SJR Q1 = Q1 / journal papers with known quartile), "
+             "impact_ratio_summary.csv, impact_ratio_vs_sjr.csv, impact_ratio_by_year.csv. IR thresholds are set in "
+             "config/settings.yaml (impact_ratio.thresholds and quartile_percentile).")
 
 
 def slide_faculty(prs, d: Data):
@@ -764,7 +806,8 @@ def slide_authorship_network(prs, d: Data):
     paras.append([("Top Indian partners: ", 11, True, INK),
                   ("; ".join(f"{clip(r['partner_institution'], 52)} ({fmt(r['collaborative_papers'])})" for _, r in pt_.iterrows()), 11, False, INK)])
     textbox(s, x, Inches(4.95), pw, Inches(1.9), paras)
-    footer(s, "Source: stats/tables/network_summary.csv, network_authorship_*.csv, indian_partner_institutions.csv · interactive graphs in the dashboard network tabs")
+    footer(s, f"Source: stats/tables/network_summary.csv, network_authorship_*.csv, indian_partner_institutions.csv · interactive graphs: {SITE_URL}")
+    link_run_in_footer(s, SITE_URL)
     notes(s, "Graph: undirected, nodes = authors of the three labs, edge = co-authored >=1 paper (weight = joint papers). "
              "Degree = distinct co-authors; betweenness estimated from 1,000 sampled sources (unweighted); "
              "communities = Louvain (seed 42) on joint-paper weights. Partner co-authors at other Indian institutions are "

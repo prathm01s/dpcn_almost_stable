@@ -265,6 +265,19 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     }
 
 
+def build_impact_ratio_payload() -> Dict[str, Any]:
+    """Thresholds and authoritative (unfiltered) IR summary from stats/tables/impact_ratio_summary.csv."""
+    from src.stats.impact_ratio import settings
+
+    summ = load_csv("impact_ratio_summary.csv")
+    return {
+        "thresholds": settings()["thresholds"],
+        "percentile": float(summ["percentile"].iloc[0]),
+        "percentile_threshold": float(summ["percentile_threshold"].iloc[0]),
+        "summary": {INST_KEY_MAP[r["institution"]]: r for r in json.loads(summ.to_json(orient="records"))},
+    }
+
+
 def build_connectivity_payload() -> Dict[str, Any]:
     """Indian connectivity bundle (Sections 7a/7b) keyed by dashboard institute key."""
 
@@ -318,6 +331,8 @@ def run_build_dashboard_data() -> None:
     df_ext = pd.read_csv("data/final/group24_data_extended.csv", keep_default_na=False)
     # Deduplicate to paper level per institution
     df_papers_inst = df_ext.drop_duplicates(subset=["institution", "work_id"])
+    refs = pd.read_csv("data/final/work_reference_counts.csv", dtype={"references_count": "Int64"})
+    ref_of = {w: (None if pd.isna(n) else int(n)) for w, n in zip(refs["work_id"], refs["references_count"])}
 
     # Prepare compact records: [work_id, inst_key, year, type, quartile, field, citations, title, journal, doi]
     compact_papers: List[Dict[str, Any]] = []
@@ -333,6 +348,7 @@ def run_build_dashboard_data() -> None:
             "ti": str(r["title"]),
             "j": str(r["journal_name"]),
             "doi": str(r["doi"]),
+            "r": ref_of.get(r["work_id"]),  # references made (citation impact ratio = c / r)
         })
 
     logger.info(f"Compiled {len(compact_papers)} compact paper records for client-side filtering")
@@ -352,6 +368,7 @@ def run_build_dashboard_data() -> None:
         "by_institute": {},
         "papers_compact": compact_papers,
         "network": build_network_payload(df_ext),
+        "impact_ratio": build_impact_ratio_payload(),
         "connectivity": build_connectivity_payload(),
     }
 

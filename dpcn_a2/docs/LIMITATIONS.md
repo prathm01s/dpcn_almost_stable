@@ -66,3 +66,9 @@
 - Betweenness centrality is estimated from 1,000 sampled source nodes (seed 42); exact values may differ slightly. Louvain communities use seed 42.
 - AcSIR (the degree-granting academy for CSIR students) and CSIR headquarters appear as partner institutions when OpenAlex lists them; they are kept as recorded.
 - One corpus paper (W4380288032) is no longer returned by OpenAlex (merged or removed after 13 Oct); its outgoing links to outside papers are missing.
+
+## Citation impact ratio
+
+- Citations (13 Oct 2026) accumulate over time while references are fixed, so IR rises with paper age; IR-Q1 papers concentrate in 2016–2021. No age or field normalisation is applied.
+- OpenAlex reference lists can be incomplete; 513 papers with no references recorded are excluded from IR shares.
+- The IR-Q1 threshold (0.59) is relative to this corpus (its 75th percentile), not an absolute standard; fixed thresholds such as 5 or 10 would select < 1% of papers.

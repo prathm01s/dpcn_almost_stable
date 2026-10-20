@@ -67,6 +67,10 @@
       "path": "data/final/indian_linked_works.csv",
       "rows": 103673,
       "sha256": "b4869d6775d0e6594640bcff6959f224adef936b0bde504cdcd074bb96c0124a"
+    },
+    "work_reference_counts.csv": {
+      "path": "data/final/work_reference_counts.csv",
+      "sha256": "dca2b40ab8a5e5f357f20f91faeb682ab05336386f233264a69782d787f07f4a"
     }
   },
   "indian_flag_rule": "Measured on citation_network.csv: in-corpus links plus links to/from DOI-bearing Indian-affiliated papers outside the corpus (Step 17, OpenAlex); no heuristic completion.",

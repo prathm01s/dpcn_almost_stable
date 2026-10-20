@@ -41,7 +41,7 @@ jobs:
              dpcn_a2/data/final/authorship_network.csv dpcn_a2/data/final/indian_connections.csv \
              _site/data/final/
           cp dpcn_a2/data/MANIFEST.json _site/data/
-          cp dpcn_a2/stats/report/group24_stats_report.pdf dpcn_a2/stats/report/group24_stats_report.pptx \
+          cp dpcn_a2/stats/report/Group24_CSIR.pdf dpcn_a2/stats/report/Group24_CSIR.pptx \
              _site/stats/report/
           # Landing page: send visitors straight to the dashboard
           cat > _site/index.html <<'EOF'

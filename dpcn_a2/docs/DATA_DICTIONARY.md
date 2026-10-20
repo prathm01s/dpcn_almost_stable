@@ -81,3 +81,14 @@ The extended dataset retains the identical row order and row count as `group24_d
 | `indian_linked_works.csv` (supporting) | work_id, doi, title, year, cited_by_count, indian_institutions | Metadata of the outside papers used in `citation_network.csv`. |
 
 Network analysis (PageRank, Louvain, centralities) uses only the within-cluster rows; the rows to outside Indian papers/authors are raw data, as the instruction note requires.
+
+## Citation impact ratio
+
+| File / field | Definition |
+|---|---|
+| `data/final/work_reference_counts.csv` | `work_id`, `references_count` = number of works in the paper's OpenAlex `referenced_works` (citations made). Blank for the one work OpenAlex no longer returns. |
+| Paper impact ratio (IR) | `citations` ÷ `references_count`; undefined when `references_count` = 0 |
+| IR-Q1 | IR > 0.59, the 75th percentile of paper IR over all papers (`config/settings.yaml` → `impact_ratio.quartile_percentile`), i.e. the top 25% of papers |
+| Institute impact ratio | Σ citations ÷ Σ references over the institute's distinct papers with ≥ 1 reference |
+| `stats/tables/impact_ratio_summary.csv` | per institute + combined: IR, IR-Q1 counts/shares per threshold, SJR Q1 share |
+| `stats/tables/impact_ratio_by_year.csv`, `impact_ratio_vs_sjr.csv`, `impact_ratio_top_papers.csv` | breakdowns by year, by SJR quartile, and the top 10 papers by IR |

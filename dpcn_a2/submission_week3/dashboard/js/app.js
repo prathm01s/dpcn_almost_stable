@@ -137,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateDashboard() {
     renderKPIs();
     renderOverviewCharts();
+    renderImpactRatio();
     renderFacultyPanels();
     renderVenuesPanels();
     renderResearchAreasCharts();
@@ -276,6 +277,88 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
       }],
     }, true);
+  }
+
+  // 2b. Q1 by citation impact ratio (IR = citations received / references made)
+  // Threshold = 75th percentile of paper IR over all papers (top 25%, like a quartile)
+  const irThreshold = data.impact_ratio ? data.impact_ratio.percentile_threshold : null;
+
+  // Same filters as getFilteredPapers(), for a given institute key ("all" = distinct papers)
+  function filteredPapersFor(instKey) {
+    const seen = new Set();
+    return data.papers_compact.filter(p => {
+      if (instKey !== "all" && p.inst !== instKey) return false;
+      if (p.yr < state.yearMin || p.yr > state.yearMax) return false;
+      if (state.type !== "all" && p.t !== state.type) return false;
+      if (state.quartile !== "all" && p.q !== state.quartile) return false;
+      if (state.field !== "all" && p.f !== state.field) return false;
+      if (instKey === "all") {
+        if (seen.has(p.id)) return false;
+        seen.add(p.id);
+      }
+      return true;
+    });
+  }
+
+  function impactStats(papers, threshold) {
+    const withRefs = papers.filter(p => p.r != null && p.r > 0);
+    const above = withRefs.filter(p => p.c / p.r > threshold).length;
+    const cites = withRefs.reduce((a, p) => a + p.c, 0);
+    const refs = withRefs.reduce((a, p) => a + p.r, 0);
+    const ranked = papers.filter(p => p.t === "journal" && ["Q1", "Q2", "Q3", "Q4"].includes(p.q));
+    const sjrQ1 = ranked.filter(p => p.q === "Q1").length;
+    return {
+      n: withRefs.length,
+      noRefs: papers.length - withRefs.length,
+      above,
+      irQ1Pct: withRefs.length ? above / withRefs.length * 100 : 0,
+      sjrQ1Pct: ranked.length ? sjrQ1 / ranked.length * 100 : 0,
+      instIR: refs ? cites / refs : 0,
+    };
+  }
+
+  function renderImpactRatio() {
+    const el = document.getElementById("chart-impact-ratio");
+    if (!el || irThreshold == null) return;
+    if (!charts.impactRatio) charts.impactRatio = echarts.init(el);
+    const threshold = irThreshold;
+    const keys = ["iict", "ncl", "cecri", "all"];
+    const names = { iict: "CSIR-IICT", ncl: "CSIR-NCL", cecri: "CSIR-CECRI", all: "All three" };
+    const stats = keys.map(k => impactStats(filteredPapersFor(k), threshold));
+    const label = { show: true, position: "top", formatter: p => `${p.value.toFixed(1)}%` };
+
+    charts.impactRatio.setOption({
+      tooltip: {
+        trigger: "axis", axisPointer: { type: "shadow" },
+        formatter: params => {
+          const s = stats[params[0].dataIndex];
+          return `<strong>${params[0].name}</strong><br/>` +
+            `SJR Q1 journals: ${s.sjrQ1Pct.toFixed(1)}%<br/>` +
+            `IR > ${threshold}: ${s.above.toLocaleString()} of ${s.n.toLocaleString()} papers (${s.irQ1Pct.toFixed(2)}%)<br/>` +
+            `Institute IR: ${s.instIR.toFixed(3)}`;
+        },
+      },
+      legend: { data: ["Q1 by journal (SJR)", `Q1 by impact ratio (IR > ${threshold})`], bottom: 0 },
+      grid: { left: 50, right: 20, top: 30, bottom: 50 },
+      xAxis: { type: "category", data: keys.map(k => names[k]) },
+      yAxis: { type: "value", name: "% of papers", max: 100 },
+      series: [
+        { name: "Q1 by journal (SJR)", type: "bar", data: stats.map(s => s.sjrQ1Pct), itemStyle: { color: colors.q1 }, label },
+        { name: `Q1 by impact ratio (IR > ${threshold})`, type: "bar", data: stats.map(s => s.irQ1Pct), itemStyle: { color: "#4a148c" }, label },
+      ],
+    }, true);
+
+    const note = document.getElementById("ir-note");
+    if (note) {
+      note.innerHTML =
+        `<strong>Institute impact ratio</strong> (all citations received ÷ all references made): ` +
+        keys.map(k => `${names[k]} ${stats[keys.indexOf(k)].instIR.toFixed(2)}`).join(" · ") + ". " +
+        `IR-Q1 share = papers with IR above the threshold ÷ papers with ≥1 reference ` +
+        `(${stats[3].noRefs.toLocaleString()} papers without references in OpenAlex are excluded). ` +
+        `The threshold IR > ${threshold} is the ${data.impact_ratio.percentile}th percentile of paper IR, so IR-Q1 is the top 25% of papers — the same share as a quartile. ` +
+        `SJR Q1 ranks the journal; IR ranks the paper itself. ` +
+        `Older papers have had longer to be cited, so IR-Q1 papers concentrate in early years.`;
+    }
   }
 
   // 3. Faculty Panels
