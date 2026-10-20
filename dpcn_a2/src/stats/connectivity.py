@@ -1,12 +1,13 @@
 """Indian connectivity metrics (instruction note Sections 7a and 7b).
 
-Citation flow (7a) is measured on the in-corpus citation network
-(data/final/citation_network.csv): both papers of every edge belong to the
-CSIR-NCL / CSIR-IICT / CSIR-CECRI corpus. A citation counts as coming from (or
-going to) another Indian institution when the citing (cited) paper involves an
-Indian institution other than the institute in question: another assigned lab,
-or an Indian co-author institute listed in coauthor_institutes. Citations from
-papers outside the corpus are not collected, so all flow counts are lower bounds.
+Citation flow (7a) is measured on data/final/citation_network.csv: in-corpus edges
+(both papers in the CSIR-NCL / CSIR-IICT / CSIR-CECRI corpus) plus edges to and from
+DOI-bearing Indian-affiliated papers outside the corpus (Step 17). A citation counts
+as coming from (or going to) another Indian institution when the citing (cited) paper
+involves an Indian institution other than the institute in question. Institutions of
+a corpus paper = assigned labs + coauthor_institutes; of an outside paper = the
+";"-separated list in the edge's inst column. Metadata of outside papers comes from
+data/final/indian_linked_works.csv.
 
 Connectivity map (7b) uses data/final/indian_connections.csv and the sector
 labels in config/indian_inst_registry.csv.
@@ -50,7 +51,10 @@ def _load():
     df_cite = pd.read_csv("data/final/citation_network.csv", dtype=str, keep_default_na=False)
     df_conn = pd.read_csv("data/final/indian_connections.csv", keep_default_na=False)
     registry = pd.read_csv("config/indian_inst_registry.csv", dtype=str, keep_default_na=False)
-    return df_ext, df_cite, df_conn, registry
+    linked_path = Path("data/final/indian_linked_works.csv")
+    linked = (pd.read_csv(linked_path, dtype=str, keep_default_na=False) if linked_path.exists()
+              else pd.DataFrame(columns=["work_id", "doi", "title", "year", "cited_by_count", "indian_institutions"]))
+    return df_ext, df_cite, df_conn, registry, linked
 
 
 def _paper_table(df_ext: pd.DataFrame) -> pd.DataFrame:
@@ -68,29 +72,54 @@ def _paper_table(df_ext: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows.values())
 
 
+def _paper_meta(papers: pd.DataFrame, linked: pd.DataFrame) -> pd.DataFrame:
+    """DOI -> title/journal/year/citations/institutions for corpus and outside papers."""
+    corpus = papers[papers["doi"] != ""].drop_duplicates("doi").set_index("doi")
+    corpus = corpus[["title", "journal_name", "year", "citations", "insts"]].assign(in_corpus=True)
+    out = linked[(linked["doi"] != "") & ~linked["doi"].isin(corpus.index)].drop_duplicates("doi")
+    out = pd.DataFrame({
+        "title": out["title"].values,
+        "journal_name": "",
+        "year": pd.to_numeric(out["year"], errors="coerce").fillna(0).astype(int).values,
+        "citations": pd.to_numeric(out["cited_by_count"], errors="coerce").fillna(0).astype(int).values,
+        "insts": [set(_split(i)) for i in out["indian_institutions"]],
+        "in_corpus": False,
+    }, index=out["doi"].values)
+    return pd.concat([corpus, out])
+
+
 def _flow_edges(df_cite: pd.DataFrame, papers: pd.DataFrame) -> pd.DataFrame:
-    """Citation edges joined to citing/cited paper institutions, with in/out Indian flags."""
-    by_doi = papers[papers["doi"] != ""].set_index("doi")
-    e = df_cite[df_cite["source_doi"].isin(by_doi.index) & df_cite["target_doi"].isin(by_doi.index)].copy()
-    e["year"] = e["year"].astype(int)
-    e["src_work"] = e["source_doi"].map(by_doi["work_id"])
-    e["src_insts"] = e["source_doi"].map(by_doi["insts"])
-    e["tgt_insts"] = e["target_doi"].map(by_doi["insts"])
-    # in-flow to target_inst: citing paper involves another Indian institution
-    e["in_indian"] = [any(i != t for i in s) for s, t in zip(e["src_insts"], e["target_inst"])]
-    # out-flow from source_inst: cited paper involves another Indian institution
-    e["out_indian"] = [any(i != s for i in t) for t, s in zip(e["tgt_insts"], e["source_inst"])]
-    e["cross_lab"] = e["source_inst"] != e["target_inst"]
+    """Citation edges with citing/cited institutions and in/out Indian flags.
+
+    in_indian:  the cited paper is ours (target_inst is a lab) and the citing paper involves
+                an Indian institution other than target_inst.
+    out_indian: the citing paper is ours and the cited paper involves another Indian institution.
+    """
+    by_doi = papers[papers["doi"] != ""].drop_duplicates("doi").set_index("doi")
+    e = df_cite.copy()
+    e["year"] = pd.to_numeric(e["year"]).astype(int)
+    e["src_in"] = e["source_doi"].isin(by_doi.index)
+    e["tgt_in"] = e["target_doi"].isin(by_doi.index)
+    e = e[e["src_in"] | e["tgt_in"]].copy()
+    e["src_insts"] = [by_doi.at[d, "insts"] if i else set(_split(x))
+                      for d, i, x in zip(e["source_doi"], e["src_in"], e["source_inst"])]
+    e["tgt_insts"] = [by_doi.at[d, "insts"] if i else set(_split(x))
+                      for d, i, x in zip(e["target_doi"], e["tgt_in"], e["target_inst"])]
+    e["in_indian"] = e["tgt_in"] & pd.Series(
+        [any(i != t for i in s) for s, t in zip(e["src_insts"], e["target_inst"])], index=e.index)
+    e["out_indian"] = e["src_in"] & pd.Series(
+        [any(i != s for i in t) for t, s in zip(e["tgt_insts"], e["source_inst"])], index=e.index)
+    e["cross_lab"] = e["src_in"] & e["tgt_in"] & (e["source_inst"] != e["target_inst"])
+    e["outside"] = ~(e["src_in"] & e["tgt_in"])
     return e
 
 
-def citation_flow(edges: pd.DataFrame, papers: pd.DataFrame) -> None:
+def citation_flow(edges: pd.DataFrame, meta: pd.DataFrame) -> None:
     summary, yearly, top_inst, top_papers = [], [], [], []
-    paper_by_work = papers.set_index("work_id")
 
     for inst in INSTITUTES:
-        inn = edges[(edges["target_inst"] == inst) & edges["in_indian"]]
-        out = edges[(edges["source_inst"] == inst) & edges["out_indian"]]
+        inn = edges[edges["tgt_in"] & (edges["target_inst"] == inst) & edges["in_indian"]]
+        out = edges[edges["src_in"] & (edges["source_inst"] == inst) & edges["out_indian"]]
         in_lab = edges[(edges["target_inst"] == inst) & edges["cross_lab"]]
         out_lab = edges[(edges["source_inst"] == inst) & edges["cross_lab"]]
         summary.append({
@@ -102,6 +131,8 @@ def citation_flow(edges: pd.DataFrame, papers: pd.DataFrame) -> None:
             "out_citations_other_assigned_labs": len(out_lab),
             "impact_ratio_other_assigned_labs": round(len(in_lab) / len(out_lab), 3) if len(out_lab) else None,
             "distinct_citing_institutions": len(set().union(*inn["src_insts"]) - {inst}) if len(inn) else 0,
+            "in_citations_from_outside_corpus": int(inn["outside"].sum()),
+            "out_citations_to_outside_corpus": int(out["outside"].sum()),
         })
 
         for y in range(2016, 2027):
@@ -117,7 +148,7 @@ def citation_flow(edges: pd.DataFrame, papers: pd.DataFrame) -> None:
         # Top citing institutions: distinct citing papers per institution
         citing_works: Dict[str, Set[str]] = collections.defaultdict(set)
         citing_edges: collections.Counter = collections.Counter()
-        for w, insts in zip(inn["src_work"], inn["src_insts"]):
+        for w, insts in zip(inn["source_doi"], inn["src_insts"]):
             for i in insts - {inst}:
                 citing_works[i].add(w)
                 citing_edges[i] += 1
@@ -128,23 +159,23 @@ def citation_flow(edges: pd.DataFrame, papers: pd.DataFrame) -> None:
                 "citing_papers": len(citing_works[i]), "citations": citing_edges[i],
             })
 
-        # Most-cited corpus papers that cite this institute from another Indian institution
-        works = paper_by_work.loc[sorted(set(inn["src_work"]))].sort_values("citations", ascending=False).head(10)
-        for rank, (wid, p) in enumerate(works.iterrows(), 1):
+        # Most-cited papers (corpus or outside) citing this institute from another Indian institution
+        works = meta.loc[sorted(set(inn["source_doi"]))].sort_values(["citations", "title"], ascending=[False, True]).head(10)
+        for rank, (doi, p) in enumerate(works.iterrows(), 1):
             top_papers.append({
                 "institution": inst, "rank": rank, "title": p["title"], "journal_name": p["journal_name"],
-                "year": p["year"], "citations": p["citations"], "doi": p["doi"],
+                "year": p["year"], "citations": p["citations"], "doi": doi,
                 "citing_institutions": "; ".join(sorted(p["insts"] - {inst})),
             })
 
     # Combined: citing papers involving an Indian institution outside the three labs,
     # counted once per (citing, cited) paper pair.
     labs = set(INSTITUTES)
-    pairs = edges.drop_duplicates(["source_doi", "target_doi"])
+    pairs = edges[edges["tgt_in"]].drop_duplicates(["source_doi", "target_doi"])
     pairs = pairs[[bool(s - labs) for s in pairs["src_insts"]]]
     citing_works = collections.defaultdict(set)
     citing_edges = collections.Counter()
-    for w, insts in zip(pairs["src_work"], pairs["src_insts"]):
+    for w, insts in zip(pairs["source_doi"], pairs["src_insts"]):
         for i in insts - labs:
             citing_works[i].add(w)
             citing_edges[i] += 1
@@ -154,11 +185,11 @@ def citation_flow(edges: pd.DataFrame, papers: pd.DataFrame) -> None:
             "institution": COMBINED, "rank": rank, "citing_institution": i,
             "citing_papers": len(citing_works[i]), "citations": citing_edges[i],
         })
-    works = paper_by_work.loc[sorted(set(pairs["src_work"]))].sort_values("citations", ascending=False).head(10)
-    for rank, (wid, p) in enumerate(works.iterrows(), 1):
+    works = meta.loc[sorted(set(pairs["source_doi"]))].sort_values(["citations", "title"], ascending=[False, True]).head(10)
+    for rank, (doi, p) in enumerate(works.iterrows(), 1):
         top_papers.append({
             "institution": COMBINED, "rank": rank, "title": p["title"], "journal_name": p["journal_name"],
-            "year": p["year"], "citations": p["citations"], "doi": p["doi"],
+            "year": p["year"], "citations": p["citations"], "doi": doi,
             "citing_institutions": "; ".join(sorted(p["insts"] - labs)),
         })
 
@@ -174,6 +205,8 @@ def citation_flow(edges: pd.DataFrame, papers: pd.DataFrame) -> None:
         "out_citations_other_assigned_labs": None,
         "impact_ratio_other_assigned_labs": None,
         "distinct_citing_institutions": None,
+        "in_citations_from_outside_corpus": sum(r["in_citations_from_outside_corpus"] for r in summary),
+        "out_citations_to_outside_corpus": sum(r["out_citations_to_outside_corpus"] for r in summary),
     })
 
     df_summary = pd.DataFrame(summary)
@@ -294,11 +327,11 @@ def hub_authors(df_ext: pd.DataFrame, top_n: int = 25) -> None:
 def run_connectivity_metrics() -> None:
     logger.info("Computing Indian connectivity metrics (Sections 7a/7b)...")
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
-    df_ext, df_cite, df_conn, registry = _load()
+    df_ext, df_cite, df_conn, registry, linked = _load()
 
     papers = _paper_table(df_ext)
     edges = _flow_edges(df_cite, papers)
-    citation_flow(edges, papers)
+    citation_flow(edges, _paper_meta(papers, linked))
     cross_cluster(df_conn, registry)
     topic_similarity(df_ext, df_conn)
     hub_authors(df_ext)

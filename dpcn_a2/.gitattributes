@@ -1,0 +1,9 @@
+# Keep data and checksum files byte-identical on every OS (Windows checkouts
+# with core.autocrlf=true would otherwise rewrite them with CRLF and break
+# CHECKSUMS.sha256 / MANIFEST.json hashes).
+*.csv     text eol=lf
+*.json    text eol=lf
+*.sha256  text eol=lf
+*.md      text eol=lf
+*.js      text eol=lf
+*.yaml    text eol=lf

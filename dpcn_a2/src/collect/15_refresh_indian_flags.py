@@ -7,15 +7,13 @@ this step replaces them with values measured from data/final/citation_network.cs
 only, then refreshes the SHA256 entries in the manifests.
 
 Rule (per paper x assigned-institute row, institute X):
-- cites_indian_inst: the paper cites >= 1 corpus paper whose institutions (assigned
-  labs + Indian co-author institutes) include an Indian institution other than X
-- cited_by_indian_inst: the paper is cited by >= 1 corpus paper whose institutions
-  include an Indian institution other than X
+- cites_indian_inst: the paper cites >= 1 paper involving an Indian institution other than X
+- cited_by_indian_inst: the paper is cited by >= 1 paper involving an Indian institution other than X
 
-Outputs (rewritten in place):
-- data/final/group24_data.csv
-- data/final/group24_data_extended.csv
-- data/MANIFEST.json, data/final/MANIFEST.json (sha256 + flag rule note)
+Institutions of a corpus paper = its assigned labs + its Indian co-author institutes.
+Institutions of a paper outside the corpus = the ";"-separated list in the edge's
+source_inst / target_inst column (added by Step 17 from OpenAlex). Every TRUE flag can
+therefore be traced to a row of citation_network.csv.
 """
 
 import collections
@@ -32,8 +30,8 @@ logger = get_logger("15_refresh_indian_flags")
 
 FINAL_DIR = Path("data/final")
 FLAG_RULE = (
-    "Measured on in-corpus citation links only (citation_network.csv); "
-    "no heuristic completion."
+    "Measured on citation_network.csv: in-corpus links plus links to/from DOI-bearing "
+    "Indian-affiliated papers outside the corpus (Step 17, OpenAlex); no heuristic completion."
 )
 
 
@@ -68,15 +66,18 @@ def compute_flags(df_ext: pd.DataFrame, df_cite: pd.DataFrame) -> Tuple[Set[Tupl
 
     for src_doi, tgt_doi, s_inst, t_inst in df_cite[["source_doi", "target_doi", "source_inst", "target_inst"]].itertuples(index=False):
         src, tgt = doi_to_work.get(src_doi), doi_to_work.get(tgt_doi)
-        if src is None or tgt is None:
+        if src is None and tgt is None:
             unmapped += 1
             continue
-        if any(i != s_inst for i in insts[tgt]):
+        # A side outside the corpus carries its Indian institutions in the inst column
+        src_insts = insts[src] if src is not None else {p.strip() for p in s_inst.split(";") if p.strip()}
+        tgt_insts = insts[tgt] if tgt is not None else {p.strip() for p in t_inst.split(";") if p.strip()}
+        if src is not None and any(i != s_inst for i in tgt_insts):
             cites.add((src, s_inst))
-        if any(i != t_inst for i in insts[src]):
+        if tgt is not None and any(i != t_inst for i in src_insts):
             cited_by.add((tgt, t_inst))
 
-    logger.info(f"{len(df_cite) - unmapped} citation edges used; {unmapped} skipped (missing DOI)")
+    logger.info(f"{len(df_cite) - unmapped} citation edges used; {unmapped} skipped (no corpus paper)")
     return cites, cited_by
 
 
@@ -92,9 +93,11 @@ def refresh_manifest(manifest_path: Path, updated: Dict[str, Path]) -> None:
     with open(manifest_path, encoding="utf-8") as f:
         manifest = json.load(f)
     for name, path in updated.items():
-        manifest["files"][name]["sha256"] = compute_file_sha256(path)
+        if path.exists():
+            manifest["files"].setdefault(name, {"path": str(path).replace("\\", "/")})
+            manifest["files"][name]["sha256"] = compute_file_sha256(path)
     manifest["indian_flag_rule"] = FLAG_RULE
-    with open(manifest_path, "w", encoding="utf-8") as f:
+    with open(manifest_path, "w", encoding="utf-8", newline="\n") as f:
         json.dump(manifest, f, indent=2)
 
 
@@ -114,10 +117,17 @@ def run_step_15() -> None:
     df_ext = apply_flags(df_ext, df_ext["work_id"], cites, cited_by)
     df_main = apply_flags(df_main, df_ext["work_id"], cites, cited_by)
 
-    df_main.to_csv(main_path, index=False, encoding="utf-8")
-    df_ext.to_csv(ext_path, index=False, encoding="utf-8")
+    df_main.to_csv(main_path, index=False, encoding="utf-8", lineterminator="\n")
+    df_ext.to_csv(ext_path, index=False, encoding="utf-8", lineterminator="\n")
 
-    updated = {"group24_data.csv": main_path, "group24_data_extended.csv": ext_path}
+    # Also re-hash the network edge lists, which Step 16 may have rewritten.
+    updated = {
+        "group24_data.csv": main_path,
+        "group24_data_extended.csv": ext_path,
+        "citation_network.csv": FINAL_DIR / "citation_network.csv",
+        "authorship_network.csv": FINAL_DIR / "authorship_network.csv",
+        "indian_linked_works.csv": FINAL_DIR / "indian_linked_works.csv",
+    }
     for manifest_path in (Path("data/MANIFEST.json"), FINAL_DIR / "MANIFEST.json"):
         refresh_manifest(manifest_path, updated)
 

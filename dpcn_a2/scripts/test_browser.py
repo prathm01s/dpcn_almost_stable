@@ -201,7 +201,7 @@ def run_tests():
                 assert c_canvas > 0
                 assert pr_rows == 10
                 assert flow_rows == 3
-                assert cite_edges == "27,816"
+                assert cite_edges == "27,754"
             elif tab_id == "authorship-net":
                 a_canvas = client.evaluate("document.querySelectorAll('#chart-authorship-network canvas, #chart-authorship-network svg').length")
                 bridge_rows = client.evaluate("document.querySelectorAll('#tbody-net-bridges tr').length")
@@ -211,7 +211,7 @@ def run_tests():
                 assert a_canvas > 0
                 assert bridge_rows == 10
                 assert collab_rows == 3
-                assert auth_edges == "65,059"
+                assert auth_edges == "65,058"
             elif tab_id == "connectivity":
                 flow_canvas = client.evaluate("document.querySelectorAll('#chart-conn-flow canvas').length")
                 sector_canvas = client.evaluate("document.querySelectorAll('#chart-conn-sectors canvas').length")

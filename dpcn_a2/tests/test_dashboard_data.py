@@ -120,8 +120,8 @@ def test_network_payload_integrity():
     c_net = net["citation"]
     assert len(c_net["nodes"]) >= 100
     assert len(c_net["links"]) >= 100
-    assert c_net["stats"]["total_edges"] == 27816
-    assert c_net["stats"]["inter_lab_citations"] == 1654
+    assert c_net["stats"]["total_edges"] == 27754
+    assert c_net["stats"]["inter_lab_citations"] == 1653
     assert len(c_net["top_pagerank"]) == 10
     assert len(c_net["flow_matrix"]) == 3
 
@@ -130,7 +130,7 @@ def test_network_payload_integrity():
     a_net = net["authorship"]
     assert len(a_net["nodes"]) >= 100
     assert len(a_net["links"]) >= 100
-    assert a_net["stats"]["total_edges"] == 65059
+    assert a_net["stats"]["total_edges"] == 65058
     assert a_net["stats"]["inter_lab_pairs"] == 525
     assert len(a_net["top_bridges"]) == 10
     assert len(a_net["collab_matrix"]) == 3

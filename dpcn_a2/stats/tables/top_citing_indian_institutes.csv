@@ -1,41 +1,41 @@
 institution,rank,citing_institution,citing_papers,citations
-CSIR-IICT,1,CSIR-NCL,289,484
-CSIR-IICT,2,Academy of Scientific and Innovative Research,215,667
-CSIR-IICT,3,Osmania University,117,280
-CSIR-IICT,4,Centre for Cellular and Molecular Biology,116,295
-CSIR-IICT,5,National Institute of Pharmaceutical Education and Research,97,228
-CSIR-IICT,6,CSIR-CECRI,90,160
-CSIR-IICT,7,Council of Scientific and Industrial Research,82,230
-CSIR-IICT,8,University of Hyderabad,71,263
-CSIR-IICT,9,Birla Institute of Technology and Science - Hyderabad Campus,68,267
-CSIR-IICT,10,"Birla Institute of Technology and Science, Pilani",62,271
-CSIR-NCL,1,CSIR-IICT,417,661
-CSIR-NCL,2,Academy of Scientific and Innovative Research,173,384
-CSIR-NCL,3,Savitribai Phule Pune University,168,335
-CSIR-NCL,4,CSIR-CECRI,158,219
-CSIR-NCL,5,Indian Institute of Science Education and Research Pune,143,346
-CSIR-NCL,6,Bhabha Atomic Research Centre,68,190
-CSIR-NCL,7,Council of Scientific and Industrial Research,66,134
-CSIR-NCL,8,Indian Institute of Science Education and Research Kolkata,65,212
-CSIR-NCL,9,Indian Institute of Technology Bombay,46,116
-CSIR-NCL,10,Indian Institute of Science Bangalore,45,141
-CSIR-CECRI,1,CSIR-NCL,131,181
-CSIR-CECRI,2,CSIR-IICT,105,186
-CSIR-CECRI,3,Alagappa University,87,242
-CSIR-CECRI,4,Academy of Scientific and Innovative Research,85,280
-CSIR-CECRI,5,Council of Scientific and Industrial Research,39,103
-CSIR-CECRI,6,Central Salt and Marine Chemicals Research Institute,38,161
-CSIR-CECRI,7,Indian Institute of Technology Madras,38,153
-CSIR-CECRI,8,SRM Institute of Science and Technology,35,102
-CSIR-CECRI,9,Bharathidasan University,29,153
-CSIR-CECRI,10,Yogi Vemana University,26,108
-Group 24 Combined,1,Academy of Scientific and Innovative Research,409,1280
-Group 24 Combined,2,Savitribai Phule Pune University,177,368
-Group 24 Combined,3,Council of Scientific and Industrial Research,172,453
-Group 24 Combined,4,Indian Institute of Science Education and Research Pune,148,358
-Group 24 Combined,5,Osmania University,123,330
-Group 24 Combined,6,Centre for Cellular and Molecular Biology,122,360
-Group 24 Combined,7,Bhabha Atomic Research Centre,109,391
-Group 24 Combined,8,National Institute of Pharmaceutical Education and Research,105,246
-Group 24 Combined,9,University of Hyderabad,99,340
-Group 24 Combined,10,Alagappa University,88,246
+CSIR-IICT,1,Academy of Scientific and Innovative Research,1179,2176
+CSIR-IICT,2,Saveetha University,747,862
+CSIR-IICT,3,National Institute of Pharmaceutical Education and Research,704,1131
+CSIR-IICT,4,Council of Scientific and Industrial Research,573,940
+CSIR-IICT,5,Vellore Institute of Technology University,521,633
+CSIR-IICT,6,University of Delhi,440,562
+CSIR-IICT,7,"Birla Institute of Technology and Science, Pilani",415,773
+CSIR-IICT,8,Banaras Hindu University,414,542
+CSIR-IICT,9,Osmania University,410,693
+CSIR-IICT,10,SRM Institute of Science and Technology,386,457
+CSIR-NCL,1,Academy of Scientific and Innovative Research,1296,2022
+CSIR-NCL,2,Savitribai Phule Pune University,732,1143
+CSIR-NCL,3,Council of Scientific and Industrial Research,617,892
+CSIR-NCL,4,SRM Institute of Science and Technology,508,637
+CSIR-NCL,5,Indian Institute of Science Education and Research Pune,490,978
+CSIR-NCL,6,Indian Institute of Science Bangalore,467,892
+CSIR-NCL,7,Saveetha University,450,492
+CSIR-NCL,8,CSIR-IICT,443,692
+CSIR-NCL,9,Indian Institute of Technology Madras,439,644
+CSIR-NCL,10,Vellore Institute of Technology University,438,535
+CSIR-CECRI,1,Saveetha University,819,1060
+CSIR-CECRI,2,SRM Institute of Science and Technology,776,1186
+CSIR-CECRI,3,Academy of Scientific and Innovative Research,647,1189
+CSIR-CECRI,4,Vellore Institute of Technology University,583,815
+CSIR-CECRI,5,Alagappa University,567,1064
+CSIR-CECRI,6,Council of Scientific and Industrial Research,409,665
+CSIR-CECRI,7,Jain University,402,587
+CSIR-CECRI,8,Banaras Hindu University,308,362
+CSIR-CECRI,9,University of Delhi,306,385
+CSIR-CECRI,10,Chandigarh University,304,394
+Group 24 Combined,1,Academy of Scientific and Innovative Research,2814,5286
+Group 24 Combined,2,Saveetha University,1890,2408
+Group 24 Combined,3,SRM Institute of Science and Technology,1550,2270
+Group 24 Combined,4,Council of Scientific and Industrial Research,1487,2459
+Group 24 Combined,5,Vellore Institute of Technology University,1416,1971
+Group 24 Combined,6,University of Delhi,1076,1441
+Group 24 Combined,7,Savitribai Phule Pune University,1044,1604
+Group 24 Combined,8,Banaras Hindu University,999,1316
+Group 24 Combined,9,National Institute of Pharmaceutical Education and Research,897,1451
+Group 24 Combined,10,Indian Institute of Science Bangalore,881,1472

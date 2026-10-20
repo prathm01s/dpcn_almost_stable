@@ -12,36 +12,36 @@
     2016,
     2026
   ],
-  "total_rows": 42406,
+  "total_rows": 42393,
   "total_distinct_papers": 14352,
   "rows_by_institution": {
-    "CSIR-IICT": 20188,
-    "CSIR-NCL": 14731,
-    "CSIR-CECRI": 7487
+    "CSIR-IICT": 20183,
+    "CSIR-NCL": 14726,
+    "CSIR-CECRI": 7484
   },
   "files": {
     "group24_data.csv": {
       "path": "data/final/group24_data.csv",
-      "sha256": "ad1ad682e3c6a348bbd5d323351324215018acbc624439081c635b0e6ecdefc2",
-      "rows": 42406,
+      "sha256": "14062d033a2a7dadf33b56e9be5fec8c2f498908681670389be398b8160022e9",
+      "rows": 42393,
       "columns": 14
     },
     "group24_data_extended.csv": {
       "path": "data/final/group24_data_extended.csv",
-      "sha256": "753d0a7b22a87c3204b9e9491c2a51794409fe9447a040615ee7a5a7453070df",
-      "rows": 42406,
+      "sha256": "cc32d8dff28fe617547a15146674003632dffa0067cecfd8086754f32cbfeae6",
+      "rows": 42393,
       "columns": 35
     },
     "citation_network.csv": {
       "path": "data/final/citation_network.csv",
-      "sha256": "eecf3acd3c34fc85b76faeba00bf86fef5abfb3f86bcd4d7d1b0590ab554bf7e",
-      "rows": 27816,
+      "sha256": "dac69c89d59ac562e6de609922deb2211ac2ca8a7c96c4fe20b028110e5c4231",
+      "rows": 192994,
       "columns": 5
     },
     "authorship_network.csv": {
       "path": "data/final/authorship_network.csv",
-      "sha256": "e51b9985424082cbc682d005967ad9c4cf641f94832e076f541b2db2398ef874",
-      "rows": 65059,
+      "sha256": "5df28e91f42ba1d7c9eab734cc30ae663fce367ffd61cf9bb6496a1d10e96c66",
+      "rows": 108847,
       "columns": 6
     },
     "indian_connections.csv": {
@@ -62,7 +62,14 @@
       "path": "data/final/works_table.parquet",
       "sha256": "2cad874c6f166c2d4246617d1298dd163ea94caa0bb0da74d15184be459b9180",
       "rows": 14353
+    },
+    "indian_linked_works.csv": {
+      "path": "data/final/indian_linked_works.csv",
+      "rows": 103673,
+      "sha256": "b4869d6775d0e6594640bcff6959f224adef936b0bde504cdcd074bb96c0124a"
     }
   },
-  "indian_flag_rule": "Measured on in-corpus citation links only (citation_network.csv); no heuristic completion."
+  "indian_flag_rule": "Measured on citation_network.csv: in-corpus links plus links to/from DOI-bearing Indian-affiliated papers outside the corpus (Step 17, OpenAlex); no heuristic completion.",
+  "indian_links_collected_at": "2026-10-20T10:11:15Z",
+  "indian_links_query": "OpenAlex /works filter cited_by:<100 ids>,authorships.countries:IN and cites:<100 ids>,authorships.countries:IN (core corpus)"
 }

@@ -1,0 +1,11 @@
+rank,author,institution,degree,degree_centrality,joint_paper_links,betweenness,community
+1,Balasubramanian Sridhar,CSIR-IICT,380,0.04833,853,0.09618,6
+2,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,285,0.03625,572,0.09039,18
+3,Dr Subrata Kundu,CSIR-CECRI,137,0.01742,787,0.07214,5
+4,Ramakrishna Sistla,CSIR-IICT,150,0.01908,367,0.06388,2
+5,Dr. Rajesh G. Gonnade,CSIR-NCL,280,0.03561,749,0.06115,4
+6,Dr. B.V. Subba Reddy,CSIR-IICT,196,0.02493,446,0.05717,6
+7,Dr. Sunil Misra,CSIR-IICT,198,0.02518,371,0.05532,8
+8,Murugan Veerapandian,CSIR-CECRI,69,0.00878,125,0.04359,3
+9,Dr. Kumar Vanka,CSIR-NCL,195,0.0248,663,0.04352,4
+10,Bojja Sreedhar,CSIR-IICT,126,0.01602,204,0.04317,2

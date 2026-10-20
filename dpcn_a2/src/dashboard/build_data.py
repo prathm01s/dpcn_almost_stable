@@ -10,6 +10,9 @@ from typing import Any, Dict, List
 import pandas as pd
 
 from src.common.logging import get_logger
+from src.stats.networks import (
+    authorship_graph, citation_graph, corpus_dois, incorpus_citation_edges, lab_authorship_edges,
+)
 
 logger = get_logger("build_dashboard_data")
 
@@ -44,19 +47,12 @@ def ordered_subgraph(G: "nx.Graph", nodes) -> "nx.Graph":
 
 def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     """Compute citation and authorship network analytics for interactive visualization."""
-    import networkx as nx
-
     logger.info("Computing network analytics for dashboard...")
 
-    # 1. CITATION NETWORK
-    df_cite = pd.read_csv("data/final/citation_network.csv", keep_default_na=False)
-    G_c = nx.DiGraph()
-    for _, r in df_cite.iterrows():
-        s, t = r["source_doi"], r["target_doi"]
-        G_c.add_edge(s, t, s_inst=r["source_inst"], t_inst=r["target_inst"], yr=int(r["year"]))
-
-    pr = nx.pagerank(G_c, max_iter=60)
-    in_deg = dict(G_c.in_degree())
+    # 1. CITATION NETWORK: in-corpus edges only (edges to outside Indian papers are raw data)
+    df_cite_all = pd.read_csv("data/final/citation_network.csv", dtype=str, keep_default_na=False)
+    df_cite = incorpus_citation_edges(df_cite_all, corpus_dois(df_ext))
+    G_c, pr, in_deg = citation_graph(df_cite)
 
     # Build DOI metadata lookup
     doi_info = {}
@@ -89,7 +85,7 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
         flow_matrix.append(row)
 
     # Top 10 PageRank landmark papers
-    top_pr_sorted = sorted(pr.items(), key=lambda x: x[1], reverse=True)
+    top_pr_sorted = sorted(pr.items(), key=lambda x: (-x[1], x[0]))
     top_pr_list = []
     for rank_idx, (doi_item, score) in enumerate(top_pr_sorted[:10], 1):
         meta = doi_info.get(doi_item, {})
@@ -146,27 +142,16 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
             "is_cross": d.get("s_inst") != d.get("t_inst"),
         })
 
-    # 2. AUTHORSHIP NETWORK
-    df_auth = pd.read_csv("data/final/authorship_network.csv", keep_default_na=False)
-    G_a = nx.Graph()
-    author_inst_map = {}
-    for _, r in df_auth.iterrows():
-        u, v = r["author_a"], r["author_b"]
-        author_inst_map[u] = r["inst_a"]
-        author_inst_map[v] = r["inst_b"]
-        if G_a.has_edge(u, v):
-            G_a[u][v]["weight"] += 1
-        else:
-            G_a.add_edge(u, v, weight=1, inst_a=r["inst_a"], inst_b=r["inst_b"])
-
-    deg_a = dict(G_a.degree(weight="weight"))
-    comms = nx.community.louvain_communities(G_a, weight="weight", seed=42)
-    author_comm_map = {}
-    for c_id, comm_nodes in enumerate(comms):
-        for node in comm_nodes:
-            author_comm_map[node] = c_id
-
-    btw_a = nx.betweenness_centrality(G_a, k=100, weight="weight", seed=42)
+    # 2. AUTHORSHIP NETWORK: authors of the three labs only (partner co-authors are raw data)
+    df_auth = lab_authorship_edges(pd.read_csv("data/final/authorship_network.csv", dtype=str, keep_default_na=False))
+    A = authorship_graph(df_auth)
+    G_a = A["G"]
+    author_inst_map = A["inst_of"]
+    deg_a = A["degree"]  # distinct co-authors
+    strength_a = A["strength"]  # joint-paper links
+    comms = A["communities"]
+    author_comm_map = A["comm_of"]
+    btw_a = A["betweenness"]
 
     # Cross-institute collaboration matrix
     collab_matrix = []
@@ -187,13 +172,14 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     inter_lab_pairs = inter_lab_pairs // 2
 
     # Top collaborative bridges
-    top_deg_sorted = sorted(deg_a.items(), key=lambda x: x[1], reverse=True)
+    top_deg_sorted = sorted(deg_a.items(), key=lambda x: (-x[1], -strength_a[x[0]], x[0]))
     top_bridges_list = []
     for rank_idx, (auth_name, degree_val) in enumerate(top_deg_sorted[:10], 1):
         top_bridges_list.append({
             "rank": rank_idx,
             "author": auth_name,
             "collaborators_count": degree_val,
+            "joint_paper_links": strength_a[auth_name],
             "betweenness": round(btw_a.get(auth_name, 0), 4),
             "community_id": author_comm_map.get(auth_name, 0),
             "institution": author_inst_map.get(auth_name, ""),
@@ -227,7 +213,7 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
             "designation": fac_desig_map.get(n, "Scientist"),
             "degree": d_val,
             "betweenness": round(btw_a.get(n, 0), 4),
-            "symbolSize": max(12, min(42, int(10 + d_val * 0.045))),
+            "symbolSize": max(12, min(42, int(10 + d_val * 0.12))),
             "value": d_val,
         })
 
@@ -267,6 +253,7 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
                 "total_edges": len(df_auth),
                 "total_authors": len(set(df_auth["author_a"]).union(set(df_auth["author_b"]))),
                 "communities_count": len(comms),
+                "modularity": round(A["modularity"], 4),
                 "inter_lab_pairs": inter_lab_pairs,
                 "top_collaborator": top_bridges_list[0]["author"] if top_bridges_list else "",
             },

@@ -17,11 +17,11 @@
 Parent Body: **Council of Scientific & Industrial Research (CSIR)** — ROR `021wm7p51` (`I66760702`).
 
 ### Dataset Highlights (2016–2026)
-- **14,353 Distinct Peer-Reviewed Publications** (filtered for original research & reviews; non-peer-reviewed errata/editorials excluded).
-- **42,406 Attributed Authorship Records** (paper × assigned-institute author).
+- **14,352 Distinct Peer-Reviewed Publications** (filtered for original research & reviews; non-peer-reviewed errata/editorials excluded).
+- **42,393 Attributed Authorship Records** (paper × assigned-institute author).
 - **63.3% Global Q1 Journal Share** (SCImago SJR 1999–2025 historical panel).
 - **505 Official Scientific Cadre Faculty** scraped and directory-verified from institute portals.
-- **27,816 Directed Citation Edges** preserved for Task 4 network analysis.
+- **192,994 Directed Citation Edges** in `citation_network.csv`: 27,754 within the corpus + 165,240 with Indian-affiliated papers outside it (D-16, D-17).
 - **Zero Data Fabrication**: 100% of publications, citations, and DOIs originate from verified OpenAlex and Crossref records.
 
 ---

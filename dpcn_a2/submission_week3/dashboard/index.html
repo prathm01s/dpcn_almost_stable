@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DPCN Research Mapping — Group 24 Dashboard</title>
+  <link rel="stylesheet" href="vendor/tabulator.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <h1>DPCN Research Mapping: CSIR Chemistry Cluster</h1>
+        <div class="header-subtitle">
+          CSIR-NCL (Pune) · CSIR-IICT (Hyderabad) · CSIR-CECRI (Karaikudi) | 2016–2026
+        </div>
+      </div>
+      <div class="header-group-label">GROUP 24</div>
+    </div>
+  </header>
+
+  <!-- Sticky Controls & Filters Bar -->
+  <div class="controls-bar">
+    <div class="controls-inner">
+      <div class="inst-segmented">
+        <button class="inst-btn active" data-inst="all">All Three (Combined)</button>
+        <button class="inst-btn" data-inst="iict">CSIR-IICT</button>
+        <button class="inst-btn" data-inst="ncl">CSIR-NCL</button>
+        <button class="inst-btn" data-inst="cecri">CSIR-CECRI</button>
+        <button class="inst-btn" data-inst="compare">Compare Labs</button>
+      </div>
+
+      <div class="filter-toolbar">
+        <div class="filter-group">
+          <label>Years</label>
+          <select id="filter-year-min" class="filter-select">
+            <option value="2016" selected>2016</option>
+            <option value="2018">2018</option>
+            <option value="2020">2020</option>
+            <option value="2022">2022</option>
+            <option value="2024">2024</option>
+          </select>
+          <span>–</span>
+          <select id="filter-year-max" class="filter-select">
+            <option value="2020">2020</option>
+            <option value="2022">2022</option>
+            <option value="2024">2024</option>
+            <option value="2026" selected>2026</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Type</label>
+          <select id="filter-type" class="filter-select">
+            <option value="all" selected>All Types</option>
+            <option value="journal">Journal Articles</option>
+            <option value="conference">Conference Proceedings</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Quartile</label>
+          <select id="filter-quartile" class="filter-select">
+            <option value="all" selected>All Quartiles</option>
+            <option value="Q1">Q1 Only</option>
+            <option value="Q2">Q2 Only</option>
+            <option value="Q3">Q3 Only</option>
+            <option value="Q4">Q4 Only</option>
+            <option value="Unranked">Unranked</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Field</label>
+          <select id="filter-field" class="filter-select">
+            <option value="all" selected>All Disciplines</option>
+          </select>
+        </div>
+
+        <button id="btn-reset-filters" class="btn-reset">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="dashboard-main">
+
+    <!-- KPI Summary Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total Distinct Papers</div>
+        <div id="kpi-total-papers" class="kpi-val">-</div>
+        <div class="kpi-sub">Peer-reviewed 2016–2026</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Journal Papers</div>
+        <div id="kpi-journal-papers" class="kpi-val">-</div>
+        <div class="kpi-sub">Articles & Reviews</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Q1 Journal Share</div>
+        <div id="kpi-q1-share" class="kpi-val" style="color: var(--q1);">-</div>
+        <div class="kpi-sub">SCImago SJR Ranked</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Citations</div>
+        <div id="kpi-total-citations" class="kpi-val">-</div>
+        <div class="kpi-sub">Accrued up to Oct 2026</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Mean Citations / Paper</div>
+        <div id="kpi-mean-citations" class="kpi-val">-</div>
+        <div class="kpi-sub">Impact per publication</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Active Cadre Faculty</div>
+        <div id="kpi-active-faculty" class="kpi-val">-</div>
+        <div class="kpi-sub">Roster scientists in corpus</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Median Corpus h-Index</div>
+        <div id="kpi-median-h" class="kpi-val">-</div>
+        <div class="kpi-sub">2016–2026 Window</div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="overview">Overview & Trends</button>
+      <button class="tab-btn" data-tab="faculty">Faculty & Divisions</button>
+      <button class="tab-btn" data-tab="venues">Venues & Landmark Papers</button>
+      <button class="tab-btn" data-tab="areas">Thematic Domains</button>
+      <button class="tab-btn" data-tab="citation-net">Directed Citation Network <span class="tab-badge" style="background:#e0f2fe; color:#0369a1; font-weight:700;">Task 4</span></button>
+      <button class="tab-btn" data-tab="authorship-net">Co-Authorship Network <span class="tab-badge" style="background:#e0f2fe; color:#0369a1; font-weight:700;">Task 4</span></button>
+      <button class="tab-btn" data-tab="connectivity">Indian Connectivity</button>
+      <button class="tab-btn" data-tab="docs">Data & Exports</button>
+    </nav>
+
+    <!-- Tab 1: Overview & Publication Trends -->
+    <div id="tab-overview" class="tab-content active">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 1: Annual Publication Output Trend</div>
+              <div class="card-subtitle">Annual peer-reviewed papers (2016–2026)</div>
+            </div>
+          </div>
+          <div id="chart-trend" class="chart-container"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 3: Journal Prestige Distribution (SJR)</div>
+              <div class="card-subtitle">SCImago Journal Rank Quartile Share</div>
+            </div>
+          </div>
+          <div id="chart-quartile" class="chart-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Faculty & Divisions -->
+    <div id="tab-faculty" class="tab-content">
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Panel 2 & 4: Faculty Directory & Performance Table</div>
+            <div class="card-subtitle">Verified scientific cadre personnel, publication output, citations, and in-corpus h-index</div>
+          </div>
+        </div>
+        <div id="table-faculty" style="height: 420px;"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 6: Faculty In-Corpus h-Index Distribution</div>
+              <div class="card-subtitle">Binned histogram of scientific cadre h-indices (2016–2026)</div>
+            </div>
+          </div>
+          <div id="chart-h-index" class="chart-container"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Department & Divisional Performance</div>
+              <div class="card-subtitle">Papers, citations, and Q1 share by research division</div>
+            </div>
+          </div>
+          <div id="chart-departments" class="chart-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Venues & Landmark Papers -->
+    <div id="tab-venues" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 5: Top 5 Publishing Journals</div>
+              <div class="card-subtitle">Most frequent publication venues with quartile ratings</div>
+            </div>
+          </div>
+          <div id="chart-top-journals" class="chart-container"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 9: Conference Rank Distribution (CORE)</div>
+              <div class="card-subtitle">CORE Conference Ratings (A*, A, B, C, Unranked)</div>
+            </div>
+          </div>
+          <div id="chart-conference-rank" class="chart-container"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Panel 8: Top 10 Most-Cited Landmark Publications</div>
+            <div class="card-subtitle">Highest-impact research papers authored by cluster scientists</div>
+          </div>
+        </div>
+        <div id="table-top-papers" style="height: 380px;"></div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Thematic Domains -->
+    <div id="tab-areas" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Panel 7: Primary Research Area Share</div>
+              <div class="card-subtitle">OpenAlex disciplinary classification</div>
+            </div>
+          </div>
+          <div id="chart-research-fields" class="chart-container"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Specialized Subfields</div>
+              <div class="card-subtitle">Top chemical and materials science subfields</div>
+            </div>
+          </div>
+          <div id="chart-research-subfields" class="chart-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 5: Directed Citation Network -->
+    <div id="tab-citation-net" class="tab-content">
+      <!-- Network KPIs -->
+      <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem;">
+        <div class="kpi-card">
+          <div class="kpi-label">Citation Edges</div>
+          <div id="net-cite-kpi-edges" class="kpi-val">27,754</div>
+          <div class="kpi-sub">Within Group 24 corpus</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Network Nodes</div>
+          <div id="net-cite-kpi-nodes" class="kpi-val">11,008</div>
+          <div class="kpi-sub">Citing & cited publications</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Inter-Lab Cross-Citations</div>
+          <div id="net-cite-kpi-interlab" class="kpi-val" style="color: #0284c7;">1,653</div>
+          <div class="kpi-sub">Citations across IICT/NCL/CECRI</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Top PageRank Landmark</div>
+          <div id="net-cite-kpi-top-pr" class="kpi-val" style="font-size: 1.1rem; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="ACS Catalysis (2016)">ACS Catal. (2016)</div>
+          <div class="kpi-sub">Score: 0.00301 (In-Degree: 42)</div>
+        </div>
+      </section>
+
+      <!-- Network Canvas Card -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <div class="card-title">Panel 10: Directed Citation Network Visualisation</div>
+            <div class="card-subtitle">Force-directed directional citation graph (arrow: source cites target, node size: in-degree impact)</div>
+          </div>
+          <!-- Network Toolbar -->
+          <div class="net-toolbar">
+            <div class="net-control-group">
+              <label for="net-cite-filter-inst">Filter Lab:</label>
+              <select id="net-cite-filter-inst" class="filter-select" style="padding: 0.35rem 0.6rem;">
+                <option value="all" selected>All Institutes</option>
+                <option value="CSIR-IICT">CSIR-IICT</option>
+                <option value="CSIR-NCL">CSIR-NCL</option>
+                <option value="CSIR-CECRI">CSIR-CECRI</option>
+                <option value="cross">Cross-Lab Citations Only</option>
+              </select>
+            </div>
+            <div class="net-control-group">
+              <label for="net-cite-slider-deg">Min In-Degree: <span id="net-cite-deg-val" class="net-slider-val">2</span></label>
+              <input type="range" id="net-cite-slider-deg" min="0" max="15" value="2" class="net-slider">
+            </div>
+            <div class="net-control-group">
+              <input type="text" id="net-cite-search" placeholder="Search title, DOI, journal..." class="net-search-input">
+            </div>
+            <button id="net-cite-btn-reset" class="btn-reset" style="padding: 0.35rem 0.75rem;">Reset Graph</button>
+          </div>
+        </div>
+
+        <!-- Legend and graph canvas -->
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; flex-wrap: wrap;">
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #2b5c8f; display: inline-block;"></span> CSIR-IICT</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #2e7d32; display: inline-block;"></span> CSIR-NCL</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #d95f02; display: inline-block;"></span> CSIR-CECRI</span>
+          <span style="color: var(--text-muted); margin-left: auto;">💡 Pan and zoom with mouse wheel. Drag nodes to explore. Hover or click to inspect publication details.</span>
+        </div>
+
+        <div id="chart-citation-network" style="width: 100%; height: 580px; background: #fafbfc; border-radius: 6px; border: 1px solid var(--border);"></div>
+      </div>
+
+      <!-- Network Deep Dive Grid -->
+      <div class="grid-2">
+        <!-- Top PageRank Landmark Publications -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Top 10 Landmark Papers by PageRank Centrality</div>
+              <div class="card-subtitle">Highest structural influence within Group 24 citation topology</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table" id="table-net-pagerank">
+              <thead>
+                <tr>
+                  <th style="width: 40px;">#</th>
+                  <th>Publication Title & Journal</th>
+                  <th>Lab</th>
+                  <th>In-Deg</th>
+                  <th>PageRank</th>
+                  <th>DOI</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-net-pagerank">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3x3 Cross-Institute Citation Flow Matrix -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Cross-Institute Citation Flow Matrix (3 × 3)</div>
+              <div class="card-subtitle">Rows = Citing Source Institute → Columns = Cited Target Institute</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-matrix-table" id="table-net-cite-matrix">
+              <thead>
+                <tr>
+                  <th>Citing Source \ Target</th>
+                  <th style="color: #2b5c8f;">CSIR-IICT</th>
+                  <th style="color: #2e7d32;">CSIR-NCL</th>
+                  <th style="color: #d95f02;">CSIR-CECRI</th>
+                  <th>Total Outgoing</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-net-cite-matrix">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+            <strong>Interpretation:</strong> Diagonal cells indicate intra-institute self-citations. Off-diagonal cells reveal cross-institutional knowledge diffusion across the chemistry cluster (total inter-lab citations: <strong>1,653</strong>).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 6: Co-Authorship Network -->
+    <div id="tab-authorship-net" class="tab-content">
+      <!-- Network KPIs -->
+      <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem;">
+        <div class="kpi-card">
+          <div class="kpi-label">Collaboration Edges</div>
+          <div id="net-auth-kpi-edges" class="kpi-val">65,058</div>
+          <div class="kpi-sub">Co-authorship pairs</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Active Researchers</div>
+          <div id="net-auth-kpi-nodes" class="kpi-val">7,864</div>
+          <div class="kpi-sub">Authors in network</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Louvain Communities</div>
+          <div id="net-auth-kpi-communities" class="kpi-val" style="color: #0d9488;">130</div>
+          <div class="kpi-sub">Modular research clusters</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Inter-Lab Collaboration Pairs</div>
+          <div id="net-auth-kpi-interlab" class="kpi-val" style="color: #d97706;">525</div>
+          <div class="kpi-sub">Cross-lab co-author pairs</div>
+        </div>
+      </section>
+
+      <!-- Network Canvas Card -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <div class="card-title">Panel 11: Co-Authorship Network Visualisation</div>
+            <div class="card-subtitle">Undirected collaborative graph (edge thickness: joint papers, node size: collaborator degree)</div>
+          </div>
+          <!-- Network Toolbar -->
+          <div class="net-toolbar">
+            <div class="net-control-group">
+              <label for="net-auth-filter-inst">Filter Lab:</label>
+              <select id="net-auth-filter-inst" class="filter-select" style="padding: 0.35rem 0.6rem;">
+                <option value="all" selected>All Institutes</option>
+                <option value="CSIR-IICT">CSIR-IICT</option>
+                <option value="CSIR-NCL">CSIR-NCL</option>
+                <option value="CSIR-CECRI">CSIR-CECRI</option>
+                <option value="cross">Cross-Lab Collaborators Only</option>
+              </select>
+            </div>
+            <div class="net-control-group">
+              <label for="net-auth-slider-weight">Min Joint Papers: <span id="net-auth-weight-val" class="net-slider-val">2</span></label>
+              <input type="range" id="net-auth-slider-weight" min="1" max="10" value="2" class="net-slider">
+            </div>
+            <div class="net-control-group">
+              <input type="text" id="net-auth-search" placeholder="Search author name..." class="net-search-input">
+            </div>
+            <button id="net-auth-btn-reset" class="btn-reset" style="padding: 0.35rem 0.75rem;">Reset Graph</button>
+          </div>
+        </div>
+
+        <!-- Legend and graph canvas -->
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; flex-wrap: wrap;">
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #2b5c8f; display: inline-block;"></span> CSIR-IICT</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #2e7d32; display: inline-block;"></span> CSIR-NCL</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #d95f02; display: inline-block;"></span> CSIR-CECRI</span>
+          <span style="color: var(--text-muted); margin-left: auto;">💡 Pan and zoom with mouse wheel. Drag nodes to explore. Hover or click to view researcher profile.</span>
+        </div>
+
+        <div id="chart-authorship-network" style="width: 100%; height: 580px; background: #fafbfc; border-radius: 6px; border: 1px solid var(--border);"></div>
+      </div>
+
+      <!-- Network Deep Dive Grid -->
+      <div class="grid-2">
+        <!-- Top Collaborative Bridges -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Top 10 Collaborative Bridges by Centrality</div>
+              <div class="card-subtitle">Key hub researchers connecting diverse scientific teams and divisions</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table" id="table-net-bridges">
+              <thead>
+                <tr>
+                  <th style="width: 40px;">#</th>
+                  <th>Researcher Name</th>
+                  <th>Institution</th>
+                  <th>Collaborators (Degree)</th>
+                  <th>Betweenness</th>
+                  <th>Community</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-net-bridges">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3x3 Cross-Institute Co-Authorship Matrix -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Cross-Institute Co-Authorship Matrix (3 × 3)</div>
+              <div class="card-subtitle">Undirected co-authorship relationships across the chemistry cluster</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-matrix-table" id="table-net-auth-matrix">
+              <thead>
+                <tr>
+                  <th>Institute \ Partner</th>
+                  <th style="color: #2b5c8f;">CSIR-IICT</th>
+                  <th style="color: #2e7d32;">CSIR-NCL</th>
+                  <th style="color: #d95f02;">CSIR-CECRI</th>
+                  <th>Total Inter-Lab Links</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-net-auth-matrix">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+            <strong>Interpretation:</strong> Diagonal cells indicate intra-institute co-authorship pairs. Off-diagonal cells reveal cross-institutional co-authorship partnerships across the cluster (total cross-lab pairs: <strong>525</strong>).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 7: Indian Connectivity (Sections 7a / 7b) -->
+    <div id="tab-connectivity" class="tab-content">
+      <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-bottom: 1.25rem;">
+        <div class="kpi-card">
+          <div class="kpi-label">Papers with Indian Co-authors</div>
+          <div id="conn-kpi-coauth" class="kpi-val">—</div>
+          <div class="kpi-sub">Share of distinct papers</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Cites Another Indian Inst.</div>
+          <div id="conn-kpi-cites" class="kpi-val">—</div>
+          <div class="kpi-sub">cites_indian_inst = TRUE</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Cited by Another Indian Inst.</div>
+          <div id="conn-kpi-cited" class="kpi-val">—</div>
+          <div class="kpi-sub">cited_by_indian_inst = TRUE</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Citation Impact Ratio</div>
+          <div id="conn-kpi-ratio" class="kpi-val" style="color: #0284c7;">—</div>
+          <div id="conn-kpi-ratio-sub" class="kpi-sub">In-cites / out-cites</div>
+        </div>
+      </section>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Year-wise Citation Flow (2016–2026)</div>
+              <div class="card-subtitle">Citations received from / given to other Indian institutions, by citing-paper year</div>
+            </div>
+          </div>
+          <div id="chart-conn-flow" class="chart-container"></div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Cross-Cluster Collaboration by Partner Sector</div>
+              <div class="card-subtitle">Joint papers with Indian partners, grouped by sector (CSIR ↔ IIT, CSIR ↔ DAE, …)</div>
+            </div>
+          </div>
+          <div id="chart-conn-sectors" class="chart-container"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Top 10 Indian Institutes Citing This Work</div>
+              <div class="card-subtitle">Distinct citing papers in the cluster corpus involving each institute</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table">
+              <thead><tr><th>#</th><th>Citing Institute</th><th>Citing Papers</th><th>Citations</th></tr></thead>
+              <tbody id="tbody-conn-citing"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Top Co-authoring Partner Institutes</div>
+              <div class="card-subtitle">Ranked by joint papers (co-authorship strength)</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table">
+              <thead><tr><th>#</th><th>Partner Institute</th><th>Joint Papers</th><th>Share</th></tr></thead>
+              <tbody id="tbody-conn-partners"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Hub Authors Bridging Institutes</div>
+            <div class="card-subtitle">Authors whose papers connect the most distinct institutions (Indian partners + other assigned labs)</div>
+          </div>
+        </div>
+        <div style="overflow-x: auto;">
+          <table class="net-table">
+            <thead><tr><th>#</th><th>Author</th><th>Home Lab</th><th>Role</th><th>Papers</th><th>Institutions Bridged</th><th>Cross-Inst. Papers</th><th>Top Partners</th></tr></thead>
+            <tbody id="tbody-conn-hubs"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Research-Topic Jaccard Similarity Between Labs</div>
+              <div class="card-subtitle">|A ∩ B| / |A ∪ B| of OpenAlex subfields and primary topics</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table">
+              <thead><tr><th>Lab A</th><th>Lab B</th><th>Subfield Jaccard</th><th>Topic Jaccard</th><th>Shared Topics</th></tr></thead>
+              <tbody id="tbody-conn-jaccard"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Topic Similarity with Top Partners</div>
+              <div class="card-subtitle">Lab topics vs. topics of the partner's joint papers in the cluster corpus</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table">
+              <thead><tr><th>Lab</th><th>Partner</th><th>Joint Papers</th><th>Shared Topics</th><th>Jaccard</th></tr></thead>
+              <tbody id="tbody-conn-partner-jaccard"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Top 10 Most-Cited Papers Citing This Work</div>
+            <div class="card-subtitle">Corpus papers that cite the selected lab and involve another Indian institution</div>
+          </div>
+        </div>
+        <div style="overflow-x: auto;">
+          <table class="net-table">
+            <thead><tr><th>#</th><th>Title</th><th>Year</th><th>Citations</th><th>Citing Institutions</th><th>DOI</th></tr></thead>
+            <tbody id="tbody-conn-papers"></tbody>
+          </table>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+          <strong>Method:</strong> Citation flow is measured on <code>citation_network.csv</code>: links between corpus papers plus links to and from Indian-affiliated papers outside the corpus (OpenAlex, queried 20 Oct 2026; only papers with a DOI). A citation counts as Indian when the citing (or cited) paper involves an Indian institution other than the lab in question — another assigned lab, an Indian co-author institute, or the Indian institutions of an outside paper. "All Three" sums per-lab flows. Partner sectors are assigned by institution name.
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 8: Documentation & Data Downloads -->
+    <div id="tab-docs" class="tab-content">
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Project Deliverables & Data Exports</div>
+            <div class="card-subtitle">Authoritative data artifacts and reports generated for Group 24</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem;">
+          <a href="../data/final/group24_data.csv" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: var(--primary); color: white; border: none; text-decoration: none; border-radius: 4px;">Primary Dataset (group24_data.csv)</a>
+          <a href="../data/final/citation_network.csv" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #0284c7; color: white; border: none; text-decoration: none; border-radius: 4px;">Citation Network (CSV)</a>
+          <a href="../data/final/authorship_network.csv" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #0d9488; color: white; border: none; text-decoration: none; border-radius: 4px;">Authorship Network (CSV)</a>
+          <a href="../data/final/indian_connections.csv" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #d97706; color: white; border: none; text-decoration: none; border-radius: 4px;">Indian Connections (CSV)</a>
+          <a href="../stats/report/group24_stats_report.pdf" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: var(--secondary); color: white; border: none; text-decoration: none; border-radius: 4px;">Stats Report (PDF)</a>
+          <a href="../stats/report/group24_stats_report.pptx" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #37474f; color: white; border: none; text-decoration: none; border-radius: 4px;">Slides (PPTX)</a>
+          <a href="../data/MANIFEST.json" download class="btn-reset" style="padding: 0.6rem 1.2rem; background: #64748b; color: white; border: none; text-decoration: none; border-radius: 4px;">MANIFEST.json</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Methodological Disclosures & Source Provenance</div>
+            <div class="card-subtitle">Adherence to scientific bibliometric integrity rules</div>
+          </div>
+        </div>
+        <div style="font-size: 0.875rem; color: var(--text); line-height: 1.6;">
+          <p><strong>Zero Data Fabrication:</strong> All 14,352 publications and 42,393 authorship records correspond to indexed entities in the OpenAlex API (October 2026 snapshot). Citation counts reflect actual cited-by counts as of October 2026.</p>
+          <p style="margin-top: 0.5rem;"><strong>SJR Historical Panel:</strong> Journal quartiles (Q1–Q4) are resolved from the official SCImago Journal Rank (SJR) database (1999–2025). 2026 publications use the latest available 2024/2025 SJR release as standard bibliometric practice.</p>
+          <p style="margin-top: 0.5rem;"><strong>Row Granularity:</strong> The primary dataset is structured at the <em>paper × assigned-institute author</em> granularity. Summing citations directly across rows in the raw CSV will double-count collaborative papers; all dashboard metrics aggregate at the distinct work ID level.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+
+  <!-- Scripts -->
+  <script src="vendor/echarts.min.js"></script>
+  <script src="vendor/tabulator.min.js"></script>
+  <script src="data/g24_data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

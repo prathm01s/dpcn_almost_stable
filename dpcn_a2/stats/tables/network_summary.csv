@@ -1,0 +1,24 @@
+network,metric,value
+citation,"edges (citation links, per lab attribution)",27754
+citation,distinct citing-cited paper pairs,27268
+citation,nodes (papers with >= 1 in-corpus link),10988
+citation,corpus papers with DOI,14319
+citation,papers cited >= 1 time within corpus,7627
+citation,mean in-degree (corpus papers),1.904
+citation,max in-degree,129
+citation,cross-lab citation links,1653
+citation,largest weakly connected component (papers),8965
+citation,citation links to/from outside Indian papers (raw data only),165240
+authorship,authors (nodes),7864
+authorship,co-author pairs (unique edges),35423
+authorship,"co-authorship links (edge rows, one per paper)",65058
+authorship,mean degree (distinct co-authors),9.01
+authorship,density,0.001146
+authorship,Louvain communities,130
+authorship,communities with >= 10 authors,31
+authorship,modularity,0.8136
+authorship,largest connected component (authors),7533
+authorship,largest component share pct,95.79
+authorship,cross-lab co-author pairs (edge rows),525
+authorship,edges to Indian partner co-authors (raw data only),43789
+authorship,betweenness sample size (source nodes),1000

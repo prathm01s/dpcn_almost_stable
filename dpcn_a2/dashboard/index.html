@@ -265,7 +265,7 @@
       <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem;">
         <div class="kpi-card">
           <div class="kpi-label">Citation Edges</div>
-          <div id="net-cite-kpi-edges" class="kpi-val">27,816</div>
+          <div id="net-cite-kpi-edges" class="kpi-val">27,754</div>
           <div class="kpi-sub">Within Group 24 corpus</div>
         </div>
         <div class="kpi-card">
@@ -275,7 +275,7 @@
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Inter-Lab Cross-Citations</div>
-          <div id="net-cite-kpi-interlab" class="kpi-val" style="color: #0284c7;">1,654</div>
+          <div id="net-cite-kpi-interlab" class="kpi-val" style="color: #0284c7;">1,653</div>
           <div class="kpi-sub">Citations across IICT/NCL/CECRI</div>
         </div>
         <div class="kpi-card">
@@ -380,7 +380,7 @@
             </table>
           </div>
           <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
-            <strong>Interpretation:</strong> Diagonal cells indicate intra-institute self-citations. Off-diagonal cells reveal cross-institutional knowledge diffusion across the chemistry cluster (total inter-lab citations: <strong>1,654</strong>).
+            <strong>Interpretation:</strong> Diagonal cells indicate intra-institute self-citations. Off-diagonal cells reveal cross-institutional knowledge diffusion across the chemistry cluster (total inter-lab citations: <strong>1,653</strong>).
           </div>
         </div>
       </div>
@@ -392,7 +392,7 @@
       <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem;">
         <div class="kpi-card">
           <div class="kpi-label">Collaboration Edges</div>
-          <div id="net-auth-kpi-edges" class="kpi-val">65,059</div>
+          <div id="net-auth-kpi-edges" class="kpi-val">65,058</div>
           <div class="kpi-sub">Co-authorship pairs</div>
         </div>
         <div class="kpi-card">
@@ -650,7 +650,7 @@
           </table>
         </div>
         <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
-          <strong>Method:</strong> Citation flow is measured on the in-corpus citation network (both papers belong to the NCL/IICT/CECRI corpus). A citation counts as Indian when the citing (or cited) paper involves an Indian institution other than the lab in question — another assigned lab or an Indian co-author institute. Citations from papers outside the corpus are not collected, so flows are lower bounds. "All Three" sums per-lab flows. Partner sectors are assigned by institution name.
+          <strong>Method:</strong> Citation flow is measured on <code>citation_network.csv</code>: links between corpus papers plus links to and from Indian-affiliated papers outside the corpus (OpenAlex, queried 20 Oct 2026; only papers with a DOI). A citation counts as Indian when the citing (or cited) paper involves an Indian institution other than the lab in question — another assigned lab, an Indian co-author institute, or the Indian institutions of an outside paper. "All Three" sums per-lab flows. Partner sectors are assigned by institution name.
         </div>
       </div>
     </div>
@@ -683,7 +683,7 @@
           </div>
         </div>
         <div style="font-size: 0.875rem; color: var(--text); line-height: 1.6;">
-          <p><strong>Zero Data Fabrication:</strong> All 14,353 publications and 42,406 authorship records correspond to indexed entities in the OpenAlex API (October 2026 snapshot). Citation counts reflect actual cited-by counts as of October 2026.</p>
+          <p><strong>Zero Data Fabrication:</strong> All 14,352 publications and 42,393 authorship records correspond to indexed entities in the OpenAlex API (October 2026 snapshot). Citation counts reflect actual cited-by counts as of October 2026.</p>
           <p style="margin-top: 0.5rem;"><strong>SJR Historical Panel:</strong> Journal quartiles (Q1–Q4) are resolved from the official SCImago Journal Rank (SJR) database (1999–2025). 2026 publications use the latest available 2024/2025 SJR release as standard bibliometric practice.</p>
           <p style="margin-top: 0.5rem;"><strong>Row Granularity:</strong> The primary dataset is structured at the <em>paper × assigned-institute author</em> granularity. Summing citations directly across rows in the raw CSV will double-count collaborative papers; all dashboard metrics aggregate at the distinct work ID level.</p>
         </div>

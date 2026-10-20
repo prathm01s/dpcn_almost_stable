@@ -3,12 +3,14 @@
 Executes:
 1. src.stats.metrics -> computes all tables in stats/tables/
    src.stats.connectivity -> Indian citation flow & connectivity tables (Sections 7a/7b)
+   src.stats.networks -> citation / authorship network metrics (Section 6)
 2. src.stats.make_figures -> generates 8 publication figures in stats/figures/
 3. src.stats.make_report -> compiles PowerPoint report (<=10 slides) and PDF in stats/report/
 """
 
 from src.stats.metrics import run_metrics_computation
 from src.stats.connectivity import run_connectivity_metrics
+from src.stats.networks import run_network_metrics
 from src.stats.make_figures import run_figure_generation
 from src.stats.make_report import run_report_generation
 from src.common.logging import get_logger
@@ -20,6 +22,7 @@ def main() -> None:
     logger.info("=== Starting Phase 2: Statistics & Reporting Pipeline ===")
     run_metrics_computation()
     run_connectivity_metrics()
+    run_network_metrics()
     run_figure_generation()
     run_report_generation()
     logger.info("=== Phase 2 Completed Successfully! ===")

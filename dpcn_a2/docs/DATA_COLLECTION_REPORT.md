@@ -8,7 +8,7 @@
 3. **CSIR-CECRI** — CSIR–Central Electrochemical Research Institute, Karaikudi, Tamil Nadu (ROR: `https://ror.org/01qek3q18`, OpenAlex: `I106349282`)
 **Parent Body:** Council of Scientific & Industrial Research (CSIR, ROR: `https://ror.org/021wm7p51`, OpenAlex: `I66760702`)  
 **Temporal Coverage:** Calendar years **2016–2026** (2026 collected through October 13, 2026; marked as partial)  
-**Primary Deliverable File:** `data/final/group24_data.csv` (42,406 rows, 14 canonical columns)  
+**Primary Deliverable File:** `data/final/group24_data.csv` (42,393 rows, 14 canonical columns)  
 **Report Generation Date:** October 13, 2026  
 
 ---
@@ -20,7 +20,7 @@ This report documents the end-to-end data collection, disambiguation, enrichment
 ### 1.1 Core Dataset Scale
 | Metric | Count | Bibliometric Notes |
 |---|---|---|
-| **Total Rows in Primary Dataset (`group24_data.csv`)** | **42,406** | Structured at the `(paper × assigned-institute author)` granularity. |
+| **Total Rows in Primary Dataset (`group24_data.csv`)** | **42,393** | Structured at the `(paper × assigned-institute author)` granularity. |
 | **Total Distinct Peer-Reviewed Works** | **14,352** | Deduplicated by normalized DOI / OpenAlex Work ID across all three labs. |
 | **CSIR-IICT Works / Rows** | 6,167 papers / 20,188 rows | 89.2% retention from raw OpenAlex volume (after excluding non-peer-reviewed items). |
 | **CSIR-NCL Works / Rows** | 5,404 papers / 14,731 rows | 89.8% retention from raw OpenAlex volume. |
@@ -31,7 +31,7 @@ This report documents the end-to-end data collection, disambiguation, enrichment
 | **Journal Articles vs Conference Proceedings** | 42,076 (99.2%) vs 330 (0.8%) | Reflects chemistry disciplinary norms where journals are the primary terminal venue. |
 | **Journal Quartile Coverage (SJR)** | **95.21%** | Q1: 60.7% (25,739), Q2: 25.7% (10,907), Q3: 6.9% (2,918), Q4: 1.2% (497), Unranked: 5.5% (2,345). |
 | **Indian Co-Authorship Connections** | 42.1% of papers | Derived from 910 canonical Indian institution entities in `config/indian_inst_registry.csv`. |
-| **Citing / Cited-by Indian Institutions** | 35.0% cites / 33.8% cited by (papers) | Measured on the 27,816 in-corpus citation edges in `data/final/citation_network.csv`; lower bounds (see D-13). |
+| **Citing / Cited-by Indian Institutions** | 88.3% cites / 73.4% cited by (papers) | Measured on `data/final/citation_network.csv`: 27,754 in-corpus edges + 165,240 edges to/from Indian-affiliated papers outside the corpus (Step 17, D-17). |
 
 ---
 
@@ -290,10 +290,10 @@ The exported file `data/final/group24_data.csv` satisfies all 14 mandatory colum
 ### Step 14 — Deterministic Exports & Manifest Compilation
 * **Script:** `src/collect/14_export.py`
 * **Outputs Generated:**
-  1. `data/final/group24_data.csv` (12 MB, 42,406 rows, exactly 14 canonical columns, 0 string anomalies)
-  2. `data/final/group24_data_extended.csv` (26 MB, 42,406 rows, 35 enriched columns)
-  3. `data/final/citation_network.csv` (27,816 directed citation edges: `source_doi, target_doi, source_inst, target_inst, year`)
-  4. `data/final/authorship_network.csv` (65,059 undirected co-authorship edges: `author_a, author_b, paper_doi, inst_a, inst_b, year`)
+  1. `data/final/group24_data.csv` (12 MB, 42,393 rows, exactly 14 canonical columns, 0 string anomalies)
+  2. `data/final/group24_data_extended.csv` (26 MB, 42,393 rows, 35 enriched columns)
+  3. `data/final/citation_network.csv` (192,994 directed citation edges — 27,754 in-corpus + 165,240 with outside Indian papers: `source_doi, target_doi, source_inst, target_inst, year`)
+  4. `data/final/authorship_network.csv` (108,847 undirected co-authorship edges — 65,058 within the labs + 43,789 with Indian partner co-authors: `author_a, author_b, paper_doi, inst_a, inst_b, year`)
   5. `data/final/indian_connections.csv` (1,487 cross-institute partner links: `your_inst, partner_inst, shared_papers, total_citations`)
   6. `data/final/faculty_master.csv` (101 KB, 505 faculty members with in-corpus metrics)
   7. `data/final/citation_edges_raw.parquet` (565 KB, 27,816 citation edges)
@@ -329,16 +329,16 @@ All data was retrieved from verifiable, authoritative scholarly infrastructure:
 
 | Requirement | Specification Source | Audit Status | Evidence / Location |
 |---|---|---|---|
-| Main dataset named `group24_data.csv` | Slide 10 / Note §5 | **PASSED** | `data/final/group24_data.csv` (42,406 rows) |
+| Main dataset named `group24_data.csv` | Slide 10 / Note §5 | **PASSED** | `data/final/group24_data.csv` (42,393 rows) |
 | Exactly 14 mandatory columns | Slide 10 / Note §5 | **PASSED** | Verified in `docs/QA_REPORT.md` and `tests/test_data_integrity.py` |
 | Years strictly 2016–2026 | Slide 10 / Note §5 | **PASSED** | Min: 2016, Max: 2026; 2026 marked partial |
-| Row granularity: `(paper × assigned-institute author)` | Note §5 / AGENTS.md §1.2 | **PASSED** | 42,406 author-attribution rows |
+| Row granularity: `(paper × assigned-institute author)` | Note §5 / AGENTS.md §1.2 | **PASSED** | 42,393 author-attribution rows |
 | Zero fabricated data | AGENTS.md §0 | **PASSED** | 100% traceable to OpenAlex & SJR records |
 | No citation summing across rows | AGENTS.md §1.2 | **PASSED** | Aggregated at work ID level in all stats |
 | Faculty roster based on official websites | Note §9 / AGENTS.md §5.2 | **PASSED** | 505 cadre scientists in `roster.parquet` |
 | Semicolon-separated Indian co-author institutes | Note §5 / AGENTS.md §5.10 | **PASSED** | 910 institutions in `indian_inst_registry.csv` |
-| `citation_network.csv` submitted | Note §7c / Checklist | **PASSED** | `data/final/citation_network.csv` (27,816 edges) |
-| `authorship_network.csv` submitted | Note §7c / Checklist | **PASSED** | `data/final/authorship_network.csv` (65,059 edges) |
+| `citation_network.csv` submitted | Note §7c / Checklist | **PASSED** | `data/final/citation_network.csv` (192,994 edges) |
+| `authorship_network.csv` submitted | Note §7c / Checklist | **PASSED** | `data/final/authorship_network.csv` (108,847 edges) |
 | `indian_connections.csv` submitted | Note §7c / Checklist | **PASSED** | `data/final/indian_connections.csv` (1,487 links) |
 | Directed citation edges preserved | Note §6 / AGENTS.md §9 | **PASSED** | 27,816 edges in `citation_edges_raw.parquet` |
 | Reproducible execution via CLI | AGENTS.md §0 | **PASSED** | `python3 run.py all` runs cleanly |

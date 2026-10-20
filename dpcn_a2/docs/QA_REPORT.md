@@ -20,19 +20,22 @@
 | Boolean Flags | TRUE or FALSE uppercase | Validated | ✅ PASS |
 | Citation Consistency | Citations identical across rows for same paper | Validated | ✅ PASS |
 | Delimiter Integrity | No leading/trailing ';' in coauthor_institutes | Validated | ✅ PASS |
+| Row Uniqueness | No repeated (institution, paper, author) rows | 0 duplicates after Step 16 (13 removed, D-16) | ✅ PASS |
+| Edge Validity | No self-loops, blank DOIs or duplicate rows in network files | 0 after Steps 16–17 (tests/test_networks.py) | ✅ PASS |
+| Flag Traceability | Every TRUE flag backed by a citation_network.csv row | Verified (tests/test_connectivity.py) | ✅ PASS |
 
 ## 2. Dataset Size & Granularity
 
-- **Total Rows (Paper × Assigned-Institute Author)**: 42,406
+- **Total Rows (Paper × Assigned-Institute Author)**: 42,393
 - **Total Distinct Papers**: 14,352
 
 ### Breakdown by Institution
 
 | Institution | Author-Paper Rows | Distinct Papers | Step 01 OpenAlex Raw Works | Retention Rate |
 |---|---|---|---|---|
-| **CSIR-IICT** | 20,188 | 6,167 | 6,911 | 89.2% |
-| **CSIR-NCL** | 14,731 | 5,404 | 6,019 | 89.8% |
-| **CSIR-CECRI** | 7,487 | 2,885 | 3,138 | 91.9% |
+| **CSIR-IICT** | 20,183 | 6,167 | 6,911 | 89.2% |
+| **CSIR-NCL** | 14,726 | 5,404 | 6,019 | 89.8% |
+| **CSIR-CECRI** | 7,484 | 2,885 | 3,138 | 91.9% |
 
 > *Note on Retention Rate*: In Step 05, non-peer-reviewed items (editorials, corrections, errata, book chapters) were systematically excluded per assignment specifications. All peer-reviewed research and review articles were retained.
 
@@ -44,8 +47,8 @@
 | **Journal ISSN Completeness** | 99.87% | Hyphenated linking/print ISSN |
 | **Journal Quartile Completeness** | 95.21% | SJR 1999–2025 historical panel matching |
 | **Faculty Roster Match Rate** | 68.7% (347 / 505) | Scientific cadre faculty with papers in 2016–2026 |
-| **Indian Citation Flag (`cites_indian_inst`)** | 37.4% TRUE (rows) | Cites an in-corpus paper involving another Indian institution (D-13) |
-| **Indian Citation Flag (`cited_by_indian_inst`)** | 35.9% TRUE (rows) | Cited by an in-corpus paper involving another Indian institution (D-13) |
+| **Indian Citation Flag (`cites_indian_inst`)** | 88.9% TRUE (rows), 88.3% (papers) | Cites a paper involving another Indian institution; in-corpus + outside links (D-17) |
+| **Indian Citation Flag (`cited_by_indian_inst`)** | 72.3% TRUE (rows), 73.4% (papers) | Cited by a paper involving another Indian institution; in-corpus + outside links (D-17) |
 
 ## 4. Journal Quartile Distribution
 

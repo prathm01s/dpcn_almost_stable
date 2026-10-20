@@ -27,8 +27,8 @@ The primary submission dataset contains **exactly 14 columns** in the prescribed
 | 10 | `citations` | Integer | $\ge 0$ | Total number of citing publications recorded in OpenAlex as of collection date. **Caution:** Never sum across rows without deduplicating by paper first. | OpenAlex `cited_by_count` |
 | 11 | `quartile` | String | `Q1`, `Q2`, `Q3`, `Q4`, `CORE A*`, `CORE A`, `CORE B`, `CORE C`, or blank | Journal quartile or conference rank. Resolved against historical SCImago Journal Rank (SJR) panel (1999–2025) using ISSN and year matching; fallback to closest available year for 2026. Blank if unranked. | SCImago Journal Rank (1999–2025) / CORE |
 | 12 | `coauthor_institutes` | String | Semicolon-delimited list or blank | Semicolon-separated list of canonical Indian partner institutions affiliated with co-authors on the paper, excluding the paper's own assigned institution. Formatted as `Inst A; Inst B`. Blank if no external Indian co-authors. | OpenAlex `authorships[].institutions` cross-referenced with `indian_inst_registry.csv` |
-| 13 | `cites_indian_inst` | String | `TRUE`, `FALSE` | Uppercase boolean string: `TRUE` iff this paper cites at least one **in-corpus** paper (NCL/IICT/CECRI corpus) involving an Indian institution other than the row's institute (another assigned lab or an Indian co-author institute). References outside the corpus are not resolved, so `FALSE` means "no such link observed". | `citation_network.csv` + `coauthor_institutes` (Step 11 / Step 15) |
-| 14 | `cited_by_indian_inst` | String | `TRUE`, `FALSE` | Uppercase boolean string: `TRUE` iff at least one **in-corpus** paper involving an Indian institution other than the row's institute cites this paper. Citing works outside the corpus are not resolved. | `citation_network.csv` + `coauthor_institutes` (Step 11 / Step 15) |
+| 13 | `cites_indian_inst` | String | `TRUE`, `FALSE` | `TRUE` iff the paper cites at least one paper involving an Indian institution other than the row's institute: another assigned lab, an Indian co-author institute of a corpus paper, or an Indian institution of a DOI-bearing paper outside the corpus (OpenAlex, Step 17, 20 Oct 2026). Every TRUE is backed by a row of `citation_network.csv`. |
+| 14 | `cited_by_indian_inst` | String | `TRUE`, `FALSE` | `TRUE` iff at least one paper involving an Indian institution other than the row's institute cites this paper (corpus papers, plus DOI-bearing Indian-affiliated citing papers outside the corpus found via OpenAlex `cites:` on 20 Oct 2026). Every TRUE is backed by a row of `citation_network.csv`. |
 
 ---
 
@@ -69,3 +69,15 @@ The extended dataset retains the identical row order and row count as `group24_d
 2. **`data/final/citation_edges_raw.parquet`**: 27,824 directed citation edges `(source_work_id -> target_work_id)` connecting corpus papers with citing/referenced works, partitioned and prepared for Task 4 network analysis.
 3. **`data/final/works_table.parquet`**: Deduplicated paper-level dataset (14,357 works) containing full topic hierarchies, biblio details, and open access status.
 4. **`config/indian_inst_registry.csv`**: 911 mapped Indian academic and research institutions with canonical display names, ROR IDs, state, city, and research sector classification (CSIR, IIT, IISc, NIT, Central Universities, etc.).
+
+
+## Network files (Week 1–2 deliverables)
+
+| File | Columns | Content |
+|---|---|---|
+| `citation_network.csv` | source_doi, target_doi, source_inst, target_inst, year | Directed "source cites target". (a) In-corpus edges: both papers in the NCL/IICT/CECRI corpus, inst = assigned lab. (b) Edges between a corpus paper and a DOI-bearing Indian-affiliated paper outside the corpus; the outside side's inst is its Indian institutions joined by `;` (our labs written CSIR-NCL / CSIR-IICT / CSIR-CECRI). `year` = citing paper's publication year. A corpus paper attributed to two labs appears once per lab. |
+| `authorship_network.csv` | author_a, author_b, paper_doi, inst_a, inst_b, year | Undirected co-authorship. `author_a` is always an author of an assigned lab (`inst_a`). Rows with `inst_b` an assigned lab are within the cluster; other rows link to a co-author whose authorship is at another Indian institution (`inst_b`, `;`-joined if several). `paper_doi` blank for papers without DOI. |
+| `indian_connections.csv` | your_inst, partner_inst, shared_papers, total_citations | Per assigned lab and Indian partner institution: distinct co-authored papers and the sum of their citations. Partners include the other two labs. |
+| `indian_linked_works.csv` (supporting) | work_id, doi, title, year, cited_by_count, indian_institutions | Metadata of the outside papers used in `citation_network.csv`. |
+
+Network analysis (PageRank, Louvain, centralities) uses only the within-cluster rows; the rows to outside Indian papers/authors are raw data, as the instruction note requires.

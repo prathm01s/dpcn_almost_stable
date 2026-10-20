@@ -52,10 +52,17 @@
    - They are not field-normalized (e.g., fractional citation counting or RCR). Chemical synthesis papers typically accrue citations over longer cycles (3–5 years) compared to rapid biomedical literature.
 
 2. **Cross-Institute and Indian Connections**:
-   - Flags `cites_indian_inst` and `cited_by_indian_inst` are measured only on **in-corpus** citation links (`citation_network.csv`: both papers belong to the NCL/IICT/CECRI corpus). A link counts when the other paper involves an Indian institution other than the row's institute — another assigned lab or an Indian co-author institute. Reference lists and citing works outside the corpus were not resolved, so the flags (35.0% / 33.8% of papers) and all citation-flow counts in `stats/tables/citation_flow_*.csv` are **lower bounds**. Earlier exports filled the flags heuristically; see D-13.
+   - Flags `cites_indian_inst` and `cited_by_indian_inst` use in-corpus links plus links to/from Indian-affiliated papers outside the corpus (OpenAlex `cited_by:` / `cites:` with `authorships.countries:IN`, queried 20 Oct 2026, core corpus). Only papers with a DOI are kept in `citation_network.csv` and counted. "Indian" relies on OpenAlex institution country codes; authorships without an institution ID are not counted. The citing-paper pull is one week newer than the 13 Oct `citations` column, so 23 papers show slightly more Indian citing papers than their `citations` value. Two citing papers carry impossible publication years in OpenAlex (1970, 2008) and are kept as recorded.
    - Partner sectors (IIT, CSIR, DAE, …) in `cross_cluster_*.csv` are assigned from institution names (`src/common/sectors.py`); institutions matching no rule are labelled `Other`, and `StateUniv` covers state and other non-central universities.
    - Topic Jaccard with partner institutions uses the topics of the partner's joint papers within our corpus, not the partner's full output, which was not collected.
    - OpenAlex references coverage is approximately 95% complete for Crossref-indexed publications. Unindexed citations from local or regional non-DOI venues are not captured.
 
 3. **No Summation Across Rows**:
    - Because the required CSV dataset is structured at the **paper × assigned-institute author** level, summing the `citations` column directly over the file will result in multiple counting for co-authored papers. Analysis must always aggregate at the distinct `work_id` or paper level.
+
+## Network analysis
+
+- Authors in `authorship_network.csv` are identified by name (as the instruction note's columns require), so two people with the same name are merged into one node.
+- Betweenness centrality is estimated from 1,000 sampled source nodes (seed 42); exact values may differ slightly. Louvain communities use seed 42.
+- AcSIR (the degree-granting academy for CSIR students) and CSIR headquarters appear as partner institutions when OpenAlex lists them; they are kept as recorded.
+- One corpus paper (W4380288032) is no longer returned by OpenAlex (merged or removed after 13 Oct); its outgoing links to outside papers are missing.
