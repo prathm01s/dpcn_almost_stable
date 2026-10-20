@@ -600,8 +600,9 @@ def run_metrics_computation() -> None:
 
         tot = len(sub)
         has_coauth = (sub["coauthor_institutes"] != "").sum()
-        cites_ind = (sub["cites_indian_inst"] == "TRUE").sum()
-        cited_ind = (sub["cited_by_indian_inst"] == "TRUE").sum()
+        # pandas parses the TRUE/FALSE strings as booleans, so compare on the string form
+        cites_ind = (sub["cites_indian_inst"].astype(str).str.upper() == "TRUE").sum()
+        cited_ind = (sub["cited_by_indian_inst"].astype(str).str.upper() == "TRUE").sum()
 
         conn_rows.append({
             "institution": inst,

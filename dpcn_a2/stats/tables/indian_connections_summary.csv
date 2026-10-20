@@ -1,5 +1,5 @@
 institution,total_papers,papers_with_indian_coauthors,indian_coauthor_pct,cites_indian_inst_count,cites_indian_inst_pct,cited_by_indian_inst_count,cited_by_indian_inst_pct
-CSIR-IICT,6167,2651,42.99,0,0.0,0,0.0
-CSIR-NCL,5404,2597,48.06,0,0.0,0,0.0
-CSIR-CECRI,2885,1394,48.32,0,0.0,0,0.0
-Group 24 Combined,14352,6538,45.55,0,0.0,0,0.0
+CSIR-IICT,6167,2651,42.99,2218,35.97,2067,33.52
+CSIR-NCL,5404,2597,48.06,1791,33.14,1782,32.98
+CSIR-CECRI,2885,1394,48.32,1074,37.23,1062,36.81
+Group 24 Combined,14352,6538,45.55,5025,35.01,4851,33.8

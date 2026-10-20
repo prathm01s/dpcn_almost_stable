@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (topPapersTable) topPapersTable.redraw(true);
         if (activeTab === "citation-net") renderCitationNetwork();
         if (activeTab === "authorship-net") renderAuthorshipNetwork();
+        if (activeTab === "connectivity") renderConnectivity();
       }, 50);
     });
   });
@@ -141,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderResearchAreasCharts();
     if (activeTab === "citation-net") renderCitationNetwork();
     if (activeTab === "authorship-net") renderAuthorshipNetwork();
+    if (activeTab === "connectivity") renderConnectivity();
   }
 
   // 1. KPI Strip Rendering
@@ -880,6 +882,123 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       }).join("");
     }
+  }
+
+  // 8. Indian Connectivity (Sections 7a / 7b)
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const instNames = { iict: "CSIR-IICT", ncl: "CSIR-NCL", cecri: "CSIR-CECRI" };
+
+  function renderConnectivity() {
+    const conn = data.connectivity;
+    if (!conn) return;
+    const key = currentInst === "compare" ? "all" : currentInst;
+    const fmt = v => (v === null || v === undefined ? "—" : Number(v).toLocaleString());
+
+    // KPIs
+    const summary = (data.by_institute[key].indian_connections || {}).summary || {};
+    const flow = conn.flow_summary[key] || {};
+    document.getElementById("conn-kpi-coauth").textContent = `${summary.indian_coauthor_pct ?? "—"}%`;
+    document.getElementById("conn-kpi-cites").textContent = `${summary.cites_indian_inst_pct ?? "—"}%`;
+    document.getElementById("conn-kpi-cited").textContent = `${summary.cited_by_indian_inst_pct ?? "—"}%`;
+    document.getElementById("conn-kpi-ratio").textContent = flow.impact_ratio_indian != null ? flow.impact_ratio_indian.toFixed(2) : "—";
+    document.getElementById("conn-kpi-ratio-sub").textContent =
+      `In ${fmt(flow.in_citations_indian)} / out ${fmt(flow.out_citations_indian)} citations`;
+
+    // Year-wise flow chart
+    const flowEl = document.getElementById("chart-conn-flow");
+    if (flowEl) {
+      if (!charts.connFlow) charts.connFlow = echarts.init(flowEl);
+      let series;
+      if (currentInst === "compare") {
+        series = Object.keys(instNames).flatMap(k => [
+          { name: `${instNames[k]} in`, type: "line", smooth: true, itemStyle: { color: colors[k] },
+            data: conn.flow_by_year[k].map(r => r.in_citations_indian) },
+          { name: `${instNames[k]} out`, type: "line", smooth: true, lineStyle: { type: "dashed" }, itemStyle: { color: colors[k] },
+            data: conn.flow_by_year[k].map(r => r.out_citations_indian) },
+        ]);
+      } else {
+        const rows = conn.flow_by_year[key];
+        series = [
+          { name: "In-flow (cited by other Indian inst.)", type: "bar", itemStyle: { color: colors[key] }, data: rows.map(r => r.in_citations_indian) },
+          { name: "Out-flow (cites other Indian inst.)", type: "bar", itemStyle: { color: "#94a3b8" }, data: rows.map(r => r.out_citations_indian) },
+        ];
+      }
+      charts.connFlow.setOption({
+        tooltip: { trigger: "axis" },
+        legend: { top: 0, type: "scroll" },
+        grid: { left: 50, right: 20, top: 40, bottom: 30 },
+        xAxis: { type: "category", data: conn.flow_by_year.all.map(r => (r.year === 2026 ? "2026*" : String(r.year))) },
+        yAxis: { type: "value", name: "Citations" },
+        series,
+      }, true);
+    }
+
+    // Partner sector chart
+    const secEl = document.getElementById("chart-conn-sectors");
+    if (secEl) {
+      if (!charts.connSectors) charts.connSectors = echarts.init(secEl);
+      const rows = [...(conn.cross_cluster[key] || [])].sort((a, b) => a.shared_papers - b.shared_papers);
+      charts.connSectors.setOption({
+        tooltip: {
+          trigger: "axis", axisPointer: { type: "shadow" },
+          formatter: p => {
+            const r = rows[p[0].dataIndex];
+            return `<strong>${esc(r.link_type)}</strong>${r.is_cross_cluster ? " (cross-cluster)" : ""}<br/>` +
+              `Joint papers: ${r.shared_papers.toLocaleString()}<br/>Partner institutes: ${r.partner_institutions}<br/>` +
+              `Citations: ${r.total_citations.toLocaleString()}`;
+          },
+        },
+        grid: { left: 110, right: 30, top: 10, bottom: 30 },
+        xAxis: { type: "value", name: "Joint papers" },
+        yAxis: { type: "category", data: rows.map(r => r.partner_sector) },
+        series: [{
+          type: "bar",
+          data: rows.map(r => ({ value: r.shared_papers, itemStyle: { color: r.is_cross_cluster ? colors[key] : "#94a3b8" } })),
+        }],
+      }, true);
+    }
+
+    // Top citing institutes
+    document.getElementById("tbody-conn-citing").innerHTML = (conn.top_citing_institutes[key] || []).map(r => `
+      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td><td>${esc(r.citing_institution)}</td>
+      <td style="font-weight:700;">${r.citing_papers.toLocaleString()}</td><td>${r.citations.toLocaleString()}</td></tr>`).join("");
+
+    // Top partners
+    document.getElementById("tbody-conn-partners").innerHTML = ((data.by_institute[key].indian_connections || {}).top_partners || []).map(r => `
+      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td><td>${esc(r.partner_institution)}</td>
+      <td style="font-weight:700;">${r.collaborative_papers.toLocaleString()}</td><td>${r.share_pct}%</td></tr>`).join("");
+
+    // Hub authors
+    document.getElementById("tbody-conn-hubs").innerHTML = (conn.hub_authors[key] || []).map(r => `
+      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td><td style="font-weight:600;">${esc(r.author)}</td>
+      <td>${esc(r.home_institution)}</td><td>${esc(r.author_role.replace(/_/g, " "))}</td><td>${r.papers}</td>
+      <td style="font-weight:700; color:#0284c7;">${r.institutions_bridged}</td><td>${r.cross_institution_papers}</td>
+      <td style="font-size:0.75rem; color:#64748b; max-width:320px;">${esc(r.top_partners)}</td></tr>`).join("");
+
+    // Lab-to-lab topic Jaccard
+    const jac = {};
+    conn.topic_jaccard.forEach(r => { jac[`${r.institution_a}|${r.institution_b}`] = { ...(jac[`${r.institution_a}|${r.institution_b}`] || {}), [r.level]: r }; });
+    document.getElementById("tbody-conn-jaccard").innerHTML = Object.entries(jac).map(([pair, lv]) => {
+      const [a, b] = pair.split("|");
+      return `<tr><td>${a}</td><td>${b}</td><td style="font-weight:700;">${lv.subfield.jaccard.toFixed(3)}</td>
+        <td style="font-weight:700;">${lv.topic.jaccard.toFixed(3)}</td><td>${lv.topic.shared_topics} / ${lv.topic.topics_a + lv.topic.topics_b - lv.topic.shared_topics}</td></tr>`;
+    }).join("");
+
+    // Partner topic Jaccard
+    const pKeys = key === "all" ? Object.keys(instNames) : [key];
+    document.getElementById("tbody-conn-partner-jaccard").innerHTML = pKeys.flatMap(k =>
+      (conn.partner_topic_jaccard[k] || []).slice(0, key === "all" ? 5 : 10).map(r => `
+        <tr><td>${instNames[k]}</td><td>${esc(r.partner_institution)}</td><td>${r.shared_papers}</td>
+        <td>${r.shared_topics}</td><td style="font-weight:700;">${r.jaccard.toFixed(3)}</td></tr>`)).join("");
+
+    // Most-cited citing papers
+    document.getElementById("tbody-conn-papers").innerHTML = (conn.top_citing_papers[key] || []).map(r => `
+      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td>
+      <td><div style="font-weight:600; max-width:360px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${esc(r.title)}">${esc(r.title)}</div>
+      <div style="font-size:0.75rem; color:#64748b;">${esc(r.journal_name)}</div></td>
+      <td>${r.year}</td><td style="font-weight:700;">${r.citations.toLocaleString()}</td>
+      <td style="font-size:0.75rem; color:#64748b; max-width:260px;">${esc(r.citing_institutions)}</td>
+      <td>${r.doi ? `<a href="${esc(r.doi)}" target="_blank" style="color:#0284c7; text-decoration:none; font-size:0.75rem;">DOI ↗</a>` : ""}</td></tr>`).join("");
   }
 
   // Window resize handler

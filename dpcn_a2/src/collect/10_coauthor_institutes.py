@@ -14,40 +14,9 @@ from typing import Any, Dict, List, Set
 import pandas as pd
 
 from src.common.logging import get_logger
+from src.common.sectors import assign_sector_cluster
 
 logger = get_logger("10_coauthor_institutes")
-
-
-def assign_sector_cluster(name: str, inst_type: str) -> str:
-    """Classify Indian institution into sector/cluster for network mapping."""
-    n = name.upper()
-    if "INDIAN INSTITUTE OF TECHNOLOGY" in n or re.search(r"\bIIT\b", n):
-        return "IIT"
-    if "NATIONAL INSTITUTE OF TECHNOLOGY" in n or re.search(r"\bNIT\b", n):
-        return "NIT"
-    if "INDIAN INSTITUTE OF INFORMATION TECHNOLOGY" in n or re.search(r"\bIIIT\b", n):
-        return "IIIT"
-    if "INDIAN INSTITUTE OF SCIENCE EDUCATION AND RESEARCH" in n or re.search(r"\bIISER\b", n):
-        return "IISER"
-    if "COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH" in n or re.search(r"\bCSIR\b", n) or "NATIONAL CHEMICAL LABORATORY" in n or "INDIAN INSTITUTE OF CHEMICAL TECHNOLOGY" in n or "CENTRAL ELECTROCHEMICAL" in n:
-        return "CSIR"
-    if "BHABHA ATOMIC RESEARCH" in n or "TATA INSTITUTE OF FUNDAMENTAL RESEARCH" in n or "TIFR" in n or "BARC" in n or "IGCAR" in n or "RRCAT" in n or "NISER" in n:
-        return "DAE"
-    if "INDIAN COUNCIL OF AGRICULTURAL RESEARCH" in n or "ICAR" in n or "IARI" in n:
-        return "ICAR"
-    if "INDIAN COUNCIL OF MEDICAL RESEARCH" in n or "ICMR" in n or "NIV" in n or "NIPER" in n:
-        return "ICMR"
-    if "DEFENCE RESEARCH AND DEVELOPMENT" in n or "DRDO" in n:
-        return "DRDO"
-    if "INDIAN SPACE RESEARCH" in n or "ISRO" in n or "VSSC" in n:
-        return "ISRO"
-    if "UNIVERSITY OF HYDERABAD" in n or "DELHI UNIVERSITY" in n or "JAWAHARLAL NEHRU UNIVERSITY" in n or "BANARAS HINDU UNIVERSITY" in n or "ALIGARH MUSLIM" in n or "CENTRAL UNIVERSITY" in n:
-        return "CentralUniv"
-    if "PUNE UNIVERSITY" in n or "OSMANIA UNIVERSITY" in n or "ALAGAPPA UNIVERSITY" in n or "MADRAS UNIVERSITY" in n or "CALCUTTA UNIVERSITY" in n or "MUMBAI UNIVERSITY" in n or "STATE UNIVERSITY" in n:
-        return "StateUniv"
-    if "BIRLA INSTITUTE OF TECHNOLOGY" in n or "MANIPAL" in n or "AMITY" in n or "SRM" in n or "VELLORE INSTITUTE OF TECHNOLOGY" in n or "VIT" in n or "THAPAR" in n or "SHIV NADAR" in n or "ASHOKA" in n:
-        return "Private"
-    return "Other"
 
 
 def clean_institution_name(name: str) -> str:

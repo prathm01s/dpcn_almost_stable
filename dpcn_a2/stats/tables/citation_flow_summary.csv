@@ -1,0 +1,5 @@
+institution,in_citations_indian,out_citations_indian,impact_ratio_indian,in_citations_other_assigned_labs,out_citations_other_assigned_labs,impact_ratio_other_assigned_labs,distinct_citing_institutions
+CSIR-IICT,4807,4894,0.982,538,756,0.712,411
+CSIR-NCL,4104,3613,1.136,789,572,1.379,395
+CSIR-CECRI,2665,2350,1.134,326,325,1.003,278
+Group 24 Combined,11576,10857,1.066,,,,

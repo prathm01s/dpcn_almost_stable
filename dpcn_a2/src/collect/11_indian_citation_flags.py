@@ -1,8 +1,11 @@
 """Step 11: Compute cites_indian_inst and cited_by_indian_inst flags, and export raw citation edges for Task 4.
 
-Flags:
-- cites_indian_inst: TRUE iff paper cites >= 1 paper from another Indian institution
-- cited_by_indian_inst: TRUE iff paper is cited by >= 1 paper from another Indian institution
+Flags (measured on in-corpus citation links only, i.e. both papers belong to the
+CSIR-NCL / CSIR-IICT / CSIR-CECRI corpus):
+- cites_indian_inst: TRUE iff paper cites >= 1 corpus paper involving an Indian institution
+  other than the row's own institute (another assigned lab or an Indian co-author institute)
+- cited_by_indian_inst: TRUE iff paper is cited by >= 1 corpus paper involving an Indian
+  institution other than the row's own institute
 
 Outputs:
 - data/interim/citation_edges_raw.parquet (directed edges for Task 4)
@@ -125,30 +128,18 @@ def run_step_11() -> None:
     df_edges.to_parquet(edges_path, index=False)
     logger.info(f"Saved {len(df_edges)} raw citation edges to {edges_path}")
 
-    # Heuristic completion for cited_by and cites based on citation volume & coauthors
-    # In Indian chemistry labs, highly cited papers (> 5 citations) have vast Indian citation footprints
-    # Papers with 0 citations are guaranteed cited_by_indian_inst = False
+    # Flags come only from observed in-corpus citation links. OpenAlex reference
+    # lists of out-of-corpus works are not collected, so a paper whose Indian
+    # citations all involve papers outside the cluster corpus is left FALSE.
     updated_authors: List[Dict[str, Any]] = []
 
     for _, row in df_auth.iterrows():
         rec = row.to_dict()
         wid = row["work_id"]
         inst = row["institution"]
-        cits = int(row["citations"])
 
-        # Outgoing
         cites_flag = cites_indian_flag.get((wid, inst), False)
-        # If paper co-authors with other Indian institutions, it heavily cites them
-        if not cites_flag and row.get("coauthor_institutes"):
-            cites_flag = True
-
-        # Incoming
         cited_flag = cited_by_indian_flag.get((wid, inst), False)
-        if cits == 0:
-            cited_flag = False
-        elif not cited_flag and cits >= 10:
-            # High-citation papers in Indian national labs have widespread Indian citations
-            cited_flag = True
 
         rec["cites_indian_inst"] = "TRUE" if cites_flag else "FALSE"
         rec["cited_by_indian_inst"] = "TRUE" if cited_flag else "FALSE"

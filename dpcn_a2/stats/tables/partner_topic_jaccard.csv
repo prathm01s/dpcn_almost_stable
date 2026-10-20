@@ -1,0 +1,31 @@
+institution,rank,partner_institution,shared_papers,institute_topics,partner_topics_in_corpus,shared_topics,jaccard
+CSIR-IICT,1,Academy of Scientific and Innovative Research,321,624,226,199,0.3057
+CSIR-IICT,2,Osmania University,262,624,109,109,0.1747
+CSIR-IICT,3,National Institute of Pharmaceutical Education and Research,184,624,83,83,0.133
+CSIR-IICT,4,Centre for Cellular and Molecular Biology,183,624,88,88,0.141
+CSIR-IICT,5,Council of Scientific and Industrial Research,159,624,156,135,0.2093
+CSIR-IICT,6,University of Hyderabad,111,624,63,62,0.0992
+CSIR-IICT,7,Birla Institute of Technology and Science - Hyderabad Campus,99,624,42,41,0.0656
+CSIR-IICT,8,"Birla Institute of Technology and Science, Pilani",94,624,45,45,0.0721
+CSIR-IICT,9,GITAM University,83,624,45,45,0.0721
+CSIR-IICT,10,"Jawaharlal Nehru Technological University, Hyderabad",76,624,39,39,0.0625
+CSIR-NCL,1,Savitribai Phule Pune University,358,597,161,158,0.2633
+CSIR-NCL,2,Indian Institute of Science Education and Research Pune,245,597,91,90,0.1505
+CSIR-NCL,3,Academy of Scientific and Innovative Research,226,597,226,196,0.3126
+CSIR-NCL,4,Council of Scientific and Industrial Research,117,597,156,134,0.2165
+CSIR-NCL,5,Bhabha Atomic Research Centre,102,597,68,66,0.1102
+CSIR-NCL,6,Indian Institute of Science Education and Research Kolkata,86,597,46,45,0.0753
+CSIR-NCL,7,Indian Institute of Technology Bombay,86,597,65,61,0.1015
+CSIR-NCL,8,Shivaji University,66,597,34,33,0.0552
+CSIR-NCL,9,Indian Institute of Science Bangalore,65,597,45,41,0.0682
+CSIR-NCL,10,CSIR-IICT,58,597,48,48,0.0804
+CSIR-CECRI,1,Alagappa University,168,255,50,50,0.1961
+CSIR-CECRI,2,Academy of Scientific and Innovative Research,111,255,226,95,0.2461
+CSIR-CECRI,3,SRM Institute of Science and Technology,67,255,45,37,0.1407
+CSIR-CECRI,4,Council of Scientific and Industrial Research,66,255,156,73,0.216
+CSIR-CECRI,5,Indian Institute of Technology Madras,61,255,50,39,0.1466
+CSIR-CECRI,6,National Institute of Technology Tiruchirappalli,51,255,30,29,0.1133
+CSIR-CECRI,7,"Anna University, Chennai",50,255,28,25,0.0969
+CSIR-CECRI,8,Central Salt and Marine Chemicals Research Institute,47,255,45,32,0.1194
+CSIR-CECRI,9,Bharathidasan University,40,255,27,23,0.0888
+CSIR-CECRI,10,Bharathiar University,37,255,16,15,0.0586

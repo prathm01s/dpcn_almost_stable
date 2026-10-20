@@ -135,6 +135,7 @@
       <button class="tab-btn" data-tab="areas">Thematic Domains</button>
       <button class="tab-btn" data-tab="citation-net">Directed Citation Network <span class="tab-badge" style="background:#e0f2fe; color:#0369a1; font-weight:700;">Task 4</span></button>
       <button class="tab-btn" data-tab="authorship-net">Co-Authorship Network <span class="tab-badge" style="background:#e0f2fe; color:#0369a1; font-weight:700;">Task 4</span></button>
+      <button class="tab-btn" data-tab="connectivity">Indian Connectivity</button>
       <button class="tab-btn" data-tab="docs">Data & Exports</button>
     </nav>
 
@@ -512,7 +513,149 @@
       </div>
     </div>
 
-    <!-- Tab 7: Documentation & Data Downloads -->
+    <!-- Tab 7: Indian Connectivity (Sections 7a / 7b) -->
+    <div id="tab-connectivity" class="tab-content">
+      <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-bottom: 1.25rem;">
+        <div class="kpi-card">
+          <div class="kpi-label">Papers with Indian Co-authors</div>
+          <div id="conn-kpi-coauth" class="kpi-val">—</div>
+          <div class="kpi-sub">Share of distinct papers</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Cites Another Indian Inst.</div>
+          <div id="conn-kpi-cites" class="kpi-val">—</div>
+          <div class="kpi-sub">cites_indian_inst = TRUE</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Cited by Another Indian Inst.</div>
+          <div id="conn-kpi-cited" class="kpi-val">—</div>
+          <div class="kpi-sub">cited_by_indian_inst = TRUE</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Citation Impact Ratio</div>
+          <div id="conn-kpi-ratio" class="kpi-val" style="color: #0284c7;">—</div>
+          <div id="conn-kpi-ratio-sub" class="kpi-sub">In-cites / out-cites</div>
+        </div>
+      </section>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Year-wise Citation Flow (2016–2026)</div>
+              <div class="card-subtitle">Citations received from / given to other Indian institutions, by citing-paper year</div>
+            </div>
+          </div>
+          <div id="chart-conn-flow" class="chart-container"></div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Cross-Cluster Collaboration by Partner Sector</div>
+              <div class="card-subtitle">Joint papers with Indian partners, grouped by sector (CSIR ↔ IIT, CSIR ↔ DAE, …)</div>
+            </div>
+          </div>
+          <div id="chart-conn-sectors" class="chart-container"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Top 10 Indian Institutes Citing This Work</div>
+              <div class="card-subtitle">Distinct citing papers in the cluster corpus involving each institute</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table">
+              <thead><tr><th>#</th><th>Citing Institute</th><th>Citing Papers</th><th>Citations</th></tr></thead>
+              <tbody id="tbody-conn-citing"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Top Co-authoring Partner Institutes</div>
+              <div class="card-subtitle">Ranked by joint papers (co-authorship strength)</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table">
+              <thead><tr><th>#</th><th>Partner Institute</th><th>Joint Papers</th><th>Share</th></tr></thead>
+              <tbody id="tbody-conn-partners"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Hub Authors Bridging Institutes</div>
+            <div class="card-subtitle">Authors whose papers connect the most distinct institutions (Indian partners + other assigned labs)</div>
+          </div>
+        </div>
+        <div style="overflow-x: auto;">
+          <table class="net-table">
+            <thead><tr><th>#</th><th>Author</th><th>Home Lab</th><th>Role</th><th>Papers</th><th>Institutions Bridged</th><th>Cross-Inst. Papers</th><th>Top Partners</th></tr></thead>
+            <tbody id="tbody-conn-hubs"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Research-Topic Jaccard Similarity Between Labs</div>
+              <div class="card-subtitle">|A ∩ B| / |A ∪ B| of OpenAlex subfields and primary topics</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table">
+              <thead><tr><th>Lab A</th><th>Lab B</th><th>Subfield Jaccard</th><th>Topic Jaccard</th><th>Shared Topics</th></tr></thead>
+              <tbody id="tbody-conn-jaccard"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Topic Similarity with Top Partners</div>
+              <div class="card-subtitle">Lab topics vs. topics of the partner's joint papers in the cluster corpus</div>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="net-table">
+              <thead><tr><th>Lab</th><th>Partner</th><th>Joint Papers</th><th>Shared Topics</th><th>Jaccard</th></tr></thead>
+              <tbody id="tbody-conn-partner-jaccard"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Top 10 Most-Cited Papers Citing This Work</div>
+            <div class="card-subtitle">Corpus papers that cite the selected lab and involve another Indian institution</div>
+          </div>
+        </div>
+        <div style="overflow-x: auto;">
+          <table class="net-table">
+            <thead><tr><th>#</th><th>Title</th><th>Year</th><th>Citations</th><th>Citing Institutions</th><th>DOI</th></tr></thead>
+            <tbody id="tbody-conn-papers"></tbody>
+          </table>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+          <strong>Method:</strong> Citation flow is measured on the in-corpus citation network (both papers belong to the NCL/IICT/CECRI corpus). A citation counts as Indian when the citing (or cited) paper involves an Indian institution other than the lab in question — another assigned lab or an Indian co-author institute. Citations from papers outside the corpus are not collected, so flows are lower bounds. "All Three" sums per-lab flows. Partner sectors are assigned by institution name.
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 8: Documentation & Data Downloads -->
     <div id="tab-docs" class="tab-content">
       <div class="card" style="margin-bottom: 1.5rem;">
         <div class="card-header">

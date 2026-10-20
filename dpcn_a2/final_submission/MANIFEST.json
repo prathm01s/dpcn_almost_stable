@@ -22,13 +22,13 @@
   "files": {
     "group24_data.csv": {
       "path": "data/final/group24_data.csv",
-      "sha256": "77c21d4476c53748572b7eb645d5fcf48dbd4df1f45b2d7557c52d4d126ff422",
+      "sha256": "ad1ad682e3c6a348bbd5d323351324215018acbc624439081c635b0e6ecdefc2",
       "rows": 42406,
       "columns": 14
     },
     "group24_data_extended.csv": {
       "path": "data/final/group24_data_extended.csv",
-      "sha256": "61755994c0bad66341f5ee95879e5493b85b55665afedc65fa985b6afad0e7de",
+      "sha256": "753d0a7b22a87c3204b9e9491c2a51794409fe9447a040615ee7a5a7453070df",
       "rows": 42406,
       "columns": 35
     },
@@ -63,5 +63,6 @@
       "sha256": "2cad874c6f166c2d4246617d1298dd163ea94caa0bb0da74d15184be459b9180",
       "rows": 14353
     }
-  }
+  },
+  "indian_flag_rule": "Measured on in-corpus citation links only (citation_network.csv); no heuristic completion."
 }

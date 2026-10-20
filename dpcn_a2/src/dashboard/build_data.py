@@ -32,6 +32,16 @@ def load_csv(filename: str) -> pd.DataFrame:
     return pd.read_csv(p, keep_default_na=False)
 
 
+def ordered_subgraph(G: "nx.Graph", nodes) -> "nx.Graph":
+    """Induced subgraph in G's node order (networkx subgraph views iterate in set order,
+    which varies with PYTHONHASHSEED and made the dashboard bundle non-reproducible)."""
+    keep = set(nodes)
+    H = G.__class__()
+    H.add_nodes_from((n, G.nodes[n]) for n in G if n in keep)
+    H.add_edges_from((u, v, d) for u, v, d in G.edges(data=True) if u in keep and v in keep)
+    return H
+
+
 def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     """Compute citation and authorship network analytics for interactive visualization."""
     import networkx as nx
@@ -97,11 +107,11 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
         })
 
     # Curate high-impact citation core subgraph (~160 papers)
-    top_c_nodes = sorted(G_c.nodes(), key=lambda n: (in_deg.get(n, 0), pr.get(n, 0)), reverse=True)[:150]
+    top_c_nodes = sorted(G_c.nodes(), key=lambda n: (in_deg.get(n, 0), pr.get(n, 0), n), reverse=True)[:150]
     cross_cite_edges = df_cite[df_cite["source_inst"] != df_cite["target_inst"]]
     top_cross_sources = cross_cite_edges["source_doi"].value_counts().head(25).index.tolist()
     top_c_nodes_set = set(top_c_nodes).union(set(top_cross_sources))
-    sub_c = G_c.subgraph(top_c_nodes_set)
+    sub_c = ordered_subgraph(G_c, top_c_nodes_set)
 
     c_nodes = []
     category_order = ["iict", "ncl", "cecri"]
@@ -193,9 +203,9 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     top_a_nodes = [a for a, _ in top_deg_sorted[:150]]
     cross_auth_edges = df_auth[df_auth["inst_a"] != df_auth["inst_b"]]
     cross_authors = set(cross_auth_edges["author_a"]).union(set(cross_auth_edges["author_b"]))
-    cross_authors_top = sorted(cross_authors, key=lambda a: deg_a.get(a, 0), reverse=True)[:25]
+    cross_authors_top = sorted(sorted(cross_authors), key=lambda a: deg_a.get(a, 0), reverse=True)[:25]
     top_a_nodes_set = set(top_a_nodes).union(set(cross_authors_top))
-    sub_a = G_a.subgraph(top_a_nodes_set)
+    sub_a = ordered_subgraph(G_a, top_a_nodes_set)
 
     df_fac_meta = pd.read_csv("data/final/faculty_master.csv", keep_default_na=False)
     fac_dept_map = dict(zip(df_fac_meta["full_name"], df_fac_meta["department"]))
@@ -268,6 +278,35 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     }
 
 
+def build_connectivity_payload() -> Dict[str, Any]:
+    """Indian connectivity bundle (Sections 7a/7b) keyed by dashboard institute key."""
+
+    def records(df: pd.DataFrame, drop=("institution", "scope")) -> List[Dict[str, Any]]:
+        df = df.drop(columns=[c for c in drop if c in df.columns])
+        return json.loads(df.to_json(orient="records"))
+
+    def by_inst(df: pd.DataFrame, col: str = "institution") -> Dict[str, List[Dict[str, Any]]]:
+        return {INST_KEY_MAP[i]: records(g) for i, g in df.groupby(col) if i in INST_KEY_MAP}
+
+    # Combined row has blank cells; default NA parsing keeps the count columns numeric
+    flow = pd.read_csv(TABLES_DIR / "citation_flow_summary.csv").convert_dtypes()
+    yearly = load_csv("citation_flow_by_year.csv")
+    yearly_all = yearly.groupby("year", as_index=False).sum(numeric_only=True).assign(institution="Group 24 Combined")
+    sectors = load_csv("cross_cluster_summary.csv")
+    hubs = load_csv("hub_authors.csv")
+
+    return {
+        "flow_summary": {INST_KEY_MAP[r["institution"]]: r for r in records(flow, drop=()) if r["institution"] in INST_KEY_MAP},
+        "flow_by_year": by_inst(pd.concat([yearly, yearly_all])),
+        "top_citing_institutes": by_inst(load_csv("top_citing_indian_institutes.csv")),
+        "top_citing_papers": by_inst(load_csv("top_papers_citing_institute.csv")),
+        "cross_cluster": by_inst(sectors),
+        "hub_authors": by_inst(hubs, col="scope"),
+        "topic_jaccard": records(load_csv("topic_jaccard.csv"), drop=()),
+        "partner_topic_jaccard": by_inst(load_csv("partner_topic_jaccard.csv")),
+    }
+
+
 def run_build_dashboard_data() -> None:
     logger.info("Starting dashboard data build...")
     OUTPUT_JS.parent.mkdir(parents=True, exist_ok=True)
@@ -326,6 +365,7 @@ def run_build_dashboard_data() -> None:
         "by_institute": {},
         "papers_compact": compact_papers,
         "network": build_network_payload(df_ext),
+        "connectivity": build_connectivity_payload(),
     }
 
     # Populate by_institute bundles

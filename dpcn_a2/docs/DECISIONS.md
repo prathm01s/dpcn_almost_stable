@@ -61,3 +61,20 @@ All architectural, methodological, and data harmonization decisions made during 
   4. Embedded computed analytics into `dashboard/data/g24_data.js` via `src/dashboard/build_data.py`. Replaced placeholder tabs 5 and 6 in `dashboard/index.html` with interactive ECharts 5 force-directed graph canvases (`#chart-citation-network` and `#chart-authorship-network`), complete with interactive toolbars (institute filters, dynamic degree/weight sliders, real-time node search), KPI summary strips, and deep-dive tables.
 - **Rationale**: Direct user request; brings Task 4 network analysis and visualization into the live dashboard ahead of schedule. Curating core subgraphs (~150–175 nodes) ensures high-speed client-side rendering (<300ms) with zero canvas lag while preserving full statistical precision across all 27k+ citation edges and 65k+ authorship edges in the metric cards, ranking tables, and 3x3 flow matrices.
 
+
+### D-13 (2026-10-20): Indian Citation Flags Measured Only, Heuristics Removed
+- **Decision**: `cites_indian_inst` and `cited_by_indian_inst` are now set only from observed in-corpus citation links (`citation_network.csv`): a row for institute X is `TRUE` when the citing/cited corpus paper involves an Indian institution other than X (another assigned lab or an Indian co-author institute). The heuristic completion in Step 11 (any Indian co-author ⇒ cites = TRUE; ≥10 citations ⇒ cited_by = TRUE) was removed, and `src/collect/15_refresh_indian_flags.py` re-applied the rule to `data/final/` because the interim parquet caches are not in this checkout. Only the two flag columns changed (verified byte-identical otherwise); manifest SHA256s were refreshed.
+- **Effect**: `cites_indian_inst` 55.7% → 37.4% TRUE (rows), `cited_by_indian_inst` 61.2% → 35.9%. 7,771 and 10,710 rows respectively had been TRUE only through the heuristics. No row became TRUE that was FALSE before.
+- **Rationale**: AGENTS.md rule 1 (no fabricated data). The heuristics were assumptions, not observations. Resolving out-of-corpus references and citing works from OpenAlex would raise the flags but was not done (group decision: fix within existing data); the flags are documented as lower bounds in LIMITATIONS.md.
+
+### D-14 (2026-10-20): Sector Classification Fix for the Indian Institution Registry
+- **Decision**: Moved `assign_sector_cluster` to `src/common/sectors.py`, matched abbreviations as whole words, and added CSIR/DAE lab-name lists, IISc, central-university names, and `Industry`/`Healthcare`/`Government` from the OpenAlex institution type. Re-labelled `config/indian_inst_registry.csv` (only `sector_cluster` changed).
+- **Rationale**: Substring matching made `"NIV"` match inside "UNIVERSITY", so 305 universities (e.g. Savitribai Phule Pune University, Jadavpur University) were labelled `ICMR`; AcSIR, IISc and CSIR labs such as CCMB were `Other`. Correct sectors are needed for the cross-cluster flags.
+
+### D-15 (2026-10-20): Indian Connectivity Analyses (Sections 7a/7b) and Dashboard Tab
+- **Decision**:
+  1. Fixed `src/stats/metrics.py`: pandas parses `TRUE`/`FALSE` as booleans, so the string comparison counted 0 flagged papers in `indian_connections_summary.csv` (and the dashboard).
+  2. Added `src/stats/connectivity.py` (run by `make stats`): citation in/out-flow per institute and per year, impact ratio (in/out), top 10 citing Indian institutes, top 10 most-cited corpus papers citing each institute, cross-cluster links by partner sector (CSIR ↔ IIT, CSIR ↔ DAE, …), Jaccard topic similarity between the three labs and with top partners, and hub authors bridging institutions.
+  3. Added an "Indian Connectivity" dashboard tab with these results, and connectivity checks in `scripts/test_browser.py` and `tests/test_connectivity.py`.
+  4. Made the dashboard network subgraphs deterministic (`ordered_subgraph`, name tie-breaks); networkx subgraph views iterate in set order, so `g24_data.js` previously changed with `PYTHONHASHSEED`.
+- **Scope**: Flows count in-corpus citations only, so they are lower bounds; "All Three" sums per-lab flows.

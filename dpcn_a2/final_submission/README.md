@@ -19,7 +19,7 @@ This directory contains the complete, authoritative submission deliverables for 
 | `faculty_master.csv` | 101 KB | **Cadre Faculty Roster**: 505 verified scientific cadre personnel with OpenAlex career and 2016–2026 in-corpus h-indices. |
 | `group24_stats_report.pdf` | 1.9 MB | **Task 2 Statistics Report (PDF)**: Strictly $\le 10$ slides conforming to assignment length limit. |
 | `group24_stats_report.pptx` | 2.0 MB | **Task 2 Presentation Slides (PPTX)**: Editable 10-slide PowerPoint presentation with vector charts. |
-| `dashboard.zip` | 3.9 MB | **Task 3 Standalone Interactive Dashboard**: Self-contained offline web application (unzip and open `index.html` directly via double-click). |
+| `dashboard.zip` | 3.9 MB | **Task 3 Standalone Interactive Dashboard**: Self-contained offline web application (unzip and open `index.html` directly via double-click), including citation/co-authorship network tabs and the Indian Connectivity tab (citation flow, cross-cluster links, topic Jaccard, hub authors). |
 | `MANIFEST.json` | 2.1 KB | Cryptographic run manifest with collection timestamp, counts, and metadata. |
 | `CHECKSUMS.sha256` | 868 B | SHA-256 cryptographic checksums for all files in this bundle. |
 

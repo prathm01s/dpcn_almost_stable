@@ -1,0 +1,41 @@
+institution,rank,citing_institution,citing_papers,citations
+CSIR-IICT,1,CSIR-NCL,289,484
+CSIR-IICT,2,Academy of Scientific and Innovative Research,215,667
+CSIR-IICT,3,Osmania University,117,280
+CSIR-IICT,4,Centre for Cellular and Molecular Biology,116,295
+CSIR-IICT,5,National Institute of Pharmaceutical Education and Research,97,228
+CSIR-IICT,6,CSIR-CECRI,90,160
+CSIR-IICT,7,Council of Scientific and Industrial Research,82,230
+CSIR-IICT,8,University of Hyderabad,71,263
+CSIR-IICT,9,Birla Institute of Technology and Science - Hyderabad Campus,68,267
+CSIR-IICT,10,"Birla Institute of Technology and Science, Pilani",62,271
+CSIR-NCL,1,CSIR-IICT,417,661
+CSIR-NCL,2,Academy of Scientific and Innovative Research,173,384
+CSIR-NCL,3,Savitribai Phule Pune University,168,335
+CSIR-NCL,4,CSIR-CECRI,158,219
+CSIR-NCL,5,Indian Institute of Science Education and Research Pune,143,346
+CSIR-NCL,6,Bhabha Atomic Research Centre,68,190
+CSIR-NCL,7,Council of Scientific and Industrial Research,66,134
+CSIR-NCL,8,Indian Institute of Science Education and Research Kolkata,65,212
+CSIR-NCL,9,Indian Institute of Technology Bombay,46,116
+CSIR-NCL,10,Indian Institute of Science Bangalore,45,141
+CSIR-CECRI,1,CSIR-NCL,131,181
+CSIR-CECRI,2,CSIR-IICT,105,186
+CSIR-CECRI,3,Alagappa University,87,242
+CSIR-CECRI,4,Academy of Scientific and Innovative Research,85,280
+CSIR-CECRI,5,Council of Scientific and Industrial Research,39,103
+CSIR-CECRI,6,Central Salt and Marine Chemicals Research Institute,38,161
+CSIR-CECRI,7,Indian Institute of Technology Madras,38,153
+CSIR-CECRI,8,SRM Institute of Science and Technology,35,102
+CSIR-CECRI,9,Bharathidasan University,29,153
+CSIR-CECRI,10,Yogi Vemana University,26,108
+Group 24 Combined,1,Academy of Scientific and Innovative Research,409,1280
+Group 24 Combined,2,Savitribai Phule Pune University,177,368
+Group 24 Combined,3,Council of Scientific and Industrial Research,172,453
+Group 24 Combined,4,Indian Institute of Science Education and Research Pune,148,358
+Group 24 Combined,5,Osmania University,123,330
+Group 24 Combined,6,Centre for Cellular and Molecular Biology,122,360
+Group 24 Combined,7,Bhabha Atomic Research Centre,109,391
+Group 24 Combined,8,National Institute of Pharmaceutical Education and Research,105,246
+Group 24 Combined,9,University of Hyderabad,99,340
+Group 24 Combined,10,Alagappa University,88,246

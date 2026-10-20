@@ -1,0 +1,7 @@
+institution_a,institution_b,level,topics_a,topics_b,shared_topics,jaccard
+CSIR-IICT,CSIR-NCL,subfield,128,120,101,0.6871
+CSIR-IICT,CSIR-CECRI,subfield,128,74,64,0.4638
+CSIR-NCL,CSIR-CECRI,subfield,120,74,66,0.5156
+CSIR-IICT,CSIR-NCL,topic,624,597,368,0.4314
+CSIR-IICT,CSIR-CECRI,topic,624,255,152,0.2091
+CSIR-NCL,CSIR-CECRI,topic,597,255,167,0.2438

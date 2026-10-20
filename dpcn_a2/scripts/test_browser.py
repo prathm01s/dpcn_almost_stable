@@ -167,6 +167,7 @@ def run_tests():
             ("areas", "05_tab_areas.png"),
             ("citation-net", "06_tab_citation_net.png"),
             ("authorship-net", "07_tab_authorship_net.png"),
+            ("connectivity", "07b_tab_connectivity.png"),
             ("docs", "08_tab_docs.png"),
         ]
 
@@ -211,6 +212,25 @@ def run_tests():
                 assert bridge_rows == 10
                 assert collab_rows == 3
                 assert auth_edges == "65,059"
+            elif tab_id == "connectivity":
+                flow_canvas = client.evaluate("document.querySelectorAll('#chart-conn-flow canvas').length")
+                sector_canvas = client.evaluate("document.querySelectorAll('#chart-conn-sectors canvas').length")
+                citing_rows = client.evaluate("document.querySelectorAll('#tbody-conn-citing tr').length")
+                hub_rows = client.evaluate("document.querySelectorAll('#tbody-conn-hubs tr').length")
+                jac_rows = client.evaluate("document.querySelectorAll('#tbody-conn-jaccard tr').length")
+                cites_kpi = client.evaluate("document.getElementById('conn-kpi-cites').textContent")
+                ratio_kpi = client.evaluate("document.getElementById('conn-kpi-ratio').textContent")
+                print(f"✓ Connectivity Tab: Charts={flow_canvas}/{sector_canvas}, Citing Rows={citing_rows}, Hub Rows={hub_rows}, Jaccard Rows={jac_rows}, Cites={cites_kpi}, Ratio={ratio_kpi}")
+                assert flow_canvas > 0 and sector_canvas > 0
+                assert citing_rows == 10 and hub_rows == 25 and jac_rows == 3
+                assert cites_kpi not in ("—%", "0%", "0.0%")
+                assert ratio_kpi != "—"
+                for inst in ["iict", "ncl", "cecri", "compare", "all"]:
+                    client.evaluate(f"document.querySelector('.inst-btn[data-inst=\"{inst}\"]').click()")
+                    time.sleep(0.3)
+                    rows = client.evaluate("document.querySelectorAll('#tbody-conn-citing tr').length")
+                    print(f"  ✓ Connectivity {inst.upper()}: {rows} citing-institute rows")
+                    assert rows == 10
             elif tab_id == "docs":
                 download_links = client.evaluate("document.querySelectorAll('#tab-docs a[download]').length")
                 print(f"✓ Docs Tab: {download_links} downloadable deliverable links")

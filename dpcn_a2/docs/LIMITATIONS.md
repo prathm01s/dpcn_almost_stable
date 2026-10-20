@@ -52,7 +52,9 @@
    - They are not field-normalized (e.g., fractional citation counting or RCR). Chemical synthesis papers typically accrue citations over longer cycles (3–5 years) compared to rapid biomedical literature.
 
 2. **Cross-Institute and Indian Connections**:
-   - Flags `cites_indian_inst` and `cited_by_indian_inst` are based on whether referenced or citing works have at least one author affiliated with an Indian institution (mapped via ROR, country code `IN`, or the 911-institution canonical Indian registry).
+   - Flags `cites_indian_inst` and `cited_by_indian_inst` are measured only on **in-corpus** citation links (`citation_network.csv`: both papers belong to the NCL/IICT/CECRI corpus). A link counts when the other paper involves an Indian institution other than the row's institute — another assigned lab or an Indian co-author institute. Reference lists and citing works outside the corpus were not resolved, so the flags (35.0% / 33.8% of papers) and all citation-flow counts in `stats/tables/citation_flow_*.csv` are **lower bounds**. Earlier exports filled the flags heuristically; see D-13.
+   - Partner sectors (IIT, CSIR, DAE, …) in `cross_cluster_*.csv` are assigned from institution names (`src/common/sectors.py`); institutions matching no rule are labelled `Other`, and `StateUniv` covers state and other non-central universities.
+   - Topic Jaccard with partner institutions uses the topics of the partner's joint papers within our corpus, not the partner's full output, which was not collected.
    - OpenAlex references coverage is approximately 95% complete for Crossref-indexed publications. Unindexed citations from local or regional non-DOI venues are not captured.
 
 3. **No Summation Across Rows**:

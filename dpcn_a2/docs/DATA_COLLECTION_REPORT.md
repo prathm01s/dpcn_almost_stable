@@ -31,7 +31,7 @@ This report documents the end-to-end data collection, disambiguation, enrichment
 | **Journal Articles vs Conference Proceedings** | 42,076 (99.2%) vs 330 (0.8%) | Reflects chemistry disciplinary norms where journals are the primary terminal venue. |
 | **Journal Quartile Coverage (SJR)** | **95.21%** | Q1: 60.7% (25,739), Q2: 25.7% (10,907), Q3: 6.9% (2,918), Q4: 1.2% (497), Unranked: 5.5% (2,345). |
 | **Indian Co-Authorship Connections** | 42.1% of papers | Derived from 910 canonical Indian institution entities in `config/indian_inst_registry.csv`. |
-| **Citing / Cited-by Indian Institutions** | 55.7% cites / 61.2% cited by | Based on 27,816 directed citation edges preserved in `data/final/citation_edges_raw.parquet`. |
+| **Citing / Cited-by Indian Institutions** | 35.0% cites / 33.8% cited by (papers) | Measured on the 27,816 in-corpus citation edges in `data/final/citation_network.csv`; lower bounds (see D-13). |
 
 ---
 
@@ -247,8 +247,9 @@ The exported file `data/final/group24_data.csv` satisfies all 14 mandatory colum
 * **Methodology & Logic:**
   1. Parsed all referenced work IDs (`referenced_works`) for every in-corpus publication.
   2. Mapped internal and cross-corpus citation edges between papers.
-  3. **`cites_indian_inst`:** Set to `TRUE` if the publication references at least one paper authored by an Indian institution other than its own. Set to `TRUE` also if the publication has documented Indian co-authors. Otherwise `FALSE`. (Result: **55.7% TRUE**).
-  4. **`cited_by_indian_inst`:** Set to `TRUE` if incoming citations include verified Indian institutions, or if total citation volume >= 10 citations. Papers with 0 citations are strictly `FALSE`. (Result: **61.2% TRUE**).
+  3. **`cites_indian_inst`:** `TRUE` if the publication cites at least one in-corpus paper involving an Indian institution other than the row's own institute (another assigned lab or an Indian co-author institute). Otherwise `FALSE`. (Result: **37.4% of rows, 35.0% of papers TRUE**).
+  4. **`cited_by_indian_inst`:** `TRUE` if at least one in-corpus paper involving an Indian institution other than the row's own institute cites the publication. Otherwise `FALSE`. (Result: **35.9% of rows, 33.8% of papers TRUE**).
+  *Correction (2026-10-20, D-13):* the first export also set `cites_indian_inst=TRUE` for any paper with Indian co-authors and `cited_by_indian_inst=TRUE` for any paper with ≥10 citations (55.7% / 61.2% TRUE). Those heuristic values were removed; `src/collect/15_refresh_indian_flags.py` recomputed the flags on the exported data.
   5. Preserved **27,816 directed citation edges** in `data/final/citation_edges_raw.parquet` for Task 4 network analysis.
 * **Outputs Generated:**
   * `data/final/citation_edges_raw.parquet` (27,816 edges)
