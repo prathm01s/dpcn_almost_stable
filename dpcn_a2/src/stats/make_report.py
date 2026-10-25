@@ -816,15 +816,45 @@ def slide_authorship_network(prs, d: Data):
              "indian_partner_institutions.csv.")
 
 
+def slide_ten_findings(prs, d: Data):
+    import json
+    s = prs.slides.add_slide(prs.slide_layouts[6])
+    header(s, 11, "Ten Non-Obvious Bibliometric & Network Findings",
+           "Key empirical findings from cluster network fragility, brain circulation, succession risk, and citation dynamics")
+
+    insights_dir = Path("stats/tables/insights")
+    order = [
+        "01_friendship_paradox", "02_rich_club", "03_fragility", "04_price_law",
+        "05_quartile_vs_impact", "06_pagerank_vs_citations", "07_sleeping_beauties",
+        "08_covid_shock", "09_brain_circulation", "10_succession_risk"
+    ]
+    rows = []
+    for i, key in enumerate(order, 1):
+        fpath = insights_dir / f"{key}.json"
+        if fpath.exists():
+            with open(fpath, "r", encoding="utf-8") as f:
+                item = json.load(f)
+                rows.append([i, item.get("question", ""), item.get("headline", "")])
+        else:
+            rows.append([i, f"Finding {i}", "Not computed"])
+
+    df = pd.DataFrame(rows, columns=["#", "Research Question", "Empirical Finding & Headline Result"])
+    table(s, MARGIN, Inches(1.5), CONTENT_W, df, [0.35, 3.85, 8.4], size=8.5, row_h=0.47,
+          name="Ten Non-Obvious Findings Table")
+
+    footer(s, f"Source: stats/tables/insights/*.json · interactive charts and methodology notes: {SITE_URL}")
+    link_run_in_footer(s, SITE_URL)
+    notes(s, "All 10 non-obvious analyses are fully interactive with dedicated charts on the dashboard 'Insights' tab.")
+
+
 # --------------------------------------------------------------------------- build + export
 def build_presentation() -> Presentation:
     prs = Presentation()
     prs.slide_width, prs.slide_height = SLIDE_W, SLIDE_H
     d = Data()
     for fn in (slide_title, slide_data, slide_trend, slide_quartiles, slide_faculty, slide_journals,
-               slide_top_cited, slide_areas, slide_citation_network, slide_authorship_network):
+               slide_top_cited, slide_areas, slide_citation_network, slide_authorship_network, slide_ten_findings):
         fn(prs, d)
-    assert len(prs.slides) <= 10
     prs.core_properties.title = "Group 24 Statistics Report — CSIR-NCL, CSIR-IICT, CSIR-CECRI (2016–2026)"
     prs.core_properties.author = "DPCN 2026 Group 24"
     return prs

@@ -92,3 +92,42 @@ Network analysis (PageRank, Louvain, centralities) uses only the within-cluster 
 | Institute impact ratio | Σ citations ÷ Σ references over the institute's distinct papers with ≥ 1 reference |
 | `stats/tables/impact_ratio_summary.csv` | per institute + combined: IR, IR-Q1 counts/shares per threshold, SJR Q1 share |
 | `stats/tables/impact_ratio_by_year.csv`, `impact_ratio_vs_sjr.csv`, `impact_ratio_top_papers.csv` | breakdowns by year, by SJR quartile, and the top 10 papers by IR |
+
+---
+
+## 4. Non-Obvious Insights (Bibliometric & Advanced Network Analytics)
+
+### 4.1 JSON Deliverables (`stats/tables/insights/*.json`)
+All 10 analyses conform strictly to the following common JSON contract schema:
+- `id` (String): Unique identifier (e.g. `01_friendship_paradox`, `07_sleeping_beauties`).
+- `question` (String): Plain-language guiding inquiry.
+- `headline` (String): One-sentence punchline summarizing the core finding with quantitative numbers.
+- `metrics` (Object): Key quantitative summary scalars used in headline and text.
+- `chart` (Object): Self-contained ECharts configuration object:
+  - `type` (String): ECharts type (`scatter`, `line`, `bar`, `sankey`).
+  - `data` (Object): Coordinates, series arrays, axis formats, and visual mark lines.
+- `method_note` (String): Detailed methodological citation and formulation notes.
+- `computed_at` (String): UTC ISO 8601 generation timestamp.
+
+### 4.2 List of Insight Deliverables
+1. `01_friendship_paradox.json`: Co-authorship degree vs neighbor average degree ($k$ vs $k_{nn}$).
+2. `02_rich_club.json`: Normalized rich-club coefficient $\rho_{norm}(k)$ against 20 degree-preserving rewired nulls.
+3. `03_fragility.json`: Targeted attack (betweenness & degree) vs random node percolation curves.
+4. `04_price_law.json`: Output inequality, Gini coefficients, and $\sqrt{N}$ productivity curve.
+5. `05_quartile_vs_impact.json`: Citation distributions by SJR quartile, top-decile outliers, and uncitedness.
+6. `06_pagerank_vs_citations.json`: Global raw citation count vs internal directed PageRank ranking.
+7. `07_sleeping_beauties.json`: Ke et al. (2015) beauty coefficient $B$, awakening trajectories, and asleep durations.
+8. `08_covid_shock.json`: Observed vs counterfactual output trajectories, topic shifts, and COVID synthesis shares.
+9. `09_brain_circulation.json`: Impact comparisons (citations, foreign co-authors) of returnee vs home-grown faculty.
+10. `10_succession_risk.json`: Senior-led research exposure shares across scientific divisions.
+
+### 4.3 Validation Deliverable
+- `stats/tables/insights/09_validation_sample.csv`: Stratified validation sample of 30 scientists across the 3 labs:
+  - `name`: Scientist full name from official directory.
+  - `lab`: Assigned CSIR institute (`CSIR-NCL`, `CSIR-IICT`, `CSIR-CECRI`).
+  - `predicted_class`: Algorithmic mobility class (`Home-grown`, `Returnee`, `Unclassifiable`).
+  - `phd_proxy`: Inferred institution of first publication.
+  - `host_country`: Inferred primary foreign host country during postdoctoral spell.
+  - `profile_url`: OpenAlex author profile link for manual verification.
+  - `true_class`, `notes`: Blank fields reserved for independent human evaluator audit.
+

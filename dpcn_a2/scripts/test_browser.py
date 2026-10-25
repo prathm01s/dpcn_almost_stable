@@ -109,8 +109,24 @@ class ChromeDevToolsClient:
 
 def run_tests():
     print("=== STARTING BROWSER VERIFICATION SUITE ===")
-    
+
     # Test 1: Served over HTTP
+    import functools
+    import http.server
+    import threading
+
+    httpd = None
+    try:
+        httpd = http.server.ThreadingHTTPServer(
+            ("127.0.0.1", 8080),
+            functools.partial(http.server.SimpleHTTPRequestHandler, directory=".")
+        )
+        srv_thread = threading.Thread(target=httpd.serve_forever, daemon=True)
+        srv_thread.start()
+        print("Started temporary HTTP server on port 8080")
+    except OSError:
+        pass  # Port already in use, reuse existing server
+
     client = ChromeDevToolsClient(port=9333)
     try:
         url = "http://127.0.0.1:8080/dashboard/index.html"
@@ -168,6 +184,7 @@ def run_tests():
             ("citation-net", "06_tab_citation_net.png"),
             ("authorship-net", "07_tab_authorship_net.png"),
             ("connectivity", "07b_tab_connectivity.png"),
+            ("insights", "insights.png"),
             ("docs", "08_tab_docs.png"),
         ]
 
@@ -231,6 +248,12 @@ def run_tests():
                     rows = client.evaluate("document.querySelectorAll('#tbody-conn-citing tr').length")
                     print(f"  ✓ Connectivity {inst.upper()}: {rows} citing-institute rows")
                     assert rows == 10
+            elif tab_id == "insights":
+                card_count = client.evaluate("document.querySelectorAll('#insights-grid .card').length")
+                chart_canvas = client.evaluate("document.querySelectorAll('#insights-grid canvas, #insights-grid svg').length")
+                print(f"✓ Insights Tab: {card_count} finding cards, {chart_canvas} ECharts canvas elements rendered")
+                assert card_count == 10
+                assert chart_canvas >= 10
             elif tab_id == "docs":
                 download_links = client.evaluate("document.querySelectorAll('#tab-docs a[download]').length")
                 print(f"✓ Docs Tab: {download_links} downloadable deliverable links")

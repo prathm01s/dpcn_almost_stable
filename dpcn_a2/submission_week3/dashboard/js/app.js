@@ -92,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (activeTab === "citation-net") renderCitationNetwork();
         if (activeTab === "authorship-net") renderAuthorshipNetwork();
         if (activeTab === "connectivity") renderConnectivity();
+        if (activeTab === "insights") renderInsights();
       }, 50);
     });
   });
@@ -1084,9 +1085,156 @@ document.addEventListener("DOMContentLoaded", () => {
       <td>${r.doi ? `<a href="${esc(r.doi)}" target="_blank" style="color:#0284c7; text-decoration:none; font-size:0.75rem;">DOI ↗</a>` : ""}</td></tr>`).join("");
   }
 
+  // ---------------------------------------------------------------------------
+  // Insights Panel (Ten Non-Obvious Findings)
+  // ---------------------------------------------------------------------------
+  const insightCharts = {};
+  let insightsRendered = false;
+
+  function formatHeadline(text) {
+    if (!text) return "";
+    return text.replace(/(\b\d+(\.\d+)?%|\b\d+(\.\d+)?×|\b\d{1,3}(,\d{3})+|\b[A-Za-z0-9_ρ]+(_norm)?\s*=\s*[\d\.]+|\b\d+\.\d+\b)/g, "<strong>$1</strong>");
+  }
+
+  function renderInsights() {
+    if (!window.G24_INSIGHTS) return;
+    const container = document.getElementById("insights-grid");
+    if (!container) return;
+
+    const insights = window.G24_INSIGHTS;
+    const insightOrder = [
+      "01_friendship_paradox",
+      "02_rich_club",
+      "03_fragility",
+      "04_price_law",
+      "05_quartile_vs_impact",
+      "06_pagerank_vs_citations",
+      "07_sleeping_beauties",
+      "08_covid_shock",
+      "09_brain_circulation",
+      "10_succession_risk",
+    ];
+
+    if (!insightsRendered) {
+      container.innerHTML = insightOrder.map((key, idx) => {
+        const item = insights[key] || {
+          question: `Finding ${idx + 1}`,
+          headline: "Not computed",
+          method_note: "",
+        };
+        return `
+          <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="card-header" style="margin-bottom: 0.5rem;">
+                <div class="card-title" style="font-size: 1rem; color: var(--primary-light); font-weight: 700;">
+                  #${idx + 1}: ${esc(item.question)}
+                </div>
+              </div>
+              <div style="font-size: 1.05rem; font-weight: 500; color: var(--text); line-height: 1.45; margin-bottom: 1rem;">
+                ${formatHeadline(esc(item.headline))}
+              </div>
+              <div id="chart-insight-${key}" class="chart-container" style="height: 330px; width: 100%;"></div>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 0.6rem; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; border-top: 1px solid var(--border);">
+              ${esc(item.method_note || "")}
+            </div>
+          </div>
+        `;
+      }).join("");
+      insightsRendered = true;
+    }
+
+    setTimeout(() => {
+      insightOrder.forEach(key => {
+        const item = insights[key];
+        if (!item || !item.chart) return;
+        const el = document.getElementById(`chart-insight-${key}`);
+        if (!el) return;
+
+        if (!insightCharts[key]) {
+          insightCharts[key] = echarts.init(el);
+        }
+        const ch = insightCharts[key];
+        const chartType = item.chart.type;
+        const cData = item.chart.data || {};
+
+        let option = {};
+        if (chartType === "scatter") {
+          option = {
+            tooltip: { trigger: "item", formatter: p => `<strong>${p.seriesName}</strong><br/>X: ${p.value[0]}, Y: ${p.value[1]}` },
+            xAxis: { ...cData.xAxis, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+            yAxis: { ...cData.yAxis, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+            series: cData.series,
+            grid: { left: 55, right: 25, top: 25, bottom: 40 },
+          };
+        } else if (chartType === "line") {
+          option = {
+            tooltip: { trigger: "axis" },
+            legend: cData.legend || { bottom: 0 },
+            xAxis: { ...cData.xAxis, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+            yAxis: { ...cData.yAxis, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+            series: cData.series,
+            grid: { left: 55, right: 25, top: 25, bottom: 45 },
+          };
+        } else if (chartType === "stacked_bar") {
+          option = {
+            tooltip: {
+              trigger: "axis",
+              axisPointer: { type: "shadow" },
+              formatter: params => {
+                let res = `<strong>${params[0].axisValue}</strong><br/>`;
+                params.forEach(p => { res += `${p.marker} ${p.seriesName}: ${p.value.toFixed(1)}%<br/>`; });
+                return res;
+              },
+            },
+            legend: cData.legend || { bottom: 0 },
+            xAxis: cData.xAxis,
+            yAxis: cData.yAxis,
+            series: cData.series,
+            grid: { left: 55, right: 20, top: 25, bottom: 45 },
+          };
+        } else if (chartType === "grouped_bar") {
+          option = {
+            tooltip: {
+              trigger: "axis",
+              axisPointer: { type: "shadow" },
+              formatter: params => {
+                let res = `<strong>${params[0].axisValue}</strong><br/>`;
+                params.forEach(p => {
+                  const sIdx = p.seriesIndex;
+                  const dIdx = p.dataIndex;
+                  const errRange = cData.series[sIdx] && cData.series[sIdx].error_range ? cData.series[sIdx].error_range[dIdx] : null;
+                  const errStr = errRange ? ` (T=32: ${errRange[0]}%, T=28: ${errRange[1]}%)` : "";
+                  res += `${p.marker} ${p.seriesName}: ${p.value.toFixed(1)}%${errStr}<br/>`;
+                });
+                return res;
+              },
+            },
+            legend: cData.legend || { bottom: 0 },
+            xAxis: cData.xAxis,
+            yAxis: cData.yAxis,
+            series: cData.series,
+            grid: { left: 55, right: 20, top: 25, bottom: 45 },
+          };
+        } else if (chartType === "sankey") {
+          option = {
+            tooltip: { trigger: "item", triggerOn: "mousemove" },
+            series: cData.series,
+          };
+        }
+
+        if (Object.keys(option).length > 0) {
+          ch.setOption(option, true);
+        }
+        ch.resize();
+      });
+    }, 60);
+  }
+
   // Window resize handler
   window.addEventListener("resize", () => {
     Object.values(charts).forEach(c => c && c.resize && c.resize());
+    Object.values(insightCharts).forEach(c => c && c.resize && c.resize());
     if (facultyTable) facultyTable.redraw(true);
     if (topPapersTable) topPapersTable.redraw(true);
   });

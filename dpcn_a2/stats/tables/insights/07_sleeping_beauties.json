@@ -1,0 +1,510 @@
+{
+  "id": "07_sleeping_beauties",
+  "question": "Which papers were ignored for years and then suddenly took off?",
+  "headline": "15 papers show delayed recognition. The strongest, 'Novel triazole hybrids of myrrhanone C, a natural polypodane triterpene: Synthesis, cytotoxic activity and cell based studies' (CSIR-IICT, 2016), averaged 3.6 citations/yr for 5 years, then jumped to 6.3/yr from 2021.",
+  "metrics": {
+    "n_top1_percent": 15,
+    "b_p99_threshold": 13.48,
+    "n_eligible_sleeping_beauties": 1414,
+    "strongest": {
+      "title": "Novel triazole hybrids of myrrhanone C, a natural polypodane triterpene: Synthesis, cytotoxic activity and cell based studies",
+      "lab": "CSIR-IICT",
+      "year": 2016,
+      "B": 25.61,
+      "t_a": 5,
+      "awakening_year": 2021,
+      "avg_pre": 3.6,
+      "avg_post": 6.33,
+      "total_citations": 56
+    },
+    "top5": [
+      {
+        "title": "Novel triazole hybrids of myrrhanone C, a natural polypodane triterpene: Synthesis, cytotoxic activity and cell based studies",
+        "lab": "CSIR-IICT",
+        "journal": "European Journal of Medicinal Chemistry",
+        "year": 2016,
+        "doi": "https://doi.org/10.1016/j.ejmech.2016.03.013",
+        "B": 25.61,
+        "awakening_year": 2021,
+        "total_citations": 56
+      },
+      {
+        "title": "Methyl triphenylphosphonium permanganate as a novel oxidant for aniline to polyaniline-manganese(II, IV) oxide: material for high performance pseudocapacitor",
+        "lab": "CSIR-IICT",
+        "journal": "Journal of Solid State Electrochemistry",
+        "year": 2017,
+        "doi": "https://doi.org/10.1007/s10008-017-3770-5",
+        "B": 21.0,
+        "awakening_year": 2021,
+        "total_citations": 38
+      },
+      {
+        "title": "An expeditious four-component domino protocol for the synthesis of novel thiazolo[3,2-a]thiochromeno[4,3-d]pyrimidine derivatives as antibacterial and antibiofilm agents",
+        "lab": "CSIR-IICT",
+        "journal": "Bioorganic & Medicinal Chemistry",
+        "year": 2016,
+        "doi": "https://doi.org/10.1016/j.bmc.2016.06.025",
+        "B": 18.96,
+        "awakening_year": 2024,
+        "total_citations": 35
+      },
+      {
+        "title": "Feeding\u2010induced phenol production in Capsicum annuum L. influences Spodoptera litura F. larval growth and physiology",
+        "lab": "CSIR-IICT",
+        "journal": "Archives of Insect Biochemistry and Physiology",
+        "year": 2017,
+        "doi": "https://doi.org/10.1002/arch.21387",
+        "B": 18.4,
+        "awakening_year": 2021,
+        "total_citations": 38
+      },
+      {
+        "title": "Funnel shaped molecules containing benzo/pyrido[1,2,5]thiadiazole functionalities as peripheral acceptors for organic photovoltaic applications",
+        "lab": "CSIR-IICT",
+        "journal": "RSC Advances",
+        "year": 2016,
+        "doi": "https://doi.org/10.1039/c6ra06616j",
+        "B": 17.0,
+        "awakening_year": 2021,
+        "total_citations": 33
+      }
+    ]
+  },
+  "chart": {
+    "type": "line",
+    "data": {
+      "xAxis": {
+        "type": "category",
+        "data": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "name": "Year"
+      },
+      "yAxis": {
+        "type": "value",
+        "name": "Annual Citations"
+      },
+      "legend": {
+        "bottom": 0
+      },
+      "series": [
+        {
+          "name": "Novel triazole hybrids of myrrhanone C, ... (2016)",
+          "type": "line",
+          "data": [
+            [
+              2016,
+              1
+            ],
+            [
+              2017,
+              7
+            ],
+            [
+              2018,
+              4
+            ],
+            [
+              2019,
+              6
+            ],
+            [
+              2020,
+              0
+            ],
+            [
+              2021,
+              1
+            ],
+            [
+              2022,
+              17
+            ],
+            [
+              2023,
+              15
+            ],
+            [
+              2024,
+              2
+            ],
+            [
+              2025,
+              3
+            ],
+            [
+              2026,
+              0
+            ]
+          ],
+          "itemStyle": {
+            "color": "#4a148c"
+          },
+          "lineStyle": {
+            "width": 2
+          },
+          "markPoint": {
+            "data": [
+              {
+                "name": "Awakening",
+                "coord": [
+                  2021,
+                  1
+                ],
+                "symbol": "pin",
+                "symbolSize": 30,
+                "label": {
+                  "show": false
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Methyl triphenylphosphonium permanganate... (2017)",
+          "type": "line",
+          "data": [
+            [
+              2017,
+              0
+            ],
+            [
+              2018,
+              2
+            ],
+            [
+              2019,
+              1
+            ],
+            [
+              2020,
+              0
+            ],
+            [
+              2021,
+              2
+            ],
+            [
+              2022,
+              16
+            ],
+            [
+              2023,
+              11
+            ],
+            [
+              2024,
+              1
+            ],
+            [
+              2025,
+              3
+            ],
+            [
+              2026,
+              2
+            ]
+          ],
+          "itemStyle": {
+            "color": "#0284c7"
+          },
+          "lineStyle": {
+            "width": 2
+          },
+          "markPoint": {
+            "data": [
+              {
+                "name": "Awakening",
+                "coord": [
+                  2021,
+                  2
+                ],
+                "symbol": "pin",
+                "symbolSize": 30,
+                "label": {
+                  "show": false
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "An expeditious four-component domino pro... (2016)",
+          "type": "line",
+          "data": [
+            [
+              2016,
+              4
+            ],
+            [
+              2017,
+              1
+            ],
+            [
+              2018,
+              4
+            ],
+            [
+              2019,
+              0
+            ],
+            [
+              2020,
+              3
+            ],
+            [
+              2021,
+              7
+            ],
+            [
+              2022,
+              3
+            ],
+            [
+              2023,
+              3
+            ],
+            [
+              2024,
+              1
+            ],
+            [
+              2025,
+              8
+            ],
+            [
+              2026,
+              1
+            ]
+          ],
+          "itemStyle": {
+            "color": "#10b981"
+          },
+          "lineStyle": {
+            "width": 2
+          },
+          "markPoint": {
+            "data": [
+              {
+                "name": "Awakening",
+                "coord": [
+                  2024,
+                  1
+                ],
+                "symbol": "pin",
+                "symbolSize": 30,
+                "label": {
+                  "show": false
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Feeding\u2010induced phenol production in Cap... (2017)",
+          "type": "line",
+          "data": [
+            [
+              2017,
+              0
+            ],
+            [
+              2018,
+              1
+            ],
+            [
+              2019,
+              1
+            ],
+            [
+              2020,
+              1
+            ],
+            [
+              2021,
+              4
+            ],
+            [
+              2022,
+              16
+            ],
+            [
+              2023,
+              2
+            ],
+            [
+              2024,
+              7
+            ],
+            [
+              2025,
+              2
+            ],
+            [
+              2026,
+              4
+            ]
+          ],
+          "itemStyle": {
+            "color": "#f59e0b"
+          },
+          "lineStyle": {
+            "width": 2
+          },
+          "markPoint": {
+            "data": [
+              {
+                "name": "Awakening",
+                "coord": [
+                  2021,
+                  4
+                ],
+                "symbol": "pin",
+                "symbolSize": 30,
+                "label": {
+                  "show": false
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Funnel shaped molecules containing benzo... (2016)",
+          "type": "line",
+          "data": [
+            [
+              2016,
+              0
+            ],
+            [
+              2017,
+              1
+            ],
+            [
+              2018,
+              2
+            ],
+            [
+              2019,
+              3
+            ],
+            [
+              2020,
+              1
+            ],
+            [
+              2021,
+              0
+            ],
+            [
+              2022,
+              3
+            ],
+            [
+              2023,
+              11
+            ],
+            [
+              2024,
+              10
+            ],
+            [
+              2025,
+              1
+            ],
+            [
+              2026,
+              1
+            ]
+          ],
+          "itemStyle": {
+            "color": "#ef4444"
+          },
+          "lineStyle": {
+            "width": 2
+          },
+          "markPoint": {
+            "data": [
+              {
+                "name": "Awakening",
+                "coord": [
+                  2021,
+                  0
+                ],
+                "symbol": "pin",
+                "symbolSize": 30,
+                "label": {
+                  "show": false
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "top5_table": [
+        {
+          "title": "Novel triazole hybrids of myrrhanone C, a natural polypodane triterpene: Synthesis, cytotoxic activity and cell based studies",
+          "lab": "CSIR-IICT",
+          "journal": "European Journal of Medicinal Chemistry",
+          "year": 2016,
+          "doi": "https://doi.org/10.1016/j.ejmech.2016.03.013",
+          "B": 25.61,
+          "awakening_year": 2021,
+          "total_citations": 56
+        },
+        {
+          "title": "Methyl triphenylphosphonium permanganate as a novel oxidant for aniline to polyaniline-manganese(II, IV) oxide: material for high performance pseudocapacitor",
+          "lab": "CSIR-IICT",
+          "journal": "Journal of Solid State Electrochemistry",
+          "year": 2017,
+          "doi": "https://doi.org/10.1007/s10008-017-3770-5",
+          "B": 21.0,
+          "awakening_year": 2021,
+          "total_citations": 38
+        },
+        {
+          "title": "An expeditious four-component domino protocol for the synthesis of novel thiazolo[3,2-a]thiochromeno[4,3-d]pyrimidine derivatives as antibacterial and antibiofilm agents",
+          "lab": "CSIR-IICT",
+          "journal": "Bioorganic & Medicinal Chemistry",
+          "year": 2016,
+          "doi": "https://doi.org/10.1016/j.bmc.2016.06.025",
+          "B": 18.96,
+          "awakening_year": 2024,
+          "total_citations": 35
+        },
+        {
+          "title": "Feeding\u2010induced phenol production in Capsicum annuum L. influences Spodoptera litura F. larval growth and physiology",
+          "lab": "CSIR-IICT",
+          "journal": "Archives of Insect Biochemistry and Physiology",
+          "year": 2017,
+          "doi": "https://doi.org/10.1002/arch.21387",
+          "B": 18.4,
+          "awakening_year": 2021,
+          "total_citations": 38
+        },
+        {
+          "title": "Funnel shaped molecules containing benzo/pyrido[1,2,5]thiadiazole functionalities as peripheral acceptors for organic photovoltaic applications",
+          "lab": "CSIR-IICT",
+          "journal": "RSC Advances",
+          "year": 2016,
+          "doi": "https://doi.org/10.1039/c6ra06616j",
+          "B": 17.0,
+          "awakening_year": 2021,
+          "total_citations": 33
+        }
+      ]
+    }
+  },
+  "method_note": "Computed using the Ke et al. (2015, PNAS) parameter-free B coefficient on papers published 2016\u20132020 with >=20 citations. Note: The 10-year observation window only captures short sleeps.",
+  "computed_at": "2026-10-25T20:52:32.533760+00:00"
+}

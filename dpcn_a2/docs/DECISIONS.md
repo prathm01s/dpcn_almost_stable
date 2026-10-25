@@ -107,3 +107,26 @@ All architectural, methodological, and data harmonization decisions made during 
 - **Result**: institute IR — IICT 0.41, NCL 0.47, CECRI 0.59, all three 0.47. IR > 5: 0.53% of papers; IR > 10: 0.13%; IR > 0.59 (P75): 25.2%. Only 32.9% of papers in SJR-Q1 journals are top-25% by IR, so journal-based and paper-based Q1 differ substantially.
 - **How it differs from SJR Q1**: SJR Q1 ranks the journal (venue prestige across all its papers); IR ranks each paper by its own citations relative to how many works it cites. IR favours older papers (more time to be cited) and reviews with many citations.
 - Also added the dashboard URL (https://prathm01s.github.io/dpcn_almost_stable/) to report slides 1 and 10.
+
+---
+
+### D-19 (2026-10-25): Hyper-Authored Paper Filtering for Co-authorship Topology
+- **Decision**: In `src/stats/insights/common.py`, papers with $> 30$ authors are excluded when constructing the co-authorship graph (dropping 5 hyper-authored consortia papers out of 14,352).
+- **Rationale**: Megapapers (e.g., massive international consortia or clinical genome screens with 50+ authors) create artificial cliques of hundreds or thousands of edges. These distort degree distributions, artificially inflate local clustering, and skew rich-club and network fragility evaluations. Dropping papers $>30$ authors preserves 7,508 nodes and 34,693 edges in the Giant Component (95.8% of nodes).
+
+### D-20 (2026-10-25): Citation Maturation Window for Quartile vs Impact (2016–2023)
+- **Decision**: In Insight 5 ("Do Q1 papers actually draw more citations?"), analysis is restricted to papers published between 2016 and 2023 (10,212 papers), excluding 2024–2026.
+- **Rationale**: Papers published in 2024–2026 have had $\le 2$ years to accrue citations. Evaluating citation percentiles, uncited rates, and high-impact anomalies on immature citation cohorts would confound publication recency with lack of impact.
+
+### D-21 (2026-10-25): Career Abroad Spell Classification Rules for Brain Circulation
+- **Decision**: In Insight 9 ("Does international mobility boost impact?"), an author is classified as a "Returnee" if their pre-CSIR career publication record (derived from OpenAlex `/authors` careers) contains $\ge 2$ consecutive years with exclusively or predominantly foreign institutional affiliations. Scientists with exclusively Indian affiliations are "Home-grown". Scientists with ambiguous or missing pre-tenure histories are "Unclassifiable".
+- **Rationale**: Distinguishes substantive foreign research training (e.g., overseas PhD or multi-year postdoc) from brief visits, short collaborations, or co-authored papers written while remaining in India. A 30-scientist validation sample is exported to `stats/tables/insights/09_validation_sample.csv`.
+
+### D-22 (2026-10-25): Academic Age $\ge 30$ as a Proxy for Senior Faculty Retirement Exposure
+- **Decision**: In Insight 10 ("Succession Risk"), academic career age is measured as $\text{Collection Year (2026)} - \text{Year of First Recorded Publication}$. Faculty with academic age $\ge 30$ years are treated as nearing retirement (within ~5 years). Robustness checks evaluate sensitivity at thresholds 28 and 32.
+- **Rationale**: CSIR institute faculty directory pages do not publicly disclose birthdates or exact retirement years. Academic age (time elapsed since first scholarly publication) is the standard bibliometric proxy for chronological age and senior career stage.
+
+### D-23 (2026-10-25): Sampled Betweenness Centrality for Targeted Network Attack Simulation
+- **Decision**: In Insight 3 ("Fragility"), betweenness centrality for node removal ranking is computed on the co-authorship LCC using a randomized pivot sampling ($k=1,000$ sources) with fixed seed `SEED=24`.
+- **Rationale**: Exact betweenness centrality on a graph of 7,500 nodes and 35,000 edges has $O(V \cdot E)$ complexity (~260 million operations per step). Computing exact betweenness dynamically across hundreds of iterative removal rounds is computationally intractable. A 1,000-source pivot approximation provides $>0.99$ rank correlation while completing in seconds.
+

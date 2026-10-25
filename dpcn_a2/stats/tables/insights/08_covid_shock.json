@@ -1,0 +1,369 @@
+{
+  "id": "08_covid_shock",
+  "question": "How much output did COVID cost, and did research shift?",
+  "headline": "Output was 1.8% above trend in 2020 and 12.7% above in 2021. COVID-related work peaked at 5.5% of CSIR-IICT's papers in 2021; the topic mix shifted 1.05\u00d7 more than in a normal period.",
+  "metrics": {
+    "combined_gap_2020_pct": 1.79,
+    "combined_gap_2021_pct": 12.69,
+    "lab_gaps": {
+      "CSIR-IICT": {
+        "slope": -98.8,
+        "pred_2020": 418.5,
+        "act_2020": 500,
+        "gap_2020_pct": 19.47,
+        "pred_2021": 319.7,
+        "act_2021": 476,
+        "gap_2021_pct": 48.89
+      },
+      "CSIR-NCL": {
+        "slope": -66.6,
+        "pred_2020": 423.5,
+        "act_2020": 446,
+        "gap_2020_pct": 5.31,
+        "pred_2021": 356.9,
+        "act_2021": 466,
+        "gap_2021_pct": 30.57
+      },
+      "CSIR-CECRI": {
+        "slope": 26.3,
+        "pred_2020": 364.0,
+        "act_2020": 283,
+        "gap_2020_pct": -22.25,
+        "pred_2021": 390.3,
+        "act_2021": 258,
+        "gap_2021_pct": -33.9
+      }
+    },
+    "covid_peak": {
+      "lab": "CSIR-IICT",
+      "year": 2021,
+      "share_pct": 5.46,
+      "covid_papers": 26
+    },
+    "all_covid_records": [
+      {
+        "lab": "CSIR-IICT",
+        "year": 2020,
+        "share": 1.6,
+        "covid_papers": 8,
+        "total_papers": 500
+      },
+      {
+        "lab": "CSIR-IICT",
+        "year": 2021,
+        "share": 5.46,
+        "covid_papers": 26,
+        "total_papers": 476
+      },
+      {
+        "lab": "CSIR-IICT",
+        "year": 2022,
+        "share": 1.89,
+        "covid_papers": 9,
+        "total_papers": 475
+      },
+      {
+        "lab": "CSIR-NCL",
+        "year": 2020,
+        "share": 0.67,
+        "covid_papers": 3,
+        "total_papers": 446
+      },
+      {
+        "lab": "CSIR-NCL",
+        "year": 2021,
+        "share": 1.93,
+        "covid_papers": 9,
+        "total_papers": 466
+      },
+      {
+        "lab": "CSIR-NCL",
+        "year": 2022,
+        "share": 0.71,
+        "covid_papers": 3,
+        "total_papers": 423
+      },
+      {
+        "lab": "CSIR-CECRI",
+        "year": 2020,
+        "share": 0.0,
+        "covid_papers": 0,
+        "total_papers": 283
+      },
+      {
+        "lab": "CSIR-CECRI",
+        "year": 2021,
+        "share": 1.16,
+        "covid_papers": 3,
+        "total_papers": 258
+      },
+      {
+        "lab": "CSIR-CECRI",
+        "year": 2022,
+        "share": 1.69,
+        "covid_papers": 4,
+        "total_papers": 237
+      }
+    ],
+    "jsd_baseline": 0.131,
+    "jsd_shock": 0.1369,
+    "jsd_ratio": 1.045
+  },
+  "chart": {
+    "type": "line",
+    "data": {
+      "xAxis": {
+        "type": "category",
+        "data": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "name": "Year"
+      },
+      "yAxis": {
+        "type": "value",
+        "name": "Annual Distinct Papers"
+      },
+      "legend": {
+        "bottom": 0
+      },
+      "series": [
+        {
+          "name": "CSIR-IICT (Actual)",
+          "type": "line",
+          "data": [
+            [
+              2016,
+              827
+            ],
+            [
+              2017,
+              708
+            ],
+            [
+              2018,
+              590
+            ],
+            [
+              2019,
+              537
+            ],
+            [
+              2020,
+              500
+            ],
+            [
+              2021,
+              476
+            ],
+            [
+              2022,
+              475
+            ],
+            [
+              2023,
+              541
+            ],
+            [
+              2024,
+              564
+            ],
+            [
+              2025,
+              528
+            ]
+          ],
+          "itemStyle": {
+            "color": "#2b5c8f"
+          },
+          "lineStyle": {
+            "width": 2
+          },
+          "smooth": true
+        },
+        {
+          "name": "CSIR-IICT (Projected Trend)",
+          "type": "line",
+          "data": [
+            [
+              2020,
+              418.5
+            ],
+            [
+              2021,
+              319.7
+            ]
+          ],
+          "itemStyle": {
+            "color": "#2b5c8f"
+          },
+          "lineStyle": {
+            "width": 2,
+            "type": "dashed"
+          },
+          "symbol": "circle"
+        },
+        {
+          "name": "CSIR-NCL (Actual)",
+          "type": "line",
+          "data": [
+            [
+              2016,
+              687
+            ],
+            [
+              2017,
+              628
+            ],
+            [
+              2018,
+              556
+            ],
+            [
+              2019,
+              489
+            ],
+            [
+              2020,
+              446
+            ],
+            [
+              2021,
+              466
+            ],
+            [
+              2022,
+              423
+            ],
+            [
+              2023,
+              422
+            ],
+            [
+              2024,
+              482
+            ],
+            [
+              2025,
+              465
+            ]
+          ],
+          "itemStyle": {
+            "color": "#2e7d32"
+          },
+          "lineStyle": {
+            "width": 2
+          },
+          "smooth": true
+        },
+        {
+          "name": "CSIR-NCL (Projected Trend)",
+          "type": "line",
+          "data": [
+            [
+              2020,
+              423.5
+            ],
+            [
+              2021,
+              356.9
+            ]
+          ],
+          "itemStyle": {
+            "color": "#2e7d32"
+          },
+          "lineStyle": {
+            "width": 2,
+            "type": "dashed"
+          },
+          "symbol": "circle"
+        },
+        {
+          "name": "CSIR-CECRI (Actual)",
+          "type": "line",
+          "data": [
+            [
+              2016,
+              238
+            ],
+            [
+              2017,
+              309
+            ],
+            [
+              2018,
+              326
+            ],
+            [
+              2019,
+              320
+            ],
+            [
+              2020,
+              283
+            ],
+            [
+              2021,
+              258
+            ],
+            [
+              2022,
+              237
+            ],
+            [
+              2023,
+              237
+            ],
+            [
+              2024,
+              255
+            ],
+            [
+              2025,
+              239
+            ]
+          ],
+          "itemStyle": {
+            "color": "#d95f02"
+          },
+          "lineStyle": {
+            "width": 2
+          },
+          "smooth": true
+        },
+        {
+          "name": "CSIR-CECRI (Projected Trend)",
+          "type": "line",
+          "data": [
+            [
+              2020,
+              364.0
+            ],
+            [
+              2021,
+              390.3
+            ]
+          ],
+          "itemStyle": {
+            "color": "#d95f02"
+          },
+          "lineStyle": {
+            "width": 2,
+            "type": "dashed"
+          },
+          "symbol": "circle"
+        }
+      ]
+    }
+  },
+  "method_note": "Pre-pandemic linear trend fitted on 2016\u20132019 annual papers. Publication lag implies 2020 papers primarily reflect pre-pandemic projects; impact shows in 2021.",
+  "computed_at": "2026-10-25T20:50:36.490571+00:00"
+}

@@ -1,0 +1,91 @@
+{
+  "id": "05_quartile_vs_impact",
+  "question": "Is a Q1 journal a reliable signal of a highly cited paper?",
+  "headline": "11.3% of the cluster's top-10% most-cited papers were published outside Q1 journals, while 1.4% of Q1 papers are still uncited.",
+  "metrics": {
+    "pct_top10_from_nonQ1": 11.32,
+    "pct_Q1_uncited": 1.42,
+    "pct_Q2Q3_in_top10": 3.45,
+    "eligible_papers": 10212,
+    "counts_by_quartile": {
+      "Q1": 6615,
+      "Q2": 2696,
+      "Q3": 723,
+      "Q4": 178
+    }
+  },
+  "chart": {
+    "type": "stacked_bar",
+    "data": {
+      "xAxis": {
+        "type": "category",
+        "data": [
+          "Q1 (n=6,615)",
+          "Q2 (n=2,696)",
+          "Q3 (n=723)",
+          "Q4 (n=178)"
+        ]
+      },
+      "yAxis": {
+        "type": "value",
+        "name": "Share of publications (%)",
+        "min": 0,
+        "max": 100
+      },
+      "legend": {
+        "data": [
+          "Uncited (0 citations)",
+          "Cited (not top-10%)",
+          "Top 10% Most Cited"
+        ],
+        "bottom": 0
+      },
+      "series": [
+        {
+          "name": "Uncited (0 citations)",
+          "type": "bar",
+          "stack": "total",
+          "data": [
+            1.42,
+            2.41,
+            5.95,
+            19.1
+          ],
+          "itemStyle": {
+            "color": "#ef4444"
+          }
+        },
+        {
+          "name": "Cited (not top-10%)",
+          "type": "bar",
+          "stack": "total",
+          "data": [
+            84.61,
+            93.69,
+            92.25,
+            80.9
+          ],
+          "itemStyle": {
+            "color": "#3b82f6"
+          }
+        },
+        {
+          "name": "Top 10% Most Cited",
+          "type": "bar",
+          "stack": "total",
+          "data": [
+            13.97,
+            3.89,
+            1.8,
+            0.0
+          ],
+          "itemStyle": {
+            "color": "#10b981"
+          }
+        }
+      ]
+    }
+  },
+  "method_note": "Evaluated on 10,212 journal papers (2016\u20132023; 2024\u20132026 excluded due to citation latency). Top-10% citation thresholds are normalized within each publication year.",
+  "computed_at": "2026-10-25T20:50:29.268460+00:00"
+}

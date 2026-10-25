@@ -91,4 +91,20 @@ A stratified random sample of 90 DOIs was audited for DOI resolution and metadat
 - `data/review/author_review_queue.csv`: Ambiguous low-confidence names triaged; high-confidence faculty matches confirmed against official institute staff directories.
 
 ---
-**Conclusion:** Phase 1 Data Collection passes all quality and validation gates.
+
+## 7. Phase 2b: Non-Obvious Insights Verification Gate Checks
+
+| Verification Check | Target / Criterion | Observed Result | Status |
+|---|---|---|---|
+| Contract Schema | 10 JSON files conforming to schema (`id, question, headline, metrics, chart, method_note, computed_at`) | 10/10 files conform | ✅ PASS |
+| JavaScript Bundle | `dashboard/data/g24_insights.js` compiled and exposes `window.G24_INSIGHTS` | Verified (10 entries) | ✅ PASS |
+| Dashboard Render | `#insights-grid` mounts 10 cards with 5 chart types (scatter, line, stacked bar, grouped bar, sankey) | 10 cards, 14 canvas elements rendered | ✅ PASS |
+| Browser CDP Automation | Headless Chrome test via HTTP (`127.0.0.1:8080`) and offline `file://` protocol | 0 errors on both protocols | ✅ PASS |
+| Presentation Integration | Slide 11 added to `Group24_CSIR.pptx` & `Group24_CSIR.pdf` summarizing key findings | 11 slides generated | ✅ PASS |
+| Sleeping Beauty Math | Ke et al. (2015) parameter-free $B$-coefficient & inflection year detection | Mathematical tests verified in pytest | ✅ PASS |
+| Brain Circulation Validation | 30-scientist sample exported with OpenAlex URLs for manual verification | `09_validation_sample.csv` (30 rows) | ✅ PASS |
+| Automated Pytest Suite | Unit and integration test suite (`tests/`) | 42/42 tests passing | ✅ PASS |
+
+---
+**Conclusion:** All Phase 1, Phase 2, and Phase 2b deliverables pass all quality, integrity, and validation gates.
+

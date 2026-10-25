@@ -72,3 +72,17 @@
 - Citations (13 Oct 2026) accumulate over time while references are fixed, so IR rises with paper age; IR-Q1 papers concentrate in 2016–2021. No age or field normalisation is applied.
 - OpenAlex reference lists can be incomplete; 513 papers with no references recorded are excluded from IR shares.
 - The IR-Q1 threshold (0.59) is relative to this corpus (its 75th percentile), not an absolute standard; fixed thresholds such as 5 or 10 would select < 1% of papers.
+
+---
+
+## 5. Non-Obvious Insights (Bibliometric & Network Analyses)
+
+1. **Sleeping Beauties Window & Censoring**:
+   - Sleeping beauty detection implements the Ke et al. (2015, *PNAS*) parameter-free beauty coefficient $B$ over the 2016–2026 window. Because the corpus observation window spans 10 years, late awakenings requiring $>10$ years of initial latency cannot be observed. Additionally, papers published after 2020 have $<6$ observation years, limiting detection to papers published in 2016–2020 with $\ge 20$ citations.
+2. **Career Abroad Spell Inferences (Brain Circulation)**:
+   - Returnee classification is inferred from institutional affiliation country codes on pre-CSIR publication records in OpenAlex `/authors` career histories. If an overseas postdoctoral spell produced no indexed publications, or if publisher metadata omitted institutional affiliations, the spell cannot be observed from OpenAlex alone. A 30-scientist sample was exported to `stats/tables/insights/09_validation_sample.csv` for manual validation against laboratory profile pages.
+3. **Faculty Retirement & Succession Risk Proxy**:
+   - CSIR institute scientific directories do not publish researcher birthdates or retirement dates. Academic age ($\text{Collection Year} - \text{Year of First Recorded Publication}$) serves as a proxy ($\ge 30$ years indicates probable retirement within 5 years). Sensitivity tests at thresholds 28 and 32 years confirmed that divisional risk rankings remain robust across definitions.
+4. **COVID-19 Publication Lag & Hardware Dependence**:
+   - Journal publications exhibit indexing and peer-review latency; experiments disrupted during 2020 national lockdowns frequently impacted output in late 2020 and 2021. The sharper decline observed at CSIR-CECRI (-22.3% in 2020, -33.9% in 2021) reflects the intense physical hardware and experimental battery/electrochemical equipment dependence of CECRI compared to synthesis/computational divisions at NCL and IICT.
+
