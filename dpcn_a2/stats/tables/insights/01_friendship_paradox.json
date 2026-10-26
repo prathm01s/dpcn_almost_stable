@@ -30105,6 +30105,6 @@
       ]
     }
   },
-  "method_note": "Computed on the co-authorship largest connected component (7,508 researchers). Neighbor degree is the unweighted average degree of all direct co-authors.",
-  "computed_at": "2026-10-25T20:45:11.493334+00:00"
+  "method_note": "Computed on the co-authorship largest connected component (7,508 researchers; papers with >30 listed authors dropped). Neighbor degree is the unweighted average degree of all direct co-authors.",
+  "computed_at": "2026-10-26T05:21:59.475882+00:00"
 }

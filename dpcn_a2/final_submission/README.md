@@ -17,8 +17,8 @@ This directory contains the complete, authoritative submission deliverables for 
 | `authorship_network.csv` | 6.5 MB | **Task 4 Co-Authorship Network Edge List**: 108,847 undirected collaboration edges (65,058 within labs + 43,789 with Indian partners) (`author_a, author_b, paper_doi, inst_a, inst_b, year`). |
 | `indian_connections.csv` | 74 KB | **Task 4 Indian Partner Connectivity**: 1,487 aggregated cross-institute collaboration links (`your_inst, partner_inst, shared_papers, total_citations`). |
 | `faculty_master.csv` | 101 KB | **Cadre Faculty Roster**: 505 verified scientific cadre personnel with 2016–2026 in-corpus h-indices. |
-| `Group24_CSIR.pdf` | 1.9 MB | **Task 2 Statistics Report (PDF)**: Strictly $\le 10$ slides conforming to assignment length limit. |
-| `Group24_CSIR.pptx` | 2.0 MB | **Task 2 Presentation Slides (PPTX)**: Editable 10-slide PowerPoint presentation with vector charts. |
+| `24_CSIR.pdf` | 1.9 MB | **Task 2 Statistics Report (PDF)**: Strictly $\le 10$ slides conforming to assignment length limit. |
+| `24_CSIR.pptx` | 2.0 MB | **Task 2 Presentation Slides (PPTX)**: Editable 10-slide PowerPoint presentation with vector charts. |
 | `dashboard.zip` | 3.9 MB | **Task 3 Standalone Interactive Dashboard**: Self-contained offline web application (unzip and open `index.html` directly via double-click), including citation/co-authorship network tabs and the Indian Connectivity tab (citation flow, cross-cluster links, topic Jaccard, hub authors). |
 | `MANIFEST.json` | 2.1 KB | Cryptographic run manifest with collection timestamp, counts, and metadata. |
 | `CHECKSUMS.sha256` | 868 B | SHA-256 cryptographic checksums for all files in this bundle. |

@@ -42,8 +42,8 @@ group24/
 │   └── MANIFEST.json                   # Cryptographic SHA256 checksums, metadata, and timestamps
 ├── stats/
 │   ├── report/
-│   │   ├── Group24_CSIR.pdf    # Task 2 Presentation Report (PDF format, <= 10 slides)
-│   │   └── Group24_CSIR.pptx   # Task 2 PowerPoint Presentation (10 slides)
+│   │   ├── 24_CSIR.pdf    # Task 2 Presentation Report (PDF format, <= 10 slides)
+│   │   └── 24_CSIR.pptx   # Task 2 PowerPoint Presentation (10 slides)
 │   ├── figures/                        # 8 publication-quality figures (300 DPI PNG + SVG)
 │   └── tables/                         # 24 metric CSV tables (incl. Indian connectivity, Sections 7a/7b)
 ├── dashboard/                          # Task 3 Interactive Standalone Dashboard

@@ -53,22 +53,25 @@ def fetch_counts_by_year(force_refresh: bool = False) -> Dict[str, List[Dict[str
             "select": "id,publication_year,counts_by_year",
             "per_page": len(chunk),
         }
-        try:
-            resp = http_client.get_json(url, params=params, use_cache=True)
-            for item in resp.get("results", []):
-                w_id = item.get("id")
-                cby = item.get("counts_by_year", [])
-                if w_id:
-                    results[w_id] = cby
-        except Exception as exc:
-            logger.warning(f"Batch fetch error on chunk {i}-{i+len(chunk)}: {exc}")
+        # Errors propagate: a partial result must not be cached as if complete
+        resp = http_client.get_json(url, params=params, use_cache=True)
+        for item in resp.get("results", []):
+            w_id = item.get("id")
+            if w_id:
+                results[w_id] = item.get("counts_by_year", [])
 
-    logger.info(f"Retrieved counts_by_year for {len(results)} works. Caching to {CACHE_FILE}...")
+    missing = len(work_ids) - len(results)
+    logger.info(f"Retrieved counts_by_year for {len(results)}/{len(work_ids)} works "
+                f"({missing} no longer returned by OpenAlex). Caching to {CACHE_FILE}...")
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(results, f)
 
     return results
 
 
-if __name__ == "__main__":
+def main() -> None:
     fetch_counts_by_year()
+
+
+if __name__ == "__main__":
+    main()

@@ -1,7 +1,8 @@
 """Master runner for all 10 Group 24 Insights analyses.
 
 Executes s01 to s10 in order, writing each output JSON to stats/tables/insights/.
-If Part C/D API caches are missing, handles gracefully by marking uncomputed.
+Runs from local data only: Insights 7, 9 and 10 read the OpenAlex caches written by
+`make insights-fetch`; if those are missing they write a "Not computed" JSON instead.
 """
 
 import sys

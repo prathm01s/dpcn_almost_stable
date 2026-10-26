@@ -1,11 +1,13 @@
 {
   "id": "07_sleeping_beauties",
   "question": "Which papers were ignored for years and then suddenly took off?",
-  "headline": "15 papers show delayed recognition. The strongest, 'Novel triazole hybrids of myrrhanone C, a natural polypodane triterpene: Synthesis, cytotoxic activity and cell based studies' (CSIR-IICT, 2016), averaged 3.6 citations/yr for 5 years, then jumped to 6.3/yr from 2021.",
+  "headline": "2 of the 7 strongest candidates (top 1% of 602 papers by Ke's B) show sustained delayed recognition. The strongest, 'Funnel shaped molecules containing benzo/pyrido[1,2,5]thiadiazole f\u2026' (IICT, 2016), drew 1.4 citations/yr for 5 years, then 4.7/yr from 2021.",
   "metrics": {
-    "n_top1_percent": 15,
-    "b_p99_threshold": 13.48,
-    "n_eligible_sleeping_beauties": 1414,
+    "n_top1_percent": 7,
+    "b_p99_threshold": 12.92,
+    "n_eligible_sleeping_beauties": 602,
+    "n_top1_sustained": 2,
+    "n_top1_spikes": 3,
     "strongest": {
       "title": "Novel triazole hybrids of myrrhanone C, a natural polypodane triterpene: Synthesis, cytotoxic activity and cell based studies",
       "lab": "CSIR-IICT",
@@ -14,7 +16,11 @@
       "t_a": 5,
       "awakening_year": 2021,
       "avg_pre": 3.6,
-      "avg_post": 6.33,
+      "avg_post": 9.0,
+      "peak_cites": 17,
+      "peak_year": 2022,
+      "avg_after_peak": 6.67,
+      "sustained": false,
       "total_citations": 56
     },
     "top5": [
@@ -36,17 +42,7 @@
         "doi": "https://doi.org/10.1007/s10008-017-3770-5",
         "B": 21.0,
         "awakening_year": 2021,
-        "total_citations": 38
-      },
-      {
-        "title": "An expeditious four-component domino protocol for the synthesis of novel thiazolo[3,2-a]thiochromeno[4,3-d]pyrimidine derivatives as antibacterial and antibiofilm agents",
-        "lab": "CSIR-IICT",
-        "journal": "Bioorganic & Medicinal Chemistry",
-        "year": 2016,
-        "doi": "https://doi.org/10.1016/j.bmc.2016.06.025",
-        "B": 18.96,
-        "awakening_year": 2024,
-        "total_citations": 35
+        "total_citations": 36
       },
       {
         "title": "Feeding\u2010induced phenol production in Capsicum annuum L. influences Spodoptera litura F. larval growth and physiology",
@@ -56,7 +52,7 @@
         "doi": "https://doi.org/10.1002/arch.21387",
         "B": 18.4,
         "awakening_year": 2021,
-        "total_citations": 38
+        "total_citations": 34
       },
       {
         "title": "Funnel shaped molecules containing benzo/pyrido[1,2,5]thiadiazole functionalities as peripheral acceptors for organic photovoltaic applications",
@@ -66,7 +62,17 @@
         "doi": "https://doi.org/10.1039/c6ra06616j",
         "B": 17.0,
         "awakening_year": 2021,
-        "total_citations": 33
+        "total_citations": 32
+      },
+      {
+        "title": "Zirconium Doped Ceria Nanoparticles: An Efficient and Reusable Catalyst for a Green Multicomponent Synthesis of Novel Phenyldiazenyl\u2013Chromene Derivatives Using Aqueous Medium",
+        "lab": "CSIR-IICT",
+        "journal": "ACS Sustainable Chemistry & Engineering",
+        "year": 2016,
+        "doi": "https://doi.org/10.1021/acssuschemeng.6b00056",
+        "B": 16.67,
+        "awakening_year": 2020,
+        "total_citations": 51
       }
     ]
   },
@@ -85,8 +91,7 @@
           2022,
           2023,
           2024,
-          2025,
-          2026
+          2025
         ],
         "name": "Year"
       },
@@ -141,10 +146,6 @@
             [
               2025,
               3
-            ],
-            [
-              2026,
-              0
             ]
           ],
           "itemStyle": {
@@ -209,10 +210,6 @@
             [
               2025,
               3
-            ],
-            [
-              2026,
-              2
             ]
           ],
           "itemStyle": {
@@ -228,78 +225,6 @@
                 "coord": [
                   2021,
                   2
-                ],
-                "symbol": "pin",
-                "symbolSize": 30,
-                "label": {
-                  "show": false
-                }
-              }
-            ]
-          }
-        },
-        {
-          "name": "An expeditious four-component domino pro... (2016)",
-          "type": "line",
-          "data": [
-            [
-              2016,
-              4
-            ],
-            [
-              2017,
-              1
-            ],
-            [
-              2018,
-              4
-            ],
-            [
-              2019,
-              0
-            ],
-            [
-              2020,
-              3
-            ],
-            [
-              2021,
-              7
-            ],
-            [
-              2022,
-              3
-            ],
-            [
-              2023,
-              3
-            ],
-            [
-              2024,
-              1
-            ],
-            [
-              2025,
-              8
-            ],
-            [
-              2026,
-              1
-            ]
-          ],
-          "itemStyle": {
-            "color": "#10b981"
-          },
-          "lineStyle": {
-            "width": 2
-          },
-          "markPoint": {
-            "data": [
-              {
-                "name": "Awakening",
-                "coord": [
-                  2024,
-                  1
                 ],
                 "symbol": "pin",
                 "symbolSize": 30,
@@ -349,14 +274,10 @@
             [
               2025,
               2
-            ],
-            [
-              2026,
-              4
             ]
           ],
           "itemStyle": {
-            "color": "#f59e0b"
+            "color": "#10b981"
           },
           "lineStyle": {
             "width": 2
@@ -421,10 +342,74 @@
             [
               2025,
               1
+            ]
+          ],
+          "itemStyle": {
+            "color": "#f59e0b"
+          },
+          "lineStyle": {
+            "width": 2
+          },
+          "markPoint": {
+            "data": [
+              {
+                "name": "Awakening",
+                "coord": [
+                  2021,
+                  0
+                ],
+                "symbol": "pin",
+                "symbolSize": 30,
+                "label": {
+                  "show": false
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Zirconium Doped Ceria Nanoparticles: An ... (2016)",
+          "type": "line",
+          "data": [
+            [
+              2016,
+              8
             ],
             [
-              2026,
+              2017,
+              5
+            ],
+            [
+              2018,
+              3
+            ],
+            [
+              2019,
+              4
+            ],
+            [
+              2020,
               1
+            ],
+            [
+              2021,
+              6
+            ],
+            [
+              2022,
+              6
+            ],
+            [
+              2023,
+              2
+            ],
+            [
+              2024,
+              10
+            ],
+            [
+              2025,
+              6
             ]
           ],
           "itemStyle": {
@@ -438,8 +423,8 @@
               {
                 "name": "Awakening",
                 "coord": [
-                  2021,
-                  0
+                  2020,
+                  1
                 ],
                 "symbol": "pin",
                 "symbolSize": 30,
@@ -470,17 +455,7 @@
           "doi": "https://doi.org/10.1007/s10008-017-3770-5",
           "B": 21.0,
           "awakening_year": 2021,
-          "total_citations": 38
-        },
-        {
-          "title": "An expeditious four-component domino protocol for the synthesis of novel thiazolo[3,2-a]thiochromeno[4,3-d]pyrimidine derivatives as antibacterial and antibiofilm agents",
-          "lab": "CSIR-IICT",
-          "journal": "Bioorganic & Medicinal Chemistry",
-          "year": 2016,
-          "doi": "https://doi.org/10.1016/j.bmc.2016.06.025",
-          "B": 18.96,
-          "awakening_year": 2024,
-          "total_citations": 35
+          "total_citations": 36
         },
         {
           "title": "Feeding\u2010induced phenol production in Capsicum annuum L. influences Spodoptera litura F. larval growth and physiology",
@@ -490,7 +465,7 @@
           "doi": "https://doi.org/10.1002/arch.21387",
           "B": 18.4,
           "awakening_year": 2021,
-          "total_citations": 38
+          "total_citations": 34
         },
         {
           "title": "Funnel shaped molecules containing benzo/pyrido[1,2,5]thiadiazole functionalities as peripheral acceptors for organic photovoltaic applications",
@@ -500,11 +475,21 @@
           "doi": "https://doi.org/10.1039/c6ra06616j",
           "B": 17.0,
           "awakening_year": 2021,
-          "total_citations": 33
+          "total_citations": 32
+        },
+        {
+          "title": "Zirconium Doped Ceria Nanoparticles: An Efficient and Reusable Catalyst for a Green Multicomponent Synthesis of Novel Phenyldiazenyl\u2013Chromene Derivatives Using Aqueous Medium",
+          "lab": "CSIR-IICT",
+          "journal": "ACS Sustainable Chemistry & Engineering",
+          "year": 2016,
+          "doi": "https://doi.org/10.1021/acssuschemeng.6b00056",
+          "B": 16.67,
+          "awakening_year": 2020,
+          "total_citations": 51
         }
       ]
     }
   },
-  "method_note": "Computed using the Ke et al. (2015, PNAS) parameter-free B coefficient on papers published 2016\u20132020 with >=20 citations. Note: The 10-year observation window only captures short sleeps.",
-  "computed_at": "2026-10-25T20:52:32.533760+00:00"
+  "method_note": "Ke et al. (2015, PNAS) beauty coefficient B on yearly citations (OpenAlex counts_by_year, 2016\u20132025) of papers published 2016\u20132020 with \u226520 citations, a peak \u22653 years after publication and \u226510 citations in the peak year. Sustained = after the peak the paper keeps \u226550% of its peak yearly citations. The \u226410-year window only captures short sleeps.",
+  "computed_at": "2026-10-26T05:24:55.180966+00:00"
 }

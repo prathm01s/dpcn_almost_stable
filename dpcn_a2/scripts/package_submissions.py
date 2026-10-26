@@ -60,7 +60,7 @@ def week12() -> None:
 def week3() -> None:
     out = ROOT / "submission_week3"
     reset(out)
-    for f in ("Group24_CSIR.pdf", "Group24_CSIR.pptx"):
+    for f in ("24_CSIR.pdf", "24_CSIR.pptx"):
         shutil.copy2(REPORT / f, out / f)
     copy_dashboard(out / "dashboard")
     # Files the dashboard's download buttons link to (../data/final, ../stats/report)
@@ -69,7 +69,7 @@ def week3() -> None:
         shutil.copy2(FINAL / f, out / "data" / "final" / f)
     shutil.copy2(ROOT / "data" / "MANIFEST.json", out / "data" / "MANIFEST.json")
     (out / "stats" / "report").mkdir(parents=True)
-    for f in ("Group24_CSIR.pdf", "Group24_CSIR.pptx"):
+    for f in ("24_CSIR.pdf", "24_CSIR.pptx"):
         shutil.copy2(REPORT / f, out / "stats" / "report" / f)
     checksums(out)
 
@@ -79,7 +79,7 @@ def team_archive() -> None:
     for f in WEEK12_FILES + ["group24_data_extended.csv", "indian_linked_works.csv", "work_reference_counts.csv", "MANIFEST.json"]:
         if (FINAL / f).exists():
             shutil.copy2(FINAL / f, out / f)
-    for f in ("Group24_CSIR.pdf", "Group24_CSIR.pptx"):
+    for f in ("24_CSIR.pdf", "24_CSIR.pptx"):
         shutil.copy2(REPORT / f, out / f)
     zip_path = out / "dashboard.zip"
     zip_path.unlink(missing_ok=True)

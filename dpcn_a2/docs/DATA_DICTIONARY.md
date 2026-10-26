@@ -86,7 +86,7 @@ Network analysis (PageRank, Louvain, centralities) uses only the within-cluster 
 
 | File / field | Definition |
 |---|---|
-| `data/final/work_reference_counts.csv` | `work_id`, `references_count` = number of works in the paper's OpenAlex `referenced_works` (citations made). Blank for the one work OpenAlex no longer returns. |
+| `data/final/work_reference_counts.csv` | `work_id`, `references_count` = number of works in the paper's OpenAlex `referenced_works` (citations made); `has_foreign_coauthor` = TRUE if any authorship institution has a country code other than IN (used by Insight 9). Blank for the one work OpenAlex no longer returns. |
 | Paper impact ratio (IR) | `citations` ÷ `references_count`; undefined when `references_count` = 0 |
 | IR-Q1 | IR > 0.59, the 75th percentile of paper IR over all papers (`config/settings.yaml` → `impact_ratio.quartile_percentile`), i.e. the top 25% of papers |
 | Institute impact ratio | Σ citations ÷ Σ references over the institute's distinct papers with ≥ 1 reference |
@@ -125,7 +125,7 @@ All 10 analyses conform strictly to the following common JSON contract schema:
 - `stats/tables/insights/09_validation_sample.csv`: Stratified validation sample of 30 scientists across the 3 labs:
   - `name`: Scientist full name from official directory.
   - `lab`: Assigned CSIR institute (`CSIR-NCL`, `CSIR-IICT`, `CSIR-CECRI`).
-  - `predicted_class`: Algorithmic mobility class (`Home-grown`, `Returnee`, `Unclassifiable`).
+  - `predicted_class`: Algorithmic mobility class (`Home-grown`, `Returnee`, `Foreign-trained`, `Unclassifiable`).
   - `phd_proxy`: Inferred institution of first publication.
   - `host_country`: Inferred primary foreign host country during postdoctoral spell.
   - `profile_url`: OpenAlex author profile link for manual verification.

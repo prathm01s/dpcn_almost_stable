@@ -1158,23 +1158,48 @@ document.addEventListener("DOMContentLoaded", () => {
         const chartType = item.chart.type;
         const cData = item.chart.data || {};
 
+        if (chartType === "none") {
+          ch.clear();
+          el.innerHTML = `<div style="padding:2rem; color:var(--text-muted); font-size:0.9rem;">${esc(item.headline)}</div>`;
+          return;
+        }
+
+        // Category axes: years arrive as numbers; match them to the category labels as strings
+        const asCategory = ax => (ax && ax.type === "category" && Array.isArray(ax.data))
+          ? { ...ax, data: ax.data.map(String) } : ax;
+        const withNames = (ax, gap) => ax ? { ...ax, nameLocation: "middle", nameGap: gap } : ax;
+        const xCat = asCategory(cData.xAxis);
+        const seriesFor = list => (list || []).map(sr => {
+          if (!xCat || xCat.type !== "category") return sr;
+          const out = { ...sr, data: (sr.data || []).map(d => Array.isArray(d) ? [String(d[0]), d[1]] : d) };
+          if (sr.markPoint && sr.markPoint.data) {
+            out.markPoint = { ...sr.markPoint, data: sr.markPoint.data.map(m => m.coord ? { ...m, coord: [String(m.coord[0]), m.coord[1]] } : m) };
+          }
+          return out;
+        });
+        const xAxisOpt = withNames(xCat, 28);
+        const yAxisOpt = withNames(cData.yAxis, 48);
+        const gridOpt = { left: 70, right: 25, top: 20, bottom: 80 };
+        const legendOpt = { ...(cData.legend || {}), type: "scroll", bottom: 0 };  // one line, never over the plot
+
         let option = {};
         if (chartType === "scatter") {
           option = {
             tooltip: { trigger: "item", formatter: p => `<strong>${p.seriesName}</strong><br/>X: ${p.value[0]}, Y: ${p.value[1]}` },
-            xAxis: { ...cData.xAxis, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
-            yAxis: { ...cData.yAxis, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
-            series: cData.series,
-            grid: { left: 55, right: 25, top: 25, bottom: 40 },
+            legend: legendOpt,
+            xAxis: { ...xAxisOpt, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+            yAxis: { ...yAxisOpt, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+            series: seriesFor(cData.series),
+            grid: gridOpt,
           };
         } else if (chartType === "line") {
           option = {
             tooltip: { trigger: "axis" },
-            legend: cData.legend || { bottom: 0 },
-            xAxis: { ...cData.xAxis, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
-            yAxis: { ...cData.yAxis, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
-            series: cData.series,
-            grid: { left: 55, right: 25, top: 25, bottom: 45 },
+            legend: legendOpt,
+            xAxis: { ...xAxisOpt, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+            yAxis: { ...yAxisOpt, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+            series: seriesFor(cData.series),
+            grid: gridOpt,
           };
         } else if (chartType === "stacked_bar") {
           option = {
@@ -1187,11 +1212,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 return res;
               },
             },
-            legend: cData.legend || { bottom: 0 },
-            xAxis: cData.xAxis,
-            yAxis: cData.yAxis,
-            series: cData.series,
-            grid: { left: 55, right: 20, top: 25, bottom: 45 },
+            legend: legendOpt,
+            xAxis: xAxisOpt,
+            yAxis: yAxisOpt,
+            series: seriesFor(cData.series),
+            grid: gridOpt,
           };
         } else if (chartType === "grouped_bar") {
           option = {
@@ -1210,11 +1235,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 return res;
               },
             },
-            legend: cData.legend || { bottom: 0 },
-            xAxis: cData.xAxis,
-            yAxis: cData.yAxis,
-            series: cData.series,
-            grid: { left: 55, right: 20, top: 25, bottom: 45 },
+            legend: legendOpt,
+            xAxis: xAxisOpt,
+            yAxis: yAxisOpt,
+            series: seriesFor(cData.series),
+            grid: gridOpt,
           };
         } else if (chartType === "sankey") {
           option = {

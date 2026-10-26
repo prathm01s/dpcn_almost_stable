@@ -2,7 +2,7 @@
 
 PYTHON ?= python3
 
-all: collect stats dashboard test
+all: collect insights stats dashboard test
 
 setup:
 	$(PYTHON) -m pip install -r requirements.txt

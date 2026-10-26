@@ -1,10 +1,10 @@
 {
   "id": "02_rich_club",
   "question": "Do the most-connected scientists collaborate mainly with each other?",
-  "headline": "The top 1% most-connected researchers show no rich-club effect and are less interconnected than chance (\u03c1_norm = 0.76). 41 of 78 are CSIR faculty.",
+  "headline": "The top 1% most-connected researchers show no rich-club effect and are less interconnected than chance (\u03c1_norm = 0.74). 41 of 78 are CSIR faculty.",
   "metrics": {
     "k_star": 66,
-    "rho_norm_at_k_star": 0.758,
+    "rho_norm_at_k_star": 0.74,
     "n_top1_percent": 78,
     "n_top1_faculty": 41,
     "top1_labs": {
@@ -1197,10 +1197,11 @@
       ],
       "markPoint": {
         "k_star": 66,
-        "rho_k_star": 0.758
+        "rho_k_star": 0.74,
+        "note": "rho_norm at k*-1 = normalised density among nodes with degree >= k*"
       }
     }
   },
-  "method_note": "Normalized against 20 degree-preserving rewired null graphs (nx.double_edge_swap). Evaluated on co-author LCC at 99th-percentile degree threshold k* = 66.",
-  "computed_at": "2026-10-25T20:46:17.605638+00:00"
+  "method_note": "Normalized against 20 degree-preserving rewired null graphs (nx.double_edge_swap). Evaluated on the co-author LCC for the 78 researchers with degree >= k* = 66 (99th percentile).",
+  "computed_at": "2026-10-26T05:23:15.332938+00:00"
 }

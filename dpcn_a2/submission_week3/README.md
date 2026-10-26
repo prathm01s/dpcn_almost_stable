@@ -9,8 +9,8 @@
 
 | Path | What it is |
 |---|---|
-| `Group24_CSIR.pdf` | Statistics report, 10 slides (PDF) |
-| `Group24_CSIR.pptx` | Same report, editable PowerPoint |
+| `24_CSIR.pdf` | Statistics report, 10 slides (PDF) |
+| `24_CSIR.pptx` | Same report, editable PowerPoint |
 | `dashboard/index.html` | Interactive dashboard. **Double-click to open**; it works offline with no server or internet. |
 | `data/final/`, `data/MANIFEST.json` | Dataset and network CSVs that the dashboard's "Data & Exports" tab links to |
 | `stats/report/` | Copy of the report that the dashboard links to |
@@ -20,16 +20,16 @@
 
 | Slide | Content |
 |---|---|
-| 1 | Title, scope and headline numbers |
-| 2 | Data coverage and method; limitations |
-| 3 | Publication trend 2016–2026 per institute; growth (CAGR 2016→2025) |
-| 4 | Journal quartile distribution and Q1 fraction per institution; **Q1 by citation impact ratio** (citations received ÷ citations made; IR-Q1 = top 25% of papers, IR > 0.59) compared with SJR Q1 |
-| 5 | Faculty h-index distribution; top faculty |
-| 6 | Top 5 journals for each institution |
-| 7 | Top 10 most-cited papers; citation summary |
-| 8 | Research-area breakdown; department performance |
-| 9 | **Citation network summary:** PageRank top 10, in-degree distribution, citation flow with other Indian institutions |
-| 10 | **Authorship network summary:** degree and betweenness centrality, Louvain communities, Indian partners |
+| 1 | Title, scope, coverage table (papers, citations, Q1, faculty per institute), method and limits, dashboard link |
+| 2 | Publication trend 2016–2026 per institute; growth (CAGR 2016→2025) |
+| 3 | Journal quartile distribution and Q1 fraction per institution; **Q1 by citation impact ratio** (citations received ÷ citations made; IR-Q1 = top 25% of papers, IR > 0.59) compared with SJR Q1 |
+| 4 | Faculty h-index distribution; top faculty |
+| 5 | Top 5 journals for each institution |
+| 6 | Top 10 most-cited papers; citation summary |
+| 7 | Research-area breakdown; department performance |
+| 8 | **Citation network summary:** PageRank top 10, in-degree distribution, citation flow with other Indian institutions |
+| 9 | **Authorship network summary:** degree and betweenness centrality, Louvain communities, Indian partners |
+| 10 | **Ten non-obvious findings** (friendship paradox, rich club, fragility, Price's law, quartile vs impact, local vs global influence, sleeping beauties, COVID shock, brain circulation, succession risk) |
 
 Every number in the report is generated from the project's statistics tables, which also feed the dashboard, so the two agree. An automated test checks this.
 
@@ -48,6 +48,7 @@ Every number in the report is generated from the project's statistics tables, wh
 | Conference rank (CORE) | Venues & Landmark Papers → Panel 9 (none of the 186 conference papers is CORE-ranked; CORE covers computer-science venues) |
 | Citation network visualisation (directed) | Directed Citation Network → Panel 10, with PageRank table and 3 × 3 lab flow matrix |
 | Authorship network visualisation (undirected) | Co-Authorship Network → Panel 11, with centrality table and 3 × 3 lab matrix |
+| Ten non-obvious findings | Insights tab: one card per finding with its chart and method note (fixed analyses; filters don't apply) |
 
 Extras:
 

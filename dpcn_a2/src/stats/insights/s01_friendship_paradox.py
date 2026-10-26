@@ -109,7 +109,8 @@ def run() -> dict:
         "metrics": metrics,
         "chart": chart,
         "method_note": (
-            "Computed on the co-authorship largest connected component (7,508 researchers). "
+            f"Computed on the co-authorship largest connected component ({n_nodes:,} researchers; papers with >30 "
+            f"listed authors dropped). "
             "Neighbor degree is the unweighted average degree of all direct co-authors."
         ),
     }

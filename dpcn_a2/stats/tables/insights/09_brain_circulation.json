@@ -1,31 +1,38 @@
 {
   "id": "09_brain_circulation",
   "question": "How many of our scientists trained in India, worked abroad, and came back, and did time abroad change their research?",
-  "headline": "8.3% of classifiable CSIR scientists are returnees (NCL 13.2%, IICT 4.0%, CECRI 0.0%), mostly via US, DE. Returnees' papers show no significant difference in citations than home-grown peers of similar career age, and 9.0% vs 16.3% of their papers have foreign co-authors.",
+  "headline": "15.7% of classifiable CSIR scientists are returnees (NCL 18.3% (n=142), IICT 13.5% (n=133), CECRI 11.1% (n=18)); their abroad spell was most often in the US (25 of 46). Their papers' citations do not differ significantly from home-grown peers of similar career age (+2%, 95% CI -24% to +37%); 20.3% of returnees' papers vs 16.8% of home-grown scientists' papers have a foreign co-author.",
   "metrics": {
-    "n_total_classified": 347,
-    "n_classifiable": 218,
-    "returnee_pct_overall": 8.26,
+    "n_total_classified": 344,
+    "n_classifiable": 293,
+    "returnee_pct_overall": 15.7,
     "returnee_pct_by_lab": {
-      "CSIR-IICT": 4.0,
-      "CSIR-NCL": 13.2,
-      "CSIR-CECRI": 0.0
+      "CSIR-IICT": 13.5,
+      "CSIR-NCL": 18.3,
+      "CSIR-CECRI": 11.1
     },
+    "classifiable_by_lab": {
+      "CSIR-IICT": 133,
+      "CSIR-NCL": 142,
+      "CSIR-CECRI": 18
+    },
+    "n_returnees": 46,
+    "n_regression": 249,
     "top_host_countries": {
-      "US": 11,
+      "US": 25,
+      "JP": 4,
       "DE": 3,
-      "CA": 1,
-      "SA": 1,
-      "JP": 1
+      "GB": 2,
+      "SA": 2
     },
-    "ols_adjusted_diff_pct": -5.37,
+    "ols_adjusted_diff_pct": 2.12,
     "ols_95ci": [
-      -38.74,
-      46.18
+      -23.7,
+      36.69
     ],
-    "ols_pvalue": 0.8026,
-    "returnee_foreign_coauthor_pct": 8.96,
-    "homegrown_foreign_coauthor_pct": 16.3,
+    "ols_pvalue": 0.8873,
+    "returnee_foreign_coauthor_pct": 20.26,
+    "homegrown_foreign_coauthor_pct": 16.84,
     "validation_status": "validation pending"
   },
   "chart": {
@@ -46,25 +53,25 @@
               "name": "No Abroad Spell"
             },
             {
-              "name": "PhD: Abroad"
-            },
-            {
               "name": "Host: US"
             },
             {
-              "name": "Host: DE"
+              "name": "Host: GB"
             },
             {
-              "name": "Host: CA"
+              "name": "PhD: Abroad"
+            },
+            {
+              "name": "Host: Other"
+            },
+            {
+              "name": "Host: DE"
             },
             {
               "name": "Host: SA"
             },
             {
               "name": "Host: JP"
-            },
-            {
-              "name": "Host: Other"
             },
             {
               "name": "CSIR-NCL"
@@ -80,17 +87,32 @@
             {
               "source": "PhD: India",
               "target": "No Abroad Spell",
-              "value": 264
+              "value": 206
+            },
+            {
+              "source": "PhD: India",
+              "target": "Host: US",
+              "value": 25
+            },
+            {
+              "source": "PhD: India",
+              "target": "Host: GB",
+              "value": 2
             },
             {
               "source": "PhD: Abroad",
               "target": "Host: US",
-              "value": 5
+              "value": 11
             },
             {
               "source": "PhD: Abroad",
               "target": "No Abroad Spell",
-              "value": 48
+              "value": 9
+            },
+            {
+              "source": "PhD: India",
+              "target": "Host: Other",
+              "value": 10
             },
             {
               "source": "PhD: India",
@@ -98,29 +120,19 @@
               "value": 3
             },
             {
-              "source": "PhD: India",
-              "target": "Host: CA",
-              "value": 1
-            },
-            {
-              "source": "PhD: India",
-              "target": "Host: US",
-              "value": 11
+              "source": "PhD: Abroad",
+              "target": "Host: Other",
+              "value": 10
             },
             {
               "source": "PhD: India",
               "target": "Host: SA",
-              "value": 1
-            },
-            {
-              "source": "PhD: Abroad",
-              "target": "Host: CA",
-              "value": 1
+              "value": 2
             },
             {
               "source": "PhD: India",
               "target": "Host: JP",
-              "value": 1
+              "value": 4
             },
             {
               "source": "PhD: Abroad",
@@ -135,37 +147,32 @@
             {
               "source": "PhD: Abroad",
               "target": "Host: DE",
-              "value": 6
-            },
-            {
-              "source": "PhD: Abroad",
-              "target": "Host: Other",
-              "value": 2
-            },
-            {
-              "source": "PhD: India",
-              "target": "Host: Other",
-              "value": 1
+              "value": 8
             },
             {
               "source": "No Abroad Spell",
               "target": "CSIR-NCL",
-              "value": 127
+              "value": 94
             },
             {
               "source": "Host: US",
               "target": "CSIR-NCL",
-              "value": 12
+              "value": 26
+            },
+            {
+              "source": "Host: GB",
+              "target": "CSIR-NCL",
+              "value": 2
+            },
+            {
+              "source": "Host: Other",
+              "target": "CSIR-NCL",
+              "value": 6
             },
             {
               "source": "Host: DE",
               "target": "CSIR-NCL",
-              "value": 7
-            },
-            {
-              "source": "Host: CA",
-              "target": "CSIR-NCL",
-              "value": 2
+              "value": 9
             },
             {
               "source": "Host: SA",
@@ -175,12 +182,17 @@
             {
               "source": "Host: JP",
               "target": "CSIR-NCL",
-              "value": 2
+              "value": 3
             },
             {
               "source": "No Abroad Spell",
               "target": "CSIR-IICT",
-              "value": 160
+              "value": 107
+            },
+            {
+              "source": "Host: US",
+              "target": "CSIR-IICT",
+              "value": 9
             },
             {
               "source": "Host: DE",
@@ -188,19 +200,34 @@
               "value": 2
             },
             {
-              "source": "Host: US",
-              "target": "CSIR-IICT",
-              "value": 4
-            },
-            {
               "source": "Host: Other",
               "target": "CSIR-IICT",
-              "value": 3
+              "value": 12
+            },
+            {
+              "source": "Host: SA",
+              "target": "CSIR-IICT",
+              "value": 1
+            },
+            {
+              "source": "Host: JP",
+              "target": "CSIR-IICT",
+              "value": 2
             },
             {
               "source": "No Abroad Spell",
               "target": "CSIR-CECRI",
-              "value": 25
+              "value": 14
+            },
+            {
+              "source": "Host: US",
+              "target": "CSIR-CECRI",
+              "value": 1
+            },
+            {
+              "source": "Host: Other",
+              "target": "CSIR-CECRI",
+              "value": 2
             },
             {
               "source": "Host: JP",
@@ -216,6 +243,6 @@
       ]
     }
   },
-  "method_note": "Evaluated on 218 classifiable roster scientists. Abroad spell defined as >=2 consecutive years with all non-Indian affiliations and >=2 papers. OLS adjusts citations per paper for academic age and lab. validation pending.",
-  "computed_at": "2026-10-25T21:05:19.434624+00:00"
+  "method_note": "Full OpenAlex career histories of 344 matched roster scientists; 293 classifiable. PhD proxy = main institution on the first 3 papers; abroad spell = \u22652 consecutive years with only non-Indian affiliations and \u22652 papers. OLS on log(1+citations/paper, 2016\u201326) with academic age and lab. Classification validation: validation pending.",
+  "computed_at": "2026-10-26T05:24:58.778793+00:00"
 }

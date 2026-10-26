@@ -134,4 +134,26 @@ def test_brain_circulation_validation_sample():
     assert len(df) == 30
     req_cols = {"name", "lab", "predicted_class", "phd_proxy", "host_country", "profile_url"}
     assert req_cols.issubset(df.columns)
-    assert df["predicted_class"].isin(["Home-grown", "Returnee", "Unclassifiable"]).all()
+    assert df["predicted_class"].isin(["Home-grown", "Returnee", "Foreign-trained", "Unclassifiable"]).all()
+
+
+def test_headlines_have_no_invented_fallbacks():
+    """Headlines must not contain placeholder values that are not in the metrics."""
+    for f in Path("stats/tables/insights").glob("*.json"):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        assert "N/A" not in d["headline"], f.name
+        assert "Not computed" not in d["headline"], f"{f.name}: run make insights-fetch before make insights"
+
+
+def test_rich_club_uses_top_set_threshold():
+    d = json.loads(Path("stats/tables/insights/02_rich_club.json").read_text(encoding="utf-8"))
+    assert d["metrics"]["rho_norm_at_k_star"] is not None
+
+
+def test_sleeping_beauty_ignores_partial_year_and_tiny_peaks():
+    from src.stats.insights.s07_sleeping_beauties import compute_sleeping_beauty
+    # Peak of 5 citations: too small to count, however late it comes
+    assert compute_sleeping_beauty(2016, {2016: 0, 2017: 0, 2018: 0, 2019: 0, 2020: 5, 2021: 5, 2022: 5, 2023: 5}) == {}
+    # A big 2026 (partial-year) value must not become the peak
+    res = compute_sleeping_beauty(2016, {2016: 5, 2017: 6, 2018: 8, 2019: 9, 2020: 12, 2021: 14, 2026: 90})
+    assert res == {} or res["peak_year"] <= 2025

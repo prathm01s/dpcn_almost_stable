@@ -147,7 +147,11 @@ def coauthor_graph(max_authors: int = 30) -> nx.Graph:
 
     # Extract LCC
     lcc_nodes = max(nx.connected_components(G), key=len)
-    LCC = G.subgraph(lcc_nodes).copy()
+    # Build the LCC in G's insertion order: subgraph views can iterate in set order, which varies with
+    # PYTHONHASHSEED and would change sampled betweenness and random-removal runs between executions
+    LCC = nx.Graph()
+    LCC.add_nodes_from((n, G.nodes[n]) for n in G if n in lcc_nodes)
+    LCC.add_edges_from((u, v, d) for u, v, d in G.edges(data=True) if u in lcc_nodes)
     lcc_share = len(lcc_nodes) / G.number_of_nodes() * 100
     logger.info(f"Co-authorship LCC: {LCC.number_of_nodes()} nodes ({lcc_share:.1f}% of graph), {LCC.number_of_edges()} edges")
 
@@ -182,7 +186,7 @@ def citation_graph() -> nx.DiGraph:
     for node in G.nodes():
         meta = meta_lookup.get(node, {})
         G.nodes[node]["doi"] = node
-        G.nodes[node]["title"] = meta.get("journal", "")
+        G.nodes[node]["journal"] = meta.get("journal", "")
         G.nodes[node]["year"] = meta.get("year", 0)
         G.nodes[node]["lab"] = meta.get("labs", "")
         G.nodes[node]["citations"] = meta.get("citations", 0)
@@ -190,6 +194,20 @@ def citation_graph() -> nx.DiGraph:
 
     logger.info(f"In-corpus citation graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
     return G
+
+
+def not_computed(insight_id: str, question: str, reason: str) -> Dict[str, Any]:
+    """Contract-conforming placeholder when an input (e.g. an API cache) is missing. Never invents numbers."""
+    data = {
+        "id": insight_id,
+        "question": question,
+        "headline": f"Not computed – {reason}",
+        "metrics": {"status": "not computed", "reason": reason},
+        "chart": {"type": "none", "data": {}},
+        "method_note": f"Not computed: {reason}",
+    }
+    save_insight(data)
+    return data
 
 
 def save_insight(data: Dict[str, Any]) -> Path:

@@ -70,8 +70,8 @@ def test_dashboard_networks_match_report_tables():
 
 
 def test_report_has_at_most_ten_slides_and_quotes_the_tables():
-    prs = Presentation("stats/report/Group24_CSIR.pptx")
-    assert len(prs.slides) <= 15  # Relaxed for Phase 2b insights expansion
+    prs = Presentation("stats/report/24_CSIR.pptx")
+    assert len(prs.slides) <= 10  # hard limit set by the instructor
     text = "\n".join(sh.text_frame.text for s in prs.slides for sh in s.shapes if sh.has_text_frame)
     tables = "\n".join(c.text for s in prs.slides for sh in s.shapes if sh.has_table
                        for r in sh.table.rows for c in r.cells)
@@ -112,7 +112,7 @@ def test_impact_ratio_dashboard_matches_table():
 
 
 def test_report_mentions_impact_ratio_and_site():
-    prs = Presentation("stats/report/Group24_CSIR.pptx")
+    prs = Presentation("stats/report/24_CSIR.pptx")
     text = "\n".join(sh.text_frame.text for s in prs.slides for sh in s.shapes if sh.has_text_frame)
     assert "impact ratio" in text.lower()
     assert "https://prathm01s.github.io/dpcn_almost_stable/" in text

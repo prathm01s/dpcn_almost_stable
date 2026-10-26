@@ -1,7 +1,7 @@
 {
   "id": "08_covid_shock",
   "question": "How much output did COVID cost, and did research shift?",
-  "headline": "Output was 1.8% above trend in 2020 and 12.7% above in 2021. COVID-related work peaked at 5.5% of CSIR-IICT's papers in 2021; the topic mix shifted 1.05\u00d7 more than in a normal period.",
+  "headline": "Output was 1.8% above the 2016\u201319 trend in 2020 and 12.7% above in 2021. COVID-related work peaked at 5.5% of CSIR-IICT's papers in 2021; the topic mix shifted about as much as in a normal period (JSD ratio 1.05).",
   "metrics": {
     "combined_gap_2020_pct": 1.79,
     "combined_gap_2021_pct": 12.69,
@@ -364,6 +364,6 @@
       ]
     }
   },
-  "method_note": "Pre-pandemic linear trend fitted on 2016\u20132019 annual papers. Publication lag implies 2020 papers primarily reflect pre-pandemic projects; impact shows in 2021.",
-  "computed_at": "2026-10-25T20:50:36.490571+00:00"
+  "method_note": "Linear trend fitted on 2016\u20132019 distinct papers (output was already falling, so the trend projects a decline). COVID-related = title/topic matches covid, sars-cov-2, coronavirus, pandemic, antiviral, favipiravir or remdesivir. Publication lag means 2020 papers mostly reflect pre-pandemic work.",
+  "computed_at": "2026-10-26T05:24:57.104999+00:00"
 }

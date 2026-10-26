@@ -9,20 +9,21 @@ from collections import Counter
 import json
 import os
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Set, Tuple
 import numpy as np
 import pandas as pd
 from scipy import stats
 
-from src.common.http import http_client, DEFAULT_USER_AGENT
 from src.common.logging import get_logger
-from src.stats.insights.common import faculty, papers, LABS, SEED, save_insight
+from src.stats.insights.common import faculty, papers, LABS, SEED, not_computed, save_insight
 
 logger = get_logger("insight_09")
 
 CAREERS_DIR = Path("data/cache/openalex/careers")
 VALIDATION_CSV = Path("stats/tables/insights/09_validation_sample.csv")
-FOREIGN_COAUTHORS_CACHE = Path("data/cache/openalex/foreign_coauthors.json")
+FOREIGN_FLAGS_CSV = Path("data/final/work_reference_counts.csv")  # has_foreign_coauthor (Step 18)
+QUESTION = ("How many of our scientists trained in India, worked abroad, and came back, "
+            "and did time abroad change their research?")
 
 
 def classify_scientist(timeline: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -59,8 +60,11 @@ def classify_scientist(timeline: List[Dict[str, Any]]) -> Dict[str, Any]:
     insts_first_3 = [e.get("institution_name") for e in first_3 if e.get("institution_name")]
     countries_first_3 = [e.get("country_code") for e in first_3 if e.get("country_code")]
 
-    phd_proxy = Counter(insts_first_3).most_common(1)[0][0] if insts_first_3 else "Unknown"
-    phd_country = Counter(countries_first_3).most_common(1)[0][0] if countries_first_3 else "IN"
+    def top(values):
+        return sorted(Counter(values).items(), key=lambda kv: (-kv[1], kv[0]))[0][0]
+
+    phd_proxy = top(insts_first_3) if insts_first_3 else "Unknown"
+    phd_country = top(countries_first_3) if countries_first_3 else ""
 
     # Identify abroad spells: >= 2 consecutive years where all affiliations are non-Indian, >= 2 papers
     abroad_years = set()
@@ -75,16 +79,18 @@ def classify_scientist(timeline: List[Dict[str, Any]]) -> Dict[str, Any]:
     abroad_spell_countries = []
     for y in sorted(abroad_years):
         if (y + 1) in abroad_years:
-            n_papers_spell = len(by_year[y]) + len(by_year[y + 1])
+            n_papers_spell = len({e.get("work_id") for e in by_year[y] + by_year[y + 1]})
             if n_papers_spell >= 2:
                 has_abroad_spell = True
-                abroad_spell_countries.extend(list(abroad_countries_by_year[y]))
-                abroad_spell_countries.extend(list(abroad_countries_by_year[y + 1]))
+                abroad_spell_countries.extend(sorted(abroad_countries_by_year[y]))
+                abroad_spell_countries.extend(sorted(abroad_countries_by_year[y + 1]))
 
-    host_country = Counter(abroad_spell_countries).most_common(1)[0][0] if abroad_spell_countries else "None"
+    # Most frequent spell country; ties broken alphabetically so the result never depends on set order
+    host_country = (sorted(Counter(abroad_spell_countries).items(), key=lambda kv: (-kv[1], kv[0]))[0][0]
+                    if abroad_spell_countries else "None")
 
     # Classification logic
-    if len(distinct_works) < 3:
+    if len(distinct_works) < 3 or not phd_country:
         predicted_class = "Unclassifiable"
     elif phd_country != "IN":
         predicted_class = "Foreign-trained"
@@ -103,55 +109,18 @@ def classify_scientist(timeline: List[Dict[str, Any]]) -> Dict[str, Any]:
     }
 
 
-def fetch_foreign_coauthor_flags(work_ids: List[str]) -> Dict[str, bool]:
-    """Retrieve foreign co-authorship flags for a list of work IDs, using cache."""
-    results: Dict[str, bool] = {}
-    if FOREIGN_COAUTHORS_CACHE.exists():
-        try:
-            with open(FOREIGN_COAUTHORS_CACHE, "r", encoding="utf-8") as f:
-                results = json.load(f)
-        except Exception:
-            pass
-
-    missing = [w for w in work_ids if w not in results]
-    if missing:
-        logger.info(f"Querying foreign co-authorship for {len(missing)} works...")
-        clean_ids = [w.split("/")[-1] for w in missing]
-        batch_size = 50
-        headers = {"User-Agent": DEFAULT_USER_AGENT}
-
-        for i in range(0, len(clean_ids), batch_size):
-            chunk = clean_ids[i : i + batch_size]
-            url = "https://api.openalex.org/works"
-            params = {
-                "filter": f"openalex_id:{'|'.join(chunk)}",
-                "select": "id,authorships",
-                "per_page": len(chunk),
-            }
-            try:
-                resp = http_client.client.get(url, params=params, headers=headers)
-                if resp.status_code == 200:
-                    for item in resp.json().get("results", []):
-                        w_id = item.get("id")
-                        c_list = [
-                            inst.get("country_code")
-                            for a in item.get("authorships", [])
-                            for inst in a.get("institutions", [])
-                        ]
-                        is_for = any(c and c != "IN" for c in c_list)
-                        results[w_id] = is_for
-            except Exception as exc:
-                logger.warning(f"Error fetching foreign flags on chunk {i}: {exc}")
-
-        # Save back to cache
-        with open(FOREIGN_COAUTHORS_CACHE, "w", encoding="utf-8") as f:
-            json.dump(results, f)
-
-    return results
+def foreign_coauthor_flags() -> Dict[str, bool]:
+    """work_id -> has a co-author institution outside India (Step 18, from cached OpenAlex authorships)."""
+    df = pd.read_csv(FOREIGN_FLAGS_CSV, dtype=str, keep_default_na=False)
+    df = df[df["has_foreign_coauthor"] != ""]
+    return dict(zip(df["work_id"], df["has_foreign_coauthor"] == "TRUE"))
 
 
 def run() -> dict:
     logger.info("Running Insight 9: Brain Circulation...")
+    if not CAREERS_DIR.exists() or not any(CAREERS_DIR.glob("*.json")):
+        return not_computed("09_brain_circulation", QUESTION,
+                            "OpenAlex career cache missing (run make insights-fetch)")
     df_fac = faculty()
     matched = df_fac[df_fac["is_matched"]].copy()
 
@@ -179,11 +148,17 @@ def run() -> dict:
         })
 
     df_classified = pd.DataFrame(records)
+    # A few roster entries share one OpenAlex profile (upstream matching); count each profile once
+    n_dup = int(df_classified["openalex_author_id"].duplicated().sum())
+    df_classified = df_classified.drop_duplicates("openalex_author_id").reset_index(drop=True)
+    logger.info(f"Dropped {n_dup} roster entries that share an OpenAlex profile with another entry")
     n_total = len(df_classified)
     logger.info(f"Classified {n_total} scientists")
 
-    # Export validation sample (30 random scientists) if not already created
-    if not VALIDATION_CSV.exists():
+    # Export validation sample (30 random scientists); regenerate while no true_class has been filled in
+    filled_before = (VALIDATION_CSV.exists() and
+                     (pd.read_csv(VALIDATION_CSV, keep_default_na=False)["true_class"] != "").any())
+    if not filled_before:
         rng = np.random.default_rng(SEED)
         sample_indices = rng.choice(len(df_classified), size=min(30, len(df_classified)), replace=False)
         val_sample = df_classified.iloc[sample_indices][
@@ -209,9 +184,11 @@ def run() -> dict:
     ret_overall_pct = float((classifiable["predicted_class"] == "Returnee").mean() * 100)
 
     ret_per_lab = {}
+    n_class_per_lab = {}
     for lab in LABS:
         sub = classifiable[classifiable["lab"] == lab]
-        ret_per_lab[lab] = round(float((sub["predicted_class"] == "Returnee").mean() * 100), 1) if len(sub) > 0 else 0.0
+        n_class_per_lab[lab] = int(len(sub))
+        ret_per_lab[lab] = round(float((sub["predicted_class"] == "Returnee").mean() * 100), 1) if len(sub) > 0 else None
 
     # Top host countries
     returnees = df_classified[df_classified["predicted_class"] == "Returnee"]
@@ -269,27 +246,39 @@ def run() -> dict:
     hg_works = set().union(*[fac_paper_ids.get(fid, set()) for fid in reg_sample[reg_sample["is_returnee"] == 0]["faculty_id"]])
     all_target_works = list(ret_works.union(hg_works))
 
-    foreign_flags = fetch_foreign_coauthor_flags(all_target_works)
-    ret_foreign_pct = float(np.mean([foreign_flags.get(w, False) for w in ret_works]) * 100) if ret_works else 0.0
-    hg_foreign_pct = float(np.mean([foreign_flags.get(w, False) for w in hg_works]) * 100) if hg_works else 0.0
+    # Foreign co-authorship: papers without data are excluded, never counted as "no"
+    foreign_flags = foreign_coauthor_flags()
+    ret_known = [foreign_flags[w] for w in ret_works if w in foreign_flags]
+    hg_known = [foreign_flags[w] for w in hg_works if w in foreign_flags]
+    ret_foreign_pct = float(np.mean(ret_known) * 100) if ret_known else None
+    hg_foreign_pct = float(np.mean(hg_known) * 100) if hg_known else None
 
-    # Build headline
-    c1 = top_country_names[0] if len(top_country_names) > 0 else "US"
-    c2 = top_country_names[1] if len(top_country_names) > 1 else "Germany"
-
-    # Citation difference statement
+    # Citation difference statement (no causal claim)
     if ci_lower <= 0 <= ci_upper:
-        cite_statement = "Returnees' papers show no significant difference in citations"
+        cite_statement = (f"Their papers' citations do not differ significantly from home-grown peers of similar "
+                          f"career age ({pct_diff:+.0f}%, 95% CI {pct_ci_lower:+.0f}% to {pct_ci_upper:+.0f}%)")
     elif pct_diff > 0:
-        cite_statement = f"Returnees' papers draw {pct_diff:.1f}% more citations"
+        cite_statement = f"Their papers draw {pct_diff:.0f}% more citations than home-grown peers of similar career age"
     else:
-        cite_statement = f"Returnees' papers draw {abs(pct_diff):.1f}% fewer citations"
+        cite_statement = f"Their papers draw {abs(pct_diff):.0f}% fewer citations than home-grown peers of similar career age"
 
+    def lab_pct(lab: str) -> str:
+        v = ret_per_lab.get(lab)
+        return f"{lab.replace('CSIR-', '')} {v:.1f}% (n={n_class_per_lab[lab]})" if v is not None else f"{lab.replace('CSIR-', '')} n/a"
+
+    names = {"US": "the US", "DE": "Germany", "JP": "Japan", "GB": "the UK", "FR": "France", "KR": "South Korea",
+             "SA": "Saudi Arabia", "CA": "Canada", "AU": "Australia", "SG": "Singapore", "TW": "Taiwan", "CN": "China",
+             "IT": "Italy", "ES": "Spain", "NL": "the Netherlands", "SE": "Sweden", "CH": "Switzerland",
+             "BE": "Belgium", "IE": "Ireland", "IL": "Israel", "PT": "Portugal", "AT": "Austria", "DK": "Denmark"}
+    n_ret = int((classifiable["predicted_class"] == "Returnee").sum())
+    via = (f"; their abroad spell was most often in {names.get(top_countries_counts[0][0], top_countries_counts[0][0])} "
+           f"({top_countries_counts[0][1]} of {n_ret})") if top_countries_counts else ""
+    foreign_part = (f"; {ret_foreign_pct:.1f}% of returnees' papers vs {hg_foreign_pct:.1f}% of home-grown scientists' "
+                    f"papers have a foreign co-author" if ret_foreign_pct is not None and hg_foreign_pct is not None else "")
     headline = (
         f"{ret_overall_pct:.1f}% of classifiable CSIR scientists are returnees "
-        f"(NCL {ret_per_lab.get('CSIR-NCL', 0):.1f}%, IICT {ret_per_lab.get('CSIR-IICT', 0):.1f}%, CECRI {ret_per_lab.get('CSIR-CECRI', 0):.1f}%), "
-        f"mostly via {c1}, {c2}. {cite_statement} than home-grown peers of similar career age, "
-        f"and {ret_foreign_pct:.1f}% vs {hg_foreign_pct:.1f}% of their papers have foreign co-authors."
+        f"({', '.join(lab_pct(l) for l in ['CSIR-NCL', 'CSIR-IICT', 'CSIR-CECRI'])}){via}. "
+        f"{cite_statement}{foreign_part}."
     )
 
     # Sankey Diagram: PhD Region -> Host Country -> Lab
@@ -305,7 +294,7 @@ def run() -> dict:
     flow_p_to_h = Counter()
     flow_h_to_l = Counter()
 
-    for _, r in df_classified.iterrows():
+    for _, r in classifiable.iterrows():  # unclassifiable scientists have no known PhD region
         # PhD region
         phd_reg = "PhD: India" if r["phd_country"] == "IN" else "PhD: Abroad"
         # Host country
@@ -353,24 +342,29 @@ def run() -> dict:
         "n_classifiable": n_classifiable,
         "returnee_pct_overall": round(ret_overall_pct, 2),
         "returnee_pct_by_lab": ret_per_lab,
+        "classifiable_by_lab": n_class_per_lab,
+        "n_returnees": int((classifiable["predicted_class"] == "Returnee").sum()),
+        "n_regression": int(len(reg_sample)),
         "top_host_countries": dict(top_countries_counts),
         "ols_adjusted_diff_pct": round(pct_diff, 2),
         "ols_95ci": [round(pct_ci_lower, 2), round(pct_ci_upper, 2)],
         "ols_pvalue": round(p_val, 4),
-        "returnee_foreign_coauthor_pct": round(ret_foreign_pct, 2),
-        "homegrown_foreign_coauthor_pct": round(hg_foreign_pct, 2),
+        "returnee_foreign_coauthor_pct": round(ret_foreign_pct, 2) if ret_foreign_pct is not None else None,
+        "homegrown_foreign_coauthor_pct": round(hg_foreign_pct, 2) if hg_foreign_pct is not None else None,
         "validation_status": validation_status,
     }
 
     data = {
         "id": "09_brain_circulation",
-        "question": "How many of our scientists trained in India, worked abroad, and came back, and did time abroad change their research?",
+        "question": QUESTION,
         "headline": headline,
         "metrics": metrics,
         "chart": chart,
         "method_note": (
-            f"Evaluated on {n_classifiable} classifiable roster scientists. Abroad spell defined as >=2 consecutive years "
-            f"with all non-Indian affiliations and >=2 papers. OLS adjusts citations per paper for academic age and lab. {validation_status}."
+            f"Full OpenAlex career histories of {n_total} matched roster scientists; {n_classifiable} classifiable. "
+            f"PhD proxy = main institution on the first 3 papers; abroad spell = ≥2 consecutive years with only non-Indian "
+            f"affiliations and ≥2 papers. OLS on log(1+citations/paper, 2016–26) with academic age and lab. "
+            f"Classification validation: {validation_status}."
         ),
     }
 

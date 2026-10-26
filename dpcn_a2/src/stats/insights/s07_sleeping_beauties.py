@@ -11,24 +11,28 @@ import numpy as np
 import pandas as pd
 
 from src.common.logging import get_logger
-from src.collect.fetch_counts_by_year import fetch_counts_by_year
-from src.stats.insights.common import papers, save_insight
+from src.collect.fetch_counts_by_year import CACHE_FILE
+from src.stats.insights.common import not_computed, papers, save_insight
+
+LAST_FULL_YEAR = 2025   # 2026 is partial (to Oct) and would depress late counts
+MIN_TOTAL_CITES = 20
+MIN_PEAK_CITES = 10     # the peak year needs real volume, so one or two citations cannot drive B
 
 logger = get_logger("insight_07")
 
 
 def compute_sleeping_beauty(pub_year: int, c_by_year: Dict[int, int]) -> dict:
-    """Compute Ke et al. (2015) beauty coefficient B and awakening year."""
-    years_range = list(range(pub_year, 2027))
+    """Compute Ke et al. (2015) beauty coefficient B and awakening year over complete years."""
+    years_range = list(range(pub_year, LAST_FULL_YEAR + 1))
     c_t = [c_by_year.get(y, 0) for y in years_range]
     tot_cites = sum(c_t)
 
-    if tot_cites < 20:
+    if tot_cites < MIN_TOTAL_CITES:
         return {}
 
     t_m = int(np.argmax(c_t))
-    if t_m < 3:
-        return {}  # Peak citation must be >= 3 years after publication
+    if t_m < 3 or c_t[t_m] < MIN_PEAK_CITES:
+        return {}  # peak must come >= 3 years after publication and carry >= MIN_PEAK_CITES citations
 
     c_0 = c_t[0]
     c_tm = c_t[t_m]
@@ -48,14 +52,16 @@ def compute_sleeping_beauty(pub_year: int, c_by_year: Dict[int, int]) -> dict:
     t_a = int(np.argmax(dists))
     awakening_year = pub_year + t_a
 
-    # Pre-awakening rate
-    pre_years = max(1, t_a)
-    pre_cites = sum(c_t[:t_a]) if t_a > 0 else c_t[0]
-    avg_pre = pre_cites / pre_years
-
-    # Post-awakening rate
-    post_cites = c_t[t_a:]
-    avg_post = sum(post_cites) / len(post_cites) if post_cites else 0.0
+    # Rates: years before awakening, and from awakening to the peak
+    if t_a == 0:
+        return {}  # no sleeping period
+    avg_pre = sum(c_t[:t_a]) / t_a
+    rise = c_t[t_a:t_m + 1]
+    avg_post = sum(rise) / len(rise)
+    # Sustained awakening: after the peak the paper keeps >= half its peak rate (None if the peak is the last year)
+    after = c_t[t_m + 1:]
+    avg_after_peak = sum(after) / len(after) if after else None
+    sustained = (avg_after_peak >= 0.5 * c_t[t_m]) if after else None
 
     return {
         "B": float(b_val),
@@ -65,6 +71,9 @@ def compute_sleeping_beauty(pub_year: int, c_by_year: Dict[int, int]) -> dict:
         "awakening_year": awakening_year,
         "avg_pre": float(avg_pre),
         "avg_post": float(avg_post),
+        "peak_cites": int(c_t[t_m]),
+        "avg_after_peak": avg_after_peak,
+        "sustained": sustained,
         "total_cites": tot_cites,
         "c_t": c_t,
         "years": years_range,
@@ -73,19 +82,11 @@ def compute_sleeping_beauty(pub_year: int, c_by_year: Dict[int, int]) -> dict:
 
 def run() -> dict:
     logger.info("Running Insight 7: Sleeping Beauties...")
-    # Load cached counts_by_year
-    cby_data = fetch_counts_by_year()
-    if not cby_data:
-        data = {
-            "id": "07_sleeping_beauties",
-            "question": "Which papers were ignored for years and then suddenly took off?",
-            "headline": "Not computed – counts_by_year cache missing.",
-            "metrics": {},
-            "chart": {"type": "line", "data": {}},
-            "method_note": "Requires OpenAlex counts_by_year API cache.",
-        }
-        save_insight(data)
-        return data
+    question = "Which papers were ignored for years and then suddenly took off?"
+    if not CACHE_FILE.exists():
+        return not_computed("07_sleeping_beauties", question,
+                            "OpenAlex counts_by_year cache missing (run make insights-fetch)")
+    cby_data = json.loads(CACHE_FILE.read_text(encoding="utf-8"))
 
     df_p = papers().set_index("work_id")
     ext_path = "data/final/group24_data_extended.csv"
@@ -122,6 +123,9 @@ def run() -> dict:
             "awakening_year": sb["awakening_year"],
             "avg_pre": sb["avg_pre"],
             "avg_post": sb["avg_post"],
+            "peak_cites": sb["peak_cites"],
+            "avg_after_peak": sb["avg_after_peak"],
+            "sustained": sb["sustained"],
             "total_cites": sb["total_cites"],
             "c_t": sb["c_t"],
             "years": sb["years"],
@@ -140,11 +144,31 @@ def run() -> dict:
     # Pre-awakening duration
     t_years = strongest["t_a"]
 
-    headline = (
-        f"{top1_count} papers show delayed recognition. The strongest, '{strongest['title']}' "
-        f"({strongest['lab']}, {strongest['year']}), averaged {strongest['avg_pre']:.1f} citations/yr for {t_years} years, "
-        f"then jumped to {strongest['avg_post']:.1f}/yr from {strongest['awakening_year']}."
-    )
+    top1 = df_sb[df_sb["B"] >= b_p99]
+    n_sustained = int((top1["sustained"] == True).sum())  # noqa: E712 (None = peak in last year)
+    n_spikes = int((top1["sustained"] == False).sum())  # noqa: E712
+
+    def short(t: str) -> str:
+        return t if len(t) <= 70 else t[:67].rstrip() + "…"
+
+    sus = top1[top1["sustained"] == True]  # noqa: E712
+    if n_sustained == 0:
+        after = strongest["avg_after_peak"]
+        after_txt = f" and fell back to {after:.1f}/yr" if after is not None else ""
+        headline = (
+            f"No sustained 'sleeping beauties': {n_spikes} of the {top1_count} strongest candidates (top 1% of "
+            f"{n_eligible} papers by Ke's B) are 1–2-year citation spikes. The top one, '{short(strongest['title'])}' "
+            f"({strongest['lab'].replace('CSIR-', '')}, {strongest['year']}), drew {strongest['avg_pre']:.1f} "
+            f"citations/yr for {t_years} years, peaked at {strongest['peak_cites']} in {strongest['peak_year']}{after_txt}."
+        )
+    else:
+        best = sus.iloc[0]
+        headline = (
+            f"{n_sustained} of the {top1_count} strongest candidates (top 1% of {n_eligible} papers by Ke's B) show "
+            f"sustained delayed recognition. The strongest, '{short(best['title'])}' "
+            f"({best['lab'].replace('CSIR-', '')}, {best['year']}), drew {best['avg_pre']:.1f} citations/yr for "
+            f"{best['t_a']} years, then {best['avg_post']:.1f}/yr from {best['awakening_year']}."
+        )
 
     # Chart data: multi-line of the top 5
     colors = ["#4a148c", "#0284c7", "#10b981", "#f59e0b", "#ef4444"]
@@ -185,7 +209,7 @@ def run() -> dict:
     chart = {
         "type": "line",
         "data": {
-            "xAxis": {"type": "category", "data": list(range(2016, 2027)), "name": "Year"},
+            "xAxis": {"type": "category", "data": list(range(2016, LAST_FULL_YEAR + 1)), "name": "Year"},
             "yAxis": {"type": "value", "name": "Annual Citations"},
             "legend": {"bottom": 0},
             "series": chart_series,
@@ -197,6 +221,8 @@ def run() -> dict:
         "n_top1_percent": top1_count,
         "b_p99_threshold": round(b_p99, 2),
         "n_eligible_sleeping_beauties": n_eligible,
+        "n_top1_sustained": n_sustained,
+        "n_top1_spikes": n_spikes,
         "strongest": {
             "title": str(strongest["title"]),
             "lab": str(strongest["lab"]),
@@ -206,6 +232,11 @@ def run() -> dict:
             "awakening_year": int(strongest["awakening_year"]),
             "avg_pre": round(float(strongest["avg_pre"]), 2),
             "avg_post": round(float(strongest["avg_post"]), 2),
+            "peak_cites": int(strongest["peak_cites"]),
+            "peak_year": int(strongest["peak_year"]),
+            "avg_after_peak": (round(float(strongest["avg_after_peak"]), 2)
+                               if strongest["avg_after_peak"] is not None else None),
+            "sustained": strongest["sustained"],
             "total_citations": int(strongest["total_cites"]),
         },
         "top5": top5_table,
@@ -218,8 +249,10 @@ def run() -> dict:
         "metrics": metrics,
         "chart": chart,
         "method_note": (
-            "Computed using the Ke et al. (2015, PNAS) parameter-free B coefficient on papers published 2016–2020 with >=20 citations. "
-            "Note: The 10-year observation window only captures short sleeps."
+            f"Ke et al. (2015, PNAS) beauty coefficient B on yearly citations (OpenAlex counts_by_year, 2016–{LAST_FULL_YEAR}) of "
+            f"papers published 2016–2020 with ≥{MIN_TOTAL_CITES} citations, a peak ≥3 years after publication and "
+            f"≥{MIN_PEAK_CITES} citations in the peak year. Sustained = after the peak the paper keeps ≥50% of its "
+            f"peak yearly citations. The ≤10-year window only captures short sleeps."
         ),
     }
 

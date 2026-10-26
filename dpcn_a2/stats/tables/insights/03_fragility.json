@@ -1,7 +1,7 @@
 {
   "id": "03_fragility",
   "question": "How many researchers hold the cluster together?",
-  "headline": "Removing the top 872 bridge researchers (11.6% of the network) halves the cluster; random removal needs 3,279. Removing just 608 people disconnects the three labs from each other.",
+  "headline": "Removing the top 872 bridge researchers (11.6% of the network) halves the cluster; random removal needs 3,279. Removing 608 of them separates the three labs' faculty into different components.",
   "metrics": {
     "n50_betweenness": 872,
     "n50_betweenness_pct": 11.61,
@@ -1353,6 +1353,6 @@
       ]
     }
   },
-  "method_note": "Computed on unweighted co-author LCC (7,508 nodes). Betweenness centrality estimated with k=1000 sampled sources. Random removal is the mean of 20 stochastic runs.",
-  "computed_at": "2026-10-25T20:47:33.639154+00:00"
+  "method_note": "Computed on the unweighted co-author LCC (7,508 researchers). Betweenness estimated from 1,000 sampled sources and computed once. Random removal is the mean of 20 runs (checked every 20 removals).",
+  "computed_at": "2026-10-26T05:24:40.396568+00:00"
 }

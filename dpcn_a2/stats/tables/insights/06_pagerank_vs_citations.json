@@ -1,13 +1,13 @@
 {
   "id": "06_pagerank_vs_citations",
   "question": "Are the papers most influential inside our cluster the same as the world's most-cited?",
-  "headline": "In-cluster influence and global citations correlate only moderately (Spearman \u03c1 = 0.40). 82 papers are 'hidden gems': top-5% internal influence, below-median global citations.",
+  "headline": "In-cluster influence and global citations correlate only moderately (Spearman \u03c1 = 0.40). 43 papers are 'hidden gems': top-5% internal influence, below-median global citations.",
   "metrics": {
     "spearman_rho": 0.405,
-    "spearman_pvalue": 2.0434430508599625e-298,
+    "spearman_pvalue": 2.029267452220887e-298,
     "correlation_strength": "moderately",
     "n_eligible_papers": 7627,
-    "n_hidden_gems": 82,
+    "n_hidden_gems": 43,
     "pr_p95_threshold": 0.0002814,
     "top5_gems": [
       {
@@ -21,26 +21,6 @@
         "pagerank": 0.000966
       },
       {
-        "doi": "https://doi.org/10.1002/open.201500201",
-        "title": "Effect of Amide Hydrogen Bonding Interaction on Supramolecular Self\u2010Assembly of Naphthalene Diimide Amphiphiles with Aggregation Induced Emission",
-        "lab": "CSIR-IICT",
-        "year": 2016,
-        "journal": "ChemistryOpen",
-        "in_degree": 10,
-        "global_cites": 27,
-        "pagerank": 0.000825
-      },
-      {
-        "doi": "https://doi.org/10.1016/j.fitote.2017.01.003",
-        "title": "New seco-limonoids from Cipadessa baccifera: Isolation, structure determination, synthesis and their antiproliferative activities",
-        "lab": "CSIR-IICT",
-        "year": 2017,
-        "journal": "Fitoterapia",
-        "in_degree": 12,
-        "global_cites": 21,
-        "pagerank": 0.000786
-      },
-      {
         "doi": "https://doi.org/10.1002/ajoc.201600349",
         "title": "Synthesis of Tetracyclic Tetrahydro\u2010\u03b2\u2010carbolines by Acid\u2010Promoted One\u2010Pot Sequential Formation of C\u2212C and C\u2212N Bonds",
         "lab": "CSIR-IICT",
@@ -51,14 +31,34 @@
         "pagerank": 0.000693
       },
       {
-        "doi": "https://doi.org/10.1039/c6ra00381h",
-        "title": "Hydrophobically directed, catalyst-free, multi-component synthesis of functionalized 3,4-dihydroquinazolin-2(1H)-ones",
-        "lab": "CSIR-IICT",
+        "doi": "https://doi.org/10.1002/cctc.201600365",
+        "title": "C\u2212H Activation of Methane to Syngas on MnxCe1\u2212x\u2212yZryO2: A Molecular Beam Study",
+        "lab": "CSIR-NCL",
         "year": 2016,
-        "journal": "RSC Advances",
-        "in_degree": 7,
-        "global_cites": 22,
-        "pagerank": 0.000668
+        "journal": "ChemCatChem",
+        "in_degree": 15,
+        "global_cites": 17,
+        "pagerank": 0.000641
+      },
+      {
+        "doi": "https://doi.org/10.1021/acs.jpcb.7b07032",
+        "title": "An Alternatively Packed Dry Molten Globule-like Intermediate in the Native State Ensemble of a Multidomain Protein",
+        "lab": "CSIR-NCL",
+        "year": 2017,
+        "journal": "The Journal of Physical Chemistry B",
+        "in_degree": 10,
+        "global_cites": 17,
+        "pagerank": 0.000638
+      },
+      {
+        "doi": "https://doi.org/10.1039/c6cc04087j",
+        "title": "Exploration of magnetically separable Ag@Ag x Ni y core/graded-alloy-shell nanostructures",
+        "lab": "CSIR-NCL",
+        "year": 2016,
+        "journal": "Chemical Communications",
+        "in_degree": 2,
+        "global_cites": 8,
+        "pagerank": 0.000571
       }
     ]
   },
@@ -144,6 +144,10 @@
               0.000688
             ],
             [
+              21,
+              0.0002853
+            ],
+            [
               162,
               0.0006061
             ],
@@ -216,6 +220,14 @@
               0.0006987
             ],
             [
+              27,
+              0.0008255
+            ],
+            [
+              26,
+              0.0006549
+            ],
+            [
               811,
               0.0017092
             ],
@@ -234,6 +246,10 @@
             [
               111,
               0.0016113
+            ],
+            [
+              22,
+              0.0004993
             ],
             [
               702,
@@ -366,6 +382,10 @@
             [
               42,
               0.0002862
+            ],
+            [
+              22,
+              0.0005615
             ],
             [
               483,
@@ -672,6 +692,10 @@
               0.0002065
             ],
             [
+              23,
+              0.0004217
+            ],
+            [
               54,
               0.000127
             ],
@@ -794,6 +818,10 @@
             [
               288,
               0.0003576
+            ],
+            [
+              20,
+              0.0003685
             ],
             [
               557,
@@ -3128,6 +3156,10 @@
               0.0003764
             ],
             [
+              24,
+              0.0002883
+            ],
+            [
               99,
               5.03e-05
             ],
@@ -3278,6 +3310,10 @@
             [
               97,
               0.0004071
+            ],
+            [
+              27,
+              0.0003134
             ],
             [
               72,
@@ -3504,6 +3540,10 @@
               0.0003027
             ],
             [
+              24,
+              0.0002928
+            ],
+            [
               120,
               5.89e-05
             ],
@@ -3538,6 +3578,10 @@
             [
               27,
               6.27e-05
+            ],
+            [
+              27,
+              0.0003671
             ],
             [
               28,
@@ -3884,6 +3928,10 @@
               0.000142
             ],
             [
+              19,
+              0.0003004
+            ],
+            [
               44,
               0.0004062
             ],
@@ -4016,6 +4064,10 @@
               6.42e-05
             ],
             [
+              21,
+              0.0003927
+            ],
+            [
               83,
               6.65e-05
             ],
@@ -4134,6 +4186,10 @@
             [
               33,
               0.000197
+            ],
+            [
+              23,
+              0.0004026
             ],
             [
               15,
@@ -4582,6 +4638,10 @@
             [
               78,
               0.0001489
+            ],
+            [
+              23,
+              0.0002954
             ],
             [
               13,
@@ -5892,6 +5952,10 @@
               0.0003672
             ],
             [
+              24,
+              0.0005714
+            ],
+            [
               44,
               0.0006955
             ],
@@ -6656,6 +6720,10 @@
               0.0001428
             ],
             [
+              23,
+              0.0005475
+            ],
+            [
               59,
               0.0001546
             ],
@@ -7058,6 +7126,10 @@
             [
               32,
               0.0001969
+            ],
+            [
+              23,
+              0.0004049
             ],
             [
               25,
@@ -7568,6 +7640,10 @@
               0.0001023
             ],
             [
+              24,
+              0.0002829
+            ],
+            [
               6,
               0.0001014
             ],
@@ -7948,8 +8024,16 @@
               0.0001415
             ],
             [
+              25,
+              0.0003827
+            ],
+            [
               50,
               0.0001892
+            ],
+            [
+              16,
+              0.000406
             ],
             [
               50,
@@ -8372,6 +8456,10 @@
               6.87e-05
             ],
             [
+              22,
+              0.0002989
+            ],
+            [
               24,
               6.59e-05
             ],
@@ -8570,6 +8658,10 @@
             [
               19,
               0.0002184
+            ],
+            [
+              21,
+              0.0007861
             ],
             [
               46,
@@ -9500,6 +9592,10 @@
               0.0001284
             ],
             [
+              20,
+              0.0005377
+            ],
+            [
               42,
               6.73e-05
             ],
@@ -9578,6 +9674,10 @@
             [
               41,
               0.0007252
+            ],
+            [
+              19,
+              0.0004104
             ],
             [
               41,
@@ -9864,6 +9964,10 @@
               0.0002067
             ],
             [
+              24,
+              0.0003009
+            ],
+            [
               97,
               5.89e-05
             ],
@@ -10040,6 +10144,10 @@
               6.61e-05
             ],
             [
+              23,
+              0.0003039
+            ],
+            [
               18,
               0.0001123
             ],
@@ -10200,6 +10308,10 @@
               0.0001677
             ],
             [
+              25,
+              0.0002886
+            ],
+            [
               39,
               0.0001619
             ],
@@ -10254,6 +10366,10 @@
             [
               38,
               7.65e-05
+            ],
+            [
+              23,
+              0.0003539
             ],
             [
               29,
@@ -10780,6 +10896,10 @@
               0.000143
             ],
             [
+              21,
+              0.0003734
+            ],
+            [
               30,
               0.0001291
             ],
@@ -11090,6 +11210,10 @@
             [
               35,
               0.0001995
+            ],
+            [
+              27,
+              0.0003412
             ],
             [
               35,
@@ -11688,6 +11812,10 @@
               0.0001107
             ],
             [
+              20,
+              0.0002849
+            ],
+            [
               32,
               7.46e-05
             ],
@@ -11842,6 +11970,10 @@
             [
               32,
               0.0001403
+            ],
+            [
+              20,
+              0.0004005
             ],
             [
               11,
@@ -13344,6 +13476,10 @@
               7.65e-05
             ],
             [
+              22,
+              0.0006678
+            ],
+            [
               25,
               7.65e-05
             ],
@@ -14582,6 +14718,10 @@
             [
               24,
               4.72e-05
+            ],
+            [
+              24,
+              0.0003773
             ],
             [
               24,
@@ -16560,6 +16700,10 @@
               0.0001176
             ],
             [
+              19,
+              0.0003383
+            ],
+            [
               20,
               9.7e-05
             ],
@@ -16618,6 +16762,10 @@
             [
               20,
               7.75e-05
+            ],
+            [
+              26,
+              0.0004432
             ],
             [
               20,
@@ -16930,6 +17078,10 @@
             [
               5,
               0.0002405
+            ],
+            [
+              22,
+              0.0003587
             ],
             [
               27,
@@ -18210,6 +18362,10 @@
             [
               13,
               0.0001729
+            ],
+            [
+              20,
+              0.0004286
             ],
             [
               14,
@@ -30271,40 +30427,12 @@
           "type": "scatter",
           "data": [
             [
-              21,
-              0.0002853
-            ],
-            [
-              27,
-              0.0008255
-            ],
-            [
-              26,
-              0.0006549
-            ],
-            [
               10,
               0.0004506
             ],
             [
-              22,
-              0.0004993
-            ],
-            [
               16,
               0.0003474
-            ],
-            [
-              22,
-              0.0005615
-            ],
-            [
-              23,
-              0.0004217
-            ],
-            [
-              20,
-              0.0003685
             ],
             [
               9,
@@ -30327,48 +30455,16 @@
               0.000505
             ],
             [
-              24,
-              0.0002883
-            ],
-            [
               19,
               0.0004472
-            ],
-            [
-              27,
-              0.0003134
-            ],
-            [
-              24,
-              0.0002928
-            ],
-            [
-              27,
-              0.0003671
             ],
             [
               14,
               0.0002966
             ],
             [
-              19,
-              0.0003004
-            ],
-            [
-              21,
-              0.0003927
-            ],
-            [
-              23,
-              0.0004026
-            ],
-            [
               16,
               0.0002906
-            ],
-            [
-              23,
-              0.0002954
             ],
             [
               15,
@@ -30387,10 +30483,6 @@
               0.0004474
             ],
             [
-              24,
-              0.0005714
-            ],
-            [
               8,
               0.0003063
             ],
@@ -30399,40 +30491,16 @@
               0.0003783
             ],
             [
-              23,
-              0.0005475
-            ],
-            [
               16,
               0.0006926
-            ],
-            [
-              23,
-              0.0004049
             ],
             [
               10,
               0.0002816
             ],
             [
-              24,
-              0.0002829
-            ],
-            [
               17,
               0.0004519
-            ],
-            [
-              25,
-              0.0003827
-            ],
-            [
-              16,
-              0.000406
-            ],
-            [
-              22,
-              0.0002989
             ],
             [
               16,
@@ -30445,10 +30513,6 @@
             [
               11,
               0.0003352
-            ],
-            [
-              21,
-              0.0007861
             ],
             [
               17,
@@ -30467,14 +30531,6 @@
               0.0002854
             ],
             [
-              20,
-              0.0005377
-            ],
-            [
-              19,
-              0.0004104
-            ],
-            [
               16,
               0.0003764
             ],
@@ -30487,48 +30543,12 @@
               0.0003246
             ],
             [
-              24,
-              0.0003009
-            ],
-            [
-              23,
-              0.0003039
-            ],
-            [
-              25,
-              0.0002886
-            ],
-            [
               16,
               0.0003377
             ],
             [
-              23,
-              0.0003539
-            ],
-            [
-              21,
-              0.0003734
-            ],
-            [
-              27,
-              0.0003412
-            ],
-            [
-              20,
-              0.0002849
-            ],
-            [
-              20,
-              0.0004005
-            ],
-            [
               10,
               0.0004999
-            ],
-            [
-              22,
-              0.0006678
             ],
             [
               6,
@@ -30537,10 +30557,6 @@
             [
               12,
               0.0002857
-            ],
-            [
-              24,
-              0.0003773
             ],
             [
               15,
@@ -30567,28 +30583,12 @@
               0.0002905
             ],
             [
-              19,
-              0.0003383
-            ],
-            [
-              26,
-              0.0004432
-            ],
-            [
-              22,
-              0.0003587
-            ],
-            [
               17,
               0.0003347
             ],
             [
               11,
               0.0003315
-            ],
-            [
-              20,
-              0.0004286
             ],
             [
               11,
@@ -30618,26 +30618,6 @@
           "pagerank": 0.000966
         },
         {
-          "doi": "https://doi.org/10.1002/open.201500201",
-          "title": "Effect of Amide Hydrogen Bonding Interaction on Supramolecular Self\u2010Assembly of Naphthalene Diimide Amphiphiles with Aggregation Induced Emission",
-          "lab": "CSIR-IICT",
-          "year": 2016,
-          "journal": "ChemistryOpen",
-          "in_degree": 10,
-          "global_cites": 27,
-          "pagerank": 0.000825
-        },
-        {
-          "doi": "https://doi.org/10.1016/j.fitote.2017.01.003",
-          "title": "New seco-limonoids from Cipadessa baccifera: Isolation, structure determination, synthesis and their antiproliferative activities",
-          "lab": "CSIR-IICT",
-          "year": 2017,
-          "journal": "Fitoterapia",
-          "in_degree": 12,
-          "global_cites": 21,
-          "pagerank": 0.000786
-        },
-        {
           "doi": "https://doi.org/10.1002/ajoc.201600349",
           "title": "Synthesis of Tetracyclic Tetrahydro\u2010\u03b2\u2010carbolines by Acid\u2010Promoted One\u2010Pot Sequential Formation of C\u2212C and C\u2212N Bonds",
           "lab": "CSIR-IICT",
@@ -30648,18 +30628,38 @@
           "pagerank": 0.000693
         },
         {
-          "doi": "https://doi.org/10.1039/c6ra00381h",
-          "title": "Hydrophobically directed, catalyst-free, multi-component synthesis of functionalized 3,4-dihydroquinazolin-2(1H)-ones",
-          "lab": "CSIR-IICT",
+          "doi": "https://doi.org/10.1002/cctc.201600365",
+          "title": "C\u2212H Activation of Methane to Syngas on MnxCe1\u2212x\u2212yZryO2: A Molecular Beam Study",
+          "lab": "CSIR-NCL",
           "year": 2016,
-          "journal": "RSC Advances",
-          "in_degree": 7,
-          "global_cites": 22,
-          "pagerank": 0.000668
+          "journal": "ChemCatChem",
+          "in_degree": 15,
+          "global_cites": 17,
+          "pagerank": 0.000641
+        },
+        {
+          "doi": "https://doi.org/10.1021/acs.jpcb.7b07032",
+          "title": "An Alternatively Packed Dry Molten Globule-like Intermediate in the Native State Ensemble of a Multidomain Protein",
+          "lab": "CSIR-NCL",
+          "year": 2017,
+          "journal": "The Journal of Physical Chemistry B",
+          "in_degree": 10,
+          "global_cites": 17,
+          "pagerank": 0.000638
+        },
+        {
+          "doi": "https://doi.org/10.1039/c6cc04087j",
+          "title": "Exploration of magnetically separable Ag@Ag x Ni y core/graded-alloy-shell nanostructures",
+          "lab": "CSIR-NCL",
+          "year": 2016,
+          "journal": "Chemical Communications",
+          "in_degree": 2,
+          "global_cites": 8,
+          "pagerank": 0.000571
         }
       ]
     }
   },
   "method_note": "Computed on the in-corpus citation network (alpha=0.85). Restricted to 7,627 papers with internal in-degree >= 1. Median citations are normalized by publication year.",
-  "computed_at": "2026-10-25T20:50:34.712841+00:00"
+  "computed_at": "2026-10-26T05:24:53.455885+00:00"
 }

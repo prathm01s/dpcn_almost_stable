@@ -1,4 +1,4 @@
-"""Statistics report (Task 2): stats/report/Group24_CSIR.pptx (10 slides) + PDF.
+"""Statistics report (Task 2): stats/report/24_CSIR.pptx (10 slides, hard limit) + PDF.
 
 Every number on a slide is read from stats/tables/ (or data/final/ for dataset counts),
 so the report always matches the dashboard, which reads the same tables. Speaker notes
@@ -31,8 +31,8 @@ logger = get_logger("make_report")
 
 T = Path("stats/tables")
 OUT_DIR = Path("stats/report")
-PPTX = OUT_DIR / "Group24_CSIR.pptx"
-PDF = OUT_DIR / "Group24_CSIR.pdf"
+PPTX = OUT_DIR / "24_CSIR.pptx"
+PDF = OUT_DIR / "24_CSIR.pdf"
 
 LABS = ["CSIR-IICT", "CSIR-NCL", "CSIR-CECRI"]
 ALL = "Group 24 Combined"
@@ -165,12 +165,16 @@ def rect(slide, x, y, w, h, fill, rounded=True, name=None):
     return shp
 
 
-def header(slide, n: int, title: str, message: str):
+MAX_SLIDES = 10
+
+
+def header(slide, title: str, message: str):
+    n = len(slide.part.package.presentation_part.presentation.slides)  # this slide's position
     textbox(slide, MARGIN, Inches(0.4), CONTENT_W - Inches(0.8), Inches(0.6),
             [(title, 28, True, INK, False, PP_ALIGN.LEFT, HEAD_FONT)], name="Title")
     textbox(slide, MARGIN, Inches(1.02), CONTENT_W, Inches(0.5), [(message, 14, False, MUTED)], name="Key message")
     textbox(slide, SLIDE_W - MARGIN - Inches(0.8), Inches(0.48), Inches(0.8), Inches(0.3),
-            [(f"{n} / 10", 11, True, MUTED, False, PP_ALIGN.RIGHT)], name="Slide number")
+            [(f"{n} / {MAX_SLIDES}", 11, True, MUTED, False, PP_ALIGN.RIGHT)], name="Slide number")
 
 
 def footer(slide, text: str):
@@ -343,95 +347,62 @@ class Data:
 
 
 # --------------------------------------------------------------------------- slides
+def coverage_table(d: "Data") -> pd.DataFrame:
+    m = d.main
+    key = m["doi"].where(m["doi"] != "", m["title"] + "|" + m["year"])
+    rows = []
+    for g in LABS + [ALL]:
+        sub = m if g == ALL else m[m["institution"] == g]
+        papers = sub.assign(k=key[sub.index]).drop_duplicates("k")
+        roster = d.fm if g == ALL else d.fm[d.fm["inst_key"] == short(g).lower()]
+        rows.append([
+            "All three (distinct)" if g == ALL else g, fmt(len(papers)), fmt((papers["type"] == "journal").sum()),
+            fmt((papers["type"] == "conference").sum()), fmt(len(sub)), fmt(d.overall(d.cit, g)["total_citations"]),
+            pct(d.overall(d.quart, g)["q1_fraction_primary_pct"]), fmt(len(roster)),
+            fmt(d.hsum.loc[d.hsum["institution"] == g, "active_faculty_count"].iloc[0]),
+        ])
+    return pd.DataFrame(rows, columns=["Institute", "Papers", "Journal", "Conference", "Author rows", "Citations",
+                                       "Q1 (SJR)", "Roster scientists", "With ≥1 paper"])
+
+
 def slide_title(prs, d: Data):
     s = prs.slides.add_slide(prs.slide_layouts[6])
     s.background.fill.solid()
     s.background.fill.fore_color.rgb = NAVY
-    cit_all = d.overall(d.cit, ALL)
-    q_all = d.overall(d.quart, ALL)
-    h_all = d.hsum[d.hsum["institution"] == ALL].iloc[0]
-    textbox(s, MARGIN, Inches(0.7), Inches(11.5), Inches(0.4),
+    textbox(s, MARGIN, Inches(0.4), Inches(11.5), Inches(0.35),
             [("DPCN 2026  ·  GROUP 24  ·  STATISTICS REPORT", 13, True, NAVY_SOFT)])
-    textbox(s, MARGIN, Inches(1.2), Inches(11.8), Inches(1.6), [
-        ("Research output of three CSIR chemistry laboratories, 2016–2026", 36, True, WHITE, False, PP_ALIGN.LEFT, HEAD_FONT),
+    textbox(s, MARGIN, Inches(0.8), CONTENT_W, Inches(0.7), [
+        ("Research output of three CSIR chemistry labs, 2016–2026", 30, True, WHITE, False, PP_ALIGN.LEFT, HEAD_FONT),
     ])
-    textbox(s, MARGIN, Inches(2.75), Inches(11.8), Inches(0.5), [
-        ("CSIR-NCL (Pune)  ·  CSIR-IICT (Hyderabad)  ·  CSIR-CECRI (Karaikudi)", 18, False, NAVY_SOFT),
+    textbox(s, MARGIN, Inches(1.55), CONTENT_W, Inches(0.4), [
+        ("CSIR-NCL (Pune)  ·  CSIR-IICT (Hyderabad)  ·  CSIR-CECRI (Karaikudi)  ·  OpenAlex, collected "
+         f"{COLLECTED} (2026 partial)", 15, False, NAVY_SOFT),
     ])
-    cards = [
-        (fmt(cit_all["papers"]), "distinct peer-reviewed papers"),
-        (fmt(cit_all["total_citations"]), f"citations (OpenAlex, {COLLECTED})"),
-        (pct(q_all["q1_fraction_primary_pct"]), "of ranked journal papers in Q1 (SJR)"),
-        (fmt(h_all["active_faculty_count"]), f"roster scientists with ≥1 paper (of {len(d.fm)} listed)"),
-    ]
-    cw = (CONTENT_W - Inches(0.3) * 3) / 4
-    for i, (v, l) in enumerate(cards):
-        stat(s, MARGIN + i * (cw + Inches(0.3)), Inches(3.75), cw, Inches(1.45), v, l,
-             color=WHITE, fill=RGBColor(0x22, 0x33, 0x55), label_color=NAVY_SOFT, vsize=32)
-    textbox(s, MARGIN, Inches(5.6), CONTENT_W, Inches(0.7), [
-        (f"Data: OpenAlex works affiliated to the three ROR-verified institutes (collected {COLLECTED}; "
-         "links with other Indian institutions 20 Oct 2026). 2026 is a partial year.", 13, False, NAVY_SOFT),
-        ("Quartiles: SCImago Journal Rank (best quartile of the publication year). Faculty: official institute staff pages.",
-         13, False, NAVY_SOFT),
+    df = coverage_table(d)
+    table(s, MARGIN, Inches(2.15), CONTENT_W, df, [2.0, 0.95, 0.95, 1.05, 1.1, 1.1, 0.95, 1.25, 1.15], size=12,
+          row_h=0.36, align_right=range(1, 9), colors=[LAB_COLOR[l] for l in LABS] + [None], name="Coverage table")
+    conf = d.conf[d.conf["institution"] == ALL].iloc[0]
+    colw = (CONTENT_W - Inches(0.4)) / 2
+    y = Inches(4.35)
+    textbox(s, MARGIN, y, colw, Inches(1.8), [
+        ("How the data was built", 14, True, WHITE),
+        ("OpenAlex works of the three ROR-verified institutes; articles, reviews, letters and conference papers", 12, False, NAVY_SOFT, True),
+        ("Faculty = scientific cadre on official staff pages, matched to OpenAlex authors in the corpus", 12, False, NAVY_SOFT, True),
+        ("Quartile = SCImago (SJR) best quartile of the publication year (2025 values for 2026)", 12, False, NAVY_SOFT, True),
     ])
-    # PowerPoint draws links in the theme's link blue, so give the link a light background
+    textbox(s, MARGIN + colw + Inches(0.4), y, colw, Inches(1.8), [
+        ("Limits", 14, True, WHITE),
+        ("OpenAlex author and affiliation matching is imperfect; papers may be missing or mis-attributed", 12, False, NAVY_SOFT, True),
+        ("h-index uses 2016–2026 corpus papers only; students and project staff are not faculty", 12, False, NAVY_SOFT, True),
+        (f"SJR may differ from JCR; none of the {fmt(conf['total_conferences'])} conference papers is CORE-ranked", 12, False, NAVY_SOFT, True),
+    ])
     rect(s, MARGIN, Inches(6.45), Inches(7.6), Inches(0.55), LIGHT, name="Dashboard link")
     textbox(s, MARGIN + Inches(0.2), Inches(6.45), Inches(7.3), Inches(0.55),
             [[("Interactive dashboard:  ", 14, True, INK), (SITE_URL, 14, True, SECONDARY_LINK)]],
             anchor=MSO_ANCHOR.MIDDLE, name="Dashboard URL")
     link_run(s, SITE_URL)
-    notes(s, "Sources: stats/tables/citation_summary.csv, quartile_distribution.csv, h_index_summary.csv; "
-             "data/final/faculty_master.csv.")
-
-
-def slide_data(prs, d: Data):
-    s = prs.slides.add_slide(prs.slide_layouts[6])
-    m = d.main
-    key = m["doi"].where(m["doi"] != "", m["title"] + "|" + m["year"])
-    rows = []
-    for lab in LABS:
-        sub = m[m["institution"] == lab]
-        k = key[sub.index]
-        papers = sub.assign(k=k).drop_duplicates("k")
-        fm = d.fm[d.fm["inst_key"] == short(lab).lower()]
-        q = d.overall(d.quart, lab)
-        rows.append([lab, fmt(len(papers)), fmt((papers["type"] == "journal").sum()), fmt((papers["type"] == "conference").sum()),
-                     fmt(len(sub)), fmt(len(fm)), fmt(d.hsum.loc[d.hsum["institution"] == lab, "active_faculty_count"].iloc[0]),
-                     pct(q["quartile_coverage_pct"])])
-    allp = m.assign(k=key).drop_duplicates("k")
-    q = d.overall(d.quart, ALL)
-    rows.append(["All three (distinct)", fmt(len(allp)), fmt((allp["type"] == "journal").sum()),
-                 fmt((allp["type"] == "conference").sum()), fmt(len(m)), fmt(len(d.fm)),
-                 fmt(d.hsum.loc[d.hsum["institution"] == ALL, "active_faculty_count"].iloc[0]), pct(q["quartile_coverage_pct"])])
-    df = pd.DataFrame(rows, columns=["Institute", "Papers", "Journal", "Conference", "Author rows",
-                                     "Roster scientists", "With ≥1 paper", "Quartile known"])
-    conf = d.conf[d.conf["institution"] == ALL].iloc[0]
-    header(s, 2, "Data and method",
-           f"{fmt(len(allp))} distinct papers (2016 – 13 Oct 2026) from OpenAlex, one row per paper × institute author")
-    table(s, MARGIN, Inches(1.65), CONTENT_W, df, [2.2, 1, 1, 1.1, 1.1, 1.3, 1.2, 1.3], size=12, row_h=0.36,
-          align_right=range(1, 8), colors=[LAB_COLOR[l] for l in LABS] + [None], name="Coverage table")
-    colw = (CONTENT_W - Inches(0.4)) / 2
-    y = Inches(3.75)
-    rect(s, MARGIN, y, colw, Inches(3.1), LIGHT)
-    rect(s, MARGIN + colw + Inches(0.4), y, colw, Inches(3.1), LIGHT)
-    pad = Inches(0.25)
-    textbox(s, MARGIN + pad, y + Inches(0.2), colw - 2 * pad, Inches(2.8), [
-        ("How the data was built", 16, True, INK),
-        ("Works pulled from OpenAlex by the institutes' ROR-verified IDs, with recall checks on CSIR/AcSIR affiliations", 13, False, INK, True),
-        ("Kept: articles, reviews, letters, conference papers; editorials, errata, preprints and book chapters excluded", 13, False, INK, True),
-        ("Faculty = scientific cadre from official staff pages, matched to OpenAlex authors seen in the corpus", 13, False, INK, True),
-        ("Quartile = SJR best quartile of the publication year (2025 values for 2026 papers)", 13, False, INK, True),
-    ])
-    textbox(s, MARGIN + colw + Inches(0.4) + pad, y + Inches(0.2), colw - 2 * pad, Inches(2.8), [
-        ("Limits to keep in mind", 16, True, INK),
-        ("OpenAlex author and affiliation matching is imperfect; some papers may be missing or mis-attributed", 13, False, INK, True),
-        ("h-index is computed on 2016–2026 corpus papers only, not career-wide; students/project staff are not faculty", 13, False, INK, True),
-        ("SJR quartiles can differ from JCR; citations are counts on the collection date", 13, False, INK, True),
-        (f"None of the {fmt(conf['total_conferences'])} conference papers has a CORE rank (CORE ranks computer-science venues)", 13, False, INK, True),
-    ])
-    footer(s, "Source: data/final/group24_data.csv, faculty_master.csv; stats/tables/quartile_distribution.csv, conference_ranks.csv")
-    notes(s, "Sources: data/final/group24_data.csv (paper and row counts), data/final/faculty_master.csv (roster), "
-             "stats/tables/h_index_summary.csv (faculty with >=1 paper), quartile_distribution.csv (coverage), conference_ranks.csv.")
+    notes(s, "Sources: data/final/group24_data.csv (papers, rows), data/final/faculty_master.csv (roster), "
+             "stats/tables/citation_summary.csv, quartile_distribution.csv, h_index_summary.csv, conference_ranks.csv.")
 
 
 def slide_trend(prs, d: Data):
@@ -460,7 +431,7 @@ def slide_trend(prs, d: Data):
         t = d.trend[(d.trend["institution"] == lab) & (d.trend["year"] < 2026)]
         peak[lab] = int(t.loc[t["papers"].idxmax(), "year"])
     a25 = d.trend[(d.trend["institution"] == ALL)].set_index("year")
-    header(s, 3, "Publication trend",
+    header(s, "Publication trend",
            f"{fmt(all_tot)} distinct papers in 2016–2026; IICT {pct(tot['CSIR-IICT'] / all_tot * 100, 0)} of them, "
            f"NCL {pct(tot['CSIR-NCL'] / all_tot * 100, 0)}, CECRI {pct(tot['CSIR-CECRI'] / all_tot * 100, 0)}")
     x = MARGIN + w + Inches(0.35)
@@ -522,7 +493,7 @@ def slide_quartiles(prs, d: Data):
     thr = [c[len("ir_q1_gt_"):] for c in thr_cols]  # e.g. "5", "10", "0.59"
     p75 = f"{float(ir.at[ALL, 'percentile_threshold']):g}"
     q1_in_sjr = d.ir_sjr[(d.ir_sjr["institution"] == ALL) & (d.ir_sjr["sjr_quartile"] == "Q1")].iloc[0]
-    header(s, 4, "Journal quartiles and citation impact ratio",
+    header(s, "Journal quartiles and citation impact ratio",
            f"{pct(rows[ALL]['q1_fraction_primary_pct'])} of ranked journal papers are in SJR-Q1 journals; Q1 by impact ratio "
            f"(IR > {p75}, top 25% of papers) ranges from {pct(ir.at['CSIR-IICT', f'ir_q1_gt_{p75}_pct'])} (IICT) "
            f"to {pct(ir.at['CSIR-CECRI', f'ir_q1_gt_{p75}_pct'])} (CECRI)")
@@ -571,7 +542,7 @@ def slide_faculty(prs, d: Data):
     chart_title(ch, "Faculty by h-index (2016–2026 papers), count of scientists")
 
     hs = d.hsum.set_index("institution")
-    header(s, 5, "Faculty h-index distribution",
+    header(s, "Faculty h-index distribution",
            f"Median h-index of the {fmt(hs.at[ALL, 'active_faculty_count'])} roster scientists with papers is "
            f"{hs.at[ALL, 'median_h_index']:g}; CECRI {hs.at['CSIR-CECRI', 'median_h_index']:g}, "
            f"NCL {hs.at['CSIR-NCL', 'median_h_index']:g}, IICT {hs.at['CSIR-IICT', 'median_h_index']:g}")
@@ -596,7 +567,7 @@ def slide_faculty(prs, d: Data):
 def slide_journals(prs, d: Data):
     s = prs.slides.add_slide(prs.slide_layouts[6])
     tops = {lab: d.journals[d.journals["institution"] == lab].sort_values("rank").head(5) for lab in LABS}
-    header(s, 6, "Top 5 journals per institute",
+    header(s, "Top 5 journals per institute",
            "Most frequent venues: " + "; ".join(f"{short(l)} – {tops[l].iloc[0]['journal_name']} ({fmt(tops[l].iloc[0]['paper_count'])})"
                                                 for l in LABS))
     gap = Inches(0.3)
@@ -630,7 +601,7 @@ def slide_top_cited(prs, d: Data):
                        for _, r in top.iterrows()],
                       columns=["#", "Title", "Journal", "Year", "Lab", "Citations", "DOI"])
     c = {g: d.overall(d.cit, g) for g in LABS + [ALL]}
-    header(s, 7, "Top 10 most-cited papers (all three institutes)",
+    header(s, "Top 10 most-cited papers (all three institutes)",
            f"{fmt(c[ALL]['total_citations'])} citations in total; mean {c[ALL]['mean_citations']:.1f} and median "
            f"{c[ALL]['median_citations']:g} per paper; the top paper has {fmt(top.iloc[0]['citations'])}")
     table(s, MARGIN, Inches(1.62), CONTENT_W, df, [0.3, 5.6, 2.1, 0.55, 0.85, 0.85, 2.6], size=10.5, row_h=0.41,
@@ -664,7 +635,7 @@ def slide_areas(prs, d: Data):
     ch.value_axis.tick_labels.number_format_is_linked = False
     chart_title(ch, "Share of each institute's papers by OpenAlex field")
     lead = {lab: d.fields[d.fields["institution"] == lab].sort_values("paper_count", ascending=False).iloc[0] for lab in LABS}
-    header(s, 8, "Research areas and departments",
+    header(s, "Research areas and departments",
            f"Chemistry is the largest field for all three ({', '.join(f'{short(l)} {pct(lead[l].share_pct, 0)}' for l in LABS)})"
            if all(lead[l]["field"] == "Chemistry" for l in LABS) else
            "Largest field: " + ", ".join(f"{short(l)} – {lead[l]['field']} ({pct(lead[l]['share_pct'], 0)})" for l in LABS))
@@ -696,7 +667,7 @@ def slide_citation_network(prs, d: Data):
     cross = d.net_value("citation", "cross-lab")
     flow = d.flow.set_index("institution")
     tin, tout = flow.at[ALL, "in_citations_indian"], flow.at[ALL, "out_citations_indian"]
-    header(s, 9, "Citation network",
+    header(s, "Citation network",
            f"{fmt(pairs)} citation links among {fmt(nodes)} corpus papers; {fmt(cross)} cross between labs. "
            f"With other Indian institutions: {fmt(tin)} citations in, {fmt(tout)} out")
     cw = (CONTENT_W - Inches(0.3) * 3) / 4
@@ -756,7 +727,7 @@ def slide_authorship_network(prs, d: Data):
     big = d.net_value("authorship", "communities with")
     mod = d.net_value("authorship", "modularity")
     lcc = d.net_value("authorship", "largest component share")
-    header(s, 10, "Authorship network",
+    header(s, "Authorship network",
            f"{fmt(authors)} authors, {fmt(pairs)} co-author pairs; Louvain finds {fmt(ncom)} communities "
            f"(modularity {mod:.2f}), almost all within a single lab")
     cw = (CONTENT_W - Inches(0.3) * 3) / 4
@@ -816,35 +787,37 @@ def slide_authorship_network(prs, d: Data):
              "indian_partner_institutions.csv.")
 
 
+INSIGHTS = [
+    ("01_friendship_paradox", "Friendship paradox"),
+    ("02_rich_club", "Rich club"),
+    ("03_fragility", "Network fragility"),
+    ("04_price_law", "Concentration (Price's law)"),
+    ("05_quartile_vs_impact", "Journal quartile vs impact"),
+    ("06_pagerank_vs_citations", "Local vs global influence"),
+    ("07_sleeping_beauties", "Sleeping beauties"),
+    ("08_covid_shock", "COVID shock"),
+    ("09_brain_circulation", "Brain circulation"),
+    ("10_succession_risk", "Succession risk"),
+]
+
+
 def slide_ten_findings(prs, d: Data):
     import json
+
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    header(s, 11, "Ten Non-Obvious Bibliometric & Network Findings",
-           "Key empirical findings from cluster network fragility, brain circulation, succession risk, and citation dynamics")
-
-    insights_dir = Path("stats/tables/insights")
-    order = [
-        "01_friendship_paradox", "02_rich_club", "03_fragility", "04_price_law",
-        "05_quartile_vs_impact", "06_pagerank_vs_citations", "07_sleeping_beauties",
-        "08_covid_shock", "09_brain_circulation", "10_succession_risk"
-    ]
+    header(s, "Ten non-obvious findings",
+           "Each finding answers one question; charts and method notes are in the dashboard's Insights tab")
     rows = []
-    for i, key in enumerate(order, 1):
-        fpath = insights_dir / f"{key}.json"
-        if fpath.exists():
-            with open(fpath, "r", encoding="utf-8") as f:
-                item = json.load(f)
-                rows.append([i, item.get("question", ""), item.get("headline", "")])
-        else:
-            rows.append([i, f"Finding {i}", "Not computed"])
-
-    df = pd.DataFrame(rows, columns=["#", "Research Question", "Empirical Finding & Headline Result"])
-    table(s, MARGIN, Inches(1.5), CONTENT_W, df, [0.35, 3.85, 8.4], size=8.5, row_h=0.47,
-          name="Ten Non-Obvious Findings Table")
-
-    footer(s, f"Source: stats/tables/insights/*.json · interactive charts and methodology notes: {SITE_URL}")
+    for i, (key, label) in enumerate(INSIGHTS, 1):
+        f = Path("stats/tables/insights") / f"{key}.json"
+        headline = json.loads(f.read_text(encoding="utf-8"))["headline"] if f.exists() else "Not computed"
+        rows.append([i, label, headline])
+    df = pd.DataFrame(rows, columns=["#", "Finding", "Result"])
+    table(s, MARGIN, Inches(1.45), CONTENT_W, df, [0.3, 1.75, 10.2], size=10, row_h=0.4, name="Findings table")
+    footer(s, f"Source: stats/tables/insights/*.json (generated by src/stats/insights) · charts: {SITE_URL}")
     link_run_in_footer(s, SITE_URL)
-    notes(s, "All 10 non-obvious analyses are fully interactive with dedicated charts on the dashboard 'Insights' tab.")
+    notes(s, "Every headline is generated from the metrics in stats/tables/insights/<id>.json by template, never typed "
+             "by hand. Method notes and charts are in the dashboard Insights tab.")
 
 
 # --------------------------------------------------------------------------- build + export
@@ -852,9 +825,10 @@ def build_presentation() -> Presentation:
     prs = Presentation()
     prs.slide_width, prs.slide_height = SLIDE_W, SLIDE_H
     d = Data()
-    for fn in (slide_title, slide_data, slide_trend, slide_quartiles, slide_faculty, slide_journals,
+    for fn in (slide_title, slide_trend, slide_quartiles, slide_faculty, slide_journals,
                slide_top_cited, slide_areas, slide_citation_network, slide_authorship_network, slide_ten_findings):
         fn(prs, d)
+    assert len(prs.slides) <= MAX_SLIDES, f"report has {len(prs.slides)} slides; the limit is {MAX_SLIDES}"
     prs.core_properties.title = "Group 24 Statistics Report — CSIR-NCL, CSIR-IICT, CSIR-CECRI (2016–2026)"
     prs.core_properties.author = "DPCN 2026 Group 24"
     return prs

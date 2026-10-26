@@ -4,6 +4,7 @@ Identifies 'hidden gems'—papers with disproportionate in-cluster intellectual 
 (top 5% PageRank) despite modest global citation counts (below publication year median).
 """
 
+from pathlib import Path
 from typing import Dict, List
 import numpy as np
 import pandas as pd
@@ -25,7 +26,7 @@ def run() -> dict:
     df_p = papers()
     ext_path = "data/final/group24_data_extended.csv"
     title_lookup = {}
-    if pd.Series(ext_path).pipe(lambda s: pd.Path(s.iloc[0]).exists() if hasattr(pd, "Path") else True):
+    if Path(ext_path).exists():
         df_ext = pd.read_csv(ext_path, usecols=["doi", "title"], keep_default_na=False).drop_duplicates("doi")
         title_lookup = dict(zip(df_ext["doi"], df_ext["title"]))
 
@@ -56,8 +57,9 @@ def run() -> dict:
         "year": years,
         "in_deg": [in_deg[d] for d in eligible_dois],
     })
-    med_by_year = df_sub.groupby("year")["cites"].transform("median")
-    df_sub["median_year_cites"] = med_by_year
+    # Median global citations of ALL corpus papers published that year (not only cited ones)
+    med_all = df_p.groupby("year")["citations"].median()
+    df_sub["median_year_cites"] = df_sub["year"].map(med_all)
 
     pr_p95 = float(np.percentile(prs, 95))
     df_sub["is_top5_pr"] = df_sub["pr"] >= pr_p95

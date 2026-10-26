@@ -42,8 +42,8 @@ def run_target(target: str) -> None:
         run_tests()
     elif target == "all":
         run_target("collect")
+        run_target("insights")  # before stats: the report quotes the insight headlines
         run_target("stats")
-        run_target("insights")
         run_target("dashboard")
         run_target("test")
     else:

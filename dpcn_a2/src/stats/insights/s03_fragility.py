@@ -145,13 +145,16 @@ def run() -> dict:
         for i, v in enumerate(avg_rand)
     ]
 
-    mean_n50_rand = int(np.mean(n50_random_runs)) if n50_random_runs else 3280
-    n50_btw_val = n50_btw or max_removals
+    if len(n50_random_runs) != n_runs or n50_btw is None or n_labsplit is None:
+        raise ValueError("A removal strategy did not reach its threshold; extend max_removals before reporting")
+    mean_n50_rand = int(round(np.mean(n50_random_runs)))
+    n50_btw_val = n50_btw
     pct_btw = (n50_btw_val / S0) * 100
 
     headline = (
         f"Removing the top {n50_btw_val:,} bridge researchers ({pct_btw:.1f}% of the network) halves the cluster; "
-        f"random removal needs {mean_n50_rand:,}. Removing just {n_labsplit or 'N/A'} people disconnects the three labs from each other."
+        f"random removal needs {mean_n50_rand:,}. Removing {n_labsplit:,} of them separates the three labs' faculty "
+        f"into different components."
     )
 
     chart = {
@@ -205,8 +208,8 @@ def run() -> dict:
         "metrics": metrics,
         "chart": chart,
         "method_note": (
-            "Computed on unweighted co-author LCC (7,508 nodes). Betweenness centrality estimated with k=1000 sampled sources. "
-            "Random removal is the mean of 20 stochastic runs."
+            f"Computed on the unweighted co-author LCC ({S0:,} researchers). Betweenness estimated from 1,000 sampled "
+            f"sources and computed once. Random removal is the mean of 20 runs (checked every 20 removals)."
         ),
     }
 

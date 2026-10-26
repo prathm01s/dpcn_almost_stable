@@ -111,10 +111,16 @@ def run() -> dict:
     dir_20 = "above" if gap_2020_c >= 0 else "below"
     dir_21 = "above" if gap_2021_c >= 0 else "below"
 
+    if 0.9 <= jsd_ratio <= 1.1:
+        shift = f"the topic mix shifted about as much as in a normal period (JSD ratio {jsd_ratio:.2f})"
+    elif jsd_ratio > 1.1:
+        shift = f"the topic mix shifted {jsd_ratio:.2f}× more than in a normal period"
+    else:
+        shift = f"the topic mix shifted less than in a normal period (JSD ratio {jsd_ratio:.2f})"
     headline = (
-        f"Output was {abs(gap_2020_c):.1f}% {dir_20} trend in 2020 and {abs(gap_2021_c):.1f}% {dir_21} in 2021. "
+        f"Output was {abs(gap_2020_c):.1f}% {dir_20} the 2016–19 trend in 2020 and {abs(gap_2021_c):.1f}% {dir_21} in 2021. "
         f"COVID-related work peaked at {top_cov['share']:.1f}% of {top_cov['lab']}'s papers in {int(top_cov['year'])}; "
-        f"the topic mix shifted {jsd_ratio:.2f}× more than in a normal period."
+        f"{shift}."
     )
 
     # Chart construction: actual papers per lab (2016–2025) + dashed projection 2020–2021
@@ -177,8 +183,9 @@ def run() -> dict:
         "metrics": metrics,
         "chart": chart,
         "method_note": (
-            "Pre-pandemic linear trend fitted on 2016–2019 annual papers. "
-            "Publication lag implies 2020 papers primarily reflect pre-pandemic projects; impact shows in 2021."
+            "Linear trend fitted on 2016–2019 distinct papers (output was already falling, so the trend projects a decline). "
+            "COVID-related = title/topic matches covid, sars-cov-2, coronavirus, pandemic, antiviral, favipiravir or remdesivir. "
+            "Publication lag means 2020 papers mostly reflect pre-pandemic work."
         ),
     }
 

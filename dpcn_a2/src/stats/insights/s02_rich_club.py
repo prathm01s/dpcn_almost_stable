@@ -55,7 +55,10 @@ def run(n_nulls: int = 20) -> dict:
             rho_norm[k] = val
             chart_data.append([int(k), round(val, 3)])
 
-    rho_at_kstar = rho_norm.get(k_star, 1.0)
+    # networkx rho(k) covers nodes with degree > k; the top-1% set is degree >= k_star, i.e. rho(k_star - 1)
+    rho_at_kstar = rho_norm.get(k_star - 1)
+    if rho_at_kstar is None:
+        raise ValueError(f"No rich-club value at k = {k_star - 1}; cannot evaluate the top-1% set")
 
     # Dynamic headline based on true result
     n_fac = len(top1_faculty)
@@ -98,6 +101,7 @@ def run(n_nulls: int = 20) -> dict:
             "markPoint": {
                 "k_star": k_star,
                 "rho_k_star": round(rho_at_kstar, 3),
+                "note": "rho_norm at k*-1 = normalised density among nodes with degree >= k*",
             },
         },
     }
@@ -119,7 +123,8 @@ def run(n_nulls: int = 20) -> dict:
         "chart": chart,
         "method_note": (
             f"Normalized against {n_nulls} degree-preserving rewired null graphs (nx.double_edge_swap). "
-            f"Evaluated on co-author LCC at 99th-percentile degree threshold k* = {k_star}."
+            f"Evaluated on the co-author LCC for the {n_top} researchers with degree >= k* = {k_star} "
+            f"(99th percentile)."
         ),
     }
 
