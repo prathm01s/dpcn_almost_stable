@@ -1,11 +1,11 @@
 {
   "id": "10_succession_risk",
   "question": "How much of each lab's output depends on scientists close to retirement?",
-  "headline": "In CECRI, 46.3% of recent papers (48.6% of their citations) have only roster authors likely to retire within ~5 years (IICT 20.2%, NCL 11.5%). Highest exposure: Electrochemical Process Engineering, CECRI (74.6% of 193 papers).",
+  "headline": "In CECRI, 46.3% of recent papers (48.6% of their citations) have only roster authors likely to retire within ~5 years (IICT 20.8%, NCL 11.5%). Highest exposure: Electrochemical Process Engineering, CECRI (74.6% of 193 papers).",
   "metrics": {
     "threshold_used": 30,
     "highlight_lab": "CSIR-CECRI",
-    "n_scientists_with_age": 346,
+    "n_scientists_with_age": 305,
     "sensitivity_thresholds": [
       28,
       30,
@@ -14,28 +14,28 @@
     "lab_metrics": {
       "CSIR-IICT": {
         "28": {
-          "total_papers": 1417,
-          "total_citations": 19168,
-          "share_any_papers": 32.75,
-          "share_sole_papers": 24.28,
-          "share_any_citations": 33.6,
-          "share_sole_citations": 25.35
+          "total_papers": 1356,
+          "total_citations": 18659,
+          "share_any_papers": 31.42,
+          "share_sole_papers": 25.15,
+          "share_any_citations": 33.07,
+          "share_sole_citations": 25.66
         },
         "30": {
-          "total_papers": 1417,
-          "total_citations": 19168,
-          "share_any_papers": 27.81,
-          "share_sole_papers": 20.25,
-          "share_any_citations": 30.34,
-          "share_sole_citations": 23.2
+          "total_papers": 1356,
+          "total_citations": 18659,
+          "share_any_papers": 26.25,
+          "share_sole_papers": 20.8,
+          "share_any_citations": 29.73,
+          "share_sole_citations": 23.4
         },
         "32": {
-          "total_papers": 1417,
-          "total_citations": 19168,
-          "share_any_papers": 17.5,
-          "share_sole_papers": 11.71,
-          "share_any_citations": 12.88,
-          "share_sole_citations": 9.92
+          "total_papers": 1356,
+          "total_citations": 18659,
+          "share_any_papers": 15.49,
+          "share_sole_papers": 11.8,
+          "share_any_citations": 11.79,
+          "share_sole_citations": 9.75
         }
       },
       "CSIR-NCL": {
@@ -102,16 +102,16 @@
       {
         "division": "Analytical & Structural Chemistry",
         "lab": "CSIR-IICT",
-        "total_papers": 159,
+        "total_papers": 156,
         "sole_papers": 8,
-        "share_sole": 5.03
+        "share_sole": 5.13
       },
       {
         "division": "Applied Biology",
         "lab": "CSIR-IICT",
-        "total_papers": 233,
+        "total_papers": 229,
         "sole_papers": 6,
-        "share_sole": 2.58
+        "share_sole": 2.62
       },
       {
         "division": "Biochemical Science Division",
@@ -137,9 +137,9 @@
       {
         "division": "Catalysis & Fine Chemicals",
         "lab": "CSIR-IICT",
-        "total_papers": 154,
+        "total_papers": 131,
         "sole_papers": 11,
-        "share_sole": 7.14
+        "share_sole": 8.4
       },
       {
         "division": "Catalysis Division",
@@ -198,7 +198,7 @@
           "name": "Papers with only at-risk roster authors",
           "type": "bar",
           "data": [
-            20.25,
+            20.8,
             11.54,
             46.32
           ],
@@ -207,8 +207,8 @@
           },
           "error_range": [
             [
-              11.71,
-              24.28
+              11.8,
+              25.15
             ],
             [
               6.63,
@@ -224,7 +224,7 @@
           "name": "Citations of those papers",
           "type": "bar",
           "data": [
-            23.2,
+            23.4,
             12.54,
             48.56
           ],
@@ -233,8 +233,8 @@
           },
           "error_range": [
             [
-              9.92,
-              25.35
+              9.75,
+              25.66
             ],
             [
               4.9,
@@ -250,28 +250,28 @@
       "sensitivity_table": {
         "CSIR-IICT": {
           "T_28": {
-            "total_papers": 1417,
-            "total_citations": 19168,
-            "share_any_papers": 32.75,
-            "share_sole_papers": 24.28,
-            "share_any_citations": 33.6,
-            "share_sole_citations": 25.35
+            "total_papers": 1356,
+            "total_citations": 18659,
+            "share_any_papers": 31.42,
+            "share_sole_papers": 25.15,
+            "share_any_citations": 33.07,
+            "share_sole_citations": 25.66
           },
           "T_30": {
-            "total_papers": 1417,
-            "total_citations": 19168,
-            "share_any_papers": 27.81,
-            "share_sole_papers": 20.25,
-            "share_any_citations": 30.34,
-            "share_sole_citations": 23.2
+            "total_papers": 1356,
+            "total_citations": 18659,
+            "share_any_papers": 26.25,
+            "share_sole_papers": 20.8,
+            "share_any_citations": 29.73,
+            "share_sole_citations": 23.4
           },
           "T_32": {
-            "total_papers": 1417,
-            "total_citations": 19168,
-            "share_any_papers": 17.5,
-            "share_sole_papers": 11.71,
-            "share_any_citations": 12.88,
-            "share_sole_citations": 9.92
+            "total_papers": 1356,
+            "total_citations": 18659,
+            "share_any_papers": 15.49,
+            "share_sole_papers": 11.8,
+            "share_any_citations": 11.79,
+            "share_sole_citations": 9.75
           }
         },
         "CSIR-NCL": {
@@ -329,6 +329,6 @@
       }
     }
   },
-  "method_note": "Distinct 2021\u20132025 papers with \u22651 matched roster author (346 scientists with career data). Academic age = 2026 \u2212 first OpenAlex publication year; at risk = age \u226530, a proxy for \u2264~5 years to CSIR superannuation at 60 (no birth dates available). Divisions with \u226520 papers. Tooltips show thresholds 28 and 32.",
-  "computed_at": "2026-10-26T05:25:09.337110+00:00"
+  "method_note": "Distinct 2021\u20132025 papers with \u22651 matched roster author (305 scientists with career data). Academic age = 2026 \u2212 first OpenAlex publication year; at risk = age \u226530, a proxy for \u2264~5 years to CSIR superannuation at 60 (no birth dates available). Divisions with \u226520 papers. Tooltips show thresholds 28 and 32.",
+  "computed_at": "2026-10-26T05:46:45.453983+00:00"
 }

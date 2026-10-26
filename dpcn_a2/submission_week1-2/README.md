@@ -13,7 +13,7 @@
 | `citation_network.csv` | 192,994 | source_doi, target_doi, source_inst, target_inst, year |
 | `authorship_network.csv` | 108,847 | author_a, author_b, paper_doi, inst_a, inst_b, year |
 | `indian_connections.csv` | 1,487 | your_inst, partner_inst, shared_papers, total_citations |
-| `faculty_master.csv` (supporting) | 505 | Faculty list from official institute websites: name, designation, department, OpenAlex author ID, h-index (2016–2026 papers), papers, citations, match confidence |
+| `faculty_master.csv` (supporting) | 385 | Faculty list from official institute websites: name, designation, department, OpenAlex author ID, h-index (2016–2026 papers), papers, citations, match confidence |
 
 All files are UTF-8 CSV with LF line endings. `CHECKSUMS.sha256` lists the SHA-256 of each file.
 

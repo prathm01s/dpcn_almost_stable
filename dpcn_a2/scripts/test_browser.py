@@ -147,18 +147,22 @@ def run_tests():
         
         print(f"✓ Initial KPIs: Total Papers={total_papers}, Journals={journal_papers}, Q1={q1_share}, Faculty={active_faculty}, Median-h={median_h}")
         assert total_papers != "-" and int(total_papers.replace(",", "")) > 10000
-        assert int(active_faculty.replace(",", "")) == 347
-        assert float(median_h) == 6.0
+        # Expected values come from the stats tables the dashboard is built from
+        import csv
+        with open("stats/tables/h_index_summary.csv", encoding="utf-8") as f:
+            hsum = {r["institution"]: r for r in csv.DictReader(f)}
+        assert int(active_faculty.replace(",", "")) == int(hsum["Group 24 Combined"]["active_faculty_count"])
+        assert float(median_h) == float(hsum["Group 24 Combined"]["median_h_index"])
 
         # Screenshot Tab 1 (Overview)
         client.capture_screenshot("dashboard/screenshots/01_overview_all.png")
         print("✓ Captured: 01_overview_all.png")
 
         expected_inst_faculty = {
-            "iict": 169,
-            "ncl": 152,
-            "cecri": 26,
-            "compare": 347,
+            "iict": int(hsum["CSIR-IICT"]["active_faculty_count"]),
+            "ncl": int(hsum["CSIR-NCL"]["active_faculty_count"]),
+            "cecri": int(hsum["CSIR-CECRI"]["active_faculty_count"]),
+            "compare": int(hsum["Group 24 Combined"]["active_faculty_count"]),
         }
 
         # Test Institute Buttons

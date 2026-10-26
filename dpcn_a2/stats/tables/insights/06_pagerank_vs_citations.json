@@ -30661,5 +30661,5 @@
     }
   },
   "method_note": "Computed on the in-corpus citation network (alpha=0.85). Restricted to 7,627 papers with internal in-degree >= 1. Median citations are normalized by publication year.",
-  "computed_at": "2026-10-26T05:24:53.455885+00:00"
+  "computed_at": "2026-10-26T05:46:29.257171+00:00"
 }

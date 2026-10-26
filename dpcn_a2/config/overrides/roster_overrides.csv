@@ -1,0 +1,5 @@
+faculty_id,action,reason,decided_on
+FAC_NCL_0036,drop_duplicate,"Same person as FAC_IICT_0315 (Dr. D. Srinivasa Reddy, OpenAlex A5067070069), now Director of CSIR-IICT; the NCL listing is a stale duplicate. All his rows already use FAC_IICT_0315.",2026-10-26
+FAC_IICT_0168,unmatch,"Matched to OpenAlex A5110153364, a merged catch-all profile named 'A. V.' (name fragments of many people), not Dr. A.V. Subrahmanya Sarma.",2026-10-26
+FAC_IICT_0289,unmatch,"Matched to OpenAlex A5110153364, a merged catch-all profile named 'A. V.', not Dr. A.V. Sesha Sainath.",2026-10-26
+FAC_IICT_0209,unmatch,"Matched to OpenAlex A5103854768, which is R. (Ravulakollu) Srinivasa Rao, not Dr. M. Srinivasa Rao.",2026-10-26

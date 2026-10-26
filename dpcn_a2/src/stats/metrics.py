@@ -434,7 +434,7 @@ def run_metrics_computation() -> None:
     fac_paper_authors["citations_int"] = fac_paper_authors["citations"].astype(int)
 
     fac_perf_rows = []
-    # Merge with roster list so all 505 faculty are accounted for
+    # Merge with the roster so every roster scientist is accounted for
     for _, fac in df_fac.iterrows():
         fid = fac["faculty_id"]
         inst_key = fac["inst_key"]

@@ -365,5 +365,5 @@
     }
   },
   "method_note": "Linear trend fitted on 2016\u20132019 distinct papers (output was already falling, so the trend projects a decline). COVID-related = title/topic matches covid, sars-cov-2, coronavirus, pandemic, antiviral, favipiravir or remdesivir. Publication lag means 2020 papers mostly reflect pre-pandemic work.",
-  "computed_at": "2026-10-26T05:24:57.104999+00:00"
+  "computed_at": "2026-10-26T05:46:33.019383+00:00"
 }

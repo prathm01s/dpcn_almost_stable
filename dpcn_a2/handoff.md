@@ -20,15 +20,15 @@ Every insight adheres strictly to the required contract: **one direct question**
 | # | Slug | Core Question | Quantitative Headline Finding | Chart Type |
 |---|---|---|---|---|
 | **01** | `friendship_paradox` | Do our researchers' co-authors have more co-authors than they do? | 93.2% of researchers have fewer co-authors than their co-authors do. The average researcher has 9.2 co-authors, but the average co-author has 31.1. | Scatter |
-| **02** | `rich_club` | Do the most-connected scientists collaborate mainly with each other? | The top 1% most-connected researchers show no rich-club effect and are less interconnected than chance (ρ_norm = 0.74). 41 of 78 are CSIR faculty. | Line chart |
-| **03** | `fragility` | How many researchers hold the cluster together? | Removing the top 872 bridge researchers (11.6% of the network) halves the cluster; random removal needs 3,279. Removing 608 of them separates the three labs' faculty into different components. | Line chart |
-| **04** | `price_law` | Is output concentrated in a few scientists? | √N = 19 scientists produce 36.2% of the cluster's papers (Price's law predicts 50%). The top 10% produce 50.3%; Gini = 0.63 (papers), 0.75 (citations). | Line chart |
+| **02** | `rich_club` | Do the most-connected scientists collaborate mainly with each other? | The top 1% most-connected researchers show no rich-club effect and are less interconnected than chance (ρ_norm = 0.75). 39 of 78 are CSIR faculty. | Line chart |
+| **03** | `fragility` | How many researchers hold the cluster together? | Removing the top 841 bridge researchers (11.2% of the network) halves the cluster; random removal needs 3,282. Removing 644 of them separates the three labs' faculty into different components. | Line chart |
+| **04** | `price_law` | Is output concentrated in a few scientists? | √N = 18 scientists produce 35.8% of the cluster's papers (Price's law predicts 50%). The top 10% produce 48.2%; Gini = 0.61 (papers), 0.74 (citations). | Line chart |
 | **05** | `quartile_vs_impact` | Is a Q1 journal a reliable signal of a highly cited paper? | 11.3% of the cluster's top-10% most-cited papers were published outside Q1 journals, while 1.4% of Q1 papers are still uncited. | 100% stacked bar |
 | **06** | `pagerank_vs_citations` | Are the papers most influential inside our cluster the same as the world's most-cited? | In-cluster influence and global citations correlate only moderately (Spearman ρ = 0.40). 43 papers are 'hidden gems': top-5% internal influence, below-median global citations. | Scatter |
 | **07** | `sleeping_beauties` | Which papers were ignored for years and then suddenly took off? | 2 of the 7 strongest candidates (top 1% of 602 papers by Ke's B) show sustained delayed recognition. The strongest, 'Funnel shaped molecules containing benzo/pyrido[1,2,5]thiadiazole f…' (IICT, 2016), drew 1.4 citations/yr for 5 years, then 4.7/yr from 2021. | Line chart |
 | **08** | `covid_shock` | How much output did COVID cost, and did research shift? | Output was 1.8% above the 2016–19 trend in 2020 and 12.7% above in 2021. COVID-related work peaked at 5.5% of CSIR-IICT's papers in 2021; the topic mix shifted about as much as in a normal period (JSD ratio 1.05). | Line chart |
-| **09** | `brain_circulation` | How many of our scientists trained in India, worked abroad, and came back, and did time abroad change their research? | 15.7% of classifiable CSIR scientists are returnees (NCL 18.3% (n=142), IICT 13.5% (n=133), CECRI 11.1% (n=18)); their abroad spell was most often in the US (25 of 46). Their papers' citations do not differ significantly from home-grown peers of similar career age (+2%, 95% CI -24% to +37%); 20.3% of returnees' papers vs 16.8% of home-grown scientists' papers have a foreign co-author. | Sankey diagram |
-| **10** | `succession_risk` | How much of each lab's output depends on scientists close to retirement? | In CECRI, 46.3% of recent papers (48.6% of their citations) have only roster authors likely to retire within ~5 years (IICT 20.2%, NCL 11.5%). Highest exposure: Electrochemical Process Engineering, CECRI (74.6% of 193 papers). | Grouped bar |
+| **09** | `brain_circulation` | How many of our scientists trained in India, worked abroad, and came back, and did time abroad change their research? | 17.0% of classifiable CSIR scientists are returnees (NCL 17.7% (n=141), IICT 17.0% (n=106), CECRI 11.1% (n=18)); their abroad spell was most often in the US (25 of 45). Their papers' citations do not differ significantly from home-grown peers of similar career age (+8%, 95% CI -20% to +46%); 20.6% of returnees' papers vs 16.9% of home-grown scientists' papers have a foreign co-author. | Sankey diagram |
+| **10** | `succession_risk` | How much of each lab's output depends on scientists close to retirement? | In CECRI, 46.3% of recent papers (48.6% of their citations) have only roster authors likely to retire within ~5 years (IICT 20.8%, NCL 11.5%). Highest exposure: Electrochemical Process Engineering, CECRI (74.6% of 193 papers). | Grouped bar |
 
 ---
 
@@ -36,10 +36,10 @@ Every insight adheres strictly to the required contract: **one direct question**
 
 ### 3.1 Source Data Assets
 - `data/final/group24_data_extended.csv`: 42,393 author-paper rows covering 14,352 distinct peer-reviewed works (2016–2026).
-- `data/final/faculty_master.csv`: 505 scientific cadre staff across CSIR-NCL, CSIR-IICT, and CSIR-CECRI.
+- `data/final/faculty_master.csv`: 385 scientific cadre staff across CSIR-NCL, CSIR-IICT, and CSIR-CECRI (after the D-20 roster cleanup).
 - `data/final/citation_network.csv` & `authorship_network.csv`: Resolved within-cluster and Indian network edges.
 - `data/cache/openalex/counts_by_year.json`: Cached yearly citation histories for 3,614 eligible papers (2016–2020 with $\ge 20$ citations) from OpenAlex.
-- `data/cache/openalex/careers/*.json`: Cached full career publication histories for all 344 active faculty from OpenAlex `/authors`.
+- `data/cache/openalex/careers/*.json`: Cached full career publication histories of the matched faculty (OpenAlex works by author ID).
 - `data/cache/openalex/foreign_coauthors.json`: Pre-computed foreign co-authorship fractions for all active faculty.
 
 ### 3.2 Output Artifacts
@@ -65,7 +65,7 @@ The interactive dashboard at `dashboard/index.html` features a dedicated **Insig
 
 In accordance with Insight 9 ("Brain Circulation"), a random stratified sample of 30 scientists was exported to `stats/tables/insights/09_validation_sample.csv`:
 - **Columns**: `name`, `lab`, `predicted_class`, `phd_proxy`, `host_country`, `profile_url`, `true_class`, `notes`.
-- **Predicted Distribution** (seed 24, regenerated 26 Oct 2026): Foreign-trained: 3, Home-grown: 19, Returnee: 3, Unclassifiable: 5.
+- **Predicted Distribution** (seed 24, regenerated 26 Oct 2026): Foreign-trained: 3, Home-grown: 16, Returnee: 8, Unclassifiable: 3.
 - **Audit Ready**: Evaluators can open the provided OpenAlex URLs in column 6 to inspect full career publications and confirm postdoctoral affiliations.
 
 ---
@@ -118,4 +118,4 @@ A review of the insights code found and fixed these issues (details in `docs/DEC
 - **Dashboard**: year-axis line charts (Insights 7, 8) now plot; axis titles no longer clipped; legends on one line; Sankey shows classifiable scientists only.
 
 Pending: fill `true_class` in `stats/tables/insights/09_validation_sample.csv` (30 scientists) to report classification accuracy.
-Upstream roster issues seen during the review (not changed): three pairs of roster entries share one OpenAlex profile (Dr. D. Srinivasa Reddy at NCL and IICT; Dr. M. Srinivasa Rao / Sr. Technician C. Srinivasa Rao; Dr. A.V. Subrahmanya Sarma / Dr. A.V. Sesha Sainath), and some technical staff appear on the faculty roster.
+Roster issues seen during the review were fixed afterwards by Step 19 (D-20): 119 IICT technical-staff entries removed from the faculty roster, Dr. D. Srinivasa Reddy kept once (IICT), and three wrong OpenAlex matches cleared. Faculty with papers: 347 → 306.

@@ -1,23 +1,23 @@
 {
   "id": "09_brain_circulation",
   "question": "How many of our scientists trained in India, worked abroad, and came back, and did time abroad change their research?",
-  "headline": "15.7% of classifiable CSIR scientists are returnees (NCL 18.3% (n=142), IICT 13.5% (n=133), CECRI 11.1% (n=18)); their abroad spell was most often in the US (25 of 46). Their papers' citations do not differ significantly from home-grown peers of similar career age (+2%, 95% CI -24% to +37%); 20.3% of returnees' papers vs 16.8% of home-grown scientists' papers have a foreign co-author.",
+  "headline": "17.0% of classifiable CSIR scientists are returnees (NCL 17.7% (n=141), IICT 17.0% (n=106), CECRI 11.1% (n=18)); their abroad spell was most often in the US (25 of 45). Their papers' citations do not differ significantly from home-grown peers of similar career age (+8%, 95% CI -20% to +46%); 20.6% of returnees' papers vs 16.9% of home-grown scientists' papers have a foreign co-author.",
   "metrics": {
-    "n_total_classified": 344,
-    "n_classifiable": 293,
-    "returnee_pct_overall": 15.7,
+    "n_total_classified": 306,
+    "n_classifiable": 265,
+    "returnee_pct_overall": 16.98,
     "returnee_pct_by_lab": {
-      "CSIR-IICT": 13.5,
-      "CSIR-NCL": 18.3,
+      "CSIR-IICT": 17.0,
+      "CSIR-NCL": 17.7,
       "CSIR-CECRI": 11.1
     },
     "classifiable_by_lab": {
-      "CSIR-IICT": 133,
-      "CSIR-NCL": 142,
+      "CSIR-IICT": 106,
+      "CSIR-NCL": 141,
       "CSIR-CECRI": 18
     },
-    "n_returnees": 46,
-    "n_regression": 249,
+    "n_returnees": 45,
+    "n_regression": 224,
     "top_host_countries": {
       "US": 25,
       "JP": 4,
@@ -25,14 +25,14 @@
       "GB": 2,
       "SA": 2
     },
-    "ols_adjusted_diff_pct": 2.12,
+    "ols_adjusted_diff_pct": 7.94,
     "ols_95ci": [
-      -23.7,
-      36.69
+      -19.93,
+      45.52
     ],
-    "ols_pvalue": 0.8873,
-    "returnee_foreign_coauthor_pct": 20.26,
-    "homegrown_foreign_coauthor_pct": 16.84,
+    "ols_pvalue": 0.6145,
+    "returnee_foreign_coauthor_pct": 20.64,
+    "homegrown_foreign_coauthor_pct": 16.86,
     "validation_status": "validation pending"
   },
   "chart": {
@@ -87,7 +87,7 @@
             {
               "source": "PhD: India",
               "target": "No Abroad Spell",
-              "value": 206
+              "value": 179
             },
             {
               "source": "PhD: India",
@@ -112,7 +112,7 @@
             {
               "source": "PhD: India",
               "target": "Host: Other",
-              "value": 10
+              "value": 9
             },
             {
               "source": "PhD: India",
@@ -157,7 +157,7 @@
             {
               "source": "Host: US",
               "target": "CSIR-NCL",
-              "value": 26
+              "value": 25
             },
             {
               "source": "Host: GB",
@@ -187,12 +187,12 @@
             {
               "source": "No Abroad Spell",
               "target": "CSIR-IICT",
-              "value": 107
+              "value": 80
             },
             {
               "source": "Host: US",
               "target": "CSIR-IICT",
-              "value": 9
+              "value": 10
             },
             {
               "source": "Host: DE",
@@ -202,7 +202,7 @@
             {
               "source": "Host: Other",
               "target": "CSIR-IICT",
-              "value": 12
+              "value": 11
             },
             {
               "source": "Host: SA",
@@ -243,6 +243,6 @@
       ]
     }
   },
-  "method_note": "Full OpenAlex career histories of 344 matched roster scientists; 293 classifiable. PhD proxy = main institution on the first 3 papers; abroad spell = \u22652 consecutive years with only non-Indian affiliations and \u22652 papers. OLS on log(1+citations/paper, 2016\u201326) with academic age and lab. Classification validation: validation pending.",
-  "computed_at": "2026-10-26T05:24:58.778793+00:00"
+  "method_note": "Full OpenAlex career histories of 306 matched roster scientists; 265 classifiable. PhD proxy = main institution on the first 3 papers; abroad spell = \u22652 consecutive years with only non-Indian affiliations and \u22652 papers. OLS on log(1+citations/paper, 2016\u201326) with academic age and lab. Classification validation: validation pending.",
+  "computed_at": "2026-10-26T05:46:34.758371+00:00"
 }

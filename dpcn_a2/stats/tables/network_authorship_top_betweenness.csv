@@ -1,11 +1,11 @@
 rank,author,institution,degree,degree_centrality,joint_paper_links,betweenness,community
-1,Balasubramanian Sridhar,CSIR-IICT,380,0.04833,853,0.09618,6
-2,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,285,0.03625,572,0.09039,18
-3,Dr Subrata Kundu,CSIR-CECRI,137,0.01742,787,0.07214,5
-4,Ramakrishna Sistla,CSIR-IICT,150,0.01908,367,0.06388,2
-5,Dr. Rajesh G. Gonnade,CSIR-NCL,280,0.03561,749,0.06115,4
-6,Dr. B.V. Subba Reddy,CSIR-IICT,196,0.02493,446,0.05717,6
-7,Dr. Sunil Misra,CSIR-IICT,198,0.02518,371,0.05532,8
-8,Murugan Veerapandian,CSIR-CECRI,69,0.00878,125,0.04359,3
-9,Dr. Kumar Vanka,CSIR-NCL,195,0.0248,663,0.04352,4
-10,Bojja Sreedhar,CSIR-IICT,126,0.01602,204,0.04317,2
+1,Balasubramanian Sridhar,CSIR-IICT,380,0.04832,853,0.09753,3
+2,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,285,0.03624,572,0.09681,16
+3,Dr Subrata Kundu,CSIR-CECRI,137,0.01742,787,0.068,24
+4,Ramakrishna Sistla,CSIR-IICT,150,0.01907,367,0.06472,7
+5,Dr. Rajesh G. Gonnade,CSIR-NCL,280,0.03561,749,0.05877,5
+6,Dr. B.V. Subba Reddy,CSIR-IICT,196,0.02492,446,0.05704,3
+7,Dr. Sunil Misra,CSIR-IICT,198,0.02518,371,0.05557,9
+8,Murugan Veerapandian,CSIR-CECRI,69,0.00877,125,0.0465,6
+9,Dr. Kumar Vanka,CSIR-NCL,195,0.0248,663,0.04549,5
+10,Dr. Dhiman Sarkar,CSIR-NCL,95,0.01208,218,0.04086,21

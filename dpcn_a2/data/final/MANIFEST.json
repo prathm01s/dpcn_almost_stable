@@ -22,13 +22,13 @@
   "files": {
     "group24_data.csv": {
       "path": "data/final/group24_data.csv",
-      "sha256": "14062d033a2a7dadf33b56e9be5fec8c2f498908681670389be398b8160022e9",
+      "sha256": "2613965ba22c80d7ce95d562136fb4c745f46abd382fa4e0415759cb9480ca0c",
       "rows": 42393,
       "columns": 14
     },
     "group24_data_extended.csv": {
       "path": "data/final/group24_data_extended.csv",
-      "sha256": "cc32d8dff28fe617547a15146674003632dffa0067cecfd8086754f32cbfeae6",
+      "sha256": "62366ad5d1b73fe406b0fa145e3c2569e91a8d5ab0249bf33ced553811d3637e",
       "rows": 42393,
       "columns": 35
     },
@@ -40,7 +40,7 @@
     },
     "authorship_network.csv": {
       "path": "data/final/authorship_network.csv",
-      "sha256": "5df28e91f42ba1d7c9eab734cc30ae663fce367ffd61cf9bb6496a1d10e96c66",
+      "sha256": "d300ce7fe03c982795881e06910e8d70887b8acd11ba04646b96021be88f9856",
       "rows": 108847,
       "columns": 6
     },
@@ -52,7 +52,8 @@
     },
     "faculty_master.csv": {
       "path": "data/final/faculty_master.csv",
-      "sha256": "406d5722e2168d629d22a028af295d086c140993f47f803988884068363e6d87"
+      "sha256": "4cc8fcf6b78b178fe8c60fab4c40b87502a85df0752676978ba072f21487807a",
+      "rows": 385
     },
     "citation_edges_raw.parquet": {
       "path": "data/final/citation_edges_raw.parquet",
@@ -70,10 +71,16 @@
     },
     "work_reference_counts.csv": {
       "path": "data/final/work_reference_counts.csv",
-      "sha256": "dca2b40ab8a5e5f357f20f91faeb682ab05336386f233264a69782d787f07f4a"
+      "sha256": "f25a34156158088f9ff0d1c6a8e5dea45caaa9eac89ce09f05d8afb2ef38a6f1"
     }
   },
   "indian_flag_rule": "Measured on citation_network.csv: in-corpus links plus links to/from DOI-bearing Indian-affiliated papers outside the corpus (Step 17, OpenAlex); no heuristic completion.",
   "indian_links_collected_at": "2026-10-20T10:11:15Z",
-  "indian_links_query": "OpenAlex /works filter cited_by:<100 ids>,authorships.countries:IN and cites:<100 ids>,authorships.countries:IN (core corpus)"
+  "indian_links_query": "OpenAlex /works filter cited_by:<100 ids>,authorships.countries:IN and cites:<100 ids>,authorships.countries:IN (core corpus)",
+  "roster_cleanup": {
+    "technical_staff_removed": 119,
+    "duplicates_removed": 1,
+    "wrong_matches_cleared": 3,
+    "author_names_cleaned": 282
+  }
 }

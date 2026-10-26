@@ -65,7 +65,7 @@ The extended dataset retains the identical row order and row count as `group24_d
 
 ## 3. Auxiliary Data Deliverables
 
-1. **`data/final/faculty_master.csv`**: Comprehensive directory of 505 scientific cadre scientists from official staff directories across NCL, IICT, and CECRI with in-corpus publication counts, citation totals, and career/corpus h-indices.
+1. **`data/final/faculty_master.csv`**: Comprehensive directory of 385 scientific cadre scientists from official staff directories across NCL, IICT, and CECRI with in-corpus publication counts, citation totals, and career/corpus h-indices.
 2. **`data/final/citation_edges_raw.parquet`**: 27,824 directed citation edges `(source_work_id -> target_work_id)` connecting corpus papers with citing/referenced works, partitioned and prepared for Task 4 network analysis.
 3. **`data/final/works_table.parquet`**: Deduplicated paper-level dataset (14,357 works) containing full topic hierarchies, biblio details, and open access status.
 4. **`config/indian_inst_registry.csv`**: 911 mapped Indian academic and research institutions with canonical display names, ROR IDs, state, city, and research sector classification (CSIR, IIT, IISc, NIT, Central Universities, etc.).

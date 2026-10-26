@@ -491,5 +491,5 @@
     }
   },
   "method_note": "Ke et al. (2015, PNAS) beauty coefficient B on yearly citations (OpenAlex counts_by_year, 2016\u20132025) of papers published 2016\u20132020 with \u226520 citations, a peak \u22653 years after publication and \u226510 citations in the peak year. Sustained = after the peak the paper keeps \u226550% of its peak yearly citations. The \u226410-year window only captures short sleeps.",
-  "computed_at": "2026-10-26T05:24:55.180966+00:00"
+  "computed_at": "2026-10-26T05:46:31.071524+00:00"
 }

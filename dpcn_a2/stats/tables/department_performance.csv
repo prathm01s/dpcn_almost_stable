@@ -9,21 +9,21 @@ CSIR-CECRI,CECRI MANDAPAM UNIT,4,2,6,48,8.0,3,50.0,2.0,Environmental Science
 CSIR-CECRI,ELECTROPLATING AND ELECTROMETALLURGY,4,3,6,91,15.17,1,16.67,1.33,Engineering
 CSIR-CECRI,CORROSION AND MATERIALS PROTECTION,6,2,4,77,19.25,0,0.0,1.5,Engineering
 CSIR-CECRI,DIRECTOR OFFICE,1,0,0,0,0.0,0,0.0,0.0,
-CSIR-IICT,Applied Biology,30,21,509,11106,21.82,285,55.99,10.05,Medicine
-CSIR-IICT,Polymers & Functional Materials,29,19,504,10676,21.18,342,67.86,9.05,Materials Science
-CSIR-IICT,Energy & Environmental Engg.,17,10,372,13573,36.49,298,80.11,12.0,Engineering
-CSIR-IICT,Organic Synthesis & Process Chemistry,31,21,355,4179,11.77,220,61.97,6.38,Chemistry
-CSIR-IICT,Analytical & Structural Chemistry,33,15,320,4059,12.68,159,49.69,5.8,Chemistry
-CSIR-IICT,Fluoro-Agrochemicals,29,19,303,3351,11.06,119,39.27,4.68,Chemistry
-CSIR-IICT,Natural Products & Medicinal Chemistry,18,14,297,4714,15.87,180,60.61,6.93,Chemistry
-CSIR-IICT,Catalysis & Fine Chemicals,20,12,287,7777,27.1,210,73.17,9.33,Energy
-CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),30,16,198,3277,16.55,121,61.11,6.12,Engineering
-CSIR-IICT,"Oils, Lipid Science & Technology",17,12,102,1253,12.28,26,25.49,4.33,Chemistry
-CSIR-IICT,Business Development & Research Management (BDRM),10,5,25,92,3.68,10,40.0,2.0,Chemistry
-CSIR-IICT,Knowledge and Information Management,13,2,5,35,7.0,2,40.0,1.0,Chemistry
-CSIR-IICT,Centre for I.T. Services,10,1,1,6,6.0,0,0.0,1.0,Environmental Science
+CSIR-IICT,Polymers & Functional Materials,19,15,498,10587,21.26,339,68.07,10.93,Materials Science
+CSIR-IICT,Applied Biology,19,16,477,10008,20.98,266,55.77,11.31,Medicine
+CSIR-IICT,Organic Synthesis & Process Chemistry,21,16,348,4081,11.73,218,62.64,8.0,Chemistry
+CSIR-IICT,Analytical & Structural Chemistry,14,11,314,4022,12.81,158,50.32,7.64,Chemistry
+CSIR-IICT,Natural Products & Medicinal Chemistry,15,13,286,4295,15.02,175,61.19,7.08,Chemistry
+CSIR-IICT,Fluoro-Agrochemicals,18,12,283,3185,11.25,110,38.87,6.25,Chemistry
+CSIR-IICT,Energy & Environmental Engg.,8,6,277,12439,44.91,237,85.56,14.33,Engineering
+CSIR-IICT,Catalysis & Fine Chemicals,12,8,250,7420,29.68,191,76.4,11.5,Energy
+CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),21,16,198,3277,16.55,121,61.11,6.12,Engineering
+CSIR-IICT,"Oils, Lipid Science & Technology",9,8,82,944,11.51,23,28.05,4.5,Chemistry
+CSIR-IICT,Business Development & Research Management (BDRM),7,5,25,92,3.68,10,40.0,2.0,Chemistry
+CSIR-IICT,Knowledge and Information Management,4,2,5,35,7.0,2,40.0,1.0,Chemistry
+CSIR-IICT,Centre for I.T. Services,1,1,1,6,6.0,0,0.0,1.0,Environmental Science
 CSIR-NCL,Physical and Materials Chemistry Division,27,26,1195,28179,23.58,873,73.05,13.31,Chemistry
-CSIR-NCL,Organic Chemistry Division,38,37,764,14145,18.51,450,58.9,8.46,Chemistry
+CSIR-NCL,Organic Chemistry Division,37,37,764,14145,18.51,450,58.9,8.46,Chemistry
 CSIR-NCL,Catalysis Division,16,13,516,11754,22.78,344,66.67,14.0,Chemistry
 CSIR-NCL,Polymer Science and Engineering Division,30,25,515,11543,22.41,349,67.77,9.24,Materials Science
 CSIR-NCL,Biochemical Science Division,18,17,420,11751,27.98,274,65.24,11.18,"Biochemistry, Genetics and Molecular Biology"
