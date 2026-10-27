@@ -57,9 +57,14 @@ def run_all() -> None:
     from src.stats.insights.s10_succession_risk import run as run_10
     run_10()
 
+    # 11. Information Diffusion & Epidemic Spreading
+    from src.stats.insights.s11_information_diffusion import run as run_11
+    run_11()
+
     logger.info("================================================================================")
-    logger.info("✓ Completed all 10 Insights analyses. Outputs saved in stats/tables/insights/")
+    logger.info("✓ Completed all 11 Insights analyses. Outputs saved in stats/tables/insights/")
     logger.info("================================================================================")
+
 
 
 if __name__ == "__main__":

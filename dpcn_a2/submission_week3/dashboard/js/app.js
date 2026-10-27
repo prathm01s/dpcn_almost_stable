@@ -1113,6 +1113,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "08_covid_shock",
       "09_brain_circulation",
       "10_succession_risk",
+      "11_information_diffusion",
     ];
 
     if (!insightsRendered) {
@@ -1122,6 +1123,85 @@ document.addEventListener("DOMContentLoaded", () => {
           headline: "Not computed",
           method_note: "",
         };
+
+        if (key === "11_information_diffusion") {
+          return `
+            <div class="card" id="card-insight-11" style="grid-column: 1 / -1; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.75rem; align-items: center; justify-content: space-between;">
+                  <div>
+                    <div class="card-title" style="font-size: 1.1rem; color: var(--primary-light); font-weight: 700;">
+                      #11: ${esc(item.question)}
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+                    <div class="inst-segmented" id="diff-field-selector">
+                      <button class="inst-btn active" data-field="Chemistry">Chemistry</button>
+                      <button class="inst-btn" data-field="Materials">Materials</button>
+                      <button class="inst-btn" data-field="Engineering">Engineering</button>
+                      <button class="inst-btn" data-field="Energy">Energy</button>
+                      <button class="inst-btn" data-field="Biochemistry">Biochemistry</button>
+                      <button class="inst-btn" data-field="Medicine">Medicine</button>
+                    </div>
+                    <div class="inst-segmented" id="diff-cond-selector">
+                      <button class="inst-btn active" data-cond="condition_a">Topic-Modulated (Full Net)</button>
+                      <button class="inst-btn" data-cond="condition_b">Domain Subgraph (Uniform)</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="diff-headline" style="font-size: 1.05rem; font-weight: 500; color: var(--text); line-height: 1.45; margin-bottom: 1.25rem;">
+                  ${formatHeadline(esc(item.headline))}
+                </div>
+
+                <div style="display: grid; grid-template-columns: minmax(320px, 1.4fr) minmax(280px, 1fr); gap: 1.5rem; align-items: start;">
+                  <div>
+                    <div id="chart-insight-11_information_diffusion" class="chart-container" style="height: 380px; width: 100%;"></div>
+                  </div>
+                  <div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+                      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.6rem 0.8rem;">
+                        <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Epidemic Threshold</div>
+                        <div id="diff-kpi-betac" style="font-size: 1.25rem; font-weight: 800; color: #2563eb;">βc = 0.032</div>
+                        <div id="diff-kpi-spectral" style="font-size: 0.75rem; color: #64748b;">Spectral: 0.0324 | &lt;k&gt; = 9.84</div>
+                      </div>
+                      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.6rem 0.8rem;">
+                        <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Adoption Speed (T50)</div>
+                        <div id="diff-kpi-t50" style="font-size: 1.25rem; font-weight: 800; color: #16a34a;">9.2 steps</div>
+                        <div id="diff-kpi-nodes" style="font-size: 0.75rem; color: #64748b;">LCC Nodes: 3,202</div>
+                      </div>
+                    </div>
+
+                    <div style="border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; background: white;">
+                      <div style="background: #f1f5f9; padding: 0.5rem 0.75rem; font-weight: 700; font-size: 0.825rem; color: #334155; display: flex; justify-content: space-between;">
+                        <span id="diff-table-title">Top 5 Super-Spreaders (Full Net)</span>
+                        <span style="font-size: 0.75rem; font-weight: 500; color: #64748b;">Adoption Traction</span>
+                      </div>
+                      <table class="net-table" style="font-size: 0.8rem;">
+                        <thead>
+                          <tr>
+                            <th style="padding: 0.4rem 0.6rem;">#</th>
+                            <th style="padding: 0.4rem 0.6rem;">Author</th>
+                            <th style="padding: 0.4rem 0.6rem;">Lab</th>
+                            <th style="padding: 0.4rem 0.6rem;">Field %</th>
+                            <th style="padding: 0.4rem 0.6rem;">Reach (t=3)</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tbody-diff-spreaders">
+                          <!-- Populated dynamically -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: 1rem; padding-top: 0.6rem; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; border-top: 1px solid var(--border);">
+                ${esc(item.method_note || "")}
+              </div>
+            </div>
+          `;
+        }
+
         return `
           <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
             <div>
@@ -1144,12 +1224,18 @@ document.addEventListener("DOMContentLoaded", () => {
       insightsRendered = true;
     }
 
+
     setTimeout(() => {
       insightOrder.forEach(key => {
         const item = insights[key];
         if (!item || !item.chart) return;
         const el = document.getElementById(`chart-insight-${key}`);
         if (!el) return;
+
+        if (key === "11_information_diffusion") {
+          initDiffusionCard(item);
+          return;
+        }
 
         if (!insightCharts[key]) {
           insightCharts[key] = echarts.init(el);
@@ -1255,6 +1341,183 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, 60);
   }
+
+  let currentDiffField = "Chemistry";
+  let currentDiffCond = "condition_a";
+
+  function initDiffusionCard(item) {
+    const el = document.getElementById("chart-insight-11_information_diffusion");
+    if (!el || !item || !item.fields_data) return;
+
+    if (!insightCharts["11_information_diffusion"]) {
+      insightCharts["11_information_diffusion"] = echarts.init(el);
+    }
+
+    function updateDiffusionView() {
+      const fData = item.fields_data[currentDiffField];
+      if (!fData) return;
+      const condData = fData[currentDiffCond];
+      if (!condData) return;
+
+      const hlEl = document.getElementById("diff-headline");
+      if (hlEl) {
+        if (currentDiffCond === "condition_a") {
+          const finalReach = condData.adoption_curve[condData.adoption_curve.length - 1];
+          const finalSpill = condData.spillover_curve[condData.spillover_curve.length - 1];
+          if (finalReach >= 50.0) {
+            hlEl.innerHTML = formatHeadline(
+              `In <strong>${esc(fData.field)}</strong>, topic-modulated diffusion achieves majority community adoption (reaching <strong>${finalReach}%</strong> of the field) with near-zero cross-disciplinary spillover (<strong>${finalSpill}%</strong> into other fields). Theoretical epidemic threshold is βc = <strong>${fData.thresholds.beta_c}</strong>.`
+            );
+          } else {
+            hlEl.innerHTML = formatHeadline(
+              `In <strong>${esc(fData.field)}</strong>, cognitive boundaries restrict topic-modulated diffusion to specialized research clusters (reaching <strong>${finalReach}%</strong> of the field) with near-zero cross-disciplinary spillover (<strong>${finalSpill}%</strong> into other fields). Theoretical epidemic threshold is βc = <strong>${fData.thresholds.beta_c}</strong>.`
+            );
+          }
+        } else {
+          hlEl.innerHTML = formatHeadline(
+            `In the isolated <strong>${esc(fData.field)}</strong> domain subgraph (${fData.subgraph_lcc_size.toLocaleString()} nodes), uniform transmission reaches 50% adoption in <strong>${condData.mean_t50}</strong> steps. Theoretical epidemic threshold is βc = <strong>${fData.thresholds.beta_c}</strong>.`
+          );
+        }
+      }
+
+      const kpiBetaEl = document.getElementById("diff-kpi-betac");
+      const kpiSpecEl = document.getElementById("diff-kpi-spectral");
+      const kpiT50El = document.getElementById("diff-kpi-t50");
+      const kpiNodesEl = document.getElementById("diff-kpi-nodes");
+
+      if (kpiBetaEl) kpiBetaEl.textContent = `βc = ${fData.thresholds.beta_c}`;
+      if (kpiSpecEl) kpiSpecEl.innerHTML = `Spectral: <strong>${fData.thresholds.beta_c_spec}</strong> | &lt;k&gt; = <strong>${fData.thresholds.k_mean}</strong>`;
+      if (kpiT50El) {
+        if (currentDiffCond === "condition_a") {
+          const finalReach = condData.adoption_curve[condData.adoption_curve.length - 1];
+          kpiT50El.textContent = condData.mean_t50 < 15.0 ? `T50 = ${condData.mean_t50} steps` : `Reach = ${finalReach}% (T50 > 15)`;
+        } else {
+          kpiT50El.textContent = `T50 = ${condData.mean_t50} steps`;
+        }
+      }
+      if (kpiNodesEl) kpiNodesEl.textContent = `LCC Nodes: ${fData.subgraph_lcc_size.toLocaleString()} (${fData.subgraph_edges.toLocaleString()} edges)`;
+
+      const tbodyEl = document.getElementById("tbody-diff-spreaders");
+      const tableTitleEl = document.getElementById("diff-table-title");
+      if (tableTitleEl) {
+        tableTitleEl.textContent = currentDiffCond === "condition_a"
+          ? `Top 5 Super-Spreaders (Full Net)`
+          : `Top 5 Super-Spreaders (Domain Subgraph)`;
+      }
+
+      if (tbodyEl && condData.top_super_spreaders) {
+        tbodyEl.innerHTML = condData.top_super_spreaders.map((sp, idx) => {
+          const labColor = sp.lab === "CSIR-IICT" ? "#2b5c8f" : sp.lab === "CSIR-NCL" ? "#2e7d32" : "#d95f02";
+          return `
+            <tr>
+              <td style="font-weight:700; color:#64748b; padding:0.4rem 0.6rem;">${idx + 1}</td>
+              <td style="font-weight:600; color:#1e293b; padding:0.4rem 0.6rem; max-width:140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${esc(sp.name)}">
+                ${esc(sp.name)}
+              </td>
+              <td style="padding:0.4rem 0.6rem;">
+                <span class="net-badge-lab" style="background:${labColor}; font-size:0.7rem; padding:0.15rem 0.4rem;">${esc(sp.lab)}</span>
+              </td>
+              <td style="font-weight:600; color:#475569; padding:0.4rem 0.6rem;">${sp.field_share}%</td>
+              <td style="font-weight:700; color:#2563eb; padding:0.4rem 0.6rem;">${(sp.reach_t3 * 100).toFixed(1)}%</td>
+            </tr>
+          `;
+        }).join("");
+      }
+
+      const ch = insightCharts["11_information_diffusion"];
+      const chartSteps = Array.from({ length: 16 }, (_, i) => String(i));
+      let series = [];
+      let legendData = [];
+
+      if (currentDiffCond === "condition_a") {
+        legendData = ["In-Field Adoption", "Cross-Field Spillover", "50% Adoption Line"];
+        series = [
+          {
+            name: "In-Field Adoption",
+            type: "line",
+            data: fData.condition_a.adoption_curve,
+            smooth: true,
+            itemStyle: { color: "#2563eb" },
+            lineStyle: { width: 3 },
+          },
+          {
+            name: "Cross-Field Spillover",
+            type: "line",
+            data: fData.condition_a.spillover_curve,
+            smooth: true,
+            itemStyle: { color: "#f59e0b" },
+            lineStyle: { width: 2.5, type: "dotted" },
+          },
+          {
+            name: "50% Adoption Line",
+            type: "line",
+            data: Array(chartSteps.length).fill(50),
+            itemStyle: { color: "#dc2626" },
+            lineStyle: { width: 1.5, type: "dashed" },
+          },
+        ];
+      } else {
+        legendData = ["Domain Subgraph Adoption", "50% Adoption Line"];
+        series = [
+          {
+            name: "Domain Subgraph Adoption",
+            type: "line",
+            data: fData.condition_b.adoption_curve,
+            smooth: true,
+            itemStyle: { color: "#16a34a" },
+            lineStyle: { width: 3 },
+          },
+          {
+            name: "50% Adoption Line",
+            type: "line",
+            data: Array(chartSteps.length).fill(50),
+            itemStyle: { color: "#dc2626" },
+            lineStyle: { width: 1.5, type: "dashed" },
+          },
+        ];
+      }
+
+      ch.setOption({
+        tooltip: {
+          trigger: "axis",
+          formatter: p => {
+            let s = `<strong>Step ${p[0].axisValue}</strong><br/>`;
+            p.forEach(x => { s += `${x.marker} ${x.seriesName}: <strong>${x.value.toFixed(1)}%</strong><br/>`; });
+            return s;
+          },
+        },
+        legend: { data: legendData, top: "bottom", textStyle: { fontSize: 11, color: "#475569" } },
+        xAxis: { type: "category", name: "Diffusion Step (t)", data: chartSteps, nameLocation: "middle", nameGap: 28, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+        yAxis: { type: "value", name: "% Adoption I(t)", min: 0, max: 100, nameLocation: "middle", nameGap: 48, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
+        series: series,
+        grid: { left: 65, right: 25, top: 20, bottom: 65 },
+      }, true);
+      ch.resize();
+    }
+
+    const fBtns = document.querySelectorAll("#diff-field-selector button");
+    fBtns.forEach(btn => {
+      btn.onclick = () => {
+        fBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentDiffField = btn.getAttribute("data-field");
+        updateDiffusionView();
+      };
+    });
+
+    const cBtns = document.querySelectorAll("#diff-cond-selector button");
+    cBtns.forEach(btn => {
+      btn.onclick = () => {
+        cBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentDiffCond = btn.getAttribute("data-cond");
+        updateDiffusionView();
+      };
+    });
+
+    updateDiffusionView();
+  }
+
 
   // Window resize handler
   window.addEventListener("resize", () => {
