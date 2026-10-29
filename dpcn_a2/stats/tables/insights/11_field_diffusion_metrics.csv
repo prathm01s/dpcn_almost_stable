@@ -1,0 +1,7 @@
+field,short_label,active_researchers,subgraph_lcc_nodes,subgraph_edges,mean_degree,beta_c_theoretical,beta_c_spectral,cond_a_infield_t50,cond_a_final_reach_pct,cond_a_spillover_pct,cond_b_t50_steps
+Chemistry,Chemistry,3206,3202,15746,9.84,0.032,0.0324,8.68,76.48,2.55,5.81
+Materials Science,Materials,2093,2075,9452,9.11,0.0478,0.0418,15.0,24.67,1.29,6.57
+Engineering,Engineering,2079,2065,8650,8.38,0.0552,0.0458,15.0,23.24,0.65,7.54
+Energy,Energy,1060,1048,4717,9.0,0.0497,0.0476,13.42,54.98,1.03,6.33
+"Biochemistry, Genetics and Molecular Biology",Biochemistry,1418,1395,6919,9.92,0.044,0.0384,14.99,32.09,1.24,6.15
+Medicine,Medicine,970,952,5028,10.56,0.0439,0.039,15.0,26.24,1.2,5.56

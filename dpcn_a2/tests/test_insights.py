@@ -26,6 +26,7 @@ INSIGHT_IDS = [
     "08_covid_shock",
     "09_brain_circulation",
     "10_succession_risk",
+    "11_information_diffusion",
 ]
 
 REQUIRED_KEYS = {
@@ -159,3 +160,72 @@ def test_sleeping_beauty_ignores_partial_year_and_tiny_peaks():
     # A big 2026 (partial-year) value must not become the peak
     res = compute_sleeping_beauty(2016, {2016: 5, 2017: 6, 2018: 8, 2019: 9, 2020: 12, 2021: 14, 2026: 90})
     assert res == {} or res["peak_year"] <= 2025
+
+
+def test_information_diffusion_specifics():
+    """Verify Insight 11 structure, epidemic threshold properties, and CSV exports."""
+    json_path = INSIGHTS_DIR / "11_information_diffusion.json"
+    assert json_path.exists(), "11_information_diffusion.json must exist"
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    # Check top-level keys
+    assert "fields_data" in data
+    assert "metrics" in data
+
+    metrics = data["metrics"]
+    assert "global_beta_c_theoretical" in metrics
+    assert "global_beta_c_spectral" in metrics
+    assert metrics["global_beta_c_theoretical"] > 0
+    assert metrics["global_beta_c_spectral"] > 0
+    # Theoretical epidemic threshold around 0.032 for global LCC
+    assert abs(metrics["global_beta_c_theoretical"] - 0.032) < 0.005
+
+    # Check that all 6 fields are present in fields_data
+    expected_fields = [
+        "Chemistry",
+        "Materials",
+        "Engineering",
+        "Energy",
+        "Biochemistry",
+        "Medicine",
+    ]
+    for field in expected_fields:
+        assert field in data["fields_data"], f"Missing field in fields_data: {field}"
+        fdata = data["fields_data"][field]
+        assert "condition_a" in fdata
+        assert "condition_b" in fdata
+        assert "thresholds" in fdata
+
+        # Thresholds
+        t = fdata["thresholds"]
+        assert t["beta_c"] > 0
+        assert t["beta_c_spec"] > 0
+
+        # Condition A assertions
+        ca = fdata["condition_a"]
+        assert len(ca["adoption_curve"]) == 16  # t=0..15
+        assert len(ca["spillover_curve"]) == 16
+        assert len(ca["top_super_spreaders"]) > 0
+
+        # Condition B assertions
+        cb = fdata["condition_b"]
+        assert len(cb["adoption_curve"]) == 16
+        assert len(cb["top_super_spreaders"]) > 0
+
+    # Check CSV exports
+    metrics_csv = INSIGHTS_DIR / "11_field_diffusion_metrics.csv"
+    assert metrics_csv.exists()
+    df_metrics = pd.read_csv(metrics_csv)
+    assert len(df_metrics) == 6
+    assert "beta_c_theoretical" in df_metrics.columns
+    assert "cond_a_infield_t50" in df_metrics.columns
+    assert "cond_b_t50_steps" in df_metrics.columns
+
+    spreaders_csv = INSIGHTS_DIR / "11_super_spreaders_blockers.csv"
+    assert spreaders_csv.exists()
+    df_spreaders = pd.read_csv(spreaders_csv)
+    assert len(df_spreaders) >= 50
+    assert {"field", "condition", "role", "rank", "author", "lab"}.issubset(df_spreaders.columns)
+
+

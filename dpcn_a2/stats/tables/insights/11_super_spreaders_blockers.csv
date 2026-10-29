@@ -1,0 +1,61 @@
+field,condition,role,rank,author,lab,degree,field_share_pct,t50_steps,reach_t3_pct,final_reach_pct
+Chemistry,Topic-Modulated (Full Net),Super-Spreader,1,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,285,89.1,7.32,12.25,78.92
+Chemistry,Topic-Modulated (Full Net),Super-Spreader,2,Dr. Sunil Misra,CSIR-IICT,198,48.1,7.72,7.93,77.93
+Chemistry,Topic-Modulated (Full Net),Super-Spreader,3,Dr. B.V. Subba Reddy,CSIR-IICT,196,84.1,8.04,7.94,77.02
+Chemistry,Topic-Modulated (Full Net),Super-Spreader,4,Dr. Kumar Vanka,CSIR-NCL,195,74.9,8.08,6.39,78.2
+Chemistry,Topic-Modulated (Full Net),Super-Spreader,5,Dr. S. Nishant Jain,CSIR-IICT,126,43.4,8.16,6.0,77.09
+Chemistry,Domain Subgraph,Super-Spreader,1,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,260,89.1,4.84,25.58,99.12
+Chemistry,Domain Subgraph,Super-Spreader,2,Dr. Sunil Misra,CSIR-IICT,155,48.1,4.96,20.66,98.99
+Chemistry,Domain Subgraph,Super-Spreader,3,Dr. B.V. Subba Reddy,CSIR-IICT,175,84.1,5.28,13.99,98.86
+Chemistry,Domain Subgraph,Super-Spreader,4,Dr. S. Nishant Jain,CSIR-IICT,93,43.4,5.52,13.64,98.83
+Chemistry,Domain Subgraph,Super-Spreader,5,Dr. Dhiman Sarkar,CSIR-NCL,63,61.0,5.56,8.8,98.92
+Materials Science,Topic-Modulated (Full Net),Super-Spreader,1,Dr. Ramanuj Narayan,CSIR-IICT,81,64.9,15.0,1.27,22.37
+Materials Science,Topic-Modulated (Full Net),Super-Spreader,2,Dr. Arun Torris,CSIR-NCL,139,31.2,15.0,1.17,31.84
+Materials Science,Topic-Modulated (Full Net),Super-Spreader,3,Dr. Chittaranjan Patra,CSIR-IICT,83,48.7,15.0,1.06,21.35
+Materials Science,Topic-Modulated (Full Net),Super-Spreader,4,Dr. Sunil Misra,CSIR-IICT,198,21.5,15.0,0.97,25.47
+Materials Science,Topic-Modulated (Full Net),Super-Spreader,5,Dr. Sreekumar Kurungot,CSIR-NCL,154,18.1,15.0,0.97,31.76
+Materials Science,Domain Subgraph,Super-Spreader,1,Dr. Sreekumar Kurungot,CSIR-NCL,95,18.1,6.0,12.96,98.66
+Materials Science,Domain Subgraph,Super-Spreader,2,Dr. Arun Torris,CSIR-NCL,98,31.2,6.04,12.7,98.65
+Materials Science,Domain Subgraph,Super-Spreader,3,Dr. Sailaja Krishnamurty,CSIR-CECRI,72,23.2,6.04,10.55,98.61
+Materials Science,Domain Subgraph,Super-Spreader,4,Dr. Kumar Vanka,CSIR-NCL,109,13.1,6.12,13.04,98.62
+Materials Science,Domain Subgraph,Super-Spreader,5,Dr. Rajesh G. Gonnade,CSIR-NCL,108,10.0,6.2,12.59,98.61
+Engineering,Topic-Modulated (Full Net),Super-Spreader,1,Dr. Arun Torris,CSIR-NCL,139,32.5,15.0,1.5,40.46
+Engineering,Topic-Modulated (Full Net),Super-Spreader,2,Dr Subbiah Alwarappan,CSIR-CECRI,57,42.3,15.0,1.27,32.05
+Engineering,Topic-Modulated (Full Net),Super-Spreader,3,Dr. K. Krishnamoorthy,CSIR-NCL,81,40.0,15.0,1.1,28.99
+Engineering,Topic-Modulated (Full Net),Super-Spreader,4,Dr. Sreekumar Kurungot,CSIR-NCL,154,28.6,15.0,1.07,37.84
+Engineering,Topic-Modulated (Full Net),Super-Spreader,5,Dr. Surya Prakash Singh,CSIR-IICT,89,49.7,15.0,1.06,32.75
+Engineering,Domain Subgraph,Super-Spreader,1,Dr. Sreekumar Kurungot,CSIR-NCL,94,28.6,6.6,10.07,98.19
+Engineering,Domain Subgraph,Super-Spreader,2,Dr. Arun Torris,CSIR-NCL,90,32.5,6.72,9.72,98.03
+Engineering,Domain Subgraph,Super-Spreader,3,Dr. K. Krishnamoorthy,CSIR-NCL,66,40.0,7.0,7.78,97.96
+Engineering,Domain Subgraph,Super-Spreader,4,Dr. S. Venkata Mohan,CSIR-IICT,61,30.0,7.04,5.24,97.65
+Engineering,Domain Subgraph,Super-Spreader,5,Dr. Manjusha V. Shelke,CSIR-NCL,56,55.2,7.12,5.58,97.76
+Energy,Topic-Modulated (Full Net),Super-Spreader,1,Dr Subrata Kundu,CSIR-CECRI,137,73.1,11.16,9.09,65.17
+Energy,Topic-Modulated (Full Net),Super-Spreader,2,Dr. Ujjwal Pal,CSIR-IICT,85,79.1,12.16,5.14,62.6
+Energy,Topic-Modulated (Full Net),Super-Spreader,3,Dr. Vinod C Prabhakaran,CSIR-NCL,105,32.9,12.24,3.35,60.17
+Energy,Topic-Modulated (Full Net),Super-Spreader,4,Dr P Murugan,CSIR-CECRI,85,36.5,12.28,4.35,61.86
+Energy,Topic-Modulated (Full Net),Super-Spreader,5,Dr. Sreekumar Kurungot,CSIR-NCL,154,43.4,12.6,3.86,60.88
+Energy,Domain Subgraph,Super-Spreader,1,Dr Subrata Kundu,CSIR-CECRI,124,73.1,5.04,21.85,99.0
+Energy,Domain Subgraph,Super-Spreader,2,Dr. Vinod C Prabhakaran,CSIR-NCL,41,32.9,5.68,13.44,99.03
+Energy,Domain Subgraph,Super-Spreader,3,Dr. Sailaja Krishnamurty,CSIR-CECRI,69,25.9,5.8,12.73,98.97
+Energy,Domain Subgraph,Super-Spreader,4,Dr P Murugan,CSIR-CECRI,60,36.5,5.84,14.07,98.76
+Energy,Domain Subgraph,Super-Spreader,5,Dr. Sreekumar Kurungot,CSIR-NCL,90,43.4,5.84,13.51,98.82
+"Biochemistry, Genetics and Molecular Biology",Topic-Modulated (Full Net),Super-Spreader,1,Dr. Sunil Misra,CSIR-IICT,198,13.9,14.92,0.8,40.19
+"Biochemistry, Genetics and Molecular Biology",Topic-Modulated (Full Net),Super-Spreader,2,Dr. Kiran A. Kulkarni,CSIR-NCL,46,62.5,14.96,1.66,29.72
+"Biochemistry, Genetics and Molecular Biology",Topic-Modulated (Full Net),Super-Spreader,3,Dr. Surender Singh Jadav,CSIR-IICT,110,26.3,14.96,1.3,43.2
+"Biochemistry, Genetics and Molecular Biology",Topic-Modulated (Full Net),Super-Spreader,4,Dr. D. Srinivasa Reddy,CSIR-NCL,97,24.4,14.96,0.9,32.89
+"Biochemistry, Genetics and Molecular Biology",Topic-Modulated (Full Net),Super-Spreader,5,Dr. Ashok Giri,CSIR-NCL,108,49.0,15.0,2.94,31.14
+"Biochemistry, Genetics and Molecular Biology",Domain Subgraph,Super-Spreader,1,Dr. Sunil Misra,CSIR-IICT,84,13.9,5.16,21.6,98.43
+"Biochemistry, Genetics and Molecular Biology",Domain Subgraph,Super-Spreader,2,Dr. Surender Singh Jadav,CSIR-IICT,71,26.3,5.24,19.09,98.41
+"Biochemistry, Genetics and Molecular Biology",Domain Subgraph,Super-Spreader,3,Dr. D. Srinivasa Reddy,CSIR-NCL,56,24.4,5.4,12.57,98.43
+"Biochemistry, Genetics and Molecular Biology",Domain Subgraph,Super-Spreader,4,Dr. S. Nishant Jain,CSIR-IICT,82,34.0,5.44,17.84,98.44
+"Biochemistry, Genetics and Molecular Biology",Domain Subgraph,Super-Spreader,5,Dr. Ramesh Ummanni,CSIR-IICT,58,31.7,5.56,16.57,98.37
+Medicine,Topic-Modulated (Full Net),Super-Spreader,1,Dr. Andugulapati Sai Balagi,CSIR-IICT,151,48.2,15.0,2.14,39.49
+Medicine,Topic-Modulated (Full Net),Super-Spreader,2,Dr. Surender Singh Jadav,CSIR-IICT,110,21.1,15.0,1.62,39.36
+Medicine,Topic-Modulated (Full Net),Super-Spreader,3,Dr. Ramesh Ummanni,CSIR-IICT,86,41.5,15.0,1.45,35.13
+Medicine,Topic-Modulated (Full Net),Super-Spreader,4,Dr. Amitava Das,CSIR-IICT,70,48.4,15.0,1.23,19.63
+Medicine,Topic-Modulated (Full Net),Super-Spreader,5,Dr. Subashchandrabose Chinnathambi,CSIR-NCL,23,87.7,15.0,1.15,6.18
+Medicine,Domain Subgraph,Super-Spreader,1,Dr. Sunil Misra,CSIR-IICT,91,12.7,4.56,29.15,97.88
+Medicine,Domain Subgraph,Super-Spreader,2,Dr. Andugulapati Sai Balagi,CSIR-IICT,96,48.2,4.68,27.75,97.99
+Medicine,Domain Subgraph,Super-Spreader,3,Dr. Ramesh Ummanni,CSIR-IICT,50,41.5,4.92,21.32,97.72
+Medicine,Domain Subgraph,Super-Spreader,4,Dr. Surender Singh Jadav,CSIR-IICT,78,21.1,4.96,24.53,97.89
+Medicine,Domain Subgraph,Super-Spreader,5,Dr. D. Srinivasa Reddy,CSIR-NCL,48,24.4,5.0,16.65,97.95

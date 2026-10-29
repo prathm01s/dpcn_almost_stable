@@ -120,8 +120,9 @@ All 10 analyses conform strictly to the following common JSON contract schema:
 8. `08_covid_shock.json`: Observed vs counterfactual output trajectories, topic shifts, and COVID synthesis shares.
 9. `09_brain_circulation.json`: Impact comparisons (citations, foreign co-authors) of returnee vs home-grown faculty.
 10. `10_succession_risk.json`: Senior-led research exposure shares across scientific divisions.
+11. `11_information_diffusion.json`: Susceptible-Infected (SI) epidemic spreading simulation of novel methodologies and reagents across 6 disciplinary fields, comparing topic-modulated transmission vs domain-restricted subgraphs, with super-spreaders and blockers.
 
-### 4.3 Validation Deliverable
+### 4.3 Validation & Spreading Model Deliverables
 - `stats/tables/insights/09_validation_sample.csv`: Stratified validation sample of 30 scientists across the 3 labs:
   - `name`: Scientist full name from official directory.
   - `lab`: Assigned CSIR institute (`CSIR-NCL`, `CSIR-IICT`, `CSIR-CECRI`).
@@ -130,4 +131,24 @@ All 10 analyses conform strictly to the following common JSON contract schema:
   - `host_country`: Inferred primary foreign host country during postdoctoral spell.
   - `profile_url`: OpenAlex author profile link for manual verification.
   - `true_class`, `notes`: Blank fields reserved for independent human evaluator audit.
+- `stats/tables/insights/11_field_diffusion_metrics.csv`: Comparative epidemic threshold and diffusion metrics across fields:
+  - `field`, `short_label`: Disciplinary field name and UI button label.
+  - `active_researchers`: Authors in cluster with $\ge 1$ paper in field.
+  - `subgraph_lcc_nodes`, `subgraph_edges`: Topology size of induced giant component.
+  - `mean_degree`: Average degree $\langle k \rangle$ within the domain subgraph.
+  - `beta_c_theoretical`: Degree-moment epidemic threshold $\beta_c = \frac{\langle k \rangle}{\langle k^2 \rangle}$.
+  - `beta_c_spectral`: Adjacency spectral threshold $\frac{1}{\lambda_{\max}(A)}$.
+  - `cond_a_infield_t50`, `cond_a_final_reach_pct`: In-field diffusion speed and reach under topic-modulated transmission.
+  - `cond_a_spillover_pct`: Cross-disciplinary leakage percentage into researchers outside the domain.
+  - `cond_b_t50_steps`: Steps to reach 50% adoption under domain subgraph uniform transmission.
+- `stats/tables/insights/11_super_spreaders_blockers.csv`: Seed rankings for spreading efficiency:
+  - `field`: Target disciplinary field.
+  - `condition`: Simulation mode (`Topic-Modulated (Full Net)` or `Domain Subgraph`).
+  - `role`: `Super-Spreader` or `Super-Blocker`.
+  - `rank`: Top rank (1 to 5).
+  - `author`, `lab`, `degree`, `field_share_pct`: Author identity, institutional affiliation, network degree, and disciplinary focus share.
+  - `t50_steps`: Time to reach 50% adoption when starting from this author.
+  - `reach_t3_pct`: Early adoption traction (% reached by step $t=3$).
+  - `final_reach_pct`: Asymptotic adoption reach (% reached by step $t=15$).
+
 

@@ -256,8 +256,30 @@ def run_tests():
                 card_count = client.evaluate("document.querySelectorAll('#insights-grid .card').length")
                 chart_canvas = client.evaluate("document.querySelectorAll('#insights-grid canvas, #insights-grid svg').length")
                 print(f"✓ Insights Tab: {card_count} finding cards, {chart_canvas} ECharts canvas elements rendered")
-                assert card_count == 10
-                assert chart_canvas >= 10
+                assert card_count == 11
+                assert chart_canvas >= 11
+                # Test Card 11 interactive buttons
+                diff_table_rows = client.evaluate("document.querySelectorAll('#tbody-diff-spreaders tr').length")
+                assert diff_table_rows > 0, "Card 11 table rows should be populated"
+                # Switch to Materials and Condition A first
+                client.evaluate("document.querySelector('#diff-field-selector button[data-field=\"Materials\"]').click()")
+                time.sleep(0.3)
+                client.evaluate("document.querySelector('#diff-cond-selector button[data-cond=\"condition_a\"]').click()")
+                time.sleep(0.3)
+                client.evaluate("document.getElementById('card-insight-11').scrollIntoView()")
+                time.sleep(0.5)
+                client.capture_screenshot("dashboard/screenshots/11_card11_diffusion_cond_a_materials.png")
+                print("  ✓ Captured: 11_card11_diffusion_cond_a_materials.png")
+
+                # Switch to Condition B
+                client.evaluate("document.querySelector('#diff-cond-selector button[data-cond=\"condition_b\"]').click()")
+                time.sleep(0.3)
+                mat_rows = client.evaluate("document.querySelectorAll('#tbody-diff-spreaders tr').length")
+                print(f"  ✓ Card 11 interactive toggle: Materials (Condition B) rendered {mat_rows} spreader rows")
+                assert mat_rows > 0
+                client.capture_screenshot("dashboard/screenshots/11_card11_diffusion.png")
+                print("  ✓ Captured: 11_card11_diffusion.png")
+
             elif tab_id == "docs":
                 download_links = client.evaluate("document.querySelectorAll('#tab-docs a[download]').length")
                 print(f"✓ Docs Tab: {download_links} downloadable deliverable links")
