@@ -36,7 +36,7 @@ Every insight adheres strictly to the required contract: **one direct question**
 
 ### 3.1 Source Data Assets
 - `data/final/group24_data_extended.csv`: 42,393 author-paper rows covering 14,352 distinct peer-reviewed works (2016–2026).
-- `data/final/faculty_master.csv`: 385 scientific cadre staff across CSIR-NCL, CSIR-IICT, and CSIR-CECRI (after the D-20 roster cleanup).
+- `data/final/faculty_master.csv`: 385 scientific cadre staff across CSIR-NCL, CSIR-IICT, and CSIR-CECRI (after the D-25 roster cleanup).
 - `data/final/citation_network.csv` & `authorship_network.csv`: Resolved within-cluster and Indian network edges.
 - `data/cache/openalex/counts_by_year.json`: Cached yearly citation histories for 3,614 eligible papers (2016–2020 with $\ge 20$ citations) from OpenAlex.
 - `data/cache/openalex/careers/*.json`: Cached full career publication histories of the matched faculty (OpenAlex works by author ID).
@@ -108,7 +108,7 @@ python3 scripts/package_submissions.py
 
 ## 7. Review fixes (26 Oct 2026)
 
-A review of the insights code found and fixed these issues (details in `docs/DECISIONS.md` D-19):
+A review of the insights code found and fixed these issues (details in `docs/DECISIONS.md` D-24):
 - **Report length**: the report had 11 slides and the ≤10 test had been relaxed to ≤15. Slide 1 now merges the title with data & method, the findings table is slide 10 at ≥10 pt, and the test is back to ≤10.
 - **Invented fallbacks removed**: host countries "US/Germany", random-removal "3280", rich-club default 1.0, and "N/A" in headlines.
 - **Career fetch** (`src/collect/fetch_author_careers.py`) now uses the project's OpenAlex client (API key, cache, retries, cursor paging, no 1,000-work cap); errors stop the run instead of caching partial careers. Foreign co-author flags come from Step 18 (cached data), and papers without data are excluded instead of counted as "no".
@@ -118,4 +118,4 @@ A review of the insights code found and fixed these issues (details in `docs/DEC
 - **Dashboard**: year-axis line charts (Insights 7, 8) now plot; axis titles no longer clipped; legends on one line; Sankey shows classifiable scientists only.
 
 Pending: fill `true_class` in `stats/tables/insights/09_validation_sample.csv` (30 scientists) to report classification accuracy.
-Roster issues seen during the review were fixed afterwards by Step 19 (D-20): 119 IICT technical-staff entries removed from the faculty roster, Dr. D. Srinivasa Reddy kept once (IICT), and three wrong OpenAlex matches cleared. Faculty with papers: 347 → 306.
+Roster issues seen during the review were fixed afterwards by Step 19 (D-25): 119 IICT technical-staff entries removed from the faculty roster, Dr. D. Srinivasa Reddy kept once (IICT), and three wrong OpenAlex matches cleared. Faculty with papers: 347 → 306.

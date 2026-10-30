@@ -1525,6 +1525,6 @@
       ]
     }
   },
-  "method_note": "Susceptible-Infected (SI) Monte Carlo simulation across 6 core fields (>1,000 active researchers). Evaluates epidemic threshold \u03b2c = <k>/<k^2> and spectral threshold 1/\u03bb_max. Condition A weights edge transmission by subfield cosine similarity and receiver field share; Condition B restricts diffusion to the induced field subgraph. Evaluated across cadre faculty seeds with M=50 trials.",
+  "method_note": "Susceptible-Infected (SI) Monte Carlo simulation across the 6 largest fields (970\u20133,206 active researchers). Evaluates epidemic threshold \u03b2c = <k>/<k^2> and spectral threshold 1/\u03bb_max. Condition A weights edge transmission by subfield cosine similarity and receiver field share; Condition B restricts diffusion to the induced field subgraph. Evaluated across cadre faculty seeds with M=50 trials.",
   "computed_at": "2026-10-26T23:46:06.540433+00:00"
 }

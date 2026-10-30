@@ -538,7 +538,7 @@ def run() -> dict:
         "fields_data": results_by_field,
         "chart": chart_payload,
         "method_note": (
-            "Susceptible-Infected (SI) Monte Carlo simulation across 6 core fields (>1,000 active researchers). "
+            "Susceptible-Infected (SI) Monte Carlo simulation across the 6 largest fields (970–3,206 active researchers). "
             "Evaluates epidemic threshold βc = <k>/<k^2> and spectral threshold 1/λ_max. "
             "Condition A weights edge transmission by subfield cosine similarity and receiver field share; "
             "Condition B restricts diffusion to the induced field subgraph. Evaluated across cadre faculty seeds with M=50 trials."

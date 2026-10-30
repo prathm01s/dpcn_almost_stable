@@ -20,7 +20,7 @@ Parent Body: **Council of Scientific & Industrial Research (CSIR)** — ROR `021
 - **14,352 Distinct Peer-Reviewed Publications** (filtered for original research & reviews; non-peer-reviewed errata/editorials excluded).
 - **42,393 Attributed Authorship Records** (paper × assigned-institute author).
 - **63.3% Global Q1 Journal Share** (SCImago SJR 1999–2025 historical panel).
-- **385 Scientific Cadre Faculty** on the official institute rosters (505 scraped; 119 IICT technical-staff entries and 1 duplicate removed, D-20); 306 have papers in 2016–2026.
+- **385 Scientific Cadre Faculty** on the official institute rosters (505 scraped; 119 IICT technical-staff entries and 1 duplicate removed, D-25); 306 have papers in 2016–2026.
 - **192,994 Directed Citation Edges** in `citation_network.csv`: 27,754 within the corpus + 165,240 with Indian-affiliated papers outside it (D-16, D-17).
 - **Zero Data Fabrication**: 100% of publications, citations, and DOIs originate from verified OpenAlex and Crossref records.
 

@@ -1,6 +1,6 @@
 # DECISIONS.md — Group 24 Architectural and Methodological Decisions
 
-All architectural, methodological, and data harmonization decisions made during the project are documented here with dates and rationales.
+All architectural, methodological, and data harmonization decisions made during the project are documented here with dates and rationales. Entries are kept in the order they were made; when a later entry changes an earlier decision, the earlier entry carries a **Status** line pointing to it.
 
 ---
 
@@ -15,6 +15,7 @@ All architectural, methodological, and data harmonization decisions made during 
 ### D-03 (2026-10-13): Journal Quartile Source and Policy
 - **Decision**: SCImago Journal Rank (SJR) best quartile for the paper's publication year is used. For 2026 publications (as SJR updates in June of the following year), the latest available SJR year (2025) is used and flagged. Matching priority is normalized ISSN (without hyphens) first, and clean exact title matching as fallback. CORE conference rankings (A*, A, B, C) are applied to conference proceedings.
 - **Rationale**: SJR is open access and Scopus-derived, whereas JCR is paywalled. Best quartile across subject areas represents standard bibliometric practice.
+- **Status (as implemented)**: quartiles were matched on ISSN (13,251 papers) or the nearest SJR year within ±2 (231); 870 papers stayed unranked (684 journal papers not in SJR plus all 186 conference papers). No CORE rankings file was imported, so no conference paper carries a CORE rank (see SOURCES.md §6).
 
 ### D-04 (2026-10-13): Inclusion and Typing of Work Types
 - **Decision**: The primary dataset retains peer-reviewed scholarly outputs: journal articles, reviews, letters, and conference proceedings. Paratext, editorials, errata, preprints, books, datasets, and dissertations are excluded from `group24_data.csv` and logged in `data/interim/excluded_works.csv`.
@@ -35,10 +36,12 @@ All architectural, methodological, and data harmonization decisions made during 
 ### D-08 (2026-10-13): Statistics Presentation Report Hard Constraint (<= 10 Slides)
 - **Decision**: The report presentation (`stats/report/group24_stats_report.pptx` and `.pdf`) is strictly budgeted to exactly 10 slides. Slides 1–8 cover executive summary, publication trends, journal quartiles, citation dynamics, faculty excellence, research domains, top venues/landmarks, and departmental performance. Slides 9–10 are reserved for Task 4 Citation and Authorship Network architecture blueprints.
 - **Rationale**: The assignment guidelines stipulate a strict maximum length of $\le 10$ slides or $\le 5$ pages. Exceeding this limit incurs penalties.
+- **Status**: the 10-slide limit still holds; the slide contents and file name changed — see D-17 (data-driven report, network summaries on the network slides) and D-24 (final layout, `24_CSIR.pptx` / `.pdf`).
 
 ### D-09 (2026-10-13): Preservation of Task 4 Graph Assets During Phase 1
 - **Decision**: While full network topological calculations (Louvain community detection, PageRank) are deferred to Task 4, all raw citation edges (`citation_edges_raw.parquet`, 27,816 edges), canonical Indian institution mapping (`indian_inst_registry.csv`, 910 institutions), and co-authorship relationships were fully resolved and persisted during Phase 1.
 - **Rationale**: Guarantees that when Task 4 is executed, zero additional OpenAlex API calls or budget will be required, and network graphs can be derived instantaneously from disk.
+- **Status**: superseded — the network analysis was built in D-12 and extended in D-17.
 
 ### D-10 (2026-10-13): Dashboard UI Refinements & Department Explorer Visualization
 - **Decision**: 
@@ -66,6 +69,7 @@ All architectural, methodological, and data harmonization decisions made during 
 - **Decision**: `cites_indian_inst` and `cited_by_indian_inst` are now set only from observed in-corpus citation links (`citation_network.csv`): a row for institute X is `TRUE` when the citing/cited corpus paper involves an Indian institution other than X (another assigned lab or an Indian co-author institute). The heuristic completion in Step 11 (any Indian co-author ⇒ cites = TRUE; ≥10 citations ⇒ cited_by = TRUE) was removed, and `src/collect/15_refresh_indian_flags.py` re-applied the rule to `data/final/` because the interim parquet caches are not in this checkout. Only the two flag columns changed (verified byte-identical otherwise); manifest SHA256s were refreshed.
 - **Effect**: `cites_indian_inst` 55.7% → 37.4% TRUE (rows), `cited_by_indian_inst` 61.2% → 35.9%. 7,771 and 10,710 rows respectively had been TRUE only through the heuristics. No row became TRUE that was FALSE before.
 - **Rationale**: AGENTS.md rule 1 (no fabricated data). The heuristics were assumptions, not observations. Resolving out-of-corpus references and citing works from OpenAlex would raise the flags but was not done (group decision: fix within existing data); the flags are documented as lower bounds in LIMITATIONS.md.
+- **Status**: the measured-only rule stands, but the in-corpus restriction was lifted in D-17 (links to Indian papers outside the corpus were collected).
 
 ### D-14 (2026-10-20): Sector Classification Fix for the Indian Institution Registry
 - **Decision**: Moved `assign_sector_cluster` to `src/common/sectors.py`, matched abbreviations as whole words, and added CSIR/DAE lab-name lists, IISc, central-university names, and `Industry`/`Healthcare`/`Government` from the OpenAlex institution type. Re-labelled `config/indian_inst_registry.csv` (only `sector_cluster` changed).
@@ -86,7 +90,7 @@ All architectural, methodological, and data harmonization decisions made during 
   3. Added `.gitattributes` forcing LF for `*.csv/*.json/*.md/*.js/*.yaml/*.sha256`: on Windows checkouts with `core.autocrlf=true`, git had rewritten every CSV with CRLF, so `CHECKSUMS.sha256` and MANIFEST hashes failed. Step 15 now writes LF explicitly.
   4. Added the missing `networkx`, `pyreadr`, `websocket-client` to `requirements.txt`.
 - **Effect**: 42,406 → 42,393 rows; citation edges 27,816 → 27,754; authorship edges 65,059 → 65,058. Distinct papers (14,352), `indian_connections.csv`, and paper-level metrics are unchanged. A control run of Step 15 on the uncleaned data reproduced the committed files byte-for-byte before the cleanup was applied.
-- **Not changed**: `citation_network.csv` still holds in-corpus edges only (both papers in the NCL/IICT/CECRI corpus); edges to papers of other Indian institutions need out-of-corpus OpenAlex lookups (see D-13, LIMITATIONS.md). The stats report text (`src/stats/make_report.py`) contains hardcoded figures that disagree with `stats/tables/` and must be rewritten from the tables before the Week 3 submission.
+- **Not changed (at the time; resolved in D-17)**: `citation_network.csv` still holds in-corpus edges only (both papers in the NCL/IICT/CECRI corpus); edges to papers of other Indian institutions need out-of-corpus OpenAlex lookups (see D-13, LIMITATIONS.md). The stats report text (`src/stats/make_report.py`) contains hardcoded figures that disagree with `stats/tables/` and must be rewritten from the tables before the Week 3 submission.
 
 ### D-17 (2026-10-20): Links With Other Indian Institutions From OpenAlex; Data-Driven Report; Shared Network Module
 - **Decision**:
@@ -102,9 +106,9 @@ All architectural, methodological, and data harmonization decisions made during 
 - **Update (same day)**: the fixed thresholds 5 and 10 were dropped (they select 0.53% and 0.13% of papers — too strict to be a "Q1"); only the 75th-percentile threshold (IR > 0.59, top 25%) is used in the report and dashboard. `impact_ratio.thresholds` in `config/settings.yaml` is now empty and can re-add fixed thresholds if needed.
 - **Decision**:
   1. Paper IR = OpenAlex `cited_by_count` (13 Oct) ÷ number of `referenced_works`; institute IR = Σ citations received ÷ Σ references made over the institute's distinct papers. Papers with 0 references in OpenAlex (513) have no IR and are excluded from IR shares (reported).
-  2. A paper is "IR-Q1" when IR > T. Thresholds live in `config/settings.yaml` (`impact_ratio.thresholds: [5, 10]`, the instructor's examples) plus `quartile_percentile: 75`, a data-driven threshold (IR > 0.59) that selects the top 25% of papers — the same share a quartile covers — so IR-Q1 can be compared like-for-like with SJR Q1.
-  3. Reference counts come from Step 17's cached OpenAlex responses (`src/collect/18_reference_counts.py` → `data/final/work_reference_counts.csv`; 0 API calls). Analysis in `src/stats/impact_ratio.py` → `stats/tables/impact_ratio_*.csv`; report slide 4; dashboard Overview panel "Q1 by Citation Impact Ratio vs Journal Quartile" (threshold selector, follows filters).
-- **Result**: institute IR — IICT 0.41, NCL 0.47, CECRI 0.59, all three 0.47. IR > 5: 0.53% of papers; IR > 10: 0.13%; IR > 0.59 (P75): 25.2%. Only 32.9% of papers in SJR-Q1 journals are top-25% by IR, so journal-based and paper-based Q1 differ substantially.
+  2. A paper is "IR-Q1" when IR > T. T is `quartile_percentile: 75` in `config/settings.yaml`, a data-driven threshold (IR > 0.59) that selects the top 25% of papers — the same share a quartile covers — so IR-Q1 can be compared like-for-like with SJR Q1. (The instructor's example thresholds 5 and 10 were tried first; see the update above.)
+  3. Reference counts come from Step 17's cached OpenAlex responses (`src/collect/18_reference_counts.py` → `data/final/work_reference_counts.csv`; 0 API calls). Analysis in `src/stats/impact_ratio.py` → `stats/tables/impact_ratio_*.csv`; report slide 3 (after the D-24 re-layout); dashboard Overview panel "Q1 by Citation Impact Ratio vs Journal Quartile" (follows the filters).
+- **Result**: institute IR — IICT 0.41, NCL 0.47, CECRI 0.59, all three 0.47. IR > 0.59 (P75): 25.2% of papers (for reference, IR > 5 would select 0.53% and IR > 10 0.13%). Only 32.9% of papers in SJR-Q1 journals are top-25% by IR, so journal-based and paper-based Q1 differ substantially.
 - **How it differs from SJR Q1**: SJR Q1 ranks the journal (venue prestige across all its papers); IR ranks each paper by its own citations relative to how many works it cites. IR favours older papers (more time to be cited) and reviews with many citations.
 - Also added the dashboard URL (https://prathm01s.github.io/dpcn_almost_stable/) to report slides 1 and 10.
 
@@ -112,14 +116,14 @@ All architectural, methodological, and data harmonization decisions made during 
 
 ### D-19 (2026-10-25): Hyper-Authored Paper Filtering for Co-authorship Topology
 - **Decision**: In `src/stats/insights/common.py`, papers with $> 30$ authors are excluded when constructing the co-authorship graph (dropping 5 hyper-authored consortia papers out of 14,352).
-- **Rationale**: Megapapers (e.g., massive international consortia or clinical genome screens with 50+ authors) create artificial cliques of hundreds or thousands of edges. These distort degree distributions, artificially inflate local clustering, and skew rich-club and network fragility evaluations. Dropping papers $>30$ authors preserves 7,508 nodes and 34,693 edges in the Giant Component (95.8% of nodes).
+- **Rationale**: Megapapers (e.g., massive international consortia or clinical genome screens with 50+ authors) create artificial cliques of hundreds or thousands of edges. These distort degree distributions, artificially inflate local clustering, and skew rich-club and network fragility evaluations. With papers of $>30$ authors dropped, the giant component has 7,509 nodes and 34,696 edges (95.8% of nodes; figures after the D-25 roster cleanup). The author count per paper is taken from `authorship_network.csv`, i.e. authors of the three labs plus their Indian co-authors, so it is a lower bound on the true author count.
 
 ### D-20 (2026-10-25): Citation Maturation Window for Quartile vs Impact (2016–2023)
 - **Decision**: In Insight 5 ("Do Q1 papers actually draw more citations?"), analysis is restricted to papers published between 2016 and 2023 (10,212 papers), excluding 2024–2026.
 - **Rationale**: Papers published in 2024–2026 have had $\le 2$ years to accrue citations. Evaluating citation percentiles, uncited rates, and high-impact anomalies on immature citation cohorts would confound publication recency with lack of impact.
 
 ### D-21 (2026-10-25): Career Abroad Spell Classification Rules for Brain Circulation
-- **Decision**: In Insight 9 ("Does international mobility boost impact?"), an author is classified as a "Returnee" if their pre-CSIR career publication record (derived from OpenAlex `/authors` careers) contains $\ge 2$ consecutive years with exclusively or predominantly foreign institutional affiliations. Scientists with exclusively Indian affiliations are "Home-grown". Scientists with ambiguous or missing pre-tenure histories are "Unclassifiable".
+- **Decision**: In Insight 9 (brain circulation), each matched roster scientist's full OpenAlex career is classified as: **Foreign-trained** if the most frequent country on their first 3 papers (PhD proxy) is not India; **Returnee** if that country is India and the career contains an abroad spell — ≥2 consecutive years in which all of their affiliations are outside India, with ≥2 distinct papers; **Home-grown** otherwise; **Unclassifiable** if they have fewer than 3 papers or no country on their first papers. Host country = most frequent country in the spell (ties alphabetical). Refined in D-24.
 - **Rationale**: Distinguishes substantive foreign research training (e.g., overseas PhD or multi-year postdoc) from brief visits, short collaborations, or co-authored papers written while remaining in India. A 30-scientist validation sample is exported to `stats/tables/insights/09_validation_sample.csv`.
 
 ### D-22 (2026-10-25): Academic Age $\ge 30$ as a Proxy for Senior Faculty Retirement Exposure
@@ -128,9 +132,9 @@ All architectural, methodological, and data harmonization decisions made during 
 
 ### D-23 (2026-10-25): Sampled Betweenness Centrality for Targeted Network Attack Simulation
 - **Decision**: In Insight 3 ("Fragility"), betweenness centrality for node removal ranking is computed on the co-authorship LCC using a randomized pivot sampling ($k=1,000$ sources) with fixed seed `SEED=24`.
-- **Rationale**: Exact betweenness centrality on a graph of 7,500 nodes and 35,000 edges has $O(V \cdot E)$ complexity (~260 million operations per step). Computing exact betweenness dynamically across hundreds of iterative removal rounds is computationally intractable. A 1,000-source pivot approximation provides $>0.99$ rank correlation while completing in seconds.
+- **Rationale**: Betweenness is computed once on the initial LCC and the removal order is fixed from it (it is not recomputed after each removal). Exact betweenness on ~7,500 nodes and ~35,000 edges costs O(V·E); sampling 1,000 source nodes gives an estimate in seconds. The approximation's agreement with exact betweenness was not measured.
 
-### D-19 (2026-10-26): Review of the Ten Insights (Phase 2b)
+### D-24 (2026-10-26): Review of the Ten Insights (Phase 2b)
 - **Report**: back to 10 slides (hard limit) — slide 1 now holds title, coverage table, method and limits; slide 10 is the findings table (10 pt, short labels). The ≤10 test, relaxed to ≤15, is restored. Report files renamed `24_CSIR.pptx` / `24_CSIR.pdf` (instructor's naming format).
 - **No invented values**: removed fallbacks that produced numbers or names without data (host countries "US/Germany", random-removal n50 = 3,280, n50 = 20% when not reached, rich-club ρ = 1.0, "N/A"). A strategy that misses its threshold now raises instead.
 - **Data access**: career histories are fetched through the project's OpenAlex client (API key, cache, retries, cursor paging; 588 calls, ≈$0.06). Foreign co-authorship comes from Step 18 (`has_foreign_coauthor`, cached responses); unknown papers are excluded. Insights 7, 9, 10 read local caches only and write "Not computed" when a cache is missing.
@@ -139,27 +143,28 @@ All architectural, methodological, and data harmonization decisions made during 
 - **Pipeline order**: `make all` / `run.py all` run insights before stats, because the report quotes the insight headlines.
 - **Effect on headlines**: Insight 6 hidden gems 82 → 43; Insight 7 now reports 2 sustained awakenings among the 7 strongest candidates; Insight 9 returnees 8.3% → 15.7% (complete careers; foreign co-authorship 20.3% vs 16.8%); Insight 10 most exposed lab CECRI 46.3%.
 
-### D-20 (2026-10-26): Faculty Roster Cleanup (Step 19)
+### D-25 (2026-10-26): Faculty Roster Cleanup (Step 19)
 - **Problem**: the IICT staff pages list technical staff next to scientists. The scraper copied their job title into the name (e.g. "Dr. C. Chandrasekhar Sr. Technical Officer (3)") and recorded the designation as "Scientist", so 119 technical-staff entries were counted as faculty (37 of them among the 347 "faculty with papers"); 281 dataset rows and 1,290 co-authorship edges carried the title in the author name. Three roster scientists were also matched to OpenAlex profiles that belong to someone else, and Dr. D. Srinivasa Reddy was listed at both NCL and IICT.
 - **Decision**: new `src/collect/19_roster_cleanup.py` (after Step 18, before Step 15). Rule in code: a roster name ending in a technical title (Technical Officer / Technical Assistant / Technician, with Sr./Senior/Principal and grade) is not faculty — removed from `faculty_master.csv` and logged in `data/review/roster_excluded.csv`. Manual decisions in `config/overrides/roster_overrides.csv` (reason + date): drop the NCL duplicate of Dr. Reddy (kept once, as IICT Director, where all his rows already point); unmatch Dr. A.V. Subrahmanya Sarma and Dr. A.V. Sesha Sainath (matched to a merged catch-all profile "A. V.") and Dr. M. Srinivasa Rao (matched to R. Srinivasa Rao). Their dataset rows become affiliated-author rows; job titles are stripped from author names, and rows on wrongly matched profiles take the name printed on the paper (OpenAlex raw_author_name from Step 17's cache).
 - **Effect**: roster 505 → 385 (IICT 287 → 168, NCL 167 → 166, CECRI 51); faculty with ≥1 paper 347 → 306 (IICT 169 → 129, NCL 152 → 151); combined median h-index 6 → 7 (IICT 5 → 6). Papers, citations, quartiles, flags and the network files' structure are unchanged; only author names in 282 rows (and the matching co-authorship edges) changed. Statistics, insights, report and dashboard were rebuilt.
 
 ---
 
-### D-24 (2026-10-27): Information Diffusion & Epidemic Spreading Model (Insight 11)
+### D-26 (2026-10-27): Information Diffusion & Epidemic Spreading Model (Insight 11)
 - **Motivation**: Model how novel experimental methodologies, synthesis techniques, or chemical reagents diffuse through collaborative research ties in the CSIR Chemistry cluster, addressing epidemic threshold theory and disciplinary boundaries.
 - **Model Formulation**:
   1. **Epidemic Spreading Framework**: Susceptible-Infected (SI) process modeling non-depleting information/knowledge transmission across co-authorship edges.
   2. **Epidemic Thresholds**: Theoretical critical threshold computed as $\beta_c = \frac{\langle k \rangle}{\langle k^2 \rangle}$ and compared to the inverse largest eigenvalue of the adjacency matrix $\beta_c^{\text{spectral}} = \frac{1}{\lambda_{\max}(A)}$. For the global co-authorship Giant Component ($N=7,509$, $E=34,696$), heavy-tailed degree heterogeneity produces $\beta_c = 0.0322$ ($\approx 3.2\%$).
-  3. **Disciplinary Heterogeneity (Combined Option 1 + Option 2)**:
-     - **Condition A (Topic-Modulated Transmission)**: Transmission probability along edge $(u, v)$ is weighted by cosine similarity between normalized 151-dimensional OpenAlex subfield publication profiles and modulated by receiver domain share: $\beta_{uv} = \beta_0 \times \text{CosSim}(\vec{\theta}_u, \vec{\theta}_v) \times s_v(\text{Field})$. Tracks both in-field adoption $I_{\text{field}}(t)$ and cross-disciplinary spillover $I_{\text{other}}(t)$ over 15 discrete steps.
-     - **Condition B (Domain-Restricted Subgraph / Option 3)**: Uniform transmission $\beta_0 = 0.20$ strictly confined to the induced collaboration subgraph of researchers active in that field ($\ge 1$ paper), measuring intrinsic topology speed $T_{50}$.
-  4. **Disciplinary Fields Evaluated**: The top 6 active fields (>900 researchers): *Chemistry* (3,206 authors, LCC 3,202), *Materials Science* (2,093 authors, LCC 2,075), *Engineering* (2,079 authors, LCC 2,065), *Energy* (1,060 authors, LCC 1,048), *Biochemistry* (1,418 authors, LCC 1,395), and *Medicine* (970 authors, LCC 952).
-  5. **Super-Spreaders and Super-Blockers**: Evaluated across cadre faculty seeds using $M=50$ Monte Carlo simulations per seed, with convergence verified at $M \in [25, 50, 100]$. Super-spreaders are ranked by rapid early adoption ($t=3$ reach) and lowest $T_{50}$.
-- **Key Findings**:
-  - Chemistry exhibits the lowest epidemic threshold ($\beta_c = 0.0320$), while Engineering is the most fragmented ($\beta_c = 0.0552$).
-  - Under Condition A, chemistry innovations diffuse strongly within chemistry (reaching 12.3% of the community on average, with top hubs reaching 30.5%), but cross-field spillover is nearly blocked (0.04%), proving high cognitive insulation.
-  - In Condition B, adoption reaches 50% in 9.21 steps in Chemistry, 9.38 steps in Medicine, 9.76 steps in Biochemistry, 10.59 steps in Energy, 10.78 steps in Materials, and 12.03 steps in Engineering.
-  - Top Super-Spreaders identified: Dr. Jagadeesh Babu Nanubolu (IICT, degree 285) and Dr. Sunil Misra (IICT) in Chemistry; Dr. Sreekumar Kurungot (NCL, degree 154) in Materials; Dr. Sailaja Krishnamurty (CECRI) in Engineering.
+  3. **Disciplinary Heterogeneity**:
+     - **Condition A (Topic-Modulated Transmission)**: transmission probability along edge $(u, v)$ is $\beta_{uv} = \beta_0 \times \text{CosSim}(\vec{\theta}_u, \vec{\theta}_v) \times s_v(\text{Field})$ ($\beta_0 = 0.20$), using the authors' OpenAlex subfield publication profiles and the receiver's share of papers in the field. Tracks in-field adoption and cross-field spillover over 15 steps on the full co-authorship network.
+     - **Condition B (Domain-Restricted Subgraph)**: uniform $\beta_0 = 0.20$ confined to the collaboration subgraph of researchers with ≥1 paper in the field; measures $T_{50}$ (steps to 50% adoption).
+  4. **Fields evaluated** (fixed list of the six largest): *Chemistry* (3,206 researchers, LCC 3,202), *Materials* (2,093 researchers, LCC 2,075), *Engineering* (2,079 researchers, LCC 2,065), *Energy* (1,060 researchers, LCC 1,048), *Biochemistry* (1,418 researchers, LCC 1,395), *Medicine* (970 researchers, LCC 952).
+  5. **Super-spreaders and blockers**: cadre-faculty seeds, $M = 50$ Monte Carlo runs per seed (convergence checked at $M$ = 25, 50, 100); super-spreaders ranked by lowest $T_{50}$, then reach at $t = 3$.
+- **Key findings** (from `stats/tables/insights/11_field_diffusion_metrics.csv` and `11_super_spreaders_blockers.csv`):
+  - Epidemic threshold $\beta_c$ is lowest in Chemistry (0.032) and highest in Engineering (0.055); the whole giant component has $\beta_c = 0.032$ (spectral $1/\lambda_{\max} = 0.030$).
+  - Condition A, final in-field reach (cross-field spillover): Chemistry 76.5% (spillover 2.55%), Energy 55.0% (spillover 1.03%), Biochemistry 32.1% (spillover 1.24%), Medicine 26.2% (spillover 1.20%), Materials 24.7% (spillover 1.29%), Engineering 23.2% (spillover 0.65%). Spillover stays at a few percent, i.e. innovations mostly stay within their field in this model.
+  - Condition B, steps to 50% adoption: Medicine 5.56, Chemistry 5.81, Biochemistry 6.15, Energy 6.33, Materials 6.57, Engineering 7.54.
+  - Top super-spreader per field (Condition A / Condition B): Chemistry: Dr. Jagadeesh Babu Nanubolu (IICT) / Dr. Jagadeesh Babu Nanubolu (IICT); Materials: Dr. Ramanuj Narayan (IICT) / Dr. Sreekumar Kurungot (NCL); Engineering: Dr. Arun Torris (NCL) / Dr. Sreekumar Kurungot (NCL); Energy: Dr Subrata Kundu (CECRI) / Dr Subrata Kundu (CECRI); Biochemistry: Dr. Sunil Misra (IICT) / Dr. Sunil Misra (IICT); Medicine: Dr. Andugulapati Sai Balagi (IICT) / Dr. Sunil Misra (IICT).
+- **Caveat**: an SI model on co-authorship ties is a stylised scenario (who *could* spread a technique fastest), not observed diffusion.
 - **Artifacts**: `src/stats/insights/s11_information_diffusion.py`, `stats/tables/insights/11_information_diffusion.json`, `stats/tables/insights/11_field_diffusion_metrics.csv`, `stats/tables/insights/11_super_spreaders_blockers.csv`, Card 11 in `dashboard/index.html` and `dashboard/js/app.js`.
 

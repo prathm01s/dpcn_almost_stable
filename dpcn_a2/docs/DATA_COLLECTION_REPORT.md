@@ -25,7 +25,7 @@ This report documents the end-to-end data collection, disambiguation, enrichment
 | **CSIR-IICT Works / Rows** | 6,167 papers / 20,188 rows | 89.2% retention from raw OpenAlex volume (after excluding non-peer-reviewed items). |
 | **CSIR-NCL Works / Rows** | 5,404 papers / 14,731 rows | 89.8% retention from raw OpenAlex volume. |
 | **CSIR-CECRI Works / Rows** | 2,885 papers / 7,487 rows | 91.9% retention from raw OpenAlex volume. |
-| **Official Cadre Faculty** | **385** | Scientists on the official institute rosters (IICT: 168, NCL: 166, CECRI: 51). 505 entries were scraped; Step 19 removed 119 IICT technical-staff entries and 1 duplicate (D-20). |
+| **Official Cadre Faculty** | **385** | Scientists on the official institute rosters (IICT: 168, NCL: 166, CECRI: 51). 505 entries were scraped; Step 19 removed 119 IICT technical-staff entries and 1 duplicate (D-25). |
 | **Active Cadre Faculty in Corpus (2016–2026)** | **306** (79.5%) | Scientists with $\ge 1$ verified in-corpus peer-reviewed publication. |
 | **Distinct Author Profiles Identified** | **24,000+** | Harmonized aliases across scientists, postdocs, and AcSIR/PhD research scholars. |
 | **Journal Articles vs Conference Proceedings** | 42,076 (99.2%) vs 330 (0.8%) | Reflects chemistry disciplinary norms where journals are the primary terminal venue. |
@@ -96,7 +96,7 @@ The exported file `data/final/group24_data.csv` satisfies all 14 mandatory colum
   3. **Name Normalization:** Stripped academic and cultural honorifics (`Dr.`, `Prof.`, `Sri`, `Smt`, `Er.`), removed punctuation, folded unicode characters (`unidecode`), and collapsed whitespace into `name_norm`.
 * **Outputs Generated:**
   * `data/interim/roster.parquet` and `data/interim/roster.csv`
-  * Entries scraped: **505** (IICT: 287, NCL: 167, CECRI: 51). After Step 19 (D-20): **385** scientific cadre (IICT: 168, NCL: 166, CECRI: 51).
+  * Entries scraped: **505** (IICT: 287, NCL: 167, CECRI: 51). After Step 19 (D-25): **385** scientific cadre (IICT: 168, NCL: 166, CECRI: 51).
 
 ---
 
@@ -190,7 +190,7 @@ The exported file `data/final/group24_data.csv` satisfies all 14 mandatory colum
 * **Outputs Generated:**
   * `data/interim/faculty_master.parquet` and `data/final/faculty_master.csv`
   * `data/review/author_review_queue.csv`
-  * **306 of 385 cadre scientists** matched to active publication profiles in the 2016–2026 window (after D-20).
+  * **306 of 385 cadre scientists** matched to active publication profiles in the 2016–2026 window (after D-25).
 
 ---
 
@@ -335,7 +335,7 @@ All data was retrieved from verifiable, authoritative scholarly infrastructure:
 | Row granularity: `(paper × assigned-institute author)` | Note §5 / AGENTS.md §1.2 | **PASSED** | 42,393 author-attribution rows |
 | Zero fabricated data | AGENTS.md §0 | **PASSED** | 100% traceable to OpenAlex & SJR records |
 | No citation summing across rows | AGENTS.md §1.2 | **PASSED** | Aggregated at work ID level in all stats |
-| Faculty roster based on official websites | Note §9 / AGENTS.md §5.2 | **PASSED** | 385 cadre scientists in `faculty_master.csv` (505 scraped; technical staff removed, D-20) |
+| Faculty roster based on official websites | Note §9 / AGENTS.md §5.2 | **PASSED** | 385 cadre scientists in `faculty_master.csv` (505 scraped; technical staff removed, D-25) |
 | Semicolon-separated Indian co-author institutes | Note §5 / AGENTS.md §5.10 | **PASSED** | 910 institutions in `indian_inst_registry.csv` |
 | `citation_network.csv` submitted | Note §7c / Checklist | **PASSED** | `data/final/citation_network.csv` (192,994 edges) |
 | `authorship_network.csv` submitted | Note §7c / Checklist | **PASSED** | `data/final/authorship_network.csv` (108,847 edges) |
