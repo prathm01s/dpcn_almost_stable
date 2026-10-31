@@ -1267,7 +1267,24 @@
           "lineStyle": {
             "width": 2.5
           },
-          "smooth": true
+          "smooth": true,
+          "markPoint": {
+            "symbol": "pin",
+            "symbolSize": 42,
+            "data": [
+              {
+                "name": "\u221aN threshold",
+                "coord": [
+                  0.9412,
+                  0.6798
+                ],
+                "value": "\u221aN=18"
+              }
+            ],
+            "label": {
+              "fontSize": 9
+            }
+          }
         },
         {
           "name": "Line of Perfect Equality",
@@ -1291,17 +1308,9 @@
           },
           "symbol": "none"
         }
-      ],
-      "markPoint": {
-        "name": "\u221aN Threshold",
-        "coord": [
-          0.9412,
-          0.6798
-        ],
-        "label": "Top \u221aN (18)"
-      }
+      ]
     }
   },
-  "method_note": "Population: 306 active roster faculty with \u22651 paper (2016\u20132026). Union counting is used for collaborative output. Price's law predicts \u221aN produce 50%.",
-  "computed_at": "2026-10-26T05:46:16.868692+00:00"
+  "method_note": "Population: 306 active roster faculty with \u22651 paper (2016\u20132026). Union counting is used for collaborative output. Price's law predicts \u221aN produce 50%. The pin marks the top \u221aN = 18 scientists on the Lorenz curve.",
+  "computed_at": "2026-10-31T04:40:53.897371+00:00"
 }

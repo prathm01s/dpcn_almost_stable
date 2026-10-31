@@ -95,29 +95,33 @@ def run() -> dict:
                 "share_sole_citations": round(float(c_sole / c_tot * 100), 2) if c_tot else 0.0,
             }
 
-    # Department / Division with highest share_sole at T=30 (minimum 20 papers)
+    # Department / Division with highest share_sole at T=30 (minimum 20 papers). Division and lab come from the
+    # roster, not the row's institution: labs reuse division names and a scientist can appear under another lab.
+    # "Contact Number:" is a scraping artefact in place of a division for some NCL scientists.
+    div_of = {r["author_id"]: (r["lab"], r["division"]) for _, r in matched.iterrows()
+              if r["division"] and r["division"] not in ("Unassigned", "Contact Number:")}
+    rec = p_recent[p_recent["faculty_id"].isin(age_map) & p_recent["faculty_id"].isin(div_of)].copy()
+    rec["div_lab"] = rec["faculty_id"].map(lambda f: div_of[f][0])
+    rec["div_name"] = rec["faculty_id"].map(lambda f: div_of[f][1])
     div_stats = []
-    for div, g_div in p_recent[p_recent["department"] != ""].groupby("department"):
-        grouped = g_div.groupby("work_id")
+    for (div_lab, div), g_div in rec.groupby(["div_lab", "div_name"]):
         n_tot = 0
         n_sole = 0
-        for wid, g in grouped:
-            facs = [fid for fid in g["faculty_id"].unique() if fid in age_map]
-            if not facs:
-                continue
+        for wid, g in g_div.groupby("work_id"):
+            facs = list(g["faculty_id"].unique())
             n_tot += 1
             if all(age_map[fid] >= 30 for fid in facs):
                 n_sole += 1
         if n_tot >= 20:
             div_stats.append({
                 "division": div,
-                "lab": g_div.iloc[0]["institution"],
+                "lab": div_lab,
                 "total_papers": n_tot,
                 "sole_papers": n_sole,
                 "share_sole": round(float(n_sole / n_tot * 100), 2),
             })
 
-    df_div = pd.DataFrame(div_stats).sort_values("share_sole", ascending=False)
+    df_div = pd.DataFrame(div_stats).sort_values(["share_sole", "total_papers"], ascending=[False, False])
     top_div = df_div.iloc[0]
 
     div_label = str(top_div["division"]).title() if str(top_div["division"]).isupper() else str(top_div["division"])
@@ -128,11 +132,12 @@ def run() -> dict:
     others = ", ".join(f"{l.replace('CSIR-', '')} {lab_metrics[l][30]['share_sole_papers']:.1f}%"
                        for l in LABS if l != highlight_lab)
 
+    lo, hi = lab_metrics[highlight_lab][32]["share_sole_papers"], lab_metrics[highlight_lab][28]["share_sole_papers"]
     headline = (
         f"In {highlight_lab.replace('CSIR-', '')}, {h_data['share_sole_papers']:.1f}% of recent papers "
-        f"({h_data['share_sole_citations']:.1f}% of their citations) have only roster authors likely to retire within "
-        f"~5 years ({others}). Highest exposure: {div_label}, {top_div['lab'].replace('CSIR-', '')} "
-        f"({top_div['share_sole']:.1f}% of {int(top_div['total_papers'])} papers)."
+        f"({lo:.1f}–{hi:.1f}% for age cut-offs 32–28; {h_data['share_sole_citations']:.1f}% of their citations) have only "
+        f"roster authors likely to retire within ~5 years ({others}). Highest exposure: {div_label}, "
+        f"{top_div['lab'].replace('CSIR-', '')} ({top_div['share_sole']:.1f}% of {int(top_div['total_papers'])} papers)."
     )
 
     # Chart construction: Grouped bar per lab (share_sole papers vs citations at T=30) with T=28/32 range
@@ -194,7 +199,7 @@ def run() -> dict:
             "sole_papers": int(top_div["sole_papers"]),
             "share_sole_pct": float(top_div["share_sole"]),
         },
-        "all_exposed_divisions": div_stats[:10],
+        "all_exposed_divisions": df_div.head(10).to_dict(orient="records"),
     }
 
     data = {
@@ -206,7 +211,8 @@ def run() -> dict:
         "method_note": (
             f"Distinct 2021–2025 papers with ≥1 matched roster author ({len(age_map)} scientists with career data). "
             "Academic age = 2026 − first OpenAlex publication year; at risk = age ≥30, a proxy for ≤~5 years to CSIR "
-            "superannuation at 60 (no birth dates available). Divisions with ≥20 papers. Tooltips show thresholds 28 and 32."
+            "superannuation at 60 (no birth dates available). Divisions (from the roster, per lab) with ≥20 papers; a division's "
+            "paper counts as exposed when all of that division's roster authors on it are at risk. Tooltips show thresholds 28 and 32."
         ),
     }
 

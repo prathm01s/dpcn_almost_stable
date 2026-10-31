@@ -15,6 +15,39 @@ from src.stats.insights.common import coauthor_graph, SEED, LABS, save_insight
 logger = get_logger("insight_03")
 
 
+def lcc_after_removals(G: nx.Graph, order: List[str]) -> List[int]:
+    """LCC size after removing the first s nodes of order, for every s (Newman-Ziff: add nodes back in reverse)."""
+    idx = {n: i for i, n in enumerate(order)}
+    parent = list(range(len(order)))
+    size = [1] * len(order)
+    present = [False] * len(order)
+
+    def find(i: int) -> int:
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    out = [0] * (len(order) + 1)
+    best = 0
+    for s in range(len(order) - 1, -1, -1):
+        present[s] = True
+        best = max(best, 1)
+        for nb in G.neighbors(order[s]):
+            j = idx[nb]
+            if not present[j]:
+                continue
+            a, b = find(s), find(j)
+            if a != b:
+                if size[a] < size[b]:
+                    a, b = b, a
+                parent[b] = a
+                size[a] += size[b]
+                best = max(best, size[a])
+        out[s] = best
+    return out
+
+
 def run() -> dict:
     logger.info("Running Insight 3: Fragility...")
     G = coauthor_graph()
@@ -38,7 +71,7 @@ def run() -> dict:
     keystone_researchers = [
         {
             "rank": i + 1,
-            "name": n,
+            "name": G.nodes[n]["name"],
             "lab": G.nodes[n].get("lab", "Unknown"),
             "is_faculty": bool(G.nodes[n].get("is_faculty", False)),
             "betweenness": round(float(btw[n]), 5),
@@ -97,7 +130,7 @@ def run() -> dict:
         if step % sample_interval == 0 or step == max_removals:
             curve_deg.append([round(step / S0, 4), round(rel_sz, 4)])
 
-    # (c) Random Removal (mean over 20 runs)
+    # (c) Random Removal (mean over 20 runs), exact at every step
     logger.info("Simulating random removal over 20 runs...")
     all_nodes = list(G.nodes())
     n_runs = 20
@@ -108,44 +141,18 @@ def run() -> dict:
         rng = random.Random(SEED + r)
         shuffled = list(all_nodes)
         rng.shuffle(shuffled)
-        
-        G_rand = G.copy()
-        run_curve = []
-        run_n50 = None
+        lcc = lcc_after_removals(G, shuffled)
+        random_curves.append(lcc)
+        n50_random_runs.append(next(s for s, sz in enumerate(lcc) if sz < 0.5 * S0))
 
-        # Track up to S0 if needed to find n50_random
-        for step, n in enumerate(shuffled, 1):
-            G_rand.remove_node(n)
-            
-            if step <= max_removals:
-                if step % sample_interval == 0 or step == max_removals:
-                    comps = list(nx.connected_components(G_rand))
-                    sz = max(len(c) for c in comps) if comps else 0
-                    run_curve.append(sz / S0)
-            
-            if run_n50 is None:
-                if step % 20 == 0 or step == S0:
-                    comps = list(nx.connected_components(G_rand))
-                    sz = max(len(c) for c in comps) if comps else 0
-                    if sz < 0.5 * S0:
-                        run_n50 = step
-
-            if step > max_removals and run_n50 is not None:
-                break
-
-        random_curves.append(run_curve)
-        if run_n50:
-            n50_random_runs.append(run_n50)
-
-    # Average random curve across runs
-    min_len = min(len(c) for c in random_curves)
-    avg_rand = np.mean([c[:min_len] for c in random_curves], axis=0)
+    avg_rand = np.mean(random_curves, axis=0)
     curve_rand = [
-        [round(((i + 1) * sample_interval) / S0, 4), round(float(v), 4)]
-        for i, v in enumerate(avg_rand)
+        [round(step / S0, 4), round(float(avg_rand[step]) / S0, 4)]
+        for step in range(1, max_removals + 1)
+        if step % sample_interval == 0 or step == max_removals
     ]
 
-    if len(n50_random_runs) != n_runs or n50_btw is None or n_labsplit is None:
+    if n50_btw is None or n_labsplit is None:
         raise ValueError("A removal strategy did not reach its threshold; extend max_removals before reporting")
     mean_n50_rand = int(round(np.mean(n50_random_runs)))
     n50_btw_val = n50_btw
@@ -209,7 +216,7 @@ def run() -> dict:
         "chart": chart,
         "method_note": (
             f"Computed on the unweighted co-author LCC ({S0:,} researchers). Betweenness estimated from 1,000 sampled "
-            f"sources and computed once. Random removal is the mean of 20 runs (checked every 20 removals)."
+            f"sources and computed once. Random removal is the mean of 20 runs, exact at every removal."
         ),
     }
 

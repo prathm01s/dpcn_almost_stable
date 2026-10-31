@@ -86,72 +86,91 @@ def faculty() -> pd.DataFrame:
     return df_res
 
 
+def ordered_subgraph(G: nx.Graph, nodes) -> nx.Graph:
+    """Induced subgraph built in G's insertion order.
+
+    G.subgraph() views iterate in set order, which varies with PYTHONHASHSEED and would change
+    sampled betweenness, removal runs and simulations between executions.
+    """
+    keep = set(nodes)
+    H = nx.Graph()
+    H.add_nodes_from((n, G.nodes[n]) for n in G if n in keep)
+    H.add_edges_from((u, v, d) for u, v, d in G.edges(data=True) if u in keep and v in keep)
+    return H
+
+
+def author_key(df: pd.DataFrame) -> pd.Series:
+    """One identity per person: OpenAlex author ID, else the name.
+
+    Not faculty_id: the 1,579 rows without an author ID all carry FORMER_CECRI_0005 (936 different names).
+    """
+    return df["author_openalex_id"].where(df["author_openalex_id"] != "", "name:" + df["author"])
+
+
 def coauthor_graph(max_authors: int = 30) -> nx.Graph:
-    """Undirected networkx.Graph from authorship_network.csv.
-    
-    Drops hyper-authored papers (authors > max_authors).
-    Attaches node attributes: name, lab, is_faculty.
-    Returns Largest Connected Component (LCC).
+    """Undirected co-authorship graph of the three labs' authors, keyed by OpenAlex author ID.
+
+    Built from group24_data_extended.csv (one row per paper x lab author), so a person with
+    several spellings is one node and two people with the same name stay apart. Edge weight =
+    joint papers. Papers with > max_authors listed authors (lab authors plus Indian partner
+    co-authors in authorship_network.csv) are dropped.
+    Node attributes: name (most frequent spelling), lab (roster lab for faculty, else most
+    frequent lab), is_faculty (roster scientist), faculty_id.
+    Returns the largest connected component (LCC).
     """
     auth_path = DATA_FINAL / "authorship_network.csv"
-    if not auth_path.exists():
-        raise FileNotFoundError(f"Missing {auth_path}")
+    ext_path = DATA_FINAL / "group24_data_extended.csv"
+    for p in (auth_path, ext_path):
+        if not p.exists():
+            raise FileNotFoundError(f"Missing {p}")
 
     df_auth = pd.read_csv(auth_path, keep_default_na=False)
-    # Identify and drop hyper-authored papers (across entire authorship network)
     doi_with_papers = df_auth[df_auth["paper_doi"] != ""]
-    doi_authors = doi_with_papers.groupby("paper_doi").apply(
-        lambda g: len(set(g["author_a"]).union(set(g["author_b"])))
-    )
+    doi_authors = (pd.concat([doi_with_papers[["paper_doi", "author_a"]].rename(columns={"author_a": "a"}),
+                              doi_with_papers[["paper_doi", "author_b"]].rename(columns={"author_b": "a"})])
+                   .groupby("paper_doi")["a"].nunique())
     dropped_dois = set(doi_authors[doi_authors > max_authors].index)
-    logger.info(f"Dropped {len(dropped_dois)} hyper-authored papers with >{max_authors} authors")
 
-    # Filter to within-cluster rows
-    df_lab = df_auth[df_auth["inst_a"].isin(LABS) & df_auth["inst_b"].isin(LABS)].copy()
-    df_filtered = df_lab[~df_lab["paper_doi"].isin(dropped_dois)].copy()
+    df_ext = pd.read_csv(ext_path, dtype=str, keep_default_na=False,
+                         usecols=["work_id", "doi", "author", "institution", "author_openalex_id", "faculty_id"])
+    df_ext["key"] = author_key(df_ext)
+    dropped = df_ext["doi"].isin(dropped_dois)
+    logger.info(f"Dropped {df_ext.loc[dropped, 'work_id'].nunique()} hyper-authored papers with >{max_authors} authors")
+    df_ext = df_ext[~dropped].sort_values(["work_id", "key"], kind="stable")
 
-    # Load faculty definitions for attribute tagging
-    df_fac = faculty()
-    matched_fac = df_fac[df_fac["is_matched"]]
-    faculty_names = set(matched_fac["name"]).union(set(matched_fac["name_norm"]))
-    
-    # Also load from group24_data_extended
-    ext_path = DATA_FINAL / "group24_data_extended.csv"
-    if ext_path.exists():
-        df_ext = pd.read_csv(ext_path, usecols=["author", "author_role"], keep_default_na=False)
-        ext_fac = set(df_ext[df_ext["author_role"] == "faculty"]["author"])
-        faculty_names = faculty_names.union(ext_fac)
+    def modal(s: pd.Series) -> str:
+        return sorted(s.value_counts().items(), key=lambda kv: (-kv[1], kv[0]))[0][0]
 
-    # Build Graph
+    name_of = df_ext.groupby("key")["author"].agg(modal)
+    lab_of = df_ext.groupby("key")["institution"].agg(modal)
+    fac = faculty()
+    roster = dict(zip(fac["author_id"], fac["lab"]))
+    fid_of = df_ext[df_ext["faculty_id"].isin(roster)].groupby("key")["faculty_id"].first()
+
     G = nx.Graph()
-    inst_of: Dict[str, str] = {}
+    for _, keys in df_ext.groupby("work_id", sort=True)["key"]:
+        authors = sorted(set(keys))
+        for i, a in enumerate(authors):
+            for b in authors[i + 1:]:
+                if G.has_edge(a, b):
+                    G[a][b]["weight"] += 1
+                else:
+                    G.add_edge(a, b, weight=1)
 
-    for a, b, ia, ib in df_filtered[["author_a", "author_b", "inst_a", "inst_b"]].itertuples(index=False):
-        inst_of.setdefault(a, ia)
-        inst_of.setdefault(b, ib)
-        if G.has_edge(a, b):
-            G[a][b]["weight"] += 1
-        else:
-            G.add_edge(a, b, weight=1)
-
-    # Attach node attributes
     for node in G.nodes():
-        G.nodes[node]["name"] = node
-        G.nodes[node]["lab"] = inst_of.get(node, "external")
-        G.nodes[node]["is_faculty"] = node in faculty_names
+        fid = fid_of.get(node)
+        G.nodes[node]["name"] = name_of[node]
+        G.nodes[node]["lab"] = roster[fid] if fid else lab_of[node]
+        G.nodes[node]["is_faculty"] = fid is not None
+        G.nodes[node]["faculty_id"] = fid or ""
 
     logger.info(f"Full co-authorship graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
 
     if G.number_of_nodes() == 0:
         return G
 
-    # Extract LCC
     lcc_nodes = max(nx.connected_components(G), key=len)
-    # Build the LCC in G's insertion order: subgraph views can iterate in set order, which varies with
-    # PYTHONHASHSEED and would change sampled betweenness and random-removal runs between executions
-    LCC = nx.Graph()
-    LCC.add_nodes_from((n, G.nodes[n]) for n in G if n in lcc_nodes)
-    LCC.add_edges_from((u, v, d) for u, v, d in G.edges(data=True) if u in lcc_nodes)
+    LCC = ordered_subgraph(G, lcc_nodes)
     lcc_share = len(lcc_nodes) / G.number_of_nodes() * 100
     logger.info(f"Co-authorship LCC: {LCC.number_of_nodes()} nodes ({lcc_share:.1f}% of graph), {LCC.number_of_edges()} edges")
 
@@ -197,7 +216,18 @@ def citation_graph() -> nx.DiGraph:
 
 
 def not_computed(insight_id: str, question: str, reason: str) -> Dict[str, Any]:
-    """Contract-conforming placeholder when an input (e.g. an API cache) is missing. Never invents numbers."""
+    """Contract-conforming placeholder when an input (e.g. an API cache) is missing. Never invents numbers.
+
+    An existing computed result is kept, so running `make insights` on a machine without the cache does not
+    wipe results computed elsewhere; it is only stale if the code changed since (rerun with the cache then).
+    """
+    out_file = INSIGHTS_TABLES_DIR / f"{insight_id}.json"
+    if out_file.exists():
+        existing = json.loads(out_file.read_text(encoding="utf-8"))
+        if existing.get("metrics", {}).get("status") != "not computed":
+            logger.warning(f"{insight_id}: {reason}; keeping the previously computed {out_file} "
+                           f"(computed_at {existing.get('computed_at')})")
+            return existing
     data = {
         "id": insight_id,
         "question": question,

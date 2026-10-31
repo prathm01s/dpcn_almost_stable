@@ -1,8 +1,14 @@
 {
   "id": "08_covid_shock",
   "question": "How much output did COVID cost, and did research shift?",
-  "headline": "Output was 1.8% above the 2016\u201319 trend in 2020 and 12.7% above in 2021. COVID-related work peaked at 5.5% of CSIR-IICT's papers in 2021; the topic mix shifted about as much as in a normal period (JSD ratio 1.05).",
+  "headline": "Output fell 8.7% from 2019 to 2020 (1,336 \u2192 1,220 papers) and was 10.6% below 2019 in 2021, but it had already been falling 8.4% a year since 2016: against that trend 2020 was 1.8% above and 2021 12.7% above, so there is no COVID-specific dip. COVID-related work peaked at 5.5% of CSIR-IICT's papers in 2021; the topic mix shifted about as much as in a normal period (JSD ratio 1.05).",
   "metrics": {
+    "combined_papers_2019": 1336,
+    "combined_papers_2020": 1220,
+    "combined_papers_2021": 1195,
+    "combined_change_2020_vs_2019_pct": -8.68,
+    "combined_change_2021_vs_2019_pct": -10.55,
+    "pre_pandemic_annual_change_pct": -8.41,
     "combined_gap_2020_pct": 1.79,
     "combined_gap_2021_pct": 12.69,
     "lab_gaps": {
@@ -194,6 +200,10 @@
           "type": "line",
           "data": [
             [
+              2019,
+              517.3
+            ],
+            [
               2020,
               418.5
             ],
@@ -268,6 +278,10 @@
           "name": "CSIR-NCL (Projected Trend)",
           "type": "line",
           "data": [
+            [
+              2019,
+              490.1
+            ],
             [
               2020,
               423.5
@@ -344,6 +358,10 @@
           "type": "line",
           "data": [
             [
+              2019,
+              337.7
+            ],
+            [
               2020,
               364.0
             ],
@@ -364,6 +382,6 @@
       ]
     }
   },
-  "method_note": "Linear trend fitted on 2016\u20132019 distinct papers (output was already falling, so the trend projects a decline). COVID-related = title/topic matches covid, sars-cov-2, coronavirus, pandemic, antiviral, favipiravir or remdesivir. Publication lag means 2020 papers mostly reflect pre-pandemic work.",
-  "computed_at": "2026-10-26T05:46:33.019383+00:00"
+  "method_note": "Linear trend fitted on 2016\u20132019 distinct papers; output was already falling, so the dashed trend projects a continued decline and 'above trend' means a smaller fall than projected, not growth. Pre-pandemic rate = compound annual change 2016\u21922019. COVID-related = title/topic matches covid, sars-cov-2, coronavirus, pandemic, antiviral, favipiravir or remdesivir. Publication lag means 2020 papers mostly reflect pre-pandemic work.",
+  "computed_at": "2026-10-31T04:41:09.696572+00:00"
 }

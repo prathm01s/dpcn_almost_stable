@@ -138,16 +138,17 @@ All 10 analyses conform strictly to the following common JSON contract schema:
   - `mean_degree`: Average degree $\langle k \rangle$ within the domain subgraph.
   - `beta_c_theoretical`: Degree-moment epidemic threshold $\beta_c = \frac{\langle k \rangle}{\langle k^2 \rangle}$.
   - `beta_c_spectral`: Adjacency spectral threshold $\frac{1}{\lambda_{\max}(A)}$.
-  - `cond_a_infield_t50`, `cond_a_final_reach_pct`: In-field diffusion speed and reach under topic-modulated transmission.
+  - `cond_a_infield_t50`, `cond_a_final_reach_pct`: In-field diffusion speed and reach under topic-modulated transmission. T50 = median over the field's seeds of each seed's median step to 50% adoption; blank when the typical seed does not reach 50% within 15 steps.
   - `cond_a_spillover_pct`: Cross-disciplinary leakage percentage into researchers outside the domain.
-  - `cond_b_t50_steps`: Steps to reach 50% adoption under domain subgraph uniform transmission.
+  - `cond_b_t50_steps`: Steps to reach 50% adoption under domain subgraph uniform transmission (same median definition; blank = not reached).
 - `stats/tables/insights/11_super_spreaders_blockers.csv`: Seed rankings for spreading efficiency:
   - `field`: Target disciplinary field.
   - `condition`: Simulation mode (`Topic-Modulated (Full Net)` or `Domain Subgraph`).
   - `role`: `Super-Spreader` or `Super-Blocker`.
   - `rank`: Top rank (1 to 5).
-  - `author`, `lab`, `degree`, `field_share_pct`: Author identity, institutional affiliation, network degree, and disciplinary focus share.
-  - `t50_steps`: Time to reach 50% adoption when starting from this author.
+  - `author`, `faculty_id`, `lab`, `degree`, `field_share_pct`: Author name, roster faculty ID, institutional affiliation, network degree, and disciplinary focus share.
+  - `t50_steps`: Median step (over 50 runs) at which 50% of the field has adopted when starting from this author; blank when the median run does not get there within 15 steps.
+  - `p_reach50`: Share of the 50 runs that reach 50% adoption within 15 steps.
   - `reach_t3_pct`: Early adoption traction (% reached by step $t=3$).
   - `final_reach_pct`: Asymptotic adoption reach (% reached by step $t=15$).
 

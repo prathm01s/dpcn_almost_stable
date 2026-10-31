@@ -1176,13 +1176,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
                       <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.6rem 0.8rem;">
                         <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Epidemic Threshold</div>
-                        <div id="diff-kpi-betac" style="font-size: 1.25rem; font-weight: 800; color: #2563eb;">βc = 0.032</div>
-                        <div id="diff-kpi-spectral" style="font-size: 0.75rem; color: #64748b;">Spectral: 0.0324 | &lt;k&gt; = 9.84</div>
+                        <div id="diff-kpi-betac" style="font-size: 1.25rem; font-weight: 800; color: #2563eb;">–</div>
+                        <div id="diff-kpi-spectral" style="font-size: 0.75rem; color: #64748b;"></div>
                       </div>
                       <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.6rem 0.8rem;">
                         <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Adoption Speed (T50)</div>
-                        <div id="diff-kpi-t50" style="font-size: 1.25rem; font-weight: 800; color: #16a34a;">9.2 steps</div>
-                        <div id="diff-kpi-nodes" style="font-size: 0.75rem; color: #64748b;">LCC Nodes: 3,202</div>
+                        <div id="diff-kpi-t50" style="font-size: 1.25rem; font-weight: 800; color: #16a34a;">–</div>
+                        <div id="diff-kpi-nodes" style="font-size: 0.75rem; color: #64748b;"></div>
                       </div>
                     </div>
 
@@ -1374,22 +1374,20 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!condData) return;
 
       const hlEl = document.getElementById("diff-headline");
+      const steps = condData.adoption_curve.length - 1;
+      const t50Text = c => c.t50_median !== null && c.t50_median !== undefined
+        ? `half the field adopts by step <strong>${c.t50_median}</strong> (median over ${c.n_seeds} faculty seeds; ${c.seeds_reaching_50} reach 50% within ${steps} steps)`
+        : `the typical faculty seed does not reach half the field within ${steps} steps (${c.seeds_reaching_50} of ${c.n_seeds} seeds do)`;
       if (hlEl) {
         if (currentDiffCond === "condition_a") {
-          const finalReach = condData.adoption_curve[condData.adoption_curve.length - 1];
-          const finalSpill = condData.spillover_curve[condData.spillover_curve.length - 1];
-          if (finalReach >= 50.0) {
-            hlEl.innerHTML = formatHeadline(
-              `In <strong>${esc(fData.field)}</strong>, topic-modulated diffusion achieves majority community adoption (reaching <strong>${finalReach}%</strong> of the field) with near-zero cross-disciplinary spillover (<strong>${finalSpill}%</strong> into other fields). Theoretical epidemic threshold is βc = <strong>${fData.thresholds.beta_c}</strong>.`
-            );
-          } else {
-            hlEl.innerHTML = formatHeadline(
-              `In <strong>${esc(fData.field)}</strong>, cognitive boundaries restrict topic-modulated diffusion to specialized research clusters (reaching <strong>${finalReach}%</strong> of the field) with near-zero cross-disciplinary spillover (<strong>${finalSpill}%</strong> into other fields). Theoretical epidemic threshold is βc = <strong>${fData.thresholds.beta_c}</strong>.`
-            );
-          }
+          const finalReach = condData.adoption_curve[steps];
+          const finalSpill = condData.spillover_curve[steps];
+          hlEl.innerHTML = formatHeadline(
+            `In <strong>${esc(fData.field)}</strong>, topic-weighted transmission on the full network reaches <strong>${finalReach}%</strong> of the field and <strong>${finalSpill}%</strong> of researchers outside it by step ${steps}; ${t50Text(condData)}. Epidemic threshold βc = <strong>${fData.thresholds.beta_c}</strong>.`
+          );
         } else {
           hlEl.innerHTML = formatHeadline(
-            `In the isolated <strong>${esc(fData.field)}</strong> domain subgraph (${fData.subgraph_lcc_size.toLocaleString()} nodes), uniform transmission reaches 50% adoption in <strong>${condData.mean_t50}</strong> steps. Theoretical epidemic threshold is βc = <strong>${fData.thresholds.beta_c}</strong>.`
+            `In the <strong>${esc(fData.field)}</strong> subgraph (${fData.subgraph_lcc_size.toLocaleString()} researchers), with uniform transmission ${t50Text(condData)}. Epidemic threshold βc = <strong>${fData.thresholds.beta_c}</strong>.`
           );
         }
       }
@@ -1402,12 +1400,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (kpiBetaEl) kpiBetaEl.textContent = `βc = ${fData.thresholds.beta_c}`;
       if (kpiSpecEl) kpiSpecEl.innerHTML = `Spectral: <strong>${fData.thresholds.beta_c_spec}</strong> | &lt;k&gt; = <strong>${fData.thresholds.k_mean}</strong>`;
       if (kpiT50El) {
-        if (currentDiffCond === "condition_a") {
-          const finalReach = condData.adoption_curve[condData.adoption_curve.length - 1];
-          kpiT50El.textContent = condData.mean_t50 < 15.0 ? `T50 = ${condData.mean_t50} steps` : `Reach = ${finalReach}% (T50 > 15)`;
-        } else {
-          kpiT50El.textContent = `T50 = ${condData.mean_t50} steps`;
-        }
+        kpiT50El.textContent = condData.t50_median !== null && condData.t50_median !== undefined
+          ? `T50 = ${condData.t50_median} steps`
+          : `T50 > ${steps} (reach ${condData.adoption_curve[steps]}%)`;
       }
       if (kpiNodesEl) kpiNodesEl.textContent = `LCC Nodes: ${fData.subgraph_lcc_size.toLocaleString()} (${fData.subgraph_edges.toLocaleString()} edges)`;
 
@@ -1425,7 +1420,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return `
             <tr>
               <td style="font-weight:700; color:#64748b; padding:0.4rem 0.6rem;">${idx + 1}</td>
-              <td style="font-weight:600; color:#1e293b; padding:0.4rem 0.6rem; max-width:140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${esc(sp.name)}">
+              <td ${sp.faculty_id ? `data-fid="${esc(sp.faculty_id)}"` : ""} style="font-weight:600; color:#1e293b; padding:0.4rem 0.6rem; max-width:140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;${sp.faculty_id ? " cursor:pointer;" : ""}" title="${esc(sp.name)}">
                 ${esc(sp.name)}
               </td>
               <td style="padding:0.4rem 0.6rem;">

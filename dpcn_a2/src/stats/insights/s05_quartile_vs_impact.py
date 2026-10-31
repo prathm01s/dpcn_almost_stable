@@ -45,9 +45,12 @@ def run() -> dict:
     q2q3_papers = df_j[df_j["quartile"].isin(["Q2", "Q3"])]
     pct_Q2Q3_in_top10 = float(q2q3_papers["is_top10"].mean() * 100)
 
+    pct_Q1_in_top10 = float(q1_papers["is_top10"].mean() * 100)
+
     headline = (
-        f"{pct_top10_from_nonQ1:.1f}% of the cluster's top-10% most-cited papers were published outside Q1 journals, "
-        f"while {pct_Q1_uncited:.1f}% of Q1 papers are still uncited."
+        f"Q1 is a strong filter but not a guarantee: {100 - pct_top10_from_nonQ1:.1f}% of the cluster's top-10% "
+        f"most-cited papers appeared in Q1 journals, yet only {pct_Q1_in_top10:.1f}% of Q1 papers reach the top 10% "
+        f"(vs {pct_Q2Q3_in_top10:.1f}% of Q2–Q3 papers)."
     )
 
     # Breakdown per quartile for 100% stacked bar chart
@@ -106,6 +109,7 @@ def run() -> dict:
         "pct_top10_from_nonQ1": round(pct_top10_from_nonQ1, 2),
         "pct_Q1_uncited": round(pct_Q1_uncited, 2),
         "pct_Q2Q3_in_top10": round(pct_Q2Q3_in_top10, 2),
+        "pct_Q1_in_top10": round(pct_Q1_in_top10, 2),
         "eligible_papers": n_total,
         "counts_by_quartile": counts_by_quartile,
     }
@@ -117,8 +121,9 @@ def run() -> dict:
         "metrics": metrics,
         "chart": chart,
         "method_note": (
-            "Evaluated on 10,212 journal papers (2016–2023; 2024–2026 excluded due to citation latency). "
-            "Top-10% citation thresholds are normalized within each publication year."
+            f"Evaluated on {n_total:,} journal papers with a SCImago quartile (2016–2023; 2024–2026 excluded due to "
+            "citation latency). Top 10% = at or above the 90th citation percentile of the publication year, so ties "
+            "can push a year's share slightly above 10%."
         ),
     }
 

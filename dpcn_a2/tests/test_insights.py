@@ -229,3 +229,92 @@ def test_information_diffusion_specifics():
     assert {"field", "condition", "role", "rank", "author", "lab"}.issubset(df_spreaders.columns)
 
 
+
+
+def test_coauthor_graph_has_one_node_per_scientist():
+    """Nodes are OpenAlex author IDs: no roster scientist is split across name variants."""
+    from collections import Counter
+    from src.stats.insights.common import coauthor_graph
+    G = coauthor_graph()
+    fids = Counter(G.nodes[n]["faculty_id"] for n in G if G.nodes[n]["is_faculty"])
+    assert fids and max(fids.values()) == 1
+    assert all(G.nodes[n]["lab"] in {"CSIR-IICT", "CSIR-NCL", "CSIR-CECRI"} for n in G)
+
+
+def test_lcc_after_removals_matches_brute_force():
+    import random
+    import networkx as nx
+    from src.stats.insights.s03_fragility import lcc_after_removals
+    G = nx.gnm_random_graph(60, 90, seed=3)
+    order = list(G.nodes())
+    random.Random(1).shuffle(order)
+    fast = lcc_after_removals(G, order)
+    H = G.copy()
+    for s in range(len(order) + 1):
+        expect = max((len(c) for c in nx.connected_components(H)), default=0)
+        assert fast[s] == expect, s
+        if s < len(order):
+            H.remove_node(order[s])
+
+
+def _career(spec):
+    """spec: list of (year, country) -> one paper per entry."""
+    return [{"year": y, "work_id": f"W{i}", "institution_name": f"I-{c}", "country_code": c}
+            for i, (y, c) in enumerate(spec)]
+
+
+def test_returnee_needs_india_then_abroad_then_return():
+    from src.stats.insights.s09_brain_circulation import classify_scientist
+    india3 = [(2000, "IN"), (2001, "IN"), (2002, "IN")]
+    # Indian papers, two years abroad, back in India
+    assert classify_scientist(_career(india3 + [(2003, "US"), (2004, "US"), (2006, "IN")]))["predicted_class"] == "Returnee"
+    # Abroad spell with no Indian affiliation afterwards is not a return
+    assert classify_scientist(_career(india3 + [(2003, "US"), (2004, "US")]))["predicted_class"] == "Home-grown"
+
+
+def test_si_simulation_is_independent_of_hash_seed():
+    """Same numbers under different PYTHONHASHSEED (set iteration order used to drive the random draws)."""
+    import os
+    import subprocess
+    import sys
+    code = (
+        "import networkx as nx;"
+        "from src.stats.insights.s11_information_diffusion import run_si_monte_carlo;"
+        "G=nx.relabel_nodes(nx.barabasi_albert_graph(300,3,seed=1),lambda i:f'n{i}');"
+        "adj={u:[(v,0.2) for v in G[u]] for u in G};"
+        "r=run_si_monte_carlo(adj,'n0',set(G),set(),num_trials=10);"
+        "print(r['t50'],r['p_reach50'],list(r['target_curve'].round(6)))"
+    )
+    outs = {subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, check=True,
+                           env={**os.environ, "PYTHONHASHSEED": h}).stdout for h in ("1", "987")}
+    assert len(outs) == 1
+
+
+def test_censored_t50_is_not_averaged_as_max_steps():
+    from src.stats.insights.s11_information_diffusion import censored_median
+    assert censored_median([3, 4, None]) == 4
+    assert censored_median([3, None, None]) is None
+    d = json.loads((INSIGHTS_DIR / "11_information_diffusion.json").read_text(encoding="utf-8"))
+    for f in d["fields_data"].values():
+        for cond in ("condition_a", "condition_b"):
+            c = f[cond]
+            assert c["t50_median"] is None or 0 < c["t50_median"] <= d["metrics"]["max_steps"]
+            assert 0 <= c["seeds_reaching_50"] <= c["n_seeds"]
+
+
+def test_diffusion_headline_matches_metrics():
+    d = json.loads((INSIGHTS_DIR / "11_information_diffusion.json").read_text(encoding="utf-8"))
+    m = d["metrics"]
+    betas = {k: f["thresholds"]["beta_c"] for k, f in d["fields_data"].items()}
+    assert m["beta_c_lowest"]["beta_c"] == min(betas.values())
+    assert m["beta_c_highest"]["beta_c"] == max(betas.values())
+    assert f"βc = {m['beta_c_lowest']['beta_c']}" in d["headline"]
+    assert f"{m['n_trials']} runs" in d["method_note"]
+
+
+def test_covid_headline_states_the_pre_pandemic_decline():
+    d = json.loads((INSIGHTS_DIR / "08_covid_shock.json").read_text(encoding="utf-8"))
+    m = d["metrics"]
+    assert m["pre_pandemic_annual_change_pct"] < 0
+    assert f"{abs(m['pre_pandemic_annual_change_pct']):.1f}% a year" in d["headline"]
+    assert f"{abs(m['combined_change_2020_vs_2019_pct']):.1f}% from 2019" in d["headline"]

@@ -163,9 +163,14 @@ def run() -> dict:
         )
     else:
         best = sus.iloc[0]
+        best_rank = int((top1["B"] > best["B"]).sum()) + 1
+        n_recent = top1_count - n_sustained - n_spikes
+        recent_txt = f" and {n_recent} peaked in {LAST_FULL_YEAR}, too recent to tell" if n_recent else ""
+        rank_txt = "" if best_rank == 1 else f", ranked {best_rank} of {top1_count} by B"
         headline = (
             f"{n_sustained} of the {top1_count} strongest candidates (top 1% of {n_eligible} papers by Ke's B) show "
-            f"sustained delayed recognition. The strongest, '{short(best['title'])}' "
+            f"sustained delayed recognition; {n_spikes} are short citation spikes{recent_txt}. "
+            f"The highest-B sustained case{rank_txt}, '{short(best['title'])}' "
             f"({best['lab'].replace('CSIR-', '')}, {best['year']}), drew {best['avg_pre']:.1f} citations/yr for "
             f"{best['t_a']} years, then {best['avg_post']:.1f}/yr from {best['awakening_year']}."
         )

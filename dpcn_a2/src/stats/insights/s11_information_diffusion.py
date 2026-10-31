@@ -28,7 +28,9 @@ from src.stats.insights.common import (
     DATA_FINAL,
     INSIGHTS_TABLES_DIR,
     SEED,
+    author_key,
     coauthor_graph,
+    ordered_subgraph,
     save_insight,
 )
 
@@ -46,7 +48,9 @@ TARGET_FIELDS = [
 BETA_BASE = 0.20
 EPSILON_RECEPTIVITY = 0.05
 MAX_STEPS = 15
-TRIALS_RANGE = [25, 50, 100]  # Evaluated to confirm convergence; default M=50
+N_SEEDS = 15
+N_TRIALS = 50
+TRIALS_RANGE = [25, 50, 100]  # convergence check on the top seed
 
 
 def compute_thresholds(G: nx.Graph) -> Tuple[float, float, float, float]:
@@ -61,7 +65,7 @@ def compute_thresholds(G: nx.Graph) -> Tuple[float, float, float, float]:
 
     try:
         A = nx.adjacency_matrix(G, weight=None).astype(float)
-        vals, _ = eigsh(A, k=1, which="LM")
+        vals, _ = eigsh(A, k=1, which="LA", v0=np.ones(N))
         lambda_max = float(vals[0])
         beta_c_spec = (1.0 / lambda_max) if lambda_max > 0 else 0.0
     except Exception:
@@ -71,13 +75,15 @@ def compute_thresholds(G: nx.Graph) -> Tuple[float, float, float, float]:
 
 
 def build_author_profiles() -> Tuple[Dict[str, np.ndarray], Dict[str, Dict[str, float]], Dict[str, int], List[str]]:
-    """Build normalized subfield vectors and field shares for each author."""
+    """Build normalized subfield vectors and field shares per author, keyed like coauthor_graph() nodes."""
     logger.info("Building author subfield and field profile vectors...")
     df_ext = pd.read_csv(
         DATA_FINAL / "group24_data_extended.csv",
-        usecols=["author", "field", "subfield"],
+        usecols=["author", "author_openalex_id", "field", "subfield"],
+        dtype=str,
         keep_default_na=False,
     )
+    df_ext["key"] = author_key(df_ext)
     subfields = sorted(set(df_ext["subfield"].dropna().astype(str)) - {""})
     subfield_idx = {s: i for i, s in enumerate(subfields)}
     num_subfields = len(subfields)
@@ -86,7 +92,7 @@ def build_author_profiles() -> Tuple[Dict[str, np.ndarray], Dict[str, Dict[str, 
     author_field_counts = defaultdict(lambda: defaultdict(int))
     author_total = defaultdict(int)
 
-    for a, f, s in zip(df_ext["author"], df_ext["field"], df_ext["subfield"]):
+    for a, f, s in zip(df_ext["key"], df_ext["field"], df_ext["subfield"]):
         if not a:
             continue
         author_total[a] += 1
@@ -108,20 +114,28 @@ def build_author_profiles() -> Tuple[Dict[str, np.ndarray], Dict[str, Dict[str, 
     return author_vecs, author_field_shares, author_total, subfields
 
 
+def censored_median(values: List[Any]) -> Any:
+    """Median where None means 'did not reach 50% within MAX_STEPS'; None if the median itself is not reached."""
+    if not values:
+        return None
+    m = float(np.median([np.inf if v is None else v for v in values]))
+    return None if np.isinf(m) else round(m, 1)
+
+
 def run_si_monte_carlo(
     adj_with_probs: Dict[str, List[Tuple[str, float]]],
     seed_node: str,
     target_nodes: Set[str],
     other_nodes: Set[str],
-    num_trials: int = 25,
+    num_trials: int = N_TRIALS,
     max_steps: int = MAX_STEPS,
     rng_seed: int = SEED,
-) -> Tuple[np.ndarray, np.ndarray, float, float]:
+) -> Dict[str, Any]:
     """Run discrete-time persistent SI simulation from a single seed node across num_trials.
-    
-    In a true Susceptible-Infected (SI) knowledge diffusion process, adopters remain active
-    practitioners and continue to transmit across collaborative ties in subsequent steps.
-    Active boundary tracking maintains the set of infected nodes with susceptible neighbors.
+
+    Adopters stay infectious while they have susceptible neighbours. Nodes are visited in sorted order so the
+    random draws, and therefore the results, do not depend on set iteration order (PYTHONHASHSEED).
+    t50 per trial = first step at which >= 50% of target_nodes have adopted, None if not within max_steps.
     """
     rng = np.random.RandomState(rng_seed)
     n_target = max(1, len(target_nodes))
@@ -129,21 +143,20 @@ def run_si_monte_carlo(
 
     trajs_target = np.zeros((num_trials, max_steps + 1))
     trajs_other = np.zeros((num_trials, max_steps + 1))
-    t50_trials = []
+    t50_trials: List[Any] = []
 
     for trial in range(num_trials):
         infected = {seed_node}
         active_infected = {seed_node}
         trajs_target[trial, 0] = (1.0 if seed_node in target_nodes else 0.0) / n_target
         trajs_other[trial, 0] = (1.0 if seed_node in other_nodes else 0.0) / n_other
-        t50 = float(max_steps)
-        found_t50 = False
+        t50 = None
 
         for step in range(1, max_steps + 1):
             new_infections = set()
             still_active = set()
 
-            for u in active_infected:
+            for u in sorted(active_infected):
                 has_susceptible = False
                 for v, p in adj_with_probs.get(u, []):
                     if v not in infected and v not in new_infections:
@@ -161,9 +174,8 @@ def run_si_monte_carlo(
             trajs_target[trial, step] = frac_target
             trajs_other[trial, step] = frac_other
 
-            if not found_t50 and frac_target >= 0.50:
-                t50 = float(step)
-                found_t50 = True
+            if t50 is None and frac_target >= 0.50:
+                t50 = step
 
             if not active_infected:
                 trajs_target[trial, step:] = frac_target
@@ -173,12 +185,18 @@ def run_si_monte_carlo(
         t50_trials.append(t50)
 
     mean_target_curve = trajs_target.mean(axis=0)
-    mean_other_curve = trajs_other.mean(axis=0)
-    mean_t50 = float(np.mean(t50_trials))
-    early_reach = float(mean_target_curve[min(3, max_steps)])
-    return mean_target_curve, mean_other_curve, round(mean_t50, 2), round(early_reach, 4)
+    return {
+        "target_curve": mean_target_curve,
+        "other_curve": trajs_other.mean(axis=0),
+        "t50": censored_median(t50_trials),
+        "p_reach50": round(sum(t is not None for t in t50_trials) / num_trials, 3),
+        "reach_t3": round(float(mean_target_curve[min(3, max_steps)]), 4),
+    }
 
 
+def spreader_order(s: Dict[str, Any]) -> Tuple[float, float, float]:
+    """Fastest median t50 first (not reached = last), then more trials reaching 50%, then early reach."""
+    return (np.inf if s["t50"] is None else s["t50"], -s["p_reach50"], -s["reach_t3"])
 
 
 def run() -> dict:
@@ -205,13 +223,6 @@ def run() -> dict:
         edge_cossim[(u, v)] = max(0.0, sim)
         edge_cossim[(v, u)] = max(0.0, sim)
 
-    # Load faculty metadata
-    fm = pd.read_csv(DATA_FINAL / "faculty_master.csv", keep_default_na=False)
-    fac_lab_map = dict(zip(fm["full_name"], fm["inst_key"]))
-    for n in G.nodes():
-        if G.nodes[n].get("is_faculty") and n in fac_lab_map:
-            G.nodes[n]["lab_key"] = fac_lab_map[n]
-
     results_by_field: Dict[str, Any] = {}
     csv_field_summary = []
     csv_super_spreaders = []
@@ -224,11 +235,11 @@ def run() -> dict:
         nodes_in_field = set(n for n in G.nodes() if author_field_shares.get(n, {}).get(field_name, 0.0) > 0.0)
         nodes_outside = set(G.nodes()) - nodes_in_field
 
-        subG = G.subgraph(nodes_in_field)
+        subG = ordered_subgraph(G, nodes_in_field)
         if len(subG) == 0:
             continue
         lcc_sub_nodes = set(max(nx.connected_components(subG), key=len))
-        G_field = subG.subgraph(lcc_sub_nodes).copy()
+        G_field = ordered_subgraph(subG, lcc_sub_nodes)
         N_field_lcc = G_field.number_of_nodes()
         E_field_lcc = G_field.number_of_edges()
 
@@ -245,7 +256,7 @@ def run() -> dict:
             key=lambda n: author_field_shares.get(n, {}).get(field_name, 0.0) * G.degree(n),
             reverse=True,
         )
-        eval_seeds = cadre_seeds_field[:15]
+        eval_seeds = cadre_seeds_field[:N_SEEDS]
         logger.info(f"[{short_label}] {len(nodes_in_field):,} active researchers, Subgraph LCC: {N_field_lcc:,} nodes. Evaluating {len(eval_seeds)} active faculty seeds (of {len(cadre_seeds_field)} total in field)")
 
         # -------------------------------------------------------------
@@ -284,39 +295,36 @@ def run() -> dict:
 
         for seed in eval_seeds:
             lab_name = G.nodes[seed].get("lab", "Unknown")
-            deg = G.degree(seed)
             f_share = author_field_shares.get(seed, {}).get(field_name, 0.0)
+            ident = {"key": seed, "name": G.nodes[seed]["name"], "faculty_id": G.nodes[seed].get("faculty_id", ""),
+                     "lab": lab_name}
 
             # Condition A
-            t_a_in, t_a_out, t50_a, r3_a = run_si_monte_carlo(
-                adj_cond_a, seed, nodes_in_field, nodes_outside, num_trials=25
-            )
-            trajs_a_target.append(t_a_in)
-            trajs_a_other.append(t_a_out)
+            ra = run_si_monte_carlo(adj_cond_a, seed, nodes_in_field, nodes_outside)
+            trajs_a_target.append(ra["target_curve"])
+            trajs_a_other.append(ra["other_curve"])
             seed_stats_a.append({
-                "name": seed,
-                "lab": lab_name,
-                "degree": deg,
+                **ident,
+                "degree": G.degree(seed),
                 "field_share": round(f_share * 100, 1),
-                "t50": t50_a,
-                "reach_t3": r3_a,
-                "final_reach": round(float(t_a_in[-1]), 4),
+                "t50": ra["t50"],
+                "p_reach50": ra["p_reach50"],
+                "reach_t3": ra["reach_t3"],
+                "final_reach": round(float(ra["target_curve"][-1]), 4),
             })
 
             # Condition B (if seed in G_field)
             if seed in lcc_sub_nodes:
-                t_b, _, t50_b, r3_b = run_si_monte_carlo(
-                    adj_cond_b, seed, lcc_sub_nodes, set(), num_trials=25
-                )
-                trajs_b.append(t_b)
+                rb = run_si_monte_carlo(adj_cond_b, seed, lcc_sub_nodes, set())
+                trajs_b.append(rb["target_curve"])
                 seed_stats_b.append({
-                    "name": seed,
-                    "lab": lab_name,
+                    **ident,
                     "degree": G_field.degree(seed),
                     "field_share": round(f_share * 100, 1),
-                    "t50": t50_b,
-                    "reach_t3": r3_b,
-                    "final_reach": round(float(t_b[-1]), 4),
+                    "t50": rb["t50"],
+                    "p_reach50": rb["p_reach50"],
+                    "reach_t3": rb["reach_t3"],
+                    "final_reach": round(float(rb["target_curve"][-1]), 4),
                 })
 
         mean_curve_a_in = np.mean(trajs_a_target, axis=0) if trajs_a_target else np.zeros(MAX_STEPS + 1)
@@ -326,20 +334,20 @@ def run() -> dict:
         # Convergence test across trial range for top candidate seed
         convergence_records = []
         if seed_stats_a:
-            top_candidate = sorted(seed_stats_a, key=lambda s: (s["t50"], -s["reach_t3"]))[0]["name"]
+            top_candidate = sorted(seed_stats_a, key=spreader_order)[0]["key"]
             for m_trials in TRIALS_RANGE:
-                c_in, _, conv_t50, conv_r3 = run_si_monte_carlo(
-                    adj_cond_a, top_candidate, nodes_in_field, nodes_outside, num_trials=m_trials
-                )
+                rc = run_si_monte_carlo(adj_cond_a, top_candidate, nodes_in_field, nodes_outside, num_trials=m_trials)
                 convergence_records.append({
                     "trials": m_trials,
-                    "t50": conv_t50,
-                    "reach_t3": conv_r3,
+                    "t50": rc["t50"],
+                    "p_reach50": rc["p_reach50"],
+                    "reach_t3": rc["reach_t3"],
+                    "final_reach": round(float(rc["target_curve"][-1]), 4),
                 })
 
         # Rank Top 5 Super-Spreaders
-        top_spreaders_a = sorted(seed_stats_a, key=lambda s: (s["t50"], -s["reach_t3"]))[:5]
-        top_spreaders_b = sorted(seed_stats_b, key=lambda s: (s["t50"], -s["reach_t3"]))[:5]
+        top_spreaders_a = sorted(seed_stats_a, key=spreader_order)[:5]
+        top_spreaders_b = sorted(seed_stats_b, key=spreader_order)[:5]
 
         # Top 5 Super-Blockers (bridges in G_field)
         btw_field = nx.betweenness_centrality(G_field, k=min(200, N_field_lcc), seed=SEED)
@@ -353,15 +361,19 @@ def run() -> dict:
             lcc_new_size = len(max(comps, key=len)) if comps else 0
             drop_pct = round((N_field_lcc - lcc_new_size) / N_field_lcc * 100, 2)
             top_blockers_b.append({
-                "name": b_node,
+                "name": G.nodes[b_node]["name"],
+                "faculty_id": G.nodes[b_node].get("faculty_id", ""),
                 "lab": G.nodes[b_node].get("lab", "Unknown"),
                 "betweenness": round(float(btw_field[b_node]), 5),
                 "lcc_drop_pct": drop_pct,
                 "is_faculty": bool(G.nodes[b_node].get("is_faculty", False)),
             })
 
-        mean_t50_a = round(float(np.mean([s["t50"] for s in seed_stats_a])), 2) if seed_stats_a else 0.0
-        mean_t50_b = round(float(np.mean([s["t50"] for s in seed_stats_b])), 2) if seed_stats_b else 0.0
+        # Median over seeds of each seed's median t50; None = the typical seed does not reach 50% in MAX_STEPS
+        t50_a = censored_median([s["t50"] for s in seed_stats_a])
+        t50_b = censored_median([s["t50"] for s in seed_stats_b])
+        reach_a = sum(s["t50"] is not None for s in seed_stats_a)
+        reach_b = sum(s["t50"] is not None for s in seed_stats_b)
 
         field_result = {
             "field": field_name,
@@ -377,7 +389,9 @@ def run() -> dict:
             },
             "condition_a": {
                 "name": "Topic-Modulated Transmission (Full Network)",
-                "mean_t50": mean_t50_a,
+                "t50_median": t50_a,
+                "seeds_reaching_50": reach_a,
+                "n_seeds": len(seed_stats_a),
                 "adoption_curve": [round(float(v) * 100, 2) for v in mean_curve_a_in],
                 "spillover_curve": [round(float(v) * 100, 2) for v in mean_curve_a_out],
                 "top_super_spreaders": top_spreaders_a,
@@ -385,7 +399,9 @@ def run() -> dict:
             },
             "condition_b": {
                 "name": "Domain-Restricted Subgraph (Uniform Transmission)",
-                "mean_t50": mean_t50_b,
+                "t50_median": t50_b,
+                "seeds_reaching_50": reach_b,
+                "n_seeds": len(seed_stats_b),
                 "adoption_curve": [round(float(v) * 100, 2) for v in mean_curve_b],
                 "top_super_spreaders": top_spreaders_b,
                 "top_super_blockers": top_blockers_b,
@@ -403,10 +419,10 @@ def run() -> dict:
             "mean_degree": k_m_f,
             "beta_c_theoretical": beta_c_f,
             "beta_c_spectral": beta_c_spec_f,
-            "cond_a_infield_t50": mean_t50_a,
+            "cond_a_infield_t50": t50_a,
             "cond_a_final_reach_pct": round(float(mean_curve_a_in[-1]) * 100, 2),
             "cond_a_spillover_pct": round(float(mean_curve_a_out[-1]) * 100, 2),
-            "cond_b_t50_steps": mean_t50_b,
+            "cond_b_t50_steps": t50_b,
         })
 
         for rk, sp in enumerate(top_spreaders_a, 1):
@@ -416,10 +432,12 @@ def run() -> dict:
                 "role": "Super-Spreader",
                 "rank": rk,
                 "author": sp["name"],
+                "faculty_id": sp["faculty_id"],
                 "lab": sp["lab"],
                 "degree": sp["degree"],
                 "field_share_pct": sp["field_share"],
                 "t50_steps": sp["t50"],
+                "p_reach50": sp["p_reach50"],
                 "reach_t3_pct": round(sp["reach_t3"] * 100, 2),
                 "final_reach_pct": round(sp["final_reach"] * 100, 2),
             })
@@ -431,10 +449,12 @@ def run() -> dict:
                 "role": "Super-Spreader",
                 "rank": rk,
                 "author": sp["name"],
+                "faculty_id": sp["faculty_id"],
                 "lab": sp["lab"],
                 "degree": sp["degree"],
                 "field_share_pct": sp["field_share"],
                 "t50_steps": sp["t50"],
+                "p_reach50": sp["p_reach50"],
                 "reach_t3_pct": round(sp["reach_t3"] * 100, 2),
                 "final_reach_pct": round(sp["final_reach"] * 100, 2),
             })
@@ -515,13 +535,25 @@ def run() -> dict:
         },
     }
 
+    by_beta = sorted(results_by_field.values(), key=lambda f: f["thresholds"]["beta_c"])
+    lo_f, hi_f = by_beta[0], by_beta[-1]
+    chem_b = chem_data["condition_b"]
+    chem_reach = chem_data["condition_a"]["adoption_curve"][-1]
+    chem_spill = chem_data["condition_a"]["spillover_curve"][-1]
+    if chem_b["t50_median"] is not None:
+        b_txt = (f"half of the Chemistry subgraph adopts by step {chem_b['t50_median']:g} "
+                 f"(median over {chem_b['n_seeds']} faculty seeds; {chem_b['seeds_reaching_50']} reach 50% within {MAX_STEPS} steps)")
+    else:
+        b_txt = (f"the typical faculty seed does not reach half of the Chemistry subgraph within {MAX_STEPS} steps "
+                 f"({chem_b['seeds_reaching_50']} of {chem_b['n_seeds']} seeds do)")
     headline = (
-        f"Epidemic threshold βc ranges from 0.032 in Chemistry to 0.055 in Engineering. "
-        f"In Chemistry, a novel technique reaches 50% adoption in {chem_data['condition_b']['mean_t50']} steps "
-        f"within the domain subgraph, while topic-modulated diffusion circulates strongly in-field (peaks at {chem_data['condition_a']['adoption_curve'][-1]}%) "
-        f"with near-zero cross-field spillover ({chem_data['condition_a']['spillover_curve'][-1]}%)."
+        f"Epidemic thresholds are low in every field (βc = {lo_f['thresholds']['beta_c']} in {lo_f['short_label']} to "
+        f"{hi_f['thresholds']['beta_c']} in {hi_f['short_label']}), far below the simulated β0 = {BETA_BASE}. "
+        f"With uniform transmission {b_txt}; with topic-weighted transmission on the full network, {chem_reach:g}% of "
+        f"Chemistry researchers and {chem_spill:g}% of researchers outside Chemistry adopt by step {MAX_STEPS}."
     )
 
+    sizes = [f["active_researchers"] for f in results_by_field.values()]
     insight_data = {
         "id": "11_information_diffusion",
         "question": "How do new experimental methodologies and reagents diffuse across labs, and who are the super-spreaders?",
@@ -530,18 +562,29 @@ def run() -> dict:
             "global_lcc_nodes": N_global,
             "global_beta_c_theoretical": beta_c_glob,
             "global_beta_c_spectral": beta_c_spec_glob,
+            "beta_base": BETA_BASE,
+            "n_seeds_per_field": N_SEEDS,
+            "n_trials": N_TRIALS,
+            "max_steps": MAX_STEPS,
             "fields_evaluated": [f[1] for f in TARGET_FIELDS],
-            "chemistry_t50_cond_b": chem_data["condition_b"]["mean_t50"],
-            "chemistry_final_reach_cond_a": chem_data["condition_a"]["adoption_curve"][-1],
-            "chemistry_spillover_cond_a": chem_data["condition_a"]["spillover_curve"][-1],
+            "beta_c_lowest": {"field": lo_f["short_label"], "beta_c": lo_f["thresholds"]["beta_c"]},
+            "beta_c_highest": {"field": hi_f["short_label"], "beta_c": hi_f["thresholds"]["beta_c"]},
+            "chemistry_t50_cond_b": chem_b["t50_median"],
+            "chemistry_seeds_reaching_50_cond_b": chem_b["seeds_reaching_50"],
+            "chemistry_final_reach_cond_a": chem_reach,
+            "chemistry_spillover_cond_a": chem_spill,
         },
         "fields_data": results_by_field,
         "chart": chart_payload,
         "method_note": (
-            "Susceptible-Infected (SI) Monte Carlo simulation across the 6 largest fields (970–3,206 active researchers). "
-            "Evaluates epidemic threshold βc = <k>/<k^2> and spectral threshold 1/λ_max. "
-            "Condition A weights edge transmission by subfield cosine similarity and receiver field share; "
-            "Condition B restricts diffusion to the induced field subgraph. Evaluated across cadre faculty seeds with M=50 trials."
+            f"Susceptible-Infected (SI) Monte Carlo on the co-author LCC ({N_global:,} researchers, keyed by OpenAlex "
+            f"author ID) for the 6 largest fields ({min(sizes):,}–{max(sizes):,} active researchers each). "
+            f"Thresholds βc = <k>/<k²> and 1/λ_max per field subgraph. "
+            f"Condition A: β = β0 × subfield cosine similarity × receiver's field share (min {EPSILON_RECEPTIVITY}) on the "
+            f"full network; Condition B: uniform β0 = {BETA_BASE} inside the field subgraph. "
+            f"Top {N_SEEDS} roster faculty per field (field share × degree) as seeds, {N_TRIALS} runs each, {MAX_STEPS} steps; "
+            f"T50 = median step at which 50% of the field has adopted, 'not reached' when the median run never gets there. "
+            f"Seeded (SEED={SEED}) and order-independent, so reruns give identical numbers."
         ),
     }
 

@@ -1,11 +1,12 @@
 {
   "id": "05_quartile_vs_impact",
   "question": "Is a Q1 journal a reliable signal of a highly cited paper?",
-  "headline": "11.3% of the cluster's top-10% most-cited papers were published outside Q1 journals, while 1.4% of Q1 papers are still uncited.",
+  "headline": "Q1 is a strong filter but not a guarantee: 88.7% of the cluster's top-10% most-cited papers appeared in Q1 journals, yet only 14.0% of Q1 papers reach the top 10% (vs 3.5% of Q2\u2013Q3 papers).",
   "metrics": {
     "pct_top10_from_nonQ1": 11.32,
     "pct_Q1_uncited": 1.42,
     "pct_Q2Q3_in_top10": 3.45,
+    "pct_Q1_in_top10": 13.97,
     "eligible_papers": 10212,
     "counts_by_quartile": {
       "Q1": 6615,
@@ -86,6 +87,6 @@
       ]
     }
   },
-  "method_note": "Evaluated on 10,212 journal papers (2016\u20132023; 2024\u20132026 excluded due to citation latency). Top-10% citation thresholds are normalized within each publication year.",
-  "computed_at": "2026-10-26T05:46:17.622210+00:00"
+  "method_note": "Evaluated on 10,212 journal papers with a SCImago quartile (2016\u20132023; 2024\u20132026 excluded due to citation latency). Top 10% = at or above the 90th citation percentile of the publication year, so ties can push a year's share slightly above 10%.",
+  "computed_at": "2026-10-31T04:40:54.240747+00:00"
 }

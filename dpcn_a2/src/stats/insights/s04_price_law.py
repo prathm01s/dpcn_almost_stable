@@ -105,6 +105,16 @@ def run() -> dict:
                     "itemStyle": {"color": "#4a148c"},
                     "lineStyle": {"width": 2.5},
                     "smooth": True,
+                    "markPoint": {
+                        "symbol": "pin",
+                        "symbolSize": 42,
+                        "data": [{
+                            "name": "√N threshold",
+                            "coord": [round(sqrt_x, 4), round(sqrt_y, 4)],
+                            "value": f"√N={n_sqrt}",
+                        }],
+                        "label": {"fontSize": 9},
+                    },
                 },
                 {
                     "name": "Line of Perfect Equality",
@@ -115,11 +125,6 @@ def run() -> dict:
                     "symbol": "none",
                 },
             ],
-            "markPoint": {
-                "name": "√N Threshold",
-                "coord": [round(sqrt_x, 4), round(sqrt_y, 4)],
-                "label": f"Top √N ({n_sqrt})",
-            },
         },
     }
 
@@ -142,7 +147,8 @@ def run() -> dict:
         "chart": chart,
         "method_note": (
             f"Population: {N} active roster faculty with ≥1 paper (2016–2026). "
-            f"Union counting is used for collaborative output. Price's law predicts √N produce 50%."
+            f"Union counting is used for collaborative output. Price's law predicts √N produce 50%. "
+            f"The pin marks the top √N = {n_sqrt} scientists on the Lorenz curve."
         ),
     }
 

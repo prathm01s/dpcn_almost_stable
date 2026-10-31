@@ -75,10 +75,15 @@ def classify_scientist(timeline: List[Dict[str, Any]]) -> Dict[str, Any]:
             abroad_years.add(y)
             abroad_countries_by_year[y] = c_set
 
+    # A returnee's spell must come after the Indian PhD-proxy papers and be followed by an Indian affiliation
+    # (the return); a spell before the first Indian papers or with no Indian year after it is not a return.
+    phd_end_year = max((e.get("year") for e in first_3 if e.get("year")), default=first_pub_year)
+    india_years = sorted(y for y, elist in by_year.items() if any(e.get("country_code") == "IN" for e in elist))
+
     has_abroad_spell = False
     abroad_spell_countries = []
     for y in sorted(abroad_years):
-        if (y + 1) in abroad_years:
+        if (y + 1) in abroad_years and y >= phd_end_year and any(iy > y + 1 for iy in india_years):
             n_papers_spell = len({e.get("work_id") for e in by_year[y] + by_year[y + 1]})
             if n_papers_spell >= 2:
                 has_abroad_spell = True
@@ -362,8 +367,9 @@ def run() -> dict:
         "chart": chart,
         "method_note": (
             f"Full OpenAlex career histories of {n_total} matched roster scientists; {n_classifiable} classifiable. "
-            f"PhD proxy = main institution on the first 3 papers; abroad spell = ≥2 consecutive years with only non-Indian "
-            f"affiliations and ≥2 papers. OLS on log(1+citations/paper, 2016–26) with academic age and lab. "
+            f"PhD proxy = main institution on the first 3 papers; returnee = Indian PhD proxy, then an abroad spell "
+            f"(≥2 consecutive years with only non-Indian affiliations and ≥2 papers, starting no earlier than the 3rd "
+            f"paper's year), then an Indian affiliation again. OLS on log(1+citations/paper, 2016–26) with academic age and lab. "
             f"Classification validation: {validation_status}."
         ),
     }

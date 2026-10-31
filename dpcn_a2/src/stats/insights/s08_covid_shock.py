@@ -59,7 +59,7 @@ def run() -> dict:
             "gap_2021_pct": round(float((a21 - p21) / p21 * 100), 2),
         }
         lab_actuals[lab] = [len(sub[sub["year"] == y]) for y in years_all]
-        lab_projections[lab] = [round(float(slope * y + intercept), 1) for y in [2020, 2021]]
+        lab_projections[lab] = [round(float(slope * y + intercept), 1) for y in [2019, 2020, 2021]]
 
     # 2. Topic Shift: match COVID keywords
     covid_regex = re.compile(r"covid|sars-cov-2|coronavirus|pandemic|antiviral|favipiravir|remdesivir", re.I)
@@ -117,10 +117,22 @@ def run() -> dict:
         shift = f"the topic mix shifted {jsd_ratio:.2f}× more than in a normal period"
     else:
         shift = f"the topic mix shifted less than in a normal period (JSD ratio {jsd_ratio:.2f})"
+    # The 2016-19 trend is a decline, so "above trend" alone would read as a boom. Lead with the change from 2019
+    # and the pre-pandemic rate of decline, then compare with the extrapolated trend.
+    act_2019_c = counts_comb[-1]
+    chg_2020_vs_2019 = (act_2020_c - act_2019_c) / act_2019_c * 100
+    chg_2021_vs_2019 = (act_2021_c - act_2019_c) / act_2019_c * 100
+    pre_annual_pct = ((counts_comb[-1] / counts_comb[0]) ** (1 / (len(years_pre) - 1)) - 1) * 100
+    if gap_2020_c >= -5 and gap_2021_c >= -5:
+        verdict = "so there is no COVID-specific dip"
+    else:
+        verdict = "a dip beyond the pre-pandemic decline"
     headline = (
-        f"Output was {abs(gap_2020_c):.1f}% {dir_20} the 2016–19 trend in 2020 and {abs(gap_2021_c):.1f}% {dir_21} in 2021. "
-        f"COVID-related work peaked at {top_cov['share']:.1f}% of {top_cov['lab']}'s papers in {int(top_cov['year'])}; "
-        f"{shift}."
+        f"Output fell {abs(chg_2020_vs_2019):.1f}% from 2019 to 2020 ({act_2019_c:,} → {act_2020_c:,} papers) and was "
+        f"{abs(chg_2021_vs_2019):.1f}% below 2019 in 2021, but it had already been falling {abs(pre_annual_pct):.1f}% a year "
+        f"since 2016: against that trend 2020 was {abs(gap_2020_c):.1f}% {dir_20} and 2021 {abs(gap_2021_c):.1f}% {dir_21}, "
+        f"{verdict}. COVID-related work peaked at {top_cov['share']:.1f}% of {top_cov['lab']}'s papers in "
+        f"{int(top_cov['year'])}; {shift}."
     )
 
     # Chart construction: actual papers per lab (2016–2025) + dashed projection 2020–2021
@@ -144,7 +156,7 @@ def run() -> dict:
         series_list.append({
             "name": f"{lab} (Projected Trend)",
             "type": "line",
-            "data": [[2020, lab_projections[lab][0]], [2021, lab_projections[lab][1]]],
+            "data": [[y, v] for y, v in zip([2019, 2020, 2021], lab_projections[lab])],
             "itemStyle": {"color": lab_colors[lab]},
             "lineStyle": {"width": 2, "type": "dashed"},
             "symbol": "circle",
@@ -161,6 +173,12 @@ def run() -> dict:
     }
 
     metrics = {
+        "combined_papers_2019": int(act_2019_c),
+        "combined_papers_2020": int(act_2020_c),
+        "combined_papers_2021": int(act_2021_c),
+        "combined_change_2020_vs_2019_pct": round(chg_2020_vs_2019, 2),
+        "combined_change_2021_vs_2019_pct": round(chg_2021_vs_2019, 2),
+        "pre_pandemic_annual_change_pct": round(pre_annual_pct, 2),
         "combined_gap_2020_pct": round(gap_2020_c, 2),
         "combined_gap_2021_pct": round(gap_2021_c, 2),
         "lab_gaps": lab_gaps,
@@ -183,7 +201,9 @@ def run() -> dict:
         "metrics": metrics,
         "chart": chart,
         "method_note": (
-            "Linear trend fitted on 2016–2019 distinct papers (output was already falling, so the trend projects a decline). "
+            "Linear trend fitted on 2016–2019 distinct papers; output was already falling, so the dashed trend projects a "
+            "continued decline and 'above trend' means a smaller fall than projected, not growth. "
+            "Pre-pandemic rate = compound annual change 2016→2019. "
             "COVID-related = title/topic matches covid, sars-cov-2, coronavirus, pandemic, antiviral, favipiravir or remdesivir. "
             "Publication lag means 2020 papers mostly reflect pre-pandemic work."
         ),
