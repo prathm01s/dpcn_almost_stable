@@ -209,6 +209,24 @@ def run_tests():
                 dept_canvas = client.evaluate("document.querySelectorAll('#chart-departments canvas, #chart-departments svg').length")
                 print(f"✓ Department chart rendered elements: {dept_canvas}")
                 assert dept_canvas > 0
+                # Scientist profiles: featured strip, hover card, profile panel
+                featured = client.evaluate("document.querySelectorAll('#featured-scientists .prof-card[data-fid]').length")
+                linked_rows = client.evaluate("document.querySelectorAll('#table-faculty .tabulator-row[data-fid]').length")
+                client.evaluate("""(() => { const c = document.querySelector('#table-faculty .tabulator-row[data-fid] .tabulator-cell');
+                    const b = c.getBoundingClientRect();
+                    c.dispatchEvent(new MouseEvent('mouseover', {bubbles: true, clientX: b.x + 10, clientY: b.y + 10})); })()""")
+                time.sleep(0.3)
+                hover = client.evaluate("!!document.querySelector('.prof-hover.show')")
+                client.evaluate("document.querySelector('#table-faculty .tabulator-row[data-fid] .tabulator-cell').click()")
+                time.sleep(1.0)
+                title = client.evaluate("document.querySelector('.prof-overlay.open #prof-title')?.textContent || ''")
+                net = client.evaluate("document.querySelectorAll('#prof-net canvas').length")
+                print(f"✓ Profiles: Featured={featured}, Linked rows={linked_rows}, Hover={hover}, Opened='{title}', Network canvas={net}")
+                assert featured > 0 and linked_rows > 0 and hover and title and net > 0
+                client.capture_screenshot("dashboard/screenshots/03b_faculty_profile.png")
+                client.evaluate("document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))")
+                time.sleep(0.3)
+                assert not client.evaluate("!!document.querySelector('.prof-overlay.open')")
             elif tab_id == "venues":
                 top_rows = client.evaluate("document.querySelectorAll('#table-top-papers .tabulator-row').length")
                 print(f"✓ Venues Tab: {top_rows} top papers visible")

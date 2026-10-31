@@ -16,6 +16,7 @@ stats:
 dashboard:
 	$(PYTHON) -m src.dashboard.build_data
 	$(PYTHON) -m src.dashboard.build_insights_js
+	$(PYTHON) -m src.dashboard.build_profiles
 
 insights-fetch:
 	$(PYTHON) -m src.collect.fetch_counts_by_year

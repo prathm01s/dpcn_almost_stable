@@ -365,6 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Faculty Panels
   let facultyTable = null;
   function renderFacultyPanels() {
+    if (window.G24Profiles) G24Profiles.renderFeatured("featured-scientists", currentInst);
     const bundle = data.by_institute[currentInst === "compare" ? "all" : currentInst];
 
     // Faculty Directory Table via Tabulator
@@ -375,8 +376,13 @@ document.addEventListener("DOMContentLoaded", () => {
         layout: "fitColumns",
         pagination: "local",
         paginationSize: 15,
+        // Each row opens the scientist's profile (hover card + click), see js/profiles.js
+        rowFormatter: row => {
+          const fid = row.getData().faculty_id;
+          if (window.G24Profiles && G24Profiles.has(fid)) row.getElement().setAttribute("data-fid", fid);
+        },
         columns: [
-          { title: "Name", field: "name", widthGrow: 2 },
+          { title: "Name", field: "name", widthGrow: 2, headerFilter: "input", headerFilterPlaceholder: "Search scientist…" },
           { title: "Institution", field: "institution", widthGrow: 1.5 },
           { title: "Department", field: "department", widthGrow: 2 },
           { title: "Designation", field: "designation", widthGrow: 1.5 },
@@ -816,6 +822,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     nodes = nodes.filter(n => connectedNodeIds.has(n.id));
 
+    if (!charts.authorshipNet._profileClick) {
+      charts.authorshipNet.on("click", prm => {
+        const fid = prm.dataType === "node" && window.G24Profiles && G24Profiles.fidByName(prm.data.name);
+        if (fid) G24Profiles.open(fid);
+      });
+      charts.authorshipNet._profileClick = true;
+    }
     charts.authorshipNet.setOption({
       tooltip: {
         trigger: "item",
@@ -836,6 +849,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div><strong>Betweenness Centrality:</strong> ${d.betweenness}</div>
                 <div><strong>Louvain Community:</strong> Cluster #${d.community}</div>
               </div>
+              ${window.G24Profiles && G24Profiles.fidByName(d.name) ? '<div style="margin-top:6px; font-size:11px; color:#0288d1; font-weight:600;">Click to open full profile</div>' : ""}
             `;
           } else if (params.dataType === "edge") {
             const d = params.data;
@@ -941,7 +955,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return `
           <tr>
             <td style="font-weight:700; color:#64748b;">${b.rank}</td>
-            <td style="font-weight:600; color:#1e293b;">${b.author}</td>
+            <td style="font-weight:600; color:#1e293b;" ${(window.G24Profiles && G24Profiles.fidByName(b.author)) ? `data-fid="${G24Profiles.fidByName(b.author)}"` : ""}>${b.author}</td>
             <td><span class="net-badge-lab" style="background:${labColor};">${b.institution}</span></td>
             <td style="font-weight:700;">${b.collaborators_count}</td>
             <td style="font-family:monospace; font-weight:600; color:#0d9488;">${b.betweenness.toFixed(4)}</td>
@@ -1054,7 +1068,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Hub authors
     document.getElementById("tbody-conn-hubs").innerHTML = (conn.hub_authors[key] || []).map(r => `
-      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td><td style="font-weight:600;">${esc(r.author)}</td>
+      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td><td style="font-weight:600;" ${window.G24Profiles && G24Profiles.fidByOpenAlex(r.author_openalex_id) ? `data-fid="${esc(G24Profiles.fidByOpenAlex(r.author_openalex_id))}"` : ""}>${esc(r.author)}</td>
       <td>${esc(r.home_institution)}</td><td>${esc(r.author_role.replace(/_/g, " "))}</td><td>${r.papers}</td>
       <td style="font-weight:700; color:#0284c7;">${r.institutions_bridged}</td><td>${r.cross_institution_papers}</td>
       <td style="font-size:0.75rem; color:#64748b; max-width:320px;">${esc(r.top_partners)}</td></tr>`).join("");

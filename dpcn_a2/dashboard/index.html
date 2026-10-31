@@ -179,10 +179,21 @@
     <!-- Tab 2: Faculty & Divisions -->
     <div id="tab-faculty" class="tab-content">
       <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="prof-strip-head">
+          <div>
+            <div class="card-title">Featured Scientists</div>
+            <div class="card-subtitle">Most-cited roster scientists for the selected institute · hover for a summary, click for the full profile</div>
+          </div>
+          <span>Hover to pause</span>
+        </div>
+        <div id="featured-scientists"></div>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
         <div class="card-header">
           <div>
             <div class="card-title">Panel 2 & 4: Faculty Directory & Performance Table</div>
-            <div class="card-subtitle">Verified scientific cadre personnel, publication output, citations, and in-corpus h-index</div>
+            <div class="card-subtitle">Verified scientific cadre personnel, publication output, citations, and in-corpus h-index · click a row for the full profile</div>
           </div>
         </div>
         <div id="table-faculty" style="height: 420px;"></div>
@@ -730,6 +741,8 @@
   <script src="vendor/tabulator.min.js"></script>
   <script src="data/g24_data.js"></script>
   <script src="data/g24_insights.js"></script>
+  <script src="data/g24_profiles.js"></script>
+  <script src="js/profiles.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
