@@ -272,21 +272,29 @@
     if (netChart) netChart.dispose();
     netChart = echarts.init(el);
     const collabs = (p.collaborators || []).slice(0, topN);
-    const color = LAB_COLORS[p.lab_key] || LAB_COLORS.all;
+    // Colours follow the light/dark theme (js/theme.js): on the dark background the lab colours are
+    // lightened and the edges are drawn in light tones so they stay visible.
+    const dark = !!(window.G24Theme && G24Theme.isDark());
+    const ink = window.G24Theme ? G24Theme.ink() : { surface: "#fff", text2: "#334155" };
+    const labColors = dark ? { iict: "#5b9bd5", ncl: "#4caf50", cecri: "#f28c38", all: "#9575cd" } : LAB_COLORS;
+    const labByName = { "CSIR-IICT": labColors.iict, "CSIR-NCL": labColors.ncl, "CSIR-CECRI": labColors.cecri };
+    const edgeEgo = dark ? "rgba(165,180,252,0.75)" : "rgba(26,35,126,0.35)";
+    const edgePeer = dark ? "rgba(148,163,184,0.30)" : "rgba(0,0,0,0.12)";
+    const color = labColors[p.lab_key] || labColors.all;
     const nodes = [{
       id: "ego", name: p.name, symbolSize: 42, fixed: false,
-      itemStyle: { color, borderColor: "#0f172a", borderWidth: 2 },
+      itemStyle: { color, borderColor: dark ? "#e2e8f0" : "#0f172a", borderWidth: 2 },
       label: { show: true, formatter: initials(p.name), color: "#fff", fontWeight: 700 }, ego: true,
     }].concat(collabs.map((c, i) => ({
       id: String(i), name: c.name, value: c.joint_papers, fid: c.faculty_id || null, lab: c.lab,
       symbolSize: Math.max(10, Math.min(32, Math.sqrt(c.joint_papers) * 5)),
-      itemStyle: { color: c.faculty_id ? (LAB_COLOR_BY_NAME[c.lab] || color) : "#94a3b8", borderColor: (window.G24Theme ? G24Theme.ink().surface : "#fff"), borderWidth: 1.5 },
-      label: { show: c.joint_papers >= Math.max(3, collabs[Math.min(4, collabs.length - 1)].joint_papers), position: "right", fontSize: 10, color: (window.G24Theme ? G24Theme.ink().text2 : "#334155") },
+      itemStyle: { color: c.faculty_id ? (labByName[c.lab] || color) : (dark ? "#64748b" : "#94a3b8"), borderColor: ink.surface, borderWidth: 1.5 },
+      label: { show: c.joint_papers >= Math.max(3, collabs[Math.min(4, collabs.length - 1)].joint_papers), position: "right", fontSize: 10, color: ink.text2 },
     })));
     const links = collabs.map((c, i) => ({ source: "ego", target: String(i), value: c.joint_papers,
-      lineStyle: { color: "rgba(26,35,126,0.35)", width: c.joint_papers >= 10 ? 2.2 : 1.2 } }));
+      lineStyle: { color: edgeEgo, width: c.joint_papers >= 10 ? 2.2 : 1.2 } }));
     (p.collab_links || []).forEach(([a, b, n]) => {
-      if (a < topN && b < topN) links.push({ source: String(a), target: String(b), value: n, lineStyle: { color: "rgba(0,0,0,0.12)", width: 1 } });
+      if (a < topN && b < topN) links.push({ source: String(a), target: String(b), value: n, lineStyle: { color: edgePeer, width: 1 } });
     });
     document.getElementById("prof-net-n").textContent = collabs.length;
     document.getElementById("prof-net-e").textContent = links.length;
