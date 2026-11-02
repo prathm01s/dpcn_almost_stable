@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Global Leiden Crown Indicators — Group 24</title>
   <link rel="stylesheet" href="css/insight_pages.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="vendor/mathjax/tex-svg.js"></script>
   <meta name="color-scheme" content="dark light">
   <script src="vendor/echarts.min.js"></script>
   <script src="js/theme.js"></script>
@@ -19,13 +32,13 @@
       <h1>Global Leiden Crown Indicators</h1>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="nav-link">🏠 Main Dashboard</a>
-      <a href="insights11.html" class="nav-link">🔬 Cadre & NIMFA</a>
-      <a href="insight_smart_spec.html" class="nav-link">🏭 2.1 Smart Specialization</a>
-      <a href="insight_academic_bridge.html" class="nav-link">🌉 1.1 Academic Bridge</a>
-      <a href="insight_frugal_rd.html" class="nav-link">💰 5.1 Frugal Innovation</a>
-      <a href="insight_patents_papers.html" class="nav-link">📜 5.2 Patents vs Papers</a>
-      <a href="insight_leiden_benchmarks.html" class="nav-link active">👑 3.1 Leiden Benchmarks</a>
+      <a href="index.html" class="nav-link">Main Dashboard</a>
+      <a href="insights11.html" class="nav-link">Cadre & NIMFA Spreading</a>
+      <a href="insight_smart_spec.html" class="nav-link">2.1 Smart Specialization</a>
+      <a href="insight_academic_bridge.html" class="nav-link">1.1 Academic Bridge</a>
+      <a href="insight_frugal_rd.html" class="nav-link">5.1 Frugal Innovation</a>
+      <a href="insight_patents_papers.html" class="nav-link">5.2 Patents vs Papers</a>
+      <a href="insight_leiden_benchmarks.html" class="nav-link active">3.1 Leiden Benchmarks</a>
     </nav>
   </header>
 
@@ -36,7 +49,7 @@
       <div class="hero-subtitle">Advanced Scientometrics & Normalized Impact</div>
       <h2>Global Leiden "Crown Indicator" Benchmarking: Beyond Raw Citation Counts</h2>
       <p class="hero-lead">
-        Raw citation metrics are notoriously confounded by publication year, disciplinary citation customs, and paper volume. To rigorously determine where Indian CSIR chemistry sits on the global scientific stage, we implement the methodology of the <strong>CWTS Leiden Ranking Open Edition</strong>. Using field-and-year normalization on our 14,352 papers, we calculate the proportion of papers in the global top 10% (<strong>$PP_{\text{top 10\%}}$</strong>), the top 1% (<strong>$PP_{\text{top 1\%}}$</strong>), and the <strong>Mean Normalized Citation Score ($MNCS$)</strong> against the Max Planck Society, Chinese Academy of Sciences (CAS), CNRS, UC Berkeley, and top Indian institutions.
+        Raw citation metrics are confounded by publication year, disciplinary citation customs, and paper volume. To determine the global scientific standing of Indian CSIR chemistry, the methodology of the <strong>CWTS Leiden Ranking Open Edition</strong> is applied. Using field-and-year normalization on the 14,352-paper corpus, this study calculates the proportion of papers in the global top 10% (<strong>$PP_{\text{top 10\%}}$</strong>), the top 1% (<strong>$PP_{\text{top 1\%}}$</strong>), and the <strong>Mean Normalized Citation Score ($MNCS$)</strong> against the Max Planck Society, Chinese Academy of Sciences (CAS), CNRS, UC Berkeley, and peer Indian institutions.
       </p>
     </section>
 
@@ -45,7 +58,7 @@
       <div class="kpi-card">
         <div class="kpi-label">Cluster $PP_{\text{top 10\%}}$ Share</div>
         <div class="kpi-value" style="color: #059669;">14.42%</div>
-        <div class="kpi-subtext">44.2% above world baseline (10.0%). Surpasses IISc (9.8%) and IIT Bombay (9.1%).</div>
+        <div class="kpi-subtext">44.2% above world baseline (10.0%). Exceeds IISc (9.8%) and IIT Bombay (9.1%).</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Mean Normalized Citation Score</div>
@@ -68,7 +81,6 @@
     <div class="audit-box">
       <div class="audit-header" onclick="toggleAudit()">
         <div class="audit-title">
-          <span class="icon">🔍</span>
           <span>Data Collection, Preprocessing & Cleaning Methodology Audit</span>
         </div>
         <span id="audit-toggle-icon" style="font-weight: bold; color: #64748b;">[− Click to Collapse]</span>
@@ -76,14 +88,14 @@
       <div class="audit-content" id="audit-content">
         <div class="audit-grid">
           <div class="audit-pane">
-            <h4>📁 Primary Data Sources</h4>
+            <h4>Primary Data Sources</h4>
             <ul>
               <li><strong>Corpus Normalization</strong>: 14,352 papers from <code>data/final/group24_data_extended.csv</code> evaluated across OpenAlex subfields and publication years (2016–2026).</li>
               <li><strong>CWTS Leiden Ranking Open Edition</strong>: Official 2023/2024 Physical Sciences and Engineering / Chemistry benchmark data from the Centre for Science and Technology Studies (CWTS), Leiden University (open.leidenranking.com).</li>
             </ul>
           </div>
           <div class="audit-pane">
-            <h4>📐 Mathematical Formulations</h4>
+            <h4>Mathematical Formulations</h4>
             <div class="formula-card">
               $$PP_{\text{top 10\%}} = \frac{1}{N} \sum_{k=1}^N \mathbb{I}(\text{Percentile}_{f, y}(k) \ge 90.0) \times 100\%$$
             </div>
@@ -98,9 +110,9 @@
             </p>
           </div>
           <div class="audit-pane">
-            <h4>⚙️ Normalization & Edge Rules</h4>
+            <h4>Normalization & Edge Rules</h4>
             <ul>
-              <li><strong>Zero Imputation Protection</strong>: For subfield-year cohorts where world average citations $\mu = 0$, baseline is clamped to 1.0 to prevent division by zero.</li>
+              <li><strong>Zero Imputation Protection</strong>: For subfield-year cohorts where world average citations $\mu = 0$, baseline is set to 1.0 to prevent division by zero.</li>
               <li><strong>OpenAlex Full Counting</strong>: Following CWTS Open Edition conventions, full counting of institute publications is applied.</li>
             </ul>
           </div>
@@ -124,7 +136,7 @@
       <div class="interpretation-box">
         <h4>Scientometric Interpretation</h4>
         <p>
-          When normalized for subfield and publication year, CSIR chemistry proves to be an elite global research cluster. The consolidated cluster achieves a <strong>$PP_{\text{top 10\%}}$ of 14.42%</strong>—meaning that CSIR produces 44% more world-leading top-decile chemistry papers than would be expected by chance. This performance substantially exceeds India's top academic universities (IISc at 9.8% and IIT Bombay at 9.1%), and surpasses major European national centers like France's <strong>CNRS (12.6%)</strong> and closely matches the <strong>Chinese Academy of Sciences (13.8%)</strong>. While hyper-funded private universities like UC Berkeley (22.8%) and Germany's Max Planck Society (20.4%) lead the global frontier, CSIR punches dramatically above its budgetary weight in world-class chemistry.
+          When normalized for subfield and publication year, CSIR chemistry ranks as an active global research cluster. The consolidated cluster achieves a <strong>$PP_{\text{top 10\%}}$ of 14.42%</strong>—meaning that CSIR produces 44% more top-decile chemistry papers than would be expected by baseline distribution. This performance exceeds top Indian academic universities (IISc at 9.8% and IIT Bombay at 9.1%), surpasses major European national centers like France's <strong>CNRS (12.6%)</strong>, and closely matches the <strong>Chinese Academy of Sciences (13.8%)</strong>. While leading institutions like UC Berkeley (22.8%) and Germany's Max Planck Society (20.4%) maintain higher proportions, CSIR sustains strong global representation within its operational budget.
         </p>
       </div>
     </div>
@@ -141,7 +153,7 @@
       <div class="interpretation-box">
         <h4>Disciplinary Strengths</h4>
         <p>
-          Examining the Crown Indicators across specific chemistry disciplines reveals that CSIR's highest concentration of elite publications occurs in <strong>Renewable Energy & Electrochemistry</strong> ($PP_{\text{top 10\%}} = 15.8\%$, driven by CECRI and NCL battery/hydrogen research) and <strong>Catalysis & Materials Chemistry</strong> ($PP_{\text{top 10\%}} = 15.2\%$). Even in classical Organic Synthesis, where global citation competition from American and Chinese groups is fierce, CSIR maintains an above-average top-10% rate of 14.1%, propelled by IICT's high-yield heterocyclic and chiral synthesis methodologies.
+          Examining the Crown Indicators across specific chemistry disciplines reveals that CSIR's highest concentration of top publications occurs in <strong>Renewable Energy & Electrochemistry</strong> ($PP_{\text{top 10\%}} = 15.8\%$, driven by CECRI and NCL battery/hydrogen research) and <strong>Catalysis & Materials Chemistry</strong> ($PP_{\text{top 10\%}} = 15.2\%$). Even in classical Organic Synthesis, where global citation competition is intense, CSIR maintains an above-average top-10% rate of 14.1%, supported by IICT's heterocyclic and chiral synthesis methodologies.
         </p>
       </div>
     </div>

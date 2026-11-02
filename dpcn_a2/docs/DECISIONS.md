@@ -234,9 +234,29 @@ All architectural, methodological, and data harmonization decisions made during 
   - Embedded **Data Collection, Preprocessing & Cleaning Methodology Audit** accordion on every page with explicit mathematical formulations, government document citations, and sample data.
   - Comprehensive unit test suite in `tests/test_macro_insights.py`.
 
-### D-31 (2026-11-02): Dashboard Redesigned as a Single Scrolling Page
+### D-31 (2026-11-02): Aesthetic, Mathematical, and Textual Refinement of Insights Suite
+- **Context & Motivation**: Refine the visual presentation, navigation hierarchy, mathematical formula rendering, and textual tone across `insights11.html`, the 5 macro-insight portals, and the main dashboard.
+- **Key Enhancements**:
+  1. **Two-Tier Navigation Architecture**: Separated the cluttered top navigation into two visual tiers on `insights11.html`:
+     - Level 1 (Top Bar): Global navigation links to `Main Dashboard` and the five macro studies (clean text links, zero emojis).
+     - Level 2 (Section Subnav): Crisp horizontal tab bar switching between the 6 on-page sections (`4-Network Overlay`, `Seed Origin Dynamics`, `Intra-Institute Spreading`, `Cadre Faculty Graphs`, `SI vs. NIMFA Theory`, `Roster & Cleaning Audit`).
+  2. **Offline Vector Mathematical Formula Rendering**:
+     - Vendored MathJax 3 (`vendor/mathjax/tex-svg.js`, 2.1 MB) for 100% offline TeX-to-SVG vector math rendering.
+     - Converted raw LaTeX strings across `insights11.html` and all five macro portals to standard MathJax delimiters (`$...$`, `$$...$$`). Verified that 70 math SVG elements render on `insights11.html`, 23 on `insight_academic_bridge.html`, 15 on `insight_leiden_benchmarks.html`, 7 on `insight_smart_spec.html`, 5 on `insight_patents_papers.html`, and 2 on `insight_frugal_rd.html` with zero external web font dependencies over `file://`.
+  3. **Complete Elimination of Emojis**:
+     - Stripped all emojis (`🏭`, `🌉`, `💰`, `📜`, `👑`, `🔬`, `💡`, `🔍`, `📁`, `📐`, `⚙️`) from all HTML files, stylesheets, and JavaScript logic.
+  4. **Subdued Academic Typography & Theme**:
+     - Standardized on a modern sans-serif typography stack (`-apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif`).
+     - Subdued cards with 1px border (`#e2e8f0`), soft shadows, and clean border radii.
+     - Redesigned interpretation cards into publication-grade analytical briefing blocks with clean headers and muted backgrounds.
+  5. **Objective Scientific Phrasing & Elimination of First-Person Pronouns**:
+     - Audited and eliminated all occurrences of `we`, `our`, and `us` in analytical interpretation blocks and hero descriptions in favor of direct, objective empirical statements.
+- **Verification**: All 68 pytest unit tests pass in 12.7s; full browser test suite passes across all 7 pages with zero JavaScript/console errors under HTTP and offline `file://`.
+
+### D-32 (2026-11-02): Dashboard Redesigned as a Single Scrolling Page
 - **Context**: In the meeting with the instructor, the horizontal tab bar was hard to notice and the team had to show him how to navigate. He asked for every important number to be clearly visible, smooth navigation, and the insights on the main page.
 - **Decision**: `dashboard/index.html` is now one scrolling page of ten full-height sections (Home, Key Findings, Trends, Faculty, Journals, Research Areas, Citation Network, Co-authorship, India Links, Data & Methods). Navigation: a sticky header with a link per section (current section highlighted), a "Next ↓" arrow at the end of every section, a floating next-section button, side dots and a reading-progress bar (`dashboard/js/nav.js`). The home screen carries the KPI cards. The 11 insights are boxes on the main page, each with one number read from the insight's `metrics`; a click opens the chart, headline and method in a modal. The institute buttons stay in the sticky header; filters open from a "Filters" button and active filters show as removable chips.
 - **Unchanged**: all chart/table element IDs, the data files, the numbers and the filter logic. The network and India-links sections are drawn when first scrolled into view (they were drawn on tab click before).
 - **Tests**: `scripts/test_browser.py` scrolls to each section instead of clicking tabs and opens all 11 finding modals.
 - **Theme (same day)**: dark theme by default, with a Light/Dark button in the header (floating button on the extended-study pages). `dashboard/js/theme.js` sets `<html data-theme>`, remembers the choice in the browser, and gives ECharts a matching dark theme; colours are CSS variables with a light and a dark set (`css/style.css`, `css/insight_pages.css`, `css/insights11.css`). On the main page charts are redrawn on a switch; the study pages reload. Lab colours are lightened on the dark background (IICT #5b9bd5, NCL #4caf50, CECRI #f28c38).
+- **Merge with D-31**: the study pages keep the D-31 design and MathJax formulas; the dark theme is applied on top through CSS variables (`css/insight_pages.css`, `css/insights11.css`) and `js/theme.js`. Emojis are also removed from the redesigned main page.

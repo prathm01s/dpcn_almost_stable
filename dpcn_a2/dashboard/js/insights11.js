@@ -35,7 +35,7 @@
 
   /* ---------------- Navigation ---------------- */
   function initNav() {
-    document.querySelectorAll(".nav-btn[data-section]").forEach(btn => {
+    document.querySelectorAll("[data-section]").forEach(btn => {
       btn.addEventListener("click", () => {
         const sec = btn.getAttribute("data-section");
         showSection(sec);
@@ -45,7 +45,7 @@
 
   function showSection(secId) {
     currentSection = secId;
-    document.querySelectorAll(".nav-btn[data-section]").forEach(b => {
+    document.querySelectorAll("[data-section]").forEach(b => {
       b.classList.toggle("active", b.getAttribute("data-section") === secId);
     });
     document.querySelectorAll(".section-view").forEach(v => {
@@ -62,6 +62,10 @@
       setTimeout(renderNetworkGraph, 60);
     } else if (secId === "diffusion") {
       setTimeout(renderDiffusionChart, 60);
+    }
+
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      window.MathJax.typesetPromise();
     }
   }
 
