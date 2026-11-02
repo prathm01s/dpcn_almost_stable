@@ -1,0 +1,6291 @@
+{
+  "nodes": [
+    {
+      "id": "Dr. Asmita Prabhune",
+      "name": "Dr. Asmita Prabhune",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0019",
+      "h_index": 14,
+      "papers": 25,
+      "citations": 508,
+      "degree": 7,
+      "strength": 14,
+      "betweenness": 0.0239,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Paresh L. Dhepe",
+      "name": "Dr. Paresh L. Dhepe",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0100",
+      "h_index": 22,
+      "papers": 48,
+      "citations": 1498,
+      "degree": 6,
+      "strength": 9,
+      "betweenness": 0.0034,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Avishek Saha",
+      "name": "Dr. Avishek Saha",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0022",
+      "h_index": 6,
+      "papers": 13,
+      "citations": 91,
+      "degree": 3,
+      "strength": 5,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Sandip S. Shinde",
+      "name": "Dr. Sandip S. Shinde",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0127",
+      "h_index": 11,
+      "papers": 17,
+      "citations": 465,
+      "degree": 4,
+      "strength": 7,
+      "betweenness": 0.0067,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr V Ganesh",
+      "name": "Dr V Ganesh",
+      "lab": "CSIR-CECRI",
+      "dept": "DIRECTOR\u2019S TECHNICAL CELL",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_CECRI_0459",
+      "h_index": 31,
+      "papers": 119,
+      "citations": 3584,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0083,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr. Manish Kumar Mishra",
+      "name": "Dr. Manish Kumar Mishra",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0078",
+      "h_index": 2,
+      "papers": 3,
+      "citations": 29,
+      "degree": 1,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Linga Banoth",
+      "name": "Dr. Linga Banoth",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0321",
+      "h_index": 8,
+      "papers": 18,
+      "citations": 134,
+      "degree": 6,
+      "strength": 6,
+      "betweenness": 0.0109,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Harshawardhan Pol",
+      "name": "Dr. Harshawardhan Pol",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0054",
+      "h_index": 10,
+      "papers": 20,
+      "citations": 183,
+      "degree": 8,
+      "strength": 12,
+      "betweenness": 0.0112,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Chittaranjan Patra",
+      "name": "Dr. Chittaranjan Patra",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0205",
+      "h_index": 33,
+      "papers": 76,
+      "citations": 3178,
+      "degree": 5,
+      "strength": 9,
+      "betweenness": 0.0098,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Rahul Bhambure",
+      "name": "Dr. Rahul Bhambure",
+      "lab": "CSIR-NCL",
+      "dept": "Contact Number:",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0111",
+      "h_index": 7,
+      "papers": 19,
+      "citations": 267,
+      "degree": 3,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Sidhanath Vishwanath Bhosale",
+      "name": "Dr. Sidhanath Vishwanath Bhosale",
+      "lab": "CSIR-IICT",
+      "dept": "Polymers & Functional Materials",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0402",
+      "h_index": 24,
+      "papers": 109,
+      "citations": 3120,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0073,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Ramesh Ummanni",
+      "name": "Dr. Ramesh Ummanni",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0210",
+      "h_index": 15,
+      "papers": 41,
+      "citations": 715,
+      "degree": 5,
+      "strength": 10,
+      "betweenness": 0.0025,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Sanjit Kanjilal",
+      "name": "Dr. Sanjit Kanjilal",
+      "lab": "CSIR-IICT",
+      "dept": "Oils, Lipid Science & Technology",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0251",
+      "h_index": 8,
+      "papers": 15,
+      "citations": 298,
+      "degree": 3,
+      "strength": 4,
+      "betweenness": 0.0122,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Mohana Krishna Reddy Mudiam",
+      "name": "Dr. Mohana Krishna Reddy Mudiam",
+      "lab": "CSIR-IICT",
+      "dept": "Analytical & Structural Chemistry",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0173",
+      "h_index": 16,
+      "papers": 49,
+      "citations": 695,
+      "degree": 10,
+      "strength": 13,
+      "betweenness": 0.0177,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Punna Nagender",
+      "name": "Dr. Punna Nagender",
+      "lab": "CSIR-IICT",
+      "dept": "Fluoro-Agrochemicals",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0295",
+      "h_index": 9,
+      "papers": 27,
+      "citations": 203,
+      "degree": 3,
+      "strength": 10,
+      "betweenness": 0.0007,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Shatabdi Porel Mukherjee",
+      "name": "Dr. Shatabdi Porel Mukherjee",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0142",
+      "h_index": 10,
+      "papers": 22,
+      "citations": 348,
+      "degree": 6,
+      "strength": 6,
+      "betweenness": 0.013,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Nitin T. Patil",
+      "name": "Dr. Nitin T. Patil",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0095",
+      "h_index": 14,
+      "papers": 19,
+      "citations": 646,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Sureshkumar Ramasamy",
+      "name": "Dr. Sureshkumar Ramasamy",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0152",
+      "h_index": 12,
+      "papers": 29,
+      "citations": 716,
+      "degree": 10,
+      "strength": 14,
+      "betweenness": 0.0043,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Rajesh G. Gonnade",
+      "name": "Dr. Rajesh G. Gonnade",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0113",
+      "h_index": 35,
+      "papers": 251,
+      "citations": 4243,
+      "degree": 39,
+      "strength": 209,
+      "betweenness": 0.15,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Rajesh Kanawade",
+      "name": "Dr. Rajesh Kanawade",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0114",
+      "h_index": 5,
+      "papers": 17,
+      "citations": 64,
+      "degree": 7,
+      "strength": 11,
+      "betweenness": 0.0038,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Jagadeesh Babu Nanubolu",
+      "name": "Dr. Jagadeesh Babu Nanubolu",
+      "lab": "CSIR-IICT",
+      "dept": "Analytical & Structural Chemistry",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0174",
+      "h_index": 26,
+      "papers": 165,
+      "citations": 2394,
+      "degree": 22,
+      "strength": 81,
+      "betweenness": 0.1673,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Ajay Kumar Singh",
+      "name": "Dr. Ajay Kumar Singh",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0342",
+      "h_index": 12,
+      "papers": 32,
+      "citations": 432,
+      "degree": 5,
+      "strength": 11,
+      "betweenness": 0.01,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Nagaraju Rajana",
+      "name": "Dr. Nagaraju Rajana",
+      "lab": "CSIR-IICT",
+      "dept": "Analytical & Structural Chemistry",
+      "desig": "Senior Scientist",
+      "faculty_id": "FAC_IICT_0180",
+      "h_index": 2,
+      "papers": 9,
+      "citations": 17,
+      "degree": 3,
+      "strength": 4,
+      "betweenness": 0.0048,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Santhosh Babu Sukumaran",
+      "name": "Dr. Santhosh Babu Sukumaran",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0129",
+      "h_index": 19,
+      "papers": 54,
+      "citations": 1366,
+      "degree": 11,
+      "strength": 34,
+      "betweenness": 0.0365,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Ram Chandra Reddy Jala",
+      "name": "Dr. Ram Chandra Reddy Jala",
+      "lab": "CSIR-IICT",
+      "dept": "Oils, Lipid Science & Technology",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0257",
+      "h_index": 6,
+      "papers": 11,
+      "citations": 204,
+      "degree": 2,
+      "strength": 4,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. M.S.L. Karuna",
+      "name": "Dr. M.S.L. Karuna",
+      "lab": "CSIR-IICT",
+      "dept": "Oils, Lipid Science & Technology",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0254",
+      "h_index": 4,
+      "papers": 11,
+      "citations": 107,
+      "degree": 3,
+      "strength": 3,
+      "betweenness": 0.0077,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Sameena Begum",
+      "name": "Dr. Sameena Begum",
+      "lab": "CSIR-IICT",
+      "dept": "Energy & Environmental Engg.",
+      "desig": "Senior Scientist",
+      "faculty_id": "FAC_IICT_0272",
+      "h_index": 18,
+      "papers": 35,
+      "citations": 828,
+      "degree": 3,
+      "strength": 5,
+      "betweenness": 0.0101,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Rahul Shevate",
+      "name": "Dr. Rahul Shevate",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0112",
+      "h_index": 1,
+      "papers": 5,
+      "citations": 4,
+      "degree": 5,
+      "strength": 8,
+      "betweenness": 0.0008,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Udaya Kiran Marelli",
+      "name": "Dr. Udaya Kiran Marelli",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0156",
+      "h_index": 16,
+      "papers": 34,
+      "citations": 750,
+      "degree": 11,
+      "strength": 16,
+      "betweenness": 0.0117,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Sakya S. Sen",
+      "name": "Dr. Sakya S. Sen",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0125",
+      "h_index": 23,
+      "papers": 84,
+      "citations": 1534,
+      "degree": 4,
+      "strength": 82,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. G. Jithender Reddy",
+      "name": "Dr. G. Jithender Reddy",
+      "lab": "CSIR-IICT",
+      "dept": "Analytical & Structural Chemistry",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0176",
+      "h_index": 3,
+      "papers": 3,
+      "citations": 13,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Sreekumar Kurungot",
+      "name": "Dr. Sreekumar Kurungot",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0144",
+      "h_index": 44,
+      "papers": 181,
+      "citations": 8978,
+      "degree": 19,
+      "strength": 80,
+      "betweenness": 0.0393,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Dhiman Sarkar",
+      "name": "Dr. Dhiman Sarkar",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0041",
+      "h_index": 30,
+      "papers": 100,
+      "citations": 2526,
+      "degree": 22,
+      "strength": 30,
+      "betweenness": 0.1622,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Ambade Ashootosh",
+      "name": "Dr. Ambade Ashootosh",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0002",
+      "h_index": 6,
+      "papers": 26,
+      "citations": 167,
+      "degree": 7,
+      "strength": 9,
+      "betweenness": 0.0086,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Sailaja Krishnamurty",
+      "name": "Dr. Sailaja Krishnamurty",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0123",
+      "h_index": 20,
+      "papers": 106,
+      "citations": 1175,
+      "degree": 20,
+      "strength": 78,
+      "betweenness": 0.0482,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Siddhartha Moulik",
+      "name": "Dr. Siddhartha Moulik",
+      "lab": "CSIR-IICT",
+      "dept": "Chemical Engg. & Process Technology (CE & PT)",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0376",
+      "h_index": 14,
+      "papers": 26,
+      "citations": 631,
+      "degree": 7,
+      "strength": 13,
+      "betweenness": 0.048,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. R. Nandini Devi",
+      "name": "Dr. R. Nandini Devi",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0109",
+      "h_index": 10,
+      "papers": 36,
+      "citations": 428,
+      "degree": 15,
+      "strength": 35,
+      "betweenness": 0.021,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Sunil Kumar N.",
+      "name": "Dr. Sunil Kumar N.",
+      "lab": "CSIR-IICT",
+      "dept": "Analytical & Structural Chemistry",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0179",
+      "h_index": 8,
+      "papers": 31,
+      "citations": 149,
+      "degree": 7,
+      "strength": 14,
+      "betweenness": 0.0147,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Durba Sengupta",
+      "name": "Dr. Durba Sengupta",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0043",
+      "h_index": 16,
+      "papers": 67,
+      "citations": 927,
+      "degree": 10,
+      "strength": 15,
+      "betweenness": 0.0123,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Pradeep Kumar, FNA",
+      "name": "Dr. Pradeep Kumar, FNA",
+      "lab": "CSIR-NCL",
+      "dept": "Contact Number:",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0102",
+      "h_index": 12,
+      "papers": 25,
+      "citations": 352,
+      "degree": 4,
+      "strength": 14,
+      "betweenness": 0.0009,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Amitava Das",
+      "name": "Dr. Amitava Das",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0204",
+      "h_index": 20,
+      "papers": 47,
+      "citations": 1125,
+      "degree": 8,
+      "strength": 10,
+      "betweenness": 0.0582,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Bhushan P. Chaudhari",
+      "name": "Dr. Bhushan P. Chaudhari",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0029",
+      "h_index": 10,
+      "papers": 23,
+      "citations": 361,
+      "degree": 4,
+      "strength": 10,
+      "betweenness": 0.0005,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Sachin U. Nandanwar",
+      "name": "Dr. Sachin U. Nandanwar",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0122",
+      "h_index": 8,
+      "papers": 20,
+      "citations": 278,
+      "degree": 4,
+      "strength": 17,
+      "betweenness": 0.0002,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Pradip Maity",
+      "name": "Dr. Pradip Maity",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0103",
+      "h_index": 10,
+      "papers": 19,
+      "citations": 274,
+      "degree": 4,
+      "strength": 8,
+      "betweenness": 0.0004,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. K. Krishnamoorthy",
+      "name": "Dr. K. Krishnamoorthy",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0061",
+      "h_index": 18,
+      "papers": 65,
+      "citations": 851,
+      "degree": 9,
+      "strength": 49,
+      "betweenness": 0.0076,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Kumar Vanka",
+      "name": "Dr. Kumar Vanka",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0069",
+      "h_index": 29,
+      "papers": 183,
+      "citations": 2893,
+      "degree": 31,
+      "strength": 158,
+      "betweenness": 0.1416,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Asish K. Bhattacharya",
+      "name": "Dr. Asish K. Bhattacharya",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0018",
+      "h_index": 12,
+      "papers": 32,
+      "citations": 319,
+      "degree": 3,
+      "strength": 8,
+      "betweenness": 0.0022,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Utpal Das",
+      "name": "Dr. Utpal Das",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0159",
+      "h_index": 8,
+      "papers": 20,
+      "citations": 197,
+      "degree": 3,
+      "strength": 9,
+      "betweenness": 0.0083,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. G B Gathalkar",
+      "name": "Dr. G B Gathalkar",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0046",
+      "h_index": 5,
+      "papers": 11,
+      "citations": 61,
+      "degree": 3,
+      "strength": 4,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr Subrata Kundu",
+      "name": "Dr Subrata Kundu",
+      "lab": "CSIR-CECRI",
+      "dept": "ELECTROCHEMICAL PROCESS ENGINEERING",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_CECRI_0480",
+      "h_index": 59,
+      "papers": 260,
+      "citations": 15767,
+      "degree": 8,
+      "strength": 19,
+      "betweenness": 0.0813,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr. Ashok Giri",
+      "name": "Dr. Ashok Giri",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0015",
+      "h_index": 29,
+      "papers": 100,
+      "citations": 4074,
+      "degree": 10,
+      "strength": 26,
+      "betweenness": 0.0119,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Nagaraju Barsu",
+      "name": "Dr. Nagaraju Barsu",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0085",
+      "h_index": 5,
+      "papers": 13,
+      "citations": 145,
+      "degree": 2,
+      "strength": 6,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Santosh B. Mhaske",
+      "name": "Dr. Santosh B. Mhaske",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0130",
+      "h_index": 18,
+      "papers": 44,
+      "citations": 817,
+      "degree": 5,
+      "strength": 9,
+      "betweenness": 0.0044,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Narendra Kadoo",
+      "name": "Dr. Narendra Kadoo",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0086",
+      "h_index": 14,
+      "papers": 41,
+      "citations": 714,
+      "degree": 6,
+      "strength": 7,
+      "betweenness": 0.0077,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Vrushali H. Jadhav",
+      "name": "Dr. Vrushali H. Jadhav",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0166",
+      "h_index": 10,
+      "papers": 32,
+      "citations": 498,
+      "degree": 3,
+      "strength": 3,
+      "betweenness": 0.0083,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Chepuri V. Ramana",
+      "name": "Dr. Chepuri V. Ramana",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0033",
+      "h_index": 16,
+      "papers": 70,
+      "citations": 935,
+      "degree": 4,
+      "strength": 9,
+      "betweenness": 0.0041,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Debasish Swain",
+      "name": "Dr. Debasish Swain",
+      "lab": "CSIR-IICT",
+      "dept": "Analytical & Structural Chemistry",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0177",
+      "h_index": 5,
+      "papers": 17,
+      "citations": 61,
+      "degree": 5,
+      "strength": 12,
+      "betweenness": 0.0101,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Satyam Naidu Vasireddy",
+      "name": "Dr. Satyam Naidu Vasireddy",
+      "lab": "CSIR-NCL",
+      "dept": "Chemical Engineering & Process Development",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0136",
+      "h_index": 3,
+      "papers": 9,
+      "citations": 26,
+      "degree": 3,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Aruna Jangam",
+      "name": "Dr. Aruna Jangam",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Senior Scientist",
+      "faculty_id": "FAC_IICT_0219",
+      "h_index": 6,
+      "papers": 12,
+      "citations": 79,
+      "degree": 6,
+      "strength": 18,
+      "betweenness": 0.0005,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Rajiv Trivedi",
+      "name": "Dr. Rajiv Trivedi",
+      "lab": "CSIR-IICT",
+      "dept": "Catalysis & Fine Chemicals",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0234",
+      "h_index": 13,
+      "papers": 26,
+      "citations": 446,
+      "degree": 4,
+      "strength": 5,
+      "betweenness": 0.0109,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Kaki Shiva Shanker",
+      "name": "Dr. Kaki Shiva Shanker",
+      "lab": "CSIR-IICT",
+      "dept": "Oils, Lipid Science & Technology",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0256",
+      "h_index": 10,
+      "papers": 35,
+      "citations": 283,
+      "degree": 9,
+      "strength": 18,
+      "betweenness": 0.0117,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Subhash Ghosh",
+      "name": "Dr. Subhash Ghosh",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0333",
+      "h_index": 10,
+      "papers": 42,
+      "citations": 269,
+      "degree": 7,
+      "strength": 19,
+      "betweenness": 0.0166,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. S.N. Raju Kutcherlapati",
+      "name": "Dr. S.N. Raju Kutcherlapati",
+      "lab": "CSIR-IICT",
+      "dept": "Polymers & Functional Materials",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0407",
+      "h_index": 4,
+      "papers": 8,
+      "citations": 46,
+      "degree": 2,
+      "strength": 4,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr M Pandiaraj",
+      "name": "Dr M Pandiaraj",
+      "lab": "CSIR-CECRI",
+      "dept": "ELECTRODICS AND ELECTROCATALYSIS",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_CECRI_0478",
+      "h_index": 24,
+      "papers": 48,
+      "citations": 2629,
+      "degree": 2,
+      "strength": 4,
+      "betweenness": 0.0001,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr. Ashwini Kumar Nangia",
+      "name": "Dr. Ashwini Kumar Nangia",
+      "lab": "CSIR-NCL",
+      "dept": "Contact Number:",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0017",
+      "h_index": 28,
+      "papers": 52,
+      "citations": 2454,
+      "degree": 7,
+      "strength": 10,
+      "betweenness": 0.0198,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Maddi Sridhar Reddy",
+      "name": "Dr. Maddi Sridhar Reddy",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0336",
+      "h_index": 18,
+      "papers": 42,
+      "citations": 835,
+      "degree": 4,
+      "strength": 25,
+      "betweenness": 0.0023,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. G. J. Sanjayan",
+      "name": "Dr. G. J. Sanjayan",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0047",
+      "h_index": 10,
+      "papers": 43,
+      "citations": 376,
+      "degree": 7,
+      "strength": 25,
+      "betweenness": 0.0057,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Andugulapati Sai Balagi",
+      "name": "Dr. Andugulapati Sai Balagi",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0211",
+      "h_index": 17,
+      "papers": 83,
+      "citations": 871,
+      "degree": 19,
+      "strength": 44,
+      "betweenness": 0.0944,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr A Pandikumar",
+      "name": "Dr A Pandikumar",
+      "lab": "CSIR-CECRI",
+      "dept": "ELECTROCHEMICAL PROCESS ENGINEERING",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_CECRI_0487",
+      "h_index": 35,
+      "papers": 82,
+      "citations": 3527,
+      "degree": 1,
+      "strength": 11,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr. Surender Singh Jadav",
+      "name": "Dr. Surender Singh Jadav",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0323",
+      "h_index": 12,
+      "papers": 38,
+      "citations": 373,
+      "degree": 14,
+      "strength": 32,
+      "betweenness": 0.0204,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Praveen Kumar Reddy Adiyala",
+      "name": "Dr. Praveen Kumar Reddy Adiyala",
+      "lab": "CSIR-IICT",
+      "dept": "Fluoro-Agrochemicals",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0296",
+      "h_index": 9,
+      "papers": 18,
+      "citations": 284,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Kiran Pandare",
+      "name": "Dr. Kiran Pandare",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0065",
+      "h_index": 4,
+      "papers": 4,
+      "citations": 158,
+      "degree": 4,
+      "strength": 4,
+      "betweenness": 0.0013,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Banu Marimuthu",
+      "name": "Dr. Banu Marimuthu",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0027",
+      "h_index": 7,
+      "papers": 20,
+      "citations": 228,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0001,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Selvaraj Kaliaperumal",
+      "name": "Dr. Selvaraj Kaliaperumal",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0139",
+      "h_index": 13,
+      "papers": 36,
+      "citations": 417,
+      "degree": 1,
+      "strength": 9,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Manohar V. Badiger",
+      "name": "Dr. Manohar V. Badiger",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0080",
+      "h_index": 18,
+      "papers": 41,
+      "citations": 1359,
+      "degree": 7,
+      "strength": 43,
+      "betweenness": 0.007,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Surya Prakash Singh",
+      "name": "Dr. Surya Prakash Singh",
+      "lab": "CSIR-IICT",
+      "dept": "Polymers & Functional Materials",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0401",
+      "h_index": 30,
+      "papers": 147,
+      "citations": 2731,
+      "degree": 6,
+      "strength": 11,
+      "betweenness": 0.0053,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. B. Sridhar",
+      "name": "Dr. B. Sridhar",
+      "lab": "CSIR-IICT",
+      "dept": "Analytical & Structural Chemistry",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0169",
+      "h_index": 1,
+      "papers": 9,
+      "citations": 6,
+      "degree": 3,
+      "strength": 4,
+      "betweenness": 0.0026,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Kirandeep Singh",
+      "name": "Dr. Kirandeep Singh",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0066",
+      "h_index": 5,
+      "papers": 8,
+      "citations": 54,
+      "degree": 4,
+      "strength": 5,
+      "betweenness": 0.0008,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Sudhakar Manikrao Bansod",
+      "name": "Dr. Sudhakar Manikrao Bansod",
+      "lab": "CSIR-IICT",
+      "dept": "Business Development & Research Management (BDRM)",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0424",
+      "h_index": 5,
+      "papers": 17,
+      "citations": 41,
+      "degree": 4,
+      "strength": 5,
+      "betweenness": 0.0023,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Akkattu T. Biju",
+      "name": "Dr. Akkattu T. Biju",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0001",
+      "h_index": 14,
+      "papers": 25,
+      "citations": 1256,
+      "degree": 1,
+      "strength": 14,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Arun Torris",
+      "name": "Dr. Arun Torris",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0010",
+      "h_index": 21,
+      "papers": 77,
+      "citations": 1604,
+      "degree": 20,
+      "strength": 76,
+      "betweenness": 0.0486,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr Akhila Kumar Sahu",
+      "name": "Dr Akhila Kumar Sahu",
+      "lab": "CSIR-CECRI",
+      "dept": "CECRI CHENNAI UNIT",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_CECRI_0500",
+      "h_index": 31,
+      "papers": 58,
+      "citations": 2315,
+      "degree": 4,
+      "strength": 6,
+      "betweenness": 0.0331,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr. Anthony Addlagatta",
+      "name": "Dr. Anthony Addlagatta",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0202",
+      "h_index": 11,
+      "papers": 30,
+      "citations": 271,
+      "degree": 7,
+      "strength": 20,
+      "betweenness": 0.0011,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Jayant Gajbhiye",
+      "name": "Dr. Jayant Gajbhiye",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0058",
+      "h_index": 8,
+      "papers": 24,
+      "citations": 183,
+      "degree": 8,
+      "strength": 12,
+      "betweenness": 0.0054,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Ashish V. Orpe",
+      "name": "Dr. Ashish V. Orpe",
+      "lab": "CSIR-NCL",
+      "dept": "Chemical Engineering & Process Development",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0014",
+      "h_index": 5,
+      "papers": 9,
+      "citations": 59,
+      "degree": 1,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Pankaj Doshi",
+      "name": "Dr. Pankaj Doshi",
+      "lab": "CSIR-NCL",
+      "dept": "Contact Number:",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0098",
+      "h_index": 5,
+      "papers": 5,
+      "citations": 54,
+      "degree": 1,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Moneesha Fernandes",
+      "name": "Dr. Moneesha Fernandes",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0082",
+      "h_index": 7,
+      "papers": 19,
+      "citations": 130,
+      "degree": 7,
+      "strength": 15,
+      "betweenness": 0.0129,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Nilesh A Mali",
+      "name": "Dr. Nilesh A Mali",
+      "lab": "CSIR-NCL",
+      "dept": "Chemical Engineering & Process Development",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0093",
+      "h_index": 11,
+      "papers": 35,
+      "citations": 372,
+      "degree": 4,
+      "strength": 6,
+      "betweenness": 0.0006,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Suresh Bhat",
+      "name": "Dr. Suresh Bhat",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0149",
+      "h_index": 13,
+      "papers": 25,
+      "citations": 500,
+      "degree": 7,
+      "strength": 24,
+      "betweenness": 0.001,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "DR. K.N. PRASANNA RANI",
+      "name": "DR. K.N. PRASANNA RANI",
+      "lab": "CSIR-IICT",
+      "dept": "Oils, Lipid Science & Technology",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0253",
+      "h_index": 5,
+      "papers": 9,
+      "citations": 89,
+      "degree": 4,
+      "strength": 5,
+      "betweenness": 0.0064,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Atanu Das",
+      "name": "Dr. Atanu Das",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0020",
+      "h_index": 5,
+      "papers": 15,
+      "citations": 71,
+      "degree": 4,
+      "strength": 6,
+      "betweenness": 0.0091,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Kavita Joshi",
+      "name": "Dr. Kavita Joshi",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0063",
+      "h_index": 13,
+      "papers": 35,
+      "citations": 404,
+      "degree": 9,
+      "strength": 11,
+      "betweenness": 0.0188,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Mugdha Gadgil",
+      "name": "Dr. Mugdha Gadgil",
+      "lab": "CSIR-NCL",
+      "dept": "Chemical Engineering & Process Development",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0084",
+      "h_index": 6,
+      "papers": 14,
+      "citations": 148,
+      "degree": 2,
+      "strength": 5,
+      "betweenness": 0.0083,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Nayani Kiranmai",
+      "name": "Dr. Nayani Kiranmai",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0343",
+      "h_index": 8,
+      "papers": 30,
+      "citations": 215,
+      "degree": 4,
+      "strength": 6,
+      "betweenness": 0.0099,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Avijit Jana",
+      "name": "Dr. Avijit Jana",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0319",
+      "h_index": 15,
+      "papers": 28,
+      "citations": 631,
+      "degree": 4,
+      "strength": 5,
+      "betweenness": 0.0036,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Sunil Misra",
+      "name": "Dr. Sunil Misra",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0206",
+      "h_index": 17,
+      "papers": 79,
+      "citations": 1060,
+      "degree": 22,
+      "strength": 52,
+      "betweenness": 0.1578,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. A. Venkat Narsaiah",
+      "name": "Dr. A. Venkat Narsaiah",
+      "lab": "CSIR-IICT",
+      "dept": "Fluoro-Agrochemicals",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0290",
+      "h_index": 5,
+      "papers": 23,
+      "citations": 85,
+      "degree": 1,
+      "strength": 4,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Chetan Gadgil",
+      "name": "Dr. Chetan Gadgil",
+      "lab": "CSIR-NCL",
+      "dept": "Chemical Engineering & Process Development",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0034",
+      "h_index": 7,
+      "papers": 21,
+      "citations": 237,
+      "degree": 1,
+      "strength": 4,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. M. S. Shashidhar",
+      "name": "Dr. M. S. Shashidhar",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0073",
+      "h_index": 4,
+      "papers": 13,
+      "citations": 84,
+      "degree": 1,
+      "strength": 8,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Kushal Bhatte",
+      "name": "Dr. Kushal Bhatte",
+      "lab": "CSIR-NCL",
+      "dept": "Contact Number:",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0070",
+      "h_index": 3,
+      "papers": 10,
+      "citations": 42,
+      "degree": 3,
+      "strength": 4,
+      "betweenness": 0.0007,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Ravindar Kontham",
+      "name": "Dr. Ravindar Kontham",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0119",
+      "h_index": 12,
+      "papers": 42,
+      "citations": 396,
+      "degree": 8,
+      "strength": 20,
+      "betweenness": 0.0176,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Srigiridhar Kotamraju",
+      "name": "Dr. Srigiridhar Kotamraju",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0203",
+      "h_index": 15,
+      "papers": 28,
+      "citations": 789,
+      "degree": 9,
+      "strength": 9,
+      "betweenness": 0.0101,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Asha S.K.",
+      "name": "Dr. Asha S.K.",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0012",
+      "h_index": 9,
+      "papers": 20,
+      "citations": 314,
+      "degree": 6,
+      "strength": 7,
+      "betweenness": 0.0045,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Prakriti Ranjan Bangal",
+      "name": "Dr. Prakriti Ranjan Bangal",
+      "lab": "CSIR-IICT",
+      "dept": "Analytical & Structural Chemistry",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0172",
+      "h_index": 12,
+      "papers": 26,
+      "citations": 539,
+      "degree": 5,
+      "strength": 8,
+      "betweenness": 0.013,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Rambabu Chegondi",
+      "name": "Dr. Rambabu Chegondi",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0340",
+      "h_index": 17,
+      "papers": 47,
+      "citations": 831,
+      "degree": 2,
+      "strength": 18,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Sreepriya Vedantam",
+      "name": "Dr. Sreepriya Vedantam",
+      "lab": "CSIR-IICT",
+      "dept": "Chemical Engg. & Process Technology (CE & PT)",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0370",
+      "h_index": 4,
+      "papers": 15,
+      "citations": 200,
+      "degree": 3,
+      "strength": 7,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Abhijit Hazarika",
+      "name": "Dr. Abhijit Hazarika",
+      "lab": "CSIR-IICT",
+      "dept": "Polymers & Functional Materials",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0405",
+      "h_index": 7,
+      "papers": 13,
+      "citations": 661,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0014,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Haridas B. Rode",
+      "name": "Dr. Haridas B. Rode",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0318",
+      "h_index": 14,
+      "papers": 39,
+      "citations": 503,
+      "degree": 10,
+      "strength": 21,
+      "betweenness": 0.03,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Rambabu Dandela",
+      "name": "Dr. Rambabu Dandela",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0116",
+      "h_index": 3,
+      "papers": 3,
+      "citations": 114,
+      "degree": 3,
+      "strength": 5,
+      "betweenness": 0.0003,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Mahesh J Kulkarni",
+      "name": "Dr. Mahesh J Kulkarni",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0075",
+      "h_index": 20,
+      "papers": 64,
+      "citations": 1552,
+      "degree": 11,
+      "strength": 24,
+      "betweenness": 0.0235,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Premnath Venugopalan",
+      "name": "Dr. Premnath Venugopalan",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0107",
+      "h_index": 3,
+      "papers": 5,
+      "citations": 95,
+      "degree": 1,
+      "strength": 4,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Debendra Kumar Mohapatra",
+      "name": "Dr. Debendra Kumar Mohapatra",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0335",
+      "h_index": 11,
+      "papers": 47,
+      "citations": 379,
+      "degree": 3,
+      "strength": 10,
+      "betweenness": 0.0166,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. P. R. Suresha",
+      "name": "Dr. P. R. Suresha",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0097",
+      "h_index": 8,
+      "papers": 14,
+      "citations": 181,
+      "degree": 5,
+      "strength": 18,
+      "betweenness": 0.0008,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. B.V. Subba Reddy",
+      "name": "Dr. B.V. Subba Reddy",
+      "lab": "CSIR-IICT",
+      "dept": "Fluoro-Agrochemicals",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0288",
+      "h_index": 19,
+      "papers": 145,
+      "citations": 1497,
+      "degree": 11,
+      "strength": 20,
+      "betweenness": 0.0883,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Koteswara V.",
+      "name": "Dr. Koteswara V.",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0068",
+      "h_index": 11,
+      "papers": 28,
+      "citations": 507,
+      "degree": 8,
+      "strength": 16,
+      "betweenness": 0.0097,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Manjusha V. Shelke",
+      "name": "Dr. Manjusha V. Shelke",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0079",
+      "h_index": 26,
+      "papers": 87,
+      "citations": 2376,
+      "degree": 10,
+      "strength": 17,
+      "betweenness": 0.0285,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Santosh Kumar Jha",
+      "name": "Dr. Santosh Kumar Jha",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0131",
+      "h_index": 12,
+      "papers": 23,
+      "citations": 272,
+      "degree": 1,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Subashchandrabose Chinnathambi",
+      "name": "Dr. Subashchandrabose Chinnathambi",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0145",
+      "h_index": 41,
+      "papers": 57,
+      "citations": 3617,
+      "degree": 3,
+      "strength": 8,
+      "betweenness": 0.0003,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. U.V.R. Vijaya Sarathi",
+      "name": "Dr. U.V.R. Vijaya Sarathi",
+      "lab": "CSIR-IICT",
+      "dept": "Analytical & Structural Chemistry",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0171",
+      "h_index": 3,
+      "papers": 3,
+      "citations": 82,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Ravindra Motiram Kumbhare",
+      "name": "Dr. Ravindra Motiram Kumbhare",
+      "lab": "CSIR-IICT",
+      "dept": "Fluoro-Agrochemicals",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0291",
+      "h_index": 7,
+      "papers": 21,
+      "citations": 271,
+      "degree": 4,
+      "strength": 5,
+      "betweenness": 0.0011,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr P Murugan",
+      "name": "Dr P Murugan",
+      "lab": "CSIR-CECRI",
+      "dept": "CENTRAL INSTRUMENTATION FACILITY",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_CECRI_0492",
+      "h_index": 22,
+      "papers": 74,
+      "citations": 1596,
+      "degree": 3,
+      "strength": 18,
+      "betweenness": 0.0083,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr. Ashish K. Lele",
+      "name": "Dr. Ashish K. Lele",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0013",
+      "h_index": 3,
+      "papers": 3,
+      "citations": 79,
+      "degree": 4,
+      "strength": 4,
+      "betweenness": 0.001,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. S. Venkata Mohan",
+      "name": "Dr. S. Venkata Mohan",
+      "lab": "CSIR-IICT",
+      "dept": "Energy & Environmental Engg.",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0269",
+      "h_index": 54,
+      "papers": 227,
+      "citations": 11335,
+      "degree": 10,
+      "strength": 21,
+      "betweenness": 0.055,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Alka Kumari",
+      "name": "Dr. Alka Kumari",
+      "lab": "CSIR-IICT",
+      "dept": "Chemical Engg. & Process Technology (CE & PT)",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0372",
+      "h_index": 10,
+      "papers": 28,
+      "citations": 238,
+      "degree": 7,
+      "strength": 28,
+      "betweenness": 0.0165,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Arindam Chakrabarty",
+      "name": "Dr. Arindam Chakrabarty",
+      "lab": "CSIR-IICT",
+      "dept": "Polymers & Functional Materials",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0408",
+      "h_index": 6,
+      "papers": 10,
+      "citations": 93,
+      "degree": 4,
+      "strength": 6,
+      "betweenness": 0.0002,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Jangam Ashok",
+      "name": "Dr. Jangam Ashok",
+      "lab": "CSIR-IICT",
+      "dept": "Catalysis & Fine Chemicals",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0237",
+      "h_index": 4,
+      "papers": 9,
+      "citations": 19,
+      "degree": 3,
+      "strength": 6,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Sandip B. Bharate",
+      "name": "Dr. Sandip B. Bharate",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0314",
+      "h_index": 9,
+      "papers": 24,
+      "citations": 174,
+      "degree": 4,
+      "strength": 11,
+      "betweenness": 0.0061,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. J. Vatsala Rani",
+      "name": "Dr. J. Vatsala Rani",
+      "lab": "CSIR-IICT",
+      "dept": "Polymers & Functional Materials",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0398",
+      "h_index": 7,
+      "papers": 20,
+      "citations": 163,
+      "degree": 2,
+      "strength": 5,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Ulhas K. Kharul",
+      "name": "Dr. Ulhas K. Kharul",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0157",
+      "h_index": 14,
+      "papers": 26,
+      "citations": 2402,
+      "degree": 10,
+      "strength": 19,
+      "betweenness": 0.029,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Vijayamohanan Pillai",
+      "name": "Dr. Vijayamohanan Pillai",
+      "lab": "CSIR-NCL",
+      "dept": "Contact Number:",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0162",
+      "h_index": 1,
+      "papers": 1,
+      "citations": 78,
+      "degree": 4,
+      "strength": 12,
+      "betweenness": 0.0074,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Shiva Kumar Kota Balaji",
+      "name": "Dr. Shiva Kumar Kota Balaji",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0345",
+      "h_index": 2,
+      "papers": 4,
+      "citations": 13,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0002,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Kadhiravan Shanmuganathan",
+      "name": "Dr. Kadhiravan Shanmuganathan",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0062",
+      "h_index": 21,
+      "papers": 54,
+      "citations": 1181,
+      "degree": 9,
+      "strength": 17,
+      "betweenness": 0.0497,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. T. Kumaraguru",
+      "name": "Dr. T. Kumaraguru",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0341",
+      "h_index": 6,
+      "papers": 20,
+      "citations": 83,
+      "degree": 7,
+      "strength": 16,
+      "betweenness": 0.0205,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. T. Prathap Kumar",
+      "name": "Dr. T. Prathap Kumar",
+      "lab": "CSIR-IICT",
+      "dept": "Chemical Engg. & Process Technology (CE & PT)",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0365",
+      "h_index": 11,
+      "papers": 19,
+      "citations": 317,
+      "degree": 3,
+      "strength": 19,
+      "betweenness": 0.0001,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr Subbiah Alwarappan",
+      "name": "Dr Subbiah Alwarappan",
+      "lab": "CSIR-CECRI",
+      "dept": "ELECTRODICS AND ELECTROCATALYSIS",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_CECRI_0475",
+      "h_index": 35,
+      "papers": 97,
+      "citations": 3000,
+      "degree": 4,
+      "strength": 16,
+      "betweenness": 0.0129,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr. Dhanraj B Shinde",
+      "name": "Dr. Dhanraj B Shinde",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0040",
+      "h_index": 1,
+      "papers": 4,
+      "citations": 25,
+      "degree": 2,
+      "strength": 4,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Arup Kumar Rath",
+      "name": "Dr. Arup Kumar Rath",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0011",
+      "h_index": 15,
+      "papers": 39,
+      "citations": 548,
+      "degree": 5,
+      "strength": 9,
+      "betweenness": 0.01,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Subhash P. Chavan",
+      "name": "Dr. Subhash P. Chavan",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0146",
+      "h_index": 8,
+      "papers": 22,
+      "citations": 162,
+      "degree": 6,
+      "strength": 17,
+      "betweenness": 0.0032,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Mahesh S. Dharne",
+      "name": "Dr. Mahesh S. Dharne",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0076",
+      "h_index": 3,
+      "papers": 11,
+      "citations": 49,
+      "degree": 3,
+      "strength": 3,
+      "betweenness": 0.0094,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. S. Sridhar",
+      "name": "Dr. S. Sridhar",
+      "lab": "CSIR-IICT",
+      "dept": "Chemical Engg. & Process Technology (CE & PT)",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0363",
+      "h_index": 20,
+      "papers": 50,
+      "citations": 1582,
+      "degree": 7,
+      "strength": 22,
+      "betweenness": 0.0225,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. A. Venugopal",
+      "name": "Dr. A. Venugopal",
+      "lab": "CSIR-IICT",
+      "dept": "Catalysis & Fine Chemicals",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0231",
+      "h_index": 20,
+      "papers": 36,
+      "citations": 1611,
+      "degree": 4,
+      "strength": 9,
+      "betweenness": 0.0135,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Eeshwaraiah Begari",
+      "name": "Dr. Eeshwaraiah Begari",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0045",
+      "h_index": 2,
+      "papers": 2,
+      "citations": 60,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Vijay Bokade",
+      "name": "Dr. Vijay Bokade",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0161",
+      "h_index": 18,
+      "papers": 42,
+      "citations": 967,
+      "degree": 7,
+      "strength": 21,
+      "betweenness": 0.0051,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Anuya Nisal",
+      "name": "Dr. Anuya Nisal",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0008",
+      "h_index": 11,
+      "papers": 21,
+      "citations": 337,
+      "degree": 2,
+      "strength": 11,
+      "betweenness": 0.0083,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Sayan Bagchi",
+      "name": "Dr. Sayan Bagchi",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0138",
+      "h_index": 15,
+      "papers": 34,
+      "citations": 598,
+      "degree": 5,
+      "strength": 5,
+      "betweenness": 0.0087,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Dhanasekaran Shanmugam",
+      "name": "Dr. Dhanasekaran Shanmugam",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0039",
+      "h_index": 14,
+      "papers": 36,
+      "citations": 576,
+      "degree": 10,
+      "strength": 14,
+      "betweenness": 0.0283,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Remya Ramesh",
+      "name": "Dr. Remya Ramesh",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0324",
+      "h_index": 3,
+      "papers": 7,
+      "citations": 75,
+      "degree": 5,
+      "strength": 11,
+      "betweenness": 0.0045,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Raju Adepu",
+      "name": "Dr. Raju Adepu",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0348",
+      "h_index": 5,
+      "papers": 13,
+      "citations": 65,
+      "degree": 3,
+      "strength": 3,
+      "betweenness": 0.0005,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. V. Ramalingam",
+      "name": "Dr. V. Ramalingam",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0322",
+      "h_index": 15,
+      "papers": 45,
+      "citations": 759,
+      "degree": 7,
+      "strength": 19,
+      "betweenness": 0.015,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Surisetti Suresh",
+      "name": "Dr. Surisetti Suresh",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0339",
+      "h_index": 17,
+      "papers": 48,
+      "citations": 788,
+      "degree": 4,
+      "strength": 16,
+      "betweenness": 0.0002,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Kishor L. Handore",
+      "name": "Dr. Kishor L. Handore",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0067",
+      "h_index": 6,
+      "papers": 16,
+      "citations": 93,
+      "degree": 5,
+      "strength": 10,
+      "betweenness": 0.0029,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Nivedita Sahu",
+      "name": "Dr. Nivedita Sahu",
+      "lab": "CSIR-IICT",
+      "dept": "Chemical Engg. & Process Technology (CE & PT)",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0369",
+      "h_index": 7,
+      "papers": 13,
+      "citations": 268,
+      "degree": 4,
+      "strength": 10,
+      "betweenness": 0.0358,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Krishna Swaroop Desireddy",
+      "name": "Dr. Krishna Swaroop Desireddy",
+      "lab": "CSIR-IICT",
+      "dept": "Fluoro-Agrochemicals",
+      "desig": "Senior Scientist",
+      "faculty_id": "FAC_IICT_0299",
+      "h_index": 8,
+      "papers": 15,
+      "citations": 335,
+      "degree": 4,
+      "strength": 10,
+      "betweenness": 0.0084,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Prakash Wadgaonkar",
+      "name": "Dr. Prakash Wadgaonkar",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0105",
+      "h_index": 19,
+      "papers": 61,
+      "citations": 1058,
+      "degree": 6,
+      "strength": 20,
+      "betweenness": 0.0132,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Ujjwal Pal",
+      "name": "Dr. Ujjwal Pal",
+      "lab": "CSIR-IICT",
+      "dept": "Catalysis & Fine Chemicals",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0236",
+      "h_index": 40,
+      "papers": 148,
+      "citations": 4758,
+      "degree": 7,
+      "strength": 11,
+      "betweenness": 0.0303,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Harsha Nagar",
+      "name": "Dr. Harsha Nagar",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0053",
+      "h_index": 4,
+      "papers": 10,
+      "citations": 38,
+      "degree": 4,
+      "strength": 13,
+      "betweenness": 0.0098,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Shubhangi B Umbarkar",
+      "name": "Dr. Shubhangi B Umbarkar",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0143",
+      "h_index": 12,
+      "papers": 29,
+      "citations": 398,
+      "degree": 5,
+      "strength": 7,
+      "betweenness": 0.0105,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Boda Ravi Kiran",
+      "name": "Dr. Boda Ravi Kiran",
+      "lab": "CSIR-IICT",
+      "dept": "Energy & Environmental Engg.",
+      "desig": "Senior Scientist",
+      "faculty_id": "FAC_IICT_0274",
+      "h_index": 8,
+      "papers": 11,
+      "citations": 685,
+      "degree": 2,
+      "strength": 12,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Sutapa Ghosh",
+      "name": "Dr. Sutapa Ghosh",
+      "lab": "CSIR-IICT",
+      "dept": "Polymers & Functional Materials",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0394",
+      "h_index": 12,
+      "papers": 21,
+      "citations": 665,
+      "degree": 2,
+      "strength": 3,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Jayaraj Nithyanandhan",
+      "name": "Dr. Jayaraj Nithyanandhan",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0059",
+      "h_index": 14,
+      "papers": 41,
+      "citations": 635,
+      "degree": 5,
+      "strength": 37,
+      "betweenness": 0.0009,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Bathini Nagendra Babu",
+      "name": "Dr. Bathini Nagendra Babu",
+      "lab": "CSIR-IICT",
+      "dept": "Fluoro-Agrochemicals",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0294",
+      "h_index": 15,
+      "papers": 38,
+      "citations": 491,
+      "degree": 5,
+      "strength": 9,
+      "betweenness": 0.0009,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Bonam Srinivasa Reddy",
+      "name": "Dr. Bonam Srinivasa Reddy",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Principal Scientist",
+      "faculty_id": "FAC_IICT_0215",
+      "h_index": 10,
+      "papers": 29,
+      "citations": 642,
+      "degree": 5,
+      "strength": 5,
+      "betweenness": 0.0021,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Vaijayanti A. Kumar",
+      "name": "Dr. Vaijayanti A. Kumar",
+      "lab": "CSIR-NCL",
+      "dept": "Contact Number:",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0160",
+      "h_index": 5,
+      "papers": 11,
+      "citations": 47,
+      "degree": 2,
+      "strength": 8,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. G. Sudhakar",
+      "name": "Dr. G. Sudhakar",
+      "lab": "CSIR-IICT",
+      "dept": "Organic Synthesis & Process Chemistry",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0338",
+      "h_index": 6,
+      "papers": 9,
+      "citations": 188,
+      "degree": 1,
+      "strength": 8,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Ramanuj Narayan",
+      "name": "Dr. Ramanuj Narayan",
+      "lab": "CSIR-IICT",
+      "dept": "Polymers & Functional Materials",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0399",
+      "h_index": 18,
+      "papers": 57,
+      "citations": 1352,
+      "degree": 6,
+      "strength": 31,
+      "betweenness": 0.0059,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Pratyay Basak",
+      "name": "Dr. Pratyay Basak",
+      "lab": "CSIR-IICT",
+      "dept": "Polymers & Functional Materials",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0400",
+      "h_index": 18,
+      "papers": 53,
+      "citations": 792,
+      "degree": 6,
+      "strength": 30,
+      "betweenness": 0.03,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Sanjay P. Kamble",
+      "name": "Dr. Sanjay P. Kamble",
+      "lab": "CSIR-NCL",
+      "dept": "Chemical Engineering & Process Development",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0128",
+      "h_index": 15,
+      "papers": 49,
+      "citations": 837,
+      "degree": 5,
+      "strength": 5,
+      "betweenness": 0.0175,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Hanumant B. Borate",
+      "name": "Dr. Hanumant B. Borate",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0052",
+      "h_index": 2,
+      "papers": 2,
+      "citations": 33,
+      "degree": 3,
+      "strength": 5,
+      "betweenness": 0.0,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Vinod C Prabhakaran",
+      "name": "Dr. Vinod C Prabhakaran",
+      "lab": "CSIR-NCL",
+      "dept": "Catalysis Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0165",
+      "h_index": 39,
+      "papers": 152,
+      "citations": 4752,
+      "degree": 14,
+      "strength": 39,
+      "betweenness": 0.0484,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Amol A. Kulkarni",
+      "name": "Dr. Amol A. Kulkarni",
+      "lab": "CSIR-NCL",
+      "dept": "Chemical Engineering & Process Development",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0004",
+      "h_index": 20,
+      "papers": 80,
+      "citations": 1553,
+      "degree": 9,
+      "strength": 10,
+      "betweenness": 0.0106,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Samir H. Chikkali",
+      "name": "Dr. Samir H. Chikkali",
+      "lab": "CSIR-NCL",
+      "dept": "Polymer Science and Engineering Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0126",
+      "h_index": 17,
+      "papers": 64,
+      "citations": 1247,
+      "degree": 9,
+      "strength": 31,
+      "betweenness": 0.0136,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Kiran A. Kulkarni",
+      "name": "Dr. Kiran A. Kulkarni",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0064",
+      "h_index": 8,
+      "papers": 24,
+      "citations": 165,
+      "degree": 11,
+      "strength": 19,
+      "betweenness": 0.0158,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Vineet Aniya",
+      "name": "Dr. Vineet Aniya",
+      "lab": "CSIR-IICT",
+      "dept": "Chemical Engg. & Process Technology (CE & PT)",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0374",
+      "h_index": 14,
+      "papers": 53,
+      "citations": 616,
+      "degree": 3,
+      "strength": 29,
+      "betweenness": 0.0004,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Benudhar Punji",
+      "name": "Dr. Benudhar Punji",
+      "lab": "CSIR-NCL",
+      "dept": "Organic Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0028",
+      "h_index": 21,
+      "papers": 54,
+      "citations": 1973,
+      "degree": 4,
+      "strength": 28,
+      "betweenness": 0.0009,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. S. Nishant Jain",
+      "name": "Dr. S. Nishant Jain",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0207",
+      "h_index": 20,
+      "papers": 53,
+      "citations": 994,
+      "degree": 11,
+      "strength": 18,
+      "betweenness": 0.0282,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Ramars Amanchy",
+      "name": "Dr. Ramars Amanchy",
+      "lab": "CSIR-IICT",
+      "dept": "Applied Biology",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0212",
+      "h_index": 12,
+      "papers": 24,
+      "citations": 595,
+      "degree": 7,
+      "strength": 9,
+      "betweenness": 0.0144,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. D. Srinivasa Reddy",
+      "name": "Dr. D. Srinivasa Reddy",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "desig": "Director",
+      "faculty_id": "FAC_IICT_0315",
+      "h_index": 7,
+      "papers": 22,
+      "citations": 107,
+      "degree": 17,
+      "strength": 40,
+      "betweenness": 0.1066,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Mr T Mathankumar",
+      "name": "Mr T Mathankumar",
+      "lab": "CSIR-CECRI",
+      "dept": "CENTRAL INSTRUMENTATION FACILITY",
+      "desig": "Chief Scientist (Scientist-F)",
+      "faculty_id": "FAC_CECRI_0496",
+      "h_index": 7,
+      "papers": 11,
+      "citations": 228,
+      "degree": 4,
+      "strength": 6,
+      "betweenness": 0.012,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr. Anu Raghunathan",
+      "name": "Dr. Anu Raghunathan",
+      "lab": "CSIR-NCL",
+      "dept": "Chemical Engineering & Process Development",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0007",
+      "h_index": 8,
+      "papers": 17,
+      "citations": 126,
+      "degree": 3,
+      "strength": 3,
+      "betweenness": 0.0003,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. Reddi Kamesh",
+      "name": "Dr. Reddi Kamesh",
+      "lab": "CSIR-IICT",
+      "dept": "Chemical Engg. & Process Technology (CE & PT)",
+      "desig": "Senior Principal Scientist",
+      "faculty_id": "FAC_IICT_0373",
+      "h_index": 8,
+      "papers": 25,
+      "citations": 230,
+      "degree": 6,
+      "strength": 6,
+      "betweenness": 0.0091,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    }
+  ],
+  "links": [
+    {
+      "source": "Dr. Asmita Prabhune",
+      "target": "Dr. Anuya Nisal",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Asmita Prabhune",
+      "target": "Dr. Bhushan P. Chaudhari",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Asmita Prabhune",
+      "target": "Dr. Dhiman Sarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Asmita Prabhune",
+      "target": "Dr. Narendra Kadoo",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Asmita Prabhune",
+      "target": "Dr. Sureshkumar Ramasamy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Asmita Prabhune",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Asmita Prabhune",
+      "target": "Dr. R. Nandini Devi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Paresh L. Dhepe",
+      "target": "Dr. Kumar Vanka",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Paresh L. Dhepe",
+      "target": "Dr. Vijay Bokade",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Paresh L. Dhepe",
+      "target": "Dr. Sailaja Krishnamurty",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Paresh L. Dhepe",
+      "target": "Dr. Sreekumar Kurungot",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Paresh L. Dhepe",
+      "target": "Dr. R. Nandini Devi",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Paresh L. Dhepe",
+      "target": "Dr. Satyam Naidu Vasireddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Avishek Saha",
+      "target": "Dr. Kumar Vanka",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Avishek Saha",
+      "target": "Dr. Rahul Shevate",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Avishek Saha",
+      "target": "Dr. Rajesh Kanawade",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sandip S. Shinde",
+      "target": "Dr. Pradeep Kumar, FNA",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Sandip S. Shinde",
+      "target": "Dr. Dhiman Sarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sandip S. Shinde",
+      "target": "Dr. Shubhangi B Umbarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sandip S. Shinde",
+      "target": "Dr. Jayant Gajbhiye",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr V Ganesh",
+      "target": "Dr Akhila Kumar Sahu",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Manish Kumar Mishra",
+      "target": "Dr. Utpal Das",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Linga Banoth",
+      "target": "Dr. Rajiv Trivedi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Linga Banoth",
+      "target": "Dr. S. Venkata Mohan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Linga Banoth",
+      "target": "Dr. Mohana Krishna Reddy Mudiam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Linga Banoth",
+      "target": "Dr. Ravindra Motiram Kumbhare",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Linga Banoth",
+      "target": "Dr. Sudhakar Manikrao Bansod",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Linga Banoth",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Harshawardhan Pol",
+      "target": "Dr. Ashish K. Lele",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Harshawardhan Pol",
+      "target": "Dr. Arun Torris",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Harshawardhan Pol",
+      "target": "Dr. Kadhiravan Shanmuganathan",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Harshawardhan Pol",
+      "target": "Dr. Rajesh G. Gonnade",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Harshawardhan Pol",
+      "target": "Dr. Samir H. Chikkali",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Harshawardhan Pol",
+      "target": "Dr. R. Nandini Devi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Harshawardhan Pol",
+      "target": "Dr. Ulhas K. Kharul",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Harshawardhan Pol",
+      "target": "Dr. Shubhangi B Umbarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Chittaranjan Patra",
+      "target": "Dr. Ravindra Motiram Kumbhare",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Chittaranjan Patra",
+      "target": "Dr. Ramanuj Narayan",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Chittaranjan Patra",
+      "target": "Dr. Sunil Misra",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Chittaranjan Patra",
+      "target": "Dr. Ramars Amanchy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rahul Bhambure",
+      "target": "Dr. Ashok Giri",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rahul Bhambure",
+      "target": "Dr. Durba Sengupta",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rahul Bhambure",
+      "target": "Dr. Mahesh J Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sidhanath Vishwanath Bhosale",
+      "target": "Dr. Jagadeesh Babu Nanubolu",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sidhanath Vishwanath Bhosale",
+      "target": "Dr. Manjusha V. Shelke",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ramesh Ummanni",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Ramesh Ummanni",
+      "target": "Dr. Remya Ramesh",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Ramesh Ummanni",
+      "target": "Dr. Surender Singh Jadav",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Ramesh Ummanni",
+      "target": "Dr. Srigiridhar Kotamraju",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ramesh Ummanni",
+      "target": "Dr. Andugulapati Sai Balagi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sanjit Kanjilal",
+      "target": "Dr. Kaki Shiva Shanker",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sanjit Kanjilal",
+      "target": "DR. K.N. PRASANNA RANI",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sanjit Kanjilal",
+      "target": "Dr. Sunil Misra",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. Srigiridhar Kotamraju",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. V. Ramalingam",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. S. Venkata Mohan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. Debasish Swain",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. Sunil Misra",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. Andugulapati Sai Balagi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. Anthony Addlagatta",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. Aruna Jangam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Punna Nagender",
+      "target": "Dr. Krishna Swaroop Desireddy",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Punna Nagender",
+      "target": "Dr. Jagadeesh Babu Nanubolu",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Punna Nagender",
+      "target": "Dr. Raju Adepu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Shatabdi Porel Mukherjee",
+      "target": "Dr. Santhosh Babu Sukumaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Shatabdi Porel Mukherjee",
+      "target": "Dr. Banu Marimuthu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Shatabdi Porel Mukherjee",
+      "target": "Dr. Kavita Joshi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Shatabdi Porel Mukherjee",
+      "target": "Dr. R. Nandini Devi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Shatabdi Porel Mukherjee",
+      "target": "Dr. Arup Kumar Rath",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Shatabdi Porel Mukherjee",
+      "target": "Dr Subrata Kundu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Nitin T. Patil",
+      "target": "Dr. Kumar Vanka",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Nitin T. Patil",
+      "target": "Dr. Rajesh G. Gonnade",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sureshkumar Ramasamy",
+      "target": "Dr. Ashok Giri",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sureshkumar Ramasamy",
+      "target": "Dr. Durba Sengupta",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sureshkumar Ramasamy",
+      "target": "Dr. Bhushan P. Chaudhari",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sureshkumar Ramasamy",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sureshkumar Ramasamy",
+      "target": "Dr. Koteswara V.",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Sureshkumar Ramasamy",
+      "target": "Dr. Subashchandrabose Chinnathambi",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sureshkumar Ramasamy",
+      "target": "Dr. Udaya Kiran Marelli",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sureshkumar Ramasamy",
+      "target": "Dr. Mahesh J Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Akkattu T. Biju",
+      "weight": 14,
+      "value": 14
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Benudhar Punji",
+      "weight": 17,
+      "value": 17
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Kumar Vanka",
+      "weight": 38,
+      "value": 38
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. G. J. Sanjayan",
+      "weight": 14,
+      "value": 14
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Sakya S. Sen",
+      "weight": 26,
+      "value": 26
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Samir H. Chikkali",
+      "weight": 10,
+      "value": 10
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. M. S. Shashidhar",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Pradeep Kumar, FNA",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Ravindar Kontham",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Asish K. Bhattacharya",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Dhiman Sarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Santhosh Babu Sukumaran",
+      "weight": 10,
+      "value": 10
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Eeshwaraiah Begari",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Ambade Ashootosh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Utpal Das",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Kishor L. Handore",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Subhash P. Chavan",
+      "weight": 9,
+      "value": 9
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Udaya Kiran Marelli",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Santosh B. Mhaske",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Pradip Maity",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Moneesha Fernandes",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Vaijayanti A. Kumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. P. R. Suresha",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Sailaja Krishnamurty",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Sreekumar Kurungot",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Ashwini Kumar Nangia",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Chepuri V. Ramana",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. K. Krishnamoorthy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Kirandeep Singh",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Rajesh Kanawade",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Arup Kumar Rath",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Koteswara V.",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh Kanawade",
+      "target": "Dr. Kumar Vanka",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Rajesh Kanawade",
+      "target": "Dr. Rahul Shevate",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Rajesh Kanawade",
+      "target": "Dr. Arun Torris",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh Kanawade",
+      "target": "Dr. S. Venkata Mohan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh Kanawade",
+      "target": "Dr. Sreekumar Kurungot",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Surisetti Suresh",
+      "weight": 12,
+      "value": 12
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Rambabu Chegondi",
+      "weight": 17,
+      "value": 17
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Krishna Swaroop Desireddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Ashwini Kumar Nangia",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Bathini Nagendra Babu",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Nivedita Sahu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Srigiridhar Kotamraju",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Praveen Kumar Reddy Adiyala",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Maddi Sridhar Reddy",
+      "weight": 22,
+      "value": 22
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Kumar Vanka",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. G. Jithender Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Haridas B. Rode",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Andugulapati Sai Balagi",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. U.V.R. Vijaya Sarathi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Sandip B. Bharate",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Sunil Misra",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Surender Singh Jadav",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Sunil Kumar N.",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ajay Kumar Singh",
+      "target": "Dr. Subhash Ghosh",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Ajay Kumar Singh",
+      "target": "Dr. Ujjwal Pal",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Ajay Kumar Singh",
+      "target": "Dr. Avijit Jana",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Ajay Kumar Singh",
+      "target": "Dr. Surya Prakash Singh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Nagaraju Rajana",
+      "target": "Dr. Shiva Kumar Kota Balaji",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Nagaraju Rajana",
+      "target": "Dr. Nayani Kiranmai",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Santhosh Babu Sukumaran",
+      "target": "Dr. G. J. Sanjayan",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Santhosh Babu Sukumaran",
+      "target": "Dr. Amitava Das",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Santhosh Babu Sukumaran",
+      "target": "Dr. Kumar Vanka",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Santhosh Babu Sukumaran",
+      "target": "Dr. Sreekumar Kurungot",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Santhosh Babu Sukumaran",
+      "target": "Dr. R. Nandini Devi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Santhosh Babu Sukumaran",
+      "target": "Dr. Sailaja Krishnamurty",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Santhosh Babu Sukumaran",
+      "target": "Dr. Kadhiravan Shanmuganathan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Santhosh Babu Sukumaran",
+      "target": "Dr. K. Krishnamoorthy",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Santhosh Babu Sukumaran",
+      "target": "Dr. Arun Torris",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ram Chandra Reddy Jala",
+      "target": "Dr. Kaki Shiva Shanker",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Ram Chandra Reddy Jala",
+      "target": "Dr. Sunil Misra",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. M.S.L. Karuna",
+      "target": "Dr. Kaki Shiva Shanker",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. M.S.L. Karuna",
+      "target": "Dr. Sunil Misra",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sameena Begum",
+      "target": "Dr. S. Sridhar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sameena Begum",
+      "target": "Dr. T. Kumaraguru",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Rahul Shevate",
+      "target": "Dr. Kumar Vanka",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rahul Shevate",
+      "target": "Dr. K. Krishnamoorthy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rahul Shevate",
+      "target": "Dr. Arun Torris",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Udaya Kiran Marelli",
+      "target": "Dr. Ashwini Kumar Nangia",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Udaya Kiran Marelli",
+      "target": "Dr. Rambabu Dandela",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Udaya Kiran Marelli",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Udaya Kiran Marelli",
+      "target": "Dr. Subashchandrabose Chinnathambi",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Udaya Kiran Marelli",
+      "target": "Dr. G. J. Sanjayan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Udaya Kiran Marelli",
+      "target": "Dr. Kumar Vanka",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Udaya Kiran Marelli",
+      "target": "Dr. Pradip Maity",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Udaya Kiran Marelli",
+      "target": "Dr. Dhiman Sarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Udaya Kiran Marelli",
+      "target": "Dr. Koteswara V.",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sakya S. Sen",
+      "target": "Dr. Kumar Vanka",
+      "weight": 52,
+      "value": 52
+    },
+    {
+      "source": "Dr. Sakya S. Sen",
+      "target": "Dr. Kirandeep Singh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sakya S. Sen",
+      "target": "Dr. Arup Kumar Rath",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. G. Jithender Reddy",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. R. Nandini Devi",
+      "weight": 12,
+      "value": 12
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 13,
+      "value": 13
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Arun Torris",
+      "weight": 15,
+      "value": 15
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Manohar V. Badiger",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Kumar Vanka",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Samir H. Chikkali",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Ulhas K. Kharul",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Asha S.K.",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Suresh Bhat",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Kavita Joshi",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Sailaja Krishnamurty",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. P. R. Suresha",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. S. Venkata Mohan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. Sayan Bagchi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Amitava Das",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Asish K. Bhattacharya",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Santosh B. Mhaske",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Hanumant B. Borate",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Subhash P. Chavan",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Jayant Gajbhiye",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Manohar V. Badiger",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Vrushali H. Jadhav",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Bhushan P. Chaudhari",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Prakash Wadgaonkar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. G. J. Sanjayan",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Moneesha Fernandes",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Haridas B. Rode",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Sunil Misra",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Koteswara V.",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Ambade Ashootosh",
+      "target": "Dr. Manjusha V. Shelke",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ambade Ashootosh",
+      "target": "Dr. Prakash Wadgaonkar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Ambade Ashootosh",
+      "target": "Dr. Jayaraj Nithyanandhan",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Ambade Ashootosh",
+      "target": "Dr. Kadhiravan Shanmuganathan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ambade Ashootosh",
+      "target": "Dr. Ulhas K. Kharul",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ambade Ashootosh",
+      "target": "Dr. Arun Torris",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Selvaraj Kaliaperumal",
+      "weight": 9,
+      "value": 9
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Benudhar Punji",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Jayaraj Nithyanandhan",
+      "weight": 9,
+      "value": 9
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. K. Krishnamoorthy",
+      "weight": 14,
+      "value": 14
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Asha S.K.",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Banu Marimuthu",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Arun Torris",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Manjusha V. Shelke",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. R. Nandini Devi",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Suresh Bhat",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Kushal Bhatte",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Nilesh A Mali",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Sachin U. Nandanwar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. Vijay Bokade",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Siddhartha Moulik",
+      "target": "Dr. S. Sridhar",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Siddhartha Moulik",
+      "target": "Dr. Reddi Kamesh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Siddhartha Moulik",
+      "target": "Dr. Alka Kumari",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Siddhartha Moulik",
+      "target": "Dr. Andugulapati Sai Balagi",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Siddhartha Moulik",
+      "target": "Dr. Debasish Swain",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
+      "target": "Dr. Suresh Bhat",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
+      "target": "Dr. Arun Torris",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
+      "target": "Dr. Ulhas K. Kharul",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
+      "target": "Dr. Kavita Joshi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
+      "target": "Dr. Satyam Naidu Vasireddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
+      "target": "Dr. Sachin U. Nandanwar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Kumar N.",
+      "target": "Dr. Debasish Swain",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Sunil Kumar N.",
+      "target": "Dr. Praveen Kumar Reddy Adiyala",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Kumar N.",
+      "target": "Dr. V. Ramalingam",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sunil Kumar N.",
+      "target": "Dr. Sudhakar Manikrao Bansod",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Kumar N.",
+      "target": "Dr. Remya Ramesh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Durba Sengupta",
+      "target": "Dr. Moneesha Fernandes",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Durba Sengupta",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. Durba Sengupta",
+      "target": "Dr. Anu Raghunathan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Durba Sengupta",
+      "target": "Dr. Ashok Giri",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Durba Sengupta",
+      "target": "Dr. Mahesh J Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Durba Sengupta",
+      "target": "Dr. Chepuri V. Ramana",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Durba Sengupta",
+      "target": "Dr. Atanu Das",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Pradeep Kumar, FNA",
+      "target": "Dr. Eeshwaraiah Begari",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Pradeep Kumar, FNA",
+      "target": "Dr. Jayant Gajbhiye",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Amitava Das",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Amitava Das",
+      "target": "Dr. Santosh B. Mhaske",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Amitava Das",
+      "target": "Dr. Rajiv Trivedi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Amitava Das",
+      "target": "Dr. Surender Singh Jadav",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Amitava Das",
+      "target": "Dr. Pratyay Basak",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Amitava Das",
+      "target": "Dr. Subhash Ghosh",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Bhushan P. Chaudhari",
+      "target": "Dr. Koteswara V.",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Sachin U. Nandanwar",
+      "target": "Dr. Vijay Bokade",
+      "weight": 12,
+      "value": 12
+    },
+    {
+      "source": "Dr. Sachin U. Nandanwar",
+      "target": "Dr. Nilesh A Mali",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Pradip Maity",
+      "target": "Dr. Kumar Vanka",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Pradip Maity",
+      "target": "Dr. Sayan Bagchi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. K. Krishnamoorthy",
+      "target": "Dr. Jayaraj Nithyanandhan",
+      "weight": 18,
+      "value": 18
+    },
+    {
+      "source": "Dr. K. Krishnamoorthy",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. K. Krishnamoorthy",
+      "target": "Dr. Asha S.K.",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. K. Krishnamoorthy",
+      "target": "Dr. Kumar Vanka",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. K. Krishnamoorthy",
+      "target": "Dr. Kadhiravan Shanmuganathan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Benudhar Punji",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Subhash P. Chavan",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Chepuri V. Ramana",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Samir H. Chikkali",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. G. J. Sanjayan",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Ravindar Kontham",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Rambabu Chegondi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Kavita Joshi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Sayan Bagchi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Asha S.K.",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Jayaraj Nithyanandhan",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Kirandeep Singh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Nagaraju Barsu",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Arup Kumar Rath",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. Utpal Das",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Asish K. Bhattacharya",
+      "target": "Dr. Mahesh J Kulkarni",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. G B Gathalkar",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. G B Gathalkar",
+      "target": "Dr. Kishor L. Handore",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. G B Gathalkar",
+      "target": "Dr. Remya Ramesh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Mr T Mathankumar",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr Subbiah Alwarappan",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr. Vijayamohanan Pillai",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr P Murugan",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr. Ujjwal Pal",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashok Giri",
+      "target": "Dr. Mahesh J Kulkarni",
+      "weight": 12,
+      "value": 12
+    },
+    {
+      "source": "Dr. Ashok Giri",
+      "target": "Dr. Narendra Kadoo",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Ashok Giri",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashok Giri",
+      "target": "Dr. Moneesha Fernandes",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Ashok Giri",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashok Giri",
+      "target": "Dr. Ravindar Kontham",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Nagaraju Barsu",
+      "target": "Dr. Samir H. Chikkali",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Santosh B. Mhaske",
+      "target": "Dr. Jayant Gajbhiye",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Santosh B. Mhaske",
+      "target": "Dr. Samir H. Chikkali",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Narendra Kadoo",
+      "target": "Dr. Arun Torris",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Narendra Kadoo",
+      "target": "Dr. Anu Raghunathan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Narendra Kadoo",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Chepuri V. Ramana",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Debasish Swain",
+      "target": "Dr. Avijit Jana",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Debasish Swain",
+      "target": "Dr. Sandip B. Bharate",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Satyam Naidu Vasireddy",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Aruna Jangam",
+      "target": "Dr. Anthony Addlagatta",
+      "weight": 10,
+      "value": 10
+    },
+    {
+      "source": "Dr. Aruna Jangam",
+      "target": "Dr. Andugulapati Sai Balagi",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Aruna Jangam",
+      "target": "Dr. Surender Singh Jadav",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Aruna Jangam",
+      "target": "Dr. Srigiridhar Kotamraju",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Aruna Jangam",
+      "target": "Dr. Sunil Misra",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajiv Trivedi",
+      "target": "Dr. Prakriti Ranjan Bangal",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kaki Shiva Shanker",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kaki Shiva Shanker",
+      "target": "Dr. Sunil Misra",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. Kaki Shiva Shanker",
+      "target": "Dr. Ramanuj Narayan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kaki Shiva Shanker",
+      "target": "Dr. Bonam Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kaki Shiva Shanker",
+      "target": "Dr. Arindam Chakrabarty",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Subhash Ghosh",
+      "target": "Dr. T. Kumaraguru",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. Subhash Ghosh",
+      "target": "Dr. Haridas B. Rode",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Subhash Ghosh",
+      "target": "Dr. Maddi Sridhar Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Subhash Ghosh",
+      "target": "Dr. Pratyay Basak",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. S.N. Raju Kutcherlapati",
+      "target": "Dr. Sunil Misra",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. S.N. Raju Kutcherlapati",
+      "target": "Dr. Arindam Chakrabarty",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr M Pandiaraj",
+      "target": "Dr Subbiah Alwarappan",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr M Pandiaraj",
+      "target": "Mr T Mathankumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashwini Kumar Nangia",
+      "target": "Dr. Rambabu Dandela",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Ashwini Kumar Nangia",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashwini Kumar Nangia",
+      "target": "Dr. Subashchandrabose Chinnathambi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashwini Kumar Nangia",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Maddi Sridhar Reddy",
+      "target": "Dr. Haridas B. Rode",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Maddi Sridhar Reddy",
+      "target": "Dr. T. Kumaraguru",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. G. J. Sanjayan",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. G. J. Sanjayan",
+      "target": "Dr. Arun Torris",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. V. Ramalingam",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Surender Singh Jadav",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Anthony Addlagatta",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Haridas B. Rode",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Ramars Amanchy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Srigiridhar Kotamraju",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. U.V.R. Vijaya Sarathi",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Nayani Kiranmai",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Sandip B. Bharate",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Bathini Nagendra Babu",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Raju Adepu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Sudhakar Manikrao Bansod",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr A Pandikumar",
+      "target": "Dr P Murugan",
+      "weight": 11,
+      "value": 11
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. Bathini Nagendra Babu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. Haridas B. Rode",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. Sunil Misra",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. V. Ramalingam",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. Nayani Kiranmai",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. Anthony Addlagatta",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. Surisetti Suresh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. Raju Adepu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kiran Pandare",
+      "target": "Dr. Sanjay P. Kamble",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kiran Pandare",
+      "target": "Dr. Ulhas K. Kharul",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kiran Pandare",
+      "target": "Dr. Vijay Bokade",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kiran Pandare",
+      "target": "Dr. Nilesh A Mali",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Manohar V. Badiger",
+      "target": "Dr. Arun Torris",
+      "weight": 18,
+      "value": 18
+    },
+    {
+      "source": "Dr. Manohar V. Badiger",
+      "target": "Dr. Prakash Wadgaonkar",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Manohar V. Badiger",
+      "target": "Dr. Suresh Bhat",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Manohar V. Badiger",
+      "target": "Dr. P. R. Suresha",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. Surya Prakash Singh",
+      "target": "Dr. Prakriti Ranjan Bangal",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Surya Prakash Singh",
+      "target": "Dr. Srigiridhar Kotamraju",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Surya Prakash Singh",
+      "target": "Dr. Ramanuj Narayan",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Surya Prakash Singh",
+      "target": "Dr. Avijit Jana",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Surya Prakash Singh",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Kirandeep Singh",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sudhakar Manikrao Bansod",
+      "target": "Dr. Ravindra Motiram Kumbhare",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Arun Torris",
+      "target": "Dr. Prakash Wadgaonkar",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Arun Torris",
+      "target": "Dr. Kadhiravan Shanmuganathan",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Arun Torris",
+      "target": "Dr. Suresh Bhat",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. Arun Torris",
+      "target": "Dr. P. R. Suresha",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Arun Torris",
+      "target": "Dr. Ulhas K. Kharul",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Arun Torris",
+      "target": "Dr. Manjusha V. Shelke",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Arun Torris",
+      "target": "Dr. S. Venkata Mohan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr Akhila Kumar Sahu",
+      "target": "Dr. Kadhiravan Shanmuganathan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Anthony Addlagatta",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Anthony Addlagatta",
+      "target": "Dr. Surisetti Suresh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Anthony Addlagatta",
+      "target": "Dr. Sunil Misra",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jayant Gajbhiye",
+      "target": "Dr. Hanumant B. Borate",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jayant Gajbhiye",
+      "target": "Dr. Subhash P. Chavan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jayant Gajbhiye",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashish V. Orpe",
+      "target": "Dr. Pankaj Doshi",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Moneesha Fernandes",
+      "target": "Dr. Vaijayanti A. Kumar",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Moneesha Fernandes",
+      "target": "Dr. Mahesh J Kulkarni",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Moneesha Fernandes",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Nilesh A Mali",
+      "target": "Dr. Vijay Bokade",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Suresh Bhat",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Suresh Bhat",
+      "target": "Dr. P. R. Suresha",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "DR. K.N. PRASANNA RANI",
+      "target": "Dr. Alka Kumari",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "DR. K.N. PRASANNA RANI",
+      "target": "Dr. T. Prathap Kumar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Atanu Das",
+      "target": "Dr. Sayan Bagchi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Atanu Das",
+      "target": "Dr. Santosh Kumar Jha",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Atanu Das",
+      "target": "Dr. Mahesh J Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kavita Joshi",
+      "target": "Dr. Manjusha V. Shelke",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kavita Joshi",
+      "target": "Dr. Sayan Bagchi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kavita Joshi",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kavita Joshi",
+      "target": "Dr. Shubhangi B Umbarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mugdha Gadgil",
+      "target": "Dr. Chetan Gadgil",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Mugdha Gadgil",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Nayani Kiranmai",
+      "target": "Dr. Bonam Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Prakriti Ranjan Bangal",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Sutapa Ghosh",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Ramars Amanchy",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Nivedita Sahu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Haridas B. Rode",
+      "weight": 10,
+      "value": 10
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Ramanuj Narayan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Arindam Chakrabarty",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Bonam Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. A. Venkat Narsaiah",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Kushal Bhatte",
+      "target": "Dr. Shubhangi B Umbarkar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Kushal Bhatte",
+      "target": "Dr. Vijay Bokade",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ravindar Kontham",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ravindar Kontham",
+      "target": "Dr. Koteswara V.",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Ravindar Kontham",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ravindar Kontham",
+      "target": "Dr. Mahesh J Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ravindar Kontham",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Srigiridhar Kotamraju",
+      "target": "Dr. Krishna Swaroop Desireddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Srigiridhar Kotamraju",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Srigiridhar Kotamraju",
+      "target": "Dr. Bonam Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Asha S.K.",
+      "target": "Dr. Kadhiravan Shanmuganathan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Asha S.K.",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Prakriti Ranjan Bangal",
+      "target": "Dr. Sutapa Ghosh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Prakriti Ranjan Bangal",
+      "target": "Dr. Abhijit Hazarika",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sreepriya Vedantam",
+      "target": "Dr. A. Venugopal",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Sreepriya Vedantam",
+      "target": "Dr. Jangam Ashok",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sreepriya Vedantam",
+      "target": "Dr. Reddi Kamesh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Haridas B. Rode",
+      "target": "Dr. Bathini Nagendra Babu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Haridas B. Rode",
+      "target": "Dr. T. Kumaraguru",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Haridas B. Rode",
+      "target": "Dr. Ramars Amanchy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rambabu Dandela",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mahesh J Kulkarni",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mahesh J Kulkarni",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Premnath Venugopalan",
+      "target": "Dr. Anuya Nisal",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Debendra Kumar Mohapatra",
+      "target": "Dr. G. Sudhakar",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. Debendra Kumar Mohapatra",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B.V. Subba Reddy",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B.V. Subba Reddy",
+      "target": "Dr. T. Kumaraguru",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B.V. Subba Reddy",
+      "target": "Dr. Ujjwal Pal",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Koteswara V.",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Koteswara V.",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Manjusha V. Shelke",
+      "target": "Dr. Vijayamohanan Pillai",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Manjusha V. Shelke",
+      "target": "Dr. Prakash Wadgaonkar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Manjusha V. Shelke",
+      "target": "Dr. Dhanraj B Shinde",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Ravindra Motiram Kumbhare",
+      "target": "Dr. Ramars Amanchy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr P Murugan",
+      "target": "Mr T Mathankumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashish K. Lele",
+      "target": "Dr. Samir H. Chikkali",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashish K. Lele",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashish K. Lele",
+      "target": "Dr. Ulhas K. Kharul",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. S. Venkata Mohan",
+      "target": "Dr. Boda Ravi Kiran",
+      "weight": 11,
+      "value": 11
+    },
+    {
+      "source": "Dr. S. Venkata Mohan",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. S. Venkata Mohan",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. S. Venkata Mohan",
+      "target": "Dr. Kishor L. Handore",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Alka Kumari",
+      "target": "Dr. T. Prathap Kumar",
+      "weight": 9,
+      "value": 9
+    },
+    {
+      "source": "Dr. Alka Kumari",
+      "target": "Dr. Vineet Aniya",
+      "weight": 14,
+      "value": 14
+    },
+    {
+      "source": "Dr. Alka Kumari",
+      "target": "Dr. Reddi Kamesh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Alka Kumari",
+      "target": "Dr. Harsha Nagar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Arindam Chakrabarty",
+      "target": "Dr. Ramanuj Narayan",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Jangam Ashok",
+      "target": "Dr. A. Venugopal",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Jangam Ashok",
+      "target": "Dr. Reddi Kamesh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sandip B. Bharate",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. J. Vatsala Rani",
+      "target": "Dr. Pratyay Basak",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. J. Vatsala Rani",
+      "target": "Dr. Ujjwal Pal",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ulhas K. Kharul",
+      "target": "Dr. Prakash Wadgaonkar",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. Ulhas K. Kharul",
+      "target": "Dr. Sanjay P. Kamble",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Vijayamohanan Pillai",
+      "target": "Dr Subbiah Alwarappan",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. Vijayamohanan Pillai",
+      "target": "Dr. Dhanraj B Shinde",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kadhiravan Shanmuganathan",
+      "target": "Dr. Samir H. Chikkali",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. T. Kumaraguru",
+      "target": "Dr. Ramars Amanchy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. T. Prathap Kumar",
+      "target": "Dr. Vineet Aniya",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. Subhash P. Chavan",
+      "target": "Dr. Hanumant B. Borate",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Subhash P. Chavan",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Sanjay P. Kamble",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. S. Sridhar",
+      "target": "Dr. Reddi Kamesh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. S. Sridhar",
+      "target": "Dr. Harsha Nagar",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. S. Sridhar",
+      "target": "Dr. Nivedita Sahu",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. A. Venugopal",
+      "target": "Dr. Pratyay Basak",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. A. Venugopal",
+      "target": "Dr. Reddi Kamesh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Vijay Bokade",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhanasekaran Shanmugam",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Dhanasekaran Shanmugam",
+      "target": "Dr. Anu Raghunathan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Remya Ramesh",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. Remya Ramesh",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. V. Ramalingam",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Surisetti Suresh",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Kishor L. Handore",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. Kishor L. Handore",
+      "target": "Dr. Kiran A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Nivedita Sahu",
+      "target": "Dr. Harsha Nagar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ujjwal Pal",
+      "target": "Dr. Pratyay Basak",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Harsha Nagar",
+      "target": "Dr. Vineet Aniya",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Jayaraj Nithyanandhan",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Bathini Nagendra Babu",
+      "target": "Dr. Bonam Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ramanuj Narayan",
+      "target": "Dr. Pratyay Basak",
+      "weight": 20,
+      "value": 20
+    },
+    {
+      "source": "Dr. Vinod C Prabhakaran",
+      "target": "Dr. Samir H. Chikkali",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Vinod C Prabhakaran",
+      "target": "Dr. Benudhar Punji",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Amol A. Kulkarni",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Kiran A. Kulkarni",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 3,
+      "value": 3
+    }
+  ],
+  "metrics": {
+    "total_cadre_faculty": 305,
+    "connected_faculty": 235,
+    "edges": 579,
+    "density": 0.0125,
+    "k_mean": 3.8,
+    "k2_mean": 38.22,
+    "beta_c": 0.0993,
+    "clustering": 0.291,
+    "modularity": 0.68,
+    "diameter": 10,
+    "path_length": 3.9
+  },
+  "collab_matrix": [
+    {
+      "pair": "CSIR-NCL \u2194 CSIR-NCL",
+      "joint_papers": 888
+    },
+    {
+      "pair": "CSIR-IICT \u2194 CSIR-IICT",
+      "joint_papers": 501
+    },
+    {
+      "pair": "CSIR-IICT \u2194 CSIR-NCL",
+      "joint_papers": 56
+    },
+    {
+      "pair": "CSIR-CECRI \u2194 CSIR-CECRI",
+      "joint_papers": 36
+    },
+    {
+      "pair": "CSIR-CECRI \u2194 CSIR-NCL",
+      "joint_papers": 13
+    },
+    {
+      "pair": "CSIR-CECRI \u2194 CSIR-IICT",
+      "joint_papers": 4
+    }
+  ],
+  "top_degree": [
+    {
+      "name": "Dr. Rajesh G. Gonnade",
+      "lab": "CSIR-NCL",
+      "degree": 39,
+      "strength": 209
+    },
+    {
+      "name": "Dr. Kumar Vanka",
+      "lab": "CSIR-NCL",
+      "degree": 31,
+      "strength": 158
+    },
+    {
+      "name": "Dr. Jagadeesh Babu Nanubolu",
+      "lab": "CSIR-IICT",
+      "degree": 22,
+      "strength": 81
+    },
+    {
+      "name": "Dr. Dhiman Sarkar",
+      "lab": "CSIR-NCL",
+      "degree": 22,
+      "strength": 30
+    },
+    {
+      "name": "Dr. Sunil Misra",
+      "lab": "CSIR-IICT",
+      "degree": 22,
+      "strength": 52
+    },
+    {
+      "name": "Dr. Sailaja Krishnamurty",
+      "lab": "CSIR-NCL",
+      "degree": 20,
+      "strength": 78
+    },
+    {
+      "name": "Dr. Arun Torris",
+      "lab": "CSIR-NCL",
+      "degree": 20,
+      "strength": 76
+    },
+    {
+      "name": "Dr. Sreekumar Kurungot",
+      "lab": "CSIR-NCL",
+      "degree": 19,
+      "strength": 80
+    },
+    {
+      "name": "Dr. Andugulapati Sai Balagi",
+      "lab": "CSIR-IICT",
+      "degree": 19,
+      "strength": 44
+    },
+    {
+      "name": "Dr. D. Srinivasa Reddy",
+      "lab": "CSIR-IICT",
+      "degree": 17,
+      "strength": 40
+    }
+  ],
+  "top_betweenness": [
+    {
+      "name": "Dr. Jagadeesh Babu Nanubolu",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.1673
+    },
+    {
+      "name": "Dr. Dhiman Sarkar",
+      "lab": "CSIR-NCL",
+      "betweenness": 0.1622
+    },
+    {
+      "name": "Dr. Sunil Misra",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.1578
+    },
+    {
+      "name": "Dr. Rajesh G. Gonnade",
+      "lab": "CSIR-NCL",
+      "betweenness": 0.15
+    },
+    {
+      "name": "Dr. Kumar Vanka",
+      "lab": "CSIR-NCL",
+      "betweenness": 0.1416
+    },
+    {
+      "name": "Dr. D. Srinivasa Reddy",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.1066
+    },
+    {
+      "name": "Dr. Andugulapati Sai Balagi",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.0944
+    },
+    {
+      "name": "Dr. B.V. Subba Reddy",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.0883
+    },
+    {
+      "name": "Dr Subrata Kundu",
+      "lab": "CSIR-CECRI",
+      "betweenness": 0.0813
+    },
+    {
+      "name": "Dr. Amitava Das",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.0582
+    }
+  ]
+}

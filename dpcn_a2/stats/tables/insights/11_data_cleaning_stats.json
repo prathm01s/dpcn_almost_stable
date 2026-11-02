@@ -1,0 +1,1230 @@
+{
+  "funnel": {
+    "stage_1_raw_scraped": {
+      "total": 505,
+      "by_lab": {
+        "CSIR-IICT": 287,
+        "CSIR-NCL": 167,
+        "CSIR-CECRI": 51
+      },
+      "description": "Raw staff directories scraped directly from official institute websites."
+    },
+    "stage_2_excluded_technical_and_duplicates": {
+      "total_excluded": 120,
+      "technical_staff_excluded": 119,
+      "duplicates_removed": 1,
+      "unmatched_wrong_profiles": 3,
+      "description": "Rule-based filtering removing non-scientific cadre staff (Technical Officers/Technicians) and duplicate listings."
+    },
+    "stage_3_clean_roster": {
+      "total": 385,
+      "by_lab": {
+        "CSIR-IICT": 168,
+        "CSIR-NCL": 166,
+        "CSIR-CECRI": 51
+      },
+      "description": "Legitimate permanent scientific cadre (Scientist, Sr. Scientist, Principal Scientist, Chief Scientist, Director)."
+    },
+    "stage_4_active_cadre_with_papers": {
+      "total": 306,
+      "by_lab": {
+        "CSIR-IICT": 129,
+        "CSIR-NCL": 151,
+        "CSIR-CECRI": 26
+      },
+      "description": "Tenured cadre faculty with >=1 matched paper in the 2016-2026 corpus."
+    }
+  },
+  "technical_titles_breakdown": [
+    {
+      "title": "Sr. Technical Officer",
+      "count": 42
+    },
+    {
+      "title": "Technical Assistant",
+      "count": 28
+    },
+    {
+      "title": "Sr. Technician",
+      "count": 22
+    },
+    {
+      "title": "Technician",
+      "count": 20
+    },
+    {
+      "title": "Principal Technical Officer",
+      "count": 7
+    }
+  ],
+  "top_designations": [
+    {
+      "designation": "Scientist",
+      "count": 151
+    },
+    {
+      "designation": "Chief Scientist (Scientist-G)",
+      "count": 45
+    },
+    {
+      "designation": "Chief Scientist (Scientist-F)",
+      "count": 39
+    },
+    {
+      "designation": "Senior Principal Scientist",
+      "count": 28
+    },
+    {
+      "designation": "Principal Scientist",
+      "count": 20
+    },
+    {
+      "designation": "Senior Scientist",
+      "count": 20
+    },
+    {
+      "designation": "Director",
+      "count": 2
+    },
+    {
+      "designation": "Emeritus Scientist",
+      "count": 1
+    }
+  ],
+  "top_departments": [
+    {
+      "department": "Organic Chemistry Division",
+      "count": 37
+    },
+    {
+      "department": "Physical and Materials Chemistry Division",
+      "count": 26
+    },
+    {
+      "department": "Polymer Science and Engineering Division",
+      "count": 25
+    },
+    {
+      "department": "Chemical Engineering & Process Development",
+      "count": 21
+    },
+    {
+      "department": "Biochemical Science Division",
+      "count": 17
+    },
+    {
+      "department": "Applied Biology",
+      "count": 16
+    },
+    {
+      "department": "Organic Synthesis & Process Chemistry",
+      "count": 16
+    },
+    {
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "count": 16
+    },
+    {
+      "department": "Polymers & Functional Materials",
+      "count": 15
+    },
+    {
+      "department": "Catalysis Division",
+      "count": 13
+    },
+    {
+      "department": "Natural Products & Medicinal Chemistry",
+      "count": 13
+    },
+    {
+      "department": "Fluoro-Agrochemicals",
+      "count": 12
+    }
+  ],
+  "paper_attribution": {
+    "faculty_paper_rows": 8344,
+    "distinct_faculty_dois": 7043
+  },
+  "sample_excluded": [
+    {
+      "faculty_id": "FAC_NCL_0036",
+      "lab": "CSIR-NCL",
+      "full_name": "Dr. D. Srinivasa Reddy",
+      "job_title": "Duplicate Roster Listing",
+      "department": "Organic Chemistry Division",
+      "papers_in_corpus": 60,
+      "reason": "Same person as FAC_IICT_0315 (Dr. D. Srinivasa Reddy, OpenAlex A5067070069), now Director of CSIR-IICT; the NCL listing is a stale duplicate. All his rows already use FAC_IICT_0315."
+    },
+    {
+      "faculty_id": "FAC_IICT_0182",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. K. Rekha Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 2,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0183",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. M.G. Bhagya Lakshmi Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0184",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. P.SIVANARAYANAN Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 2,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0185",
+      "lab": "CSIR-IICT",
+      "full_name": "SMT. N. MANJULA Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0186",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. S. Anubala Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0187",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. G. SAI KRISHNA Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0188",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. G N V Satyanarayana Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 1,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0189",
+      "lab": "CSIR-IICT",
+      "full_name": "SANTWANA HARISHCHANDRA DHONGADE Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0190",
+      "lab": "CSIR-IICT",
+      "full_name": "MS. RESMI K.R Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 1,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0191",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri TANDELU BALARAM Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0192",
+      "lab": "CSIR-IICT",
+      "full_name": "SHRI. AVURLA MADHU Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0193",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. K.V.S. Rama Krishna Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0194",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. V.V. Swarajya Lakshmi Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0195",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. P. RAMULU Sr. Technician (2)",
+      "job_title": "Sr. Technician (2)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0196",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. ABHILASH G.R. Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0197",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. RAJESH JAMMANA Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0198",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. SHAMNAD S. Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0199",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. AMPOLU SIMHACHALAM Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0200",
+      "lab": "CSIR-IICT",
+      "full_name": "KETHAVATH JAYANTHI Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Analytical & Structural Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0220",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Kuncha Madhusudana Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Applied Biology",
+      "papers_in_corpus": 35,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0221",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. B. Supriya Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Applied Biology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0222",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. V. Lakshma Nayak Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Applied Biology",
+      "papers_in_corpus": 1,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0223",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. T. RAMA LINGA MURTHY Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Applied Biology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0224",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. Y. KANAKA RAJU Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Applied Biology",
+      "papers_in_corpus": 1,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0225",
+      "lab": "CSIR-IICT",
+      "full_name": "SMT. S. MEHAZABEEN Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Applied Biology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0226",
+      "lab": "CSIR-IICT",
+      "full_name": "AMBADIPUDI S S S S SUDHA Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Applied Biology",
+      "papers_in_corpus": 9,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0227",
+      "lab": "CSIR-IICT",
+      "full_name": "ADITI RANI Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Applied Biology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0228",
+      "lab": "CSIR-IICT",
+      "full_name": "MRS. AMTUL ZEHRA Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Applied Biology",
+      "papers_in_corpus": 6,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0229",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. K. Madhusudhan Rao Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Applied Biology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0230",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. Y. SURESH Sr. Technician (1)",
+      "job_title": "Sr. Technician (1)",
+      "department": "Applied Biology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0243",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. C.N. Rohitha Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Catalysis & Fine Chemicals",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0244",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Chandrashekar Pendem Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Catalysis & Fine Chemicals",
+      "papers_in_corpus": 9,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0245",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Manoj Kumar Palnati Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Catalysis & Fine Chemicals",
+      "papers_in_corpus": 6,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0246",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Krishna Sai Gajula Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Catalysis & Fine Chemicals",
+      "papers_in_corpus": 22,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0247",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. B. Srinivas Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Catalysis & Fine Chemicals",
+      "papers_in_corpus": 2,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0248",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. V. Swapna Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Catalysis & Fine Chemicals",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0249",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. N. SUBBA RAO Sr. Technician (1)",
+      "job_title": "Sr. Technician (1)",
+      "department": "Catalysis & Fine Chemicals",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0250",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. BIMAGANI NARESH GOUD Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Catalysis & Fine Chemicals",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0260",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. K. Saravanan Principal Technical Officer",
+      "job_title": "Principal Technical Officer",
+      "department": "Oils, Lipid Science & Technology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Principal Technical Officer'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0261",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. T. Ravinder Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Oils, Lipid Science & Technology",
+      "papers_in_corpus": 6,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0262",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Rathod Aravind Kumar Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Oils, Lipid Science & Technology",
+      "papers_in_corpus": 12,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0263",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. E. Anjaneyulu Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Oils, Lipid Science & Technology",
+      "papers_in_corpus": 4,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0264",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Thirupathi Azmeera Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Oils, Lipid Science & Technology",
+      "papers_in_corpus": 10,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0265",
+      "lab": "CSIR-IICT",
+      "full_name": "SHRI. KHURSHEED AHMAD Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Oils, Lipid Science & Technology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0266",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. MURALI CHIKALAMETLA Sr. Technician (1)",
+      "job_title": "Sr. Technician (1)",
+      "department": "Oils, Lipid Science & Technology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0267",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. BANDI CHAITANYA Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Oils, Lipid Science & Technology",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0276",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. C. Chandrasekhar Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Energy & Environmental Engg.",
+      "papers_in_corpus": 68,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0277",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Amit Kumar Rajak Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Energy & Environmental Engg.",
+      "papers_in_corpus": 16,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0278",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri MAHANKALI RAMANJANEYULU Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Energy & Environmental Engg.",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0279",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. M. Rama Krishna Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Energy & Environmental Engg.",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0280",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. S. Shailaja Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Energy & Environmental Engg.",
+      "papers_in_corpus": 2,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0281",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. CHEGONDI SRINIVASA RAO Sr. Technician (2)",
+      "job_title": "Sr. Technician (2)",
+      "department": "Energy & Environmental Engg.",
+      "papers_in_corpus": 11,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0282",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. SUSANTA PATRA Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Energy & Environmental Engg.",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0283",
+      "lab": "CSIR-IICT",
+      "full_name": "BANOTHU RAJA Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Energy & Environmental Engg.",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0284",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri KETHAVATH PAVANKALYAN Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Energy & Environmental Engg.",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0303",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. B. Renuka Principal Technical Officer",
+      "job_title": "Principal Technical Officer",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Principal Technical Officer'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0304",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI P.V.S.S. SRINIVAS Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 1,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0305",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. B. VIJAYA THOMAS Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 2,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0306",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. G. BALAKRISHNA Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 1,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0307",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Mahesh Kukkamudi Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0308",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Vinaykumar Allam Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 10,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0309",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Anitha P.M. Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0310",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Sridhar Undeela Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 3,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0311",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. J. SRI RAM MURTHY Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0312",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. SANJEEV KUMAR PRADHAN Sr. Technician (1)",
+      "job_title": "Sr. Technician (1)",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 6,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0313",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri GUVVALA PRAKASH Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Fluoro-Agrochemicals",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0329",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Gurrala Sheelu Principal Technical Officer",
+      "job_title": "Principal Technical Officer",
+      "department": "Natural Products & Medicinal Chemistry",
+      "papers_in_corpus": 12,
+      "reason": "Not scientific cadre: roster name carries technical title 'Principal Technical Officer'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0330",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri AKANABOINA RAJU Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Natural Products & Medicinal Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0331",
+      "lab": "CSIR-IICT",
+      "full_name": "ANOOP. A Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Natural Products & Medicinal Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0353",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. V. Naveen Kumar Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 1,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0354",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. G. Sukumar Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0355",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Malavath Ratanlal Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 3,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0356",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. T. Nagendra Prasad Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0357",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. K. CHANDRA SHEKAR Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0358",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. APPALA NAIDU CHOKKAPU Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 2,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0359",
+      "lab": "CSIR-IICT",
+      "full_name": "AVULA SHIVAKRISHNA Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 3,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0360",
+      "lab": "CSIR-IICT",
+      "full_name": "PUDI SUDHEER Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 1,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0361",
+      "lab": "CSIR-IICT",
+      "full_name": "SHABINA BEE ANSARI Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0362",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. SAMIR KUMAR MEHER Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Organic Synthesis & Process Chemistry",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0384",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. K. KIRAN Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0385",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. B. Anjaneyulu Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0386",
+      "lab": "CSIR-IICT",
+      "full_name": "L. PRASHANTH NAIK Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0387",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri CHETKOORI SRINIVAS Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0388",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri Mohd. Saaim Ali Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0389",
+      "lab": "CSIR-IICT",
+      "full_name": "SHRI. M. ANIL KUMAR Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0390",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. M. Shyam Sunder Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0391",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. SAMBHU SANKAR BADTYA Sr. Technician (1)",
+      "job_title": "Sr. Technician (1)",
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0392",
+      "lab": "CSIR-IICT",
+      "full_name": "AMIT MEENA Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Chemical Engg. & Process Technology (CE & PT)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0412",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. L. YUGENDER RAJU Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0413",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. L. SRINIVAS Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 2,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0414",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. Subhash Pawar Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0415",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. T. SANDEEP KUMAR Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0416",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. GUNDU VENKATESWARLU Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 5,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0417",
+      "lab": "CSIR-IICT",
+      "full_name": "MS. Y. SWARNALATHA Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0418",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. D.B. Rohini Kumar Sr. Technician (3)",
+      "job_title": "Sr. Technician (3)",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 2,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0419",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. ALOK KUMAR YADAV Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0420",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. AQUEEB JAVEED Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 1,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0421",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri SHERIN S. KUMAR Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Polymers & Functional Materials",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0429",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. K.S. SRINIVAS Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Business Development & Research Management (BDRM)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0430",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. C. Krishnaveni Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Business Development & Research Management (BDRM)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0431",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. P.N.S. RAGHU NARAYANA Sr. Technical Officer (2)",
+      "job_title": "Sr. Technical Officer (2)",
+      "department": "Business Development & Research Management (BDRM)",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0433",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. ARSID NIRANJAN Principal Technical Officer",
+      "job_title": "Principal Technical Officer",
+      "department": "Centre for I.T. Services",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Principal Technical Officer'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0434",
+      "lab": "CSIR-IICT",
+      "full_name": "Dr. B.V. Devendra Rao Principal Technical Officer",
+      "job_title": "Principal Technical Officer",
+      "department": "Centre for I.T. Services",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Principal Technical Officer'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0435",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. S. SRIKAMAL Principal Technical Officer",
+      "job_title": "Principal Technical Officer",
+      "department": "Centre for I.T. Services",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Principal Technical Officer'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0436",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. G. RADHA KRISHNA MURTHY Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Centre for I.T. Services",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0437",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. MOHD JUNED UZ ZAMA KHAN Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Centre for I.T. Services",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0438",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri GAIKWAD MADHAV RAMESH Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Centre for I.T. Services",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0439",
+      "lab": "CSIR-IICT",
+      "full_name": "Shri SHUBHAM SINGH Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Centre for I.T. Services",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0440",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. T. NARESH KUMAR Sr. Technician (1)",
+      "job_title": "Sr. Technician (1)",
+      "department": "Centre for I.T. Services",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0441",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. MD. SHABUDDIN Technician (2)",
+      "job_title": "Technician (2)",
+      "department": "Centre for I.T. Services",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0445",
+      "lab": "CSIR-IICT",
+      "full_name": "SMT. M. PREETHI Principal Technical Officer",
+      "job_title": "Principal Technical Officer",
+      "department": "Knowledge and Information Management",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Principal Technical Officer'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0446",
+      "lab": "CSIR-IICT",
+      "full_name": "SMT. L. KIRANMAYI Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Knowledge and Information Management",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0447",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. PRASENJIT DAS Sr. Technical Officer (3)",
+      "job_title": "Sr. Technical Officer (3)",
+      "department": "Knowledge and Information Management",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (3)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0448",
+      "lab": "CSIR-IICT",
+      "full_name": "MISS. BABY SOWJANYA UYYALA Sr. Technical Officer (1)",
+      "job_title": "Sr. Technical Officer (1)",
+      "department": "Knowledge and Information Management",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technical Officer (1)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0449",
+      "lab": "CSIR-IICT",
+      "full_name": "SANAKA SINDHUJA Technical Assistant",
+      "job_title": "Technical Assistant",
+      "department": "Knowledge and Information Management",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technical Assistant'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0450",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. N. RAMESH Sr. Technician (2)",
+      "job_title": "Sr. Technician (2)",
+      "department": "Knowledge and Information Management",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0451",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. T.KRISHNA REDDY Sr. Technician (2)",
+      "job_title": "Sr. Technician (2)",
+      "department": "Knowledge and Information Management",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Sr. Technician (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0452",
+      "lab": "CSIR-IICT",
+      "full_name": "SRI. JARUPULA SHANKAR Technician (2)",
+      "job_title": "Technician (2)",
+      "department": "Knowledge and Information Management",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (2)'"
+    },
+    {
+      "faculty_id": "FAC_IICT_0453",
+      "lab": "CSIR-IICT",
+      "full_name": "SOURABH BORASI Technician (1)",
+      "job_title": "Technician (1)",
+      "department": "Knowledge and Information Management",
+      "papers_in_corpus": 0,
+      "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    }
+  ]
+}
