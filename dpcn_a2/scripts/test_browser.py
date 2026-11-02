@@ -491,6 +491,9 @@ def run_tests():
         time.sleep(1.5)
 
         title_i11 = client_i11.evaluate("document.title")
+        # The page opens on the overlay section; network stats fill in when Networks is shown
+        client_i11.evaluate("document.querySelector(\".nav-btn[data-section='networks']\").click()")
+        time.sleep(0.5)
         nodes_txt = client_i11.evaluate("document.getElementById('net-stat-nodes').textContent")
         print(f"✓ insights11.html Loaded: Title='{title_i11}', Connected Faculty Nodes={nodes_txt}")
         assert "Cadre Faculty Networks" in title_i11
@@ -528,12 +531,17 @@ def run_tests():
         client_i11.stop()
 
     macro_pages = [
-        ("insight_smart_spec.html", "Smart Specialization", "chart-radar"),
-        ("insight_academic_bridge.html", "Academic-Industrial Bridge", "chart-ker"),
-        ("insight_frugal_rd.html", "Frugal Innovation", "chart-cost-q1"),
-        ("insight_patents_papers.html", "Patent-to-Paper Decoupling", "chart-quadrant"),
-        ("insight_leiden_benchmarks.html", "Global Leiden Crown Indicators", "chart-leiden-comp")
+        ("insight_academic_bridge.html", "Academic Bridge", "chart-ker"),
     ]
+
+    # Withdrawn studies (D-33): kept in the repo with a banner, not linked from the dashboard
+    withdrawn_pages = ["insight_smart_spec.html", "insight_frugal_rd.html",
+                       "insight_patents_papers.html", "insight_leiden_benchmarks.html"]
+    index_html = open("dashboard/index.html", encoding="utf-8").read()
+    for page_name in withdrawn_pages:
+        assert page_name not in index_html, f"Withdrawn page {page_name} is still linked from index.html"
+        assert "Withdrawn from the Group 24 dashboard" in open(f"dashboard/{page_name}", encoding="utf-8").read()
+    print(f"\n✓ Withdrawn pages unlinked and bannered: {len(withdrawn_pages)}")
 
     for page_name, expected_title, chart_id in macro_pages:
         print(f"\n=== TESTING OFFLINE file:// PROTOCOL FOR {page_name.upper()} ===")
