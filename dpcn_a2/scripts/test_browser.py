@@ -138,7 +138,11 @@ def run_tests():
         print(f"✓ Page Title: {title}")
         assert "Group 24" in title
 
-        # Verify Initial KPIs
+        # Verify Initial KPIs (wait for the 7 MB data file to load and the first draw)
+        for _ in range(60):
+            if client.evaluate("document.getElementById('kpi-total-papers').textContent") != "-":
+                break
+            time.sleep(0.25)
         total_papers = client.evaluate("document.getElementById('kpi-total-papers').textContent")
         journal_papers = client.evaluate("document.getElementById('kpi-journal-papers').textContent")
         q1_share = client.evaluate("document.getElementById('kpi-q1-share').textContent")
@@ -180,7 +184,10 @@ def run_tests():
         client.evaluate("document.querySelector('.inst-btn[data-inst=\"all\"]').click()")
         time.sleep(0.3)
 
-        # Test Tab Switching & Content
+        # Scroll to each section of the single-page layout and check its content
+        section_of = {"faculty": "faculty", "venues": "journals", "areas": "areas", "citation-net": "citations",
+                      "authorship-net": "coauthorship", "connectivity": "india", "insights": "findings", "docs": "data"}
+        client.evaluate("document.documentElement.style.scrollBehavior = 'auto'")
         tabs = [
             ("faculty", "03_tab_faculty.png"),
             ("venues", "04_tab_venues.png"),
@@ -193,17 +200,18 @@ def run_tests():
         ]
 
         for tab_id, ss_name in tabs:
-            client.evaluate(f"document.querySelector('.tab-btn[data-tab=\"{tab_id}\"]').click()")
-            time.sleep(0.5)
-            # Check container active
-            is_active = client.evaluate(f"document.getElementById('tab-{tab_id}').classList.contains('active')")
-            assert is_active, f"Tab {tab_id} did not become active"
+            sec = section_of[tab_id]
+            client.evaluate(f"document.getElementById('{sec}').scrollIntoView({{block: 'start'}})")
+            time.sleep(1.5)  # network sections draw when they first come into view
+            # The top navigation highlights the section in view
+            active = client.evaluate("document.querySelector('.nav-link.active')?.dataset.sec || ''")
+            assert active == sec, f"Section {sec} not highlighted in the navigation (got '{active}')"
 
             # Check specific elements
             if tab_id == "faculty":
                 # Check faculty table rows
                 rows = client.evaluate("document.querySelectorAll('#table-faculty .tabulator-row').length")
-                print(f"✓ Faculty Tab: {rows} rows visible in Tabulator table")
+                print(f"✓ Faculty: {rows} rows visible in Tabulator table")
                 assert rows > 0
                 # Check department chart canvas
                 dept_canvas = client.evaluate("document.querySelectorAll('#chart-departments canvas, #chart-departments svg').length")
@@ -229,14 +237,14 @@ def run_tests():
                 assert not client.evaluate("!!document.querySelector('.prof-overlay.open')")
             elif tab_id == "venues":
                 top_rows = client.evaluate("document.querySelectorAll('#table-top-papers .tabulator-row').length")
-                print(f"✓ Venues Tab: {top_rows} top papers visible")
+                print(f"✓ Journals: {top_rows} top papers visible")
                 assert top_rows >= 10
             elif tab_id == "citation-net":
                 c_canvas = client.evaluate("document.querySelectorAll('#chart-citation-network canvas, #chart-citation-network svg').length")
                 pr_rows = client.evaluate("document.querySelectorAll('#tbody-net-pagerank tr').length")
                 flow_rows = client.evaluate("document.querySelectorAll('#tbody-net-cite-matrix tr').length")
                 cite_edges = client.evaluate("document.getElementById('net-cite-kpi-edges').textContent")
-                print(f"✓ Citation Net Tab: Canvas={c_canvas}, Top PR Rows={pr_rows}, Flow Matrix Rows={flow_rows}, Edges={cite_edges}")
+                print(f"✓ Citation Net: Canvas={c_canvas}, Top PR Rows={pr_rows}, Flow Matrix Rows={flow_rows}, Edges={cite_edges}")
                 assert c_canvas > 0
                 assert pr_rows == 10
                 assert flow_rows == 3
@@ -246,7 +254,7 @@ def run_tests():
                 bridge_rows = client.evaluate("document.querySelectorAll('#tbody-net-bridges tr').length")
                 collab_rows = client.evaluate("document.querySelectorAll('#tbody-net-auth-matrix tr').length")
                 auth_edges = client.evaluate("document.getElementById('net-auth-kpi-edges').textContent")
-                print(f"✓ Authorship Net Tab: Canvas={a_canvas}, Bridge Rows={bridge_rows}, Collab Matrix Rows={collab_rows}, Edges={auth_edges}")
+                print(f"✓ Authorship Net: Canvas={a_canvas}, Bridge Rows={bridge_rows}, Collab Matrix Rows={collab_rows}, Edges={auth_edges}")
                 assert a_canvas > 0
                 assert bridge_rows == 10
                 assert collab_rows == 3
@@ -259,7 +267,7 @@ def run_tests():
                 jac_rows = client.evaluate("document.querySelectorAll('#tbody-conn-jaccard tr').length")
                 cites_kpi = client.evaluate("document.getElementById('conn-kpi-cites').textContent")
                 ratio_kpi = client.evaluate("document.getElementById('conn-kpi-ratio').textContent")
-                print(f"✓ Connectivity Tab: Charts={flow_canvas}/{sector_canvas}, Citing Rows={citing_rows}, Hub Rows={hub_rows}, Jaccard Rows={jac_rows}, Cites={cites_kpi}, Ratio={ratio_kpi}")
+                print(f"✓ Connectivity: Charts={flow_canvas}/{sector_canvas}, Citing Rows={citing_rows}, Hub Rows={hub_rows}, Jaccard Rows={jac_rows}, Cites={cites_kpi}, Ratio={ratio_kpi}")
                 assert flow_canvas > 0 and sector_canvas > 0
                 assert citing_rows == 10 and hub_rows == 25 and jac_rows == 3
                 assert cites_kpi not in ("—%", "0%", "0.0%")
@@ -271,43 +279,48 @@ def run_tests():
                     print(f"  ✓ Connectivity {inst.upper()}: {rows} citing-institute rows")
                     assert rows == 10
             elif tab_id == "insights":
-                card_count = client.evaluate("document.querySelectorAll('#insights-grid .card').length")
-                chart_canvas = client.evaluate("document.querySelectorAll('#insights-grid canvas, #insights-grid svg').length")
-                print(f"✓ Insights Tab: {card_count} finding cards, {chart_canvas} ECharts canvas elements rendered")
-                assert card_count == 11
-                assert chart_canvas >= 11
-                # Test Card 11 interactive buttons
+                card_count = client.evaluate("document.querySelectorAll('#insights-grid .insight-card').length")
+                stats = client.evaluate("document.querySelectorAll('#insights-grid .ic-stat').length")
+                print(f"✓ Key Findings: {card_count} finding boxes, {stats} with a headline number")
+                assert card_count == 11 and stats == 11
+                # Each box opens a modal with its chart
+                for i in range(11):
+                    client.evaluate(f"document.querySelectorAll('#insights-grid .insight-card')[{i}].click()")
+                    time.sleep(0.6)
+                    shown = client.evaluate("!document.getElementById('ins-overlay').hidden")
+                    canv = client.evaluate("document.querySelectorAll('#ins-body canvas, #ins-body svg').length")
+                    assert shown and canv > 0, f"Finding {i + 1}: modal shown={shown}, chart elements={canv}"
+                print("  ✓ All 11 finding modals open with a chart")
+                # Finding 11 is open: test its interactive buttons
                 diff_table_rows = client.evaluate("document.querySelectorAll('#tbody-diff-spreaders tr').length")
-                assert diff_table_rows > 0, "Card 11 table rows should be populated"
-                # Switch to Materials and Condition A first
+                assert diff_table_rows > 0, "Finding 11 table rows should be populated"
                 client.evaluate("document.querySelector('#diff-field-selector button[data-field=\"Materials\"]').click()")
                 time.sleep(0.3)
                 client.evaluate("document.querySelector('#diff-cond-selector button[data-cond=\"condition_a\"]').click()")
-                time.sleep(0.3)
-                client.evaluate("document.getElementById('card-insight-11').scrollIntoView()")
                 time.sleep(0.5)
                 client.capture_screenshot("dashboard/screenshots/11_card11_diffusion_cond_a_materials.png")
                 print("  ✓ Captured: 11_card11_diffusion_cond_a_materials.png")
-
-                # Switch to Condition B
                 client.evaluate("document.querySelector('#diff-cond-selector button[data-cond=\"condition_b\"]').click()")
                 time.sleep(0.3)
                 mat_rows = client.evaluate("document.querySelectorAll('#tbody-diff-spreaders tr').length")
-                print(f"  ✓ Card 11 interactive toggle: Materials (Condition B) rendered {mat_rows} spreader rows")
+                print(f"  ✓ Finding 11 interactive toggle: Materials (Condition B) rendered {mat_rows} spreader rows")
                 assert mat_rows > 0
                 client.capture_screenshot("dashboard/screenshots/11_card11_diffusion.png")
                 print("  ✓ Captured: 11_card11_diffusion.png")
+                client.evaluate("document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))")
+                time.sleep(0.3)
+                assert client.evaluate("document.getElementById('ins-overlay').hidden"), "Escape should close the finding modal"
 
             elif tab_id == "docs":
-                download_links = client.evaluate("document.querySelectorAll('#tab-docs a[download]').length")
-                print(f"✓ Docs Tab: {download_links} downloadable deliverable links")
+                download_links = client.evaluate("document.querySelectorAll('#data a[download]').length")
+                print(f"✓ Data & Methods: {download_links} downloadable deliverable links")
                 assert download_links >= 7
 
             client.capture_screenshot(f"dashboard/screenshots/{ss_name}")
             print(f"✓ Captured: {ss_name}")
 
-        # Switch back to Overview and test filters
-        client.evaluate("document.querySelector('.tab-btn[data-tab=\"overview\"]').click()")
+        # Back to the trends section and test filters
+        client.evaluate("document.getElementById('trends').scrollIntoView({block: 'start'})")
         time.sleep(0.3)
 
         # Filter Year: 2020 - 2024
@@ -340,8 +353,8 @@ def run_tests():
         client.evaluate("document.getElementById('btn-reset-filters').click()")
         time.sleep(0.3)
 
-        # Faculty tab: h-index chart is stacked by campus for All; Q1-papers filter narrows the scientists
-        client.evaluate("document.querySelector('.tab-btn[data-tab=\"faculty\"]').click()")
+        # Faculty section: h-index chart is stacked by campus for All; Q1-papers filter narrows the scientists
+        client.evaluate("document.getElementById('faculty').scrollIntoView({block: 'start'})")
         time.sleep(0.5)
         h_series = client.evaluate(
             "JSON.stringify(echarts.getInstanceByDom(document.getElementById('chart-h-index')).getOption().series"

@@ -3,171 +3,261 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DPCN Research Mapping — Group 24 Dashboard</title>
+  <title>CSIR Chemistry Cluster — Group 24 Dashboard</title>
   <link rel="stylesheet" href="vendor/tabulator.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Dashboard Header -->
-  <header class="dashboard-header">
-    <div class="header-inner">
-      <div class="header-title">
-        <h1>DPCN Research Mapping: CSIR Chemistry Cluster</h1>
-        <div class="header-subtitle">
-          CSIR-NCL (Pune) · CSIR-IICT (Hyderabad) · CSIR-CECRI (Karaikudi) | 2016–2026
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <!-- Sticky site header: brand, section navigation, institute selector, filters -->
+  <header class="site-header" id="site-header">
+    <div class="topnav">
+      <a href="#home" class="brand">
+        <span class="brand-mark">G24</span>
+        <span class="brand-text"><strong>CSIR Chemistry Cluster</strong><small>DPCN 2026 · Group 24</small></span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Sections">
+          <a href="#home" class="nav-link" data-sec="home">Home</a>
+          <a href="#findings" class="nav-link" data-sec="findings">Key Findings</a>
+          <a href="#trends" class="nav-link" data-sec="trends">Trends</a>
+          <a href="#faculty" class="nav-link" data-sec="faculty">Faculty</a>
+          <a href="#journals" class="nav-link" data-sec="journals">Journals</a>
+          <a href="#areas" class="nav-link" data-sec="areas">Research Areas</a>
+          <a href="#citations" class="nav-link" data-sec="citations">Citation Network</a>
+          <a href="#coauthorship" class="nav-link" data-sec="coauthorship">Co-authorship</a>
+          <a href="#india" class="nav-link" data-sec="india">India Links</a>
+          <a href="#data" class="nav-link" data-sec="data">Data & Methods</a>
+      </nav>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-expanded="false" aria-controls="nav-links">☰ Sections</button>
+    </div>
+
+    <div class="controls-bar">
+      <div class="controls-inner">
+        <div class="inst-segmented" role="group" aria-label="Institute">
+          <button class="inst-btn active" data-inst="all">All Three</button>
+          <button class="inst-btn" data-inst="iict">CSIR-IICT</button>
+          <button class="inst-btn" data-inst="ncl">CSIR-NCL</button>
+          <button class="inst-btn" data-inst="cecri">CSIR-CECRI</button>
+          <button class="inst-btn" data-inst="compare">Compare</button>
         </div>
+        <button class="btn-filters" id="btn-filters" aria-expanded="false" aria-controls="filter-panel">
+          Filters <span class="filter-count" id="filter-count" hidden>0</span>
+        </button>
+        <div class="filter-chips" id="filter-chips"><span class="chip chip-muted">No filters · all papers 2016–2026</span></div>
+        <button id="btn-reset-filters" class="btn-reset">Reset</button>
       </div>
-      <div class="header-group-label">GROUP 24</div>
+
+      <div class="filter-panel" id="filter-panel" hidden>
+        <div class="filter-toolbar">
+          <div class="filter-group">
+            <label>Years</label>
+            <select id="filter-year-min" class="filter-select">
+              <option value="2016" selected>2016</option>
+              <option value="2018">2018</option>
+              <option value="2020">2020</option>
+              <option value="2022">2022</option>
+              <option value="2024">2024</option>
+            </select>
+            <span>–</span>
+            <select id="filter-year-max" class="filter-select">
+              <option value="2020">2020</option>
+              <option value="2022">2022</option>
+              <option value="2024">2024</option>
+              <option value="2026" selected>2026</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Type</label>
+            <select id="filter-type" class="filter-select">
+              <option value="all" selected>All Types</option>
+              <option value="journal">Journal Articles</option>
+              <option value="conference">Conference Proceedings</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Quartile</label>
+            <select id="filter-quartile" class="filter-select">
+              <option value="all" selected>All Quartiles</option>
+              <option value="Q1">Q1 Only</option>
+              <option value="Q2">Q2 Only</option>
+              <option value="Q3">Q3 Only</option>
+              <option value="Q4">Q4 Only</option>
+              <option value="Unranked">Unranked</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Field</label>
+            <select id="filter-field" class="filter-select">
+              <option value="all" selected>All Disciplines</option>
+            </select>
+          </div>
+
+          <div class="filter-group" title="Journal impact factor analogue: SCImago 'Cites / Doc. (2 years)' of the journal in the paper's quartile year (Scopus data, not Clarivate JIF). Papers without a SCImago match are excluded when a threshold is set.">
+            <label>Journal IF</label>
+            <select id="filter-if" class="filter-select">
+              <option value="0" selected>Any IF</option>
+              <option value="2">IF ≥ 2</option>
+              <option value="3">IF ≥ 3</option>
+              <option value="5">IF ≥ 5</option>
+              <option value="10">IF ≥ 10</option>
+            </select>
+          </div>
+
+          <div class="filter-group" title="Roster scientists by number of Q1-journal papers (2016–2026). Applies to the Faculty section: featured scientists, directory, h-index chart and the faculty KPIs.">
+            <label>Scientists</label>
+            <select id="filter-q1-papers" class="filter-select">
+              <option value="0" selected>All Scientists</option>
+              <option value="5">&gt; 5 Q1 Papers</option>
+              <option value="10">&gt; 10 Q1 Papers</option>
+            </select>
+          </div>
+        </div>
+        <p class="filter-note">Filters apply to the KPI cards and every chart and table below, except the Key Findings, which are fixed analyses.</p>
+      </div>
     </div>
   </header>
 
-  <!-- Sticky Controls & Filters Bar -->
-  <div class="controls-bar">
-    <div class="controls-inner">
-      <div class="inst-segmented">
-        <button class="inst-btn active" data-inst="all">All Three (Combined)</button>
-        <button class="inst-btn" data-inst="iict">CSIR-IICT</button>
-        <button class="inst-btn" data-inst="ncl">CSIR-NCL</button>
-        <button class="inst-btn" data-inst="cecri">CSIR-CECRI</button>
-        <button class="inst-btn" data-inst="compare">Compare Labs</button>
+  <main class="page-main">
+
+  <!-- 00 Home -->
+  <section id="home" class="page-section hero" data-label="Home">
+    <div class="section-inner hero-inner">
+      <div class="hero-eyebrow">DPCN 2026 · Research Mapping Project · Group 24</div>
+      <h1 class="hero-title">A decade of research at CSIR's chemistry labs</h1>
+      <p class="hero-lead">Every peer-reviewed paper from 2016 to 2026 by the three laboratories, with their faculty, journals,
+        citation and co-authorship networks, and eleven findings beyond the basic statistics.</p>
+      <div class="hero-labs">
+        <span class="lab-chip lab-ncl"><b>CSIR-NCL</b> National Chemical Laboratory · Pune</span>
+        <span class="lab-chip lab-iict"><b>CSIR-IICT</b> Indian Institute of Chemical Technology · Hyderabad</span>
+        <span class="lab-chip lab-cecri"><b>CSIR-CECRI</b> Central Electrochemical Research Institute · Karaikudi</span>
       </div>
-
-      <div class="filter-toolbar">
-        <div class="filter-group">
-          <label>Years</label>
-          <select id="filter-year-min" class="filter-select">
-            <option value="2016" selected>2016</option>
-            <option value="2018">2018</option>
-            <option value="2020">2020</option>
-            <option value="2022">2022</option>
-            <option value="2024">2024</option>
-          </select>
-          <span>–</span>
-          <select id="filter-year-max" class="filter-select">
-            <option value="2020">2020</option>
-            <option value="2022">2022</option>
-            <option value="2024">2024</option>
-            <option value="2026" selected>2026</option>
-          </select>
-        </div>
-
-        <div class="filter-group">
-          <label>Type</label>
-          <select id="filter-type" class="filter-select">
-            <option value="all" selected>All Types</option>
-            <option value="journal">Journal Articles</option>
-            <option value="conference">Conference Proceedings</option>
-          </select>
-        </div>
-
-        <div class="filter-group">
-          <label>Quartile</label>
-          <select id="filter-quartile" class="filter-select">
-            <option value="all" selected>All Quartiles</option>
-            <option value="Q1">Q1 Only</option>
-            <option value="Q2">Q2 Only</option>
-            <option value="Q3">Q3 Only</option>
-            <option value="Q4">Q4 Only</option>
-            <option value="Unranked">Unranked</option>
-          </select>
-        </div>
-
-        <div class="filter-group">
-          <label>Field</label>
-          <select id="filter-field" class="filter-select">
-            <option value="all" selected>All Disciplines</option>
-          </select>
-        </div>
-
-        <div class="filter-group" title="Journal impact factor analogue: SCImago 'Cites / Doc. (2 years)' of the journal in the paper's quartile year (Scopus data, not Clarivate JIF). Papers without a SCImago match are excluded when a threshold is set.">
-          <label>Journal IF</label>
-          <select id="filter-if" class="filter-select">
-            <option value="0" selected>Any IF</option>
-            <option value="2">IF ≥ 2</option>
-            <option value="3">IF ≥ 3</option>
-            <option value="5">IF ≥ 5</option>
-            <option value="10">IF ≥ 10</option>
-          </select>
-        </div>
-
-        <div class="filter-group" title="Roster scientists by number of Q1-journal papers (2016–2026). Applies to the Faculty tab: featured scientists, directory, h-index chart and the faculty KPIs.">
-          <label>Scientists</label>
-          <select id="filter-q1-papers" class="filter-select">
-            <option value="0" selected>All Scientists</option>
-            <option value="5">&gt; 5 Q1 Papers</option>
-            <option value="10">&gt; 10 Q1 Papers</option>
-          </select>
-        </div>
-
-        <button id="btn-reset-filters" class="btn-reset">Reset</button>
+      <div class="kpi-grid hero-kpis" aria-live="polite">
+          <div class="kpi-card">
+            <div class="kpi-label">Distinct papers</div>
+            <div id="kpi-total-papers" class="kpi-val">-</div>
+            <div class="kpi-sub">Peer-reviewed, 2016–2026</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Journal papers</div>
+            <div id="kpi-journal-papers" class="kpi-val">-</div>
+            <div class="kpi-sub">Articles, reviews, letters</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Q1 journal share</div>
+            <div id="kpi-q1-share" class="kpi-val kpi-q1">-</div>
+            <div class="kpi-sub">Of SJR-ranked journal papers</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Total citations</div>
+            <div id="kpi-total-citations" class="kpi-val">-</div>
+            <div class="kpi-sub">Counted Oct 2026</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Citations / paper</div>
+            <div id="kpi-mean-citations" class="kpi-val">-</div>
+            <div class="kpi-sub">Mean per distinct paper</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Active faculty</div>
+            <div id="kpi-active-faculty" class="kpi-val">-</div>
+            <div class="kpi-sub">Roster scientists with papers</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Median h-index</div>
+            <div id="kpi-median-h" class="kpi-val">-</div>
+            <div class="kpi-sub">2016–2026 window</div>
+          </div>
+      </div>
+      <p class="hero-note">Numbers follow the institute buttons and filters at the top. Source: OpenAlex (collected October 2026); quartiles: SCImago SJR. 2026 is a partial year.</p>
+      <div class="hero-actions">
+        <a href="#findings" class="btn-primary">See the 11 key findings</a>
+        <a href="#trends" class="btn-ghost">Start with the statistics</a>
       </div>
     </div>
-  </div>
+    <a class="next-sec next-sec-hero" href="#findings" aria-label="Next section: Key Findings"><span class="next-sec-label">Scroll to explore</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
 
-  <!-- Main Content Container -->
-  <main class="dashboard-main">
+  <!-- 01 Key Findings -->
+  <section id="findings" class="page-section section-findings" data-label="Key Findings">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">01</span> / 09</div>
+        <h2 class="section-title">Key Findings</h2>
+        <p class="section-lead">Eleven questions we asked of the data beyond the descriptive statistics. Each box gives the answer in one number; click a box to see the chart, the full result and the method.</p>
+      </header>
+      <div class="findings-meta">
+        <span class="chip chip-muted">Fixed analyses: the institute buttons and filters do not change these</span>
+      </div>
+      <div id="insights-grid" class="insight-grid">
+        <!-- Insight boxes rendered by renderInsightCards() in app.js -->
+      </div>
 
-    <!-- KPI Summary Cards -->
-    <section class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-label">Total Distinct Papers</div>
-        <div id="kpi-total-papers" class="kpi-val">-</div>
-        <div class="kpi-sub">Peer-reviewed 2016–2026</div>
+      <div class="studies-block">
+        <div class="studies-head">
+          <h3>Extended studies</h3>
+          <p>Stand-alone pages that compare the labs with outside benchmarks and model how ideas spread. Each opens in its own page.</p>
+        </div>
+        <div class="studies-grid">
+          <a href="insights11.html" class="study-card study-wide">
+            <span class="study-tag">Insight 11+</span>
+            <span class="study-title">🔬 Cadre networks &amp; NIMFA spreading</span>
+            <span class="study-desc">Faculty-only co-authorship and citation networks; stochastic vs. Markov-chain spreading</span>
+            <span class="study-go">Open page →</span>
+          </a>
+          <a href="insight_smart_spec.html" class="study-card">
+            <span class="study-tag">Study 2.1</span>
+            <span class="study-title">🏭 Smart specialization</span>
+            <span class="study-desc">Lab research strengths vs. state industry (pharma, polymers, batteries)</span>
+            <span class="study-go">Open page →</span>
+          </a>
+          <a href="insight_academic_bridge.html" class="study-card">
+            <span class="study-tag">Study 1.1</span>
+            <span class="study-title">🌉 Academic bridge</span>
+            <span class="study-desc">Knowledge exchange with IITs, IISc and state universities</span>
+            <span class="study-go">Open page →</span>
+          </a>
+          <a href="insight_frugal_rd.html" class="study-card">
+            <span class="study-tag">Study 5.1</span>
+            <span class="study-title">💰 Frugal innovation</span>
+            <span class="study-desc">Cost per Q1 paper vs. Max Planck, CNRS and US DOE labs</span>
+            <span class="study-go">Open page →</span>
+          </a>
+          <a href="insight_patents_papers.html" class="study-card">
+            <span class="study-tag">Study 5.2</span>
+            <span class="study-title">📜 Patents vs. papers</span>
+            <span class="study-desc">Industrial translation vs. academic citations</span>
+            <span class="study-go">Open page →</span>
+          </a>
+          <a href="insight_leiden_benchmarks.html" class="study-card">
+            <span class="study-tag">Study 3.1</span>
+            <span class="study-title">👑 Leiden benchmarks</span>
+            <span class="study-desc">PP(top 10%), PP(top 1%) and MNCS vs. global peers</span>
+            <span class="study-go">Open page →</span>
+          </a>
+        </div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Journal Papers</div>
-        <div id="kpi-journal-papers" class="kpi-val">-</div>
-        <div class="kpi-sub">Articles & Reviews</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Q1 Journal Share</div>
-        <div id="kpi-q1-share" class="kpi-val" style="color: var(--q1);">-</div>
-        <div class="kpi-sub">SCImago SJR Ranked</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Total Citations</div>
-        <div id="kpi-total-citations" class="kpi-val">-</div>
-        <div class="kpi-sub">Accrued up to Oct 2026</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Mean Citations / Paper</div>
-        <div id="kpi-mean-citations" class="kpi-val">-</div>
-        <div class="kpi-sub">Impact per publication</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Active Cadre Faculty</div>
-        <div id="kpi-active-faculty" class="kpi-val">-</div>
-        <div class="kpi-sub">Roster scientists in corpus</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Median Corpus h-Index</div>
-        <div id="kpi-median-h" class="kpi-val">-</div>
-        <div class="kpi-sub">2016–2026 Window</div>
-      </div>
-    </section>
+    </div>
+      <a class="next-sec" href="#trends" aria-label="Next section: Publication Trends &amp; Journal Quality"><span class="next-sec-label">Next · Publication Trends &amp; Journal Quality</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
 
-    <!-- Navigation Tabs -->
-    <nav class="nav-tabs">
-      <button class="tab-btn active" data-tab="overview">Overview & Trends</button>
-      <button class="tab-btn" data-tab="faculty">Faculty & Divisions</button>
-      <button class="tab-btn" data-tab="venues">Venues & Landmark Papers</button>
-      <button class="tab-btn" data-tab="areas">Thematic Domains</button>
-      <button class="tab-btn" data-tab="citation-net">Directed Citation Network <span class="tab-badge" style="background:#e0f2fe; color:#0369a1; font-weight:700;">Task 4</span></button>
-      <button class="tab-btn" data-tab="authorship-net">Co-Authorship Network <span class="tab-badge" style="background:#e0f2fe; color:#0369a1; font-weight:700;">Task 4</span></button>
-      <button class="tab-btn" data-tab="connectivity">Indian Connectivity</button>
-      <button class="tab-btn" data-tab="insights">Insights <span class="tab-badge" style="background:#f3e8ff; color:#6b21a8; font-weight:700;">11 Findings</span></button>
-      <button class="tab-btn" data-tab="docs">Data & Exports</button>
-      <a href="insights11.html" class="tab-btn" style="text-decoration:none; background:linear-gradient(135deg, #0284c7, #7c3aed); color:#fff; font-weight:700;">🔬 Cadre Networks &amp; NIMFA (Insight 11+) ↗</a>
-    </nav>
-
-    <!-- Tab 1: Overview & Publication Trends -->
-    <div id="tab-overview" class="tab-content active">
+  <!-- 02 Trends -->
+  <section id="trends" class="page-section" data-label="Trends">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">02</span> / 09</div>
+        <h2 class="section-title">Publication Trends &amp; Journal Quality</h2>
+        <p class="section-lead">How many papers the labs publish each year, how many appear in top-quartile (Q1) journals, and how the journal quartile compares with a citation-based Q1.</p>
+      </header>
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-title">Panel 1: Annual Publication Output Trend</div>
+              <div class="card-title"><span class="panel-tag">Panel 1</span>Annual Publication Output Trend</div>
               <div class="card-subtitle">Annual peer-reviewed papers (2016–2026)</div>
             </div>
           </div>
@@ -177,7 +267,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-title">Panel 3: Journal Prestige Distribution (SJR)</div>
+              <div class="card-title"><span class="panel-tag">Panel 3</span>Journal Prestige Distribution (SJR)</div>
               <div class="card-subtitle">SCImago Journal Rank Quartile Share</div>
             </div>
           </div>
@@ -196,9 +286,17 @@
         <div id="ir-note" style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;"></div>
       </div>
     </div>
+      <a class="next-sec" href="#faculty" aria-label="Next section: Faculty &amp; Divisions"><span class="next-sec-label">Next · Faculty &amp; Divisions</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
 
     <!-- Tab 2: Faculty & Divisions -->
-    <div id="tab-faculty" class="tab-content">
+  <section id="faculty" class="page-section" data-label="Faculty">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">03</span> / 09</div>
+        <h2 class="section-title">Faculty &amp; Divisions</h2>
+        <p class="section-lead">The scientists behind the papers: most-cited scientists, the full faculty table (click any name for a profile), the h-index distribution and division performance.</p>
+      </header>
       <div class="card" style="margin-bottom: 1.5rem;">
         <div class="prof-strip-head">
           <div>
@@ -213,7 +311,7 @@
       <div class="card" style="margin-bottom: 1.5rem;">
         <div class="card-header">
           <div>
-            <div class="card-title">Panel 2 & 4: Faculty Directory & Performance Table</div>
+            <div class="card-title"><span class="panel-tag">Panel 2 & 4</span>Faculty Directory & Performance Table</div>
             <div class="card-subtitle">Verified scientific cadre personnel, publication output, citations, and in-corpus h-index · click a row for the full profile</div>
           </div>
         </div>
@@ -224,7 +322,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-title">Panel 6: Faculty In-Corpus h-Index Distribution</div>
+              <div class="card-title"><span class="panel-tag">Panel 6</span>Faculty In-Corpus h-Index Distribution</div>
               <div class="card-subtitle">Binned histogram of scientific cadre h-indices (2016–2026)</div>
             </div>
           </div>
@@ -242,14 +340,22 @@
         </div>
       </div>
     </div>
+      <a class="next-sec" href="#journals" aria-label="Next section: Journals &amp; Landmark Papers"><span class="next-sec-label">Next · Journals &amp; Landmark Papers</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
 
     <!-- Tab 3: Venues & Landmark Papers -->
-    <div id="tab-venues" class="tab-content">
+  <section id="journals" class="page-section" data-label="Journals">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">04</span> / 09</div>
+        <h2 class="section-title">Journals &amp; Landmark Papers</h2>
+        <p class="section-lead">Where the labs publish most, conference ranks, and the ten most-cited papers.</p>
+      </header>
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-title">Panel 5: Top 5 Publishing Journals</div>
+              <div class="card-title"><span class="panel-tag">Panel 5</span>Top 5 Publishing Journals</div>
               <div class="card-subtitle">Most frequent publication venues with quartile ratings</div>
             </div>
           </div>
@@ -259,7 +365,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-title">Panel 9: Conference Rank Distribution (CORE)</div>
+              <div class="card-title"><span class="panel-tag">Panel 9</span>Conference Rank Distribution (CORE)</div>
               <div class="card-subtitle">CORE Conference Ratings (A*, A, B, C, Unranked)</div>
             </div>
           </div>
@@ -270,21 +376,29 @@
       <div class="card">
         <div class="card-header">
           <div>
-            <div class="card-title">Panel 8: Top 10 Most-Cited Landmark Publications</div>
+            <div class="card-title"><span class="panel-tag">Panel 8</span>Top 10 Most-Cited Landmark Publications</div>
             <div class="card-subtitle">Highest-impact research papers authored by cluster scientists</div>
           </div>
         </div>
         <div id="table-top-papers" style="height: 380px;"></div>
       </div>
     </div>
+      <a class="next-sec" href="#areas" aria-label="Next section: Research Areas"><span class="next-sec-label">Next · Research Areas</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
 
     <!-- Tab 4: Thematic Domains -->
-    <div id="tab-areas" class="tab-content">
+  <section id="areas" class="page-section" data-label="Research Areas">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">05</span> / 09</div>
+        <h2 class="section-title">Research Areas</h2>
+        <p class="section-lead">What the labs work on: share of papers by OpenAlex field and the largest subfields.</p>
+      </header>
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-title">Panel 7: Primary Research Area Share</div>
+              <div class="card-title"><span class="panel-tag">Panel 7</span>Primary Research Area Share</div>
               <div class="card-subtitle">OpenAlex disciplinary classification</div>
             </div>
           </div>
@@ -302,9 +416,17 @@
         </div>
       </div>
     </div>
+      <a class="next-sec" href="#citations" aria-label="Next section: Citation Network"><span class="next-sec-label">Next · Citation Network</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
 
     <!-- Tab 5: Directed Citation Network -->
-    <div id="tab-citation-net" class="tab-content">
+  <section id="citations" class="page-section" data-label="Citation Network">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">06</span> / 09</div>
+        <h2 class="section-title">Citation Network</h2>
+        <p class="section-lead">Who cites whom inside the three labs' papers. Arrows point from the citing paper to the cited paper; bigger nodes are cited more.</p>
+      </header>
       <!-- Network KPIs -->
       <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem;">
         <div class="kpi-card">
@@ -333,7 +455,7 @@
       <div class="card" style="margin-bottom: 1.5rem;">
         <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
           <div>
-            <div class="card-title">Panel 10: Directed Citation Network Visualisation</div>
+            <div class="card-title"><span class="panel-tag">Panel 10</span>Directed Citation Network Visualisation</div>
             <div class="card-subtitle">Force-directed directional citation graph (arrow: source cites target, node size: in-degree impact)</div>
           </div>
           <!-- Network Toolbar -->
@@ -429,9 +551,17 @@
         </div>
       </div>
     </div>
+      <a class="next-sec" href="#coauthorship" aria-label="Next section: Co-authorship Network"><span class="next-sec-label">Next · Co-authorship Network</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
 
     <!-- Tab 6: Co-Authorship Network -->
-    <div id="tab-authorship-net" class="tab-content">
+  <section id="coauthorship" class="page-section" data-label="Co-authorship">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">07</span> / 09</div>
+        <h2 class="section-title">Co-authorship Network</h2>
+        <p class="section-lead">Who writes with whom. Each node is a researcher and each line a joint paper; the tables show the researchers who bridge teams and the links between the three labs.</p>
+      </header>
       <!-- Network KPIs -->
       <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem;">
         <div class="kpi-card">
@@ -460,7 +590,7 @@
       <div class="card" style="margin-bottom: 1.5rem;">
         <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
           <div>
-            <div class="card-title">Panel 11: Co-Authorship Network Visualisation</div>
+            <div class="card-title"><span class="panel-tag">Panel 11</span>Co-Authorship Network Visualisation</div>
             <div class="card-subtitle">Undirected collaborative graph (edge thickness: joint papers, node size: collaborator degree)</div>
           </div>
           <!-- Network Toolbar -->
@@ -556,9 +686,17 @@
         </div>
       </div>
     </div>
+      <a class="next-sec" href="#india" aria-label="Next section: Links with Other Indian Institutes"><span class="next-sec-label">Next · Links with Other Indian Institutes</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
 
     <!-- Tab 7: Indian Connectivity (Sections 7a / 7b) -->
-    <div id="tab-connectivity" class="tab-content">
+  <section id="india" class="page-section" data-label="India Links">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">08</span> / 09</div>
+        <h2 class="section-title">Links with Other Indian Institutes</h2>
+        <p class="section-lead">How the labs connect to the rest of Indian science: citations given and received, partner sectors, top partner institutes and the authors who bridge them.</p>
+      </header>
       <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-bottom: 1.25rem;">
         <div class="kpi-card">
           <div class="kpi-label">Papers with Indian Co-authors</div>
@@ -698,69 +836,17 @@
         </div>
       </div>
     </div>
-
-    <!-- Tab 8: Insights (Key Findings & Information Diffusion) -->
-    <div id="tab-insights" class="tab-content">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem;">
-        <div>
-          <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text);">Key Bibliometric, Network & Diffusion Insights</h2>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">
-            Deep-dive empirical investigations: information diffusion & epidemic spreading, cluster fragility, brain circulation, succession risk, sleeping beauties, and citation inequalities.
-          </p>
-        </div>
-        <span class="tab-badge" style="background: #f1f5f9; color: #475569; font-size: 0.8rem; padding: 0.35rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 4px;">
-          Fixed analysis – filters don't apply
-        </span>
-      </div>
-
-      <!-- Advanced Portals & Extended Studies Callout -->
-      <div class="card" style="margin-bottom: 1.5rem; background: linear-gradient(135deg, #0f172a, #1e1b4b); color: #fff; border: 1px solid #6366f1;">
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-            <div>
-              <span style="background: #06b6d4; color: #080c14; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase;">EXTENDED STUDIES &amp; MACRO BENCHMARKS</span>
-              <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-top: 0.35rem;">Dedicated Macro-Economic, Comparative &amp; Theoretical Portals</h3>
-              <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 0.25rem;">Explore standalone deep-dive portals with complete audited data provenance, RBI/MoSPI benchmarks, and interactive visual suites:</p>
-            </div>
-            <a href="insights11.html" class="btn-reset" style="padding: 0.6rem 1.25rem; background: #06b6d4; color: #080c14; font-weight: 700; text-decoration: none; border-radius: 6px; box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);">🔬 Cadre Networks &amp; NIMFA Suite ↗</a>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
-            <a href="insight_smart_spec.html" style="text-decoration:none; background: rgba(255,255,255,0.06); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12); color: #fff; transition: background 0.2s;">
-              <div style="font-size: 0.75rem; color: #38bdf8; font-weight: 700;">STUDY 2.1</div>
-              <div style="font-weight: 600; font-size: 0.9rem; margin-top: 2px;">🏭 Smart Specialization</div>
-              <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Lab RCA vs State Industrial LQ (Pharma, Polymers, Batteries)</div>
-            </a>
-            <a href="insight_academic_bridge.html" style="text-decoration:none; background: rgba(255,255,255,0.06); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12); color: #fff; transition: background 0.2s;">
-              <div style="font-size: 0.75rem; color: #38bdf8; font-weight: 700;">STUDY 1.1</div>
-              <div style="font-weight: 600; font-size: 0.9rem; margin-top: 2px;">🌉 Academic Bridge</div>
-              <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Knowledge Exchange Ratio ($K_{ER}$) with IITs, IISc &amp; State Univs</div>
-            </a>
-            <a href="insight_frugal_rd.html" style="text-decoration:none; background: rgba(255,255,255,0.06); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12); color: #fff; transition: background 0.2s;">
-              <div style="font-size: 0.75rem; color: #38bdf8; font-weight: 700;">STUDY 5.1</div>
-              <div style="font-weight: 600; font-size: 0.9rem; margin-top: 2px;">💰 Frugal Innovation</div>
-              <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Cost per Q1 Paper under 0.65% GDP vs Max Planck, CNRS, US DOE</div>
-            </a>
-            <a href="insight_patents_papers.html" style="text-decoration:none; background: rgba(255,255,255,0.06); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12); color: #fff; transition: background 0.2s;">
-              <div style="font-size: 0.75rem; color: #38bdf8; font-weight: 700;">STUDY 5.2</div>
-              <div style="font-weight: 600; font-size: 0.9rem; margin-top: 2px;">📜 Patents vs Papers</div>
-              <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Industrial Process Translation vs Academic Citations (4-Quadrant)</div>
-            </a>
-            <a href="insight_leiden_benchmarks.html" style="text-decoration:none; background: rgba(255,255,255,0.06); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12); color: #fff; transition: background 0.2s;">
-              <div style="font-size: 0.75rem; color: #38bdf8; font-weight: 700;">STUDY 3.1</div>
-              <div style="font-weight: 600; font-size: 0.9rem; margin-top: 2px;">👑 Leiden Benchmarks</div>
-              <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">PP(top 10%), PP(top 1%) and MNCS Normalized Impact vs Global Peers</div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div id="insights-grid" class="grid-2">
-        <!-- Rendered dynamically by renderInsights() in app.js -->
-      </div>
-    </div>
+      <a class="next-sec" href="#data" aria-label="Next section: Data, Downloads &amp; Methods"><span class="next-sec-label">Next · Data, Downloads &amp; Methods</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
 
     <!-- Tab 9: Documentation & Data Downloads -->
-    <div id="tab-docs" class="tab-content">
+  <section id="data" class="page-section" data-label="Data & Methods">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">09</span> / 09</div>
+        <h2 class="section-title">Data, Downloads &amp; Methods</h2>
+        <p class="section-lead">The submitted files, the report, and the rules behind every number on this page.</p>
+      </header>
       <div class="card" style="margin-bottom: 1.5rem;">
         <div class="card-header">
           <div>
@@ -793,8 +879,46 @@
         </div>
       </div>
     </div>
+      <a class="next-sec next-sec-top" href="#home" aria-label="Back to top"><span class="next-sec-label">Back to top</span><span class="next-sec-arrow up" aria-hidden="true"></span></a>
+  </section>
 
   </main>
+
+  <!-- Side dot navigation -->
+  <nav class="dot-nav" id="dot-nav" aria-label="Section shortcuts">
+    <a href="#home" data-sec="home" aria-label="Home"><span class="dot-label">Home</span><span class="dot"></span></a>
+    <a href="#findings" data-sec="findings" aria-label="Key Findings"><span class="dot-label">Key Findings</span><span class="dot"></span></a>
+    <a href="#trends" data-sec="trends" aria-label="Trends"><span class="dot-label">Trends</span><span class="dot"></span></a>
+    <a href="#faculty" data-sec="faculty" aria-label="Faculty"><span class="dot-label">Faculty</span><span class="dot"></span></a>
+    <a href="#journals" data-sec="journals" aria-label="Journals"><span class="dot-label">Journals</span><span class="dot"></span></a>
+    <a href="#areas" data-sec="areas" aria-label="Research Areas"><span class="dot-label">Research Areas</span><span class="dot"></span></a>
+    <a href="#citations" data-sec="citations" aria-label="Citation Network"><span class="dot-label">Citation Network</span><span class="dot"></span></a>
+    <a href="#coauthorship" data-sec="coauthorship" aria-label="Co-authorship"><span class="dot-label">Co-authorship</span><span class="dot"></span></a>
+    <a href="#india" data-sec="india" aria-label="India Links"><span class="dot-label">India Links</span><span class="dot"></span></a>
+    <a href="#data" data-sec="data" aria-label="Data &amp; Methods"><span class="dot-label">Data & Methods</span><span class="dot"></span></a>
+  </nav>
+
+  <!-- Floating next-section button -->
+  <button class="fab-next" id="fab-next" aria-label="Next section"><span class="fab-label" id="fab-label">Key Findings</span><span class="next-sec-arrow" aria-hidden="true"></span></button>
+
+  <!-- Insight detail modal -->
+  <div class="ins-overlay" id="ins-overlay" role="dialog" aria-modal="true" aria-labelledby="ins-title" hidden>
+    <div class="ins-panel">
+      <div class="ins-head">
+        <div>
+          <div class="ins-kicker" id="ins-kicker"></div>
+          <h2 id="ins-title"></h2>
+        </div>
+        <button class="ins-close" id="ins-close" aria-label="Close">×</button>
+      </div>
+      <div class="ins-body" id="ins-body"></div>
+      <div class="ins-foot">
+        <button class="btn-ghost-dark" id="ins-prev">← Previous finding</button>
+        <span id="ins-pos"></span>
+        <button class="btn-ghost-dark" id="ins-next">Next finding →</button>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -806,5 +930,6 @@
   <script src="data/g24_profiles.js"></script>
   <script src="js/profiles.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/nav.js"></script>
 </body>
 </html>

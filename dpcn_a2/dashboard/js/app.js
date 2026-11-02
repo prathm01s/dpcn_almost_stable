@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const data = window.G24_DATA;
   let currentInst = "all";
-  let activeTab = "overview";
   const charts = {};
 
   // Color mapping
@@ -79,27 +78,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Tab Navigation
-  document.querySelectorAll(".tab-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-      document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
-      btn.classList.add("active");
-      activeTab = btn.dataset.tab;
-      const target = document.getElementById(`tab-${activeTab}`);
-      if (target) target.classList.add("active");
-      // Resize visible charts and redraw tables
-      setTimeout(() => {
-        Object.values(charts).forEach(c => c && c.resize && c.resize());
-        if (facultyTable) facultyTable.redraw(true);
-        if (topPapersTable) topPapersTable.redraw(true);
-        if (activeTab === "citation-net") renderCitationNetwork();
-        if (activeTab === "authorship-net") renderAuthorshipNetwork();
-        if (activeTab === "connectivity") renderConnectivity();
-        if (activeTab === "insights") renderInsights();
-      }, 50);
+  // The page is one long scroll. The network and connectivity sections are heavy, so each is
+  // drawn the first time it comes near the viewport and redrawn on later filter changes.
+  const lazySections = {
+    citations: () => renderCitationNetwork(),
+    coauthorship: () => renderAuthorshipNetwork(),
+    india: () => renderConnectivity(),
+  };
+  const shownSections = new Set();
+  function showSection(id) {
+    if (shownSections.has(id) || !lazySections[id]) return;
+    shownSections.add(id);
+    lazySections[id]();
+  }
+  if ("IntersectionObserver" in window) {
+    const lazyObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) showSection(e.target.id); });
+    }, { rootMargin: "400px 0px" });
+    Object.keys(lazySections).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) lazyObserver.observe(el);
     });
-  });
+  } else {
+    Object.keys(lazySections).forEach(showSection);
+  }
 
   // Filter Event Listeners
   const onFilterChange = () => {
@@ -161,9 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderFacultyPanels();
     renderVenuesPanels();
     renderResearchAreasCharts();
-    if (activeTab === "citation-net") renderCitationNetwork();
-    if (activeTab === "authorship-net") renderAuthorshipNetwork();
-    if (activeTab === "connectivity") renderConnectivity();
+    shownSections.forEach(id => lazySections[id]());
   }
 
   // 1. KPI Strip Rendering
@@ -1148,148 +1148,227 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---------------------------------------------------------------------------
-  // Insights Panel (Ten Non-Obvious Findings)
+  // Key Findings: eleven insights shown as boxes, each opening a detail modal
   // ---------------------------------------------------------------------------
   const insightCharts = {};
-  let insightsRendered = false;
 
   function formatHeadline(text) {
     if (!text) return "";
     return text.replace(/(\b\d+(\.\d+)?%|\b\d+(\.\d+)?×|\b\d{1,3}(,\d{3})+|\b[A-Za-z0-9_ρ]+(_norm)?\s*=\s*[\d\.]+|\b\d+\.\d+\b)/g, "<strong>$1</strong>");
   }
 
-  function renderInsights() {
-    if (!window.G24_INSIGHTS) return;
+  const INSIGHT_ORDER = [
+    "01_friendship_paradox",
+    "02_rich_club",
+    "03_fragility",
+    "04_price_law",
+    "05_quartile_vs_impact",
+    "06_pagerank_vs_citations",
+    "07_sleeping_beauties",
+    "08_covid_shock",
+    "09_brain_circulation",
+    "10_succession_risk",
+    "11_information_diffusion",
+  ];
+
+  // Box contents: a short title, a theme tag and one headline number read from the insight's own metrics
+  const TAG_COLORS = {
+    Network: "#2563eb", Productivity: "#7c3aed", Journals: "#059669", Citations: "#d97706",
+    Trends: "#0891b2", Careers: "#db2777", Workforce: "#dc2626", Diffusion: "#4f46e5",
+  };
+  const pct = v => `${(+v).toFixed(1)}%`;
+  const has = (...vals) => vals.every(v => v !== null && v !== undefined && v !== "");
+  const INSIGHT_CARDS = {
+    "01_friendship_paradox": {
+      title: "Friendship paradox", tag: "Network",
+      stat: m => has(m.share_paradox) && [pct(m.share_paradox), "of researchers have fewer co-authors than their co-authors do"],
+    },
+    "02_rich_club": {
+      title: "No rich club at the top", tag: "Network",
+      stat: m => has(m.rho_norm_at_k_star) && [`ρ = ${(+m.rho_norm_at_k_star).toFixed(2)}`, "rich-club coefficient of the best-connected 1% (below 1 means less linked than chance)"],
+    },
+    "03_fragility": {
+      title: "How fragile is the cluster?", tag: "Network",
+      stat: m => has(m.n50_betweenness, m.n50_betweenness_pct) && [(+m.n50_betweenness).toLocaleString(), `bridge researchers (${pct(m.n50_betweenness_pct)} of the network) whose removal halves it`],
+    },
+    "04_price_law": {
+      title: "Price's law", tag: "Productivity",
+      stat: m => has(m.price_share_pct, m.n_sqrt) && [pct(m.price_share_pct), `of papers come from just √N = ${m.n_sqrt} scientists (the law predicts 50%)`],
+    },
+    "05_quartile_vs_impact": {
+      title: "Does Q1 mean high impact?", tag: "Journals",
+      stat: m => has(m.pct_Q1_in_top10) && [pct(m.pct_Q1_in_top10), "of Q1-journal papers reach the top 10% most-cited"],
+    },
+    "06_pagerank_vs_citations": {
+      title: "Hidden gems", tag: "Citations",
+      stat: m => has(m.n_hidden_gems, m.spearman_rho) && [String(m.n_hidden_gems), `papers influential inside the cluster but little cited worldwide (ρ = ${(+m.spearman_rho).toFixed(2)})`],
+    },
+    "07_sleeping_beauties": {
+      title: "Sleeping beauties", tag: "Citations",
+      stat: m => has(m.n_top1_sustained, m.n_top1_percent) && [`${m.n_top1_sustained} of ${m.n_top1_percent}`, "strongest late-recognised papers stayed cited after waking up"],
+    },
+    "08_covid_shock": {
+      title: "The COVID shock", tag: "Trends",
+      stat: m => has(m.combined_change_2020_vs_2019_pct) && [`${m.combined_change_2020_vs_2019_pct > 0 ? "+" : ""}${pct(m.combined_change_2020_vs_2019_pct)}`, "change in papers from 2019 to 2020, set against the pre-2020 trend"],
+    },
+    "09_brain_circulation": {
+      title: "Brain circulation", tag: "Careers",
+      stat: m => has(m.returnee_pct_overall) && [pct(m.returnee_pct_overall), "of classifiable scientists trained in India, worked abroad and came back"],
+    },
+    "10_succession_risk": {
+      title: "Succession risk", tag: "Workforce",
+      stat: m => {
+        const v = m.lab_metrics && m.lab_metrics[m.highlight_lab] && m.lab_metrics[m.highlight_lab][String(m.threshold_used)];
+        return v && has(v.share_sole_papers) && [pct(v.share_sole_papers), `of ${m.highlight_lab}'s recent papers rely only on scientists near retirement`];
+      },
+    },
+    "11_information_diffusion": {
+      title: "How ideas spread", tag: "Diffusion",
+      stat: m => has(m.global_beta_c_theoretical, m.beta_base) && [`βc = ${m.global_beta_c_theoretical}`, `epidemic threshold of the co-authorship network, far below the simulated β0 = ${m.beta_base}`],
+    },
+  };
+
+  function renderInsightCards() {
     const container = document.getElementById("insights-grid");
-    if (!container) return;
-
+    if (!container || !window.G24_INSIGHTS) return;
     const insights = window.G24_INSIGHTS;
-    const insightOrder = [
-      "01_friendship_paradox",
-      "02_rich_club",
-      "03_fragility",
-      "04_price_law",
-      "05_quartile_vs_impact",
-      "06_pagerank_vs_citations",
-      "07_sleeping_beauties",
-      "08_covid_shock",
-      "09_brain_circulation",
-      "10_succession_risk",
-      "11_information_diffusion",
-    ];
+    container.innerHTML = INSIGHT_ORDER.map((key, idx) => {
+      const item = insights[key] || { question: `Finding ${idx + 1}`, headline: "Not computed" };
+      const meta = INSIGHT_CARDS[key] || { title: `Finding ${idx + 1}`, tag: "Finding", stat: () => null };
+      let stat = null;
+      try { stat = meta.stat(item.metrics || {}); } catch (e) { stat = null; }
+      const color = TAG_COLORS[meta.tag] || "var(--primary)";
+      return `
+        <button type="button" class="insight-card${key === "11_information_diffusion" ? " wide" : ""}" data-key="${key}" style="--tc:${color}"
+                aria-label="Finding ${idx + 1}: ${esc(meta.title)}. Open the analysis">
+          <span class="ic-top"><span class="ic-num">${String(idx + 1).padStart(2, "0")}</span><span class="ic-tag">${esc(meta.tag)}</span></span>
+          <span class="ic-title">${esc(meta.title)}</span>
+          ${stat ? `<span class="ic-stat">${esc(stat[0])}</span><span class="ic-stat-label">${esc(stat[1])}</span>` : ""}
+          <span class="ic-q">${esc(item.question)}</span>
+          <span class="ic-more">View analysis →</span>
+        </button>`;
+    }).join("");
+    container.querySelectorAll(".insight-card").forEach(card => {
+      card.addEventListener("click", () => openInsight(INSIGHT_ORDER.indexOf(card.dataset.key)));
+    });
+  }
 
-    if (!insightsRendered) {
-      container.innerHTML = insightOrder.map((key, idx) => {
-        const item = insights[key] || {
-          question: `Finding ${idx + 1}`,
-          headline: "Not computed",
-          method_note: "",
-        };
+  // ---- Detail modal --------------------------------------------------------
+  const insOverlay = document.getElementById("ins-overlay");
+  const insBody = document.getElementById("ins-body");
+  let openIdx = -1;
+  let lastFocus = null;
 
-        if (key === "11_information_diffusion") {
-          return `
-            <div class="card" id="card-insight-11" style="grid-column: 1 / -1; display: flex; flex-direction: column; justify-content: space-between;">
-              <div>
-                <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.75rem; align-items: center; justify-content: space-between;">
-                  <div>
-                    <div class="card-title" style="font-size: 1.1rem; color: var(--primary-light); font-weight: 700;">
-                      #11: ${esc(item.question)}
-                    </div>
-                  </div>
-                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
-                    <div class="inst-segmented" id="diff-field-selector">
-                      <button class="inst-btn active" data-field="Chemistry">Chemistry</button>
-                      <button class="inst-btn" data-field="Materials">Materials</button>
-                      <button class="inst-btn" data-field="Engineering">Engineering</button>
-                      <button class="inst-btn" data-field="Energy">Energy</button>
-                      <button class="inst-btn" data-field="Biochemistry">Biochemistry</button>
-                      <button class="inst-btn" data-field="Medicine">Medicine</button>
-                    </div>
-                    <div class="inst-segmented" id="diff-cond-selector">
-                      <button class="inst-btn active" data-cond="condition_a">Topic-Modulated (Full Net)</button>
-                      <button class="inst-btn" data-cond="condition_b">Domain Subgraph (Uniform)</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="diff-headline" style="font-size: 1.05rem; font-weight: 500; color: var(--text); line-height: 1.45; margin-bottom: 1.25rem;">
-                  ${formatHeadline(esc(item.headline))}
-                </div>
-
-                <div style="display: grid; grid-template-columns: minmax(320px, 1.4fr) minmax(280px, 1fr); gap: 1.5rem; align-items: start;">
-                  <div>
-                    <div id="chart-insight-11_information_diffusion" class="chart-container" style="height: 380px; width: 100%;"></div>
-                  </div>
-                  <div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
-                      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.6rem 0.8rem;">
-                        <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Epidemic Threshold</div>
-                        <div id="diff-kpi-betac" style="font-size: 1.25rem; font-weight: 800; color: #2563eb;">–</div>
-                        <div id="diff-kpi-spectral" style="font-size: 0.75rem; color: #64748b;"></div>
-                      </div>
-                      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.6rem 0.8rem;">
-                        <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Adoption Speed (T50)</div>
-                        <div id="diff-kpi-t50" style="font-size: 1.25rem; font-weight: 800; color: #16a34a;">–</div>
-                        <div id="diff-kpi-nodes" style="font-size: 0.75rem; color: #64748b;"></div>
-                      </div>
-                    </div>
-
-                    <div style="border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; background: white;">
-                      <div style="background: #f1f5f9; padding: 0.5rem 0.75rem; font-weight: 700; font-size: 0.825rem; color: #334155; display: flex; justify-content: space-between;">
-                        <span id="diff-table-title">Top 5 Super-Spreaders (Full Net)</span>
-                        <span style="font-size: 0.75rem; font-weight: 500; color: #64748b;">Adoption Traction</span>
-                      </div>
-                      <table class="net-table" style="font-size: 0.8rem;">
-                        <thead>
-                          <tr>
-                            <th style="padding: 0.4rem 0.6rem;">#</th>
-                            <th style="padding: 0.4rem 0.6rem;">Author</th>
-                            <th style="padding: 0.4rem 0.6rem;">Lab</th>
-                            <th style="padding: 0.4rem 0.6rem;">Field %</th>
-                            <th style="padding: 0.4rem 0.6rem;">Reach (t=3)</th>
-                          </tr>
-                        </thead>
-                        <tbody id="tbody-diff-spreaders">
-                          <!-- Populated dynamically -->
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div style="margin-top: 1rem; padding-top: 0.6rem; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; border-top: 1px solid var(--border);">
-                ${esc(item.method_note || "")}
-              </div>
+  function insightBodyHTML(key, item) {
+    const method = `<div class="ins-method"><strong>Method.</strong> ${esc(item.method_note || "")}</div>`;
+    if (key === "11_information_diffusion") {
+      return `
+        <div id="card-insight-11">
+          <div class="diff-controls">
+            <div class="inst-segmented" id="diff-field-selector">
+              ${["Chemistry", "Materials", "Engineering", "Energy", "Biochemistry", "Medicine"].map((f, i) =>
+                `<button class="inst-btn${i === 0 ? " active" : ""}" data-field="${f}">${f}</button>`).join("")}
             </div>
-          `;
-        }
-
-        return `
-          <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div class="card-header" style="margin-bottom: 0.5rem;">
-                <div class="card-title" style="font-size: 1rem; color: var(--primary-light); font-weight: 700;">
-                  #${idx + 1}: ${esc(item.question)}
-                </div>
-              </div>
-              <div style="font-size: 1.05rem; font-weight: 500; color: var(--text); line-height: 1.45; margin-bottom: 1rem;">
-                ${formatHeadline(esc(item.headline))}
-              </div>
-              <div id="chart-insight-${key}" class="chart-container" style="height: 330px; width: 100%;"></div>
-            </div>
-            <div style="margin-top: 1rem; padding-top: 0.6rem; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; border-top: 1px solid var(--border);">
-              ${esc(item.method_note || "")}
+            <div class="inst-segmented" id="diff-cond-selector">
+              <button class="inst-btn active" data-cond="condition_a">Topic-Modulated (Full Net)</button>
+              <button class="inst-btn" data-cond="condition_b">Domain Subgraph (Uniform)</button>
             </div>
           </div>
-        `;
-      }).join("");
-      insightsRendered = true;
+          <div id="diff-headline" class="ins-headline">${formatHeadline(esc(item.headline))}</div>
+          <div class="diff-layout">
+            <div id="chart-insight-11_information_diffusion" class="chart-container" style="height: 400px;"></div>
+            <div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.6rem 0.8rem;">
+                  <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Epidemic Threshold</div>
+                  <div id="diff-kpi-betac" style="font-size: 1.25rem; font-weight: 800; color: #2563eb;">–</div>
+                  <div id="diff-kpi-spectral" style="font-size: 0.75rem; color: #64748b;"></div>
+                </div>
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.6rem 0.8rem;">
+                  <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Adoption Speed (T50)</div>
+                  <div id="diff-kpi-t50" style="font-size: 1.25rem; font-weight: 800; color: #16a34a;">–</div>
+                  <div id="diff-kpi-nodes" style="font-size: 0.75rem; color: #64748b;"></div>
+                </div>
+              </div>
+              <div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: white;">
+                <div style="background: #f1f5f9; padding: 0.5rem 0.75rem; font-weight: 700; font-size: 0.825rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span id="diff-table-title">Top 5 Super-Spreaders (Full Net)</span>
+                  <span style="font-size: 0.75rem; font-weight: 500; color: #64748b;">Adoption Traction</span>
+                </div>
+                <table class="net-table" style="font-size: 0.8rem;">
+                  <thead><tr>
+                    <th style="padding: 0.4rem 0.6rem;">#</th><th style="padding: 0.4rem 0.6rem;">Author</th>
+                    <th style="padding: 0.4rem 0.6rem;">Lab</th><th style="padding: 0.4rem 0.6rem;">Field %</th>
+                    <th style="padding: 0.4rem 0.6rem;">Reach (t=3)</th>
+                  </tr></thead>
+                  <tbody id="tbody-diff-spreaders"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          ${method}
+        </div>`;
     }
+    return `
+      <div class="ins-headline">${formatHeadline(esc(item.headline))}</div>
+      <div id="chart-insight-${key}" class="chart-container" style="height: 420px;"></div>
+      ${method}`;
+  }
 
+  function disposeInsightCharts() {
+    Object.keys(insightCharts).forEach(k => {
+      if (insightCharts[k]) insightCharts[k].dispose();
+      delete insightCharts[k];
+    });
+  }
 
-    setTimeout(() => {
-      insightOrder.forEach(key => {
-        const item = insights[key];
+  function openInsight(idx) {
+    if (!insOverlay || !window.G24_INSIGHTS || idx < 0 || idx >= INSIGHT_ORDER.length) return;
+    const key = INSIGHT_ORDER[idx];
+    const item = window.G24_INSIGHTS[key] || { question: `Finding ${idx + 1}`, headline: "Not computed", method_note: "" };
+    const meta = INSIGHT_CARDS[key] || { title: `Finding ${idx + 1}`, tag: "Finding" };
+    disposeInsightCharts();
+    if (openIdx < 0) lastFocus = document.activeElement;
+    openIdx = idx;
+    document.getElementById("ins-kicker").textContent = `Finding ${String(idx + 1).padStart(2, "0")} · ${meta.tag} · ${meta.title}`;
+    document.getElementById("ins-title").textContent = item.question;
+    document.getElementById("ins-pos").textContent = `${idx + 1} of ${INSIGHT_ORDER.length}`;
+    document.getElementById("ins-prev").disabled = idx === 0;
+    document.getElementById("ins-next").disabled = idx === INSIGHT_ORDER.length - 1;
+    insBody.innerHTML = insightBodyHTML(key, item);
+    insOverlay.hidden = false;
+    insOverlay.scrollTop = 0;
+    document.body.classList.add("prof-lock");
+    if (key === "11_information_diffusion") { currentDiffField = "Chemistry"; currentDiffCond = "condition_a"; }
+    requestAnimationFrame(() => renderInsightChart(key, item));
+    document.getElementById("ins-close").focus({ preventScroll: true });
+  }
+
+  function closeInsight() {
+    if (!insOverlay || insOverlay.hidden) return;
+    disposeInsightCharts();
+    insOverlay.hidden = true;
+    insBody.innerHTML = "";
+    openIdx = -1;
+    document.body.classList.remove("prof-lock");
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+
+  if (insOverlay) {
+    document.getElementById("ins-close").addEventListener("click", closeInsight);
+    document.getElementById("ins-prev").addEventListener("click", () => openInsight(openIdx - 1));
+    document.getElementById("ins-next").addEventListener("click", () => openInsight(openIdx + 1));
+    insOverlay.addEventListener("click", e => { if (e.target === insOverlay) closeInsight(); });
+    document.addEventListener("keydown", e => {
+      if (insOverlay.hidden || document.querySelector(".prof-overlay.open")) return;
+      if (e.key === "Escape") closeInsight();
+      else if (e.key === "ArrowRight" && openIdx < INSIGHT_ORDER.length - 1) openInsight(openIdx + 1);
+      else if (e.key === "ArrowLeft" && openIdx > 0) openInsight(openIdx - 1);
+    });
+  }
+  window.G24_openInsight = openInsight;  // used by the browser test
+
+  function renderInsightChart(key, item) {
         if (!item || !item.chart) return;
         const el = document.getElementById(`chart-insight-${key}`);
         if (!el) return;
@@ -1400,8 +1479,6 @@ document.addEventListener("DOMContentLoaded", () => {
           ch.setOption(option, true);
         }
         ch.resize();
-      });
-    }, 60);
   }
 
   let currentDiffField = "Chemistry";
@@ -1585,5 +1662,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Initial draw
+  renderInsightCards();
   updateDashboard();
 });

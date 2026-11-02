@@ -52,9 +52,9 @@ Every insight adheres strictly to the required contract: **one direct question**
 
 ## 4. Dashboard Implementation
 
-The interactive dashboard at `dashboard/index.html` features a dedicated **Insights** tab:
-1. **Interactive Cards Grid**: 10 distinct metric cards rendered dynamically from `window.G24_INSIGHTS`.
-2. **Dynamic Chart Rendering**: Handled via `renderInsights()` in `dashboard/js/app.js` using Apache ECharts 5 (scatter plots, line curves, grouped/stacked bars, and sankey diagrams).
+The interactive dashboard at `dashboard/index.html` is a single scrolling page; the **Key Findings** section comes right after the home screen:
+1. **Finding Boxes**: 11 clickable boxes rendered by `renderInsightCards()` in `dashboard/js/app.js` from `window.G24_INSIGHTS`; each shows one headline number read from the insight's `metrics`.
+2. **Detail Modal**: clicking a box opens its chart, headline and method note (`openInsight()`; previous/next buttons, arrow keys, Escape). Charts use Apache ECharts 5 (scatter, line, grouped/stacked bars, sankey).
 3. **Number Bolding & Typography**: Automatically emphasizes metrics and percentages in headlines for high visual readability.
 4. **100% Offline Capability**: Runs seamlessly via the local `file://` protocol without requiring local web servers or external CDNs.
 5. **Headless Chrome Verification**: Validated via automated Chrome DevTools Protocol (`scripts/test_browser.py`) with zero console errors.

@@ -233,3 +233,10 @@ All architectural, methodological, and data harmonization decisions made during 
   - Independent, double-clickable offline HTML portals for each study (`insight_smart_spec.html`, `insight_academic_bridge.html`, `insight_frugal_rd.html`, `insight_patents_papers.html`, `insight_leiden_benchmarks.html`).
   - Embedded **Data Collection, Preprocessing & Cleaning Methodology Audit** accordion on every page with explicit mathematical formulations, government document citations, and sample data.
   - Comprehensive unit test suite in `tests/test_macro_insights.py`.
+
+### D-31 (2026-11-02): Dashboard Redesigned as a Single Scrolling Page
+- **Context**: In the meeting with the instructor, the horizontal tab bar was hard to notice and the team had to show him how to navigate. He asked for every important number to be clearly visible, smooth navigation, and the insights on the main page.
+- **Decision**: `dashboard/index.html` is now one scrolling page of ten full-height sections (Home, Key Findings, Trends, Faculty, Journals, Research Areas, Citation Network, Co-authorship, India Links, Data & Methods). Navigation: a sticky header with a link per section (current section highlighted), a "Next ↓" arrow at the end of every section, a floating next-section button, side dots and a reading-progress bar (`dashboard/js/nav.js`). The home screen carries the KPI cards. The 11 insights are boxes on the main page, each with one number read from the insight's `metrics`; a click opens the chart, headline and method in a modal. The institute buttons stay in the sticky header; filters open from a "Filters" button and active filters show as removable chips.
+- **Unchanged**: all chart/table element IDs, the data files, the numbers and the filter logic. The network and India-links sections are drawn when first scrolled into view (they were drawn on tab click before).
+- **Tests**: `scripts/test_browser.py` scrolls to each section instead of clicking tabs and opens all 11 finding modals.
+
