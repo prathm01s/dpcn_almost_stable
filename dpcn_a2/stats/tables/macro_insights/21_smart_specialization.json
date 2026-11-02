@@ -1,0 +1,978 @@
+{
+  "metadata": {
+    "title": "Smart Specialization & Regional Industrial Alignment",
+    "study_id": "2.1",
+    "date": "November 2026",
+    "cluster": "Group 24 CSIR Chemistry"
+  },
+  "state_economic_data": {
+    "Maharashtra": {
+      "lab": "CSIR-NCL",
+      "city": "Pune",
+      "total_mfg_gsva_cr": 340000,
+      "nic_20_chemicals_cr": 62500,
+      "nic_21_pharma_cr": 29800,
+      "nic_27_electrical_batteries_cr": 24100,
+      "nic_20_share_pct": 18.38,
+      "nic_21_share_pct": 8.76,
+      "nic_27_share_pct": 7.09,
+      "lq_chemicals": 1.48,
+      "lq_pharma": 0.96,
+      "lq_batteries": 1.02,
+      "industrial_corridor": "Mumbai-Pune-Thane Chemical & Polymer Industrial Belt"
+    },
+    "Telangana": {
+      "lab": "CSIR-IICT",
+      "city": "Hyderabad",
+      "total_mfg_gsva_cr": 115000,
+      "nic_20_chemicals_cr": 11200,
+      "nic_21_pharma_cr": 38500,
+      "nic_27_electrical_batteries_cr": 6100,
+      "nic_20_share_pct": 9.74,
+      "nic_21_share_pct": 33.48,
+      "nic_27_share_pct": 5.3,
+      "lq_chemicals": 0.78,
+      "lq_pharma": 3.65,
+      "lq_batteries": 0.76,
+      "industrial_corridor": "Hyderabad Genome Valley & Bulk Drug API Capital of India"
+    },
+    "Tamil Nadu": {
+      "lab": "CSIR-CECRI",
+      "city": "Karaikudi",
+      "total_mfg_gsva_cr": 210000,
+      "nic_20_chemicals_cr": 18500,
+      "nic_21_pharma_cr": 9200,
+      "nic_27_electrical_batteries_cr": 31400,
+      "nic_20_share_pct": 8.81,
+      "nic_21_share_pct": 4.38,
+      "nic_27_share_pct": 14.95,
+      "lq_chemicals": 0.71,
+      "lq_pharma": 0.48,
+      "lq_batteries": 2.15,
+      "industrial_corridor": "Chennai-Hosur EV, Battery & Industrial Electroplating Belt"
+    }
+  },
+  "rca_matrix": {
+    "institutions": [
+      "CSIR-CECRI",
+      "CSIR-IICT",
+      "CSIR-NCL"
+    ],
+    "domains": [
+      "Electrochemistry & Energy Storage",
+      "Medicinal & Organic Synthesis",
+      "Other Chemical Sciences",
+      "Polymers, Catalysis & Specialty Materials"
+    ],
+    "rca_values": [
+      [
+        2.756,
+        0.127,
+        0.508,
+        0.983
+      ],
+      [
+        0.474,
+        1.345,
+        1.129,
+        0.844
+      ],
+      [
+        0.655,
+        1.075,
+        1.118,
+        1.189
+      ]
+    ],
+    "raw_counts": [
+      [
+        1951,
+        114,
+        465,
+        355
+      ],
+      [
+        716,
+        2581,
+        2204,
+        650
+      ],
+      [
+        855,
+        1783,
+        1887,
+        791
+      ]
+    ]
+  },
+  "matched_synergies": [
+    {
+      "institution": "CSIR-IICT",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "target_sector": "Pharmaceuticals & APIs (NIC 21)",
+      "scientific_domain": "Medicinal & Organic Synthesis",
+      "lab_rca": 1.345,
+      "state_lq": 3.65,
+      "paper_share_pct": 42.0,
+      "state_mfg_share_pct": 33.48,
+      "alignment_status": "Strong Synergy (RCA > 1.0 & LQ > 1.0)"
+    },
+    {
+      "institution": "CSIR-NCL",
+      "state": "Maharashtra",
+      "city": "Pune",
+      "target_sector": "Chemicals & Polymers (NIC 20)",
+      "scientific_domain": "Polymers, Catalysis & Specialty Materials",
+      "lab_rca": 1.189,
+      "state_lq": 1.48,
+      "paper_share_pct": 14.9,
+      "state_mfg_share_pct": 18.38,
+      "alignment_status": "Strong Synergy (RCA > 1.0 & LQ > 1.0)"
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "state": "Tamil Nadu",
+      "city": "Karaikudi",
+      "target_sector": "Electrical & Batteries (NIC 27)",
+      "scientific_domain": "Electrochemistry & Energy Storage",
+      "lab_rca": 2.756,
+      "state_lq": 2.15,
+      "paper_share_pct": 67.6,
+      "state_mfg_share_pct": 14.95,
+      "alignment_status": "Extreme Specialization (RCA > 2.0 & LQ > 2.0)"
+    }
+  ],
+  "corporate_collaborations": [
+    {
+      "corporate_partner": "Reliance Industries (India)",
+      "coauthored_papers": 38
+    },
+    {
+      "corporate_partner": "GVK (India)",
+      "coauthored_papers": 31
+    },
+    {
+      "corporate_partner": "Cipla (India)",
+      "coauthored_papers": 20
+    },
+    {
+      "corporate_partner": "Tata Steel (India)",
+      "coauthored_papers": 8
+    },
+    {
+      "corporate_partner": "Dr. Reddy's Laboratories (India)",
+      "coauthored_papers": 8
+    },
+    {
+      "corporate_partner": "Piramal (India)",
+      "coauthored_papers": 7
+    },
+    {
+      "corporate_partner": "Aurobindo Pharma (India)",
+      "coauthored_papers": 4
+    },
+    {
+      "corporate_partner": "Lupin Pharmaceuticals (India)",
+      "coauthored_papers": 2
+    },
+    {
+      "corporate_partner": "Bharat Biotech (India)",
+      "coauthored_papers": 1
+    }
+  ],
+  "yearly_evolution": [
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2016,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 145
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2016,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 11
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2016,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 32
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2016,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 50
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2017,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 216
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2017,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 14
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2017,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 47
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2017,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 32
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2018,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 229
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2018,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 6
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2018,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 47
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2018,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 44
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2019,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 207
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2019,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 17
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2019,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 51
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2019,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 45
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2020,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 211
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2020,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 10
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2020,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 35
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2020,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 27
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2021,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 184
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2021,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 10
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2021,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 32
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2021,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 32
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2022,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 152
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2022,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 9
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2022,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 43
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2022,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 33
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2023,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 156
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2023,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 11
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2023,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 45
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2023,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 25
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2024,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 178
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2024,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 7
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2024,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 45
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2024,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 25
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2025,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 154
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2025,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 9
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2025,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 56
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2025,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 20
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2026,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 119
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2026,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 10
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2026,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 32
+    },
+    {
+      "institution": "CSIR-CECRI",
+      "year": 2026,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 22
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2016,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 66
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2016,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 461
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2016,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 228
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2016,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 71
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2017,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 70
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2017,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 323
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2017,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 233
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2017,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 81
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2018,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 53
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2018,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 290
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2018,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 188
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2018,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 58
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2019,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 59
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2019,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 246
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2019,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 180
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2019,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 51
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2020,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 56
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2020,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 201
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2020,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 193
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2020,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 49
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2021,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 72
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2021,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 172
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2021,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 189
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2021,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 41
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2022,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 59
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2022,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 177
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2022,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 186
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2022,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 51
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2023,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 76
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2023,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 185
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2023,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 210
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2023,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 66
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2024,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 76
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2024,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 198
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2024,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 218
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2024,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 71
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2025,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 69
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2025,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 191
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2025,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 209
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2025,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 59
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2026,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 60
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2026,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 137
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2026,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 170
+    },
+    {
+      "institution": "CSIR-IICT",
+      "year": 2026,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 52
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2016,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 95
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2016,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 262
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2016,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 218
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2016,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 100
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2017,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 94
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2017,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 213
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2017,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 208
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2017,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 105
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2018,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 81
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2018,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 198
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2018,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 192
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2018,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 78
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2019,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 62
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2019,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 162
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2019,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 184
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2019,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 72
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2020,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 62
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2020,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 126
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2020,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 191
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2020,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 59
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2021,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 72
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2021,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 152
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2021,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 168
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2021,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 71
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2022,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 74
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2022,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 131
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2022,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 146
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2022,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 66
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2023,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 69
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2023,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 138
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2023,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 139
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2023,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 68
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2024,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 97
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2024,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 166
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2024,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 147
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2024,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 65
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2025,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 86
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2025,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 134
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2025,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 171
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2025,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 62
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2026,
+      "macro_domain": "Electrochemistry & Energy Storage",
+      "papers": 63
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2026,
+      "macro_domain": "Medicinal & Organic Synthesis",
+      "papers": 101
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2026,
+      "macro_domain": "Other Chemical Sciences",
+      "papers": 123
+    },
+    {
+      "institution": "CSIR-NCL",
+      "year": 2026,
+      "macro_domain": "Polymers, Catalysis & Specialty Materials",
+      "papers": 45
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+institution,country,type,pp_top10_pct,pp_top1_pct,mncs,total_papers_evaluated,q1_journal_share_pct
+UC Berkeley,United States,Elite Research University,22.8,3.65,1.62,11400,
+Max Planck Society,Germany,Basic Science Research Organization,20.4,3.12,1.48,14200,
+Chinese Academy of Sciences (CAS),China,National Academy of Sciences,13.8,1.84,1.22,86000,
+CNRS (France),France,National Center for Scientific Research,12.6,1.55,1.15,34000,
+Indian Institute of Science (IISc),India,National Flagship Institute,9.8,1.08,0.98,6800,
+IIT Bombay,India,Institute of National Importance,9.1,0.94,0.94,5900,
+CSIR-NCL,India,CSIR National Laboratory,14.75,6.98,1.007,5316,63.5
+CSIR-IICT,India,CSIR National Laboratory,13.97,7.36,0.936,6151,51.1
+CSIR-CECRI,India,CSIR National Laboratory,14.77,5.06,1.093,2885,69.8
+CSIR Chemistry Cluster (Combined),India,Consolidated Cluster,14.42,6.76,0.994,14352,59.4

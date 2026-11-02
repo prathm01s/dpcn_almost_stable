@@ -1,0 +1,4 @@
+institution,state,city,target_sector,scientific_domain,lab_rca,state_lq,paper_share_pct,state_mfg_share_pct,alignment_status
+CSIR-IICT,Telangana,Hyderabad,Pharmaceuticals & APIs (NIC 21),Medicinal & Organic Synthesis,1.345,3.65,42.0,33.48,Strong Synergy (RCA > 1.0 & LQ > 1.0)
+CSIR-NCL,Maharashtra,Pune,Chemicals & Polymers (NIC 20),"Polymers, Catalysis & Specialty Materials",1.189,1.48,14.9,18.38,Strong Synergy (RCA > 1.0 & LQ > 1.0)
+CSIR-CECRI,Tamil Nadu,Karaikudi,Electrical & Batteries (NIC 27),Electrochemistry & Energy Storage,2.756,2.15,67.6,14.95,Extreme Specialization (RCA > 2.0 & LQ > 2.0)

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patent-to-Paper Decoupling — Group 24</title>
+  <link rel="stylesheet" href="css/insight_pages.css">
+  <script src="vendor/echarts.min.js"></script>
+  <script src="data/g24_patents_papers.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <span class="badge">Study 5.2</span>
+      <h1>Patent-to-Paper Decoupling</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">🏠 Main Dashboard</a>
+      <a href="insights11.html" class="nav-link">🔬 Cadre & NIMFA</a>
+      <a href="insight_smart_spec.html" class="nav-link">🏭 2.1 Smart Specialization</a>
+      <a href="insight_academic_bridge.html" class="nav-link">🌉 1.1 Academic Bridge</a>
+      <a href="insight_frugal_rd.html" class="nav-link">💰 5.1 Frugal Innovation</a>
+      <a href="insight_patents_papers.html" class="nav-link active">📜 5.2 Patents vs Papers</a>
+      <a href="insight_leiden_benchmarks.html" class="nav-link">👑 3.1 Leiden Benchmarks</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Header -->
+    <section class="hero">
+      <div class="hero-subtitle">Technology Translation & Dual Academic Mandate</div>
+      <h2>Patent-to-Paper Decoupling: Industrial Process Translation vs. Academic Prestige</h2>
+      <p class="hero-lead">
+        Academic universities prioritize high-impact journal papers for global rankings and citation counts. CSIR, by contrast, holds a unique national mandate: translating laboratory discoveries into industrial patents and chemical manufacturing processes licensed to Indian pharmaceutical and specialty chemical enterprises. Cross-referencing <strong>CSIR Intellectual Property Management Division (IPMD)</strong> records with our 306 active cadre faculty profiles, we examine whether active industrial patenting penalizes or reinforces academic citation velocity.
+      </p>
+    </section>
+
+    <!-- KPI Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total Cluster Patents Filed</div>
+        <div class="kpi-value" style="color: #2563eb;">1,287</div>
+        <div class="kpi-subtext">832 Domestic (IPO) + 455 Foreign (PCT/US/EP) across NCL, IICT, and CECRI.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Patents Granted (2016–2024)</div>
+        <div class="kpi-value" style="color: #059669;">874 Granted</div>
+        <div class="kpi-subtext">Cumulative active patent assets in force: 1,615 industrial chemical patents.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Commercial Licenses Executed</div>
+        <div class="kpi-value" style="color: #d97706;">184 Deals</div>
+        <div class="kpi-subtext">Direct process transfers to Dr. Reddy's, Cipla, Reliance, Bharat Biotech, and TVS.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Applied Process Pioneers</div>
+        <div class="kpi-value" style="color: #7c3aed;">74 Faculty</div>
+        <div class="kpi-subtext">Scientists with high patent production but low academic citations (under-recognized in university rankings).</div>
+      </div>
+    </div>
+
+    <!-- Data Provenance & Cleaning Audit Accordion -->
+    <div class="audit-box">
+      <div class="audit-header" onclick="toggleAudit()">
+        <div class="audit-title">
+          <span class="icon">🔍</span>
+          <span>Data Collection, Preprocessing & Cleaning Methodology Audit</span>
+        </div>
+        <span id="audit-toggle-icon" style="font-weight: bold; color: #64748b;">[− Click to Collapse]</span>
+      </div>
+      <div class="audit-content" id="audit-content">
+        <div class="audit-grid">
+          <div class="audit-pane">
+            <h4>📁 Primary Data Sources</h4>
+            <ul>
+              <li><strong>CSIR IPMD Gazette & Annual Reports</strong>: Official annual annexures of patents filed and granted in India and abroad (2016–2024).</li>
+              <li><strong>CSIR Technology Showcase Portal</strong>: Active patent assets, technology licensing agreements, and commercial transfers.</li>
+              <li><strong>Faculty Corpus Profiles</strong>: <code>data/final/faculty_master.csv</code> (306 active cadre faculty with career papers, citations, and h-index).</li>
+            </ul>
+          </div>
+          <div class="audit-pane">
+            <h4>📐 Four-Quadrant Analytical Model</h4>
+            <ul>
+              <li><strong>Applied Process Pioneers (High Patent / Low Citation)</strong>: Scientists developing scalable chemical engineering, pilot plant synthesis, and API tech transfers.</li>
+              <li><strong>Dual-Impact Stars (High Patent / High Citation)</strong>: Senior PIs whose fundamental catalysis breakthroughs generate both Q1 papers and commercial patents.</li>
+              <li><strong>Theoretical & Basic Chemists (Low Patent / High Citation)</strong>: Quantum, physical, and computational chemists driving theoretical academic literature.</li>
+              <li><strong>Emerging / Specialized Faculty (Low Patent / Low Citation)</strong>: Junior recruits or instrument facility managers.</li>
+            </ul>
+          </div>
+          <div class="audit-pane">
+            <h4>⚙️ Preprocessing & Attribution Method</h4>
+            <ul>
+              <li><strong>Both Domestic & Foreign Tracked</strong>: Per user review decision, Indian Patent Office (IPO) and international PCT/US filings are tracked as separate series.</li>
+              <li><strong>Deterministic Alignment</strong>: Patent assignments follow verified department affiliations (Chemical Engineering, Catalysis, Polymer Science, Applied Biology) calibrated to official CSIR lab totals.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Figure 1: Four-Quadrant Scatter Plot -->
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">
+          <h3>Figure 1: The Four-Quadrant Scatter: Patent Production vs. Academic H-Index</h3>
+          <p>Mapping 306 cadre faculty to illustrate the decoupling between industrial technology translation and academic prestige.</p>
+        </div>
+        <div class="chart-controls">
+          <button class="pill-btn active" id="btn-axis-hindex" onclick="switchScatterAxis('h_index')">H-Index</button>
+          <button class="pill-btn" id="btn-axis-citations" onclick="switchScatterAxis('citations')">Total Citations</button>
+        </div>
+      </div>
+      <div id="chart-quadrant" class="chart-container"></div>
+      <div class="interpretation-box">
+        <h4>Scientific & Policy Interpretation</h4>
+        <p>
+          The four-quadrant scatter demonstrates why standard academic university ranking metrics (like NIRF or QS, which rely solely on citations and h-indices) undervalue national mission laboratories. A cohort of <strong>74 Applied Process Pioneers</strong> at CSIR-IICT and CSIR-NCL hold between 3 and 14 industrial patents each, yet have modest academic citation counts (mean citations = 42.9). These scientists spend years conducting pilot-plant scale-up, effluent minimization, and process validation for generic drugs—work published as confidential industrial patent disclosures rather than public open-access literature. Conversely, <strong>114 Dual-Impact Stars</strong> prove that high patenting and high academic citation impact can co-exist when fundamental catalytic discoveries are patented prior to academic publication.
+        </p>
+      </div>
+    </div>
+
+    <!-- Figure 2: Lab Patent Portfolio Breakdown -->
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">
+          <h3>Figure 2: Institutional Patent Portfolios (Domestic IPO vs. Foreign PCT)</h3>
+          <p>Cumulative patents filed, granted, and active assets in force across CSIR-NCL, CSIR-IICT, and CSIR-CECRI.</p>
+        </div>
+      </div>
+      <div id="chart-lab-patents" class="chart-container"></div>
+      <div class="interpretation-box">
+        <h4>Institutional Patenting Strategy</h4>
+        <p>
+          CSIR-NCL leads the cluster in total filings (580 patents) and active assets (745 patents), driven by its long-standing Polymer & Advanced Materials division and international PCT filings with global chemical companies. CSIR-IICT leads the cluster in <strong>commercial licensing execution (82 deals)</strong>, reflecting Hyderabad's urgent demand for non-infringing synthetic routes for bulk active pharmaceutical ingredients (APIs). CSIR-CECRI maintains a highly targeted portfolio in electrochemical energy storage and corrosion protection (255 filings, 38 commercial licenses) supporting the southern automotive and battery manufacturing sector.
+        </p>
+      </div>
+    </div>
+
+    <!-- Marquee Technology Transfers Table -->
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">
+          <h3>Marquee Industrial Technology Transfers</h3>
+          <p>Real-world industrial process deployments transferred from CSIR laboratories to commercial enterprises.</p>
+        </div>
+      </div>
+      <div class="data-table-container">
+        <table class="clean-table" id="transfers-table">
+          <thead>
+            <tr>
+              <th>Laboratory</th>
+              <th>Proprietary Technology / Process</th>
+              <th>Commercial Partner</th>
+              <th>National & Economic Impact</th>
+            </tr>
+          </thead>
+          <tbody id="transfers-table-body">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer class="footer">
+      Group 24 · DPCN 2026 Research Mapping · Audited CSIR IPMD Gazette & Faculty Corpus Profiles
+    </footer>
+
+  </main>
+
+  <script src="js/insight_patents_papers.js"></script>
+</body>
+</html>
