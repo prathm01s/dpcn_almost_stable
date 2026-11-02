@@ -100,7 +100,7 @@ python3 run.py browser-test
 
 ### Re-package Submission Bundles
 ```bash
-# Syncs submission_week1-2/, submission_week3/, and final_submission/
+# Refreshes the team archive final_submission/
 python3 scripts/package_submissions.py
 ```
 
