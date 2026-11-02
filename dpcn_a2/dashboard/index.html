@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script src="js/theme.js"></script>
   <title>CSIR Chemistry Cluster — Group 24 Dashboard</title>
   <link rel="stylesheet" href="vendor/tabulator.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -31,6 +33,7 @@
           <a href="#data" class="nav-link" data-sec="data">Data & Methods</a>
       </nav>
       <button class="nav-menu-btn" id="nav-menu-btn" aria-expanded="false" aria-controls="nav-links">☰ Sections</button>
+      <span class="theme-slot" data-theme-slot></span>
     </div>
 
     <div class="controls-bar">
@@ -441,7 +444,7 @@
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Inter-Lab Cross-Citations</div>
-          <div id="net-cite-kpi-interlab" class="kpi-val" style="color: #0284c7;">1,653</div>
+          <div id="net-cite-kpi-interlab" class="kpi-val" style="color: var(--secondary);">1,653</div>
           <div class="kpi-sub">Citations across IICT/NCL/CECRI</div>
         </div>
         <div class="kpi-card">
@@ -483,13 +486,13 @@
 
         <!-- Legend and graph canvas -->
         <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; flex-wrap: wrap;">
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #2b5c8f; display: inline-block;"></span> CSIR-IICT</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #2e7d32; display: inline-block;"></span> CSIR-NCL</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #d95f02; display: inline-block;"></span> CSIR-CECRI</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-iict); display: inline-block;"></span> CSIR-IICT</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-ncl); display: inline-block;"></span> CSIR-NCL</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-cecri); display: inline-block;"></span> CSIR-CECRI</span>
           <span style="color: var(--text-muted); margin-left: auto;">💡 Pan and zoom with mouse wheel. Drag nodes to explore. Hover or click to inspect publication details.</span>
         </div>
 
-        <div id="chart-citation-network" style="width: 100%; height: 580px; background: #fafbfc; border-radius: 6px; border: 1px solid var(--border);"></div>
+        <div id="chart-citation-network" style="width: 100%; height: 580px; background: var(--net-canvas); border-radius: 6px; border: 1px solid var(--border);"></div>
       </div>
 
       <!-- Network Deep Dive Grid -->
@@ -534,9 +537,9 @@
               <thead>
                 <tr>
                   <th>Citing Source \ Target</th>
-                  <th style="color: #2b5c8f;">CSIR-IICT</th>
-                  <th style="color: #2e7d32;">CSIR-NCL</th>
-                  <th style="color: #d95f02;">CSIR-CECRI</th>
+                  <th style="color: var(--c-iict);">CSIR-IICT</th>
+                  <th style="color: var(--c-ncl);">CSIR-NCL</th>
+                  <th style="color: var(--c-cecri);">CSIR-CECRI</th>
                   <th>Total Outgoing</th>
                 </tr>
               </thead>
@@ -618,13 +621,13 @@
 
         <!-- Legend and graph canvas -->
         <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; flex-wrap: wrap;">
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #2b5c8f; display: inline-block;"></span> CSIR-IICT</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #2e7d32; display: inline-block;"></span> CSIR-NCL</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #d95f02; display: inline-block;"></span> CSIR-CECRI</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-iict); display: inline-block;"></span> CSIR-IICT</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-ncl); display: inline-block;"></span> CSIR-NCL</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-cecri); display: inline-block;"></span> CSIR-CECRI</span>
           <span style="color: var(--text-muted); margin-left: auto;">💡 Pan and zoom with mouse wheel. Drag nodes to explore. Hover or click to view researcher profile.</span>
         </div>
 
-        <div id="chart-authorship-network" style="width: 100%; height: 580px; background: #fafbfc; border-radius: 6px; border: 1px solid var(--border);"></div>
+        <div id="chart-authorship-network" style="width: 100%; height: 580px; background: var(--net-canvas); border-radius: 6px; border: 1px solid var(--border);"></div>
       </div>
 
       <!-- Network Deep Dive Grid -->
@@ -669,9 +672,9 @@
               <thead>
                 <tr>
                   <th>Institute \ Partner</th>
-                  <th style="color: #2b5c8f;">CSIR-IICT</th>
-                  <th style="color: #2e7d32;">CSIR-NCL</th>
-                  <th style="color: #d95f02;">CSIR-CECRI</th>
+                  <th style="color: var(--c-iict);">CSIR-IICT</th>
+                  <th style="color: var(--c-ncl);">CSIR-NCL</th>
+                  <th style="color: var(--c-cecri);">CSIR-CECRI</th>
                   <th>Total Inter-Lab Links</th>
                 </tr>
               </thead>
@@ -715,7 +718,7 @@
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Citation Impact Ratio</div>
-          <div id="conn-kpi-ratio" class="kpi-val" style="color: #0284c7;">—</div>
+          <div id="conn-kpi-ratio" class="kpi-val" style="color: var(--secondary);">—</div>
           <div id="conn-kpi-ratio-sub" class="kpi-sub">In-cites / out-cites</div>
         </div>
       </section>

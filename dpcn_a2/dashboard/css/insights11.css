@@ -32,7 +32,44 @@
   --cecri: #ea580c;
 
   --font-math: "STIX Two Math", "Cambria Math", "Latin Modern Math", KaTeX_Math, Georgia, serif;
+  --bg-card-subtle-2: #f1f5f9;
+  --border-strong: #cbd5e1;
+  --header-bg: rgba(255, 255, 255, 0.92);
+  color-scheme: light;
 }
+
+/* Dark theme (default; js/theme.js sets <html data-theme>) */
+:root[data-theme="dark"] {
+  --bg-page: #0b1120;
+  --bg-surface: #0f172a;
+  --bg-card: #151e30;
+  --bg-card-subtle: #1b2539;
+  --bg-card-subtle-2: #222e45;
+  --border-card: #283550;
+  --border-strong: #3a4a68;
+  --border-active: #818cf8;
+  --text-main: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --header-bg: rgba(11, 17, 32, 0.92);
+  --indigo: #818cf8;
+  --indigo-light: rgba(99, 102, 241, 0.16);
+  --cyan: #38bdf8;
+  --cyan-light: rgba(56, 189, 248, 0.14);
+  --emerald: #34d399;
+  --emerald-light: rgba(16, 185, 129, 0.14);
+  --amber: #fbbf24;
+  --amber-light: rgba(245, 158, 11, 0.14);
+  --rose: #fb7185;
+  --rose-light: rgba(244, 63, 94, 0.14);
+  --purple: #a78bfa;
+  --purple-light: rgba(139, 92, 246, 0.16);
+  color-scheme: dark;
+}
+[data-theme="dark"] .inst-badge.iict { background: rgba(59, 130, 246, 0.16); color: #93c5fd; border-color: rgba(59, 130, 246, 0.4); }
+[data-theme="dark"] .inst-badge.ncl { background: rgba(16, 185, 129, 0.16); color: #6ee7b7; border-color: rgba(16, 185, 129, 0.4); }
+[data-theme="dark"] .inst-badge.cecri { background: rgba(249, 115, 22, 0.16); color: #fdba74; border-color: rgba(249, 115, 22, 0.4); }
+
 
 * {
   box-sizing: border-box;
@@ -54,7 +91,7 @@ body {
 /* Header & Sticky Nav */
 .suite-header {
   border-bottom: 1px solid var(--border-card);
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--header-bg);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
@@ -173,7 +210,7 @@ body {
 
 /* Hero Cards */
 .hero-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-page) 100%);
   border: 1px solid var(--border-card);
   border-radius: 14px;
   padding: 1.75rem 2rem;
@@ -334,7 +371,7 @@ body {
 .pill-group {
   display: inline-flex;
   background: var(--bg-card-subtle);
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
   padding: 3px;
   gap: 2px;
@@ -357,7 +394,7 @@ body {
 }
 
 .pill-btn.active {
-  background: #ffffff;
+  background: var(--bg-card);
   color: var(--indigo);
   font-weight: 700;
   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.12);
@@ -372,7 +409,7 @@ body {
 
 /* Scientific Interpretation Box */
 .interpretation-card {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: linear-gradient(135deg, var(--bg-card-subtle) 0%, var(--bg-card-subtle-2) 100%);
   border-left: 4px solid var(--indigo);
   border-radius: 0 10px 10px 0;
   padding: 1.15rem 1.4rem;
@@ -396,7 +433,7 @@ body {
 
 /* Mathematical LaTeX Callout & Typography */
 .math-callout {
-  background: #f8fafc;
+  background: var(--bg-card-subtle);
   border: 1px solid var(--border-card);
   border-left: 4px solid var(--cyan);
   border-radius: 0 10px 10px 0;
@@ -407,13 +444,13 @@ body {
 }
 
 .math-formula {
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
   padding: 0.75rem 1.25rem;
   border-radius: 8px;
   font-family: var(--font-math);
   font-size: 1.1rem;
-  color: #1e293b;
+  color: var(--text-main);
   margin: 0.75rem 0;
   overflow-x: auto;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
@@ -424,7 +461,7 @@ body {
   font-family: var(--font-math);
   font-style: italic;
   font-size: 1.05em;
-  color: #1e293b;
+  color: var(--text-main);
   padding: 0 0.15em;
 }
 
@@ -434,7 +471,7 @@ body {
   overflow-x: auto;
   border-radius: 8px;
   border: 1px solid var(--border-card);
-  background: #ffffff;
+  background: var(--bg-card);
 }
 
 .scientific-table {
@@ -445,7 +482,7 @@ body {
 }
 
 .scientific-table th {
-  background: #f8fafc;
+  background: var(--bg-card-subtle);
   color: var(--text-muted);
   font-weight: 700;
   padding: 0.75rem 1rem;
@@ -457,12 +494,12 @@ body {
 
 .scientific-table td {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--bg-card-subtle-2);
   color: var(--text-main);
 }
 
 .scientific-table tr:hover td {
-  background: #f8fafc;
+  background: var(--bg-card-subtle);
 }
 
 .inst-badge {
@@ -478,8 +515,8 @@ body {
 .inst-badge.cecri { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
 
 .search-input {
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
   color: var(--text-main);
   padding: 0.45rem 0.85rem;
   border-radius: 6px;

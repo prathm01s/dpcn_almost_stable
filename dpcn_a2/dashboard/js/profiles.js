@@ -280,8 +280,8 @@
     }].concat(collabs.map((c, i) => ({
       id: String(i), name: c.name, value: c.joint_papers, fid: c.faculty_id || null, lab: c.lab,
       symbolSize: Math.max(10, Math.min(32, Math.sqrt(c.joint_papers) * 5)),
-      itemStyle: { color: c.faculty_id ? (LAB_COLOR_BY_NAME[c.lab] || color) : "#94a3b8", borderColor: "#fff", borderWidth: 1.5 },
-      label: { show: c.joint_papers >= Math.max(3, collabs[Math.min(4, collabs.length - 1)].joint_papers), position: "right", fontSize: 10, color: "#334155" },
+      itemStyle: { color: c.faculty_id ? (LAB_COLOR_BY_NAME[c.lab] || color) : "#94a3b8", borderColor: (window.G24Theme ? G24Theme.ink().surface : "#fff"), borderWidth: 1.5 },
+      label: { show: c.joint_papers >= Math.max(3, collabs[Math.min(4, collabs.length - 1)].joint_papers), position: "right", fontSize: 10, color: (window.G24Theme ? G24Theme.ink().text2 : "#334155") },
     })));
     const links = collabs.map((c, i) => ({ source: "ego", target: String(i), value: c.joint_papers,
       lineStyle: { color: "rgba(26,35,126,0.35)", width: c.joint_papers >= 10 ? 2.2 : 1.2 } }));

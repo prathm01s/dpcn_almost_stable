@@ -143,6 +143,20 @@ def run_tests():
             if client.evaluate("document.getElementById('kpi-total-papers').textContent") != "-":
                 break
             time.sleep(0.25)
+
+        # Theme: dark by default; the header toggle switches to light and back, redrawing the charts
+        client.evaluate("try { localStorage.removeItem('g24-theme'); } catch (e) {}")
+        assert client.evaluate("document.documentElement.dataset.theme") == "dark", "Dark theme should be the default"
+        client.evaluate("document.querySelector('.theme-toggle').click()")
+        time.sleep(1.0)
+        light = client.evaluate("document.documentElement.dataset.theme")
+        trend_ok = client.evaluate("!!echarts.getInstanceByDom(document.getElementById('chart-trend'))")
+        client.evaluate("document.querySelector('.theme-toggle').click()")
+        time.sleep(1.0)
+        dark = client.evaluate("document.documentElement.dataset.theme")
+        print(f"✓ Theme toggle: dark -> {light} -> {dark}, charts redrawn: {trend_ok}")
+        assert light == "light" and dark == "dark" and trend_ok
+
         total_papers = client.evaluate("document.getElementById('kpi-total-papers').textContent")
         journal_papers = client.evaluate("document.getElementById('kpi-journal-papers').textContent")
         q1_share = client.evaluate("document.getElementById('kpi-q1-share').textContent")

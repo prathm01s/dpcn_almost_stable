@@ -26,6 +26,22 @@ document.addEventListener("DOMContentLoaded", () => {
     unranked: "#94a3b8",
   };
 
+  // Theme (js/theme.js): lab colours are lightened on the dark background, and chart text,
+  // tooltip and border colours come from ink()
+  const LAB_COLORS = {
+    light: { iict: "#2b5c8f", ncl: "#2e7d32", cecri: "#d95f02", all: "#4a148c" },
+    dark: { iict: "#5b9bd5", ncl: "#4caf50", cecri: "#f28c38", all: "#9575cd" },
+  };
+  const isDark = () => !!(window.G24Theme && window.G24Theme.isDark());
+  const ink = () => (window.G24Theme ? window.G24Theme.ink()
+    : { text: "#1e293b", text2: "#475569", muted: "#64748b", surface: "#ffffff", tooltip: "#ffffff", tooltipBorder: "#cbd5e1" });
+  function applyThemeColors() { Object.assign(colors, LAB_COLORS[isDark() ? "dark" : "light"]); }
+  applyThemeColors();
+  // Network categories carry their own colours; use the theme's lab colours instead
+  const LAB_KEY = { "CSIR-IICT": "iict", "CSIR-NCL": "ncl", "CSIR-CECRI": "cecri" };
+  const themedCategories = cats => (cats || []).map(c => LAB_KEY[c.name]
+    ? { ...c, itemStyle: { ...(c.itemStyle || {}), color: colors[LAB_KEY[c.name]] } } : c);
+
   // Filter state
   const state = {
     yearMin: 2016,
@@ -292,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "pie",
         radius: ["40%", "70%"],
         avoidLabelOverlap: false,
-        itemStyle: { borderRadius: 6, borderColor: "#fff", borderWidth: 2 },
+        itemStyle: { borderRadius: 6, borderColor: ink().surface, borderWidth: 2 },
         data: [
           { value: qOverall.q1, name: "Q1 (Top 25%)", itemStyle: { color: colors.q1 } },
           { value: qOverall.q2, name: "Q2", itemStyle: { color: colors.q2 } },
@@ -366,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
       yAxis: { type: "value", name: "% of papers", max: 100 },
       series: [
         { name: "Q1 by journal (SJR)", type: "bar", data: stats.map(s => s.sjrQ1Pct), itemStyle: { color: colors.q1 }, label },
-        { name: `Q1 by impact ratio (IR > ${threshold})`, type: "bar", data: stats.map(s => s.irQ1Pct), itemStyle: { color: "#4a148c" }, label },
+        { name: `Q1 by impact ratio (IR > ${threshold})`, type: "bar", data: stats.map(s => s.irQ1Pct), itemStyle: { color: colors.all }, label },
       ],
     }, true);
 
@@ -665,19 +681,19 @@ document.addEventListener("DOMContentLoaded", () => {
     charts.citationNet.setOption({
       tooltip: {
         trigger: "item",
-        backgroundColor: "rgba(255, 255, 255, 0.96)",
-        borderColor: "#cbd5e1",
+        backgroundColor: ink().tooltip,
+        borderColor: ink().tooltipBorder,
         borderWidth: 1,
         padding: [10, 14],
-        textStyle: { color: "#1e293b", fontFamily: "Inter, sans-serif" },
+        textStyle: { color: ink().text, fontFamily: "Inter, sans-serif" },
         formatter: function(params) {
           if (params.dataType === "node") {
             const d = params.data;
             return `
-              <div style="font-weight:700; margin-bottom:4px; max-width:320px; white-space:normal; font-size:12px; color:#0f172a;">${d.full_title || d.name}</div>
-              <div style="font-size:11px; color:#64748b; margin-bottom:6px;"><strong>${d.journal}</strong> (${d.year})</div>
+              <div style="font-weight:700; margin-bottom:4px; max-width:320px; white-space:normal; font-size:12px; color:var(--text);">${d.full_title || d.name}</div>
+              <div style="font-size:11px; color:var(--text-muted); margin-bottom:6px;"><strong>${d.journal}</strong> (${d.year})</div>
               <div style="font-size:11px; line-height:1.6;">
-                <div><strong>Institution:</strong> <span style="font-weight:600; color:#2b5c8f;">${d.inst}</span></div>
+                <div><strong>Institution:</strong> <span style="font-weight:600; color:var(--accent-ink);">${d.inst}</span></div>
                 <div><strong>In-Degree (Citations in Corpus):</strong> <strong>${d.in_degree}</strong></div>
                 <div><strong>Total OpenAlex Citations:</strong> ${d.citations}</div>
                 <div><strong>PageRank Centrality:</strong> ${d.pagerank}</div>
@@ -688,10 +704,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const d = params.data;
             return `
               <div style="font-size:11px; line-height:1.5;">
-                <div style="font-weight:700; color:#334155; margin-bottom:3px;">Directed Citation Edge</div>
+                <div style="font-weight:700; color:var(--text); margin-bottom:3px;">Directed Citation Edge</div>
                 <div><strong>Citing Institute:</strong> ${d.s_inst}</div>
                 <div><strong>Cited Institute:</strong> ${d.t_inst}</div>
-                <div><strong>Connection Type:</strong> ${d.is_cross ? '<span style="color:#0284c7; font-weight:700;">Inter-Lab Citation</span>' : '<span style="color:#64748b;">Intra-Lab Citation</span>'}</div>
+                <div><strong>Connection Type:</strong> ${d.is_cross ? '<span style="color:#0284c7; font-weight:700;">Inter-Lab Citation</span>' : '<span style="color:var(--text-muted);">Intra-Lab Citation</span>'}</div>
               </div>
             `;
           }
@@ -700,7 +716,7 @@ document.addEventListener("DOMContentLoaded", () => {
       legend: [{
         data: data.network.categories.map(c => c.name),
         top: "bottom",
-        textStyle: { fontSize: 11, color: "#475569" },
+        textStyle: { fontSize: 11, color: ink().text2 },
       }],
       series: [{
         name: "Citation Network",
@@ -708,7 +724,7 @@ document.addEventListener("DOMContentLoaded", () => {
         layout: "force",
         data: nodes,
         links: links,
-        categories: data.network.categories,
+        categories: themedCategories(data.network.categories),
         roam: true,
         edgeSymbol: ["none", "arrow"],
         edgeSymbolSize: [4, 8],
@@ -790,10 +806,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const labColor = p.inst === "CSIR-IICT" ? "#2b5c8f" : p.inst === "CSIR-NCL" ? "#2e7d32" : "#d95f02";
         return `
           <tr>
-            <td style="font-weight:700; color:#64748b;">${p.rank}</td>
+            <td style="font-weight:700; color:var(--text-muted);">${p.rank}</td>
             <td>
-              <div style="font-weight:600; color:#1e293b; max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${p.title}">${p.title}</div>
-              <div style="font-size:0.75rem; color:#64748b;">${p.journal} (${p.year}) &bull; <span class="badge-q badge-q1">${p.quartile}</span></div>
+              <div style="font-weight:600; color:var(--text); max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${p.title}">${p.title}</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">${p.journal} (${p.year}) &bull; <span class="badge-q badge-q1">${p.quartile}</span></div>
             </td>
             <td><span class="net-badge-lab" style="background:${labColor};">${p.inst}</span></td>
             <td style="font-weight:700;">${p.in_degree}</td>
@@ -814,7 +830,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td class="${row.source_inst === 'CSIR-IICT' ? 'matrix-diag' : 'matrix-cross'}">${row.iict.toLocaleString()}</td>
             <td class="${row.source_inst === 'CSIR-NCL' ? 'matrix-diag' : 'matrix-cross'}">${row.ncl.toLocaleString()}</td>
             <td class="${row.source_inst === 'CSIR-CECRI' ? 'matrix-diag' : 'matrix-cross'}">${row.cecri.toLocaleString()}</td>
-            <td style="font-weight:700; background:#f8fafc;">${tot.toLocaleString()}</td>
+            <td style="font-weight:700; background:var(--surface-2);">${tot.toLocaleString()}</td>
           </tr>
         `;
       }).join("");
@@ -880,19 +896,19 @@ document.addEventListener("DOMContentLoaded", () => {
     charts.authorshipNet.setOption({
       tooltip: {
         trigger: "item",
-        backgroundColor: "rgba(255, 255, 255, 0.96)",
-        borderColor: "#cbd5e1",
+        backgroundColor: ink().tooltip,
+        borderColor: ink().tooltipBorder,
         borderWidth: 1,
         padding: [10, 14],
-        textStyle: { color: "#1e293b", fontFamily: "Inter, sans-serif" },
+        textStyle: { color: ink().text, fontFamily: "Inter, sans-serif" },
         formatter: function(params) {
           if (params.dataType === "node") {
             const d = params.data;
             return `
-              <div style="font-weight:700; font-size:13px; margin-bottom:4px; color:#0f172a;">${d.name}</div>
-              <div style="font-size:11px; color:#64748b; margin-bottom:6px;">${d.designation} &bull; ${d.department}</div>
+              <div style="font-weight:700; font-size:13px; margin-bottom:4px; color:var(--text);">${d.name}</div>
+              <div style="font-size:11px; color:var(--text-muted); margin-bottom:6px;">${d.designation} &bull; ${d.department}</div>
               <div style="font-size:11px; line-height:1.6;">
-                <div><strong>Institution:</strong> <span style="font-weight:600; color:#2b5c8f;">${d.inst}</span></div>
+                <div><strong>Institution:</strong> <span style="font-weight:600; color:var(--accent-ink);">${d.inst}</span></div>
                 <div><strong>Collaborator Degree:</strong> <strong>${d.degree}</strong> researchers</div>
                 <div><strong>Betweenness Centrality:</strong> ${d.betweenness}</div>
                 <div><strong>Louvain Community:</strong> Cluster #${d.community}</div>
@@ -903,10 +919,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const d = params.data;
             return `
               <div style="font-size:11px; line-height:1.5;">
-                <div style="font-weight:700; color:#334155; margin-bottom:3px;">Co-Authorship Edge</div>
+                <div style="font-weight:700; color:var(--text); margin-bottom:3px;">Co-Authorship Edge</div>
                 <div><strong>Collaborators:</strong> ${d.source} &harr; ${d.target}</div>
                 <div><strong>Joint Publications:</strong> <strong>${d.weight}</strong></div>
-                <div><strong>Connection Type:</strong> ${d.is_cross ? '<span style="color:#d97706; font-weight:700;">Inter-Lab Collaboration</span>' : '<span style="color:#64748b;">Intra-Lab Collaboration</span>'}</div>
+                <div><strong>Connection Type:</strong> ${d.is_cross ? '<span style="color:#d97706; font-weight:700;">Inter-Lab Collaboration</span>' : '<span style="color:var(--text-muted);">Intra-Lab Collaboration</span>'}</div>
               </div>
             `;
           }
@@ -915,7 +931,7 @@ document.addEventListener("DOMContentLoaded", () => {
       legend: [{
         data: data.network.categories.map(c => c.name),
         top: "bottom",
-        textStyle: { fontSize: 11, color: "#475569" },
+        textStyle: { fontSize: 11, color: ink().text2 },
       }],
       series: [{
         name: "Authorship Network",
@@ -923,7 +939,7 @@ document.addEventListener("DOMContentLoaded", () => {
         layout: "force",
         data: nodes,
         links: links,
-        categories: data.network.categories,
+        categories: themedCategories(data.network.categories),
         roam: true,
         label: {
           show: true,
@@ -1002,12 +1018,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const labColor = b.institution === "CSIR-IICT" ? "#2b5c8f" : b.institution === "CSIR-NCL" ? "#2e7d32" : "#d95f02";
         return `
           <tr>
-            <td style="font-weight:700; color:#64748b;">${b.rank}</td>
-            <td style="font-weight:600; color:#1e293b;" ${(window.G24Profiles && G24Profiles.fidByName(b.author)) ? `data-fid="${G24Profiles.fidByName(b.author)}"` : ""}>${b.author}</td>
+            <td style="font-weight:700; color:var(--text-muted);">${b.rank}</td>
+            <td style="font-weight:600; color:var(--text);" ${(window.G24Profiles && G24Profiles.fidByName(b.author)) ? `data-fid="${G24Profiles.fidByName(b.author)}"` : ""}>${b.author}</td>
             <td><span class="net-badge-lab" style="background:${labColor};">${b.institution}</span></td>
             <td style="font-weight:700;">${b.collaborators_count}</td>
             <td style="font-family:monospace; font-weight:600; color:#0d9488;">${b.betweenness.toFixed(4)}</td>
-            <td><span style="font-size:0.75rem; color:#64748b; background:#f1f5f9; padding:2px 6px; border-radius:4px;">Cluster #${b.community_id}</span></td>
+            <td><span style="font-size:0.75rem; color:var(--text-muted); background:var(--surface-3); padding:2px 6px; border-radius:4px;">Cluster #${b.community_id}</span></td>
           </tr>
         `;
       }).join("");
@@ -1023,7 +1039,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td class="${row.inst === 'CSIR-IICT' ? 'matrix-diag' : 'matrix-cross'}">${row.iict.toLocaleString()}</td>
             <td class="${row.inst === 'CSIR-NCL' ? 'matrix-diag' : 'matrix-cross'}">${row.ncl.toLocaleString()}</td>
             <td class="${row.inst === 'CSIR-CECRI' ? 'matrix-diag' : 'matrix-cross'}">${row.cecri.toLocaleString()}</td>
-            <td style="font-weight:700; background:#f8fafc; color:#d97706;">${totInter.toLocaleString()}</td>
+            <td style="font-weight:700; background:var(--surface-2); color:#d97706;">${totInter.toLocaleString()}</td>
           </tr>
         `;
       }).join("");
@@ -1106,20 +1122,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Top citing institutes
     document.getElementById("tbody-conn-citing").innerHTML = (conn.top_citing_institutes[key] || []).map(r => `
-      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td><td>${esc(r.citing_institution)}</td>
+      <tr><td style="font-weight:700; color:var(--text-muted);">${r.rank}</td><td>${esc(r.citing_institution)}</td>
       <td style="font-weight:700;">${r.citing_papers.toLocaleString()}</td><td>${r.citations.toLocaleString()}</td></tr>`).join("");
 
     // Top partners
     document.getElementById("tbody-conn-partners").innerHTML = ((data.by_institute[key].indian_connections || {}).top_partners || []).map(r => `
-      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td><td>${esc(r.partner_institution)}</td>
+      <tr><td style="font-weight:700; color:var(--text-muted);">${r.rank}</td><td>${esc(r.partner_institution)}</td>
       <td style="font-weight:700;">${r.collaborative_papers.toLocaleString()}</td><td>${r.share_pct}%</td></tr>`).join("");
 
     // Hub authors
     document.getElementById("tbody-conn-hubs").innerHTML = (conn.hub_authors[key] || []).map(r => `
-      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td><td style="font-weight:600;" ${window.G24Profiles && G24Profiles.fidByOpenAlex(r.author_openalex_id) ? `data-fid="${esc(G24Profiles.fidByOpenAlex(r.author_openalex_id))}"` : ""}>${esc(r.author)}</td>
+      <tr><td style="font-weight:700; color:var(--text-muted);">${r.rank}</td><td style="font-weight:600;" ${window.G24Profiles && G24Profiles.fidByOpenAlex(r.author_openalex_id) ? `data-fid="${esc(G24Profiles.fidByOpenAlex(r.author_openalex_id))}"` : ""}>${esc(r.author)}</td>
       <td>${esc(r.home_institution)}</td><td>${esc(r.author_role.replace(/_/g, " "))}</td><td>${r.papers}</td>
       <td style="font-weight:700; color:#0284c7;">${r.institutions_bridged}</td><td>${r.cross_institution_papers}</td>
-      <td style="font-size:0.75rem; color:#64748b; max-width:320px;">${esc(r.top_partners)}</td></tr>`).join("");
+      <td style="font-size:0.75rem; color:var(--text-muted); max-width:320px;">${esc(r.top_partners)}</td></tr>`).join("");
 
     // Lab-to-lab topic Jaccard
     const jac = {};
@@ -1139,11 +1155,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Most-cited citing papers
     document.getElementById("tbody-conn-papers").innerHTML = (conn.top_citing_papers[key] || []).map(r => `
-      <tr><td style="font-weight:700; color:#64748b;">${r.rank}</td>
+      <tr><td style="font-weight:700; color:var(--text-muted);">${r.rank}</td>
       <td><div style="font-weight:600; max-width:360px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${esc(r.title)}">${esc(r.title)}</div>
-      <div style="font-size:0.75rem; color:#64748b;">${esc(r.journal_name)}</div></td>
+      <div style="font-size:0.75rem; color:var(--text-muted);">${esc(r.journal_name)}</div></td>
       <td>${r.year}</td><td style="font-weight:700;">${r.citations.toLocaleString()}</td>
-      <td style="font-size:0.75rem; color:#64748b; max-width:260px;">${esc(r.citing_institutions)}</td>
+      <td style="font-size:0.75rem; color:var(--text-muted); max-width:260px;">${esc(r.citing_institutions)}</td>
       <td>${r.doi ? `<a href="${esc(r.doi)}" target="_blank" style="color:#0284c7; text-decoration:none; font-size:0.75rem;">DOI ↗</a>` : ""}</td></tr>`).join("");
   }
 
@@ -1175,6 +1191,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const TAG_COLORS = {
     Network: "#2563eb", Productivity: "#7c3aed", Journals: "#059669", Citations: "#d97706",
     Trends: "#0891b2", Careers: "#db2777", Workforce: "#dc2626", Diffusion: "#4f46e5",
+  };
+  const TAG_COLORS_DARK = {
+    Network: "#60a5fa", Productivity: "#a78bfa", Journals: "#34d399", Citations: "#fbbf24",
+    Trends: "#22d3ee", Careers: "#f472b6", Workforce: "#f87171", Diffusion: "#818cf8",
   };
   const pct = v => `${(+v).toFixed(1)}%`;
   const has = (...vals) => vals.every(v => v !== null && v !== undefined && v !== "");
@@ -1237,7 +1257,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const meta = INSIGHT_CARDS[key] || { title: `Finding ${idx + 1}`, tag: "Finding", stat: () => null };
       let stat = null;
       try { stat = meta.stat(item.metrics || {}); } catch (e) { stat = null; }
-      const color = TAG_COLORS[meta.tag] || "var(--primary)";
+      const color = (isDark() ? TAG_COLORS_DARK : TAG_COLORS)[meta.tag] || "var(--accent-ink)";
       return `
         <button type="button" class="insight-card${key === "11_information_diffusion" ? " wide" : ""}" data-key="${key}" style="--tc:${color}"
                 aria-label="Finding ${idx + 1}: ${esc(meta.title)}. Open the analysis">
@@ -1279,21 +1299,21 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id="chart-insight-11_information_diffusion" class="chart-container" style="height: 400px;"></div>
             <div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.6rem 0.8rem;">
-                  <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Epidemic Threshold</div>
+                <div style="background:var(--surface-2); border:1px solid var(--border); border-radius: 8px; padding: 0.6rem 0.8rem;">
+                  <div style="font-size: 0.75rem; color:var(--text-muted); font-weight: 600; text-transform: uppercase;">Epidemic Threshold</div>
                   <div id="diff-kpi-betac" style="font-size: 1.25rem; font-weight: 800; color: #2563eb;">–</div>
-                  <div id="diff-kpi-spectral" style="font-size: 0.75rem; color: #64748b;"></div>
+                  <div id="diff-kpi-spectral" style="font-size: 0.75rem; color:var(--text-muted);"></div>
                 </div>
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.6rem 0.8rem;">
-                  <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Adoption Speed (T50)</div>
+                <div style="background:var(--surface-2); border:1px solid var(--border); border-radius: 8px; padding: 0.6rem 0.8rem;">
+                  <div style="font-size: 0.75rem; color:var(--text-muted); font-weight: 600; text-transform: uppercase;">Adoption Speed (T50)</div>
                   <div id="diff-kpi-t50" style="font-size: 1.25rem; font-weight: 800; color: #16a34a;">–</div>
-                  <div id="diff-kpi-nodes" style="font-size: 0.75rem; color: #64748b;"></div>
+                  <div id="diff-kpi-nodes" style="font-size: 0.75rem; color:var(--text-muted);"></div>
                 </div>
               </div>
-              <div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: white;">
-                <div style="background: #f1f5f9; padding: 0.5rem 0.75rem; font-weight: 700; font-size: 0.825rem; color: #334155; display: flex; justify-content: space-between;">
+              <div style="border:1px solid var(--border); border-radius: 8px; overflow: hidden; background:var(--surface);">
+                <div style="background:var(--surface-3); padding: 0.5rem 0.75rem; font-weight: 700; font-size: 0.825rem; color:var(--text); display: flex; justify-content: space-between;">
                   <span id="diff-table-title">Top 5 Super-Spreaders (Full Net)</span>
-                  <span style="font-size: 0.75rem; font-weight: 500; color: #64748b;">Adoption Traction</span>
+                  <span style="font-size: 0.75rem; font-weight: 500; color:var(--text-muted);">Adoption Traction</span>
                 </div>
                 <table class="net-table" style="font-size: 0.8rem;">
                   <thead><tr>
@@ -1544,14 +1564,14 @@ document.addEventListener("DOMContentLoaded", () => {
           const labColor = sp.lab === "CSIR-IICT" ? "#2b5c8f" : sp.lab === "CSIR-NCL" ? "#2e7d32" : "#d95f02";
           return `
             <tr>
-              <td style="font-weight:700; color:#64748b; padding:0.4rem 0.6rem;">${idx + 1}</td>
-              <td ${sp.faculty_id ? `data-fid="${esc(sp.faculty_id)}"` : ""} style="font-weight:600; color:#1e293b; padding:0.4rem 0.6rem; max-width:140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;${sp.faculty_id ? " cursor:pointer;" : ""}" title="${esc(sp.name)}">
+              <td style="font-weight:700; color:var(--text-muted); padding:0.4rem 0.6rem;">${idx + 1}</td>
+              <td ${sp.faculty_id ? `data-fid="${esc(sp.faculty_id)}"` : ""} style="font-weight:600; color:var(--text); padding:0.4rem 0.6rem; max-width:140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;${sp.faculty_id ? " cursor:pointer;" : ""}" title="${esc(sp.name)}">
                 ${esc(sp.name)}
               </td>
               <td style="padding:0.4rem 0.6rem;">
                 <span class="net-badge-lab" style="background:${labColor}; font-size:0.7rem; padding:0.15rem 0.4rem;">${esc(sp.lab)}</span>
               </td>
-              <td style="font-weight:600; color:#475569; padding:0.4rem 0.6rem;">${sp.field_share}%</td>
+              <td style="font-weight:600; color:var(--text-2); padding:0.4rem 0.6rem;">${sp.field_share}%</td>
               <td style="font-weight:700; color:#2563eb; padding:0.4rem 0.6rem;">${(sp.reach_t3 * 100).toFixed(1)}%</td>
             </tr>
           `;
@@ -1620,7 +1640,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return s;
           },
         },
-        legend: { data: legendData, top: "bottom", textStyle: { fontSize: 11, color: "#475569" } },
+        legend: { data: legendData, top: "bottom", textStyle: { fontSize: 11, color: ink().text2 } },
         xAxis: { type: "category", name: "Diffusion Step (t)", data: chartSteps, nameLocation: "middle", nameGap: 28, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
         yAxis: { type: "value", name: "% Adoption I(t)", min: 0, max: 100, nameLocation: "middle", nameGap: 48, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
         series: series,
@@ -1660,6 +1680,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (facultyTable) facultyTable.redraw(true);
     if (topPapersTable) topPapersTable.redraw(true);
   });
+
+  // Theme switch: charts are drawn on canvas, so dispose them and draw again with the new colours
+  if (window.G24Theme) {
+    window.G24Theme.handlesCharts = true;
+    document.addEventListener("g24:theme", () => {
+      applyThemeColors();
+      Object.keys(charts).forEach(k => { if (charts[k]) charts[k].dispose(); delete charts[k]; });
+      updateDashboard();
+      renderInsightCards();
+      if (openIdx >= 0) openInsight(openIdx);
+    });
+  }
 
   // Initial draw
   renderInsightCards();

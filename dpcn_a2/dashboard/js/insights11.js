@@ -619,7 +619,7 @@
         <td><span class="inst-badge ${r.lab === 'CSIR-IICT' ? 'iict' : (r.lab === 'CSIR-NCL' ? 'ncl' : 'cecri')}">${r.lab}</span></td>
         <td><span style="color:#e11d48; font-weight:600;">${r.job_title}</span></td>
         <td>${r.department}</td>
-        <td style="font-size:0.8rem; color:#475569;">${r.reason}</td>
+        <td style="font-size:0.8rem; color:var(--text-secondary);">${r.reason}</td>
       </tr>
     `).join("");
   }
