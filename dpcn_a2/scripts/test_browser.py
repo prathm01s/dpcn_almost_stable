@@ -406,6 +406,48 @@ def run_tests():
     finally:
         client_file.stop()
 
+    # Test 3: Offline file:// test for insights11.html
+    print("\n=== TESTING OFFLINE file:// PROTOCOL FOR INSIGHTS11.HTML ===")
+    client_i11 = ChromeDevToolsClient(port=9335)
+    try:
+        abs_path_i11 = os.path.abspath("dashboard/insights11.html")
+        file_url_i11 = f"file://{abs_path_i11}"
+        print(f"Loading {file_url_i11}...")
+        client_i11.start(file_url_i11)
+        time.sleep(1.5)
+
+        title_i11 = client_i11.evaluate("document.title")
+        nodes_txt = client_i11.evaluate("document.getElementById('net-stat-nodes').textContent")
+        print(f"✓ insights11.html Loaded: Title='{title_i11}', Connected Faculty Nodes={nodes_txt}")
+        assert "Cadre Faculty Networks" in title_i11
+        assert nodes_txt == "235"
+
+        # Switch to Cleaning section
+        client_i11.evaluate("document.querySelector(\".nav-btn[data-section='cleaning']\").click()")
+        time.sleep(0.5)
+        raw_val = client_i11.evaluate("document.getElementById('clean-stat-raw').textContent")
+        print(f"✓ Cleaning section rendered: Raw Scraped={raw_val}")
+        assert raw_val == "505"
+
+        # Switch to Diffusion section
+        client_i11.evaluate("document.querySelector(\".nav-btn[data-section='diffusion']\").click()")
+        time.sleep(0.5)
+        kpi_nimfa = client_i11.evaluate("document.getElementById('diff-kpi-nimfa-t50').textContent")
+        print(f"✓ Diffusion section rendered: NIMFA T50={kpi_nimfa}")
+        assert "steps" in kpi_nimfa
+
+        client_i11.capture_screenshot("dashboard/screenshots/11_cadre_networks_suite.png")
+
+        if client_i11.console_errors:
+            print(f"❌ Console errors on insights11.html file://:")
+            for err in client_i11.console_errors:
+                print("  ERROR:", err)
+            raise AssertionError("Console errors on insights11.html")
+        else:
+            print("✓ ZERO Console errors on insights11.html! Standalone suite is 100% offline-ready.")
+    finally:
+        client_i11.stop()
+
     print("\n=== ALL BROWSER VERIFICATION TESTS PASSED SUCCESSFULLY! ===")
 
 

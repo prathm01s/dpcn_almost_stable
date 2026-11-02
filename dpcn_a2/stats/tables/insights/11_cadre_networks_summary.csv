@@ -1,0 +1,5 @@
+network,scope,nodes,edges,mean_degree,density,clustering_coef,modularity,beta_c,type
+Full Co-Authorship,All Authors (LCC),7509,34696,9.24,0.0012,0.612,0.817,0.0322,Undirected
+Cadre Co-Authorship,Cadre Faculty Only,235,579,3.8,0.0125,0.291,0.68,0.0993,Undirected
+Full Citation,All In-Corpus Papers,10988,27268,2.48,0.0002,0.142,0.695,0.0412,Directed
+Cadre Faculty Citation,Faculty-to-Faculty,245,1610,6.57,0.0174,0.285,0.428,0.0521,Directed

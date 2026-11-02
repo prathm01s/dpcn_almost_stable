@@ -24,9 +24,11 @@ def run_target(target: str) -> None:
         from src.dashboard.build_data import run_build_dashboard_data
         from src.dashboard.build_insights_js import build_insights_js
         from src.dashboard.build_profiles import run_build_profiles
+        from src.dashboard.build_insights11_suite import build_suite_js
         run_build_dashboard_data()
         build_insights_js()
         run_build_profiles()
+        build_suite_js()
     elif target == "insights-fetch":
         from src.collect.fetch_counts_by_year import main as fetch_counts_main
         from src.collect.fetch_author_careers import main as fetch_careers_main

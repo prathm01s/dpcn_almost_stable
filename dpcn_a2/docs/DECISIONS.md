@@ -190,3 +190,19 @@ All architectural, methodological, and data harmonization decisions made during 
 - **Scientists filter (faculty-level)**: "> 5" / "> 10 Q1 papers" (strictly more than) restricts the Faculty tab: featured scientists, directory (new "Q1 Papers" column), h-index histogram and the Active faculty / Median h-index KPIs (177 / 133 active scientists). The department chart is pre-aggregated and is not filtered.
 - **h-index histogram**: binned in the browser from the faculty rows with the bins of `h_index_distribution.csv` (identical counts to the table for every institute); in All / Compare view the bars are stacked by campus in the lab colours.
 - **Rebuilt bundle**: rebuilding `g24_data.js` also refreshed the citation-network panel's top-subgraph (346 → 334 links). The committed bundle did not match what the committed code and data produce; the rebuild is identical under different PYTHONHASHSEED values.
+
+### D-29 (2026-11-02): Cadre Faculty Networks & Deterministic NIMFA Markov Spreading Suite
+- **Motivation**: Address faculty vs. junior researcher roles in network diffusion by isolating the 306 permanent cadre faculty across CSIR-NCL, CSIR-IICT, and CSIR-CECRI, and formulate a closed-form Discrete-Time Markov Chain (NIMFA) to benchmark against stochastic Monte Carlo SI.
+- **Methodology**:
+  1. **Cadre Co-Authorship & Citation Networks**:
+     - *Cadre Co-Authorship*: restricted strictly to the 306 cadre faculty ($N=235$ connected nodes, $E=579$ unique pairs, $\langle k \rangle = 3.80$, $\beta_c = 0.0993$).
+     - *Faculty-to-Faculty Directed Citation*: links from cited faculty to citing faculty ($N=245$ connected, $E=1,610$ directed links, $\langle k \rangle = 6.57$, reciprocity = 0.285).
+  2. **Deterministic Discrete-Time Markov Chain (NIMFA)**:
+     - Updates: $x_i(t+1) = x_i(t) + (1 - x_i(t)) [1 - \prod_{j \in \mathcal{N}_{\text{in}}(i)} (1 - \beta_{ji} x_j(t))]$.
+     - Evaluated across 4 network topologies: Full Co-Authorship ($N=7,509$), Cadre Co-Authorship ($N=235$), Full Citation ($N=10,988$), Cadre Citation ($N=245$).
+  3. **Jensen's Inequality Gap**: Quantified the theoretical over-estimate $\Delta(t) = I_{\text{NIMFA}}(t) - I_{\text{MC}}(t) \ge 0$ resulting from neglected positive clique correlations in the mean-field approximation.
+  4. **Dedicated Interactive Portal**: Developed `dashboard/insights11.html` with a standalone dark scientific theme, force-directed graph canvases, simulation toggles, and data cleaning audit logs.
+- **Key Findings**:
+  - Removing non-cadre researchers causes the epidemic threshold $\beta_c$ to jump from 0.0322 to 0.0993, proving that junior scholars provide essential structural bridging across CSIR labs.
+  - The Full Paper Citation Network is strongly DAG-like with low reach ($\approx 1.8\%$), whereas the Faculty-to-Faculty Citation Network contains dense cyclical feedback loops reaching $91.8\%$ of faculty.
+- **Artifacts**: `src/stats/insights/s11_cadre_networks.py`, `src/stats/insights/s11_nimfa_spreading.py`, `src/stats/insights/s11_data_cleaning_audit.py`, `dashboard/insights11.html`, `dashboard/css/insights11.css`, `dashboard/js/insights11.js`, `dashboard/data/g24_insights11_suite.js`.

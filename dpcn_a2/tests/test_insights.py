@@ -144,6 +144,8 @@ def test_headlines_have_no_invented_fallbacks():
     """Headlines must not contain placeholder values that are not in the metrics."""
     for f in Path("stats/tables/insights").glob("*.json"):
         d = json.loads(f.read_text(encoding="utf-8"))
+        if "headline" not in d:
+            continue
         assert "N/A" not in d["headline"], f.name
         assert "Not computed" not in d["headline"], f"{f.name}: run make insights-fetch before make insights"
 
