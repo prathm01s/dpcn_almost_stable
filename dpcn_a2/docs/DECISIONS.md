@@ -206,3 +206,30 @@ All architectural, methodological, and data harmonization decisions made during 
   - Removing non-cadre researchers causes the epidemic threshold $\beta_c$ to jump from 0.0322 to 0.0993, proving that junior scholars provide essential structural bridging across CSIR labs.
   - The Full Paper Citation Network is strongly DAG-like with low reach ($\approx 1.8\%$), whereas the Faculty-to-Faculty Citation Network contains dense cyclical feedback loops reaching $91.8\%$ of faculty.
 - **Artifacts**: `src/stats/insights/s11_cadre_networks.py`, `src/stats/insights/s11_nimfa_spreading.py`, `src/stats/insights/s11_data_cleaning_audit.py`, `dashboard/insights11.html`, `dashboard/css/insights11.css`, `dashboard/js/insights11.js`, `dashboard/data/g24_insights11_suite.js`.
+
+---
+
+### D-30 (2026-11-02): Five Macro & Comparative Insights Architecture
+- **Motivation**: Provide intuitive, statistically sound, macro-level and comparative insights evaluating the CSIR chemistry cluster in relation to state economies, premier higher education institutions (IITs/IISc), international peers, national R&D expenditure constraints, and industrial patenting.
+- **Components & Scope**:
+  1. **Insight 2.1 — Smart Specialization & Regional Economy**:
+     - Correlates scientific Revealed Comparative Advantage (RCA) with host state 2-digit National Industrial Classification (NIC) value-added Location Quotients (LQ) from RBI and MoSPI ASI records:
+       - CSIR-IICT / Telangana: NIC 21 (Pharmaceuticals & Active Pharmaceutical Ingredients)
+       - CSIR-NCL / Maharashtra: NIC 20 (Specialty Chemicals, Catalysts & Polymers)
+       - CSIR-CECRI / Tamil Nadu: NIC 27 (Electrical Equipment, Batteries & Electrochemical Cells)
+  2. **Insight 1.1 — The Academic-Industrial Bridge**:
+     - Computes the bidirectional Knowledge Exchange Ratio ($K_{ER} = C_{\text{HEI} \to \text{CSIR}} / C_{\text{CSIR} \to \text{HEI}}$) across 192,994 citation edges to evaluate idea export vs. import between CSIR and:
+       - Elite Flagships (IIT Bombay, Madras, Delhi, Kharagpur, Kanpur, Roorkee, Guwahati, and IISc Bangalore).
+       - Regional State Universities (Savitribai Phule Pune Univ, Osmania Univ, Univ of Hyderabad, Alagappa Univ), proving CSIR's regional infrastructure uplift role.
+  3. **Insight 5.1 — Scientific "Frugal Innovation" & Macro GERD**:
+     - Evaluates cost-per-Q1-paper and cost-per-citation under India's national R&D intensity ceiling (~0.65% GDP) using Union Budget Demand No. 91 and CSIR Annual Accounts (~₹180–₹240 Cr/year per lab direct expenditure).
+     - Benchmarks against Max Planck Society (Germany), CNRS (France), and US Department of Energy National Labs (Ames, Argonne).
+  4. **Insight 5.2 — Patent-to-Paper Decoupling**:
+     - Contrasts industrial technology translation (domestic IPO vs. international PCT/US patents from CSIR IPMD and Annual Reports) with academic citation metrics across the 306 cadre faculty.
+     - Identifies a 4-quadrant taxonomy separating applied process pioneers from theoretical academic chemists.
+  5. **Insight 3.1 — Global Leiden "Crown Indicator" Benchmarking**:
+     - Measures field-normalized proportions of top-10% ($PP_{\text{top 10\%}}$) and top-1% ($PP_{\text{top 1\%}}$) papers, and Mean Normalized Citation Score ($MNCS$), benchmarked against CWTS Leiden Ranking Open Edition open chemistry datasets.
+- **Implementation Strategy**:
+  - Independent, double-clickable offline HTML portals for each study (`insight_smart_spec.html`, `insight_academic_bridge.html`, `insight_frugal_rd.html`, `insight_patents_papers.html`, `insight_leiden_benchmarks.html`).
+  - Embedded **Data Collection, Preprocessing & Cleaning Methodology Audit** accordion on every page with explicit mathematical formulations, government document citations, and sample data.
+  - Comprehensive unit test suite in `tests/test_macro_insights.py`.

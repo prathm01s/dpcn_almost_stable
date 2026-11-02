@@ -448,6 +448,38 @@ def run_tests():
     finally:
         client_i11.stop()
 
+    macro_pages = [
+        ("insight_smart_spec.html", "Smart Specialization", "chart-radar"),
+        ("insight_academic_bridge.html", "Academic-Industrial Bridge", "chart-ker"),
+        ("insight_frugal_rd.html", "Frugal Innovation", "chart-cost-q1"),
+        ("insight_patents_papers.html", "Patent-to-Paper Decoupling", "chart-quadrant"),
+        ("insight_leiden_benchmarks.html", "Global Leiden Crown Indicators", "chart-leiden-comp")
+    ]
+
+    for page_name, expected_title, chart_id in macro_pages:
+        print(f"\n=== TESTING OFFLINE file:// PROTOCOL FOR {page_name.upper()} ===")
+        abs_path = os.path.abspath(f"dashboard/{page_name}")
+        file_url = f"file://{abs_path}"
+        client_macro = ChromeDevToolsClient(port=9336)
+        try:
+            client_macro.start(file_url)
+            time.sleep(1.0)
+            page_title = client_macro.evaluate("document.title")
+            print(f"✓ {page_name} Loaded: Title='{page_title}'")
+            assert expected_title in page_title, f"Unexpected title {page_title} in {page_name}"
+            chart_elems = client_macro.evaluate(f"document.querySelectorAll('#{chart_id} canvas, #{chart_id} svg').length")
+            print(f"✓ {page_name} Chart '{chart_id}' rendered elements: {chart_elems}")
+            assert chart_elems > 0, f"Chart {chart_id} not rendered in {page_name}"
+            if client_macro.console_errors:
+                print(f"❌ Console errors on {page_name}:")
+                for err in client_macro.console_errors:
+                    print("  ERROR:", err)
+                raise AssertionError(f"Console errors on {page_name}")
+            else:
+                print(f"✓ ZERO Console errors on {page_name}! 100% offline-ready.")
+        finally:
+            client_macro.stop()
+
     print("\n=== ALL BROWSER VERIFICATION TESTS PASSED SUCCESSFULLY! ===")
 
 
