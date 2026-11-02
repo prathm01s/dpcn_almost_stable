@@ -45,6 +45,44 @@ def ordered_subgraph(G: "nx.Graph", nodes) -> "nx.Graph":
     return H
 
 
+def journal_if_lookup(df_papers: pd.DataFrame) -> Dict[str, float]:
+    """work_id -> SCImago 'Cites / Doc. (2 years)' of the journal, an impact-factor analogue on Scopus data.
+
+    Taken from the same SCImago year as the paper's quartile (quartile_year_used), matched on issn / issn_l and
+    then on the cleaned journal title, as in step 08. Not Clarivate's JIF. Papers without a quartile get no value.
+    """
+    import importlib
+    import pyreadr
+    from src.common.issn import to_sjr_issn
+
+    step08 = importlib.import_module("src.collect.08_resolve_quartiles")
+    sjr = list(pyreadr.read_r("data/external/sjr_journals.rda").values())[0]
+    sjr = sjr[(sjr["year"] >= 2014) & sjr["citations_doc_2years"].notna()]
+    by_issn: Dict[tuple, float] = {}
+    by_title: Dict[tuple, float] = {}
+    for yr, issns, title, cd in zip(sjr["year"].astype(int), sjr["issn"], sjr["title"], sjr["citations_doc_2years"]):
+        for i in step08.parse_issns_from_sjr(issns):
+            by_issn[(yr, i)] = float(cd)
+        t = step08.clean_title_for_match(title)
+        if t:
+            by_title[(yr, t)] = float(cd)
+
+    out: Dict[str, float] = {}
+    for wid, yr, issn, issn_l, journal in df_papers.loc[
+        df_papers["quartile_year_used"].astype(str) != "",
+        ["work_id", "quartile_year_used", "issn", "issn_l", "journal_name"],
+    ].itertuples(index=False):
+        y = int(float(yr))
+        keys = [(y, k) for k in (to_sjr_issn(str(issn)), to_sjr_issn(str(issn_l))) if k]
+        val = next((by_issn[k] for k in keys if k in by_issn), None)
+        if val is None:
+            val = by_title.get((y, step08.clean_title_for_match(journal)))
+        if val is not None:
+            out[wid] = round(val, 2)
+    logger.info(f"Journal IF (SCImago 2-yr cites/doc) for {len(out):,} papers")
+    return out
+
+
 def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     """Compute citation and authorship network analytics for interactive visualization."""
     logger.info("Computing network analytics for dashboard...")
@@ -333,6 +371,7 @@ def run_build_dashboard_data() -> None:
     df_papers_inst = df_ext.drop_duplicates(subset=["institution", "work_id"])
     refs = pd.read_csv("data/final/work_reference_counts.csv", dtype={"references_count": "Int64"})
     ref_of = {w: (None if pd.isna(n) else int(n)) for w, n in zip(refs["work_id"], refs["references_count"])}
+    if_of = journal_if_lookup(df_papers_inst.drop_duplicates("work_id"))
 
     # Prepare compact records: [work_id, inst_key, year, type, quartile, field, citations, title, journal, doi]
     compact_papers: List[Dict[str, Any]] = []
@@ -349,6 +388,7 @@ def run_build_dashboard_data() -> None:
             "j": str(r["journal_name"]),
             "doi": str(r["doi"]),
             "r": ref_of.get(r["work_id"]),  # references made (citation impact ratio = c / r)
+            "jif": if_of.get(r["work_id"]),  # journal SCImago 2-yr cites/doc (IF analogue), None if unmatched
         })
 
     logger.info(f"Compiled {len(compact_papers)} compact paper records for client-side filtering")

@@ -328,6 +328,42 @@ def run_tests():
         print(f"✓ After Reset: Papers={reset_papers}")
         assert reset_papers == total_papers
 
+        # Journal IF filter (SCImago 2-yr cites/doc): KPI = distinct papers whose journal IF >= 5
+        expected_if5 = client.evaluate(
+            "new Set(window.G24_DATA.papers_compact.filter(p => p.jif != null && p.jif >= 5).map(p => p.id)).size")
+        client.evaluate("document.getElementById('filter-if').value = '5'")
+        client.evaluate("document.getElementById('filter-if').dispatchEvent(new Event('change'))")
+        time.sleep(0.3)
+        if5_papers = int(client.evaluate("document.getElementById('kpi-total-papers').textContent").replace(",", ""))
+        print(f"✓ IF ≥ 5: Papers={if5_papers:,} (expected {expected_if5:,})")
+        assert if5_papers == expected_if5 and 0 < if5_papers < int(total_papers.replace(",", ""))
+        client.evaluate("document.getElementById('btn-reset-filters').click()")
+        time.sleep(0.3)
+
+        # Faculty tab: h-index chart is stacked by campus for All; Q1-papers filter narrows the scientists
+        client.evaluate("document.querySelector('.tab-btn[data-tab=\"faculty\"]').click()")
+        time.sleep(0.5)
+        h_series = client.evaluate(
+            "JSON.stringify(echarts.getInstanceByDom(document.getElementById('chart-h-index')).getOption().series"
+            ".map(s => [s.name, s.data.reduce((a, b) => a + b, 0)]))")
+        h_series = json.loads(h_series)
+        print(f"✓ h-index by campus (All): {h_series}")
+        assert [s[0] for s in h_series] == ["CSIR-IICT", "CSIR-NCL", "CSIR-CECRI"]
+        assert sum(s[1] for s in h_series) == int(client.evaluate("document.getElementById('kpi-active-faculty').textContent").replace(",", ""))
+        for minq1 in ("5", "10"):
+            expected = client.evaluate(
+                f"window.G24_DATA.by_institute.all.faculty.filter(f => f.q1_papers > {minq1} && f.papers > 0).length")
+            client.evaluate(f"document.getElementById('filter-q1-papers').value = '{minq1}'")
+            client.evaluate("document.getElementById('filter-q1-papers').dispatchEvent(new Event('change'))")
+            time.sleep(0.4)
+            active = int(client.evaluate("document.getElementById('kpi-active-faculty').textContent").replace(",", ""))
+            rows = client.evaluate("Tabulator.findTable('#table-faculty')[0].getDataCount()")
+            print(f"✓ > {minq1} Q1 papers: {active} active scientists, {rows} directory rows")
+            assert active == expected and rows >= active
+        client.capture_screenshot("dashboard/screenshots/03c_faculty_q1_filter.png")
+        client.evaluate("document.getElementById('btn-reset-filters').click()")
+        time.sleep(0.3)
+
         print("\n--- Console Output Summary ---")
         for l in client.console_logs:
             print("  ", l)

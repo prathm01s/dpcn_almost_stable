@@ -80,6 +80,26 @@
           </select>
         </div>
 
+        <div class="filter-group" title="Journal impact factor analogue: SCImago 'Cites / Doc. (2 years)' of the journal in the paper's quartile year (Scopus data, not Clarivate JIF). Papers without a SCImago match are excluded when a threshold is set.">
+          <label>Journal IF</label>
+          <select id="filter-if" class="filter-select">
+            <option value="0" selected>Any IF</option>
+            <option value="2">IF ≥ 2</option>
+            <option value="3">IF ≥ 3</option>
+            <option value="5">IF ≥ 5</option>
+            <option value="10">IF ≥ 10</option>
+          </select>
+        </div>
+
+        <div class="filter-group" title="Roster scientists by number of Q1-journal papers (2016–2026). Applies to the Faculty tab: featured scientists, directory, h-index chart and the faculty KPIs.">
+          <label>Scientists</label>
+          <select id="filter-q1-papers" class="filter-select">
+            <option value="0" selected>All Scientists</option>
+            <option value="5">&gt; 5 Q1 Papers</option>
+            <option value="10">&gt; 10 Q1 Papers</option>
+          </select>
+        </div>
+
         <button id="btn-reset-filters" class="btn-reset">Reset</button>
       </div>
     </div>

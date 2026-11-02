@@ -12,3 +12,6 @@ data/cache/
 data/interim/
 .pytest_cache/
 logs/*.log
+
+# Personal explainer for the professor (not part of the submission)
+INSIGHTS_EXPLAINED.md

@@ -82,6 +82,12 @@ The extended dataset retains the identical row order and row count as `group24_d
 
 Network analysis (PageRank, Louvain, centralities) uses only the within-cluster rows; the rows to outside Indian papers/authors are raw data, as the instruction note requires.
 
+## Journal impact factor analogue (dashboard)
+
+| Field | Definition |
+|---|---|
+| `jif` (dashboard `papers_compact`) | SCImago "Cites / Doc. (2 years)" of the paper's journal in its quartile year (`quartile_year_used`), matched on `issn` / `issn_l`, then cleaned journal title. Scopus-based; **not** Clarivate JIF. `null` when there is no SCImago match (909 of 14,352 papers). Used by the dashboard's "Journal IF" filter. |
+
 ## Citation impact ratio
 
 | File / field | Definition |

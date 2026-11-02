@@ -139,12 +139,14 @@
     return `<div class="prof-marquee"><div class="prof-track" style="--dur:${dur}s">${cardsHtml}${cardsHtml.replace(/data-fid=/g, "aria-hidden=\"true\" data-fid=").replace(/tabindex="0"/g, 'tabindex="-1"')}</div></div>`;
   }
 
-  /** Render the featured-scientists strip for a lab key ("all" | "iict" | "ncl" | "cecri"). */
-  function renderFeatured(containerId, labKey, n = 16) {
+  /** Render the featured-scientists strip for a lab key ("all" | "iict" | "ncl" | "cecri"),
+   *  optionally restricted to a Set of faculty IDs (`keep`, e.g. the Q1-papers filter). */
+  function renderFeatured(containerId, labKey, n = 16, keep = null) {
     const el = document.getElementById(containerId);
     if (!el) return;
     const list = Object.values(PROFILES)
       .filter(p => p.papers > 0 && (labKey === "all" || labKey === "compare" || p.lab_key === labKey))
+      .filter(p => !keep || keep.has(p.id))
       .sort((a, b) => b.citations - a.citations || a.name.localeCompare(b.name))
       .slice(0, n);
     el.innerHTML = list.length ? marquee(list.map(scientistCard).join(""), list.length) : `<div class="prof-empty">No scientists for this selection.</div>`;

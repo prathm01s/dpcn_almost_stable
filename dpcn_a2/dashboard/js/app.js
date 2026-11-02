@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     type: "all",
     quartile: "all",
     field: "all",
+    minIF: 0,    // journal SCImago 2-yr cites/doc (IF analogue), paper filter
+    minQ1: 0,    // scientists with more than this many Q1 papers, faculty filter
   };
 
   // DOM Elements
@@ -51,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterType = document.getElementById("filter-type");
   const filterQuartile = document.getElementById("filter-quartile");
   const filterField = document.getElementById("filter-field");
+  const filterIF = document.getElementById("filter-if");
+  const filterQ1Papers = document.getElementById("filter-q1-papers");
   const btnReset = document.getElementById("btn-reset-filters");
 
   // Populate Field filter options
@@ -104,10 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
     state.type = filterType.value;
     state.quartile = filterQuartile.value;
     state.field = filterField.value;
+    state.minIF = filterIF ? parseFloat(filterIF.value) : 0;
+    state.minQ1 = filterQ1Papers ? parseInt(filterQ1Papers.value) : 0;
     updateDashboard();
   };
 
-  [filterYearMin, filterYearMax, filterType, filterQuartile, filterField].forEach(el => {
+  [filterYearMin, filterYearMax, filterType, filterQuartile, filterField, filterIF, filterQ1Papers].forEach(el => {
     if (el) el.addEventListener("change", onFilterChange);
   });
 
@@ -118,20 +124,33 @@ document.addEventListener("DOMContentLoaded", () => {
       filterType.value = "all";
       filterQuartile.value = "all";
       filterField.value = "all";
+      if (filterIF) filterIF.value = "0";
+      if (filterQ1Papers) filterQ1Papers.value = "0";
       onFilterChange();
     });
+  }
+
+  // Paper-level filters shared by getFilteredPapers() and filteredPapersFor()
+  function paperPasses(p) {
+    if (p.yr < state.yearMin || p.yr > state.yearMax) return false;
+    if (state.type !== "all" && p.t !== state.type) return false;
+    if (state.quartile !== "all" && p.q !== state.quartile) return false;
+    if (state.field !== "all" && p.f !== state.field) return false;
+    if (state.minIF > 0 && !(p.jif != null && p.jif >= state.minIF)) return false;
+    return true;
   }
 
   // Filter papers_compact based on state
   function getFilteredPapers() {
     return data.papers_compact.filter(p => {
       if (currentInst !== "all" && currentInst !== "compare" && p.inst !== currentInst) return false;
-      if (p.yr < state.yearMin || p.yr > state.yearMax) return false;
-      if (state.type !== "all" && p.t !== state.type) return false;
-      if (state.quartile !== "all" && p.q !== state.quartile) return false;
-      if (state.field !== "all" && p.f !== state.field) return false;
-      return true;
+      return paperPasses(p);
     });
+  }
+
+  // Roster scientists passing the Q1-papers filter
+  function filteredFaculty(bundle) {
+    return state.minQ1 > 0 ? bundle.faculty.filter(f => f.q1_papers > state.minQ1) : bundle.faculty;
   }
 
   // Main Dashboard Update
@@ -149,12 +168,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 1. KPI Strip Rendering
   function renderKPIs() {
-    const isFiltered = state.yearMin !== 2016 || state.yearMax !== 2026 || state.type !== "all" || state.quartile !== "all" || state.field !== "all";
+    const isFiltered = state.yearMin !== 2016 || state.yearMax !== 2026 || state.type !== "all" || state.quartile !== "all" || state.field !== "all" || state.minIF > 0;
     const instBundle = data.by_institute[currentInst === "compare" ? "all" : currentInst];
 
-    // Faculty and h-index KPIs always come from pre-aggregated bundle
-    // (they can't be derived from compact paper records)
-    if (instBundle && instBundle.h_index && instBundle.h_index.summary) {
+    // Faculty and h-index KPIs come from the pre-aggregated bundle (they can't be derived from compact
+    // paper records); with the Q1-papers filter they are recomputed from the matching scientists' rows
+    if (instBundle && state.minQ1 > 0) {
+      const hs = filteredFaculty(instBundle).filter(f => f.papers > 0).map(f => f.h_index).sort((a, b) => a - b);
+      const n = hs.length;
+      kpiActiveFaculty.textContent = n.toLocaleString();
+      kpiMedianH.textContent = n ? (n % 2 ? hs[(n - 1) / 2] : (hs[n / 2 - 1] + hs[n / 2]) / 2).toFixed(1) : "-";
+    } else if (instBundle && instBundle.h_index && instBundle.h_index.summary) {
       const h = instBundle.h_index.summary;
       kpiActiveFaculty.textContent = h.active_faculty_count != null ? h.active_faculty_count.toLocaleString() : "-";
       kpiMedianH.textContent = h.median_h_index != null ? h.median_h_index.toFixed(1) : "-";
@@ -289,10 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const seen = new Set();
     return data.papers_compact.filter(p => {
       if (instKey !== "all" && p.inst !== instKey) return false;
-      if (p.yr < state.yearMin || p.yr > state.yearMax) return false;
-      if (state.type !== "all" && p.t !== state.type) return false;
-      if (state.quartile !== "all" && p.q !== state.quartile) return false;
-      if (state.field !== "all" && p.f !== state.field) return false;
+      if (!paperPasses(p)) return false;
       if (instKey === "all") {
         if (seen.has(p.id)) return false;
         seen.add(p.id);
@@ -365,14 +386,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Faculty Panels
   let facultyTable = null;
   function renderFacultyPanels() {
-    if (window.G24Profiles) G24Profiles.renderFeatured("featured-scientists", currentInst);
     const bundle = data.by_institute[currentInst === "compare" ? "all" : currentInst];
+    const faculty = filteredFaculty(bundle);
+    if (window.G24Profiles) {
+      const keep = state.minQ1 > 0 ? new Set(faculty.map(f => f.faculty_id)) : null;
+      G24Profiles.renderFeatured("featured-scientists", currentInst, 16, keep);
+    }
 
     // Faculty Directory Table via Tabulator
     const tableEl = document.getElementById("table-faculty");
     if (tableEl && !facultyTable) {
       facultyTable = new Tabulator(tableEl, {
-        data: bundle.faculty,
+        data: faculty,
         layout: "fitColumns",
         pagination: "local",
         paginationSize: 15,
@@ -388,29 +413,52 @@ document.addEventListener("DOMContentLoaded", () => {
           { title: "Designation", field: "designation", widthGrow: 1.5 },
           { title: "Papers", field: "papers", sorter: "number", width: 90 },
           { title: "Citations", field: "citations", sorter: "number", width: 95 },
+          { title: "Q1 Papers", field: "q1_papers", sorter: "number", width: 95 },
           { title: "Q1 %", field: "q1_share_pct", sorter: "number", width: 85, formatter: c => `${c.getValue()}%` },
           { title: "h-Index", field: "h_index", sorter: "number", width: 90 },
         ],
       });
     } else if (facultyTable) {
-      facultyTable.setData(bundle.faculty);
+      facultyTable.setData(faculty);
       facultyTable.redraw(true);
     }
 
-    // Faculty h-index histogram
+    // Faculty h-index histogram, binned here from the (filtered) faculty rows with the same
+    // bins as stats/tables/h_index_distribution.csv; one stacked colour per campus for All/Compare
     const hEl = document.getElementById("chart-h-index");
     if (hEl) {
       if (!charts.hIndex) charts.hIndex = echarts.init(hEl);
-      const hBins = bundle.h_index.bins;
+      const binLabels = bundle.h_index.bins.map(b => b.bin_label);  // "0-4" … "35+"
+      const binOf = h => Math.min(Math.floor(h / 5), binLabels.length - 1);
+      const active = faculty.filter(f => f.papers > 0);
+      const countBins = rows => {
+        const counts = binLabels.map(() => 0);
+        rows.forEach(f => { counts[binOf(f.h_index)] += 1; });
+        return counts;
+      };
+      const byCampus = currentInst === "all" || currentInst === "compare";
+      const labs = [["iict", "CSIR-IICT"], ["ncl", "CSIR-NCL"], ["cecri", "CSIR-CECRI"]];
+      const series = byCampus
+        ? labs.map(([key, name]) => ({
+            name, type: "bar", stack: "h", emphasis: { focus: "series" },
+            data: countBins(active.filter(f => f.institution === name)),
+            itemStyle: { color: colors[key] },
+          }))
+        : [{ name: bundle.name || currentInst.toUpperCase(), type: "bar", data: countBins(active), itemStyle: { color: colors[currentInst] } }];
       charts.hIndex.setOption({
-        tooltip: { trigger: "axis" },
-        xAxis: { type: "category", data: hBins.map(b => b.bin_label), name: "h-Index Range" },
+        tooltip: {
+          trigger: "axis", axisPointer: { type: "shadow" },
+          formatter: params => {
+            const total = params.reduce((a, p) => a + p.value, 0);
+            return `<strong>h-index ${params[0].name}</strong>: ${total} scientists` +
+              (byCampus ? "<br/>" + params.map(p => `${p.marker}${p.seriesName}: ${p.value}`).join("<br/>") : "");
+          },
+        },
+        legend: byCampus ? { data: labs.map(l => l[1]), bottom: 0 } : { show: false },
+        grid: { left: 50, right: 20, top: 40, bottom: byCampus ? 60 : 40 },
+        xAxis: { type: "category", data: binLabels, name: "h-Index Range", nameLocation: "middle", nameGap: 26 },
         yAxis: { type: "value", name: "Faculty Count" },
-        series: [{
-          type: "bar",
-          data: hBins.map(b => b.faculty_count),
-          itemStyle: { color: colors[currentInst === "compare" ? "all" : currentInst] },
-        }],
+        series,
       }, true);
     }
 
