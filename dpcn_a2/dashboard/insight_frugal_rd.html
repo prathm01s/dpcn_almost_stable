@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scientific Frugal Innovation & Macro GERD — Group 24</title>
   <link rel="stylesheet" href="css/insight_pages.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="vendor/mathjax/tex-svg.js"></script>
   <script src="vendor/echarts.min.js"></script>
   <script src="data/g24_frugal_rd.js"></script>
 </head>
@@ -17,13 +30,13 @@
       <h1>Frugal Innovation & Macro GERD</h1>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="nav-link">🏠 Main Dashboard</a>
-      <a href="insights11.html" class="nav-link">🔬 Cadre & NIMFA</a>
-      <a href="insight_smart_spec.html" class="nav-link">🏭 2.1 Smart Specialization</a>
-      <a href="insight_academic_bridge.html" class="nav-link">🌉 1.1 Academic Bridge</a>
-      <a href="insight_frugal_rd.html" class="nav-link active">💰 5.1 Frugal Innovation</a>
-      <a href="insight_patents_papers.html" class="nav-link">📜 5.2 Patents vs Papers</a>
-      <a href="insight_leiden_benchmarks.html" class="nav-link">👑 3.1 Leiden Benchmarks</a>
+      <a href="index.html" class="nav-link">Main Dashboard</a>
+      <a href="insights11.html" class="nav-link">Cadre & NIMFA Spreading</a>
+      <a href="insight_smart_spec.html" class="nav-link">2.1 Smart Specialization</a>
+      <a href="insight_academic_bridge.html" class="nav-link">1.1 Academic Bridge</a>
+      <a href="insight_frugal_rd.html" class="nav-link active">5.1 Frugal Innovation</a>
+      <a href="insight_patents_papers.html" class="nav-link">5.2 Patents vs Papers</a>
+      <a href="insight_leiden_benchmarks.html" class="nav-link">3.1 Leiden Benchmarks</a>
     </nav>
   </header>
 
@@ -32,9 +45,9 @@
     <!-- Hero Header -->
     <section class="hero">
       <div class="hero-subtitle">Macro-Economics & Research Capital Productivity</div>
-      <h2>Scientific "Frugal Innovation": Extreme Capital Efficiency Under India's 0.65% GDP Ceiling</h2>
+      <h2>Scientific Frugal Innovation: Capital Efficiency Under India's 0.65% GDP Ceiling</h2>
       <p class="hero-lead">
-        India's Gross Expenditure on R&D (GERD) has hovered near <strong>0.65% of GDP</strong> for over two decades—a fraction of the investment made by China (2.4%), Germany (3.1%), and the United States (3.5%). Despite operating on combined annual grant allocations of ~$60M USD across all three laboratories, CSIR-NCL, CSIR-IICT, and CSIR-CECRI generate over <strong>825 Q1 publications annually</strong>. Cross-referencing Union Budget Demand No. 91 and audited institutional financials, we evaluate the cost-per-Q1 publication and cost-per-citation against global public research organizations.
+        India's Gross Expenditure on R&D (GERD) has hovered near <strong>0.65% of GDP</strong> for over two decades—a fraction of the investment made by China (2.4%), Germany (3.1%), and the United States (3.5%). Despite operating on combined annual grant allocations of ~$60M USD across all three laboratories, CSIR-NCL, CSIR-IICT, and CSIR-CECRI generate over <strong>825 Q1 publications annually</strong>. Cross-referencing Union Budget Demand No. 91 and audited institutional financials, cost-per-Q1 publication and cost-per-citation metrics are evaluated against global public research organizations.
       </p>
     </section>
 
@@ -43,7 +56,7 @@
       <div class="kpi-card">
         <div class="kpi-label">CSIR Cost per Q1 Paper</div>
         <div class="kpi-value" style="color: #059669;">$73,500</div>
-        <div class="kpi-subtext">Nominal USD (or $20,800 USD in Purchasing Power Parity). 3.9× cheaper than Max Planck.</div>
+        <div class="kpi-subtext">Nominal USD (or $20,800 USD in Purchasing Power Parity). 3.9× lower than Max Planck.</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">US DOE Cost per Q1 Paper</div>
@@ -66,7 +79,6 @@
     <div class="audit-box">
       <div class="audit-header" onclick="toggleAudit()">
         <div class="audit-title">
-          <span class="icon">🔍</span>
           <span>Data Collection, Preprocessing & Cleaning Methodology Audit</span>
         </div>
         <span id="audit-toggle-icon" style="font-weight: bold; color: #64748b;">[− Click to Collapse]</span>
@@ -74,7 +86,7 @@
       <div class="audit-content" id="audit-content">
         <div class="audit-grid">
           <div class="audit-pane">
-            <h4>📁 Primary Data Sources</h4>
+            <h4>Primary Data Sources</h4>
             <ul>
               <li><strong>Union Budget of India</strong>: Demand No. 91 (Department of Scientific and Industrial Research - DSIR), Major Head 3425: Assistance to CSIR National Laboratories (2016–2025 actual expenditure records).</li>
               <li><strong>CSIR Annual Accounts</strong>: Audited operational and capital grant-in-aid expenditures for CSIR-NCL (~₹215 Cr/yr), CSIR-IICT (~₹185 Cr/yr), and CSIR-CECRI (~₹98 Cr/yr).</li>
@@ -82,7 +94,7 @@
             </ul>
           </div>
           <div class="audit-pane">
-            <h4>📐 Mathematical Formulations</h4>
+            <h4>Mathematical Formulations</h4>
             <div class="formula-card">
               $$C_{Q1} = \frac{\text{Average Annual Operational Budget}}{\text{Average Annual Q1 Publications}}$$
             </div>
@@ -94,10 +106,10 @@
             </div>
           </div>
           <div class="audit-pane">
-            <h4>⚙️ Preprocessing & Standardization</h4>
+            <h4>Preprocessing & Standardization</h4>
             <ul>
-              <li><strong>Direct Laboratory Scope</strong>: Following user review recommendation, calculations use direct institutional operational grant-in-aid, excluding centralized CSIR administrative headquarters overheads.</li>
-              <li><strong>Exchange Normalization</strong>: Fixed multi-year moving average exchange rates to prevent transient currency volatility from skewing comparisons.</li>
+              <li><strong>Direct Laboratory Scope</strong>: Calculations use direct institutional operational grant-in-aid, excluding centralized CSIR administrative headquarters overheads.</li>
+              <li><strong>Exchange Normalization</strong>: Multi-year moving average exchange rates are applied to prevent transient currency volatility from distorting comparisons.</li>
             </ul>
           </div>
         </div>
@@ -120,7 +132,7 @@
       <div class="interpretation-box">
         <h4>Scientific & Economic Interpretation</h4>
         <p>
-          The cost-per-Q1 metric provides striking empirical confirmation of scientific <strong>"frugal innovation"</strong>. Producing a Q1 publication at Germany's Max Planck Society requires approximately <strong>$288,800 USD</strong> in operational funding; at the US DOE Ames National Laboratory, it requires <strong>$436,300 USD</strong>. In contrast, the CSIR chemistry cluster produces Q1 publications at <strong>$73,500 USD</strong> nominal, or <strong>$20,800 USD</strong> in purchasing power parity—a nearly sixfold capital efficiency multiplier. This efficiency is achieved through high doctoral student density (AcSIR scholars working long hours), shared central instrumentation facilities, and low administrative overhead.
+          The cost-per-Q1 metric provides empirical evidence of scientific frugal innovation. Producing a Q1 publication at Germany's Max Planck Society requires approximately <strong>$288,800 USD</strong> in operational funding; at the US DOE Ames National Laboratory, it requires <strong>$436,300 USD</strong>. In contrast, the CSIR chemistry cluster produces Q1 publications at <strong>$73,500 USD</strong> nominal, or <strong>$20,800 USD</strong> in purchasing power parity—a significant capital efficiency multiplier. This efficiency is supported by high doctoral student engagement (AcSIR scholars), shared central instrumentation facilities, and low administrative overhead.
         </p>
       </div>
     </div>
@@ -137,7 +149,7 @@
       <div class="interpretation-box">
         <h4>Macroeconomic Constraint Analysis</h4>
         <p>
-          While the United States (3.46%), Germany (3.14%), and China (2.43%) reinvest substantial percentages of their GDP into R&D, India has remained bound by a strict <strong>0.65% GDP ceiling</strong>. Despite this macroeconomic constraint, CSIR chemistry publication velocity grew steadily from 1,250 papers in 2016 to over 1,500 papers annually by 2024. Indian scientific researchers extract remarkable productivity from limited grant capital, though capital constraints limit equipment depreciation cycles and advanced cryo-EM / synchrotron installations.
+          While the United States (3.46%), Germany (3.14%), and China (2.43%) reinvest substantial percentages of their GDP into R&D, India has remained bound by an approximate <strong>0.65% GDP ceiling</strong>. Despite this macroeconomic constraint, CSIR chemistry publication velocity grew steadily from 1,250 papers in 2016 to over 1,500 papers annually by 2024. Indian scientific researchers sustain high output relative to grant capital, though resource limits affect equipment replacement schedules and large-scale infrastructure investments.
         </p>
       </div>
     </div>

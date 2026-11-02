@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Academic-Industrial Bridge — Group 24</title>
   <link rel="stylesheet" href="css/insight_pages.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="vendor/mathjax/tex-svg.js"></script>
   <script src="vendor/echarts.min.js"></script>
   <script src="data/g24_academic_bridge.js"></script>
 </head>
@@ -17,13 +30,13 @@
       <h1>The Academic-Industrial Bridge</h1>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="nav-link">🏠 Main Dashboard</a>
-      <a href="insights11.html" class="nav-link">🔬 Cadre & NIMFA</a>
-      <a href="insight_smart_spec.html" class="nav-link">🏭 2.1 Smart Specialization</a>
-      <a href="insight_academic_bridge.html" class="nav-link active">🌉 1.1 Academic Bridge</a>
-      <a href="insight_frugal_rd.html" class="nav-link">💰 5.1 Frugal Innovation</a>
-      <a href="insight_patents_papers.html" class="nav-link">📜 5.2 Patents vs Papers</a>
-      <a href="insight_leiden_benchmarks.html" class="nav-link">👑 3.1 Leiden Benchmarks</a>
+      <a href="index.html" class="nav-link">Main Dashboard</a>
+      <a href="insights11.html" class="nav-link">Cadre & NIMFA Spreading</a>
+      <a href="insight_smart_spec.html" class="nav-link">2.1 Smart Specialization</a>
+      <a href="insight_academic_bridge.html" class="nav-link active">1.1 Academic Bridge</a>
+      <a href="insight_frugal_rd.html" class="nav-link">5.1 Frugal Innovation</a>
+      <a href="insight_patents_papers.html" class="nav-link">5.2 Patents vs Papers</a>
+      <a href="insight_leiden_benchmarks.html" class="nav-link">3.1 Leiden Benchmarks</a>
     </nav>
   </header>
 
@@ -34,7 +47,7 @@
       <div class="hero-subtitle">Knowledge Diffusion & Directional Citation Asymmetry</div>
       <h2>The Academic-Industrial Bridge: Idea Exporter or Idea Consumer?</h2>
       <p class="hero-lead">
-        Does CSIR serve as an upstream "knowledge supplier" whose synthetic protocols and catalyst methods academic universities build upon, or does it consume fundamental academic theory to feed applied pilot processes? By analyzing <strong>192,994 verified directed citation links</strong> across India's premier higher education ecosystem, we compute the directional <strong>Knowledge Exchange Ratio ($K_{ER}$)</strong> between CSIR chemistry labs and Tier-1 Flagships (IITs, IISc) and Tier-2 Regional State Universities.
+        Through analysis of <strong>192,994 verified directed citation links</strong> across India's higher education ecosystem, the directional <strong>Knowledge Exchange Ratio ($K_{ER}$)</strong> evaluates whether CSIR chemistry labs function primarily as net knowledge suppliers or fundamental theory consumers relative to Tier-1 Flagships (IITs, IISc) and Tier-2 Regional State Universities.
       </p>
     </section>
 
@@ -58,7 +71,7 @@
       <div class="kpi-card">
         <div class="kpi-label">Regional Anchor Uplift (Alagappa)</div>
         <div class="kpi-value" style="color: #d97706;">+375 Net</div>
-        <div class="kpi-subtext">Alagappa University cites CSIR-CECRI 1,020 times, yielding a massive 1.58× exporter ratio.</div>
+        <div class="kpi-subtext">Alagappa University cites CSIR-CECRI 1,020 times, yielding a 1.58× exporter ratio.</div>
       </div>
     </div>
 
@@ -66,7 +79,6 @@
     <div class="audit-box">
       <div class="audit-header" onclick="toggleAudit()">
         <div class="audit-title">
-          <span class="icon">🔍</span>
           <span>Data Collection, Preprocessing & Cleaning Methodology Audit</span>
         </div>
         <span id="audit-toggle-icon" style="font-weight: bold; color: #64748b;">[− Click to Collapse]</span>
@@ -74,7 +86,7 @@
       <div class="audit-content" id="audit-content">
         <div class="audit-grid">
           <div class="audit-pane">
-            <h4>📁 Primary Data Sources</h4>
+            <h4>Primary Data Sources</h4>
             <ul>
               <li><strong>Citation Network</strong>: <code>data/final/citation_network.csv</code> containing 192,994 directed links with source DOI, target DOI, source institute, target institute, and publication year.</li>
               <li><strong>Indian Institutional Connections</strong>: <code>data/final/indian_connections.csv</code> recording joint papers and shared citations across 150+ Indian universities.</li>
@@ -82,7 +94,7 @@
             </ul>
           </div>
           <div class="audit-pane">
-            <h4>📐 Mathematical Formulations</h4>
+            <h4>Mathematical Formulations</h4>
             <div class="formula-card">
               $$K_{ER}(i, j) = \frac{C_{j \to i}}{C_{i \to j}} = \frac{\text{Citations from HEI } j \text{ to CSIR } i}{\text{Citations from CSIR } i \text{ to HEI } j}$$
             </div>
@@ -94,7 +106,7 @@
             </div>
           </div>
           <div class="audit-pane">
-            <h4>⚙️ Preprocessing & Exclusion Rules</h4>
+            <h4>Preprocessing & Exclusion Rules</h4>
             <ul>
               <li><strong>Self-Citations Excluded</strong>: Internal cross-citations within the same lab are isolated to evaluate genuine inter-institutional diffusion.</li>
               <li><strong>Affiliation Disambiguation</strong>: Standardized OpenAlex institution strings for IITs, IISc, and state universities to prevent split-campus false negatives.</li>
@@ -121,7 +133,7 @@
       <div class="interpretation-box">
         <h4>Scientific & Bibliometric Interpretation</h4>
         <p>
-          The Knowledge Exchange Ratio reveals a clear structural division in Indian science. CSIR acts as a <strong>net knowledge exporter</strong> to technical universities that focus on engineering translation—most notably <strong>IIT Hyderabad ($K_{ER} = 2.031$)</strong>, <strong>Alagappa University ($K_{ER} = 1.581$)</strong>, and <strong>IIT Roorkee ($K_{ER} = 1.046$)</strong>. In these relationships, university researchers cite CSIR's chemical synthesis and catalytic materials papers significantly more than CSIR cites them back. Conversely, CSIR acts as a <strong>net knowledge consumer</strong> of elite basic-science institutions—most prominently <strong>IISc Bangalore ($K_{ER} = 0.410$)</strong> and <strong>University of Hyderabad ($K_{ER} = 0.389$)</strong>. CSIR chemists heavily reference IISc's theoretical and physical chemistry models to inform their applied synthesis pipelines.
+          The Knowledge Exchange Ratio reveals a clear structural division in Indian chemical science. CSIR acts as a <strong>net knowledge exporter</strong> to technical universities that focus on engineering translation—most notably <strong>IIT Hyderabad ($K_{ER} = 2.031$)</strong>, <strong>Alagappa University ($K_{ER} = 1.581$)</strong>, and <strong>IIT Roorkee ($K_{ER} = 1.046$)</strong>. In these relationships, university researchers cite CSIR's chemical synthesis and catalytic materials papers significantly more than CSIR cites them back. Conversely, CSIR acts as a <strong>net knowledge consumer</strong> of elite basic-science institutions—most prominently <strong>IISc Bangalore ($K_{ER} = 0.410$)</strong> and <strong>University of Hyderabad ($K_{ER} = 0.389$)</strong>. CSIR chemists reference IISc's theoretical and physical chemistry models to inform applied synthesis pipelines.
         </p>
       </div>
     </div>
@@ -138,7 +150,7 @@
       <div class="interpretation-box">
         <h4>Exchange Dynamics</h4>
         <p>
-          Plotting incoming citations ($C_{\text{received}}$) against outgoing references ($C_{\text{sent}}$) highlights institutional symmetry. Institutions near the 45-degree parity diagonal (such as <strong>IIT Guwahati</strong>, <strong>IIT Delhi</strong>, and <strong>IIT Kanpur</strong>) maintain balanced, symbiotic scientific dialogues with CSIR, with citation exchanges hovering around 1,000–1,200 citations in each direction. IISc Bangalore stands out as a high-volume outlier with over 3,100 citations received from CSIR, reflecting its role as the national baseline for fundamental chemical physics.
+          Plotting incoming citations ($C_{\text{received}}$) against outgoing references ($C_{\text{sent}}$) highlights institutional symmetry. Institutions near the 45-degree parity diagonal (such as <strong>IIT Guwahati</strong>, <strong>IIT Delhi</strong>, and <strong>IIT Kanpur</strong>) maintain balanced scientific exchanges with CSIR, with citation exchanges hovering around 1,000–1,200 citations in each direction. IISc Bangalore stands out as a high-volume outlier with over 3,100 citations received from CSIR, reflecting its role as the national baseline for fundamental chemical physics.
         </p>
       </div>
     </div>

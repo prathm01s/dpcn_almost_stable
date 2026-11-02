@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Specialization & Regional Economy — Group 24</title>
   <link rel="stylesheet" href="css/insight_pages.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="vendor/mathjax/tex-svg.js"></script>
   <script src="vendor/echarts.min.js"></script>
   <script src="data/g24_smart_spec.js"></script>
 </head>
@@ -17,13 +30,13 @@
       <h1>Smart Specialization & Regional Economy</h1>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="nav-link">🏠 Main Dashboard</a>
-      <a href="insights11.html" class="nav-link">🔬 Cadre & NIMFA</a>
-      <a href="insight_smart_spec.html" class="nav-link active">🏭 2.1 Smart Specialization</a>
-      <a href="insight_academic_bridge.html" class="nav-link">🌉 1.1 Academic Bridge</a>
-      <a href="insight_frugal_rd.html" class="nav-link">💰 5.1 Frugal Innovation</a>
-      <a href="insight_patents_papers.html" class="nav-link">📜 5.2 Patents vs Papers</a>
-      <a href="insight_leiden_benchmarks.html" class="nav-link">👑 3.1 Leiden Benchmarks</a>
+      <a href="index.html" class="nav-link">Main Dashboard</a>
+      <a href="insights11.html" class="nav-link">Cadre & NIMFA Spreading</a>
+      <a href="insight_smart_spec.html" class="nav-link active">2.1 Smart Specialization</a>
+      <a href="insight_academic_bridge.html" class="nav-link">1.1 Academic Bridge</a>
+      <a href="insight_frugal_rd.html" class="nav-link">5.1 Frugal Innovation</a>
+      <a href="insight_patents_papers.html" class="nav-link">5.2 Patents vs Papers</a>
+      <a href="insight_leiden_benchmarks.html" class="nav-link">3.1 Leiden Benchmarks</a>
     </nav>
   </header>
 
@@ -34,7 +47,7 @@
       <div class="hero-subtitle">Industrial Geography & Innovation Economics</div>
       <h2>Regional Economic Alignment: Lab Science vs. State Industrial Specialization</h2>
       <p class="hero-lead">
-        Do national scientific laboratories operate in academic isolation, or does their research portfolio directly reinforce the industrial manufacturing strengths of their host states? By cross-referencing OpenAlex research domains with official RBI State Gross Value Added (GSVA) and MoSPI 2-Digit Annual Survey of Industries (ASI) records, we evaluate the <strong>Revealed Comparative Advantage (RCA)</strong> of CSIR-NCL, CSIR-IICT, and CSIR-CECRI against host state industrial <strong>Location Quotients (LQ)</strong>.
+        Analysis of whether national scientific laboratories operate in academic isolation or directly reinforce the manufacturing strengths of their host states. By cross-referencing OpenAlex research domains with official Reserve Bank of India (RBI) State Gross Value Added (GSVA) and MoSPI 2-Digit Annual Survey of Industries (ASI) records, the <strong>Revealed Comparative Advantage (RCA)</strong> of CSIR-NCL, CSIR-IICT, and CSIR-CECRI is evaluated against host state industrial <strong>Location Quotients (LQ)</strong>.
       </p>
     </section>
 
@@ -66,26 +79,25 @@
     <div class="audit-box">
       <div class="audit-header" onclick="toggleAudit()">
         <div class="audit-title">
-          <span class="icon">🔍</span>
           <span>Data Collection, Preprocessing & Cleaning Methodology Audit</span>
         </div>
         <span id="audit-toggle-icon" style="font-weight: bold; color: #64748b;">[− Click to Collapse]</span>
       </div>
       <div class="audit-content" id="audit-content">
         <p style="font-size: 0.9rem; color: #334155;">
-          Per strict group compliance guidelines, zero economic or bibliometric indicators were fabricated. All metrics are mathematically derived from audited government registries and our 14,352-paper verified corpus:
+          Per strict compliance guidelines, zero economic or bibliometric indicators were fabricated. All metrics are derived from audited government registries and the verified 14,352-paper corpus:
         </p>
         <div class="audit-grid">
           <div class="audit-pane">
-            <h4>📁 Primary Data Sources</h4>
+            <h4>Primary Data Sources</h4>
             <ul>
               <li><strong>State Economic Aggregates</strong>: Reserve Bank of India (RBI), <em>Handbook of Statistics on Indian States (2022–24)</em>, Table 33: "Gross State Value Added by Economic Activity – Manufacturing".</li>
               <li><strong>Industrial Factory Value-Addition</strong>: Ministry of Statistics & Programme Implementation (MoSPI), <em>Annual Survey of Industries (ASI)</em>, 2-Digit NIC-2008 aggregates (NIC 20, 21, 27).</li>
-              <li><strong>Scientific Papers & Subfields</strong>: Our verified 14,352-paper deduplicated dataset with OpenAlex subfields and primary topics.</li>
+              <li><strong>Scientific Papers & Subfields</strong>: The verified 14,352-paper deduplicated dataset with OpenAlex subfields and primary topics.</li>
             </ul>
           </div>
           <div class="audit-pane">
-            <h4>📐 Mathematical Formulations</h4>
+            <h4>Mathematical Formulations</h4>
             <div class="formula-card">
               $$RCA_{i, d} = \frac{P_{i, d} / \sum_d P_{i, d}}{\sum_i P_{i, d} / \sum_{i, d} P_{i, d}}$$
             </div>
@@ -100,7 +112,7 @@
             </p>
           </div>
           <div class="audit-pane">
-            <h4>⚙️ Preprocessing & Exclusion Rules</h4>
+            <h4>Preprocessing & Exclusion Rules</h4>
             <ul>
               <li><strong>Deduplication</strong>: Multi-authored papers within the same institute are counted exactly once to prevent artificial domain inflation.</li>
               <li><strong>NIC Mapping</strong>: NIC 20 (Chemicals) maps to Polymers/Catalysis; NIC 21 (Pharma) maps to Organic/Medicinal; NIC 27 (Electrical) maps to Electrochemistry/Batteries.</li>
@@ -127,7 +139,7 @@
       <div class="interpretation-box">
         <h4>Scientific & Economic Interpretation</h4>
         <p>
-          The alignment between scientific research output and state industrial specialization reveals clear empirical evidence of <strong>regional smart specialization</strong>. CSIR-IICT exhibits an RCA of <strong>1.345</strong> in Medicinal & Organic Synthesis, perfectly mirroring Telangana's dominant pharmaceutical footprint ($LQ = 3.65$, representing over 33% of state manufacturing and one-third of India's bulk drug APIs). In Tamil Nadu, CSIR-CECRI displays an exceptional scientific RCA of <strong>2.756</strong> in Electrochemistry & Energy Storage (67.6% of CECRI's entire publication output), reinforcing Tamil Nadu's industrial dominance in electric vehicle battery manufacturing and industrial electroplating ($LQ = 2.15$). In Maharashtra, CSIR-NCL maintains broad leadership across Polymers, Catalysis, and Specialty Chemical Materials ($RCA = 1.189$), supporting India's largest chemical corridor ($LQ = 1.48$, ₹62,500 Crore GSVA). Rather than acting as detached academic centers, each lab functions as the specialized technological anchor of its host state's primary chemical economy.
+          The alignment between scientific research output and state industrial specialization provides empirical evidence of regional smart specialization. CSIR-IICT exhibits an RCA of 1.345 in Medicinal & Organic Synthesis, aligning with Telangana's dominant pharmaceutical sector ($LQ = 3.65$, representing over 33% of state manufacturing and one-third of India's bulk drug APIs). In Tamil Nadu, CSIR-CECRI displays a scientific RCA of 2.756 in Electrochemistry & Energy Storage (67.6% of CECRI's entire publication output), reinforcing Tamil Nadu's industrial footprint in battery manufacturing and industrial electroplating ($LQ = 2.15$). In Maharashtra, CSIR-NCL maintains broad leadership across Polymers, Catalysis, and Specialty Materials ($RCA = 1.189$), supporting India's largest chemical manufacturing base ($LQ = 1.48$, ₹62,500 Crore GSVA). Rather than operating as detached academic centers, each lab functions as an active technological contributor to its host state's chemical manufacturing base.
         </p>
       </div>
     </div>
@@ -137,7 +149,7 @@
       <div class="chart-header">
         <div class="chart-title">
           <h3>Figure 2: Longitudinal Trajectory of Specialized Domains (2016–2026)</h3>
-          <p>Annual publication volume tracking how regional specialization has intensified over the 11-year observation window.</p>
+          <p>Annual publication volume tracking how regional specialization has evolved over the 11-year observation window.</p>
         </div>
         <div class="chart-controls">
           <button class="pill-btn active" id="btn-inst-all" onclick="filterLongitudinal('ALL')">All Institutes</button>
@@ -150,7 +162,7 @@
       <div class="interpretation-box">
         <h4>Scientific & Economic Interpretation</h4>
         <p>
-          Tracking domain volume across 2016–2026 demonstrates that regional specialization is structural rather than transient. CSIR-CECRI's output in electrochemistry and battery materials accelerated sharply after 2018, coinciding with India's National Mission on Transformative Mobility and Battery Storage. CSIR-IICT maintained a consistent output of ~240–280 medicinal chemistry publications annually, demonstrating the persistent high-throughput synthesis requirements of the Hyderabad pharmaceutical belt. CSIR-NCL shows a dual-engine evolution, maintaining strong polymer and catalyst research while expanding green hydrogen and clean materials research since 2021.
+          Tracking domain volume across 2016–2026 demonstrates that regional specialization is sustained over time. CSIR-CECRI's output in electrochemistry and battery materials accelerated markedly after 2018, coinciding with India's National Mission on Transformative Mobility and Battery Storage. CSIR-IICT maintained a consistent output of ~240–280 medicinal chemistry publications annually, reflecting the ongoing synthesis requirements of the Hyderabad pharmaceutical corridor. CSIR-NCL exhibits steady output across polymer and catalyst research while expanding green hydrogen and advanced materials output since 2021.
         </p>
       </div>
     </div>
@@ -182,7 +194,7 @@
       <div class="interpretation-box">
         <h4>Translational Mechanism</h4>
         <p>
-          Direct corporate co-authorship represents the highest-barrier form of academic-industrial technology transfer. Collaborations with <strong>Reliance Industries</strong> (38 papers) and <strong>Tata Steel / Tata Chemicals</strong> focus on continuous catalysis, synthetic zeolites, and polymer scale-up at CSIR-NCL. Collaborations with <strong>Dr. Reddy's Laboratories</strong>, <strong>Cipla</strong>, <strong>Lupin</strong>, <strong>GVK</strong>, and <strong>Bharat Biotech</strong> at CSIR-IICT directly address route-synthesis optimization, impurity profiling, and indigenous vaccine adjuvant manufacturing.
+          Direct corporate co-authorship reflects sustained academic-industrial technology transfer. Collaborations with <strong>Reliance Industries</strong> (38 papers) and <strong>Tata Steel / Tata Chemicals</strong> focus on continuous catalysis, synthetic zeolites, and polymer scale-up at CSIR-NCL. Collaborations with <strong>Dr. Reddy's Laboratories</strong>, <strong>Cipla</strong>, <strong>Lupin</strong>, <strong>GVK</strong>, and <strong>Bharat Biotech</strong> at CSIR-IICT address synthetic route optimization, impurity profiling, and indigenous vaccine adjuvant manufacturing.
         </p>
       </div>
     </div>

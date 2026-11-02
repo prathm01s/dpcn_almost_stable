@@ -436,6 +436,11 @@ def run_tests():
         print(f"✓ Diffusion section rendered: NIMFA T50={kpi_nimfa}")
         assert "steps" in kpi_nimfa
 
+        # Verify MathJax SVG rendering
+        mathjax_svgs = client_i11.evaluate("document.querySelectorAll('mjx-container svg').length")
+        print(f"✓ MathJax SVG Math Elements rendered on insights11.html: {mathjax_svgs}")
+        assert mathjax_svgs > 0, "No MathJax SVG elements rendered on insights11.html"
+
         client_i11.capture_screenshot("dashboard/screenshots/11_cadre_networks_suite.png")
 
         if client_i11.console_errors:
@@ -470,6 +475,12 @@ def run_tests():
             chart_elems = client_macro.evaluate(f"document.querySelectorAll('#{chart_id} canvas, #{chart_id} svg').length")
             print(f"✓ {page_name} Chart '{chart_id}' rendered elements: {chart_elems}")
             assert chart_elems > 0, f"Chart {chart_id} not rendered in {page_name}"
+            
+            # Verify MathJax SVG rendering on macro pages
+            mathjax_svgs = client_macro.evaluate("document.querySelectorAll('mjx-container svg').length")
+            print(f"✓ MathJax SVG Math Elements rendered on {page_name}: {mathjax_svgs}")
+            assert mathjax_svgs > 0, f"No MathJax SVG elements rendered on {page_name}"
+            
             if client_macro.console_errors:
                 print(f"❌ Console errors on {page_name}:")
                 for err in client_macro.console_errors:

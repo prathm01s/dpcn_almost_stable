@@ -233,3 +233,25 @@ All architectural, methodological, and data harmonization decisions made during 
   - Independent, double-clickable offline HTML portals for each study (`insight_smart_spec.html`, `insight_academic_bridge.html`, `insight_frugal_rd.html`, `insight_patents_papers.html`, `insight_leiden_benchmarks.html`).
   - Embedded **Data Collection, Preprocessing & Cleaning Methodology Audit** accordion on every page with explicit mathematical formulations, government document citations, and sample data.
   - Comprehensive unit test suite in `tests/test_macro_insights.py`.
+
+---
+
+### D-31 (2026-11-02): Aesthetic, Mathematical, and Textual Refinement of Insights Suite
+- **Context & Motivation**: Refine the visual presentation, navigation hierarchy, mathematical formula rendering, and textual tone across `insights11.html`, the 5 macro-insight portals, and the main dashboard.
+- **Key Enhancements**:
+  1. **Two-Tier Navigation Architecture**: Separated the cluttered top navigation into two visual tiers on `insights11.html`:
+     - Level 1 (Top Bar): Global navigation links to `Main Dashboard` and the five macro studies (clean text links, zero emojis).
+     - Level 2 (Section Subnav): Crisp horizontal tab bar switching between the 6 on-page sections (`4-Network Overlay`, `Seed Origin Dynamics`, `Intra-Institute Spreading`, `Cadre Faculty Graphs`, `SI vs. NIMFA Theory`, `Roster & Cleaning Audit`).
+  2. **Offline Vector Mathematical Formula Rendering**:
+     - Vendored MathJax 3 (`vendor/mathjax/tex-svg.js`, 2.1 MB) for 100% offline TeX-to-SVG vector math rendering.
+     - Converted raw LaTeX strings across `insights11.html` and all five macro portals to standard MathJax delimiters (`$...$`, `$$...$$`). Verified that 70 math SVG elements render on `insights11.html`, 23 on `insight_academic_bridge.html`, 15 on `insight_leiden_benchmarks.html`, 7 on `insight_smart_spec.html`, 5 on `insight_patents_papers.html`, and 2 on `insight_frugal_rd.html` with zero external web font dependencies over `file://`.
+  3. **Complete Elimination of Emojis**:
+     - Stripped all emojis (`🏭`, `🌉`, `💰`, `📜`, `👑`, `🔬`, `💡`, `🔍`, `📁`, `📐`, `⚙️`) from all HTML files, stylesheets, and JavaScript logic.
+  4. **Subdued Academic Typography & Theme**:
+     - Standardized on a modern sans-serif typography stack (`-apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif`).
+     - Subdued cards with 1px border (`#e2e8f0`), soft shadows, and clean border radii.
+     - Redesigned interpretation cards into publication-grade analytical briefing blocks with clean headers and muted backgrounds.
+  5. **Objective Scientific Phrasing & Elimination of First-Person Pronouns**:
+     - Audited and eliminated all occurrences of `we`, `our`, and `us` in analytical interpretation blocks and hero descriptions in favor of direct, objective empirical statements.
+- **Verification**: All 68 pytest unit tests pass in 12.7s; full browser test suite passes across all 7 pages with zero JavaScript/console errors under HTTP and offline `file://`.
+

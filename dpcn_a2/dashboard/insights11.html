@@ -3,19 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadre Faculty Networks &amp; NIMFA Markov Diffusion — Group 24</title>
+  <title>Cadre Faculty Networks &amp; Discrete-Time Markov Spreading — Group 24</title>
   <link rel="stylesheet" href="css/insights11.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="vendor/mathjax/tex-svg.js"></script>
   <script src="vendor/echarts.min.js"></script>
   <script src="data/g24_insights11_suite.js"></script>
   <script src="js/insights11.js" defer></script>
 </head>
 <body>
 
-  <!-- Sticky Top Navigation -->
+  <!-- Sticky Top Navigation (Tier 1: Global Suite Links) -->
   <header class="suite-header">
     <div class="suite-nav-container">
       <div class="suite-brand">
-        <span class="brand-badge">INSIGHT 11+</span>
+        <span class="brand-badge">CSIR Cadre Suite</span>
         <div>
           <span class="brand-title">Cadre Networks &amp; Discrete-Time Markov Spreading</span>
           <span class="brand-sub"> · CSIR-NCL · CSIR-IICT · CSIR-CECRI</span>
@@ -24,22 +37,28 @@
 
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-btn nav-back-btn">← Main Dashboard</a></li>
-          <li><a href="insight_smart_spec.html" class="nav-btn">🏭 2.1 Smart Spec</a></li>
-          <li><a href="insight_academic_bridge.html" class="nav-btn">🌉 1.1 Bridge</a></li>
-          <li><a href="insight_frugal_rd.html" class="nav-btn">💰 5.1 Frugal</a></li>
-          <li><a href="insight_patents_papers.html" class="nav-btn">📜 5.2 Patents</a></li>
-          <li><a href="insight_leiden_benchmarks.html" class="nav-btn">👑 3.1 Leiden</a></li>
-          <li><button class="nav-btn active" data-section="overlay">4-Network Overlay</button></li>
-          <li><button class="nav-btn" data-section="seed-origin">Seed Origin Contrast</button></li>
-          <li><button class="nav-btn" data-section="intra-institute">Intra-Lab Spreading</button></li>
-          <li><button class="nav-btn" data-section="networks">Cadre Graphs</button></li>
-          <li><button class="nav-btn" data-section="diffusion">SI vs. NIMFA Theory</button></li>
-          <li><button class="nav-btn" data-section="cleaning">Data Cleaning Audit</button></li>
+          <li><a href="index.html" class="nav-link-btn primary">Main Dashboard</a></li>
+          <li><a href="insight_smart_spec.html" class="nav-link-btn">2.1 Smart Specialization</a></li>
+          <li><a href="insight_academic_bridge.html" class="nav-link-btn">1.1 Academic Bridge</a></li>
+          <li><a href="insight_frugal_rd.html" class="nav-link-btn">5.1 Frugal Innovation</a></li>
+          <li><a href="insight_patents_papers.html" class="nav-link-btn">5.2 Patents vs Papers</a></li>
+          <li><a href="insight_leiden_benchmarks.html" class="nav-link-btn">3.1 Leiden Benchmarks</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
+  <!-- Secondary Subnav (Tier 2: On-Page Section Tabs) -->
+  <nav class="subnav-bar">
+    <div class="subnav-container">
+      <button class="subnav-tab nav-btn active" data-section="overlay">4-Network Overlay</button>
+      <button class="subnav-tab nav-btn" data-section="seed-origin">Seed Origin Dynamics</button>
+      <button class="subnav-tab nav-btn" data-section="intra-institute">Intra-Institute Spreading</button>
+      <button class="subnav-tab nav-btn" data-section="networks">Cadre Faculty Graphs</button>
+      <button class="subnav-tab nav-btn" data-section="diffusion">SI vs. NIMFA Theory</button>
+      <button class="subnav-tab nav-btn" data-section="cleaning">Roster &amp; Cleaning Audit</button>
+    </div>
+  </nav>
 
   <main class="suite-main">
 
@@ -48,12 +67,10 @@
     <!-- ========================================================================= -->
     <section id="section-overlay" class="section-view active">
       <div class="hero-card">
-        <div class="hero-tag">Unified Topological Comparison · On the Same Plot</div>
-        <h1 class="hero-title">Four-Network Spreading Dynamics Overlay</h1>
+        <div class="hero-tag">Topological Comparison · Coordinate Overlay</div>
+        <h1 class="hero-title">Four-Network Diffusion Dynamics</h1>
         <p class="hero-desc">
-          To rigorously examine how structural aggregation and interaction modality govern scientific diffusion, 
-          we benchmark the exact closed-form <b>Discrete-Time Markov Chain (NIMFA)</b> adoption curves across all four network topologies 
-          on the <b>exact same coordinate axes</b>.
+          Benchmark of closed-form Discrete-Time Markov Chain (NIMFA) adoption curves across all four network topologies plotted on identical coordinate axes.
         </p>
       </div>
 
@@ -77,21 +94,21 @@
       <!-- Overlay Canvas -->
       <div class="panel-card">
         <div class="panel-head">
-          <div class="panel-title">Multi-Network Adoption Curves <span class="math-inline">I(t)</span> vs. Diffusion Step (<span class="math-inline">t = 0 &hellip; 15</span>)</div>
-          <span style="font-size:0.8rem; color:var(--text-muted);">Simulated with baseline infectivity <span class="math-inline">&beta;<sub>0</sub> = 0.20</span></span>
+          <div class="panel-title">Multi-Network Adoption Curves $I(t)$ vs. Diffusion Step ($t = 0 \dots 15$)</div>
+          <span style="font-size:0.8rem; color:var(--text-muted);">Simulated with baseline infectivity $\beta_0 = 0.20$</span>
         </div>
         <div id="overlay-chart-canvas" class="chart-container"></div>
 
         <!-- Detailed Scientific Interpretation Paragraph -->
         <div class="interpretation-card">
-          <div class="interpretation-title">🔬 Scientific Interpretation &amp; Network Physics Analysis</div>
+          <div class="interpretation-title">Topological Analysis and Spreading Dynamics</div>
           <p>
-            Plotting all four topologies simultaneously reveals two stark structural phase divides in the CSIR Chemistry cluster. 
-            First, <b>Full Co-Authorship</b> (blue solid) reaches 50% adoption fastest (<span class="math-inline">T<sub>50</sub> = 6.60</span> steps, saturating at 97.0%) because the ~7,200 junior researchers (PhD scholars and postdocs) serve as dense, unstratified transmission conduits bridging otherwise isolated PI laboratories. 
-            When junior scholars are stripped away in <b>Cadre Co-Authorship</b> (orange dashed), transmission slows dramatically (<span class="math-inline">T<sub>50</sub> = 9.20</span> steps) and plateaus prematurely at 81.1%, proving that permanent faculty alone lack direct collaborative triadic closure. 
-            Second, <b>Full Paper Citation</b> (green dotted) fails to propagate (<span class="math-inline">I(15) = 1.88%</span>) because paper citations form a <i>Directed Acyclic Graph (DAG)</i> whose temporal arrow restricts influence strictly to downstream citing descendants. 
-            Conversely, <b>Cadre Faculty Citation</b> (purple line) forms dense cyclical feedback loops (<span class="math-inline">&langle;k&rangle; = 6.57</span>), enabling citation awareness to rapidly reach 91.8% of scientists (<span class="math-inline">T<sub>50</sub> = 6.73</span> steps). 
-            Thus, scientific knowledge diffuses cyclically across permanent authors, but remains locally bounded along historical paper DAGs.
+            Plotting all four topologies simultaneously reveals two structural phase divides in the CSIR Chemistry cluster. 
+            Full Co-Authorship reaches 50% adoption fastest ($T_{50} = 6.60$ steps, saturating at 97.0%) because junior researchers (PhD scholars and postdocs) serve as dense transmission conduits bridging otherwise isolated PI laboratories. 
+            When junior scholars are removed in Cadre Co-Authorship, transmission slows ($T_{50} = 9.20$ steps) and plateaus at 81.1%, indicating that permanent faculty alone lack direct collaborative triadic closure. 
+            Second, Full Paper Citation fails to propagate broadly ($I(15) = 1.88\%$) because paper citations form a Directed Acyclic Graph (DAG) whose temporal arrow restricts influence strictly to downstream citing descendants. 
+            Conversely, Cadre Faculty Citation forms dense feedback loops ($\langle k \rangle = 6.57$), enabling citation awareness to reach 91.8% of scientists ($T_{50} = 6.73$ steps). 
+            Consequently, scientific knowledge diffuses cyclically across permanent authors, while remaining locally bounded along historical paper DAGs.
           </p>
         </div>
       </div>
@@ -106,14 +123,14 @@
             <thead>
               <tr>
                 <th>Network Representation</th>
-                <th>Nodes (<span class="math-inline">N</span>)</th>
-                <th>Edges (<span class="math-inline">E</span>)</th>
-                <th>Mean Degree (<span class="math-inline">&langle;k&rangle;</span>)</th>
+                <th>Nodes ($N$)</th>
+                <th>Edges ($E$)</th>
+                <th>Mean Degree ($\langle k \rangle$)</th>
                 <th>Density</th>
                 <th>Clustering</th>
-                <th>Threshold (<span class="math-inline">&beta;<sub>c</sub></span>)</th>
-                <th><span class="math-inline">T<sub>50</sub></span> Speed</th>
-                <th>Final Reach (<span class="math-inline">t=15</span>)</th>
+                <th>Threshold ($\beta_c$)</th>
+                <th>$T_{50}$ Speed</th>
+                <th>Final Reach ($t=15$)</th>
               </tr>
             </thead>
             <tbody>
@@ -173,10 +190,9 @@
     <section id="section-seed-origin" class="section-view">
       <div class="hero-card">
         <div class="hero-tag">Geographical &amp; Institutional Asymmetry</div>
-        <h1 class="hero-title">Seed Origin Contrast: Pune vs. Hyderabad vs. Karaikudi</h1>
+        <h1 class="hero-title">Spillover Dynamics by Seeding Institution</h1>
         <p class="hero-desc">
-          Does the geographical and institutional origin of a scientific innovation dictate how rapidly it spreads across the entire CSIR Chemistry cluster? 
-          We evaluate diffusion cascades initiated strictly by faculty seeds in <b>CSIR-NCL (Pune)</b>, <b>CSIR-IICT (Hyderabad)</b>, and <b>CSIR-CECRI (Karaikudi)</b>.
+          Evaluation of diffusion cascades initiated strictly by faculty seeds in <b>CSIR-NCL (Pune)</b>, <b>CSIR-IICT (Hyderabad)</b>, and <b>CSIR-CECRI (Karaikudi)</b> under discrete-time NIMFA dynamics.
         </p>
       </div>
 
@@ -194,17 +210,17 @@
       <!-- Seed Origin Stats Grid -->
       <div class="stat-grid">
         <div class="stat-card">
-          <div class="stat-label">CSIR-IICT Seed T<sub>50</sub></div>
+          <div class="stat-label">CSIR-IICT Seed $T_{50}$</div>
           <div id="seed-stat-iict-t50" class="stat-value" style="color:var(--iict);">11.1 steps</div>
           <div class="stat-sub">Final cluster reach: <b id="seed-stat-iict-reach">70.32%</b></div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">CSIR-NCL Seed T<sub>50</sub></div>
+          <div class="stat-label">CSIR-NCL Seed $T_{50}$</div>
           <div id="seed-stat-ncl-t50" class="stat-value" style="color:var(--ncl);">11.1 steps</div>
           <div class="stat-sub">Final cluster reach: <b id="seed-stat-ncl-reach">69.54%</b></div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">CSIR-CECRI Seed T<sub>50</sub></div>
+          <div class="stat-label">CSIR-CECRI Seed $T_{50}$</div>
           <div id="seed-stat-cecri-t50" class="stat-value" style="color:var(--cecri);">14.2 steps</div>
           <div class="stat-sub">Final cluster reach: <b id="seed-stat-cecri-reach" style="color:var(--rose);">47.57%</b></div>
         </div>
@@ -220,14 +236,14 @@
 
         <!-- Detailed Scientific Interpretation Paragraph -->
         <div class="interpretation-card">
-          <div class="interpretation-title">🔬 Scientific Interpretation &amp; Institutional Asymmetry</div>
+          <div class="interpretation-title">Comparative Propagation by Origin Lab</div>
           <p>
-            The seed-origin simulation reveals a critical core-periphery asymmetry in the CSIR cluster. 
-            When an innovation originates in the large urban laboratories—<b>CSIR-IICT</b> (Hyderabad) or <b>CSIR-NCL</b> (Pune)—it diffuses with comparable, rapid early velocity (<span class="math-inline">I(3) \approx 4.7\%\text{--}5.1\%</span>) and reaches ~70% of all CSIR cadre faculty. 
+            The seed-origin simulation reveals a marked core-periphery asymmetry in the CSIR cluster. 
+            When an innovation originates in the large urban laboratories—<b>CSIR-IICT</b> (Hyderabad) or <b>CSIR-NCL</b> (Pune)—it diffuses with comparable, rapid early velocity ($I(3) \approx 4.7\%\text{--}5.1\%$) and reaches ~70% of all CSIR cadre faculty. 
             Both IICT and NCL possess large rosters (129 and 151 active scientists) with extensive internal multidisciplinary divisions (catalysis, organic synthesis, process chemistry) providing immediate local critical mass. 
-            In stark contrast, when a discovery originates at <b>CSIR-CECRI</b> (Karaikudi) under the Cadre-only network, diffusion experiences severe structural stagnation: velocity at step 3 is only 1.54%, and the cascade saturates at a meager <b>47.57% final reach</b>. 
-            Because CECRI is geographically distant in Tamil Nadu with a smaller cadre cohort (26 active faculty) focused on electrochemistry, its faculty lack direct collaborative bridges into Pune and Hyderabad. 
-            However, when junior scholars are reintroduced (Full Authorship), CECRI's reach surges to <b>91.01%</b> (<span class="math-inline">T<sub>50</sub> = 9.0</span> steps), demonstrating that CECRI's scientific impact depends almost entirely on mobile PhD scholars co-publishing with partner labs.
+            In contrast, when a discovery originates at <b>CSIR-CECRI</b> (Karaikudi) under the cadre-only network, diffusion experiences structural stagnation: velocity at step 3 is only 1.54%, and the cascade saturates at <b>47.57% final reach</b>. 
+            Because CECRI is geographically located in Karaikudi with a focused cadre cohort (26 active faculty) dedicated to electrochemistry, its faculty lack direct collaborative bridges into Pune and Hyderabad. 
+            When junior scholars are included (Full Authorship), CECRI's reach expands to <b>91.01%</b> ($T_{50} = 9.0$ steps), demonstrating that CECRI's wider scientific transmission relies primarily on mobile PhD scholars co-publishing with partner labs.
           </p>
         </div>
       </div>
@@ -241,9 +257,7 @@
         <div class="hero-tag">Internal Lab Communication · Intra-Institute Only</div>
         <h1 class="hero-title">Intra-Institute Internal Spreading Comparison</h1>
         <p class="hero-desc">
-          To quantify the internal collaborative efficiency of each individual institute, 
-          we isolate the internal induced subgraphs of <b>CSIR-IICT</b>, <b>CSIR-NCL</b>, and <b>CSIR-CECRI</b>, 
-          testing how rapidly an idea circulates strictly within laboratory walls.
+          Quantification of internal collaborative dynamics within the isolated subgraphs of <b>CSIR-IICT</b>, <b>CSIR-NCL</b>, and <b>CSIR-CECRI</b>, evaluating how rapidly ideas circulate strictly within institutional boundaries.
         </p>
       </div>
 
@@ -262,19 +276,19 @@
       <!-- Intra Stats Grid -->
       <div class="stat-grid">
         <div class="stat-card">
-          <div class="stat-label">CSIR-IICT Internal T<sub>50</sub></div>
+          <div class="stat-label">CSIR-IICT Internal $T_{50}$</div>
           <div id="intra-stat-iict-t50" class="stat-value" style="color:var(--iict);">10.0 steps</div>
-          <div class="stat-sub">Internal nodes: <b id="intra-stat-iict-nodes">148</b> · &beta;<sub>c</sub>: <b id="intra-stat-iict-betac">0.084</b></div>
+          <div class="stat-sub">Internal nodes: <b id="intra-stat-iict-nodes">148</b> · $\beta_c$: <b id="intra-stat-iict-betac">0.084</b></div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">CSIR-NCL Internal T<sub>50</sub></div>
+          <div class="stat-label">CSIR-NCL Internal $T_{50}$</div>
           <div id="intra-stat-ncl-t50" class="stat-value" style="color:var(--ncl);">7.8 steps</div>
-          <div class="stat-sub">Internal nodes: <b id="intra-stat-ncl-nodes">175</b> · &beta;<sub>c</sub>: <b id="intra-stat-ncl-betac">0.047</b></div>
+          <div class="stat-sub">Internal nodes: <b id="intra-stat-ncl-nodes">175</b> · $\beta_c$: <b id="intra-stat-ncl-betac">0.047</b></div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">CSIR-CECRI Internal T<sub>50</sub></div>
+          <div class="stat-label">CSIR-CECRI Internal $T_{50}$</div>
           <div id="intra-stat-cecri-t50" class="stat-value" style="color:var(--cecri);">15.0 steps</div>
-          <div class="stat-sub">Internal nodes: <b id="intra-stat-cecri-nodes">38</b> · &beta;<sub>c</sub>: <b id="intra-stat-cecri-betac" style="color:var(--rose);">0.255</b></div>
+          <div class="stat-sub">Internal nodes: <b id="intra-stat-cecri-nodes">38</b> · $\beta_c$: <b id="intra-stat-cecri-betac" style="color:var(--rose);">0.255</b></div>
         </div>
       </div>
 
@@ -288,13 +302,13 @@
 
         <!-- Detailed Scientific Interpretation Paragraph -->
         <div class="interpretation-card">
-          <div class="interpretation-title">🔬 Scientific Interpretation &amp; Internal Organizational Culture</div>
+          <div class="interpretation-title">Intra-Institute Diffusion Rates</div>
           <p>
-            Simulating internal spreading within each isolated laboratory reveals profound contrasts in domestic collaboration culture. 
-            <b>CSIR-NCL exhibits the highest internal cohesion</b>: its intra-cadre network has a mean degree of <span class="math-inline">&langle;k&rangle; = 7.92</span> and a low critical epidemic threshold of <span class="math-inline">&beta;<sub>c</sub> = 0.0471</span>, enabling an internal adoption speed of <span class="math-inline">T<sub>50</sub> = 7.75</span> steps and 76.9% saturation. NCL's scientists actively co-author across chemical biology, polymer physics, and materials divisions. 
-            <b>CSIR-IICT</b> possesses a larger overall workforce (3,790 researchers in full authorship), but its intra-cadre co-authorship is more sparse (<span class="math-inline">&langle;k&rangle; = 5.47</span>, <span class="math-inline">\beta_c = 0.0844</span>), leading to a slower internal faculty adoption speed of <span class="math-inline">T<sub>50</sub> = 10.00</span> steps. IICT faculty tend to operate in strong, distinct divisional silos (e.g. natural products vs. lipid science). 
-            Most dramatically, <b>CSIR-CECRI's internal cadre network suffers an extinction collapse</b>: with only 38 connected faculty and 41 joint edges (<span class="math-inline">&langle;k&rangle; = 2.16</span>), its critical threshold explodes to <span class="math-inline">&beta;<sub>c</sub> = 0.2547</span>. Under the baseline infectivity <span class="math-inline">&beta; = 0.20 < &beta;<sub>c</sub></span>, the innovation is sub-critical and fails to propagate, reaching only <b>11.94% internal saturation</b>. 
-            This proves that within CECRI, faculty PIs in specialized areas (corrosion, battery technology, electrometallurgy) rarely co-author directly with one another without student intermediaries.
+            Simulating internal spreading within each isolated laboratory reveals distinct contrasts in internal collaboration density. 
+            <b>CSIR-NCL exhibits the highest internal cohesion</b>: its intra-cadre network has a mean degree of $\langle k \rangle = 7.92$ and a low critical epidemic threshold of $\beta_c = 0.0471$, enabling an internal adoption speed of $T_{50} = 7.75$ steps and 76.9% saturation. NCL faculty actively co-author across chemical biology, polymer physics, and materials divisions. 
+            <b>CSIR-IICT</b> possesses a larger overall workforce (3,790 researchers in full authorship), but its intra-cadre co-authorship is more sparse ($\langle k \rangle = 5.47$, $\beta_c = 0.0844$), leading to a slower internal faculty adoption speed of $T_{50} = 10.00$ steps due to divisional boundaries (e.g. natural products vs. lipid science). 
+            In contrast, <b>CSIR-CECRI's internal cadre network shows high fragmentation</b>: with 38 connected faculty and 41 joint edges ($\langle k \rangle = 2.16$), its critical threshold rises to $\beta_c = 0.2547$. Under baseline infectivity $\beta = 0.20 < \beta_c$, the spreading process is sub-critical and reaches only <b>11.94% internal saturation</b>. 
+            This indicates that CECRI faculty across specialized disciplines (corrosion, battery technology, electrometallurgy) rarely co-author directly without student intermediaries.
           </p>
         </div>
       </div>
@@ -310,12 +324,12 @@
               <tr>
                 <th>Institute</th>
                 <th>Internal Subgraph</th>
-                <th>Nodes (<span class="math-inline">N</span>)</th>
-                <th>Edges (<span class="math-inline">E</span>)</th>
-                <th>Mean Degree (<span class="math-inline">&langle;k&rangle;</span>)</th>
-                <th>Critical Point (<span class="math-inline">&beta;<sub>c</sub></span>)</th>
-                <th>Spectral (<span class="math-inline">1/&lambda;<sub>max</sub></span>)</th>
-                <th>Internal <span class="math-inline">T<sub>50</sub></span></th>
+                <th>Nodes ($N$)</th>
+                <th>Edges ($E$)</th>
+                <th>Mean Degree ($\langle k \rangle$)</th>
+                <th>Critical Point ($\beta_c$)</th>
+                <th>Spectral ($1/\lambda_{\max}$)</th>
+                <th>Internal $T_{50}$</th>
                 <th>Final Reach</th>
               </tr>
             </thead>
@@ -400,7 +414,7 @@
         <div class="hero-tag">Topological Analysis · Faculty Cadre Only</div>
         <h1 class="hero-title">Cadre Faculty Co-Authorship &amp; Citation Networks</h1>
         <p class="hero-desc">
-          Interactive force-directed graph canvases representing the <b>306 permanent cadre faculty</b>. 
+          Interactive force-directed graph representations of the <b>306 permanent cadre faculty</b>. 
           Node size reflects collaboration volume; edge thickness denotes joint publications or direct citation weights.
         </p>
       </div>
@@ -455,12 +469,12 @@
 
         <!-- Detailed Scientific Interpretation Paragraph -->
         <div class="interpretation-card">
-          <div class="interpretation-title">🔬 Scientific Interpretation &amp; Topological Graph Structure</div>
+          <div class="interpretation-title">Structural Topology and Cadre Connectivity</div>
           <p>
             The force-directed graph highlights the clear modular clustering of the CSIR Chemistry cluster. 
-            In the <b>Co-Authorship Network</b>, the nodes segregate predominantly into institute-specific clusters (green NCL component and blue IICT component), joined by a small number of vital inter-institutional gatekeepers (such as Dr. D. Srinivasa Reddy, former NCL and current IICT Director). 
-            The network's clustering coefficient (<span class="math-inline">C = 0.291</span>) and high modularity (<span class="math-inline">Q = 0.680</span>) confirm that cadre faculty form tightly knit intra-departmental cliques rather than a diffuse open network. 
-            In the <b>Citation Network</b>, however, inter-institutional connectivity is far richer: IICT and NCL scientists heavily cross-cite each other's synthesis protocols, producing a reciprocity of <span class="math-inline">r = 0.285</span> and bridging the geographical separation between Pune and Hyderabad.
+            In the <b>Co-Authorship Network</b>, the nodes segregate predominantly into institute-specific clusters (green NCL component and blue IICT component), joined by key inter-institutional gatekeepers. 
+            The network's clustering coefficient ($C = 0.291$) and high modularity ($Q = 0.680$) confirm that cadre faculty form tightly knit intra-departmental cliques rather than a diffuse open network. 
+            In the <b>Citation Network</b>, however, inter-institutional connectivity is denser: IICT and NCL scientists frequently cite reciprocal synthesis protocols, producing a reciprocity of $r = 0.285$ and bridging the geographical separation between Pune and Hyderabad.
           </p>
         </div>
       </div>
@@ -505,9 +519,8 @@
         <div class="hero-tag">Mathematical Epidemiology &amp; Mean-Field Theory</div>
         <h1 class="hero-title">Stochastic SI vs. Deterministic NIMFA Markov Chain</h1>
         <p class="hero-desc">
-          Comparing empirical Monte Carlo stochastic simulations (<span class="math-inline">M = 35</span> trials) 
-          against the exact closed-form <b>$N$-Intertwined Mean-Field Approximation (NIMFA)</b> discrete difference equations. 
-          NIMFA provides deterministic individual-level trajectories while quantifying the <b>Jensen's Inequality Gap</b>.
+          Comparison of empirical Monte Carlo stochastic simulations ($M = 35$ trials) against the exact closed-form <b>$N$-Intertwined Mean-Field Approximation (NIMFA)</b> discrete difference equations. 
+          NIMFA provides deterministic individual-level trajectories while quantifying the <b>Jensen Inequality Gap</b>.
         </p>
       </div>
 
@@ -548,29 +561,29 @@
       <!-- KPIs -->
       <div class="stat-grid">
         <div class="stat-card">
-          <div class="stat-label">NIMFA T<sub>50</sub> (Steps)</div>
+          <div class="stat-label">NIMFA $T_{50}$ (Steps)</div>
           <div id="diff-kpi-nimfa-t50" class="stat-value" style="color:var(--purple);">9.20</div>
           <div class="stat-sub">Deterministic time to 50% reach</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Monte Carlo T<sub>50</sub> (Steps)</div>
+          <div class="stat-label">Monte Carlo $T_{50}$ (Steps)</div>
           <div id="diff-kpi-mc-t50" class="stat-value" style="color:var(--cyan);">10.09</div>
-          <div class="stat-sub">Stochastic average (M=35 trials)</div>
+          <div class="stat-sub">Stochastic average ($M=35$ trials)</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Jensen's Mean Gap (&Delta;)</div>
+          <div class="stat-label">Jensen Mean Gap ($\Delta$)</div>
           <div id="diff-kpi-gap" class="stat-value" style="color:var(--amber);">+3.87%</div>
           <div class="stat-sub">Mean-Field correlation over-estimate</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Degree Epidemic Threshold (&beta;<sub>c</sub>)</div>
+          <div class="stat-label">Degree Epidemic Threshold ($\beta_c$)</div>
           <div id="diff-kpi-betac" class="stat-value">0.0993</div>
-          <div class="stat-sub"><span class="math-inline">&langle;k&rangle; / &langle;k<sup>2</sup>&rangle;</span> critical point</div>
+          <div class="stat-sub">$\langle k \rangle / \langle k^2 \rangle$ critical point</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Spectral Threshold (&beta;<sub>c</sub><sup>spec</sup>)</div>
+          <div class="stat-label">Spectral Threshold ($\beta_c^{\text{spec}}$)</div>
           <div id="diff-kpi-spectral" class="stat-value">0.0931</div>
-          <div class="stat-sub"><span class="math-inline">1 / &lambda;<sub>max</sub>(A)</span> adjacency inverse</div>
+          <div class="stat-sub">$1 / \lambda_{\max}(A)$ adjacency inverse</div>
         </div>
       </div>
 
@@ -584,14 +597,14 @@
 
         <!-- Detailed Scientific Interpretation Paragraph -->
         <div class="interpretation-card">
-          <div class="interpretation-title">🔬 Scientific Interpretation &amp; Jensen's Inequality in Network Dynamics</div>
+          <div class="interpretation-title">Mean-Field Approximation and Jensen Gap</div>
           <p>
-            Comparing the deterministic Discrete-Time Markov Chain against the stochastic Monte Carlo average provides empirical confirmation of <b>Jensen's Inequality</b> in networked contagion processes. 
-            NIMFA operates under the individual-based mean-field assumption that neighbor infection states are statistically independent (<span class="math-inline">E[x_i x_j] = E[x_i]E[x_j]</span>). 
-            However, real co-authorship networks feature dense, highly localized collaborative cliques where co-authors' infection states are strongly <i>positively correlated</i>. 
-            Because the discrete non-infection transmission function <span class="math-inline">f(x) = \prod (1 - \beta x_j)</span> is concave with respect to multiple infected neighbors, 
-            Jensen's inequality proves that the mean-field approximation acts as a strict <b>theoretical upper bound</b> on empirical spreading (<span class="math-inline">I_{\text{NIMFA}}(t) \ge I_{\text{MC}}(t)</span>). 
-            Across our simulations, this produces a consistent positive gap of <span class="math-inline">\Delta(t) \in [+1.8\%, +5.8\%]</span> and accelerates the predicted time to 50% adoption (<span class="math-inline">T_{50}^{\text{NIMFA}} \le T_{50}^{\text{MC}}</span>).
+            Comparing the deterministic Discrete-Time Markov Chain against the stochastic Monte Carlo average provides empirical confirmation of Jensen's inequality in networked contagion processes. 
+            NIMFA operates under the individual-based mean-field assumption that neighbor infection states are statistically independent ($\mathbb{E}[x_i x_j] = \mathbb{E}[x_i]\mathbb{E}[x_j]$). 
+            However, real co-authorship networks feature dense, localized collaborative cliques where co-authors' infection states are positively correlated. 
+            Because the discrete non-infection transmission function $f(x) = \prod (1 - \beta x_j)$ is concave with respect to multiple infected neighbors, 
+            Jensen's inequality proves that the mean-field approximation acts as a theoretical upper bound on empirical spreading ($I_{\text{NIMFA}}(t) \ge I_{\text{MC}}(t)$). 
+            Across these simulations, this produces a consistent positive gap of $\Delta(t) \in [+1.8\%, +5.8\%]$ and accelerates the predicted time to 50% adoption ($T_{50}^{\text{NIMFA}} \le T_{50}^{\text{MC}}$).
           </p>
         </div>
       </div>
@@ -603,7 +616,7 @@
             <div class="panel-title">Top Super-Spreaders (Dynamical Influence Centrality)</div>
           </div>
           <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">
-            Ranked by marginal expected cascade reach <span class="math-inline">&part;&sum;<sub>k</sub> x<sub>k</sub>(t) / &part;x<sub>i</sub>(0)</span> under NIMFA Markov update equations.
+            Ranked by marginal expected cascade reach $\partial \sum_k x_k(t) / \partial x_i(0)$ under NIMFA Markov update equations.
           </p>
           <div class="scientific-table-wrap">
             <table class="scientific-table">
@@ -620,19 +633,19 @@
             <div class="panel-title">Mathematical Formulation: Discrete-Time NIMFA</div>
           </div>
           <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6;">
-            Let <span class="math-inline">x<sub>i</sub>(t) &isin; [0, 1]</span> represent the exact probability that researcher <span class="math-inline">i</span> has adopted the method at step <span class="math-inline">t</span>. 
+            Let $x_i(t) \in [0, 1]$ represent the exact probability that researcher $i$ has adopted the method at step $t$. 
             Under independent neighbor transmission, the individual-based Markov state transition is:
           </p>
           <div class="math-formula">
-x<sub>i</sub>(t+1) = x<sub>i</sub>(t) + (1 - x<sub>i</sub>(t)) &times; [ 1 - &prod;<sub>j &isin; N<sub>in</sub>(i)</sub> (1 - &beta;<sub>ji</sub> &times; x<sub>j</sub>(t)) ]
+            $$x_i(t+1) = x_i(t) + (1 - x_i(t)) \left[ 1 - \prod_{j \in N_{\text{in}}(i)} (1 - \beta_{ji} x_j(t)) \right]$$
           </div>
           <div class="math-callout">
             <b>Exact Dynamical Sensitivity:</b><br/>
-            The marginal influence of researcher <span class="math-inline">i</span> is computed as the derivative:
+            The marginal influence of researcher $i$ is evaluated as the derivative:
             <div class="math-formula">
-&Phi;<sub>i</sub>(t) = &part; &sum;<sub>k=1</sub><sup>N</sup> x<sub>k</sub>(t) / &part; x<sub>i</sub>(0)
+              $$\Phi_i(t) = \frac{\partial \sum_{k=1}^N x_k(t)}{\partial x_i(0)}$$
             </div>
-            This quantifies the exact expected number of additional researchers across the entire CSIR cluster who adopt the innovation at time <span class="math-inline">t</span> solely due to researcher <span class="math-inline">i</span>'s initial origination.
+            This quantifies the exact expected number of additional researchers across the entire CSIR cluster who adopt the innovation at time $t$ solely due to researcher $i$'s initial origination.
           </div>
         </div>
       </div>
@@ -647,8 +660,8 @@ x<sub>i</sub>(t+1) = x<sub>i</sub>(t) + (1 - x<sub>i</sub>(t)) &times; [ 1 - &pr
         <h1 class="hero-title">Cadre Faculty Data Cleaning &amp; Verification Pipeline</h1>
         <p class="hero-desc">
           Official staff directories from government laboratories frequently include non-scientific technical staff alongside permanent scientists.
-          Under <b>Decision D-20</b>, we implemented strict rule-based filters and manual verification to ensure that only tenured, publishing scientific cadre members 
-          (Scientist $\to$ Chief Scientist $\to$ Director) are evaluated.
+          Under Decision D-20, strict rule-based filters and manual verification were implemented to ensure that only tenured, publishing scientific cadre members 
+          ($\text{Scientist} \to \text{Chief Scientist} \to \text{Director}$) are evaluated.
         </p>
       </div>
 
@@ -684,7 +697,7 @@ x<sub>i</sub>(t+1) = x<sub>i</sub>(t) + (1 - x<sub>i</sub>(t)) &times; [ 1 - &pr
           </div>
           <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:1rem;">
             When scraping CSIR staff directories (particularly CSIR-IICT), technical staff such as <i>Senior Technical Officers</i>, <i>Technical Assistants</i>, and <i>Technicians</i> were listed under departmental rosters. 
-            The raw scraper inadvertently captured their job titles into the author name field (e.g. <code>"Dr. X Sr. Technical Officer (3)"</code>) while recording their designation generically as <code>"Scientist"</code>.
+            The raw scraper captured their job titles into the author name field (e.g. <code>"Dr. X Sr. Technical Officer (3)"</code>) while recording their designation generically as <code>"Scientist"</code>.
           </p>
           <div class="math-callout">
             <b>Rule-Based Filtering Applied:</b><br/>
@@ -700,7 +713,7 @@ x<sub>i</sub>(t+1) = x<sub>i</sub>(t) + (1 - x<sub>i</sub>(t)) &times; [ 1 - &pr
           </div>
           <ul style="color:var(--text-secondary); font-size:0.88rem; list-style-position:inside; line-height:1.7;">
             <li><b>Cross-Institute Duplicate Removal:</b> Dr. D. Srinivasa Reddy was listed simultaneously on the NCL Organic Chemistry page and as Director of CSIR-IICT. Kept uniquely as IICT Director (FAC_IICT_0315) and stale NCL listing removed.</li>
-            <li><b>OpenAlex Catch-All Profile Disambiguation:</b> Profile <code>A5087530076</code> had merged multiple distinct scientists into an ambiguous "A. V." record. These profiles were un-linked and assigned to paper-printed names.</li>
+            <li><b>OpenAlex Profile Disambiguation:</b> Profile <code>A5087530076</code> had merged multiple distinct scientists into an ambiguous "A. V." record. These profiles were unlinked and assigned to paper-printed names.</li>
             <li><b>Paper Row Reclassification:</b> 282 dataset rows attributable to technical staff were retained as <code>affiliated_author</code> rather than faculty rows, ensuring complete publication recall while protecting faculty metric integrity.</li>
           </ul>
         </div>
@@ -709,11 +722,11 @@ x<sub>i</sub>(t+1) = x<sub>i</sub>(t) + (1 - x<sub>i</sub>(t)) &times; [ 1 - &pr
       <!-- Detailed Scientific Interpretation Paragraph -->
       <div class="panel-card">
         <div class="interpretation-card" style="margin-top:0;">
-          <div class="interpretation-title">🔬 Scientific Interpretation &amp; Data Integrity Rationale</div>
+          <div class="interpretation-title">Roster Harmonization and Cadre Demarcation</div>
           <p>
             Rigorous data cleaning is the cornerstone of trustworthy bibliometrics. 
-            Had the 119 technical officers and technicians been erroneously retained in the scientific cadre, the CSIR Chemistry cluster's median <span class="math-inline">h</span>-index would have been artificially deflated from 7.0 down to 6.0, and 1,290 co-authorship ties would have carried distorted job title suffixes. 
-            By segregating permanent scientific investigators from support cadre and contractual scholars, we ensure that faculty performance rankings, succession risk analyses, and topological diffusion simulations accurately reflect the institutional governance of CSIR laboratories.
+            Had the 119 technical officers and technicians been erroneously retained in the scientific cadre, the CSIR Chemistry cluster's median $h$-index would have been artificially deflated from 7.0 down to 6.0, and 1,290 co-authorship ties would have carried distorted job title suffixes. 
+            By segregating permanent scientific investigators from support cadre and contractual scholars, topological diffusion simulations and succession risk analyses accurately reflect the institutional governance of CSIR laboratories.
           </p>
         </div>
       </div>
