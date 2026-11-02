@@ -86,7 +86,7 @@ Network analysis (PageRank, Louvain, centralities) uses only the within-cluster 
 
 | Field | Definition |
 |---|---|
-| `jif` (dashboard `papers_compact`) | SCImago "Cites / Doc. (2 years)" of the paper's journal in its quartile year (`quartile_year_used`), matched on `issn` / `issn_l`, then cleaned journal title. Scopus-based; **not** Clarivate JIF. `null` when there is no SCImago match (909 of 14,352 papers). Used by the dashboard's "Journal IF" filter. |
+| `jif` (dashboard `papers_compact`) | SCImago "Cites / Doc. (2 years)" of the paper's journal in its quartile year (`quartile_year_used`), matched on `issn` / `issn_l`, then cleaned journal title. Scopus-based; **not** Clarivate JIF. `null` when there is no SCImago match (822 of 14,208 papers). Used by the dashboard's "Journal IF" filter. |
 
 ## Citation impact ratio
 
@@ -94,7 +94,8 @@ Network analysis (PageRank, Louvain, centralities) uses only the within-cluster 
 |---|---|
 | `data/final/work_reference_counts.csv` | `work_id`, `references_count` = number of works in the paper's OpenAlex `referenced_works` (citations made); `has_foreign_coauthor` = TRUE if any authorship institution has a country code other than IN (used by Insight 9). Blank for the one work OpenAlex no longer returns. |
 | Paper impact ratio (IR) | `citations` ÷ `references_count`; undefined when `references_count` = 0 |
-| IR-Q1 | IR > 0.59, the 75th percentile of paper IR over all papers (`config/settings.yaml` → `impact_ratio.quartile_percentile`), i.e. the top 25% of papers |
+| IR-Q1 | IR > 0.60, the 75th percentile of paper IR over all papers (`config/settings.yaml` → `impact_ratio.quartile_percentile`), i.e. the top 25% of papers |
+| IR > 5, IR > 10 | Fixed thresholds asked for by the instructor (`impact_ratio.thresholds`). `ir_gt_5_refs_ge_10` / `ir_gt_10_refs_ge_10` count the papers above the threshold whose OpenAlex reference list has ≥ 10 entries (`reliable_min_references`); `stats/tables/impact_ratio_high_papers.csv` lists every paper with IR > 5 and flags those with < 10 references (`few_references`), whose IR is likely overstated by an incomplete reference list |
 | Institute impact ratio | Σ citations ÷ Σ references over the institute's distinct papers with ≥ 1 reference |
 | `stats/tables/impact_ratio_summary.csv` | per institute + combined: IR, IR-Q1 counts/shares per threshold, SJR Q1 share |
 | `stats/tables/impact_ratio_by_year.csv`, `impact_ratio_vs_sjr.csv`, `impact_ratio_top_papers.csv` | breakdowns by year, by SJR quartile, and the top 10 papers by IR |

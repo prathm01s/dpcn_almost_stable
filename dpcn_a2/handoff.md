@@ -35,7 +35,7 @@ Every insight adheres strictly to the required contract: **one direct question**
 ## 3. Data Lineage and Offline Infrastructure
 
 ### 3.1 Source Data Assets
-- `data/final/group24_data_extended.csv`: 42,393 author-paper rows covering 14,352 distinct peer-reviewed works (2016–2026).
+- `data/final/group24_data_extended.csv`: 41,989 author-paper rows covering 14,208 distinct peer-reviewed works (2016–2026; duplicates and non-research items removed in Step 20, D-33).
 - `data/final/faculty_master.csv`: 385 scientific cadre staff across CSIR-NCL, CSIR-IICT, and CSIR-CECRI (after the D-25 roster cleanup).
 - `data/final/citation_network.csv` & `authorship_network.csv`: Resolved within-cluster and Indian network edges.
 - `data/cache/openalex/counts_by_year.json`: Cached yearly citation histories for 3,614 eligible papers (2016–2020 with $\ge 20$ citations) from OpenAlex.

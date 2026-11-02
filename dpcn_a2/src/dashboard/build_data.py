@@ -7,6 +7,7 @@ Produces dashboard/data/g24_data.js defining window.G24_DATA.
 import json
 from pathlib import Path
 from typing import Any, Dict, List
+import networkx as nx
 import pandas as pd
 
 from src.common.logging import get_logger
@@ -93,6 +94,8 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     G_c, pr, in_deg = citation_graph(df_cite)
 
     # Build DOI metadata lookup
+    refs_tbl = pd.read_csv("data/final/work_reference_counts.csv", dtype={"references_count": "Int64"})
+    refs_by_work = {w: (None if pd.isna(n) else int(n)) for w, n in zip(refs_tbl["work_id"], refs_tbl["references_count"])}
     doi_info = {}
     for _, r in df_ext.drop_duplicates(subset=["doi"]).iterrows():
         d = r["doi"]
@@ -107,6 +110,7 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
                 "inst_key": INST_KEY_MAP.get(r["institution"], "all"),
                 "citations": int(r["citations"]),
                 "quartile": r["quartile"] or "Unranked",
+                "references": refs_by_work.get(r["work_id"]),
             }
 
     # Cross-institute citation flow matrix (source_inst -> target_inst)
@@ -138,6 +142,8 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
             "inst": meta.get("inst", ""),
             "citations": meta.get("citations", 0),
             "quartile": meta.get("quartile", ""),
+            "references": meta.get("references"),
+            "ir": round(meta["citations"] / meta["references"], 2) if meta.get("references") else None,
         })
 
     # Curate high-impact citation core subgraph (~160 papers)
@@ -181,6 +187,7 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
         })
 
     # 2. AUTHORSHIP NETWORK: authors of the three labs only (partner co-authors are raw data)
+    roles_of = df_ext.groupby("author")["author_role"].agg(set).to_dict()
     df_auth = lab_authorship_edges(pd.read_csv("data/final/authorship_network.csv", dtype=str, keep_default_na=False))
     A = authorship_graph(df_auth)
     G_a = A["G"]
@@ -276,7 +283,8 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
         ],
         "citation": {
             "stats": {
-                "total_edges": len(df_cite),
+                # distinct citing-cited paper pairs (a pair whose papers belong to two labs appears once)
+                "total_edges": int(len(df_cite.drop_duplicates(["source_doi", "target_doi"]))),
                 "total_nodes": len(set(df_cite["source_doi"]).union(set(df_cite["target_doi"]))),
                 "inter_lab_citations": inter_lab_citations,
                 "top_pagerank_paper": top_pr_list[0]["title"] if top_pr_list else "",
@@ -288,8 +296,10 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
         },
         "authorship": {
             "stats": {
-                "total_edges": len(df_auth),
+                "total_edges": G_a.number_of_edges(),  # distinct co-author pairs
+                "edge_rows": len(df_auth),  # one row per pair per paper
                 "total_authors": len(set(df_auth["author_a"]).union(set(df_auth["author_b"]))),
+                "faculty_authors": sum(1 for a in G_a.nodes if "faculty" in roles_of.get(a, set())),
                 "communities_count": len(comms),
                 "modularity": round(A["modularity"], 4),
                 "inter_lab_pairs": inter_lab_pairs,
@@ -303,6 +313,76 @@ def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     }
 
 
+def build_faculty_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
+    """Faculty networks for the dashboard (D-33): one node per roster scientist, all nodes shipped."""
+    from src.stats.networks import (active_faculty, faculty_citation_graph, faculty_coauthor_graph,
+                                    faculty_papers, network_metrics)
+    fm = pd.read_csv("data/final/faculty_master.csv", dtype=str, keep_default_na=False)
+    fp = faculty_papers(df_ext, fm)
+    df_cite = incorpus_citation_edges(pd.read_csv("data/final/citation_network.csv", dtype=str, keep_default_na=False),
+                                      corpus_dois(df_ext))
+    FA = faculty_coauthor_graph(fp, fm)
+    FC, self_pairs = faculty_citation_graph(fp, df_cite, fm)
+    ma, mc = network_metrics(FA), network_metrics(FC)
+    cats = ["iict", "ncl", "cecri"]
+    labs = ["CSIR-IICT", "CSIR-NCL", "CSIR-CECRI"]
+    lab = dict(FA.nodes(data="lab"))
+    btw = nx.betweenness_centrality(FA)
+    comms = sorted(nx.community.louvain_communities(FA.subgraph([n for n, d in FA.degree() if d]), weight="weight", seed=42),
+                   key=lambda c: (-len(c), min(c)))
+    comm_of = {n: i + 1 for i, c in enumerate(comms) for n in c}
+    pr = nx.pagerank(FC, weight="weight") if FC.number_of_edges() else {}
+    in_w, out_w = dict(FC.in_degree(weight="weight")), dict(FC.out_degree(weight="weight"))
+
+    def node(n: str, d: Dict[str, Any], extra: Dict[str, Any]) -> Dict[str, Any]:
+        key = INST_KEY_MAP.get(d["lab"], "all")
+        return {"id": n, "fid": n, "name": d["name"], "inst": d["lab"], "category": cats.index(key) if key in cats else 0,
+                "department": d["department"], "designation": d["designation"], "papers": d["papers"],
+                "citations": d["citations"], "h_index": d["h_index"], **extra}
+
+    a_nodes = [node(n, d, {"degree": FA.degree(n), "shared_papers": FA.degree(n, weight="weight"),
+                           "betweenness": round(btw[n], 4), "community": comm_of.get(n, 0),
+                           "value": FA.degree(n), "symbolSize": max(8, min(40, 8 + FA.degree(n) * 1.2))})
+               for n, d in FA.nodes(data=True)]
+    a_links = [{"source": u, "target": v, "weight": w, "value": w, "is_cross": lab[u] != lab[v]}
+               for u, v, w in FA.edges(data="weight")]
+    c_nodes = [node(n, d, {"in_degree": in_w.get(n, 0), "out_degree": out_w.get(n, 0), "citing_faculty": FC.in_degree(n),
+                           "pagerank": round(pr.get(n, 0), 5), "value": in_w.get(n, 0),
+                           "symbolSize": max(8, min(42, 8 + in_w.get(n, 0) ** 0.5 * 1.6))})
+               for n, d in FC.nodes(data=True)]
+    c_links = [{"source": u, "target": v, "weight": w, "value": w, "is_cross": lab[u] != lab[v]}
+               for u, v, w in FC.edges(data="weight")]
+    by_deg = sorted(FA.nodes, key=lambda n: (-FA.degree(n), -FA.degree(n, weight="weight"), n))[:10]
+    by_in = sorted(FC.nodes, key=lambda n: (-in_w.get(n, 0), n))[:10]
+    return {
+        "authorship": {
+            "stats": {"total_nodes": ma["nodes"], "connected_nodes": ma["connected_nodes"], "total_edges": ma["edges"],
+                      "shared_papers": int(FA.size(weight="weight")), "communities_count": ma["communities"],
+                      "modularity": ma["modularity"], "clustering": ma["clustering"], "lcc_nodes": ma["lcc_nodes"],
+                      "inter_lab_pairs": sum(1 for u, v in FA.edges if lab[u] != lab[v])},
+            "nodes": a_nodes, "links": a_links,
+            "top_bridges": [{"rank": i, "author": FA.nodes[n]["name"], "fid": n, "institution": lab[n],
+                             "collaborators_count": FA.degree(n), "joint_paper_links": FA.degree(n, weight="weight"),
+                             "betweenness": round(btw[n], 4), "community_id": comm_of.get(n, 0)}
+                            for i, n in enumerate(by_deg, 1)],
+            "collab_matrix": [{"inst": s, "inst_key": INST_KEY_MAP[s], **{INST_KEY_MAP[t]: sum(
+                1 for u, v in FA.edges if (lab[u], lab[v]) in ((s, t), (t, s))) for t in labs}} for s in labs],
+        },
+        "citation": {
+            "stats": {"total_nodes": mc["nodes"], "connected_nodes": mc["connected_nodes"], "total_edges": mc["edges"],
+                      "citation_links": int(FC.size(weight="weight")), "self_citation_pairs": self_pairs,
+                      "inter_lab_edges": sum(1 for u, v in FC.edges if lab[u] != lab[v]),
+                      "inter_lab_citations": sum(w for u, v, w in FC.edges(data="weight") if lab[u] != lab[v])},
+            "nodes": c_nodes, "links": c_links,
+            "top_cited": [{"rank": i, "name": FC.nodes[n]["name"], "fid": n, "inst": lab[n], "in_links": in_w.get(n, 0),
+                           "citing_faculty": FC.in_degree(n), "pagerank": round(pr.get(n, 0), 5),
+                           "papers": FC.nodes[n]["papers"]} for i, n in enumerate(by_in, 1)],
+            "flow_matrix": [{"source_inst": s, "s_key": INST_KEY_MAP[s], **{INST_KEY_MAP[t]: sum(
+                w for u, v, w in FC.edges(data="weight") if lab[u] == s and lab[v] == t) for t in labs}} for s in labs],
+        },
+    }
+
+
 def build_impact_ratio_payload() -> Dict[str, Any]:
     """Thresholds and authoritative (unfiltered) IR summary from stats/tables/impact_ratio_summary.csv."""
     from src.stats.impact_ratio import settings
@@ -310,6 +390,7 @@ def build_impact_ratio_payload() -> Dict[str, Any]:
     summ = load_csv("impact_ratio_summary.csv")
     return {
         "thresholds": settings()["thresholds"],
+        "min_refs": settings()["min_refs"],
         "percentile": float(summ["percentile"].iloc[0]),
         "percentile_threshold": float(summ["percentile_threshold"].iloc[0]),
         "summary": {INST_KEY_MAP[r["institution"]]: r for r in json.loads(summ.to_json(orient="records"))},
@@ -393,6 +474,20 @@ def run_build_dashboard_data() -> None:
 
     logger.info(f"Compiled {len(compact_papers)} compact paper records for client-side filtering")
 
+    w_info = df_ext.drop_duplicates("work_id").set_index("work_id")
+    labs_of = df_ext.groupby("work_id")["institution"].agg(lambda s: "; ".join(sorted(set(s))))
+
+    def paper_extra(work_id: str, citations: int) -> Dict[str, Any]:
+        refs = ref_of.get(work_id)
+        return {
+            "labs": labs_of.get(work_id, ""),
+            "type": w_info.at[work_id, "type"] if work_id in w_info.index else "",
+            "field": (w_info.at[work_id, "field"] or "Unclassified") if work_id in w_info.index else "",
+            "references": refs,
+            "ir": round(citations / refs, 2) if refs else None,
+            "jif": if_of.get(work_id),
+        }
+
     payload: Dict[str, Any] = {
         "meta": {
             "group": 24,
@@ -408,6 +503,7 @@ def run_build_dashboard_data() -> None:
         "by_institute": {},
         "papers_compact": compact_papers,
         "network": build_network_payload(df_ext),
+        "network_faculty": build_faculty_network_payload(df_ext),
         "impact_ratio": build_impact_ratio_payload(),
         "connectivity": build_connectivity_payload(),
     }
@@ -541,6 +637,8 @@ def run_build_dashboard_data() -> None:
                 "doi": pr["doi"],
                 "quartile": pr["quartile"],
                 "in_corpus_authors": pr["in_corpus_authors"],
+                # more paper information for the table (D-33)
+                **paper_extra(pr["work_id"], int(pr["citations"])),
             })
 
         # Research Areas

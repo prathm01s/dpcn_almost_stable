@@ -1,107 +1,107 @@
 {
   "id": "08_covid_shock",
   "question": "How much output did COVID cost, and did research shift?",
-  "headline": "Output fell 8.7% from 2019 to 2020 (1,336 \u2192 1,220 papers) and was 10.6% below 2019 in 2021, but it had already been falling 8.4% a year since 2016: against that trend 2020 was 1.8% above and 2021 12.7% above, so there is no COVID-specific dip. COVID-related work peaked at 5.5% of CSIR-IICT's papers in 2021; the topic mix shifted about as much as in a normal period (JSD ratio 1.05).",
+  "headline": "Output fell 8.6% from 2019 to 2020 (1,320 \u2192 1,207 papers) and was 10.2% below 2019 in 2021, but it had already been falling 8.6% a year since 2016: against that trend 2020 was 2.2% above and 2021 13.9% above, so there is no COVID-specific dip. COVID-related work peaked at 5.5% of CSIR-IICT's papers in 2021; the topic mix shifted about as much as in a normal period (JSD ratio 1.04).",
   "metrics": {
-    "combined_papers_2019": 1336,
-    "combined_papers_2020": 1220,
-    "combined_papers_2021": 1195,
-    "combined_change_2020_vs_2019_pct": -8.68,
-    "combined_change_2021_vs_2019_pct": -10.55,
-    "pre_pandemic_annual_change_pct": -8.41,
-    "combined_gap_2020_pct": 1.79,
-    "combined_gap_2021_pct": 12.69,
+    "combined_papers_2019": 1320,
+    "combined_papers_2020": 1207,
+    "combined_papers_2021": 1185,
+    "combined_change_2020_vs_2019_pct": -8.56,
+    "combined_change_2021_vs_2019_pct": -10.23,
+    "pre_pandemic_annual_change_pct": -8.57,
+    "combined_gap_2020_pct": 2.24,
+    "combined_gap_2021_pct": 13.88,
     "lab_gaps": {
       "CSIR-IICT": {
-        "slope": -98.8,
-        "pred_2020": 418.5,
-        "act_2020": 500,
-        "gap_2020_pct": 19.47,
-        "pred_2021": 319.7,
-        "act_2021": 476,
-        "gap_2021_pct": 48.89
+        "slope": -98.1,
+        "pred_2020": 416.5,
+        "act_2020": 497,
+        "gap_2020_pct": 19.33,
+        "pred_2021": 318.4,
+        "act_2021": 473,
+        "gap_2021_pct": 48.56
       },
       "CSIR-NCL": {
-        "slope": -66.6,
-        "pred_2020": 423.5,
-        "act_2020": 446,
-        "gap_2020_pct": 5.31,
-        "pred_2021": 356.9,
-        "act_2021": 466,
-        "gap_2021_pct": 30.57
+        "slope": -68.5,
+        "pred_2020": 409.5,
+        "act_2020": 437,
+        "gap_2020_pct": 6.72,
+        "pred_2021": 341.0,
+        "act_2021": 461,
+        "gap_2021_pct": 35.19
       },
       "CSIR-CECRI": {
-        "slope": 26.3,
-        "pred_2020": 364.0,
-        "act_2020": 283,
-        "gap_2020_pct": -22.25,
-        "pred_2021": 390.3,
-        "act_2021": 258,
-        "gap_2021_pct": -33.9
+        "slope": 25.9,
+        "pred_2020": 362.0,
+        "act_2020": 282,
+        "gap_2020_pct": -22.1,
+        "pred_2021": 387.9,
+        "act_2021": 256,
+        "gap_2021_pct": -34.0
       }
     },
     "covid_peak": {
       "lab": "CSIR-IICT",
       "year": 2021,
-      "share_pct": 5.46,
+      "share_pct": 5.5,
       "covid_papers": 26
     },
     "all_covid_records": [
       {
         "lab": "CSIR-IICT",
         "year": 2020,
-        "share": 1.6,
+        "share": 1.61,
         "covid_papers": 8,
-        "total_papers": 500
+        "total_papers": 497
       },
       {
         "lab": "CSIR-IICT",
         "year": 2021,
-        "share": 5.46,
+        "share": 5.5,
         "covid_papers": 26,
-        "total_papers": 476
+        "total_papers": 473
       },
       {
         "lab": "CSIR-IICT",
         "year": 2022,
-        "share": 1.89,
+        "share": 1.92,
         "covid_papers": 9,
-        "total_papers": 475
+        "total_papers": 469
       },
       {
         "lab": "CSIR-NCL",
         "year": 2020,
-        "share": 0.67,
+        "share": 0.69,
         "covid_papers": 3,
-        "total_papers": 446
+        "total_papers": 437
       },
       {
         "lab": "CSIR-NCL",
         "year": 2021,
-        "share": 1.93,
+        "share": 1.95,
         "covid_papers": 9,
-        "total_papers": 466
+        "total_papers": 461
       },
       {
         "lab": "CSIR-NCL",
         "year": 2022,
-        "share": 0.71,
+        "share": 0.72,
         "covid_papers": 3,
-        "total_papers": 423
+        "total_papers": 415
       },
       {
         "lab": "CSIR-CECRI",
         "year": 2020,
         "share": 0.0,
         "covid_papers": 0,
-        "total_papers": 283
+        "total_papers": 282
       },
       {
         "lab": "CSIR-CECRI",
         "year": 2021,
-        "share": 1.16,
+        "share": 1.17,
         "covid_papers": 3,
-        "total_papers": 258
+        "total_papers": 256
       },
       {
         "lab": "CSIR-CECRI",
@@ -111,9 +111,9 @@
         "total_papers": 237
       }
     ],
-    "jsd_baseline": 0.131,
-    "jsd_shock": 0.1369,
-    "jsd_ratio": 1.045
+    "jsd_baseline": 0.1314,
+    "jsd_shock": 0.137,
+    "jsd_ratio": 1.042
   },
   "chart": {
     "type": "line",
@@ -148,43 +148,43 @@
           "data": [
             [
               2016,
-              827
+              823
             ],
             [
               2017,
-              708
+              703
             ],
             [
               2018,
-              590
+              586
             ],
             [
               2019,
-              537
+              535
             ],
             [
               2020,
-              500
+              497
             ],
             [
               2021,
-              476
+              473
             ],
             [
               2022,
-              475
+              469
             ],
             [
               2023,
-              541
+              536
             ],
             [
               2024,
-              564
+              560
             ],
             [
               2025,
-              528
+              524
             ]
           ],
           "itemStyle": {
@@ -201,15 +201,15 @@
           "data": [
             [
               2019,
-              517.3
+              514.6
             ],
             [
               2020,
-              418.5
+              416.5
             ],
             [
               2021,
-              319.7
+              318.4
             ]
           ],
           "itemStyle": {
@@ -227,43 +227,43 @@
           "data": [
             [
               2016,
-              687
+              679
             ],
             [
               2017,
-              628
+              623
             ],
             [
               2018,
-              556
+              544
             ],
             [
               2019,
-              489
+              477
             ],
             [
               2020,
-              446
+              437
             ],
             [
               2021,
-              466
+              461
             ],
             [
               2022,
-              423
+              415
             ],
             [
               2023,
-              422
+              417
             ],
             [
               2024,
-              482
+              471
             ],
             [
               2025,
-              465
+              457
             ]
           ],
           "itemStyle": {
@@ -280,15 +280,15 @@
           "data": [
             [
               2019,
-              490.1
+              478.0
             ],
             [
               2020,
-              423.5
+              409.5
             ],
             [
               2021,
-              356.9
+              341.0
             ]
           ],
           "itemStyle": {
@@ -306,7 +306,7 @@
           "data": [
             [
               2016,
-              238
+              237
             ],
             [
               2017,
@@ -314,19 +314,19 @@
             ],
             [
               2018,
-              326
+              325
             ],
             [
               2019,
-              320
+              318
             ],
             [
               2020,
-              283
+              282
             ],
             [
               2021,
-              258
+              256
             ],
             [
               2022,
@@ -334,15 +334,15 @@
             ],
             [
               2023,
-              237
+              235
             ],
             [
               2024,
-              255
+              251
             ],
             [
               2025,
-              239
+              238
             ]
           ],
           "itemStyle": {
@@ -359,15 +359,15 @@
           "data": [
             [
               2019,
-              337.7
+              336.1
             ],
             [
               2020,
-              364.0
+              362.0
             ],
             [
               2021,
-              390.3
+              387.9
             ]
           ],
           "itemStyle": {
@@ -383,5 +383,5 @@
     }
   },
   "method_note": "Linear trend fitted on 2016\u20132019 distinct papers; output was already falling, so the dashed trend projects a continued decline and 'above trend' means a smaller fall than projected, not growth. Pre-pandemic rate = compound annual change 2016\u21922019. COVID-related = title/topic matches covid, sars-cov-2, coronavirus, pandemic, antiviral, favipiravir or remdesivir. Publication lag means 2020 papers mostly reflect pre-pandemic work.",
-  "computed_at": "2026-10-31T04:41:09.696572+00:00"
+  "computed_at": "2026-11-02T17:41:39.224631+00:00"
 }

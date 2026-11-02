@@ -1,5 +1,5 @@
 network,scope,nodes,edges,mean_degree,density,clustering_coef,modularity,beta_c,type
-Full Co-Authorship,All Authors (LCC),7509,34696,9.24,0.0012,0.612,0.817,0.0322,Undirected
-Cadre Co-Authorship,Cadre Faculty Only,235,579,3.8,0.0125,0.291,0.68,0.0993,Undirected
-Full Citation,All In-Corpus Papers,10988,27268,2.48,0.0002,0.142,0.695,0.0412,Directed
-Cadre Faculty Citation,Faculty-to-Faculty,245,1610,6.57,0.0174,0.285,0.428,0.0521,Directed
+Full Co-Authorship,All lab authors incl. students and project staff (largest component),7523,34972,9.3,0.0012,0.694,0.814,0.0321,Undirected
+Cadre Co-Authorship,Roster scientists with a faculty co-author (of 306 active),234,553,3.61,0.0118,0.283,0.682,0.1024,Undirected
+Full Citation,Papers with an in-corpus citation link,10931,27099,4.96,0.0002,0.285,0.936,0.0962,Directed
+Cadre Faculty Citation,Roster scientists citing or cited by another (of 306 active),246,1534,7.56,0.0164,0.367,0.613,0.0576,Directed

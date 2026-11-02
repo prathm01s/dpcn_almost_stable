@@ -37,7 +37,7 @@ PDF = OUT_DIR / "24_CSIR.pdf"
 LABS = ["CSIR-IICT", "CSIR-NCL", "CSIR-CECRI"]
 ALL = "Group 24 Combined"
 COLLECTED = "13 Oct 2026"
-SITE_URL = "https://prathm01s.github.io/dpcn_almost_stable/"
+SITE_URL = "https://dpcnsite.vercel.app/"
 
 # Palette: deep ink base, institute colours shared with the dashboard
 INK = RGBColor(0x1F, 0x2A, 0x37)
@@ -335,6 +335,9 @@ class Data:
         self.btw = load("network_authorship_top_betweenness.csv")
         self.comms = load("network_authorship_communities.csv")
         self.collab = load("network_authorship_collab_matrix.csv")
+        self.fac_collab = load("network_faculty_top_collaborators.csv")
+        self.fac_btw = load("network_faculty_top_betweenness.csv")
+        self.fac_cited = load("network_faculty_top_cited.csv")
         self.main = pd.read_csv("data/final/group24_data.csv", dtype=str, keep_default_na=False)
         self.fm = pd.read_csv("data/final/faculty_master.csv", dtype=str, keep_default_na=False)
 
@@ -499,10 +502,11 @@ def slide_quartiles(prs, d: Data):
            f"to {pct(ir.at['CSIR-CECRI', f'ir_q1_gt_{p75}_pct'])} (CECRI)")
     x = MARGIN + w + Inches(0.35)
     pw = SLIDE_W - MARGIN - x
-    textbox(s, x, Inches(1.65), pw, Inches(0.35), [("Q1 by journal vs Q1 by impact ratio (% of papers)", 14, True, INK)])
+    textbox(s, x, Inches(1.65), pw, Inches(0.35), [("Q1 by journal vs Q1 by impact ratio (papers, % of papers)", 14, True, INK)])
     cols = ["Institute", "Q1 by journal (SJR)"] + [f"Q1 by IR (IR > {t})" for t in thr] + ["Institute IR"]
     df = pd.DataFrame([[short(g) if g != ALL else "All three", pct(rows[g]["q1_fraction_primary_pct"])]
-                       + [pct(ir.at[g, f"ir_q1_gt_{t}_pct"]) for t in thr]
+                       + [(f"{fmt(ir.at[g, f'ir_q1_gt_{t}'])} ({float(ir.at[g, f'ir_q1_gt_{t}_pct']):.2f}%)"
+                           if float(t) >= 1 else pct(ir.at[g, f"ir_q1_gt_{t}_pct"])) for t in thr]
                        + [f"{float(ir.at[g, 'institute_impact_ratio']):.2f}"] for g in LABS + [ALL]], columns=cols)
     table(s, x, Inches(2.05), pw, df, [1.2, 1.3] + [1.3] * len(thr) + [1.1], size=12, row_h=0.36,
           align_right=range(1, len(cols)), colors=[LAB_COLOR[l] for l in LABS] + [None], name="IR table")
@@ -517,7 +521,9 @@ def slide_quartiles(prs, d: Data):
          f"top‑25% by IR. SJR ranks the journal; IR ranks the paper.", 12, False, INK, True),
         (f"Older papers have had longer to be cited; {fmt(ir.at[ALL, 'papers_without_references'])} papers with no "
          "references in OpenAlex are excluded.", 12, False, INK, True),
-    ])
+    ] + ([(f"IR > 5: {fmt(ir.at[ALL, 'ir_q1_gt_5'])} papers, of which {fmt(ir.at[ALL, 'ir_gt_5_refs_ge_10'])} have ≥10 references; "
+           f"the rest have short OpenAlex reference lists that overstate IR (list: impact_ratio_high_papers.csv).", 12, False, INK, True)]
+         if "ir_gt_5_refs_ge_10" in ir.columns else []))
     footer(s, "Source: stats/tables/quartile_distribution.csv, impact_ratio_summary.csv, impact_ratio_vs_sjr.csv · SJR best quartile (Scopus-based); IR from OpenAlex citations (13 Oct) and references")
     notes(s, "Sources: stats/tables/quartile_distribution.csv (SJR Q1 = Q1 / journal papers with known quartile), "
              "impact_ratio_summary.csv, impact_ratio_vs_sjr.csv, impact_ratio_by_year.csv. IR thresholds are set in "
@@ -667,14 +673,18 @@ def slide_citation_network(prs, d: Data):
     cross = d.net_value("citation", "cross-lab")
     flow = d.flow.set_index("institution")
     tin, tout = flow.at[ALL, "in_citations_indian"], flow.at[ALL, "out_citations_indian"]
+    fac_n = d.net_value("faculty_citation", "nodes")
+    fac_conn = d.net_value("faculty_citation", "scientists citing")
+    fac_e = d.net_value("faculty_citation", "directed edges")
+    fac_x = d.net_value("faculty_citation", "cross-lab")
     header(s, "Citation network",
-           f"{fmt(pairs)} citation links among {fmt(nodes)} corpus papers; {fmt(cross)} cross between labs. "
-           f"With other Indian institutions: {fmt(tin)} citations in, {fmt(tout)} out")
+           f"Faculty level: {fmt(fac_conn)} of {fmt(fac_n)} scientists linked by {fmt(fac_e)} 'A cites B' links, "
+           f"{fmt(fac_x)} across labs. Paper level: {fmt(pairs)} links among {fmt(nodes)} papers")
     cw = (CONTENT_W - Inches(0.3) * 3) / 4
     cards = [
-        (fmt(nodes), "papers in the in-corpus citation graph"),
-        (fmt(d.net_value("citation", "papers cited")), f"papers cited ≥1 time within corpus (max in-degree {fmt(d.net_value('citation', 'max in-degree'))})"),
-        (fmt(cross), "citation links between the three labs"),
+        (fmt(fac_e), f"citation links between the {fmt(fac_n)} faculty scientists"),
+        (fmt(nodes), "papers in the paper-level graph (nodes are papers, not people)"),
+        (fmt(cross), "paper citation links between the three labs"),
         (f"{float(flow.at[ALL, 'impact_ratio_indian']):.2f}", "in / out citation ratio with other Indian institutions"),
     ]
     for i, (v, l) in enumerate(cards):
@@ -712,7 +722,9 @@ def slide_citation_network(prs, d: Data):
     table(s, x, Inches(5.25), pw, fdf, [0.8, 1.1, 1.0, 0.7, 0.9], size=10, row_h=0.3, align_right=range(1, 5),
           colors=[LAB_COLOR[l] for l in LABS], name="Indian flow table")
     footer(s, "Source: stats/tables/network_summary.csv, network_citation_*.csv, citation_flow_summary.csv · in-degree = citations from other corpus papers; flows count links to DOI-bearing papers")
-    notes(s, "Graph: directed, nodes = corpus papers, edge = A cites B (OpenAlex referenced_works), analysed within the three labs. "
+    notes(s, "Faculty graph: directed, nodes = roster scientists (faculty_id), edge A -> B = a paper of A cites a paper of B, "
+             "weight = citing-cited paper pairs, self-citations excluded (network_summary.csv rows 'faculty_citation'). "
+             "Paper graph: directed, nodes = corpus papers, edge = A cites B (OpenAlex referenced_works), analysed within the three labs. "
              "Sources: stats/tables/network_summary.csv, network_citation_pagerank_top10.csv, "
              "network_citation_indegree_distribution.csv, network_citation_flow_matrix.csv, citation_flow_summary.csv. "
              "Flow 'Cited by Indian' = citation links from papers involving an Indian institution other than the lab "
@@ -727,25 +739,31 @@ def slide_authorship_network(prs, d: Data):
     big = d.net_value("authorship", "communities with")
     mod = d.net_value("authorship", "modularity")
     lcc = d.net_value("authorship", "largest component share")
+    fn = d.net_value("faculty_coauthorship", "nodes")
+    fconn = d.net_value("faculty_coauthorship", "scientists with")
+    fpairs = d.net_value("faculty_coauthorship", "co-author pairs")
+    fcross = d.net_value("faculty_coauthorship", "cross-lab")
+    fcom = d.net_value("faculty_coauthorship", "Louvain")
+    nfac = d.net_value("authorship", "of which roster faculty")
     header(s, "Authorship network",
-           f"{fmt(authors)} authors, {fmt(pairs)} co-author pairs; Louvain finds {fmt(ncom)} communities "
-           f"(modularity {mod:.2f}), almost all within a single lab")
+           f"{fmt(fn)} faculty scientists: {fmt(fpairs)} co-author pairs, only {fmt(fcross)} across labs; {fmt(fcom)} communities. "
+           f"All {fmt(authors)} lab authors (students and staff included): {fmt(pairs)} pairs")
     cw = (CONTENT_W - Inches(0.3) * 3) / 4
     cards = [
-        (fmt(authors), f"authors; {pct(lcc, 0)} in the largest connected component"),
-        (f"{d.net_value('authorship', 'mean degree'):.1f}", "mean number of distinct co-authors"),
-        (fmt(ncom), f"Louvain communities ({fmt(big)} with ≥10 authors)"),
-        (fmt(d.net_value("authorship", "cross-lab")), "co-authorship links between the three labs"),
+        (fmt(fn), f"faculty scientists (nodes); {fmt(fconn)} have a faculty co-author"),
+        (fmt(fpairs), f"faculty co-author pairs; {fmt(fcross)} join two labs"),
+        (fmt(authors), f"all lab authors: {fmt(nfac)} faculty + {fmt(authors - nfac)} students, postdocs, staff"),
+        (fmt(ncom), f"communities in the all-author graph (modularity {mod:.2f})"),
     ]
     for i, (v, l) in enumerate(cards):
         stat(s, MARGIN + i * (cw + Inches(0.3)), Inches(1.6), cw, Inches(0.95), v, l, vsize=22)
-    btw_rank = {a: i for i, a in enumerate(d.btw["author"], 1)}
-    df = pd.DataFrame([[int(r["rank"]), clip(r["author"], 30), short(r["institution"]), fmt(r["degree"]),
-                        f"{float(r['betweenness']):.3f}", f"#{btw_rank[r['author']]}" if r["author"] in btw_rank else "—",
-                        int(r["community"])] for _, r in d.deg.iterrows()],
-                      columns=["#", "Most collaborative (degree)", "Lab", "Degree", "Betweenness", "Btw rank", "Comm."])
+    btw_rank = {a: i for i, a in enumerate(d.fac_btw["faculty_id"], 1)}
+    df = pd.DataFrame([[int(r["rank"]), clip(r["name"], 30), short(r["institution"]), fmt(r["faculty_coauthors"]),
+                        fmt(r["shared_papers"]), f"{float(r['betweenness']):.3f}",
+                        f"#{btw_rank[r['faculty_id']]}" if r["faculty_id"] in btw_rank else "—"] for _, r in d.fac_collab.iterrows()],
+                      columns=["#", "Most-connected faculty", "Lab", "Fac. co-auth.", "Shared papers", "Betweenness", "Btw rank"])
     lw = Inches(7.45)
-    table(s, MARGIN, Inches(2.75), lw, df, [0.3, 2.9, 0.7, 0.75, 1.0, 0.85, 0.7], size=10, row_h=0.36,
+    table(s, MARGIN, Inches(2.75), lw, df, [0.3, 2.75, 0.6, 0.95, 1.0, 1.0, 0.85], size=10, row_h=0.36,
           align_right=(3, 4, 5, 6), name="Degree table")
     x = MARGIN + lw + Inches(0.3)
     pw = SLIDE_W - MARGIN - x
@@ -767,19 +785,21 @@ def slide_authorship_network(prs, d: Data):
     ch.plots[0].has_data_labels = True
     ch.plots[0].data_labels.font.size = Pt(9)
     ch.plots[0].data_labels.position = XL_LABEL_POSITION.OUTSIDE_END
-    chart_title(ch, "Largest communities (colour = main lab)")
-    btop = d.btw.head(4)
-    paras = [("Top brokers by betweenness", 12, True, INK)]
+    chart_title(ch, "Largest communities, all lab authors (colour = main lab)")
+    btop = d.fac_btw.head(4)
+    paras = [("Faculty brokers by betweenness", 12, True, INK)]
     for _, r in btop.iterrows():
-        paras.append([(f"{clip(r['author'], 28)} ", 11, True, LAB_COLOR.get(r["institution"], INK)),
-                      (f"{short(r['institution'])} · {float(r['betweenness']):.3f} · degree {fmt(r['degree'])}", 11, False, INK)])
+        paras.append([(f"{clip(r['name'], 28)} ", 11, True, LAB_COLOR.get(r["institution"], INK)),
+                      (f"{short(r['institution'])} · {float(r['betweenness']):.3f} · {fmt(r['faculty_coauthors'])} faculty co-authors", 11, False, INK)])
     pt_ = d.partners[d.partners["institution"] == ALL].sort_values("rank").head(3)
     paras.append([("Top Indian partners: ", 11, True, INK),
                   ("; ".join(f"{clip(r['partner_institution'], 52)} ({fmt(r['collaborative_papers'])})" for _, r in pt_.iterrows()), 11, False, INK)])
     textbox(s, x, Inches(4.95), pw, Inches(1.9), paras)
     footer(s, f"Source: stats/tables/network_summary.csv, network_authorship_*.csv, indian_partner_institutions.csv · interactive graphs: {SITE_URL}")
     link_run_in_footer(s, SITE_URL)
-    notes(s, "Graph: undirected, nodes = authors of the three labs, edge = co-authored >=1 paper (weight = joint papers). "
+    notes(s, "Faculty graph: undirected, nodes = roster scientists (faculty_id: one node per person even with several OpenAlex "
+             "profiles; two people with the same name stay two nodes), edge = share >=1 paper at their roster lab. "
+             "All-author graph: undirected, nodes = authors of the three labs incl. students and project staff, edge = co-authored >=1 paper (weight = joint papers). "
              "Degree = distinct co-authors; betweenness estimated from 1,000 sampled sources (unweighted); "
              "communities = Louvain (seed 42) on joint-paper weights. Partner co-authors at other Indian institutions are "
              "kept in authorship_network.csv as raw data but not analysed. Sources: stats/tables/network_summary.csv, "
@@ -806,7 +826,7 @@ def slide_ten_findings(prs, d: Data):
 
     s = prs.slides.add_slide(prs.slide_layouts[6])
     header(s, "Ten non-obvious findings",
-           "Each finding answers one question; charts and method notes are in the dashboard's Insights tab")
+           "Each finding answers one question; charts and method notes are in the dashboard's Key Findings section")
     rows = []
     for i, (key, label) in enumerate(INSIGHTS, 1):
         f = Path("stats/tables/insights") / f"{key}.json"
@@ -817,7 +837,7 @@ def slide_ten_findings(prs, d: Data):
     footer(s, f"Source: stats/tables/insights/*.json (generated by src/stats/insights) · charts: {SITE_URL}")
     link_run_in_footer(s, SITE_URL)
     notes(s, "Every headline is generated from the metrics in stats/tables/insights/<id>.json by template, never typed "
-             "by hand. Method notes and charts are in the dashboard Insights tab.")
+             "by hand. Method notes and charts are in the dashboard Key Findings section.")
 
 
 # --------------------------------------------------------------------------- build + export

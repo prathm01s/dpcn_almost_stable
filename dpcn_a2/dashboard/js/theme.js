@@ -79,6 +79,21 @@
     return v;
   }
 
+  // A chart disposed while ECharts still has a paint frame queued (closing a popup or switching
+  // theme mid-animation) makes the queued frame throw inside the painter, whose layers are gone.
+  // Patch the shared painter class once so that a disposed painter skips such frames.
+  function guardPainter(inst) {
+    const zr = inst.getZr && inst.getZr();
+    const proto = zr && zr.painter && Object.getPrototypeOf(zr.painter);
+    if (!proto || proto.__g24Guarded) return;
+    ["_paintList", "refresh", "_updateLayerStatus", "eachBuiltinLayer", "eachLayer", "eachOtherLayer"].forEach(name => {
+      const fn = proto[name];
+      if (typeof fn !== "function") return;
+      proto[name] = function () { return this._layers ? fn.apply(this, arguments) : undefined; };
+    });
+    proto.__g24Guarded = true;
+  }
+
   function registerChartThemes() {
     if (!window.echarts || window.echarts.__g24Themed) return;
     const c = ink.dark;
@@ -102,6 +117,7 @@
       const inst = init.call(this, dom, chartTheme || (theme === "dark" ? "g24dark" : null), opts);
       // Pages written for a light background hard-code light greys in their chart options;
       // in the dark theme swap those for their dark equivalents (tooltips stay light).
+      guardPainter(inst);
       const setOption = inst.setOption;
       inst.setOption = function (option, ...rest) {
         if (theme === "dark" && !api.handlesCharts) option = darken(option, "");

@@ -1,5 +1,5 @@
-institution,percentile_threshold,percentile,papers,papers_with_references,papers_without_references,citations_received,references_made,institute_impact_ratio,median_paper_ir,ir_q1_gt_0.59,ir_q1_gt_0.59_pct,sjr_q1_pct
-CSIR-IICT,0.59,75.0,6167,5922,245,124349,306916,0.4052,0.2293,1302,21.99,55.09
-CSIR-NCL,0.59,75.0,5404,5199,205,133858,282900,0.4732,0.2414,1255,24.14,67.41
-CSIR-CECRI,0.59,75.0,2885,2816,69,92761,156102,0.5942,0.3672,958,34.02,73.06
-Group 24 Combined,0.59,75.0,14352,13839,513,348868,740724,0.471,0.2577,3490,25.22,63.28
+institution,percentile_threshold,percentile,papers,papers_with_references,papers_without_references,citations_received,references_made,institute_impact_ratio,median_paper_ir,ir_q1_gt_5,ir_q1_gt_5_pct,ir_gt_5_refs_ge_10,ir_q1_gt_10,ir_q1_gt_10_pct,ir_gt_10_refs_ge_10,ir_q1_gt_0.6,ir_q1_gt_0.6_pct,sjr_q1_pct
+CSIR-IICT,0.6,75.0,6123,5903,220,124303,305966,0.4063,0.2308,14,0.24,7,4,0.07,1,1269,21.5,55.01
+CSIR-NCL,0.6,75.0,5316,5141,175,133098,279730,0.4758,0.2444,42,0.82,35,12,0.23,11,1223,23.79,67.31
+CSIR-CECRI,0.6,75.0,2870,2811,59,92742,155829,0.5952,0.3684,17,0.6,15,2,0.07,1,943,33.55,73.14
+Group 24 Combined,0.6,75.0,14208,13757,451,348043,736331,0.4727,0.2589,73,0.53,57,18,0.13,13,3411,24.79,63.22

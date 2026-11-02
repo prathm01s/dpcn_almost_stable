@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // The page is one long scroll. The network and connectivity sections are heavy, so each is
   // drawn the first time it comes near the viewport and redrawn on later filter changes.
   const lazySections = {
-    citations: () => renderCitationNetwork(),
-    coauthorship: () => renderAuthorshipNetwork(),
+    citations: () => renderCitationSection(),
+    coauthorship: () => renderAuthorshipSection(),
     india: () => renderConnectivity(),
   };
   const shownSections = new Set();
@@ -176,6 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderKPIs();
     renderOverviewCharts();
     renderImpactRatio();
+    renderIrHigh();
     renderFacultyPanels();
     renderVenuesPanels();
     renderResearchAreasCharts();
@@ -399,6 +400,128 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Papers with IR above the fixed thresholds (IR > 5, IR > 10; D-33)
+  const irFixed = (data.impact_ratio && data.impact_ratio.thresholds && data.impact_ratio.thresholds.length)
+    ? data.impact_ratio.thresholds.slice().sort((a, b) => a - b) : [5, 10];
+  const irMinRefs = (data.impact_ratio && data.impact_ratio.min_refs) || 10;
+  let irListT = irFixed[0];
+  let irHighTable = null;
+  const labsOfPaper = (() => {
+    const m = {};
+    data.papers_compact.forEach(p => { (m[p.id] = m[p.id] || new Set()).add(p.inst); });
+    return m;
+  })();
+  const irOf = p => (p.r != null && p.r > 0 ? p.c / p.r : null);
+
+  function renderIrHigh() {
+    const card = document.getElementById("ir-high-card");
+    if (!card) return;
+    const names = { iict: "CSIR-IICT", ncl: "CSIR-NCL", cecri: "CSIR-CECRI", all: "All three" };
+    const keys = ["iict", "ncl", "cecri", "all"];
+    const sel = currentInst === "compare" ? "all" : currentInst;
+    const byKey = {};
+    keys.forEach(k => {
+      const ps = filteredPapersFor(k);
+      const withRefs = ps.filter(p => irOf(p) != null);
+      byKey[k] = { papers: ps, n: withRefs.length, above: Object.fromEntries(irFixed.map(t => [t, withRefs.filter(p => irOf(p) > t)])) };
+    });
+    const cur = byKey[sel];
+
+    // numbers for the selected institute
+    document.getElementById("ir-hi-kpis").innerHTML = irFixed.map(t => {
+      const a = cur.above[t];
+      const reliable = a.filter(p => p.r >= irMinRefs).length;
+      const pct = cur.n ? a.length / cur.n * 100 : 0;
+      return `<div class="ir-hi-kpi"><div class="lbl">IR &gt; ${t} · ${esc(names[sel])}</div>
+        <div class="val">${fmtN(a.length)}<small>papers (${pct.toFixed(2)}%)</small></div>
+        <div class="sub">of ${fmtN(cur.n)} papers with references · ${fmtN(reliable)} of them have ≥ ${irMinRefs} references</div></div>`;
+    }).join("") + `<div class="ir-hi-kpi"><div class="lbl">For comparison · top 25% threshold</div>
+        <div class="val">IR &gt; ${irThreshold}</div><div class="sub">75th percentile of paper IR (median paper ${data.impact_ratio.summary.all ? Number(data.impact_ratio.summary.all.median_paper_ir).toFixed(2) : "–"})</div></div>`;
+
+    // chart: papers above each threshold, by lab
+    const hEl = document.getElementById("chart-ir-high");
+    if (!charts.irHigh) charts.irHigh = echarts.init(hEl);
+    const tColors = ["#f59e0b", "#dc2626"];
+    charts.irHigh.setOption({
+      title: { text: "By lab", left: "center", top: 0, textStyle: { fontSize: 13 } },
+      tooltip: {
+        trigger: "axis", axisPointer: { type: "shadow" },
+        formatter: ps => `<strong>${ps[0].name}</strong><br/>` + ps.map(p => {
+          const b = byKey[keys[p.dataIndex]];
+          return `${p.marker} ${p.seriesName}: ${fmtN(p.value)} of ${fmtN(b.n)} (${(b.n ? p.value / b.n * 100 : 0).toFixed(2)}%)`;
+        }).join("<br/>"),
+      },
+      legend: { bottom: 0 },
+      grid: { left: 45, right: 15, top: 35, bottom: 45 },
+      xAxis: { type: "category", data: keys.map(k => names[k]) },
+      yAxis: { type: "value", name: "Papers", minInterval: 1 },
+      series: irFixed.map((t, i) => ({
+        name: `IR > ${t}`, type: "bar", itemStyle: { color: tColors[i % 2] },
+        data: keys.map(k => byKey[k].above[t].length),
+        label: { show: true, position: "top", formatter: p => `${p.value} (${(byKey[keys[p.dataIndex]].n ? p.value / byKey[keys[p.dataIndex]].n * 100 : 0).toFixed(1)}%)`, fontSize: 10 },
+      })),
+    }, true);
+
+    // chart: by publication year, selected institute
+    const yEl = document.getElementById("chart-ir-high-year");
+    if (!charts.irHighYear) charts.irHighYear = echarts.init(yEl);
+    const years = [];
+    for (let y = state.yearMin; y <= state.yearMax; y++) years.push(y);
+    charts.irHighYear.setOption({
+      title: { text: `By publication year · ${names[sel]}`, left: "center", top: 0, textStyle: { fontSize: 13 } },
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      legend: { bottom: 0 },
+      grid: { left: 45, right: 15, top: 35, bottom: 45 },
+      xAxis: { type: "category", data: years.map(y => (y === 2026 ? "2026*" : String(y))) },
+      yAxis: { type: "value", name: "Papers", minInterval: 1 },
+      series: irFixed.map((t, i) => ({
+        name: `IR > ${t}`, type: "bar", itemStyle: { color: tColors[i % 2] },
+        data: years.map(y => cur.above[t].filter(p => p.yr === y).length),
+      })),
+    }, true);
+
+    // the list
+    const rows = cur.above[irListT].map(p => ({
+      title: p.ti, doi: p.doi, labs: [...(labsOfPaper[p.id] || [p.inst])].map(k => names[k].replace("CSIR-", "")).sort().join(", "),
+      year: p.yr, journal: p.j, quartile: p.t === "conference" ? "Conference" : (p.q || "Unranked"),
+      citations: p.c, references: p.r, ir: Math.round(irOf(p) * 100) / 100, few: p.r < irMinRefs,
+    })).sort((a, b) => b.ir - a.ir);
+    setText("ir-hi-count", `· ${fmtN(rows.length)} with IR > ${irListT} (${names[sel]})`);
+    const cols = [
+      { title: "IR", field: "ir", sorter: "number", width: 75, hozAlign: "right", formatter: c => `<strong>${c.getValue().toFixed(2)}</strong>` },
+      { title: "Title", field: "title", widthGrow: 3, minWidth: 220, formatter: c => {
+          const r = c.getRow().getData();
+          return r.doi ? `<a href="${esc(r.doi)}" target="_blank" rel="noopener" style="color:var(--accent-ink);">${esc(r.title)}</a>` : esc(r.title);
+        }, tooltip: true },
+      { title: "Lab", field: "labs", width: 95 },
+      { title: "Year", field: "year", width: 70, sorter: "number" },
+      { title: "Journal", field: "journal", widthGrow: 1.5, minWidth: 140, tooltip: true },
+      { title: "SJR", field: "quartile", width: 90, formatter: c => qBadge(c.getValue()) },
+      { title: "Citations", field: "citations", width: 95, sorter: "number", hozAlign: "right" },
+      { title: "References", field: "references", width: 105, sorter: "number", hozAlign: "right" },
+      { title: "Reference list", field: "few", width: 130, formatter: c => c.getValue() ? `<span class="flag-few" title="OpenAlex lists fewer than ${irMinRefs} references for this paper; its reference list may be incomplete, which inflates IR">&lt; ${irMinRefs} refs: check</span>` : "OK" },
+    ];
+    const tEl = document.getElementById("table-ir-high");
+    if (!irHighTable) {
+      irHighTable = new Tabulator(tEl, { data: rows, layout: "fitColumns", columns: cols, placeholder: "No papers above this threshold for the current selection" });
+    } else {
+      irHighTable.setData(rows);
+    }
+    const few = rows.filter(r => r.few).length;
+    document.getElementById("ir-hi-note").innerHTML =
+      `<strong>Reading the list:</strong> IR = citations (OpenAlex, 13 Oct 2026) ÷ references listed by OpenAlex; papers without references are left out. ` +
+      `${fmtN(few)} of these ${fmtN(rows.length)} papers have fewer than ${irMinRefs} references in OpenAlex (flagged): for them the reference list is probably incomplete, so the IR is overstated. ` +
+      `Older papers have had longer to be cited, so high-IR papers concentrate in early years.`;
+  }
+
+  document.querySelectorAll("#ir-hi-tabs button").forEach(b => {
+    b.addEventListener("click", () => {
+      irListT = Number(b.dataset.t);
+      document.querySelectorAll("#ir-hi-tabs button").forEach(x => x.classList.toggle("active", x === b));
+      renderIrHigh();
+    });
+  });
+
   // 3. Faculty Panels
   let facultyTable = null;
   function renderFacultyPanels() {
@@ -552,13 +675,22 @@ document.addEventListener("DOMContentLoaded", () => {
         data: bundle.top_papers,
         layout: "fitColumns",
         columns: [
-          { title: "#", field: "rank", width: 50 },
-          { title: "Title", field: "title", widthGrow: 3 },
-          { title: "Journal", field: "journal_name", widthGrow: 2 },
-          { title: "Year", field: "year", width: 70 },
-          { title: "Citations", field: "citations", sorter: "number", width: 95 },
-          { title: "Quartile", field: "quartile", width: 85, formatter: c => `<span class="badge-q badge-q1">${c.getValue()}</span>` },
-          { title: "DOI Link", field: "doi", widthGrow: 1.5, formatter: c => c.getValue() ? `<a href="${c.getValue()}" target="_blank" style="color:#0288d1;text-decoration:none;">View Article ↗</a>` : "" },
+          { title: "#", field: "rank", width: 45 },
+          { title: "Title", field: "title", widthGrow: 3, minWidth: 220, tooltip: true, formatter: c => {
+              const r = c.getRow().getData();
+              return r.doi ? `<a href="${esc(r.doi)}" target="_blank" rel="noopener" style="color:var(--accent-ink);">${esc(r.title)}</a>` : esc(r.title);
+            } },
+          { title: "Lab(s)", field: "labs", width: 100, formatter: c => esc((c.getValue() || "").replace(/CSIR-/g, "")) },
+          { title: "Lab authors", field: "in_corpus_authors", widthGrow: 1.5, minWidth: 140, tooltip: true },
+          { title: "Journal", field: "journal_name", widthGrow: 1.5, minWidth: 130, tooltip: true },
+          { title: "Year", field: "year", width: 65 },
+          { title: "Type", field: "type", width: 90 },
+          { title: "Field", field: "field", widthGrow: 1, minWidth: 110, tooltip: true },
+          { title: "SJR", field: "quartile", width: 80, formatter: c => qBadge(c.getValue()) },
+          { title: "J. IF*", field: "jif", width: 70, hozAlign: "right", sorter: "number", formatter: c => c.getValue() != null ? Number(c.getValue()).toFixed(1) : "–", headerTooltip: "SCImago 2-year cites per document of the journal (Scopus-based IF analogue)" },
+          { title: "Citations", field: "citations", sorter: "number", width: 92, hozAlign: "right" },
+          { title: "Refs", field: "references", sorter: "number", width: 65, hozAlign: "right", formatter: c => c.getValue() != null ? c.getValue() : "–" },
+          { title: "IR", field: "ir", sorter: "number", width: 70, hozAlign: "right", formatter: c => c.getValue() != null ? Number(c.getValue()).toFixed(2) : "–", headerTooltip: "Impact ratio = citations ÷ references" },
         ],
       });
     } else if (topPapersTable) {
@@ -802,26 +934,26 @@ document.addEventListener("DOMContentLoaded", () => {
   function populateCitationTables(cData) {
     const tbodyPr = document.getElementById("tbody-net-pagerank");
     if (tbodyPr && cData.top_pagerank) {
-      tbodyPr.innerHTML = cData.top_pagerank.map(p => {
-        const labColor = p.inst === "CSIR-IICT" ? "#2b5c8f" : p.inst === "CSIR-NCL" ? "#2e7d32" : "#d95f02";
-        return `
+      tbodyPr.innerHTML = cData.top_pagerank.map(p => `
           <tr>
             <td style="font-weight:700; color:var(--text-muted);">${p.rank}</td>
             <td>
-              <div style="font-weight:600; color:var(--text); max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${p.title}">${p.title}</div>
-              <div style="font-size:0.75rem; color:var(--text-muted);">${p.journal} (${p.year}) &bull; <span class="badge-q badge-q1">${p.quartile}</span></div>
+              <div style="font-weight:600; max-width:300px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${esc(p.title)}">${p.doi ? `<a href="${esc(p.doi)}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">${esc(p.journal)} (${p.year}) · ${qBadge(p.quartile)}</div>
             </td>
-            <td><span class="net-badge-lab" style="background:${labColor};">${p.inst}</span></td>
-            <td style="font-weight:700;">${p.in_degree}</td>
-            <td style="font-family:monospace; font-weight:600; color:#0284c7;">${p.score.toFixed(5)}</td>
-            <td><a href="${p.doi}" target="_blank" style="color:#0284c7; text-decoration:none; font-size:0.75rem;">DOI ↗</a></td>
-          </tr>
-        `;
-      }).join("");
+            <td>${labBadge(p.inst)}</td>
+            <td style="font-weight:700;">${fmtN(p.in_degree)}</td>
+            <td>${fmtN(p.citations)}</td>
+            <td>${fmtN(p.references)}</td>
+            <td>${p.ir != null ? p.ir.toFixed(2) : "–"}</td>
+            <td style="font-family:monospace;">${p.score.toFixed(5)}</td>
+          </tr>`).join("");
     }
 
     const tbodyFlow = document.getElementById("tbody-net-cite-matrix");
     if (tbodyFlow && cData.flow_matrix) {
+      const sh = crossShare(cData.flow_matrix, "source_inst");
+      setText("net-cite-matrix-note", `Across labs: ${fmtN(sh.cross)} of ${fmtN(sh.all)} lab-attributed citation links (${sh.pct.toFixed(1)}%).`);
       tbodyFlow.innerHTML = cData.flow_matrix.map(row => {
         const tot = row.iict + row.ncl + row.cecri;
         return `
@@ -1031,6 +1163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tbodyCollab = document.getElementById("tbody-net-auth-matrix");
     if (tbodyCollab && aData.collab_matrix) {
+      setText("net-auth-matrix-note", `Cross-lab links: ${fmtN(aData.stats.inter_lab_pairs)} of ${fmtN(aData.stats.edge_rows)} co-authorship links (one per author pair per shared paper).`);
       tbodyCollab.innerHTML = aData.collab_matrix.map(row => {
         const totInter = (row.inst === 'CSIR-IICT' ? (row.ncl + row.cecri) : row.inst === 'CSIR-NCL' ? (row.iict + row.cecri) : (row.iict + row.ncl));
         return `
@@ -1044,6 +1177,248 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       }).join("");
     }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Network sections (D-33): faculty view (default, one node per roster scientist) and the
+  // paper / all-author view. Every number is read from the data payload.
+  // ---------------------------------------------------------------------------
+  const netView = { cite: "faculty", auth: "faculty" };
+  const facNet = { cite: { inst: "all", min: 5, q: "", init: false }, auth: { inst: "all", min: 1, q: "", init: false } };
+  const fmtN = v => (v == null || v === "" ? "–" : Number(v).toLocaleString());
+  const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  const LAB_KEY_OF = { "CSIR-IICT": "iict", "CSIR-NCL": "ncl", "CSIR-CECRI": "cecri" };
+  const labColorOf = inst => colors[LAB_KEY_OF[inst]] || "#94a3b8";
+  const labBadge = inst => `<span class="net-badge-lab" style="background:${({ "CSIR-IICT": "#2b5c8f", "CSIR-NCL": "#2e7d32", "CSIR-CECRI": "#d95f02" })[inst] || "#64748b"};">${esc(inst)}</span>`;
+  const qBadge = q => {
+    const cls = { Q1: "q1", Q2: "q2", Q3: "q3", Q4: "q4" }[q] || "un";
+    return `<span class="badge-q badge-${cls}">${esc(q || "Unranked")}</span>`;
+  };
+
+  function renderCitationSection() {
+    fillNetworkKpis();
+    if (netView.cite === "faculty") renderFacultyNetwork("cite"); else renderCitationNetwork();
+  }
+  function renderAuthorshipSection() {
+    fillNetworkKpis();
+    if (netView.auth === "faculty") renderFacultyNetwork("auth"); else renderAuthorshipNetwork();
+  }
+
+  document.querySelectorAll(".net-view-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const net = btn.dataset.net, view = btn.dataset.view;
+      netView[net] = view;
+      document.querySelectorAll(`.net-view-btn[data-net="${net}"]`).forEach(b => {
+        const on = b === btn;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-selected", String(on));
+      });
+      document.getElementById(`${net}-view-faculty`).hidden = view !== "faculty";
+      document.getElementById(`${net}-view-papers`).hidden = view !== "papers";
+      if (net === "cite") renderCitationSection(); else renderAuthorshipSection();
+      Object.values(charts).forEach(c => c && c.resize && c.resize());
+    });
+  });
+
+  let netKpisFilled = false;
+  function fillNetworkKpis() {
+    if (netKpisFilled || !data.network) return;
+    netKpisFilled = true;
+    const nf = data.network_faculty || {};
+    const fc = nf.citation && nf.citation.stats, fa = nf.authorship && nf.authorship.stats;
+    const pc = data.network.citation.stats, pa = data.network.authorship.stats;
+    if (fc) {
+      setText("cite-tab-fac-n", `${fmtN(fc.total_nodes)} nodes`);
+      setText("fac-cite-kpi-nodes", fmtN(fc.total_nodes));
+      setText("fac-cite-kpi-connected", fmtN(fc.connected_nodes));
+      setText("fac-cite-kpi-edges", fmtN(fc.total_edges));
+      setText("fac-cite-kpi-cites", fmtN(fc.citation_links));
+      setText("fac-cite-kpi-cites-sub", `Between different scientists; ${fmtN(fc.self_citation_pairs)} self-citations left out`);
+      setText("fac-cite-kpi-cross", fmtN(fc.inter_lab_edges));
+      setText("fac-cite-kpi-cross-sub", `${fmtN(fc.inter_lab_citations)} paper-to-paper citations across labs`);
+    }
+    if (fa) {
+      setText("auth-tab-fac-n", `${fmtN(fa.total_nodes)} nodes`);
+      setText("fac-auth-kpi-nodes", fmtN(fa.total_nodes));
+      setText("fac-auth-kpi-connected", fmtN(fa.connected_nodes));
+      setText("fac-auth-kpi-edges", fmtN(fa.total_edges));
+      setText("fac-auth-kpi-edges-sub", `${fmtN(fa.shared_papers)} shared papers summed over pairs`);
+      setText("fac-auth-kpi-communities", fmtN(fa.communities_count));
+      setText("fac-auth-kpi-communities-sub", `Modularity ${fa.modularity}; largest connected group ${fmtN(fa.lcc_nodes)} scientists`);
+      setText("fac-auth-kpi-cross", fmtN(fa.inter_lab_pairs));
+    }
+    setText("cite-tab-pap-n", `${fmtN(pc.total_nodes)} nodes`);
+    setText("net-cite-kpi-nodes", fmtN(pc.total_nodes));
+    setText("net-cite-kpi-edges", fmtN(pc.total_edges));
+    setText("net-cite-kpi-interlab", fmtN(pc.inter_lab_citations));
+    const top = data.network.citation.top_pagerank && data.network.citation.top_pagerank[0];
+    if (top) {
+      const el = document.getElementById("net-cite-kpi-top-pr");
+      el.textContent = top.title;
+      el.title = top.title;
+      el.classList.add("kpi-val-text");
+      setText("net-cite-kpi-top-pr-sub", `${top.journal} (${top.year}) · cited ${top.in_degree}× in the corpus`);
+    }
+    setText("auth-tab-all-n", `${fmtN(pa.total_authors)} nodes`);
+    setText("net-auth-kpi-nodes", fmtN(pa.total_authors));
+    if (pa.faculty_authors != null) {
+      const other = pa.total_authors - pa.faculty_authors;
+      setText("net-auth-kpi-nodes-sub", `${fmtN(pa.faculty_authors)} faculty + ${fmtN(other)} students, postdocs and staff`);
+      setText("net-auth-composition", `Of the ${fmtN(pa.total_authors)} authors, ${fmtN(pa.faculty_authors)} are roster faculty and ${fmtN(other)} are not.`);
+    }
+    setText("net-auth-kpi-edges", fmtN(pa.total_edges));
+    setText("net-auth-kpi-communities", fmtN(pa.communities_count));
+    setText("net-auth-kpi-interlab", fmtN(pa.inter_lab_pairs));
+  }
+
+  function matrixRows(rows, firstKey, diagOnly) {
+    return rows.map(row => {
+      const lab = row[firstKey];
+      const vals = { iict: row.iict, ncl: row.ncl, cecri: row.cecri };
+      const total = diagOnly ? Object.entries(vals).filter(([k]) => LAB_KEY_OF[lab] !== k).reduce((a, [, v]) => a + v, 0)
+        : vals.iict + vals.ncl + vals.cecri;
+      return `<tr><td><strong>${esc(lab)}</strong></td>` +
+        ["iict", "ncl", "cecri"].map(k => `<td class="${LAB_KEY_OF[lab] === k ? "matrix-diag" : "matrix-cross"}">${fmtN(vals[k])}</td>`).join("") +
+        `<td style="font-weight:700; background:var(--surface-2);">${fmtN(total)}</td></tr>`;
+    }).join("");
+  }
+  function crossShare(rows, firstKey) {
+    let cross = 0, all = 0;
+    rows.forEach(r => ["iict", "ncl", "cecri"].forEach(k => { all += r[k]; if (LAB_KEY_OF[r[firstKey]] !== k) cross += r[k]; }));
+    return { cross, all, pct: all ? cross / all * 100 : 0 };
+  }
+
+  function populateFacultyTables(kind) {
+    const nf = data.network_faculty;
+    if (kind === "cite") {
+      const c = nf.citation;
+      document.getElementById("tbody-fac-top-cited").innerHTML = c.top_cited.map(r => `
+        <tr><td style="font-weight:700; color:var(--text-muted);">${r.rank}</td>
+          <td style="font-weight:600;" ${window.G24Profiles && G24Profiles.has(r.fid) ? `data-fid="${esc(r.fid)}"` : ""}>${esc(r.name)}</td>
+          <td>${labBadge(r.inst)}</td><td style="font-weight:700;">${fmtN(r.in_links)}</td>
+          <td>${fmtN(r.citing_faculty)}</td><td>${fmtN(r.papers)}</td>
+          <td style="font-family:monospace;">${r.pagerank.toFixed(4)}</td></tr>`).join("");
+      document.getElementById("tbody-fac-cite-matrix").innerHTML = matrixRows(c.flow_matrix, "source_inst", false);
+      const s = crossShare(c.flow_matrix, "source_inst");
+      document.getElementById("fac-cite-matrix-note").innerHTML =
+        `<strong>Reading it:</strong> diagonal = scientists citing colleagues in their own lab. Across labs: <strong>${fmtN(s.cross)}</strong> of ${fmtN(s.all)} paper-to-paper citations between scientists (${s.pct.toFixed(1)}%).`;
+    } else {
+      const a = nf.authorship;
+      document.getElementById("tbody-fac-bridges").innerHTML = a.top_bridges.map(b => `
+        <tr><td style="font-weight:700; color:var(--text-muted);">${b.rank}</td>
+          <td style="font-weight:600;" ${window.G24Profiles && G24Profiles.has(b.fid) ? `data-fid="${esc(b.fid)}"` : ""}>${esc(b.author)}</td>
+          <td>${labBadge(b.institution)}</td><td style="font-weight:700;">${fmtN(b.collaborators_count)}</td>
+          <td>${fmtN(b.joint_paper_links)}</td><td style="font-family:monospace;">${b.betweenness.toFixed(4)}</td>
+          <td><span class="net-chip">#${b.community_id}</span></td></tr>`).join("");
+      document.getElementById("tbody-fac-auth-matrix").innerHTML = matrixRows(a.collab_matrix, "inst", true);
+      const tot = a.stats.total_edges, cross = a.stats.inter_lab_pairs;
+      document.getElementById("fac-auth-matrix-note").innerHTML =
+        `<strong>Reading it:</strong> diagonal = pairs within one lab. Only <strong>${fmtN(cross)}</strong> of ${fmtN(tot)} faculty co-author pairs (${(tot ? cross / tot * 100 : 0).toFixed(1)}%) join two different labs.`;
+    }
+  }
+
+  function initFacultyControls(kind) {
+    const prefix = kind === "cite" ? "fac-cite" : "fac-auth";
+    const st = facNet[kind];
+    const def = { inst: "all", min: st.min, q: "" };
+    const inst = document.getElementById(`${prefix}-filter-inst`);
+    const slider = document.getElementById(`${prefix}-slider`);
+    const sval = document.getElementById(`${prefix}-slider-val`);
+    const search = document.getElementById(`${prefix}-search`);
+    const reset = document.getElementById(`${prefix}-reset`);
+    const redraw = () => renderFacultyNetwork(kind);
+    if (inst) inst.addEventListener("change", e => { st.inst = e.target.value; redraw(); });
+    if (slider) slider.addEventListener("input", e => { st.min = parseInt(e.target.value, 10); if (sval) sval.textContent = st.min; redraw(); });
+    if (search) search.addEventListener("input", e => { st.q = e.target.value; redraw(); });
+    if (reset) reset.addEventListener("click", () => {
+      Object.assign(st, def);
+      if (inst) inst.value = "all";
+      if (slider) slider.value = String(def.min);
+      if (sval) sval.textContent = def.min;
+      if (search) search.value = "";
+      redraw();
+    });
+  }
+
+  function renderFacultyNetwork(kind) {
+    const nf = data.network_faculty;
+    if (!nf) return;
+    const isCite = kind === "cite";
+    const nd = isCite ? nf.citation : nf.authorship;
+    const el = document.getElementById(isCite ? "chart-fac-cite-network" : "chart-fac-auth-network");
+    if (!el) return;
+    const key = isCite ? "facCiteNet" : "facAuthNet";
+    if (!charts[key]) {
+      charts[key] = echarts.init(el);
+      charts[key].on("click", prm => {
+        if (prm.dataType === "node" && prm.data.fid && window.G24Profiles && G24Profiles.has(prm.data.fid)) G24Profiles.open(prm.data.fid);
+      });
+    }
+    const st = facNet[kind];
+    if (!st.init) { st.init = true; initFacultyControls(kind); populateFacultyTables(kind); }
+
+    const q = st.q.toLowerCase().trim();
+    let nodes = nd.nodes.filter(n => {
+      if (st.inst !== "all" && st.inst !== "cross" && n.inst !== st.inst) return false;
+      if (isCite && n.in_degree < st.min) return false;
+      return true;
+    });
+    const ids = new Set(nodes.map(n => n.id));
+    let links = nd.links.filter(l => ids.has(l.source) && ids.has(l.target)
+      && (isCite || l.weight >= st.min) && (st.inst !== "cross" || l.is_cross));
+    let hit = null;
+    if (q) {
+      hit = new Set(nodes.filter(n => n.name.toLowerCase().includes(q)).map(n => n.id));
+      links = links.filter(l => hit.has(l.source) || hit.has(l.target));
+    }
+    const keep = new Set(hit || []);
+    links.forEach(l => { keep.add(l.source); keep.add(l.target); });
+    nodes = nodes.filter(n => keep.has(n.id));  // scientists without a link under these filters are not drawn
+    const nameOf = Object.fromEntries(nd.nodes.map(n => [n.id, n.name]));
+    const hint = document.querySelector(`#${kind}-view-faculty .net-hint`);
+    if (hint) hint.textContent = `Showing ${fmtN(nodes.length)} of ${fmtN(nd.stats.total_nodes)} scientists and ${fmtN(links.length)} of ${fmtN(nd.stats.total_edges)} links. Amber lines join two labs. Scroll to zoom, drag to move.`;
+
+    const maxW = Math.max(1, ...links.map(l => l.weight));
+    charts[key].setOption({
+      tooltip: {
+        trigger: "item", backgroundColor: ink().tooltip, borderColor: ink().tooltipBorder, borderWidth: 1,
+        padding: [10, 14], textStyle: { color: ink().text, fontSize: 12 },
+        formatter: p => {
+          if (p.dataType === "edge") {
+            const d = p.data;
+            return isCite
+              ? `<strong>${esc(nameOf[d.source])}</strong> cites <strong>${esc(nameOf[d.target])}</strong><br/>${fmtN(d.weight)} paper-to-paper citation${d.weight === 1 ? "" : "s"}${d.is_cross ? "<br/><em>across labs</em>" : ""}`
+              : `<strong>${esc(nameOf[d.source])}</strong> — <strong>${esc(nameOf[d.target])}</strong><br/>${fmtN(d.weight)} shared paper${d.weight === 1 ? "" : "s"}${d.is_cross ? "<br/><em>across labs</em>" : ""}`;
+          }
+          const d = p.data;
+          const head = `<div style="font-weight:700; font-size:13px;">${esc(d.name)}</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:6px;">${esc(d.designation || "")} · ${esc(d.inst)}<br/>${esc(d.department || "")}</div>`;
+          const body = isCite
+            ? `Citations received from other scientists: <strong>${fmtN(d.in_degree)}</strong> (from ${fmtN(d.citing_faculty)} scientists)<br/>Citations given to other scientists: <strong>${fmtN(d.out_degree)}</strong><br/>PageRank: ${d.pagerank}`
+            : `Faculty co-authors: <strong>${fmtN(d.degree)}</strong> · shared papers: <strong>${fmtN(d.shared_papers)}</strong><br/>Betweenness: ${d.betweenness} · community #${d.community}`;
+          return `${head}<div style="font-size:11px; line-height:1.6;">${body}<br/>Papers 2016–2026: ${fmtN(d.papers)} · h-index ${d.h_index}</div>
+            ${window.G24Profiles && G24Profiles.has(d.fid) ? '<div style="margin-top:6px; font-size:11px; color:var(--accent-ink); font-weight:600;">Click to open the profile</div>' : ""}`;
+        },
+      },
+      legend: [{ data: data.network.categories.map(c => c.name), top: "bottom", textStyle: { fontSize: 11, color: ink().text2 } }],
+      series: [{
+        type: "graph", layout: "force", roam: true, draggable: true,
+        categories: themedCategories(data.network.categories),
+        data: nodes.map(n => ({
+          ...n,
+          itemStyle: { color: labColorOf(n.inst), borderColor: hit && hit.has(n.id) ? "#facc15" : ink().surface, borderWidth: hit && hit.has(n.id) ? 3 : 1 },
+          label: { show: n.symbolSize >= (isCite ? 22 : 18) || (hit && hit.has(n.id)), position: "right", fontSize: 10, color: ink().text2 },
+        })),
+        links: links.map(l => ({
+          ...l,
+          lineStyle: { width: 0.6 + 4 * Math.sqrt(l.weight / maxW), color: l.is_cross ? "#f59e0b" : "source", opacity: l.is_cross ? 0.85 : 0.45, curveness: isCite ? 0.15 : 0.05 },
+        })),
+        edgeSymbol: isCite ? ["none", "arrow"] : ["none", "none"],
+        edgeSymbolSize: isCite ? [0, 7] : [0, 0],
+        force: { repulsion: isCite ? 160 : 140, gravity: 0.08, edgeLength: [40, 140], friction: 0.6 },
+        emphasis: { focus: "adjacency", lineStyle: { width: 4, opacity: 1 } },
+      }],
+    }, true);
   }
 
   // 8. Indian Connectivity (Sections 7a / 7b)
@@ -1692,6 +2067,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (openIdx >= 0) openInsight(openIdx);
     });
   }
+
+  // Data & Methods counts
+  setText("docs-n-papers", fmtN(data.meta && data.meta.total_papers));
+  setText("docs-n-rows", fmtN(data.meta && data.meta.total_authorship_rows));
+  setText("docs-n-fac", fmtN(data.network_faculty && data.network_faculty.authorship.stats.total_nodes));
 
   // Initial draw
   renderInsightCards();

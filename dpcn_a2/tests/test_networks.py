@@ -115,4 +115,4 @@ def test_report_mentions_impact_ratio_and_site():
     prs = Presentation("stats/report/24_CSIR.pptx")
     text = "\n".join(sh.text_frame.text for s in prs.slides for sh in s.shapes if sh.has_text_frame)
     assert "impact ratio" in text.lower()
-    assert "https://prathm01s.github.io/dpcn_almost_stable/" in text
+    assert "https://dpcnsite.vercel.app/" in text

@@ -1,9 +1,9 @@
 {
   "id": "11_information_diffusion",
   "question": "How do new experimental methodologies and reagents diffuse across labs, and who are the super-spreaders?",
-  "headline": "Epidemic thresholds are low in every field (\u03b2c = 0.0326 in Chemistry to 0.0555 in Engineering), far below the simulated \u03b20 = 0.2. With uniform transmission half of the Chemistry subgraph adopts by step 6 (median over 15 faculty seeds; 15 reach 50% within 15 steps); with topic-weighted transmission on the full network, 76.15% of Chemistry researchers and 2.4% of researchers outside Chemistry adopt by step 15.",
+  "headline": "Epidemic thresholds are low in every field (\u03b2c = 0.0326 in Chemistry to 0.0555 in Engineering), far below the simulated \u03b20 = 0.2. With uniform transmission half of the Chemistry subgraph adopts by step 6 (median over 15 faculty seeds; 15 reach 50% within 15 steps); with topic-weighted transmission on the full network, 76.41% of Chemistry researchers and 2.42% of researchers outside Chemistry adopt by step 15.",
   "metrics": {
-    "global_lcc_nodes": 7752,
+    "global_lcc_nodes": 7735,
     "global_beta_c_theoretical": 0.0324,
     "global_beta_c_spectral": 0.0302,
     "beta_base": 0.2,
@@ -28,19 +28,19 @@
     },
     "chemistry_t50_cond_b": 6.0,
     "chemistry_seeds_reaching_50_cond_b": 15,
-    "chemistry_final_reach_cond_a": 76.15,
-    "chemistry_spillover_cond_a": 2.4
+    "chemistry_final_reach_cond_a": 76.41,
+    "chemistry_spillover_cond_a": 2.42
   },
   "fields_data": {
     "Chemistry": {
       "field": "Chemistry",
       "short_label": "Chemistry",
-      "active_researchers": 3266,
-      "subgraph_lcc_size": 3262,
-      "subgraph_edges": 15816,
+      "active_researchers": 3254,
+      "subgraph_lcc_size": 3248,
+      "subgraph_edges": 15786,
       "thresholds": {
-        "k_mean": 9.7,
-        "k2_mean": 297.42,
+        "k_mean": 9.72,
+        "k2_mean": 298.44,
         "beta_c": 0.0326,
         "beta_c_spec": 0.0328
       },
@@ -51,21 +51,21 @@
         "n_seeds": 15,
         "adoption_curve": [
           0.03,
-          0.45,
-          1.62,
-          4.57,
-          10.07,
-          17.92,
-          27.21,
-          36.86,
-          45.9,
-          53.61,
-          59.8,
-          64.68,
-          68.48,
-          71.53,
-          74.04,
-          76.15
+          0.46,
+          1.67,
+          4.7,
+          10.32,
+          18.38,
+          27.83,
+          37.55,
+          46.56,
+          54.27,
+          60.41,
+          65.17,
+          68.89,
+          71.86,
+          74.31,
+          76.41
         ],
         "spillover_curve": [
           0.0,
@@ -76,14 +76,14 @@
           0.05,
           0.1,
           0.19,
-          0.32,
+          0.31,
           0.48,
           0.7,
-          0.95,
-          1.25,
-          1.59,
-          1.98,
-          2.4
+          0.96,
+          1.27,
+          1.61,
+          1.99,
+          2.42
         ],
         "top_super_spreaders": [
           {
@@ -92,11 +92,11 @@
             "faculty_id": "FAC_IICT_0174",
             "lab": "CSIR-IICT",
             "degree": 286,
-            "field_share": 89.1,
+            "field_share": 89.0,
             "t50": 7.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1173,
-            "final_reach": 0.7827
+            "reach_t3": 0.1191,
+            "final_reach": 0.7857
           },
           {
             "key": "https://openalex.org/A5068154195",
@@ -107,8 +107,8 @@
             "field_share": 84.1,
             "t50": 8.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0818,
-            "final_reach": 0.774
+            "reach_t3": 0.0814,
+            "final_reach": 0.7743
           },
           {
             "key": "https://openalex.org/A5080693066",
@@ -119,8 +119,20 @@
             "field_share": 48.1,
             "t50": 8.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.069,
-            "final_reach": 0.7738
+            "reach_t3": 0.0762,
+            "final_reach": 0.7776
+          },
+          {
+            "key": "https://openalex.org/A5022075844",
+            "name": "Dr. Kumar Vanka",
+            "faculty_id": "FAC_NCL_0069",
+            "lab": "CSIR-NCL",
+            "degree": 199,
+            "field_share": 76.1,
+            "t50": 8.0,
+            "p_reach50": 1.0,
+            "reach_t3": 0.0567,
+            "final_reach": 0.7752
           },
           {
             "key": "https://openalex.org/A5073570615",
@@ -131,20 +143,8 @@
             "field_share": 43.4,
             "t50": 8.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0511,
-            "final_reach": 0.7668
-          },
-          {
-            "key": "https://openalex.org/A5038561966",
-            "name": "Dr. Rambabu Chegondi",
-            "faculty_id": "FAC_IICT_0340",
-            "lab": "CSIR-IICT",
-            "degree": 43,
-            "field_share": 100.0,
-            "t50": 8.0,
-            "p_reach50": 1.0,
-            "reach_t3": 0.0324,
-            "final_reach": 0.7677
+            "reach_t3": 0.0532,
+            "final_reach": 0.7685
           }
         ],
         "convergence_check": [
@@ -152,22 +152,22 @@
             "trials": 25,
             "t50": 7.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1159,
-            "final_reach": 0.7821
+            "reach_t3": 0.1167,
+            "final_reach": 0.7874
           },
           {
             "trials": 50,
             "t50": 7.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1173,
-            "final_reach": 0.7827
+            "reach_t3": 0.1191,
+            "final_reach": 0.7857
           },
           {
             "trials": 100,
             "t50": 7.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1163,
-            "final_reach": 0.7827
+            "reach_t3": 0.1187,
+            "final_reach": 0.7867
           }
         ]
       },
@@ -178,21 +178,21 @@
         "n_seeds": 15,
         "adoption_curve": [
           0.03,
-          0.68,
-          3.17,
-          10.7,
-          24.58,
-          42.32,
-          60.14,
-          74.48,
-          84.09,
-          89.96,
-          93.51,
-          95.66,
-          96.99,
-          97.84,
-          98.41,
-          98.81
+          0.69,
+          3.18,
+          10.66,
+          24.47,
+          42.24,
+          60.13,
+          74.6,
+          84.29,
+          90.17,
+          93.72,
+          95.86,
+          97.18,
+          98.02,
+          98.58,
+          98.96
         ],
         "top_super_spreaders": [
           {
@@ -201,11 +201,11 @@
             "faculty_id": "FAC_IICT_0174",
             "lab": "CSIR-IICT",
             "degree": 260,
-            "field_share": 89.1,
+            "field_share": 89.0,
             "t50": 5.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.2378,
-            "final_reach": 0.9903
+            "reach_t3": 0.2424,
+            "final_reach": 0.9923
           },
           {
             "key": "https://openalex.org/A5080693066",
@@ -216,8 +216,8 @@
             "field_share": 48.1,
             "t50": 5.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1956,
-            "final_reach": 0.9895
+            "reach_t3": 0.1962,
+            "final_reach": 0.9915
           },
           {
             "key": "https://openalex.org/A5068154195",
@@ -228,8 +228,8 @@
             "field_share": 84.1,
             "t50": 5.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1535,
-            "final_reach": 0.9894
+            "reach_t3": 0.1503,
+            "final_reach": 0.991
           },
           {
             "key": "https://openalex.org/A5073570615",
@@ -238,10 +238,10 @@
             "lab": "CSIR-IICT",
             "degree": 93,
             "field_share": 43.4,
-            "t50": 5.0,
+            "t50": 6.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1432,
-            "final_reach": 0.9883
+            "reach_t3": 0.1408,
+            "final_reach": 0.9891
           },
           {
             "key": "https://openalex.org/A5074071322",
@@ -249,11 +249,11 @@
             "faculty_id": "FAC_NCL_0113",
             "lab": "CSIR-NCL",
             "degree": 247,
-            "field_share": 78.1,
+            "field_share": 77.9,
             "t50": 6.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1364,
-            "final_reach": 0.9902
+            "reach_t3": 0.1396,
+            "final_reach": 0.9917
           }
         ],
         "top_super_blockers": [
@@ -261,15 +261,15 @@
             "name": "Balasubramanian Sridhar",
             "faculty_id": "",
             "lab": "CSIR-IICT",
-            "betweenness": 0.22522,
-            "lcc_drop_pct": 0.21,
+            "betweenness": 0.22086,
+            "lcc_drop_pct": 0.22,
             "is_faculty": false
           },
           {
             "name": "Dr. Jagadeesh Babu Nanubolu",
             "faculty_id": "FAC_IICT_0174",
             "lab": "CSIR-IICT",
-            "betweenness": 0.18848,
+            "betweenness": 0.18777,
             "lcc_drop_pct": 0.06,
             "is_faculty": true
           },
@@ -277,7 +277,7 @@
             "name": "Dr. Rajesh G. Gonnade",
             "faculty_id": "FAC_NCL_0113",
             "lab": "CSIR-NCL",
-            "betweenness": 0.13211,
+            "betweenness": 0.14339,
             "lcc_drop_pct": 0.09,
             "is_faculty": true
           },
@@ -285,7 +285,7 @@
             "name": "Dr. Kumar Vanka",
             "faculty_id": "FAC_NCL_0069",
             "lab": "CSIR-NCL",
-            "betweenness": 0.0973,
+            "betweenness": 0.09891,
             "lcc_drop_pct": 0.12,
             "is_faculty": true
           },
@@ -293,7 +293,7 @@
             "name": "Dr. Sunil Misra",
             "faculty_id": "FAC_IICT_0206",
             "lab": "CSIR-IICT",
-            "betweenness": 0.07257,
+            "betweenness": 0.08078,
             "lcc_drop_pct": 0.06,
             "is_faculty": true
           }
@@ -303,13 +303,13 @@
     "Materials": {
       "field": "Materials Science",
       "short_label": "Materials",
-      "active_researchers": 2120,
-      "subgraph_lcc_size": 2103,
-      "subgraph_edges": 9434,
+      "active_researchers": 2109,
+      "subgraph_lcc_size": 2098,
+      "subgraph_edges": 9409,
       "thresholds": {
         "k_mean": 8.97,
-        "k2_mean": 186.16,
-        "beta_c": 0.0482,
+        "k2_mean": 185.84,
+        "beta_c": 0.0483,
         "beta_c_spec": 0.0421
       },
       "condition_a": {
@@ -320,20 +320,20 @@
         "adoption_curve": [
           0.05,
           0.18,
-          0.43,
-          0.81,
-          1.4,
-          2.23,
-          3.31,
-          4.66,
-          6.28,
-          8.16,
-          10.3,
-          12.68,
-          15.32,
-          18.13,
-          21.18,
-          24.4
+          0.42,
+          0.79,
+          1.36,
+          2.14,
+          3.19,
+          4.51,
+          6.1,
+          7.99,
+          10.14,
+          12.52,
+          15.12,
+          17.97,
+          21.01,
+          24.23
         ],
         "spillover_curve": [
           0.0,
@@ -342,53 +342,29 @@
           0.02,
           0.03,
           0.05,
-          0.08,
-          0.12,
-          0.17,
-          0.24,
-          0.33,
-          0.44,
-          0.58,
-          0.76,
-          0.96,
-          1.21
+          0.07,
+          0.1,
+          0.15,
+          0.22,
+          0.3,
+          0.41,
+          0.55,
+          0.72,
+          0.92,
+          1.17
         ],
         "top_super_spreaders": [
-          {
-            "key": "https://openalex.org/A5065840925",
-            "name": "Dr. Sailaja Krishnamurty",
-            "faculty_id": "FAC_NCL_0123",
-            "lab": "CSIR-NCL",
-            "degree": 132,
-            "field_share": 23.2,
-            "t50": null,
-            "p_reach50": 0.02,
-            "reach_t3": 0.0062,
-            "final_reach": 0.2949
-          },
           {
             "key": "https://openalex.org/A5024820508",
             "name": "Dr. Ramanuj Narayan",
             "faculty_id": "FAC_IICT_0399",
             "lab": "CSIR-IICT",
-            "degree": 82,
-            "field_share": 64.9,
+            "degree": 80,
+            "field_share": 64.3,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0123,
-            "final_reach": 0.2213
-          },
-          {
-            "key": "https://openalex.org/A5041874692",
-            "name": "Dr. Arun Torris",
-            "faculty_id": "FAC_NCL_0010",
-            "lab": "CSIR-NCL",
-            "degree": 140,
-            "field_share": 31.2,
-            "t50": null,
-            "p_reach50": 0.0,
-            "reach_t3": 0.011,
-            "final_reach": 0.3214
+            "reach_t3": 0.0131,
+            "final_reach": 0.2293
           },
           {
             "key": "https://openalex.org/A5067246815",
@@ -399,43 +375,67 @@
             "field_share": 48.7,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0107,
-            "final_reach": 0.2194
+            "reach_t3": 0.0109,
+            "final_reach": 0.2297
           },
           {
-            "key": "https://openalex.org/A5080693066",
-            "name": "Dr. Sunil Misra",
-            "faculty_id": "FAC_IICT_0206",
-            "lab": "CSIR-IICT",
-            "degree": 199,
-            "field_share": 21.5,
+            "key": "https://openalex.org/A5041874692",
+            "name": "Dr. Arun Torris",
+            "faculty_id": "FAC_NCL_0010",
+            "lab": "CSIR-NCL",
+            "degree": 140,
+            "field_share": 30.6,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0101,
-            "final_reach": 0.2467
+            "reach_t3": 0.0107,
+            "final_reach": 0.3116
+          },
+          {
+            "key": "https://openalex.org/A5036104237",
+            "name": "Dr. Sreekumar Kurungot",
+            "faculty_id": "FAC_NCL_0144",
+            "lab": "CSIR-NCL",
+            "degree": 156,
+            "field_share": 17.4,
+            "t50": null,
+            "p_reach50": 0.0,
+            "reach_t3": 0.0086,
+            "final_reach": 0.2999
+          },
+          {
+            "key": "https://openalex.org/A5101527986",
+            "name": "Dr. Sidhanath Vishwanath Bhosale",
+            "faculty_id": "FAC_IICT_0402",
+            "lab": "CSIR-IICT",
+            "degree": 46,
+            "field_share": 71.7,
+            "t50": null,
+            "p_reach50": 0.0,
+            "reach_t3": 0.0082,
+            "final_reach": 0.2382
           }
         ],
         "convergence_check": [
           {
             "trials": 25,
             "t50": null,
-            "p_reach50": 0.04,
-            "reach_t3": 0.0057,
-            "final_reach": 0.2955
+            "p_reach50": 0.0,
+            "reach_t3": 0.0129,
+            "final_reach": 0.2348
           },
           {
             "trials": 50,
             "t50": null,
-            "p_reach50": 0.02,
-            "reach_t3": 0.0062,
-            "final_reach": 0.2949
+            "p_reach50": 0.0,
+            "reach_t3": 0.0131,
+            "final_reach": 0.2293
           },
           {
             "trials": 100,
             "t50": null,
-            "p_reach50": 0.01,
-            "reach_t3": 0.0069,
-            "final_reach": 0.2984
+            "p_reach50": 0.0,
+            "reach_t3": 0.0129,
+            "final_reach": 0.2225
           }
         ]
       },
@@ -446,46 +446,46 @@
         "n_seeds": 15,
         "adoption_curve": [
           0.05,
-          0.71,
-          3.05,
-          8.94,
-          18.9,
-          32.15,
-          47.88,
-          63.48,
-          75.84,
-          84.25,
-          89.63,
-          93.06,
-          95.23,
-          96.66,
-          97.61,
-          98.26
+          0.67,
+          2.93,
+          8.77,
+          18.75,
+          31.99,
+          47.75,
+          63.35,
+          75.72,
+          84.11,
+          89.52,
+          92.97,
+          95.16,
+          96.61,
+          97.59,
+          98.24
         ],
         "top_super_spreaders": [
-          {
-            "key": "https://openalex.org/A5022075844",
-            "name": "Dr. Kumar Vanka",
-            "faculty_id": "FAC_NCL_0069",
-            "lab": "CSIR-NCL",
-            "degree": 109,
-            "field_share": 13.1,
-            "t50": 6.0,
-            "p_reach50": 1.0,
-            "reach_t3": 0.1328,
-            "final_reach": 0.9859
-          },
           {
             "key": "https://openalex.org/A5036104237",
             "name": "Dr. Sreekumar Kurungot",
             "faculty_id": "FAC_NCL_0144",
             "lab": "CSIR-NCL",
             "degree": 95,
-            "field_share": 18.1,
+            "field_share": 17.4,
             "t50": 6.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1293,
-            "final_reach": 0.9866
+            "reach_t3": 0.1288,
+            "final_reach": 0.9857
+          },
+          {
+            "key": "https://openalex.org/A5041874692",
+            "name": "Dr. Arun Torris",
+            "faculty_id": "FAC_NCL_0010",
+            "lab": "CSIR-NCL",
+            "degree": 98,
+            "field_share": 30.6,
+            "t50": 6.0,
+            "p_reach50": 1.0,
+            "reach_t3": 0.1276,
+            "final_reach": 0.9851
           },
           {
             "key": "https://openalex.org/A5074071322",
@@ -496,20 +496,8 @@
             "field_share": 10.0,
             "t50": 6.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1264,
-            "final_reach": 0.9856
-          },
-          {
-            "key": "https://openalex.org/A5041874692",
-            "name": "Dr. Arun Torris",
-            "faculty_id": "FAC_NCL_0010",
-            "lab": "CSIR-NCL",
-            "degree": 98,
-            "field_share": 31.2,
-            "t50": 6.0,
-            "p_reach50": 1.0,
-            "reach_t3": 0.1236,
-            "final_reach": 0.9864
+            "reach_t3": 0.1239,
+            "final_reach": 0.9849
           },
           {
             "key": "https://openalex.org/A5080693066",
@@ -520,32 +508,28 @@
             "field_share": 21.5,
             "t50": 6.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1135,
-            "final_reach": 0.9829
+            "reach_t3": 0.1144,
+            "final_reach": 0.9832
+          },
+          {
+            "key": "https://openalex.org/A5075584403",
+            "name": "Dr. Vinod C Prabhakaran",
+            "faculty_id": "FAC_NCL_0165",
+            "lab": "CSIR-NCL",
+            "degree": 62,
+            "field_share": 22.8,
+            "t50": 6.0,
+            "p_reach50": 1.0,
+            "reach_t3": 0.1046,
+            "final_reach": 0.9862
           }
         ],
         "top_super_blockers": [
           {
-            "name": "Marappan Sathish",
-            "faculty_id": "",
-            "lab": "CSIR-CECRI",
-            "betweenness": 0.0952,
-            "lcc_drop_pct": 0.14,
-            "is_faculty": false
-          },
-          {
             "name": "Dr Subrata Kundu",
             "faculty_id": "FAC_CECRI_0480",
             "lab": "CSIR-CECRI",
-            "betweenness": 0.09129,
-            "lcc_drop_pct": 0.05,
-            "is_faculty": true
-          },
-          {
-            "name": "Dr. Sreekumar Kurungot",
-            "faculty_id": "FAC_NCL_0144",
-            "lab": "CSIR-NCL",
-            "betweenness": 0.08306,
+            "betweenness": 0.09702,
             "lcc_drop_pct": 0.05,
             "is_faculty": true
           },
@@ -553,15 +537,31 @@
             "name": "Bojja Sreedhar",
             "faculty_id": "",
             "lab": "CSIR-IICT",
-            "betweenness": 0.07544,
+            "betweenness": 0.0935,
             "lcc_drop_pct": 0.19,
+            "is_faculty": false
+          },
+          {
+            "name": "Marappan Sathish",
+            "faculty_id": "",
+            "lab": "CSIR-CECRI",
+            "betweenness": 0.08728,
+            "lcc_drop_pct": 0.14,
             "is_faculty": false
           },
           {
             "name": "Dr. Sunil Misra",
             "faculty_id": "FAC_IICT_0206",
             "lab": "CSIR-IICT",
-            "betweenness": 0.07403,
+            "betweenness": 0.08297,
+            "lcc_drop_pct": 0.05,
+            "is_faculty": true
+          },
+          {
+            "name": "Dr. Kumar Vanka",
+            "faculty_id": "FAC_NCL_0069",
+            "lab": "CSIR-NCL",
+            "betweenness": 0.07736,
             "lcc_drop_pct": 0.05,
             "is_faculty": true
           }
@@ -571,12 +571,12 @@
     "Engineering": {
       "field": "Engineering",
       "short_label": "Engineering",
-      "active_researchers": 2122,
-      "subgraph_lcc_size": 2109,
-      "subgraph_edges": 8690,
+      "active_researchers": 2116,
+      "subgraph_lcc_size": 2105,
+      "subgraph_edges": 8665,
       "thresholds": {
-        "k_mean": 8.24,
-        "k2_mean": 148.5,
+        "k_mean": 8.23,
+        "k2_mean": 148.24,
         "beta_c": 0.0555,
         "beta_c_spec": 0.0459
       },
@@ -587,21 +587,21 @@
         "n_seeds": 15,
         "adoption_curve": [
           0.05,
-          0.23,
-          0.5,
-          0.86,
-          1.35,
-          1.98,
-          2.79,
-          3.84,
-          5.14,
-          6.69,
-          8.48,
-          10.5,
-          12.76,
-          15.29,
-          18.04,
-          21.02
+          0.24,
+          0.51,
+          0.89,
+          1.38,
+          2.02,
+          2.86,
+          3.93,
+          5.21,
+          6.73,
+          8.5,
+          10.55,
+          12.87,
+          15.48,
+          18.3,
+          21.32
         ],
         "spillover_curve": [
           0.0,
@@ -613,27 +613,15 @@
           0.03,
           0.05,
           0.07,
-          0.1,
+          0.11,
           0.15,
           0.2,
           0.27,
           0.36,
-          0.47,
+          0.46,
           0.59
         ],
         "top_super_spreaders": [
-          {
-            "key": "https://openalex.org/A5041874692",
-            "name": "Dr. Arun Torris",
-            "faculty_id": "FAC_NCL_0010",
-            "lab": "CSIR-NCL",
-            "degree": 140,
-            "field_share": 32.5,
-            "t50": null,
-            "p_reach50": 0.02,
-            "reach_t3": 0.0125,
-            "final_reach": 0.3989
-          },
           {
             "key": "https://openalex.org/A5023218227",
             "name": "Dr Subbiah Alwarappan",
@@ -642,33 +630,21 @@
             "degree": 57,
             "field_share": 42.3,
             "t50": null,
-            "p_reach50": 0.02,
-            "reach_t3": 0.0109,
-            "final_reach": 0.3133
+            "p_reach50": 0.0,
+            "reach_t3": 0.0133,
+            "final_reach": 0.321
           },
           {
-            "key": "https://openalex.org/A5007792382",
-            "name": "Dr. K. Krishnamoorthy",
-            "faculty_id": "FAC_NCL_0061",
+            "key": "https://openalex.org/A5041874692",
+            "name": "Dr. Arun Torris",
+            "faculty_id": "FAC_NCL_0010",
             "lab": "CSIR-NCL",
-            "degree": 81,
-            "field_share": 40.0,
+            "degree": 140,
+            "field_share": 34.7,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0117,
-            "final_reach": 0.2509
-          },
-          {
-            "key": "https://openalex.org/A5065894578",
-            "name": "Dr. Surya Prakash Singh",
-            "faculty_id": "FAC_IICT_0401",
-            "lab": "CSIR-IICT",
-            "degree": 101,
-            "field_share": 49.7,
-            "t50": null,
-            "p_reach50": 0.0,
-            "reach_t3": 0.0111,
-            "final_reach": 0.2271
+            "reach_t3": 0.013,
+            "final_reach": 0.3885
           },
           {
             "key": "https://openalex.org/A5001861214",
@@ -680,7 +656,31 @@
             "t50": null,
             "p_reach50": 0.0,
             "reach_t3": 0.0109,
-            "final_reach": 0.1132
+            "final_reach": 0.1166
+          },
+          {
+            "key": "https://openalex.org/A5007792382",
+            "name": "Dr. K. Krishnamoorthy",
+            "faculty_id": "FAC_NCL_0061",
+            "lab": "CSIR-NCL",
+            "degree": 81,
+            "field_share": 39.1,
+            "t50": null,
+            "p_reach50": 0.0,
+            "reach_t3": 0.0108,
+            "final_reach": 0.2486
+          },
+          {
+            "key": "https://openalex.org/A5065894578",
+            "name": "Dr. Surya Prakash Singh",
+            "faculty_id": "FAC_IICT_0401",
+            "lab": "CSIR-IICT",
+            "degree": 101,
+            "field_share": 49.3,
+            "t50": null,
+            "p_reach50": 0.0,
+            "reach_t3": 0.0105,
+            "final_reach": 0.2253
           }
         ],
         "convergence_check": [
@@ -688,22 +688,22 @@
             "trials": 25,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0118,
-            "final_reach": 0.3961
+            "reach_t3": 0.0124,
+            "final_reach": 0.316
           },
           {
             "trials": 50,
             "t50": null,
-            "p_reach50": 0.02,
-            "reach_t3": 0.0125,
-            "final_reach": 0.3989
+            "p_reach50": 0.0,
+            "reach_t3": 0.0133,
+            "final_reach": 0.321
           },
           {
             "trials": 100,
             "t50": null,
-            "p_reach50": 0.01,
-            "reach_t3": 0.0125,
-            "final_reach": 0.3823
+            "p_reach50": 0.0,
+            "reach_t3": 0.0119,
+            "final_reach": 0.3166
           }
         ]
       },
@@ -715,20 +715,20 @@
         "adoption_curve": [
           0.05,
           0.55,
-          2.01,
-          5.57,
-          12.14,
-          21.99,
-          35.01,
-          49.84,
-          63.91,
-          75.27,
-          83.39,
-          88.81,
-          92.33,
-          94.61,
-          96.12,
-          97.14
+          2.0,
+          5.47,
+          12.01,
+          21.84,
+          34.87,
+          49.75,
+          63.89,
+          75.31,
+          83.49,
+          88.92,
+          92.42,
+          94.67,
+          96.15,
+          97.15
         ],
         "top_super_spreaders": [
           {
@@ -737,11 +737,11 @@
             "faculty_id": "FAC_NCL_0010",
             "lab": "CSIR-NCL",
             "degree": 90,
-            "field_share": 32.5,
+            "field_share": 34.7,
             "t50": 7.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0976,
-            "final_reach": 0.98
+            "reach_t3": 0.0997,
+            "final_reach": 0.9801
           },
           {
             "key": "https://openalex.org/A5036104237",
@@ -749,11 +749,11 @@
             "faculty_id": "FAC_NCL_0144",
             "lab": "CSIR-NCL",
             "degree": 94,
-            "field_share": 28.6,
+            "field_share": 28.1,
             "t50": 7.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0923,
-            "final_reach": 0.9805
+            "reach_t3": 0.0973,
+            "final_reach": 0.9802
           },
           {
             "key": "https://openalex.org/A5007792382",
@@ -761,11 +761,11 @@
             "faculty_id": "FAC_NCL_0061",
             "lab": "CSIR-NCL",
             "degree": 66,
-            "field_share": 40.0,
+            "field_share": 39.1,
             "t50": 7.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0794,
-            "final_reach": 0.9782
+            "reach_t3": 0.075,
+            "final_reach": 0.9786
           },
           {
             "key": "https://openalex.org/A5010077456",
@@ -776,20 +776,20 @@
             "field_share": 55.2,
             "t50": 7.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.062,
-            "final_reach": 0.9774
+            "reach_t3": 0.0593,
+            "final_reach": 0.9775
           },
           {
-            "key": "https://openalex.org/A5064632607",
-            "name": "Dr. S. Venkata Mohan",
-            "faculty_id": "FAC_IICT_0269",
-            "lab": "CSIR-IICT",
-            "degree": 63,
-            "field_share": 30.0,
+            "key": "https://openalex.org/A5089096971",
+            "name": "Dr. Kadhiravan Shanmuganathan",
+            "faculty_id": "FAC_NCL_0062",
+            "lab": "CSIR-NCL",
+            "degree": 49,
+            "field_share": 48.0,
             "t50": 7.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0602,
-            "final_reach": 0.9777
+            "reach_t3": 0.0572,
+            "final_reach": 0.9771
           }
         ],
         "top_super_blockers": [
@@ -797,15 +797,15 @@
             "name": "Dr Subrata Kundu",
             "faculty_id": "FAC_CECRI_0480",
             "lab": "CSIR-CECRI",
-            "betweenness": 0.10821,
-            "lcc_drop_pct": 0.09,
+            "betweenness": 0.10065,
+            "lcc_drop_pct": 0.1,
             "is_faculty": true
           },
           {
             "name": "Murugavel Kathiresan",
             "faculty_id": "",
             "lab": "CSIR-CECRI",
-            "betweenness": 0.09273,
+            "betweenness": 0.09913,
             "lcc_drop_pct": 0.05,
             "is_faculty": false
           },
@@ -813,7 +813,7 @@
             "name": "Dr. Sailaja Krishnamurty",
             "faculty_id": "FAC_NCL_0123",
             "lab": "CSIR-NCL",
-            "betweenness": 0.08805,
+            "betweenness": 0.08774,
             "lcc_drop_pct": 0.05,
             "is_faculty": true
           },
@@ -821,7 +821,7 @@
             "name": "Bojja Sreedhar",
             "faculty_id": "",
             "lab": "CSIR-IICT",
-            "betweenness": 0.08168,
+            "betweenness": 0.08662,
             "lcc_drop_pct": 0.43,
             "is_faculty": false
           },
@@ -829,7 +829,7 @@
             "name": "Dr. Arun Torris",
             "faculty_id": "FAC_NCL_0010",
             "lab": "CSIR-NCL",
-            "betweenness": 0.07451,
+            "betweenness": 0.07161,
             "lcc_drop_pct": 0.05,
             "is_faculty": true
           }
@@ -841,10 +841,10 @@
       "short_label": "Energy",
       "active_researchers": 1094,
       "subgraph_lcc_size": 1081,
-      "subgraph_edges": 4796,
+      "subgraph_edges": 4797,
       "thresholds": {
-        "k_mean": 8.87,
-        "k2_mean": 179.2,
+        "k_mean": 8.88,
+        "k2_mean": 179.44,
         "beta_c": 0.0495,
         "beta_c_spec": 0.0475
       },
@@ -855,21 +855,21 @@
         "n_seeds": 15,
         "adoption_curve": [
           0.09,
-          0.54,
-          1.45,
-          3.0,
-          5.25,
-          8.14,
-          11.71,
-          15.92,
-          20.63,
-          25.66,
-          30.87,
-          36.13,
-          41.35,
-          46.29,
-          50.85,
-          55.01
+          0.55,
+          1.44,
+          2.98,
+          5.22,
+          8.11,
+          11.68,
+          15.9,
+          20.53,
+          25.47,
+          30.6,
+          35.76,
+          40.88,
+          45.82,
+          50.4,
+          54.56
         ],
         "spillover_curve": [
           0.0,
@@ -879,11 +879,11 @@
           0.02,
           0.03,
           0.05,
-          0.08,
+          0.09,
           0.13,
-          0.18,
-          0.26,
-          0.35,
+          0.19,
+          0.27,
+          0.36,
           0.47,
           0.61,
           0.77,
@@ -895,24 +895,24 @@
             "name": "Dr Subrata Kundu",
             "faculty_id": "FAC_CECRI_0480",
             "lab": "CSIR-CECRI",
-            "degree": 140,
-            "field_share": 73.1,
+            "degree": 141,
+            "field_share": 73.3,
             "t50": 11.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0854,
-            "final_reach": 0.646
+            "reach_t3": 0.0897,
+            "final_reach": 0.6487
           },
           {
-            "key": "https://openalex.org/A5081931935",
-            "name": "Dr. Ujjwal Pal",
-            "faculty_id": "FAC_IICT_0236",
-            "lab": "CSIR-IICT",
-            "degree": 87,
-            "field_share": 79.1,
-            "t50": 12.0,
-            "p_reach50": 1.0,
-            "reach_t3": 0.0522,
-            "final_reach": 0.6316
+            "key": "https://openalex.org/A5075584403",
+            "name": "Dr. Vinod C Prabhakaran",
+            "faculty_id": "FAC_NCL_0165",
+            "lab": "CSIR-NCL",
+            "degree": 106,
+            "field_share": 31.5,
+            "t50": 11.0,
+            "p_reach50": 0.96,
+            "reach_t3": 0.0369,
+            "final_reach": 0.6253
           },
           {
             "key": "https://openalex.org/A5035439567",
@@ -922,33 +922,33 @@
             "degree": 88,
             "field_share": 36.5,
             "t50": 12.0,
-            "p_reach50": 1.0,
-            "reach_t3": 0.0517,
-            "final_reach": 0.6226
-          },
-          {
-            "key": "https://openalex.org/A5075584403",
-            "name": "Dr. Vinod C Prabhakaran",
-            "faculty_id": "FAC_NCL_0165",
-            "lab": "CSIR-NCL",
-            "degree": 106,
-            "field_share": 32.9,
-            "t50": 12.0,
-            "p_reach50": 0.96,
-            "reach_t3": 0.0331,
-            "final_reach": 0.6234
-          },
-          {
-            "key": "https://openalex.org/A5065840925",
-            "name": "Dr. Sailaja Krishnamurty",
-            "faculty_id": "FAC_NCL_0123",
-            "lab": "CSIR-NCL",
-            "degree": 132,
-            "field_share": 25.9,
-            "t50": 13.0,
             "p_reach50": 0.98,
-            "reach_t3": 0.0325,
-            "final_reach": 0.6061
+            "reach_t3": 0.0523,
+            "final_reach": 0.6168
+          },
+          {
+            "key": "https://openalex.org/A5081931935",
+            "name": "Dr. Ujjwal Pal",
+            "faculty_id": "FAC_IICT_0236",
+            "lab": "CSIR-IICT",
+            "degree": 87,
+            "field_share": 79.1,
+            "t50": 12.5,
+            "p_reach50": 1.0,
+            "reach_t3": 0.0513,
+            "final_reach": 0.6209
+          },
+          {
+            "key": "https://openalex.org/A5036104237",
+            "name": "Dr. Sreekumar Kurungot",
+            "faculty_id": "FAC_NCL_0144",
+            "lab": "CSIR-NCL",
+            "degree": 156,
+            "field_share": 44.4,
+            "t50": 13.0,
+            "p_reach50": 0.92,
+            "reach_t3": 0.0354,
+            "final_reach": 0.5916
           }
         ],
         "convergence_check": [
@@ -956,22 +956,22 @@
             "trials": 25,
             "t50": 11.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0848,
-            "final_reach": 0.6446
+            "reach_t3": 0.0877,
+            "final_reach": 0.6528
           },
           {
             "trials": 50,
             "t50": 11.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0854,
-            "final_reach": 0.646
+            "reach_t3": 0.0897,
+            "final_reach": 0.6487
           },
           {
             "trials": 100,
             "t50": 11.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.0876,
-            "final_reach": 0.6483
+            "reach_t3": 0.091,
+            "final_reach": 0.6501
           }
         ]
       },
@@ -982,19 +982,19 @@
         "n_seeds": 15,
         "adoption_curve": [
           0.09,
-          1.05,
-          3.95,
-          10.47,
-          21.28,
-          35.83,
-          52.46,
-          67.91,
-          79.66,
-          87.27,
-          91.91,
-          94.66,
+          1.06,
+          3.97,
+          10.58,
+          21.48,
+          36.03,
+          52.56,
+          68.04,
+          79.72,
+          87.36,
+          91.95,
+          94.69,
           96.34,
-          97.39,
+          97.4,
           98.11,
           98.61
         ],
@@ -1004,11 +1004,11 @@
             "name": "Dr Subrata Kundu",
             "faculty_id": "FAC_CECRI_0480",
             "lab": "CSIR-CECRI",
-            "degree": 127,
-            "field_share": 73.1,
+            "degree": 128,
+            "field_share": 73.3,
             "t50": 5.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.2239,
+            "reach_t3": 0.2201,
             "final_reach": 0.9895
           },
           {
@@ -1020,8 +1020,8 @@
             "field_share": 36.5,
             "t50": 6.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1489,
-            "final_reach": 0.9861
+            "reach_t3": 0.1576,
+            "final_reach": 0.9853
           },
           {
             "key": "https://openalex.org/A5036104237",
@@ -1029,23 +1029,11 @@
             "faculty_id": "FAC_NCL_0144",
             "lab": "CSIR-NCL",
             "degree": 92,
-            "field_share": 43.4,
+            "field_share": 44.4,
             "t50": 6.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1412,
-            "final_reach": 0.9897
-          },
-          {
-            "key": "https://openalex.org/A5081931935",
-            "name": "Dr. Ujjwal Pal",
-            "faculty_id": "FAC_IICT_0236",
-            "lab": "CSIR-IICT",
-            "degree": 79,
-            "field_share": 79.1,
-            "t50": 6.0,
-            "p_reach50": 1.0,
-            "reach_t3": 0.1252,
-            "final_reach": 0.9869
+            "reach_t3": 0.1374,
+            "final_reach": 0.989
           },
           {
             "key": "https://openalex.org/A5075584403",
@@ -1053,11 +1041,23 @@
             "faculty_id": "FAC_NCL_0165",
             "lab": "CSIR-NCL",
             "degree": 42,
-            "field_share": 32.9,
+            "field_share": 31.5,
             "t50": 6.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1252,
-            "final_reach": 0.9889
+            "reach_t3": 0.1349,
+            "final_reach": 0.9885
+          },
+          {
+            "key": "https://openalex.org/A5065840925",
+            "name": "Dr. Sailaja Krishnamurty",
+            "faculty_id": "FAC_NCL_0123",
+            "lab": "CSIR-NCL",
+            "degree": 69,
+            "field_share": 25.9,
+            "t50": 6.0,
+            "p_reach50": 1.0,
+            "reach_t3": 0.1277,
+            "final_reach": 0.9885
           }
         ],
         "top_super_blockers": [
@@ -1065,7 +1065,7 @@
             "name": "Dr Subrata Kundu",
             "faculty_id": "FAC_CECRI_0480",
             "lab": "CSIR-CECRI",
-            "betweenness": 0.21474,
+            "betweenness": 0.2147,
             "lcc_drop_pct": 0.09,
             "is_faculty": true
           },
@@ -1073,7 +1073,7 @@
             "name": "Murugavel Kathiresan",
             "faculty_id": "",
             "lab": "CSIR-CECRI",
-            "betweenness": 0.09424,
+            "betweenness": 0.0968,
             "lcc_drop_pct": 0.09,
             "is_faculty": false
           },
@@ -1081,7 +1081,7 @@
             "name": "Marappan Sathish",
             "faculty_id": "",
             "lab": "CSIR-CECRI",
-            "betweenness": 0.08925,
+            "betweenness": 0.08937,
             "lcc_drop_pct": 0.19,
             "is_faculty": false
           },
@@ -1089,7 +1089,7 @@
             "name": "Dr. Sreekumar Kurungot",
             "faculty_id": "FAC_NCL_0144",
             "lab": "CSIR-NCL",
-            "betweenness": 0.08826,
+            "betweenness": 0.08707,
             "lcc_drop_pct": 0.19,
             "is_faculty": true
           },
@@ -1097,7 +1097,7 @@
             "name": "Dr. Ujjwal Pal",
             "faculty_id": "FAC_IICT_0236",
             "lab": "CSIR-IICT",
-            "betweenness": 0.07561,
+            "betweenness": 0.07164,
             "lcc_drop_pct": 0.19,
             "is_faculty": true
           }
@@ -1109,10 +1109,10 @@
       "short_label": "Biochemistry",
       "active_researchers": 1428,
       "subgraph_lcc_size": 1403,
-      "subgraph_edges": 6886,
+      "subgraph_edges": 6884,
       "thresholds": {
-        "k_mean": 9.82,
-        "k2_mean": 221.0,
+        "k_mean": 9.81,
+        "k2_mean": 220.95,
         "beta_c": 0.0444,
         "beta_c_spec": 0.0388
       },
@@ -1124,20 +1124,20 @@
         "adoption_curve": [
           0.07,
           0.31,
-          0.72,
-          1.36,
-          2.29,
-          3.54,
+          0.71,
+          1.35,
+          2.26,
+          3.53,
           5.16,
-          7.11,
-          9.39,
-          11.99,
-          14.86,
-          18.05,
-          21.5,
-          25.12,
-          28.87,
-          32.72
+          7.15,
+          9.43,
+          12.01,
+          14.87,
+          18.0,
+          21.43,
+          25.09,
+          28.89,
+          32.78
         ],
         "spillover_curve": [
           0.0,
@@ -1145,31 +1145,19 @@
           0.01,
           0.01,
           0.02,
-          0.03,
+          0.04,
           0.06,
-          0.09,
-          0.14,
-          0.21,
-          0.3,
-          0.42,
+          0.1,
+          0.15,
+          0.22,
+          0.31,
+          0.43,
           0.58,
-          0.76,
-          0.98,
-          1.24
+          0.77,
+          0.99,
+          1.25
         ],
         "top_super_spreaders": [
-          {
-            "key": "https://openalex.org/A5077068037",
-            "name": "Dr. Ramesh Ummanni",
-            "faculty_id": "FAC_IICT_0210",
-            "lab": "CSIR-IICT",
-            "degree": 86,
-            "field_share": 31.7,
-            "t50": null,
-            "p_reach50": 0.2,
-            "reach_t3": 0.0115,
-            "final_reach": 0.4133
-          },
           {
             "key": "https://openalex.org/A5073570615",
             "name": "Dr. S. Nishant Jain",
@@ -1178,21 +1166,9 @@
             "degree": 127,
             "field_share": 34.0,
             "t50": null,
-            "p_reach50": 0.18,
-            "reach_t3": 0.016,
-            "final_reach": 0.4568
-          },
-          {
-            "key": "https://openalex.org/A5080693066",
-            "name": "Dr. Sunil Misra",
-            "faculty_id": "FAC_IICT_0206",
-            "lab": "CSIR-IICT",
-            "degree": 199,
-            "field_share": 13.9,
-            "t50": null,
-            "p_reach50": 0.14,
-            "reach_t3": 0.0077,
-            "final_reach": 0.4051
+            "p_reach50": 0.22,
+            "reach_t3": 0.0149,
+            "final_reach": 0.4518
           },
           {
             "key": "https://openalex.org/A5084854319",
@@ -1203,8 +1179,8 @@
             "field_share": 26.3,
             "t50": null,
             "p_reach50": 0.12,
-            "reach_t3": 0.0123,
-            "final_reach": 0.4208
+            "reach_t3": 0.0122,
+            "final_reach": 0.4268
           },
           {
             "key": "https://openalex.org/A5049280812",
@@ -1214,32 +1190,56 @@
             "degree": 158,
             "field_share": 14.5,
             "t50": null,
+            "p_reach50": 0.12,
+            "reach_t3": 0.0107,
+            "final_reach": 0.4099
+          },
+          {
+            "key": "https://openalex.org/A5077068037",
+            "name": "Dr. Ramesh Ummanni",
+            "faculty_id": "FAC_IICT_0210",
+            "lab": "CSIR-IICT",
+            "degree": 86,
+            "field_share": 31.7,
+            "t50": null,
             "p_reach50": 0.1,
-            "reach_t3": 0.0116,
-            "final_reach": 0.432
+            "reach_t3": 0.011,
+            "final_reach": 0.4088
+          },
+          {
+            "key": "https://openalex.org/A5080693066",
+            "name": "Dr. Sunil Misra",
+            "faculty_id": "FAC_IICT_0206",
+            "lab": "CSIR-IICT",
+            "degree": 199,
+            "field_share": 13.9,
+            "t50": null,
+            "p_reach50": 0.1,
+            "reach_t3": 0.0085,
+            "final_reach": 0.4067
           }
         ],
         "convergence_check": [
           {
             "trials": 25,
             "t50": null,
-            "p_reach50": 0.28,
-            "reach_t3": 0.0116,
-            "final_reach": 0.4148
+            "p_reach50": 0.2,
+            "reach_t3": 0.0143,
+            "final_reach": 0.4509
           },
           {
             "trials": 50,
             "t50": null,
-            "p_reach50": 0.2,
-            "reach_t3": 0.0115,
-            "final_reach": 0.4133
+            "p_reach50": 0.22,
+            "reach_t3": 0.0149,
+            "final_reach": 0.4518
           },
           {
             "trials": 100,
             "t50": null,
-            "p_reach50": 0.15,
-            "reach_t3": 0.011,
-            "final_reach": 0.4066
+            "p_reach50": 0.2,
+            "reach_t3": 0.0149,
+            "final_reach": 0.4495
           }
         ]
       },
@@ -1251,20 +1251,20 @@
         "adoption_curve": [
           0.07,
           0.87,
-          3.95,
-          12.35,
-          25.93,
-          40.72,
-          55.33,
-          69.17,
-          79.78,
-          86.5,
-          90.54,
-          93.09,
-          94.84,
-          96.11,
-          97.05,
-          97.74
+          4.01,
+          12.54,
+          26.31,
+          41.41,
+          56.34,
+          69.99,
+          80.23,
+          86.77,
+          90.7,
+          93.2,
+          94.93,
+          96.19,
+          97.1,
+          97.78
         ],
         "top_super_spreaders": [
           {
@@ -1276,8 +1276,8 @@
             "field_share": 13.9,
             "t50": 5.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.2155,
-            "final_reach": 0.9827
+            "reach_t3": 0.2205,
+            "final_reach": 0.9823
           },
           {
             "key": "https://openalex.org/A5049280812",
@@ -1288,19 +1288,7 @@
             "field_share": 14.5,
             "t50": 5.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1922,
-            "final_reach": 0.9817
-          },
-          {
-            "key": "https://openalex.org/A5084854319",
-            "name": "Dr. Surender Singh Jadav",
-            "faculty_id": "FAC_IICT_0323",
-            "lab": "CSIR-IICT",
-            "degree": 70,
-            "field_share": 26.3,
-            "t50": 5.0,
-            "p_reach50": 1.0,
-            "reach_t3": 0.1864,
+            "reach_t3": 0.1938,
             "final_reach": 0.9802
           },
           {
@@ -1312,8 +1300,8 @@
             "field_share": 34.0,
             "t50": 5.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1852,
-            "final_reach": 0.9806
+            "reach_t3": 0.1857,
+            "final_reach": 0.9812
           },
           {
             "key": "https://openalex.org/A5077068037",
@@ -1324,8 +1312,20 @@
             "field_share": 31.7,
             "t50": 5.0,
             "p_reach50": 1.0,
-            "reach_t3": 0.1553,
-            "final_reach": 0.9784
+            "reach_t3": 0.1626,
+            "final_reach": 0.98
+          },
+          {
+            "key": "https://openalex.org/A5067070069",
+            "name": "Dr. D. Srinivasa Reddy",
+            "faculty_id": "FAC_IICT_0315",
+            "lab": "CSIR-IICT",
+            "degree": 56,
+            "field_share": 24.4,
+            "t50": 5.0,
+            "p_reach50": 1.0,
+            "reach_t3": 0.1226,
+            "final_reach": 0.9823
           }
         ],
         "top_super_blockers": [
@@ -1333,7 +1333,7 @@
             "name": "Dr. D. Srinivasa Reddy",
             "faculty_id": "FAC_IICT_0315",
             "lab": "CSIR-IICT",
-            "betweenness": 0.1293,
+            "betweenness": 0.1264,
             "lcc_drop_pct": 0.14,
             "is_faculty": true
           },
@@ -1341,7 +1341,7 @@
             "name": "Dr. Dhiman Sarkar",
             "faculty_id": "FAC_NCL_0041",
             "lab": "CSIR-NCL",
-            "betweenness": 0.1149,
+            "betweenness": 0.11168,
             "lcc_drop_pct": 0.07,
             "is_faculty": true
           },
@@ -1349,7 +1349,7 @@
             "name": "Dr. Sunil Misra",
             "faculty_id": "FAC_IICT_0206",
             "lab": "CSIR-IICT",
-            "betweenness": 0.10463,
+            "betweenness": 0.10364,
             "lcc_drop_pct": 0.14,
             "is_faculty": true
           },
@@ -1357,16 +1357,16 @@
             "name": "Balasubramanian Sridhar",
             "faculty_id": "",
             "lab": "CSIR-IICT",
-            "betweenness": 0.10202,
+            "betweenness": 0.10105,
             "lcc_drop_pct": 0.14,
             "is_faculty": false
           },
           {
-            "name": "Dr. Jagadeesh Babu Nanubolu",
-            "faculty_id": "FAC_IICT_0174",
+            "name": "Dr. B.V. Subba Reddy",
+            "faculty_id": "FAC_IICT_0288",
             "lab": "CSIR-IICT",
-            "betweenness": 0.08456,
-            "lcc_drop_pct": 0.07,
+            "betweenness": 0.08826,
+            "lcc_drop_pct": 0.43,
             "is_faculty": true
           }
         ]
@@ -1391,21 +1391,21 @@
         "n_seeds": 15,
         "adoption_curve": [
           0.1,
-          0.29,
-          0.58,
-          1.01,
-          1.61,
-          2.42,
-          3.46,
-          4.81,
-          6.45,
-          8.4,
-          10.65,
-          13.13,
-          15.78,
-          18.61,
-          21.52,
-          24.45
+          0.3,
+          0.6,
+          1.05,
+          1.68,
+          2.52,
+          3.58,
+          4.92,
+          6.56,
+          8.52,
+          10.74,
+          13.21,
+          15.86,
+          18.64,
+          21.53,
+          24.48
         ],
         "spillover_curve": [
           0.0,
@@ -1421,7 +1421,7 @@
           0.25,
           0.34,
           0.46,
-          0.61,
+          0.6,
           0.78,
           0.98
         ],
@@ -1435,8 +1435,8 @@
             "field_share": 48.2,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0235,
-            "final_reach": 0.3963
+            "reach_t3": 0.0219,
+            "final_reach": 0.3838
           },
           {
             "key": "https://openalex.org/A5084854319",
@@ -1447,8 +1447,8 @@
             "field_share": 21.1,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0149,
-            "final_reach": 0.3706
+            "reach_t3": 0.017,
+            "final_reach": 0.3784
           },
           {
             "key": "https://openalex.org/A5080693066",
@@ -1459,20 +1459,8 @@
             "field_share": 12.7,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0128,
-            "final_reach": 0.3687
-          },
-          {
-            "key": "https://openalex.org/A5058955273",
-            "name": "Dr. Ramars Amanchy",
-            "faculty_id": "FAC_IICT_0212",
-            "lab": "CSIR-IICT",
-            "degree": 79,
-            "field_share": 45.8,
-            "t50": null,
-            "p_reach50": 0.0,
-            "reach_t3": 0.0125,
-            "final_reach": 0.3134
+            "reach_t3": 0.013,
+            "final_reach": 0.3716
           },
           {
             "key": "https://openalex.org/A5077068037",
@@ -1483,8 +1471,20 @@
             "field_share": 41.5,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0107,
-            "final_reach": 0.3231
+            "reach_t3": 0.0124,
+            "final_reach": 0.3387
+          },
+          {
+            "key": "https://openalex.org/A5034873753",
+            "name": "Dr. Subashchandrabose Chinnathambi",
+            "faculty_id": "FAC_NCL_0145",
+            "lab": "CSIR-NCL",
+            "degree": 23,
+            "field_share": 87.7,
+            "t50": null,
+            "p_reach50": 0.0,
+            "reach_t3": 0.0114,
+            "final_reach": 0.0563
           }
         ],
         "convergence_check": [
@@ -1492,22 +1492,22 @@
             "trials": 25,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0245,
-            "final_reach": 0.4011
+            "reach_t3": 0.0224,
+            "final_reach": 0.3925
           },
           {
             "trials": 50,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0235,
-            "final_reach": 0.3963
+            "reach_t3": 0.0219,
+            "final_reach": 0.3838
           },
           {
             "trials": 100,
             "t50": null,
             "p_reach50": 0.0,
-            "reach_t3": 0.0227,
-            "final_reach": 0.39
+            "reach_t3": 0.0219,
+            "final_reach": 0.3792
           }
         ]
       },
@@ -1692,21 +1692,21 @@
           "type": "line",
           "data": [
             0.03,
-            0.45,
-            1.62,
-            4.57,
-            10.07,
-            17.92,
-            27.21,
-            36.86,
-            45.9,
-            53.61,
-            59.8,
-            64.68,
-            68.48,
-            71.53,
-            74.04,
-            76.15
+            0.46,
+            1.67,
+            4.7,
+            10.32,
+            18.38,
+            27.83,
+            37.55,
+            46.56,
+            54.27,
+            60.41,
+            65.17,
+            68.89,
+            71.86,
+            74.31,
+            76.41
           ],
           "smooth": true,
           "itemStyle": {
@@ -1721,21 +1721,21 @@
           "type": "line",
           "data": [
             0.03,
-            0.68,
-            3.17,
-            10.7,
-            24.58,
-            42.32,
-            60.14,
-            74.48,
-            84.09,
-            89.96,
-            93.51,
-            95.66,
-            96.99,
-            97.84,
-            98.41,
-            98.81
+            0.69,
+            3.18,
+            10.66,
+            24.47,
+            42.24,
+            60.13,
+            74.6,
+            84.29,
+            90.17,
+            93.72,
+            95.86,
+            97.18,
+            98.02,
+            98.58,
+            98.96
           ],
           "smooth": true,
           "itemStyle": {
@@ -1758,14 +1758,14 @@
             0.05,
             0.1,
             0.19,
-            0.32,
+            0.31,
             0.48,
             0.7,
-            0.95,
-            1.25,
-            1.59,
-            1.98,
-            2.4
+            0.96,
+            1.27,
+            1.61,
+            1.99,
+            2.42
           ],
           "smooth": true,
           "itemStyle": {
@@ -1808,6 +1808,6 @@
       ]
     }
   },
-  "method_note": "Susceptible-Infected (SI) Monte Carlo on the co-author LCC (7,752 researchers, keyed by OpenAlex author ID) for the 6 largest fields (987\u20133,266 active researchers each). Thresholds \u03b2c = <k>/<k\u00b2> and 1/\u03bb_max per field subgraph. Condition A: \u03b2 = \u03b20 \u00d7 subfield cosine similarity \u00d7 receiver's field share (min 0.05) on the full network; Condition B: uniform \u03b20 = 0.2 inside the field subgraph. Top 15 roster faculty per field (field share \u00d7 degree) as seeds, 50 runs each, 15 steps; T50 = median step at which 50% of the field has adopted, 'not reached' when the median run never gets there. Seeded (SEED=24) and order-independent, so reruns give identical numbers.",
-  "computed_at": "2026-10-31T04:42:36.742969+00:00"
+  "method_note": "Susceptible-Infected (SI) Monte Carlo on the co-author LCC (7,735 researchers, keyed by OpenAlex author ID) for the 6 largest fields (987\u20133,254 active researchers each). Thresholds \u03b2c = <k>/<k\u00b2> and 1/\u03bb_max per field subgraph. Condition A: \u03b2 = \u03b20 \u00d7 subfield cosine similarity \u00d7 receiver's field share (min 0.05) on the full network; Condition B: uniform \u03b20 = 0.2 inside the field subgraph. Top 15 roster faculty per field (field share \u00d7 degree) as seeds, 50 runs each, 15 steps; T50 = median step at which 50% of the field has adopted, 'not reached' when the median run never gets there. Seeded (SEED=24) and order-independent, so reruns give identical numbers.",
+  "computed_at": "2026-11-02T17:55:35.521390+00:00"
 }

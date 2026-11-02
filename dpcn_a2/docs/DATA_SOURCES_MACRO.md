@@ -1,5 +1,8 @@
 # DATA_SOURCES_MACRO.md — Macro & Comparative Insights Data Provenance
 
+> **Status (D-33, 2 Nov 2026):** Studies 2.1 (Smart Specialization), 3.1 (Leiden), 5.1 (Frugal Innovation) and 5.2 (Patents vs Papers) are **withdrawn from the dashboard**. The publications named below are not in `data/external/` and the exact values used in the code (e.g. Telangana pharma LQ 3.65, NCL budget ₹215 Cr, Max Planck 180 Q1 papers/yr) cannot be traced to them; Study 5.2's per-scientist patent counts are produced by a formula, not taken from patent records; Study 3.1 normalises citations within our own corpus, so it cannot be compared with Leiden Ranking values; Study 5.1's paper counts do not match the dataset. To restore a study: add the source files to `data/external/` with SHA256 and download date, read every value from them in code, and re-run the tests. Study 1.1 (Academic Bridge) is computed from `citation_network.csv` and stays.
+
+
 This document specifies the exact sources, extraction methodologies, and cleaning procedures for the five macro and comparative insight studies developed for **Group 24 (CSIR Chemistry Cluster: NCL, IICT, CECRI)**.
 
 Per project core guidelines, **no numbers are fabricated**. Every parameter is derived from verifiable government accounts, open scientific registries, or our audited 14,352-paper corpus.

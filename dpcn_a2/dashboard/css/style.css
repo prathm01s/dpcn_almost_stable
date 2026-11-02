@@ -882,3 +882,44 @@ body.on-hero .dot-nav a.active .dot { background: #fff; }
 [data-theme="dark"] .tabulator .tabulator-footer { background: var(--surface-2); color: var(--text-2); border-top-color: var(--border); }
 [data-theme="dark"] .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-sorter .tabulator-arrow { border-bottom-color: #64748b; }
 [data-theme="dark"] .tabulator input, [data-theme="dark"] .tabulator select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+
+/* ---------- Network sections: view switch, explanations (D-33) ---------- */
+.net-view-switch { display: inline-flex; gap: 4px; padding: 4px; border-radius: 12px; background: var(--surface-3); margin-bottom: 1rem; flex-wrap: wrap; }
+.net-view-btn {
+  border: none; background: transparent; color: var(--text-2); cursor: pointer;
+  font: inherit; font-size: 0.92rem; font-weight: 700; padding: 0.55rem 1.1rem; border-radius: 9px;
+}
+.net-view-btn small { font-weight: 600; font-size: 0.75rem; opacity: 0.75; margin-left: 0.35rem; }
+.net-view-btn.active { background: var(--primary); color: #fff; box-shadow: var(--shadow); }
+.net-view[hidden] { display: none; }
+.net-explain {
+  font-size: 0.9rem; line-height: 1.55; color: var(--text-2); background: var(--tint);
+  border: 1px solid var(--tint-border); border-radius: 10px; padding: 0.8rem 1rem; margin-bottom: 1.1rem;
+}
+.net-explain strong { color: var(--text); }
+.net-kpis { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 1.25rem; }
+.kpi-val.kpi-accent { color: #d97706; }
+[data-theme="dark"] .kpi-val.kpi-accent { color: #fbbf24; }
+.kpi-val.kpi-val-text { font-size: 1rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.net-legend { display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; flex-wrap: wrap; color: var(--text-2); }
+.net-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.net-legend i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.net-legend .net-hint { color: var(--text-muted); margin-left: auto; }
+.net-canvas { width: 100%; height: 600px; background: var(--net-canvas); border-radius: 8px; border: 1px solid var(--border); }
+.net-note { margin-top: 1rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+.net-chip { font-size: 0.75rem; color: var(--text-muted); background: var(--surface-3); padding: 2px 6px; border-radius: 4px; }
+.net-table a { color: var(--accent-ink); text-decoration: none; }
+.net-table a:hover { text-decoration: underline; }
+
+/* ---------- High impact-ratio papers (IR > 5, IR > 10) ---------- */
+.ir-hi-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.9rem; margin-bottom: 1rem; }
+.ir-hi-kpi { border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; background: var(--surface-2); }
+.ir-hi-kpi .lbl { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
+.ir-hi-kpi .val { font-size: 1.75rem; font-weight: 800; color: var(--accent-ink); line-height: 1.2; margin-top: 0.15rem; }
+.ir-hi-kpi .val small { font-size: 0.95rem; font-weight: 700; color: var(--text-2); margin-left: 0.3rem; }
+.ir-hi-kpi .sub { font-size: 0.76rem; color: var(--text-muted); margin-top: 0.2rem; }
+.ir-hi-tabs { display: inline-flex; gap: 4px; padding: 3px; border-radius: 8px; background: var(--surface-3); }
+.ir-hi-tabs button { border: none; background: transparent; color: var(--text-2); cursor: pointer; font: inherit; font-size: 0.82rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 6px; }
+.ir-hi-tabs button.active { background: var(--primary); color: #fff; }
+.flag-few { display: inline-block; font-size: 0.7rem; font-weight: 700; color: #b45309; background: #fef3c7; border: 1px solid #fde68a; border-radius: 4px; padding: 1px 5px; }
+[data-theme="dark"] .flag-few { color: #fcd34d; background: rgba(245, 158, 11, 0.16); border-color: rgba(245, 158, 11, 0.4); }

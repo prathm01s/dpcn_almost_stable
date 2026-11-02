@@ -109,3 +109,52 @@ def test_network_deliverables():
     assert list(df_conn.columns) == ["your_inst", "partner_inst", "shared_papers", "total_citations"]
     assert len(df_conn) > 1000
     assert set(df_conn["your_inst"].unique()) == ALLOWED_INSTS
+
+
+# ---------------------------------------------------------------------------
+# D-33: no duplicate papers, no fake former-faculty group, consistent faculty counts
+# ---------------------------------------------------------------------------
+def _ext():
+    import pandas as pd
+    return pd.read_csv("data/final/group24_data_extended.csv", dtype=str, keep_default_na=False)
+
+
+def test_no_duplicate_papers():
+    import re
+    ext = _ext()
+    w = ext.drop_duplicates("work_id")
+    dois = w[w["doi"] != ""]["doi"]
+    assert not dois.duplicated().any(), "a DOI appears under two work_ids"
+    # Angewandte German edition next to its International Edition twin
+    assert not any(d.replace("/ange.", "/anie.") in set(dois) for d in dois if "/ange." in d)
+    # versions of one DOI
+    base = dois.str.replace(r"(10\.7554/elife\.\d+)\.\d+$", r"\1", regex=True).str.replace(r"(10\.3791/\d+)-v$", r"\1", regex=True)
+    assert not base.duplicated().any(), "two version DOIs of one paper"
+    # same title, year and journal
+    tk = w["title"].map(lambda t: re.sub(r"[\W_]+", "", t.lower()))
+    long = w.assign(tk=tk)[tk.str.len() >= 25]
+    assert not long.duplicated(["tk", "year", "journal_name"]).any(), "same paper twice in one journal"
+
+
+def test_no_non_research_items():
+    import importlib
+    step20 = importlib.import_module("src.collect.20_dedupe_papers")
+    w = _ext().drop_duplicates("work_id")
+    assert not w["title"].str.match(step20.NON_RESEARCH).any(), "retraction notice / cover / preface left in the corpus"
+
+
+def test_former_faculty_flag_needs_author_id():
+    ext = _ext()
+    bad = ext["faculty_id"].str.startswith("FORMER_") & ext["author_openalex_id"].eq("")
+    assert not bad.any(), "authors without an OpenAlex ID grouped as one former scientist"
+    names = ext[ext["faculty_id"].str.startswith("FORMER_")].groupby("faculty_id")["author"].nunique()
+    assert (names <= 3).all(), "a former-faculty ID covers many different names"
+
+
+def test_faculty_counts_consistent():
+    import pandas as pd
+    fm = pd.read_csv("data/final/faculty_master.csv", dtype=str, keep_default_na=False)
+    fp = pd.read_csv("stats/tables/faculty_performance.csv", dtype=str, keep_default_na=False)
+    m = fp.merge(fm, on="faculty_id")
+    assert (m["papers"].astype(int) == m["n_papers_corpus"].astype(int)).all()
+    assert (m["citations"].astype(int) == m["n_citations_corpus"].astype(int)).all()

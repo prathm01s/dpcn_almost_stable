@@ -44,6 +44,8 @@ def build_profiles() -> dict:
     hubs = hubs[hubs["scope"] == "Group 24 Combined"].set_index("author_openalex_id")
 
     papers = ext.drop_duplicates("work_id").set_index("work_id")
+    rc = pd.read_csv("data/final/work_reference_counts.csv", dtype={"references_count": "Int64"})
+    refs_of = {w: int(n) for w, n in zip(rc["work_id"], rc["references_count"]) if not pd.isna(n) and int(n) > 0}
     papers["citations_i"] = papers["citations"].astype(int)
     papers["year_i"] = papers["year"].astype(int)
 
@@ -58,6 +60,8 @@ def build_profiles() -> dict:
     lab_of = {k: v for k, v in zip(fm["faculty_id"], fm["inst_key"].map({v: k for k, v in INST_KEY.items()}))}
 
     fac_rows = ext[ext["faculty_id"].isin(fm["faculty_id"])]
+    # papers at the scientist's roster lab, as in faculty_master.csv and the faculty table (D-33)
+    fac_rows = fac_rows[fac_rows["institution"] == fac_rows["faculty_id"].map(lab_of)]
     works_by_fid = fac_rows.groupby("faculty_id")["work_id"].agg(lambda s: sorted(set(s)))
 
     # Rank within lab by citations among scientists with papers
@@ -115,8 +119,10 @@ def build_profiles() -> dict:
 
         top = wp.sort_values(["citations_i", "year_i"], ascending=[False, False]).head(TOP_PAPERS)
         prof["top_papers"] = [{"title": r["title"], "journal": r["journal_name"], "year": int(r["year_i"]),
-                               "citations": int(r["citations_i"]), "doi": r["doi"], "quartile": r["quartile"]}
-                              for _, r in top.iterrows()]
+                               "citations": int(r["citations_i"]), "doi": r["doi"], "quartile": r["quartile"],
+                               "references": refs_of.get(wid),
+                               "ir": round(int(r["citations_i"]) / refs_of[wid], 2) if refs_of.get(wid) else None}
+                              for wid, r in top.iterrows()]
 
         partners = Counter(i for c in wp["coauthor_institutes"] for i in _split(c))
         prof["partners"] = [{"name": k, "papers": v} for k, v in partners.most_common(TOP_PARTNERS)]

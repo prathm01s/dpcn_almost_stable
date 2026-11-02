@@ -70,8 +70,8 @@
 ## Citation impact ratio
 
 - Citations (13 Oct 2026) accumulate over time while references are fixed, so IR rises with paper age; IR-Q1 papers concentrate in 2016–2021. No age or field normalisation is applied.
-- OpenAlex reference lists can be incomplete; 513 papers with no references recorded are excluded from IR shares.
-- The IR-Q1 threshold (0.59) is relative to this corpus (its 75th percentile), not an absolute standard; fixed thresholds such as 5 or 10 would select < 1% of papers.
+- OpenAlex reference lists can be incomplete; 451 papers with no references recorded are excluded from IR shares. Short lists inflate IR: of the 73 papers with IR > 5, 16 have fewer than 10 references in OpenAlex (e.g. a 2017 review listed with 2 references, IR 287); they are flagged in `impact_ratio_high_papers.csv` and on the dashboard.
+- The IR-Q1 threshold (0.60) is relative to this corpus (its 75th percentile), not an absolute standard. The fixed thresholds IR > 5 and IR > 10 select 0.53% and 0.13% of papers.
 
 ---
 

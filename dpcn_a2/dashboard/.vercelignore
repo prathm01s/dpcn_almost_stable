@@ -1,0 +1,16 @@
+# Studies withdrawn from the dashboard (D-33): inputs are hand-entered values without source files.
+# Kept in the repository for revision; not deployed.
+insight_smart_spec.html
+insight_frugal_rd.html
+insight_patents_papers.html
+insight_leiden_benchmarks.html
+js/insight_smart_spec.js
+js/insight_frugal_rd.js
+js/insight_patents_papers.js
+js/insight_leiden_benchmarks.js
+data/g24_smart_spec.js
+data/g24_frugal_rd.js
+data/g24_patents_papers.js
+data/g24_leiden_benchmarks.js
+# not needed on the site
+screenshots/

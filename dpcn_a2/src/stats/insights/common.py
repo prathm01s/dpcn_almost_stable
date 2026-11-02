@@ -30,7 +30,7 @@ INSIGHTS_TABLES_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def papers() -> pd.DataFrame:
-    """Distinct paper-level dataset (14,352 works).
+    """Distinct paper-level dataset (one row per work_id in group24_data_extended.csv).
     
     Returns one row per distinct work_id with columns:
     work_id, doi, year, labs, type, journal, quartile, citations, subfield, n_authors
@@ -59,7 +59,7 @@ def papers() -> pd.DataFrame:
         "quartile", "citations", "subfield", "n_authors"
     ]
     res = df_papers[keep_cols].reset_index(drop=True)
-    assert len(res) == 14352, f"Expected 14,352 distinct papers, got {len(res)}"
+    assert len(res) == df_ext["work_id"].nunique() and res["work_id"].is_unique
     return res
 
 

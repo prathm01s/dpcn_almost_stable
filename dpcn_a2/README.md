@@ -17,16 +17,17 @@
 Parent Body: **Council of Scientific & Industrial Research (CSIR)** — ROR `021wm7p51` (`I66760702`).
 
 ### Dataset Highlights (2016–2026)
-- **14,352 Distinct Peer-Reviewed Publications** (filtered for original research & reviews; non-peer-reviewed errata/editorials excluded).
-- **42,393 Attributed Authorship Records** (paper × assigned-institute author).
+- **14,208 Distinct Peer-Reviewed Publications** (filtered for original research & reviews; errata, retraction notices, cover pictures, prefaces and duplicate records of the same paper removed, D-33).
+- **41,989 Attributed Authorship Records** (paper × assigned-institute author).
 - **63.3% Global Q1 Journal Share** (SCImago SJR 1999–2025 historical panel).
 - **385 Scientific Cadre Faculty** on the official institute rosters (505 scraped; 119 IICT technical-staff entries and 1 duplicate removed, D-25); 306 have papers in 2016–2026.
-- **192,994 Directed Citation Edges** in `citation_network.csv`: 27,754 within the corpus + 165,240 with Indian-affiliated papers outside it (D-16, D-17).
+- **192,426 Directed Citation Edges** in `citation_network.csv`: 27,582 within the corpus (27,099 distinct paper pairs; a pair whose citing paper belongs to two labs has one row per lab) + 164,844 with Indian-affiliated papers outside it (D-16, D-17, D-33).
+- **Faculty networks** (D-33): one node per roster scientist — 306 scientists; 553 co-author pairs and 1,534 directed citation links between them. The paper-level citation network (10,931 papers) and the all-author co-authorship network (7,853 authors, of whom 283 are roster faculty and the rest students, postdocs and staff) are kept as secondary views.
 - **Zero Data Fabrication**: 100% of publications, citations, and DOIs originate from verified OpenAlex and Crossref records.
 
 ---
 
-**Live dashboard:** https://prathm01s.github.io/dpcn_almost_stable/
+**Live dashboard:** https://dpcnsite.vercel.app/ (Vercel, deployed from `dashboard/` with `vercel --prod`)
 
 ## 2. Repository Layout & Deliverables
 

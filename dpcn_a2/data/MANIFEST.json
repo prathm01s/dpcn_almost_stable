@@ -12,42 +12,42 @@
     2016,
     2026
   ],
-  "total_rows": 42393,
-  "total_distinct_papers": 14352,
+  "total_rows": 41989,
+  "total_distinct_papers": 14208,
   "rows_by_institution": {
-    "CSIR-IICT": 20183,
-    "CSIR-NCL": 14726,
-    "CSIR-CECRI": 7484
+    "CSIR-IICT": 20073,
+    "CSIR-NCL": 14471,
+    "CSIR-CECRI": 7445
   },
   "files": {
     "group24_data.csv": {
       "path": "data/final/group24_data.csv",
-      "sha256": "2613965ba22c80d7ce95d562136fb4c745f46abd382fa4e0415759cb9480ca0c",
-      "rows": 42393,
+      "sha256": "44f5fbe7e983b2e62ba5ac0feb531425ba03466a2489cdae322a45ff1aa4603c",
+      "rows": 41989,
       "columns": 14
     },
     "group24_data_extended.csv": {
       "path": "data/final/group24_data_extended.csv",
-      "sha256": "62366ad5d1b73fe406b0fa145e3c2569e91a8d5ab0249bf33ced553811d3637e",
-      "rows": 42393,
+      "sha256": "01709c42b9e8bc89a62827f625feea1adc1ba2fc00d582af00c31a7dc560a7fe",
+      "rows": 41989,
       "columns": 35
     },
     "citation_network.csv": {
       "path": "data/final/citation_network.csv",
-      "sha256": "dac69c89d59ac562e6de609922deb2211ac2ca8a7c96c4fe20b028110e5c4231",
-      "rows": 192994,
+      "sha256": "a14b66c513256757a3cd956e418c8104d244f1d9ebc31fb435f55f29385659ca",
+      "rows": 192426,
       "columns": 5
     },
     "authorship_network.csv": {
       "path": "data/final/authorship_network.csv",
-      "sha256": "d300ce7fe03c982795881e06910e8d70887b8acd11ba04646b96021be88f9856",
-      "rows": 108847,
+      "sha256": "748c0573eacf3646eb77090265706eaf33663f905d3ac2eaf2814c727809294d",
+      "rows": 107729,
       "columns": 6
     },
     "indian_connections.csv": {
       "path": "data/final/indian_connections.csv",
       "sha256": "5ca92df4c146b5bad227fe636f28f9a41d1de9f4b8c6af622235e891ed6c5511",
-      "rows": 1487,
+      "rows": 1486,
       "columns": 4
     },
     "faculty_master.csv": {

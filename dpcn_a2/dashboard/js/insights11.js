@@ -446,7 +446,7 @@
     document.getElementById("net-stat-nodes").textContent = fmt(m.connected_faculty || m.total_cadre_faculty);
     document.getElementById("net-stat-edges").textContent = fmt(m.edges);
     document.getElementById("net-stat-density").textContent = m.density;
-    document.getElementById("net-stat-special").textContent = isAuth ? (m.clustering || "0.291") : (m.reciprocity || "0.285");
+    document.getElementById("net-stat-special").textContent = isAuth ? (m.clustering ?? "–") : (m.reciprocity ?? "–");
     document.getElementById("net-stat-special-label").textContent = isAuth ? "Avg Clustering" : "Reciprocity";
 
     const nodes = (graphData.nodes || []).map(n => {
@@ -779,6 +779,88 @@
     `).join("");
   }
 
+  /* ---------------- Data-bound tables and text (D-33) ----------------
+   * Every number in these tables and paragraphs comes from the suite bundle (simulation output
+   * and the cadre network summary); nothing is typed into the page. */
+  const NET_ROWS = [
+    ["full_authorship", "Full Co-Authorship", "Full Co-Authorship"],
+    ["cadre_authorship", "Cadre Co-Authorship", "Cadre Co-Authorship"],
+    ["cadre_citation", "Cadre Faculty Citation", "Cadre Faculty Citation"],
+    ["full_citation", "Full In-Corpus Citation", "Full Citation"],
+  ];
+  const num = (v, d = 2) => (v == null || isNaN(v) ? "–" : Number(v).toFixed(d));
+  const pctTxt = v => (v == null ? "–" : `${Number(v).toFixed(1)}%`);
+  const last = a => (a && a.length ? a[a.length - 1] : null);
+  const t50Txt = v => (v == null ? "–" : (Number(v) >= 15 ? "&gt;15 steps" : `${num(v)} steps`));
+  const setHTML = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+
+  function bindNumbers() {
+    const S = SUITE.simulations || {};
+    const summ = Object.fromEntries((SUITE.cadre_summary || []).map(r => [r.network, r]));
+    const ov = (S.overlay_comparison || {}).Chemistry || {};
+    const rows = NET_ROWS.map(([key, label, summKey]) => {
+      const n = S[key] || {}, f = ((n.fields || {}).Chemistry) || {}, sm = summ[summKey] || {};
+      return { key, label, nodes: n.nodes, edges: n.edges, k: (n.thresholds || {}).k_mean, density: sm.density,
+               clustering: sm.clustering_coef, beta: (n.thresholds || {}).beta_c, t50: f.nimfa_t50, reach: last(ov[`${key}_nimfa`]) };
+    });
+    setHTML("cmp-tbody", rows.map(r => `<tr><td><b>${r.label}</b></td><td>${fmt(r.nodes)}</td><td>${fmt(r.edges)}</td>
+      <td>${num(r.k)}</td><td>${num(r.density, 4)}</td><td>${num(r.clustering, 3)}</td><td><b>${num(r.beta, 4)}</b></td>
+      <td><b>${t50Txt(r.t50)}</b></td><td><b>${pctTxt(r.reach)}</b></td></tr>`).join(""));
+    const R = Object.fromEntries(rows.map(r => [r.key, r]));
+    const fastest = rows.filter(r => r.t50 != null).sort((a, b) => a.t50 - b.t50)[0];
+    setHTML("interp-overlay",
+      `Chemistry field, NIMFA model, baseline infectivity β₀ = 0.20, 15 steps. ` +
+      `Fastest to 50% adoption: <b>${fastest ? fastest.label : "–"}</b> (T<sub>50</sub> = ${fastest ? t50Txt(fastest.t50) : "–"}). ` +
+      `Full co-authorship (${fmt(R.full_authorship.nodes)} authors, students included) reaches ${pctTxt(R.full_authorship.reach)}; ` +
+      `cadre co-authorship (${fmt(R.cadre_authorship.nodes)} scientists) reaches ${pctTxt(R.cadre_authorship.reach)} with T<sub>50</sub> = ${t50Txt(R.cadre_authorship.t50)}, ` +
+      `so removing students and project staff slows spreading. ` +
+      `The paper citation network reaches only ${pctTxt(R.full_citation.reach)}: citations point back in time, so spreading follows only the papers that cite a paper. ` +
+      `The faculty citation network (mean degree ⟨k⟩ = ${num(R.cadre_citation.k)}) reaches ${pctTxt(R.cadre_citation.reach)}. ` +
+      `These are model scenarios on the observed networks, not observed diffusion.`);
+
+    // seed origin
+    const so = ((S.seed_origins || {}).cadre_authorship) || {}, sf = ((S.seed_origins || {}).full_authorship) || {};
+    const labs = ["iict", "ncl", "cecri"], nm = { iict: "CSIR-IICT", ncl: "CSIR-NCL", cecri: "CSIR-CECRI" };
+    if (so.iict) {
+      const order = labs.slice().sort((a, b) => (so[b].final_reach || 0) - (so[a].final_reach || 0));
+      setHTML("interp-seed",
+        `Cadre co-authorship network, seeds chosen among each lab's scientists. Final reach after 15 steps: ` +
+        order.map(k => `<b>${nm[k]}</b> ${pctTxt(so[k].final_reach)} (reach at step 3: ${pctTxt(so[k].early_reach_t3)}, T<sub>50</sub> = ${t50Txt(so[k].t50)})`).join("; ") + ". " +
+        (sf.cecri ? `With students and project staff included (full co-authorship), a start at CECRI reaches ${pctTxt(sf.cecri.final_reach)} ` +
+          `(T<sub>50</sub> = ${t50Txt(sf.cecri.t50)}), against ${pctTxt(so.cecri.final_reach)} on the faculty-only network.` : ""));
+    }
+
+    // intra-institute
+    const ii = S.intra_institute || {};
+    const subs = [["full_authorship", "Full Authorship"], ["cadre_authorship", "Cadre Authorship"], ["full_citation", "Paper Citation"]];
+    const trs = [];
+    labs.forEach(k => subs.forEach(([sk, sl]) => {
+      const d = (ii[k] || {})[sk];
+      if (!d) return;
+      trs.push(`<tr><td><b>${nm[k]}</b></td><td>${sl}</td><td>${fmt(d.nodes)}</td><td>${fmt(d.edges)}</td><td>${num(d.k_mean)}</td>
+        <td>${num(d.beta_c, 4)}</td><td>${num(d.beta_c_spectral, 4)}</td><td>${t50Txt(d.t50)}</td><td>${pctTxt(d.final_reach)}</td></tr>`);
+    }));
+    setHTML("intra-tbody", trs.join(""));
+    if (ii.ncl) {
+      const c = k => (ii[k] || {}).cadre_authorship || {};
+      const sub = labs.filter(k => c(k).beta_c != null && c(k).beta_c > 0.2);
+      setHTML("interp-intra",
+        `Spreading only among each lab's own scientists (cadre co-authorship within the lab): ` +
+        labs.map(k => `<b>${nm[k]}</b> ${fmt(c(k).nodes)} connected scientists, ${fmt(c(k).edges)} pairs, ⟨k⟩ = ${num(c(k).k_mean)}, ` +
+          `β<sub>c</sub> = ${num(c(k).beta_c, 4)}, final reach ${pctTxt(c(k).final_reach)}`).join("; ") + ". " +
+        (sub.length ? `For ${sub.map(k => nm[k]).join(" and ")} the threshold β<sub>c</sub> is above the simulated β₀ = 0.20, so spreading inside that lab's faculty network stays sub-critical.` : ""));
+    }
+
+    // network structure
+    const ma = (SUITE.cadre_coauthorship || {}).metrics || {}, mc = (SUITE.cadre_citation || {}).metrics || {};
+    setHTML("interp-networks",
+      `Co-authorship: ${fmt(ma.connected_faculty)} of ${fmt(ma.total_cadre_faculty)} active scientists have at least one faculty co-author; ` +
+      `${fmt(ma.edges)} co-author pairs, average clustering ${num(ma.clustering, 3)}, modularity Q = ${num(ma.modularity, 3)} ` +
+      `(high modularity: scientists publish mostly within groups that rarely overlap). ` +
+      `Citation: ${fmt(mc.connected_faculty)} scientists cite or are cited by another; ${fmt(mc.edges)} directed links ` +
+      `(${fmt(mc.citation_links)} paper-to-paper citations; ${fmt(mc.self_citation_pairs_excluded)} self-citations left out), reciprocity ${num(mc.reciprocity, 3)}.`);
+  }
+
   /* ---------------- Init on DOM Ready ---------------- */
   document.addEventListener("DOMContentLoaded", () => {
     initNav();
@@ -788,6 +870,7 @@
     initNetworks();
     initCleaning();
     initDiffusion();
+    bindNumbers();
 
     const hash = window.location.hash.replace("#", "");
     if (["overlay", "seed-origin", "intra-institute", "networks", "diffusion", "cleaning"].includes(hash)) {

@@ -1,11 +1,11 @@
 {
   "id": "07_sleeping_beauties",
   "question": "Which papers were ignored for years and then suddenly took off?",
-  "headline": "2 of the 7 strongest candidates (top 1% of 602 papers by Ke's B) show sustained delayed recognition. The strongest, 'Funnel shaped molecules containing benzo/pyrido[1,2,5]thiadiazole f\u2026' (IICT, 2016), drew 1.4 citations/yr for 5 years, then 4.7/yr from 2021.",
+  "headline": "2 of the 7 strongest candidates (top 1% of 601 papers by Ke's B) show sustained delayed recognition; 3 are short citation spikes and 2 peaked in 2025, too recent to tell. The highest-B sustained case, ranked 4 of 7 by B, 'Funnel shaped molecules containing benzo/pyrido[1,2,5]thiadiazole f\u2026' (IICT, 2016), drew 1.4 citations/yr for 5 years, then 4.7/yr from 2021.",
   "metrics": {
     "n_top1_percent": 7,
     "b_p99_threshold": 12.92,
-    "n_eligible_sleeping_beauties": 602,
+    "n_eligible_sleeping_beauties": 601,
     "n_top1_sustained": 2,
     "n_top1_spikes": 3,
     "strongest": {
@@ -491,5 +491,5 @@
     }
   },
   "method_note": "Ke et al. (2015, PNAS) beauty coefficient B on yearly citations (OpenAlex counts_by_year, 2016\u20132025) of papers published 2016\u20132020 with \u226520 citations, a peak \u22653 years after publication and \u226510 citations in the peak year. Sustained = after the peak the paper keeps \u226550% of its peak yearly citations. The \u226410-year window only captures short sleeps.",
-  "computed_at": "2026-10-26T05:46:31.071524+00:00"
+  "computed_at": "2026-11-02T17:41:36.908110+00:00"
 }

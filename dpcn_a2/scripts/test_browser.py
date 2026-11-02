@@ -107,6 +107,16 @@ class ChromeDevToolsClient:
             f.write(data)
 
 
+def net_val(network, metric):
+    """A value from stats/tables/network_summary.csv (the dashboard must show the same numbers)."""
+    import csv
+    with open("stats/tables/network_summary.csv", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if r["network"] == network and r["metric"] == metric:
+                return float(r["value"])
+    raise KeyError((network, metric))
+
+
 def run_tests():
     print("=== STARTING BROWSER VERIFICATION SUITE ===")
 
@@ -254,25 +264,48 @@ def run_tests():
                 print(f"✓ Journals: {top_rows} top papers visible")
                 assert top_rows >= 10
             elif tab_id == "citation-net":
+                # faculty view is the default: one node per roster scientist (D-33)
+                fac_canvas = client.evaluate("document.querySelectorAll('#chart-fac-cite-network canvas').length")
+                fac_rows = client.evaluate("document.querySelectorAll('#tbody-fac-top-cited tr').length")
+                fac_nodes = client.evaluate("document.getElementById('fac-cite-kpi-nodes').textContent")
+                fac_edges = client.evaluate("document.getElementById('fac-cite-kpi-edges').textContent")
+                print(f"✓ Faculty citation net: Canvas={fac_canvas}, Top rows={fac_rows}, Scientists={fac_nodes}, Links={fac_edges}")
+                assert fac_canvas > 0 and fac_rows == 10
+                assert fac_nodes == f"{int(net_val('faculty_citation', 'nodes (roster scientists with >= 1 paper)')):,}"
+                assert fac_edges == f"{int(net_val('faculty_citation', 'directed edges (scientist A cites scientist B)')):,}"
+                client.evaluate("document.querySelector('.net-view-btn[data-net=cite][data-view=papers]').click()")
+                time.sleep(1.5)
                 c_canvas = client.evaluate("document.querySelectorAll('#chart-citation-network canvas, #chart-citation-network svg').length")
                 pr_rows = client.evaluate("document.querySelectorAll('#tbody-net-pagerank tr').length")
                 flow_rows = client.evaluate("document.querySelectorAll('#tbody-net-cite-matrix tr').length")
                 cite_edges = client.evaluate("document.getElementById('net-cite-kpi-edges').textContent")
-                print(f"✓ Citation Net: Canvas={c_canvas}, Top PR Rows={pr_rows}, Flow Matrix Rows={flow_rows}, Edges={cite_edges}")
-                assert c_canvas > 0
-                assert pr_rows == 10
-                assert flow_rows == 3
-                assert cite_edges == "27,754"
+                cite_nodes = client.evaluate("document.getElementById('net-cite-kpi-nodes').textContent")
+                print(f"✓ Paper citation net: Canvas={c_canvas}, Top PR Rows={pr_rows}, Flow Matrix Rows={flow_rows}, Papers={cite_nodes}, Links={cite_edges}")
+                assert c_canvas > 0 and pr_rows == 10 and flow_rows == 3
+                assert cite_edges == f"{int(net_val('citation', 'distinct citing-cited paper pairs')):,}"
+                assert cite_nodes == f"{int(net_val('citation', 'nodes (papers with >= 1 in-corpus link)')):,}"
+                client.evaluate("document.querySelector('.net-view-btn[data-net=cite][data-view=faculty]').click()")
+                time.sleep(0.5)
             elif tab_id == "authorship-net":
+                fac_canvas = client.evaluate("document.querySelectorAll('#chart-fac-auth-network canvas').length")
+                fac_rows = client.evaluate("document.querySelectorAll('#tbody-fac-bridges tr').length")
+                fac_nodes = client.evaluate("document.getElementById('fac-auth-kpi-nodes').textContent")
+                fac_pairs = client.evaluate("document.getElementById('fac-auth-kpi-edges').textContent")
+                print(f"✓ Faculty co-authorship net: Canvas={fac_canvas}, Top rows={fac_rows}, Scientists={fac_nodes}, Pairs={fac_pairs}")
+                assert fac_canvas > 0 and fac_rows == 10
+                assert fac_nodes == f"{int(net_val('faculty_coauthorship', 'nodes (roster scientists with >= 1 paper)')):,}"
+                assert fac_pairs == f"{int(net_val('faculty_coauthorship', 'co-author pairs (unique edges)')):,}"
+                client.evaluate("document.querySelector('.net-view-btn[data-net=auth][data-view=papers]').click()")
+                time.sleep(1.5)
                 a_canvas = client.evaluate("document.querySelectorAll('#chart-authorship-network canvas, #chart-authorship-network svg').length")
                 bridge_rows = client.evaluate("document.querySelectorAll('#tbody-net-bridges tr').length")
                 collab_rows = client.evaluate("document.querySelectorAll('#tbody-net-auth-matrix tr').length")
-                auth_edges = client.evaluate("document.getElementById('net-auth-kpi-edges').textContent")
-                print(f"✓ Authorship Net: Canvas={a_canvas}, Bridge Rows={bridge_rows}, Collab Matrix Rows={collab_rows}, Edges={auth_edges}")
-                assert a_canvas > 0
-                assert bridge_rows == 10
-                assert collab_rows == 3
-                assert auth_edges == "65,058"
+                auth_nodes = client.evaluate("document.getElementById('net-auth-kpi-nodes').textContent")
+                print(f"✓ All-author net: Canvas={a_canvas}, Bridge Rows={bridge_rows}, Collab Matrix Rows={collab_rows}, Authors={auth_nodes}")
+                assert a_canvas > 0 and bridge_rows == 10 and collab_rows == 3
+                assert auth_nodes == f"{int(net_val('authorship', 'authors (nodes)')):,}"
+                client.evaluate("document.querySelector('.net-view-btn[data-net=auth][data-view=faculty]').click()")
+                time.sleep(0.5)
             elif tab_id == "connectivity":
                 flow_canvas = client.evaluate("document.querySelectorAll('#chart-conn-flow canvas').length")
                 sector_canvas = client.evaluate("document.querySelectorAll('#chart-conn-sectors canvas').length")
@@ -335,6 +368,20 @@ def run_tests():
 
         # Back to the trends section and test filters
         client.evaluate("document.getElementById('trends').scrollIntoView({block: 'start'})")
+        time.sleep(0.8)
+        # IR > 5 / IR > 10 card (D-33): numbers must match stats/tables/impact_ratio_summary.csv
+        import csv
+        with open("stats/tables/impact_ratio_summary.csv", encoding="utf-8") as f:
+            irs = {r["institution"]: r for r in csv.DictReader(f)}
+        kpi_txt = client.evaluate("document.getElementById('ir-hi-kpis').textContent")
+        n5 = int(irs["Group 24 Combined"]["ir_q1_gt_5"]); n10 = int(irs["Group 24 Combined"]["ir_q1_gt_10"])
+        rows5 = client.evaluate("Tabulator.findTable('#table-ir-high')[0].getDataCount()")
+        client.evaluate("document.querySelector('#ir-hi-tabs button[data-t=\"10\"]').click()")
+        time.sleep(0.4)
+        rows10 = client.evaluate("Tabulator.findTable('#table-ir-high')[0].getDataCount()")
+        print(f"✓ IR card: IR>5 rows={rows5} (table {n5}), IR>10 rows={rows10} (table {n10})")
+        assert f"{n5:,}" in kpi_txt and rows5 == n5 and rows10 == n10
+        client.evaluate("document.querySelector('#ir-hi-tabs button[data-t=\"5\"]').click()")
         time.sleep(0.3)
 
         # Filter Year: 2020 - 2024
@@ -447,7 +494,7 @@ def run_tests():
         nodes_txt = client_i11.evaluate("document.getElementById('net-stat-nodes').textContent")
         print(f"✓ insights11.html Loaded: Title='{title_i11}', Connected Faculty Nodes={nodes_txt}")
         assert "Cadre Faculty Networks" in title_i11
-        assert nodes_txt == "235"
+        assert nodes_txt == f"{int(net_val('faculty_coauthorship', 'scientists with >= 1 faculty co-author')):,}"
 
         # Switch to Cleaning section
         client_i11.evaluate("document.querySelector(\".nav-btn[data-section='cleaning']\").click()")

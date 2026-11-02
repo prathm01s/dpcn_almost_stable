@@ -203,7 +203,7 @@
       <div class="studies-block">
         <div class="studies-head">
           <h3>Extended studies</h3>
-          <p>Stand-alone pages that compare the labs with outside benchmarks and model how ideas spread. Each opens in its own page.</p>
+          <p>Stand-alone pages on how ideas spread through the faculty networks and how knowledge flows between the labs and Indian universities. Each opens in its own page.</p>
         </div>
         <div class="studies-grid">
           <a href="insights11.html" class="study-card study-wide">
@@ -212,34 +212,10 @@
             <span class="study-desc">Faculty-only co-authorship and citation networks; stochastic vs. Markov-chain spreading</span>
             <span class="study-go">Open page →</span>
           </a>
-          <a href="insight_smart_spec.html" class="study-card">
-            <span class="study-tag">Study 2.1</span>
-            <span class="study-title">Smart specialization</span>
-            <span class="study-desc">Lab research strengths vs. state industry (pharma, polymers, batteries)</span>
-            <span class="study-go">Open page →</span>
-          </a>
           <a href="insight_academic_bridge.html" class="study-card">
             <span class="study-tag">Study 1.1</span>
             <span class="study-title">Academic bridge</span>
             <span class="study-desc">Knowledge exchange with IITs, IISc and state universities</span>
-            <span class="study-go">Open page →</span>
-          </a>
-          <a href="insight_frugal_rd.html" class="study-card">
-            <span class="study-tag">Study 5.1</span>
-            <span class="study-title">Frugal innovation</span>
-            <span class="study-desc">Cost per Q1 paper vs. Max Planck, CNRS and US DOE labs</span>
-            <span class="study-go">Open page →</span>
-          </a>
-          <a href="insight_patents_papers.html" class="study-card">
-            <span class="study-tag">Study 5.2</span>
-            <span class="study-title">Patents vs. papers</span>
-            <span class="study-desc">Industrial translation vs. academic citations</span>
-            <span class="study-go">Open page →</span>
-          </a>
-          <a href="insight_leiden_benchmarks.html" class="study-card">
-            <span class="study-tag">Study 3.1</span>
-            <span class="study-title">Leiden benchmarks</span>
-            <span class="study-desc">PP(top 10%), PP(top 1%) and MNCS vs. global peers</span>
             <span class="study-go">Open page →</span>
           </a>
         </div>
@@ -287,6 +263,26 @@
         </div>
         <div id="chart-impact-ratio" class="chart-container" role="img" aria-label="Share of papers classified Q1 by journal quartile and by impact ratio"></div>
         <div id="ir-note" style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;"></div>
+      </div>
+
+      <div class="card" style="margin-top: 1.5rem;" id="ir-high-card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Papers with IR &gt; 5 and IR &gt; 10</div>
+            <div class="card-subtitle">Papers cited more than 5 (or 10) times for every reference they make (IR = citations received ÷ references). Follows the institute buttons and filters.</div>
+          </div>
+        </div>
+        <div class="ir-hi-kpis" id="ir-hi-kpis"></div>
+        <div class="grid-2" style="margin-bottom: 0;">
+          <div id="chart-ir-high" class="chart-container" style="height: 320px;" role="img" aria-label="Papers with IR above 5 and 10 by lab"></div>
+          <div id="chart-ir-high-year" class="chart-container" style="height: 320px;" role="img" aria-label="Papers with IR above 5 and 10 by publication year"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.5rem;">
+          <div class="card-title" style="font-size: 0.95rem;">The papers <span id="ir-hi-count" style="font-weight: 500; color: var(--text-muted);"></span></div>
+          <div class="ir-hi-tabs" id="ir-hi-tabs" role="tablist"><button data-t="5" class="active">IR &gt; 5</button><button data-t="10">IR &gt; 10</button></div>
+        </div>
+        <div id="table-ir-high" style="height: 420px;"></div>
+        <div class="net-note" id="ir-hi-note"></div>
       </div>
     </div>
       <a class="next-sec" href="#faculty" aria-label="Next section: Faculty &amp; Divisions"><span class="next-sec-label">Next · Faculty &amp; Divisions</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
@@ -383,7 +379,7 @@
             <div class="card-subtitle">Highest-impact research papers authored by cluster scientists</div>
           </div>
         </div>
-        <div id="table-top-papers" style="height: 380px;"></div>
+        <div id="table-top-papers" style="height: 440px;"></div>
       </div>
     </div>
       <a class="next-sec" href="#areas" aria-label="Next section: Research Areas"><span class="next-sec-label">Next · Research Areas</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
@@ -428,128 +424,198 @@
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">06</span> / 09</div>
         <h2 class="section-title">Citation Network</h2>
-        <p class="section-lead">Who cites whom inside the three labs' papers. Arrows point from the citing paper to the cited paper; bigger nodes are cited more.</p>
+        <p class="section-lead">Who cites whom among the three labs. The main view has one node per faculty scientist on the
+          current roster (not students, and each person once). The paper view shows the same citations paper by paper.</p>
       </header>
-      <!-- Network KPIs -->
-      <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem;">
-        <div class="kpi-card">
-          <div class="kpi-label">Citation Edges</div>
-          <div id="net-cite-kpi-edges" class="kpi-val">27,754</div>
-          <div class="kpi-sub">Within Group 24 corpus</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Network Nodes</div>
-          <div id="net-cite-kpi-nodes" class="kpi-val">11,008</div>
-          <div class="kpi-sub">Citing & cited publications</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Inter-Lab Cross-Citations</div>
-          <div id="net-cite-kpi-interlab" class="kpi-val" style="color: var(--secondary);">1,653</div>
-          <div class="kpi-sub">Citations across IICT/NCL/CECRI</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Top PageRank Landmark</div>
-          <div id="net-cite-kpi-top-pr" class="kpi-val" style="font-size: 1.1rem; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="ACS Catalysis (2016)">ACS Catal. (2016)</div>
-          <div class="kpi-sub">Score: 0.00301 (In-Degree: 42)</div>
-        </div>
-      </section>
 
-      <!-- Network Canvas Card -->
-      <div class="card" style="margin-bottom: 1.5rem;">
-        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
-          <div>
-            <div class="card-title"><span class="panel-tag">Panel 10</span>Directed Citation Network Visualisation</div>
-            <div class="card-subtitle">Force-directed directional citation graph (arrow: source cites target, node size: in-degree impact)</div>
-          </div>
-          <!-- Network Toolbar -->
+      <div class="net-view-switch" role="tablist" aria-label="Citation network view">
+        <button class="net-view-btn active" data-net="cite" data-view="faculty" role="tab" aria-selected="true">Scientists <small id="cite-tab-fac-n"></small></button>
+        <button class="net-view-btn" data-net="cite" data-view="papers" role="tab" aria-selected="false">Papers <small id="cite-tab-pap-n"></small></button>
+      </div>
+
+      <!-- Faculty citation network (default) -->
+      <div id="cite-view-faculty" class="net-view">
+        <div class="net-explain"><strong>What a node is:</strong> one roster scientist (faculty_id), counted once even with
+          several OpenAlex profiles or name spellings. <strong>Arrow A → B:</strong> a paper of A cites a paper of B;
+          thickness = number of such citing–cited paper pairs. A scientist citing their own papers is not counted.</div>
+        <section class="kpi-grid net-kpis">
+        <div class="kpi-card">
+          <div class="kpi-label">Scientists (nodes)</div>
+          <div id="fac-cite-kpi-nodes" class="kpi-val">–</div>
+          <div class="kpi-sub" id="fac-cite-kpi-nodes-sub">Roster faculty with ≥1 paper, 2016–2026</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Scientists linked by citations</div>
+          <div id="fac-cite-kpi-connected" class="kpi-val">–</div>
+          <div class="kpi-sub" id="fac-cite-kpi-connected-sub">Cite or are cited by another scientist</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Citation links (A → B)</div>
+          <div id="fac-cite-kpi-edges" class="kpi-val">–</div>
+          <div class="kpi-sub" id="fac-cite-kpi-edges-sub">Distinct directed scientist pairs</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Paper-to-paper citations</div>
+          <div id="fac-cite-kpi-cites" class="kpi-val">–</div>
+          <div class="kpi-sub" id="fac-cite-kpi-cites-sub">Between different scientists</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Cross-lab citation links</div>
+          <div id="fac-cite-kpi-cross" class="kpi-val kpi-accent">–</div>
+          <div class="kpi-sub" id="fac-cite-kpi-cross-sub">A and B in different labs</div>
+        </div>
+        </section>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+            <div>
+              <div class="card-title"><span class="panel-tag">Panel 10</span>Faculty citation network</div>
+              <div class="card-subtitle">Directed · node size = citations received from other scientists · click a scientist for their profile</div>
+            </div>
           <div class="net-toolbar">
             <div class="net-control-group">
-              <label for="net-cite-filter-inst">Filter Lab:</label>
-              <select id="net-cite-filter-inst" class="filter-select" style="padding: 0.35rem 0.6rem;">
-                <option value="all" selected>All Institutes</option>
+              <label for="fac-cite-filter-inst">Lab:</label>
+              <select id="fac-cite-filter-inst" class="filter-select" style="padding: 0.35rem 0.6rem;">
+                <option value="all" selected>All three labs</option>
                 <option value="CSIR-IICT">CSIR-IICT</option>
                 <option value="CSIR-NCL">CSIR-NCL</option>
                 <option value="CSIR-CECRI">CSIR-CECRI</option>
-                <option value="cross">Cross-Lab Citations Only</option>
+                <option value="cross">Cross-lab citations only</option>
               </select>
             </div>
             <div class="net-control-group">
-              <label for="net-cite-slider-deg">Min In-Degree: <span id="net-cite-deg-val" class="net-slider-val">2</span></label>
-              <input type="range" id="net-cite-slider-deg" min="0" max="15" value="2" class="net-slider">
+              <label for="fac-cite-slider">Min. citations received: <span id="fac-cite-slider-val" class="net-slider-val">5</span></label>
+              <input type="range" id="fac-cite-slider" min="0" max="50" value="5" class="net-slider">
             </div>
             <div class="net-control-group">
-              <input type="text" id="net-cite-search" placeholder="Search title, DOI, journal..." class="net-search-input">
+              <input type="text" id="fac-cite-search" placeholder="Search scientist name..." class="net-search-input">
             </div>
-            <button id="net-cite-btn-reset" class="btn-reset" style="padding: 0.35rem 0.75rem;">Reset Graph</button>
+            <button id="fac-cite-reset" class="btn-reset" style="padding: 0.35rem 0.75rem;">Reset graph</button>
+          </div>
+          </div>
+        <div class="net-legend">
+          <span><i style="background: var(--c-iict);"></i> CSIR-IICT</span>
+          <span><i style="background: var(--c-ncl);"></i> CSIR-NCL</span>
+          <span><i style="background: var(--c-cecri);"></i> CSIR-CECRI</span>
+          <span class="net-hint">Scroll to zoom, drag to move. Hover a node or arrow for details.</span>
+        </div>
+          <div id="chart-fac-cite-network" class="net-canvas"></div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><div>
+              <div class="card-title">Top 10 most-cited scientists (by other scientists of the three labs)</div>
+              <div class="card-subtitle">Paper-to-paper citations received from other roster scientists; self-citations excluded</div>
+            </div></div>
+            <div style="overflow-x: auto;">
+              <table class="net-table">
+                <thead><tr><th>#</th><th>Scientist</th><th>Lab</th><th>Citations received</th><th>Citing scientists</th><th>Papers</th><th>PageRank</th></tr></thead>
+                <tbody id="tbody-fac-top-cited"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>
+              <div class="card-title">Citations between the three labs (scientist level)</div>
+              <div class="card-subtitle">Rows = lab of the citing scientist → columns = lab of the cited scientist (paper-to-paper citations)</div>
+            </div></div>
+          <div style="overflow-x: auto;">
+            <table class="net-matrix-table">
+              <thead><tr><th>Citing lab \ Cited lab</th><th style="color: var(--c-iict);">CSIR-IICT</th><th style="color: var(--c-ncl);">CSIR-NCL</th><th style="color: var(--c-cecri);">CSIR-CECRI</th><th>Total</th></tr></thead>
+              <tbody id="tbody-fac-cite-matrix"></tbody>
+            </table>
+          </div>
+          <div class="net-note" id="fac-cite-matrix-note"></div>
           </div>
         </div>
-
-        <!-- Legend and graph canvas -->
-        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; flex-wrap: wrap;">
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-iict); display: inline-block;"></span> CSIR-IICT</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-ncl); display: inline-block;"></span> CSIR-NCL</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-cecri); display: inline-block;"></span> CSIR-CECRI</span>
-          <span style="color: var(--text-muted); margin-left: auto;">Pan and zoom with mouse wheel. Drag nodes to explore. Hover or click to inspect publication details.</span>
-        </div>
-
-        <div id="chart-citation-network" style="width: 100%; height: 580px; background: var(--net-canvas); border-radius: 6px; border: 1px solid var(--border);"></div>
       </div>
 
-      <!-- Network Deep Dive Grid -->
-      <div class="grid-2">
-        <!-- Top PageRank Landmark Publications -->
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="card-title">Top 10 Landmark Papers by PageRank Centrality</div>
-              <div class="card-subtitle">Highest structural influence within Group 24 citation topology</div>
-            </div>
-          </div>
-          <div style="overflow-x: auto;">
-            <table class="net-table" id="table-net-pagerank">
-              <thead>
-                <tr>
-                  <th style="width: 40px;">#</th>
-                  <th>Publication Title & Journal</th>
-                  <th>Lab</th>
-                  <th>In-Deg</th>
-                  <th>PageRank</th>
-                  <th>DOI</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-net-pagerank">
-                <!-- Populated dynamically -->
-              </tbody>
-            </table>
-          </div>
+      <!-- Paper citation network -->
+      <div id="cite-view-papers" class="net-view" hidden>
+        <div class="net-explain"><strong>What a node is:</strong> one paper of the three labs (2016–2026) that cites, or is cited by,
+          another paper of the three labs. There are thousands of nodes because these are papers, not people.
+          <strong>Arrow:</strong> citing paper → cited paper. The graph shows the most-cited papers only.</div>
+        <section class="kpi-grid net-kpis">
+        <div class="kpi-card">
+          <div class="kpi-label">Papers (nodes)</div>
+          <div id="net-cite-kpi-nodes" class="kpi-val">–</div>
+          <div class="kpi-sub" id="net-cite-kpi-nodes-sub">Papers with ≥1 citation link inside the corpus</div>
         </div>
-
-        <!-- 3x3 Cross-Institute Citation Flow Matrix -->
-        <div class="card">
-          <div class="card-header">
+        <div class="kpi-card">
+          <div class="kpi-label">Citation links</div>
+          <div id="net-cite-kpi-edges" class="kpi-val">–</div>
+          <div class="kpi-sub" id="net-cite-kpi-edges-sub">Distinct citing → cited paper pairs</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Cross-lab citation links</div>
+          <div id="net-cite-kpi-interlab" class="kpi-val kpi-accent">–</div>
+          <div class="kpi-sub" id="net-cite-kpi-interlab-sub">Citing and cited paper from different labs</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Top paper by PageRank</div>
+          <div id="net-cite-kpi-top-pr" class="kpi-val">–</div>
+          <div class="kpi-sub" id="net-cite-kpi-top-pr-sub"></div>
+        </div>
+        </section>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
             <div>
-              <div class="card-title">Cross-Institute Citation Flow Matrix (3 × 3)</div>
-              <div class="card-subtitle">Rows = Citing Source Institute → Columns = Cited Target Institute</div>
+              <div class="card-title">Paper citation network (most-cited papers)</div>
+              <div class="card-subtitle">Directed · arrow = citing paper cites target · node size = citations from corpus papers</div>
+            </div>
+            <div class="net-toolbar">
+              <div class="net-control-group">
+                <label for="net-cite-filter-inst">Lab:</label>
+                <select id="net-cite-filter-inst" class="filter-select" style="padding: 0.35rem 0.6rem;">
+                  <option value="all" selected>All three labs</option>
+                  <option value="CSIR-IICT">CSIR-IICT</option>
+                  <option value="CSIR-NCL">CSIR-NCL</option>
+                  <option value="CSIR-CECRI">CSIR-CECRI</option>
+                  <option value="cross">Cross-lab citations only</option>
+                </select>
+              </div>
+              <div class="net-control-group">
+                <label for="net-cite-slider-deg">Min. in-degree: <span id="net-cite-deg-val" class="net-slider-val">2</span></label>
+                <input type="range" id="net-cite-slider-deg" min="0" max="15" value="2" class="net-slider">
+              </div>
+              <div class="net-control-group">
+                <input type="text" id="net-cite-search" placeholder="Search title, DOI, journal..." class="net-search-input">
+              </div>
+              <button id="net-cite-btn-reset" class="btn-reset" style="padding: 0.35rem 0.75rem;">Reset graph</button>
             </div>
           </div>
+        <div class="net-legend">
+          <span><i style="background: var(--c-iict);"></i> CSIR-IICT</span>
+          <span><i style="background: var(--c-ncl);"></i> CSIR-NCL</span>
+          <span><i style="background: var(--c-cecri);"></i> CSIR-CECRI</span>
+          <span class="net-hint">Scroll to zoom, drag to move. Hover a paper for details.</span>
+        </div>
+          <div id="chart-citation-network" class="net-canvas"></div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><div>
+              <div class="card-title">Top 10 papers by PageRank</div>
+              <div class="card-subtitle">Most influential papers inside the three labs' citation network</div>
+            </div></div>
+            <div style="overflow-x: auto;">
+              <table class="net-table" id="table-net-pagerank">
+                <thead><tr><th>#</th><th>Paper</th><th>Lab</th><th>Cited in corpus</th><th>Citations (all)</th><th>Refs</th><th>IR</th><th>PageRank</th></tr></thead>
+                <tbody id="tbody-net-pagerank"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>
+              <div class="card-title">Citations between the three labs (paper level)</div>
+              <div class="card-subtitle">Rows = lab of the citing paper → columns = lab of the cited paper. A paper shared by two labs counts for each.</div>
+            </div></div>
           <div style="overflow-x: auto;">
-            <table class="net-matrix-table" id="table-net-cite-matrix">
-              <thead>
-                <tr>
-                  <th>Citing Source \ Target</th>
-                  <th style="color: var(--c-iict);">CSIR-IICT</th>
-                  <th style="color: var(--c-ncl);">CSIR-NCL</th>
-                  <th style="color: var(--c-cecri);">CSIR-CECRI</th>
-                  <th>Total Outgoing</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-net-cite-matrix">
-                <!-- Populated dynamically -->
-              </tbody>
+            <table class="net-matrix-table">
+              <thead><tr><th>Citing lab \ Cited lab</th><th style="color: var(--c-iict);">CSIR-IICT</th><th style="color: var(--c-ncl);">CSIR-NCL</th><th style="color: var(--c-cecri);">CSIR-CECRI</th><th>Total</th></tr></thead>
+              <tbody id="tbody-net-cite-matrix"></tbody>
             </table>
           </div>
-          <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
-            <strong>Interpretation:</strong> Diagonal cells indicate intra-institute self-citations. Off-diagonal cells reveal cross-institutional knowledge diffusion across the chemistry cluster (total inter-lab citations: <strong>1,653</strong>).
+          <div class="net-note" id="net-cite-matrix-note"></div>
           </div>
         </div>
       </div>
@@ -557,134 +623,203 @@
       <a class="next-sec" href="#coauthorship" aria-label="Next section: Co-authorship Network"><span class="next-sec-label">Next · Co-authorship Network</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
   </section>
 
-    <!-- Tab 6: Co-Authorship Network -->
   <section id="coauthorship" class="page-section" data-label="Co-authorship">
     <div class="section-inner">
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">07</span> / 09</div>
         <h2 class="section-title">Co-authorship Network</h2>
-        <p class="section-lead">Who writes with whom. Each node is a researcher and each line a joint paper; the tables show the researchers who bridge teams and the links between the three labs.</p>
+        <p class="section-lead">Who writes with whom. The main view has one node per faculty scientist on the current roster.
+          The second view adds every other author of the labs' papers (PhD students, postdocs, project staff), which is why it has thousands of nodes.</p>
       </header>
-      <!-- Network KPIs -->
-      <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem;">
-        <div class="kpi-card">
-          <div class="kpi-label">Collaboration Edges</div>
-          <div id="net-auth-kpi-edges" class="kpi-val">65,058</div>
-          <div class="kpi-sub">Co-authorship pairs</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Active Researchers</div>
-          <div id="net-auth-kpi-nodes" class="kpi-val">7,864</div>
-          <div class="kpi-sub">Authors in network</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Louvain Communities</div>
-          <div id="net-auth-kpi-communities" class="kpi-val" style="color: #0d9488;">130</div>
-          <div class="kpi-sub">Modular research clusters</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Inter-Lab Collaboration Pairs</div>
-          <div id="net-auth-kpi-interlab" class="kpi-val" style="color: #d97706;">525</div>
-          <div class="kpi-sub">Cross-lab co-author pairs</div>
-        </div>
-      </section>
 
-      <!-- Network Canvas Card -->
-      <div class="card" style="margin-bottom: 1.5rem;">
-        <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
-          <div>
-            <div class="card-title"><span class="panel-tag">Panel 11</span>Co-Authorship Network Visualisation</div>
-            <div class="card-subtitle">Undirected collaborative graph (edge thickness: joint papers, node size: collaborator degree)</div>
-          </div>
-          <!-- Network Toolbar -->
+      <div class="net-view-switch" role="tablist" aria-label="Co-authorship network view">
+        <button class="net-view-btn active" data-net="auth" data-view="faculty" role="tab" aria-selected="true">Faculty <small id="auth-tab-fac-n"></small></button>
+        <button class="net-view-btn" data-net="auth" data-view="papers" role="tab" aria-selected="false">All lab authors <small id="auth-tab-all-n"></small></button>
+      </div>
+
+      <!-- Faculty co-authorship network (default) -->
+      <div id="auth-view-faculty" class="net-view">
+        <div class="net-explain"><strong>What a node is:</strong> one roster scientist (faculty_id), counted once even with
+          several OpenAlex profiles or name spellings. <strong>Line:</strong> the two scientists share at least one paper;
+          thickness = number of shared papers.</div>
+        <section class="kpi-grid net-kpis">
+        <div class="kpi-card">
+          <div class="kpi-label">Scientists (nodes)</div>
+          <div id="fac-auth-kpi-nodes" class="kpi-val">–</div>
+          <div class="kpi-sub" id="fac-auth-kpi-nodes-sub">Roster faculty with ≥1 paper, 2016–2026</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">With a faculty co-author</div>
+          <div id="fac-auth-kpi-connected" class="kpi-val">–</div>
+          <div class="kpi-sub" id="fac-auth-kpi-connected-sub">Share ≥1 paper with another scientist</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Co-author pairs</div>
+          <div id="fac-auth-kpi-edges" class="kpi-val">–</div>
+          <div class="kpi-sub" id="fac-auth-kpi-edges-sub">Distinct scientist pairs</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Communities (Louvain)</div>
+          <div id="fac-auth-kpi-communities" class="kpi-val">–</div>
+          <div class="kpi-sub" id="fac-auth-kpi-communities-sub">Groups of scientists who publish together</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Cross-lab pairs</div>
+          <div id="fac-auth-kpi-cross" class="kpi-val kpi-accent">–</div>
+          <div class="kpi-sub" id="fac-auth-kpi-cross-sub">Scientists of two different labs</div>
+        </div>
+        </section>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+            <div>
+              <div class="card-title"><span class="panel-tag">Panel 11</span>Faculty co-authorship network</div>
+              <div class="card-subtitle">Undirected · node size = number of faculty co-authors · click a scientist for their profile</div>
+            </div>
           <div class="net-toolbar">
             <div class="net-control-group">
-              <label for="net-auth-filter-inst">Filter Lab:</label>
-              <select id="net-auth-filter-inst" class="filter-select" style="padding: 0.35rem 0.6rem;">
-                <option value="all" selected>All Institutes</option>
+              <label for="fac-auth-filter-inst">Lab:</label>
+              <select id="fac-auth-filter-inst" class="filter-select" style="padding: 0.35rem 0.6rem;">
+                <option value="all" selected>All three labs</option>
                 <option value="CSIR-IICT">CSIR-IICT</option>
                 <option value="CSIR-NCL">CSIR-NCL</option>
                 <option value="CSIR-CECRI">CSIR-CECRI</option>
-                <option value="cross">Cross-Lab Collaborators Only</option>
+                <option value="cross">Cross-lab pairs only</option>
               </select>
             </div>
             <div class="net-control-group">
-              <label for="net-auth-slider-weight">Min Joint Papers: <span id="net-auth-weight-val" class="net-slider-val">2</span></label>
-              <input type="range" id="net-auth-slider-weight" min="1" max="10" value="2" class="net-slider">
+              <label for="fac-auth-slider">Min. shared papers: <span id="fac-auth-slider-val" class="net-slider-val">1</span></label>
+              <input type="range" id="fac-auth-slider" min="1" max="10" value="1" class="net-slider">
             </div>
             <div class="net-control-group">
-              <input type="text" id="net-auth-search" placeholder="Search author name..." class="net-search-input">
+              <input type="text" id="fac-auth-search" placeholder="Search scientist name..." class="net-search-input">
             </div>
-            <button id="net-auth-btn-reset" class="btn-reset" style="padding: 0.35rem 0.75rem;">Reset Graph</button>
+            <button id="fac-auth-reset" class="btn-reset" style="padding: 0.35rem 0.75rem;">Reset graph</button>
+          </div>
+          </div>
+        <div class="net-legend">
+          <span><i style="background: var(--c-iict);"></i> CSIR-IICT</span>
+          <span><i style="background: var(--c-ncl);"></i> CSIR-NCL</span>
+          <span><i style="background: var(--c-cecri);"></i> CSIR-CECRI</span>
+          <span class="net-hint">Scroll to zoom, drag to move. Hover a node or line for details.</span>
+        </div>
+          <div id="chart-fac-auth-network" class="net-canvas"></div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><div>
+              <div class="card-title">Top 10 most-connected scientists</div>
+              <div class="card-subtitle">By number of faculty co-authors; betweenness = how often they sit on the shortest path between two scientists</div>
+            </div></div>
+            <div style="overflow-x: auto;">
+              <table class="net-table">
+                <thead><tr><th>#</th><th>Scientist</th><th>Lab</th><th>Faculty co-authors</th><th>Shared papers</th><th>Betweenness</th><th>Community</th></tr></thead>
+                <tbody id="tbody-fac-bridges"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>
+              <div class="card-title">Co-author pairs between the three labs</div>
+              <div class="card-subtitle">Distinct scientist pairs who share ≥1 paper</div>
+            </div></div>
+          <div style="overflow-x: auto;">
+            <table class="net-matrix-table">
+              <thead><tr><th>Lab \ Partner lab</th><th style="color: var(--c-iict);">CSIR-IICT</th><th style="color: var(--c-ncl);">CSIR-NCL</th><th style="color: var(--c-cecri);">CSIR-CECRI</th><th>Cross-lab pairs</th></tr></thead>
+              <tbody id="tbody-fac-auth-matrix"></tbody>
+            </table>
+          </div>
+          <div class="net-note" id="fac-auth-matrix-note"></div>
           </div>
         </div>
-
-        <!-- Legend and graph canvas -->
-        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; flex-wrap: wrap;">
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-iict); display: inline-block;"></span> CSIR-IICT</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-ncl); display: inline-block;"></span> CSIR-NCL</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: var(--c-cecri); display: inline-block;"></span> CSIR-CECRI</span>
-          <span style="color: var(--text-muted); margin-left: auto;">Pan and zoom with mouse wheel. Drag nodes to explore. Hover or click to view researcher profile.</span>
-        </div>
-
-        <div id="chart-authorship-network" style="width: 100%; height: 580px; background: var(--net-canvas); border-radius: 6px; border: 1px solid var(--border);"></div>
       </div>
 
-      <!-- Network Deep Dive Grid -->
-      <div class="grid-2">
-        <!-- Top Collaborative Bridges -->
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="card-title">Top 10 Collaborative Bridges by Centrality</div>
-              <div class="card-subtitle">Key hub researchers connecting diverse scientific teams and divisions</div>
-            </div>
-          </div>
-          <div style="overflow-x: auto;">
-            <table class="net-table" id="table-net-bridges">
-              <thead>
-                <tr>
-                  <th style="width: 40px;">#</th>
-                  <th>Researcher Name</th>
-                  <th>Institution</th>
-                  <th>Collaborators (Degree)</th>
-                  <th>Betweenness</th>
-                  <th>Community</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-net-bridges">
-                <!-- Populated dynamically -->
-              </tbody>
-            </table>
-          </div>
+      <!-- All-author co-authorship network -->
+      <div id="auth-view-papers" class="net-view" hidden>
+        <div class="net-explain"><strong>What a node is:</strong> every author of the three labs on a 2016–2026 paper, by name:
+          the roster faculty plus PhD students, postdocs, project staff and former staff. <span id="net-auth-composition"></span>
+          <strong>Line:</strong> the two authors share a paper. The graph shows the best-connected authors only.</div>
+        <section class="kpi-grid net-kpis">
+        <div class="kpi-card">
+          <div class="kpi-label">Authors (nodes)</div>
+          <div id="net-auth-kpi-nodes" class="kpi-val">–</div>
+          <div class="kpi-sub" id="net-auth-kpi-nodes-sub">All lab authors, not only faculty</div>
         </div>
-
-        <!-- 3x3 Cross-Institute Co-Authorship Matrix -->
-        <div class="card">
-          <div class="card-header">
+        <div class="kpi-card">
+          <div class="kpi-label">Co-author pairs</div>
+          <div id="net-auth-kpi-edges" class="kpi-val">–</div>
+          <div class="kpi-sub" id="net-auth-kpi-edges-sub">Distinct author pairs</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Communities (Louvain)</div>
+          <div id="net-auth-kpi-communities" class="kpi-val">–</div>
+          <div class="kpi-sub" id="net-auth-kpi-communities-sub">Groups of authors who publish together</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Cross-lab links</div>
+          <div id="net-auth-kpi-interlab" class="kpi-val kpi-accent">–</div>
+          <div class="kpi-sub" id="net-auth-kpi-interlab-sub">One per author pair per shared paper</div>
+        </div>
+        </section>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
             <div>
-              <div class="card-title">Cross-Institute Co-Authorship Matrix (3 × 3)</div>
-              <div class="card-subtitle">Undirected co-authorship relationships across the chemistry cluster</div>
+              <div class="card-title">All-author co-authorship network (best-connected authors)</div>
+              <div class="card-subtitle">Undirected · line thickness = joint papers · node size = number of co-authors</div>
+            </div>
+            <div class="net-toolbar">
+              <div class="net-control-group">
+                <label for="net-auth-filter-inst">Lab:</label>
+                <select id="net-auth-filter-inst" class="filter-select" style="padding: 0.35rem 0.6rem;">
+                  <option value="all" selected>All three labs</option>
+                  <option value="CSIR-IICT">CSIR-IICT</option>
+                  <option value="CSIR-NCL">CSIR-NCL</option>
+                  <option value="CSIR-CECRI">CSIR-CECRI</option>
+                  <option value="cross">Cross-lab collaborators only</option>
+                </select>
+              </div>
+              <div class="net-control-group">
+                <label for="net-auth-slider-weight">Min. joint papers: <span id="net-auth-weight-val" class="net-slider-val">2</span></label>
+                <input type="range" id="net-auth-slider-weight" min="1" max="10" value="2" class="net-slider">
+              </div>
+              <div class="net-control-group">
+                <input type="text" id="net-auth-search" placeholder="Search author name..." class="net-search-input">
+              </div>
+              <button id="net-auth-btn-reset" class="btn-reset" style="padding: 0.35rem 0.75rem;">Reset graph</button>
             </div>
           </div>
+        <div class="net-legend">
+          <span><i style="background: var(--c-iict);"></i> CSIR-IICT</span>
+          <span><i style="background: var(--c-ncl);"></i> CSIR-NCL</span>
+          <span><i style="background: var(--c-cecri);"></i> CSIR-CECRI</span>
+          <span class="net-hint">Scroll to zoom, drag to move. Hover or click an author for details.</span>
+        </div>
+          <div id="chart-authorship-network" class="net-canvas"></div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><div>
+              <div class="card-title">Top 10 most-connected authors</div>
+              <div class="card-subtitle">All lab authors, by number of distinct co-authors</div>
+            </div></div>
+            <div style="overflow-x: auto;">
+              <table class="net-table" id="table-net-bridges">
+                <thead><tr><th>#</th><th>Author</th><th>Lab</th><th>Co-authors</th><th>Betweenness</th><th>Community</th></tr></thead>
+                <tbody id="tbody-net-bridges"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>
+              <div class="card-title">Co-authorship links between the three labs (all authors)</div>
+              <div class="card-subtitle">One link per author pair per shared paper</div>
+            </div></div>
           <div style="overflow-x: auto;">
-            <table class="net-matrix-table" id="table-net-auth-matrix">
-              <thead>
-                <tr>
-                  <th>Institute \ Partner</th>
-                  <th style="color: var(--c-iict);">CSIR-IICT</th>
-                  <th style="color: var(--c-ncl);">CSIR-NCL</th>
-                  <th style="color: var(--c-cecri);">CSIR-CECRI</th>
-                  <th>Total Inter-Lab Links</th>
-                </tr>
-              </thead>
-              <tbody id="tbody-net-auth-matrix">
-                <!-- Populated dynamically -->
-              </tbody>
+            <table class="net-matrix-table">
+              <thead><tr><th>Lab \ Partner lab</th><th style="color: var(--c-iict);">CSIR-IICT</th><th style="color: var(--c-ncl);">CSIR-NCL</th><th style="color: var(--c-cecri);">CSIR-CECRI</th><th>Cross-lab links</th></tr></thead>
+              <tbody id="tbody-net-auth-matrix"></tbody>
             </table>
           </div>
-          <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
-            <strong>Interpretation:</strong> Diagonal cells indicate intra-institute co-authorship pairs. Off-diagonal cells reveal cross-institutional co-authorship partnerships across the cluster (total cross-lab pairs: <strong>525</strong>).
+          <div class="net-note" id="net-auth-matrix-note"></div>
           </div>
         </div>
       </div>
@@ -876,7 +1011,8 @@
           </div>
         </div>
         <div style="font-size: 0.875rem; color: var(--text); line-height: 1.6;">
-          <p><strong>Zero Data Fabrication:</strong> All 14,352 publications and 42,393 authorship records correspond to indexed entities in the OpenAlex API (October 2026 snapshot). Citation counts reflect actual cited-by counts as of October 2026.</p>
+          <p><strong>No invented data:</strong> all <span id="docs-n-papers">–</span> papers and <span id="docs-n-rows">–</span> paper × lab-author rows are OpenAlex records (collected 13 Oct 2026). Citation counts are OpenAlex cited-by counts on that date. Duplicate records of the same paper (e.g. the German edition of Angewandte Chemie, repository copies, version DOIs) and non-research items (retraction notices, cover pictures, prefaces) were removed; the list is in <code>data/review/duplicate_papers_removed.csv</code>.</p>
+          <p style="margin-top: 0.5rem;"><strong>Networks:</strong> the faculty networks have one node per roster scientist (<span id="docs-n-fac">–</span> with ≥1 paper), keyed by an internal ID so that a person with several OpenAlex profiles or name spellings is one node, and two people with the same name stay two nodes. The paper citation network has one node per paper; the all-author co-authorship network includes PhD students, postdocs and project staff.</p>
           <p style="margin-top: 0.5rem;"><strong>SJR Historical Panel:</strong> Journal quartiles (Q1–Q4) are resolved from the official SCImago Journal Rank (SJR) database (1999–2025). 2026 publications use the latest available 2024/2025 SJR release as standard bibliometric practice.</p>
           <p style="margin-top: 0.5rem;"><strong>Row Granularity:</strong> The primary dataset is structured at the <em>paper × assigned-institute author</em> granularity. Summing citations directly across rows in the raw CSV will double-count collaborative papers; all dashboard metrics aggregate at the distinct work ID level.</p>
         </div>

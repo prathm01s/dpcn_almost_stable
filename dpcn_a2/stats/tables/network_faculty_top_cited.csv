@@ -1,0 +1,11 @@
+rank,faculty_id,name,institution,cited_by_faculty_links,citing_faculty,pagerank
+1,FAC_NCL_0069,Dr. Kumar Vanka,CSIR-NCL,560,37,0.03843
+2,FAC_NCL_0113,Dr. Rajesh G. Gonnade,CSIR-NCL,541,48,0.0417
+3,FAC_NCL_0125,Dr. Sakya S. Sen,CSIR-NCL,364,5,0.02285
+4,FAC_IICT_0174,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,363,30,0.03297
+5,FAC_NCL_0144,Dr. Sreekumar Kurungot,CSIR-NCL,316,37,0.03819
+6,FAC_NCL_0059,Dr. Jayaraj Nithyanandhan,CSIR-NCL,274,6,0.01617
+7,FAC_CECRI_0480,Dr Subrata Kundu,CSIR-CECRI,179,23,0.01564
+8,FAC_NCL_0165,Dr. Vinod C Prabhakaran,CSIR-NCL,165,30,0.01459
+9,FAC_NCL_0123,Dr. Sailaja Krishnamurty,CSIR-NCL,163,23,0.01504
+10,FAC_IICT_0336,Dr. Maddi Sridhar Reddy,CSIR-IICT,160,7,0.01522

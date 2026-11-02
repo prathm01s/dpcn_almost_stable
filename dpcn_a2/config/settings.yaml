@@ -32,5 +32,6 @@ stats:
 # all papers (75th -> top 25% of papers, the same share as a quartile). Fixed thresholds can be
 # added under `thresholds` (e.g. [5, 10]); they were dropped because they select < 1% of papers.
 impact_ratio:
-  thresholds: []
-  quartile_percentile: 75
+  thresholds: [5, 10]          # fixed thresholds asked for by the instructor (D-33)
+  quartile_percentile: 75     # data-driven threshold: top 25% of papers
+  reliable_min_references: 10 # papers with fewer OpenAlex references are flagged (reference list may be incomplete)

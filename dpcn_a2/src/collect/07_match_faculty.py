@@ -194,7 +194,8 @@ def run_step_07() -> None:
     for inst_k, cand_list in corpus_authors_by_inst.items():
         for cand in cand_list:
             aid = cand["author_id"]
-            if aid not in matched_aid_to_faculty:
+            # authors without an OpenAlex ID share the empty key; they are not one person (D-33)
+            if aid and aid not in matched_aid_to_faculty:
                 if cand["n_papers"] >= 10 and len(cand["years"]) >= 3:
                     ffid = f"FORMER_{inst_k.upper()}_{former_faculty_counter:04d}"
                     former_faculty_counter += 1

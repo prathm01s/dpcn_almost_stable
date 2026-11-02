@@ -21,16 +21,22 @@ def test_cadre_networks_summary_csv():
         "Cadre Faculty Citation"
     }
 
-    # Verify Cadre Co-Authorship has 235 connected nodes
+    # The cadre networks must equal the faculty networks in stats/tables/network_summary.csv (D-33):
+    # both are built by src/stats/networks.py with one node per roster scientist.
+    ns = pd.read_csv("stats/tables/network_summary.csv")
+    val = lambda net, metric: float(ns[(ns["network"] == net) & (ns["metric"] == metric)]["value"].iloc[0])
     row_cadre = df[df["network"] == "Cadre Co-Authorship"].iloc[0]
-    assert int(row_cadre["nodes"]) == 235
-    assert int(row_cadre["edges"]) == 579
-    assert float(row_cadre["beta_c"]) > 0.08
-
-    # Verify Faculty-to-Faculty citation has 245 nodes and 1,610 edges
+    assert int(row_cadre["nodes"]) == val("faculty_coauthorship", "scientists with >= 1 faculty co-author")
+    assert int(row_cadre["edges"]) == val("faculty_coauthorship", "co-author pairs (unique edges)")
     row_cite = df[df["network"] == "Cadre Faculty Citation"].iloc[0]
-    assert int(row_cite["nodes"]) == 245
-    assert int(row_cite["edges"]) == 1610
+    assert int(row_cite["nodes"]) == val("faculty_citation", "scientists citing or cited by another scientist")
+    assert int(row_cite["edges"]) == val("faculty_citation", "directed edges (scientist A cites scientist B)")
+    # the full networks are computed, not typed in
+    row_full = df[df["network"] == "Full Co-Authorship"].iloc[0]
+    assert int(row_full["nodes"]) == val("authorship", "largest connected component (authors)")
+    row_fc = df[df["network"] == "Full Citation"].iloc[0]
+    assert int(row_fc["nodes"]) == val("citation", "nodes (papers with >= 1 in-corpus link)")
+    assert int(row_fc["edges"]) == val("citation", "distinct citing-cited paper pairs")
 
 
 def test_cadre_graph_jsons():

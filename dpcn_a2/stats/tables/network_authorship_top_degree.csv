@@ -1,11 +1,11 @@
 rank,author,institution,degree,degree_centrality,joint_paper_links,betweenness,community
-1,Balasubramanian Sridhar,CSIR-IICT,380,0.04832,853,0.09753,3
-2,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,285,0.03624,572,0.09681,16
-3,Dr. Rajesh G. Gonnade,CSIR-NCL,280,0.03561,749,0.05877,5
-4,Dr. Sunil Misra,CSIR-IICT,198,0.02518,371,0.05557,9
-5,Dr. B.V. Subba Reddy,CSIR-IICT,196,0.02492,446,0.05704,3
-6,Dr. Kumar Vanka,CSIR-NCL,195,0.0248,663,0.04549,5
-7,Dr. Sreekumar Kurungot,CSIR-NCL,154,0.01958,548,0.02543,4
-8,Chityal Ganesh Kumar,CSIR-IICT,152,0.01933,352,0.01205,8
-9,Dr. Andugulapati Sai Balagi,CSIR-IICT,151,0.0192,320,0.01741,10
-10,Ramakrishna Sistla,CSIR-IICT,150,0.01907,367,0.06472,7
+1,Balasubramanian Sridhar,CSIR-IICT,380,0.0484,846,0.09929,3
+2,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,285,0.0363,565,0.09366,7
+3,Dr. Rajesh G. Gonnade,CSIR-NCL,280,0.03566,717,0.05697,4
+4,Dr. Sunil Misra,CSIR-IICT,198,0.02522,371,0.06117,9
+5,Dr. B.V. Subba Reddy,CSIR-IICT,196,0.02496,446,0.05743,3
+6,Dr. Kumar Vanka,CSIR-NCL,195,0.02483,628,0.04544,4
+7,Dr. Sreekumar Kurungot,CSIR-NCL,154,0.01961,540,0.02704,2
+8,Chityal Ganesh Kumar,CSIR-IICT,152,0.01936,352,0.01241,8
+9,Dr. Andugulapati Sai Balagi,CSIR-IICT,151,0.01923,320,0.01607,6
+10,Ramakrishna Sistla,CSIR-IICT,150,0.0191,364,0.06181,6

@@ -120,8 +120,12 @@ def test_network_payload_integrity():
     c_net = net["citation"]
     assert len(c_net["nodes"]) >= 100
     assert len(c_net["links"]) >= 100
-    assert c_net["stats"]["total_edges"] == 27754
-    assert c_net["stats"]["inter_lab_citations"] == 1653
+    # numbers must equal stats/tables/network_summary.csv (edges = distinct citing-cited pairs, D-33)
+    ns = pd.read_csv("stats/tables/network_summary.csv")
+    val = lambda net_, metric: int(float(ns[(ns["network"] == net_) & (ns["metric"].str.startswith(metric))]["value"].iloc[0]))
+    assert c_net["stats"]["total_edges"] == val("citation", "distinct citing-cited paper pairs")
+    assert c_net["stats"]["total_nodes"] == val("citation", "nodes (papers")
+    assert c_net["stats"]["inter_lab_citations"] == val("citation", "cross-lab citation links")
     assert len(c_net["top_pagerank"]) == 10
     assert len(c_net["flow_matrix"]) == 3
 
@@ -130,8 +134,26 @@ def test_network_payload_integrity():
     a_net = net["authorship"]
     assert len(a_net["nodes"]) >= 100
     assert len(a_net["links"]) >= 100
-    assert a_net["stats"]["total_edges"] == 65058
-    assert a_net["stats"]["inter_lab_pairs"] == 525
+    assert a_net["stats"]["total_edges"] == val("authorship", "co-author pairs (unique edges)")
+    assert a_net["stats"]["edge_rows"] == val("authorship", "co-authorship links (edge rows")
+    assert a_net["stats"]["inter_lab_pairs"] == val("authorship", "cross-lab co-author pairs")
+    assert a_net["stats"]["total_authors"] == val("authorship", "authors (nodes)")
+    assert a_net["stats"]["faculty_authors"] == val("authorship", "of which roster faculty")
+
+    # Faculty networks (D-33): one node per roster scientist, all scientists shipped
+    fn = data["network_faculty"]
+    assert fn["citation"]["stats"]["total_nodes"] == val("faculty_citation", "nodes (roster")
+    assert fn["citation"]["stats"]["total_edges"] == val("faculty_citation", "directed edges")
+    assert fn["citation"]["stats"]["citation_links"] == val("faculty_citation", "citation links summed")
+    assert fn["authorship"]["stats"]["total_nodes"] == val("faculty_coauthorship", "nodes (roster")
+    assert fn["authorship"]["stats"]["total_edges"] == val("faculty_coauthorship", "co-author pairs")
+    assert fn["authorship"]["stats"]["inter_lab_pairs"] == val("faculty_coauthorship", "cross-lab")
+    for kind in ("citation", "authorship"):
+        ids = [n["id"] for n in fn[kind]["nodes"]]
+        assert len(ids) == len(set(ids)) == fn[kind]["stats"]["total_nodes"], "one node per scientist, no duplicates"
+        assert all(i.startswith("FAC_") for i in ids)
+        assert len(fn[kind]["links"]) == fn[kind]["stats"]["total_edges"]
+        assert all(l["source"] != l["target"] for l in fn[kind]["links"]), "no self-loops"
     assert len(a_net["top_bridges"]) == 10
     assert len(a_net["collab_matrix"]) == 3
 

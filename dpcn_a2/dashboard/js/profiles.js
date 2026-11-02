@@ -225,7 +225,7 @@
             <div class="prof-section-sub">2016–2026 papers by OpenAlex citation count</div>
             ${(p.top_papers || []).map(t => `<div class="prof-pub">
               ${t.doi ? `<a href="${esc(t.doi)}" target="_blank" rel="noopener">${esc(t.title)}</a>` : `<span class="prof-pub-title">${esc(t.title)}</span>`}
-              <div class="meta">${esc(t.journal)} · ${t.year}${t.quartile ? ` · ${esc(t.quartile)}` : ""} · <b>${fmt(t.citations)}</b> citations</div>
+              <div class="meta">${esc(t.journal)} · ${t.year}${t.quartile ? ` · ${esc(t.quartile)}` : ""} · <b>${fmt(t.citations)}</b> citations${t.references ? ` · ${fmt(t.references)} refs · IR <b>${t.ir.toFixed(2)}</b>` : ""}</div>
             </div>`).join("")}
           </div>
           <div style="display:flex; flex-direction:column; gap:1.25rem;">

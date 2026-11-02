@@ -443,7 +443,9 @@ def run_metrics_computation() -> None:
         dept = fac["department"]
         desig = fac["designation"]
 
-        sub = fac_paper_authors[fac_paper_authors["faculty_id"] == fid]
+        # papers at the scientist's roster lab, the faculty_master.csv rule (D-33); rows credited to
+        # another lab under the same OpenAlex profile are usually a different person merged into it
+        sub = fac_paper_authors[(fac_paper_authors["faculty_id"] == fid) & (fac_paper_authors["institution"] == inst_name)]
         distinct_p = sub.drop_duplicates(subset=["work_id"])
         n_papers = len(distinct_p)
 

@@ -91,6 +91,115 @@ def authorship_graph(edges: pd.DataFrame):
     }
 
 
+# ---------------------------------------------------------------------------
+# Faculty networks (D-33): one node per roster scientist (faculty_master.csv, faculty_id),
+# not per paper or per author name. A scientist's papers are those credited to their
+# roster lab, the same rule as faculty_master.csv's paper counts.
+# ---------------------------------------------------------------------------
+LAB_OF_KEY = {"ncl": "CSIR-NCL", "iict": "CSIR-IICT", "cecri": "CSIR-CECRI"}
+
+
+def active_faculty(fm: pd.DataFrame) -> pd.DataFrame:
+    """Roster scientists with >= 1 paper in 2016-2026, in faculty_id order."""
+    f = fm[fm["n_papers_corpus"].astype(int) > 0].copy()
+    f["lab"] = f["inst_key"].map(LAB_OF_KEY)
+    return f.sort_values("faculty_id").reset_index(drop=True)
+
+
+def faculty_papers(df_ext: pd.DataFrame, fm: pd.DataFrame) -> pd.DataFrame:
+    """(faculty_id, work_id, doi) pairs: papers of each active scientist at their roster lab."""
+    af = active_faculty(fm)
+    f = df_ext[df_ext["faculty_id"].isin(set(af["faculty_id"]))][["faculty_id", "institution", "work_id", "doi"]]
+    f = f.merge(af[["faculty_id", "lab"]], on="faculty_id")
+    f = f[f["institution"] == f["lab"]]
+    return f[["faculty_id", "work_id", "doi"]].drop_duplicates(["faculty_id", "work_id"]).reset_index(drop=True)
+
+
+def _add_faculty_nodes(G: nx.Graph, af: pd.DataFrame) -> None:
+    for r in af.itertuples():
+        G.add_node(r.faculty_id, name=r.full_name, lab=r.lab, department=r.department, designation=r.designation,
+                   papers=int(r.n_papers_corpus), citations=int(r.n_citations_corpus), h_index=int(r.h_index_corpus))
+
+
+def faculty_coauthor_graph(fp: pd.DataFrame, fm: pd.DataFrame) -> nx.Graph:
+    """Undirected; edge = the two scientists share >= 1 paper, weight = number of shared papers."""
+    G = nx.Graph()
+    _add_faculty_nodes(G, active_faculty(fm))
+    for _, g in fp.groupby("work_id", sort=True):
+        ids = sorted(set(g["faculty_id"]))
+        for i, a in enumerate(ids):
+            for b in ids[i + 1:]:
+                if G.has_edge(a, b):
+                    G[a][b]["weight"] += 1
+                else:
+                    G.add_edge(a, b, weight=1)
+    return G
+
+
+def faculty_citation_graph(fp: pd.DataFrame, cite_edges: pd.DataFrame, fm: pd.DataFrame) -> Tuple[nx.DiGraph, int]:
+    """Directed; edge A -> B = a paper of A cites a paper of B (A != B), weight = number of distinct
+    citing-cited paper pairs. Returns the graph and the number of self-citation pairs left out."""
+    G = nx.DiGraph()
+    _add_faculty_nodes(G, active_faculty(fm))
+    fac_of = fp[fp["doi"] != ""].groupby("doi")["faculty_id"].agg(lambda s: sorted(set(s))).to_dict()
+    pairs = cite_edges.drop_duplicates(["source_doi", "target_doi"])
+    pairs = pairs[pairs["source_doi"].isin(fac_of) & pairs["target_doi"].isin(fac_of)]
+    self_pairs = 0
+    for s_doi, t_doi in pairs[["source_doi", "target_doi"]].itertuples(index=False):
+        for a in fac_of[s_doi]:
+            for b in fac_of[t_doi]:
+                if a == b:
+                    self_pairs += 1
+                elif G.has_edge(a, b):
+                    G[a][b]["weight"] += 1
+                else:
+                    G.add_edge(a, b, weight=1)
+    return G, self_pairs
+
+
+def faculty_labels(fm: pd.DataFrame) -> Dict[str, str]:
+    """faculty_id -> display label: the scientist's name, with the lab added when two active
+    scientists share a name (e.g. two different 'Dr. Amitava Das', at IICT and NCL)."""
+    af = active_faculty(fm)
+    dup = set(af["full_name"][af["full_name"].duplicated(keep=False)])
+    return {r.faculty_id: (f"{r.full_name} ({r.lab.replace('CSIR-', '')})" if r.full_name in dup else r.full_name)
+            for r in af.itertuples()}
+
+
+def labelled_faculty_graphs(df_ext: pd.DataFrame, fm: pd.DataFrame, cite_edges: pd.DataFrame):
+    """Faculty co-authorship and citation graphs with nodes relabelled from faculty_id to unique
+    display labels (for modules keyed by name). Returns (FA, FC, self_citation_pairs, labels)."""
+    fp = faculty_papers(df_ext, fm)
+    labels = faculty_labels(fm)
+    FA = nx.relabel_nodes(faculty_coauthor_graph(fp, fm), labels, copy=True)
+    FC, self_pairs = faculty_citation_graph(fp, cite_edges, fm)
+    FC = nx.relabel_nodes(FC, labels, copy=True)
+    for G in (FA, FC):
+        for fid, lab_name in labels.items():
+            G.nodes[lab_name]["faculty_id"] = fid
+    return FA, FC, self_pairs, labels
+
+
+def network_metrics(G: nx.Graph) -> Dict[str, float]:
+    """Size and structure metrics used in the summary tables and the Cadre suite (undirected view)."""
+    U = G.to_undirected() if G.is_directed() else G
+    connected = [n for n, d in U.degree() if d > 0]
+    Uc = U.subgraph(connected)
+    degs = [d for _, d in U.degree()]
+    k_mean = sum(degs) / len(degs) if degs else 0.0
+    k2_mean = sum(d * d for d in degs) / len(degs) if degs else 0.0
+    comms = nx.community.louvain_communities(Uc, weight="weight", seed=SEED) if len(Uc) else []
+    lcc = max(nx.connected_components(U), key=len) if len(U) else set()
+    return {
+        "nodes": U.number_of_nodes(), "connected_nodes": len(connected), "edges": G.number_of_edges(),
+        "mean_degree": round(k_mean, 2), "density": round(nx.density(G), 6),
+        "clustering": round(nx.average_clustering(Uc), 3) if len(Uc) else 0.0,
+        "communities": len(comms),
+        "modularity": round(nx.community.modularity(Uc, comms, weight="weight"), 3) if comms else 0.0,
+        "lcc_nodes": len(lcc), "beta_c": round(k_mean / k2_mean, 4) if k2_mean else 0.0,
+    }
+
+
 def _paper_lookup(df_ext: pd.DataFrame) -> pd.DataFrame:
     p = df_ext[df_ext["doi"] != ""].copy()
     labs = p.groupby("doi")["institution"].agg(lambda s: "; ".join(sorted(set(s))))
@@ -172,6 +281,45 @@ def run_network_metrics() -> None:
 
     comp = max(nx.connected_components(G), key=len)
     wcc = max(nx.weakly_connected_components(Gc), key=len)
+
+    # who the all-author nodes are: roster faculty vs other lab authors (students, project staff, ...)
+    roles = df_ext.groupby("author")["author_role"].agg(set)
+    n_fac_nodes = sum(1 for a in G.nodes if "faculty" in roles.get(a, set()))
+
+    # ---- Faculty networks (one node per roster scientist)
+    fm = pd.read_csv("data/final/faculty_master.csv", dtype=str, keep_default_na=False)
+    fp = faculty_papers(df_ext, fm)
+    FA = faculty_coauthor_graph(fp, fm)
+    FC, self_pairs = faculty_citation_graph(fp, ce, fm)
+    ma, mc = network_metrics(FA), network_metrics(FC)
+    names = {n: d["name"] for n, d in FA.nodes(data=True)}
+    lab = {n: d["lab"] for n, d in FA.nodes(data=True)}
+    btw_fa = nx.betweenness_centrality(FA)  # exact: ~300 nodes
+    pr_fc = nx.pagerank(FC, weight="weight") if FC.number_of_edges() else {}
+    in_w, out_w = dict(FC.in_degree(weight="weight")), dict(FC.out_degree(weight="weight"))
+
+    pd.DataFrame([{
+        "rank": r, "faculty_id": n, "name": names[n], "institution": lab[n],
+        "faculty_coauthors": FA.degree(n), "shared_papers": FA.degree(n, weight="weight"),
+        "betweenness": round(btw_fa[n], 5),
+    } for r, n in enumerate(sorted(FA.nodes, key=lambda n: (-FA.degree(n), -FA.degree(n, weight="weight"), n))[:10], 1)]
+    ).to_csv(TABLES_DIR / "network_faculty_top_collaborators.csv", index=False)
+    pd.DataFrame([{
+        "rank": r, "faculty_id": n, "name": names[n], "institution": lab[n], "betweenness": round(btw_fa[n], 5),
+        "faculty_coauthors": FA.degree(n),
+    } for r, n in enumerate(sorted(FA.nodes, key=lambda n: (-btw_fa[n], n))[:10], 1)]
+    ).to_csv(TABLES_DIR / "network_faculty_top_betweenness.csv", index=False)
+    pd.DataFrame([{
+        "rank": r, "faculty_id": n, "name": names[n], "institution": lab[n],
+        "cited_by_faculty_links": in_w.get(n, 0), "citing_faculty": FC.in_degree(n), "pagerank": round(pr_fc.get(n, 0), 5),
+    } for r, n in enumerate(sorted(FC.nodes, key=lambda n: (-in_w.get(n, 0), n))[:10], 1)]
+    ).to_csv(TABLES_DIR / "network_faculty_top_cited.csv", index=False)
+    pd.DataFrame([{"source_inst": s, **{t: sum(d["weight"] for u, v, d in FC.edges(data=True) if lab[u] == s and lab[v] == t)
+                                       for t in LABS}} for s in LABS]
+                 ).to_csv(TABLES_DIR / "network_faculty_citation_flow_matrix.csv", index=False)
+    pd.DataFrame([{"institution": s, **{t: sum(1 for u, v in FA.edges if {lab[u], lab[v]} == {s, t}) for t in LABS}}
+                  for s in LABS]).to_csv(TABLES_DIR / "network_faculty_collab_matrix.csv", index=False)
+
     summary = [
         ("citation", "edges (citation links, per lab attribution)", len(ce)),
         ("citation", "distinct citing-cited paper pairs", len(pairs)),
@@ -196,6 +344,27 @@ def run_network_metrics() -> None:
         ("authorship", "cross-lab co-author pairs (edge rows)", int((ae["inst_a"] != ae["inst_b"]).sum())),
         ("authorship", "edges to Indian partner co-authors (raw data only)", len(df_auth) - len(ae)),
         ("authorship", "betweenness sample size (source nodes)", min(BETWEENNESS_SAMPLE, G.number_of_nodes())),
+        ("authorship", "of which roster faculty (nodes)", n_fac_nodes),
+        ("authorship", "of which other lab authors: students, project staff, former staff (nodes)", G.number_of_nodes() - n_fac_nodes),
+        ("faculty_coauthorship", "nodes (roster scientists with >= 1 paper)", ma["nodes"]),
+        ("faculty_coauthorship", "scientists with >= 1 faculty co-author", ma["connected_nodes"]),
+        ("faculty_coauthorship", "co-author pairs (unique edges)", ma["edges"]),
+        ("faculty_coauthorship", "shared papers summed over pairs", int(FA.size(weight="weight"))),
+        ("faculty_coauthorship", "mean degree (distinct faculty co-authors)", ma["mean_degree"]),
+        ("faculty_coauthorship", "density", ma["density"]),
+        ("faculty_coauthorship", "average clustering (connected scientists)", ma["clustering"]),
+        ("faculty_coauthorship", "Louvain communities (connected scientists)", ma["communities"]),
+        ("faculty_coauthorship", "modularity", ma["modularity"]),
+        ("faculty_coauthorship", "largest connected component (scientists)", ma["lcc_nodes"]),
+        ("faculty_coauthorship", "cross-lab co-author pairs", sum(1 for u, v in FA.edges if lab[u] != lab[v])),
+        ("faculty_citation", "nodes (roster scientists with >= 1 paper)", mc["nodes"]),
+        ("faculty_citation", "scientists citing or cited by another scientist", mc["connected_nodes"]),
+        ("faculty_citation", "directed edges (scientist A cites scientist B)", mc["edges"]),
+        ("faculty_citation", "citation links summed over edges (paper pairs)", int(FC.size(weight="weight"))),
+        ("faculty_citation", "self-citations left out (paper pairs)", self_pairs),
+        ("faculty_citation", "reciprocity", round(nx.reciprocity(FC), 3) if FC.number_of_edges() else 0.0),
+        ("faculty_citation", "density", mc["density"]),
+        ("faculty_citation", "cross-lab citation edges", sum(1 for u, v in FC.edges if lab[u] != lab[v])),
     ]
     df_sum = pd.DataFrame({
         "network": [r[0] for r in summary],

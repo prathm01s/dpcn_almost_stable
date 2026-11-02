@@ -1,4 +1,7 @@
 # DPCN 2026 Research Mapping Project · Group 24
+
+> **Update (D-33, 2 Nov 2026):** Step 20 removed 144 duplicate or non-research records (64 Angewandte Chemie German-edition copies, 48 retraction notices / cover pictures / prefaces, 15 repository copies, 11 same-journal duplicates, 6 version DOIs; list in `data/review/duplicate_papers_removed.csv`). The corpus is now **14,208 papers** and **41,989 author rows**; `citation_network.csv` has 192,426 rows (27,582 in-corpus). Counts below describe the collection run before this step.
+
 # Comprehensive Data Collection Methodology & Audit Report
 
 **Assigned Cluster:** CSIR Chemistry ("Synthetic & Organic Chemistry")  

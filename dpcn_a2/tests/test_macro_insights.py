@@ -8,6 +8,7 @@ DATA_DIR = Path("stats/tables/macro_insights")
 JS_DIR = Path("dashboard/data")
 
 
+@pytest.mark.skip(reason="Study withdrawn from the dashboard (D-33): its inputs are hand-entered values without a source file")
 def test_smart_specialization_data():
     json_path = DATA_DIR / "21_smart_specialization.json"
     assert json_path.exists(), f"Missing {json_path}"
@@ -54,6 +55,7 @@ def test_academic_bridge_data():
     assert by_name["Alagappa University"]["ker"] > 1.2, "Alagappa Univ should be net exporter from CSIR"
 
 
+@pytest.mark.skip(reason="Study withdrawn from the dashboard (D-33): its inputs are hand-entered values without a source file")
 def test_frugal_innovation_data():
     json_path = DATA_DIR / "51_frugal_innovation.json"
     assert json_path.exists(), f"Missing {json_path}"
@@ -73,6 +75,7 @@ def test_frugal_innovation_data():
     assert csir["cost_per_citation_usd"] < 25.0
 
 
+@pytest.mark.skip(reason="Study withdrawn from the dashboard (D-33): its inputs are hand-entered values without a source file")
 def test_patents_vs_papers_data():
     json_path = DATA_DIR / "52_patents_vs_papers.json"
     assert json_path.exists(), f"Missing {json_path}"
@@ -93,6 +96,7 @@ def test_patents_vs_papers_data():
         assert f["patents_total"] == f["patents_domestic"] + f["patents_foreign"]
 
 
+@pytest.mark.skip(reason="Study withdrawn from the dashboard (D-33): its inputs are hand-entered values without a source file")
 def test_leiden_benchmarks_data():
     json_path = DATA_DIR / "31_leiden_benchmarks.json"
     assert json_path.exists(), f"Missing {json_path}"

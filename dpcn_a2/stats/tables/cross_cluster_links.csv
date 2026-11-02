@@ -1,18 +1,18 @@
 your_inst,partner_inst,shared_papers,total_citations,partner_sector,link_type,is_cross_cluster
-CSIR-CECRI,Alagappa University,168,5309,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-CECRI,Academy of Scientific and Innovative Research,111,2692,CSIR,CSIR <-> CSIR,FALSE
-CSIR-CECRI,SRM Institute of Science and Technology,67,1753,Private,CSIR <-> Private,TRUE
-CSIR-CECRI,Council of Scientific and Industrial Research,66,2152,CSIR,CSIR <-> CSIR,FALSE
+CSIR-CECRI,Alagappa University,167,5309,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-CECRI,Academy of Scientific and Innovative Research,108,2677,CSIR,CSIR <-> CSIR,FALSE
+CSIR-CECRI,SRM Institute of Science and Technology,66,1753,Private,CSIR <-> Private,TRUE
+CSIR-CECRI,Council of Scientific and Industrial Research,65,2152,CSIR,CSIR <-> CSIR,FALSE
 CSIR-CECRI,Indian Institute of Technology Madras,61,1334,IIT,CSIR <-> IIT,TRUE
 CSIR-CECRI,National Institute of Technology Tiruchirappalli,51,1405,NIT,CSIR <-> NIT,TRUE
 CSIR-CECRI,"Anna University, Chennai",50,1944,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-CECRI,Central Salt and Marine Chemicals Research Institute,47,1268,CSIR,CSIR <-> CSIR,FALSE
+CSIR-CECRI,Central Salt and Marine Chemicals Research Institute,46,1268,CSIR,CSIR <-> CSIR,FALSE
 CSIR-CECRI,Bharathidasan University,40,774,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-CECRI,Bharathiar University,37,1797,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-CECRI,Vellore Institute of Technology University,36,1344,Private,CSIR <-> Private,TRUE
 CSIR-CECRI,Mahatma Gandhi University,34,1091,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-CECRI,CSIR-NCL,31,727,CSIR,CSIR <-> CSIR,FALSE
 CSIR-CECRI,University of Madras,31,1142,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-CECRI,CSIR-NCL,30,727,CSIR,CSIR <-> CSIR,FALSE
 CSIR-CECRI,CSIR National Physical Laboratory of India,28,1140,CSIR,CSIR <-> CSIR,FALSE
 CSIR-CECRI,Jain University,28,867,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-CECRI,SASTRA University,28,1176,Private,CSIR <-> Private,TRUE
@@ -36,12 +36,12 @@ CSIR-CECRI,CSIR-IICT,16,444,CSIR,CSIR <-> CSIR,FALSE
 CSIR-CECRI,Indian Institute of Science Bangalore,16,376,IISc,CSIR <-> IISc,TRUE
 CSIR-CECRI,Homi Bhabha National Institute,15,412,DAE,CSIR <-> DAE,TRUE
 CSIR-CECRI,Pondicherry University,15,506,CentralUniv,CSIR <-> CentralUniv,TRUE
-CSIR-CECRI,Bishop Heber College,14,231,Other,CSIR <-> Other,TRUE
-CSIR-CECRI,Indian Institute of Science Education and Research Kolkata,14,265,IISER,CSIR <-> IISER,TRUE
 CSIR-CECRI,Indian Institute of Technology Delhi,14,271,IIT,CSIR <-> IIT,TRUE
-CSIR-CECRI,Indian Institute of Technology Indore,14,335,IIT,CSIR <-> IIT,TRUE
 CSIR-CECRI,Sri Sivasubramaniya Nadar College of Engineering,14,247,Other,CSIR <-> Other,TRUE
 CSIR-CECRI,Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology,14,251,Other,CSIR <-> Other,TRUE
+CSIR-CECRI,Bishop Heber College,13,231,Other,CSIR <-> Other,TRUE
+CSIR-CECRI,Indian Institute of Science Education and Research Kolkata,13,263,IISER,CSIR <-> IISER,TRUE
+CSIR-CECRI,Indian Institute of Technology Indore,13,333,IIT,CSIR <-> IIT,TRUE
 CSIR-CECRI,Periyar University,13,455,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-CECRI,Sathyabama Institute of Science and Technology,13,192,Private,CSIR <-> Private,TRUE
 CSIR-CECRI,Saveetha University,13,193,Private,CSIR <-> Private,TRUE
@@ -362,52 +362,52 @@ CSIR-CECRI,West Bengal State University,1,1,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-CECRI,Women's Christian College,1,12,Other,CSIR <-> Other,TRUE
 CSIR-CECRI,Yenepoya Research Centre,1,18,Other,CSIR <-> Other,TRUE
 CSIR-CECRI,Yenepoya University,1,18,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-IICT,Academy of Scientific and Innovative Research,321,4834,CSIR,CSIR <-> CSIR,FALSE
-CSIR-IICT,Osmania University,262,4281,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-IICT,Academy of Scientific and Innovative Research,319,4825,CSIR,CSIR <-> CSIR,FALSE
+CSIR-IICT,Osmania University,258,4280,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,National Institute of Pharmaceutical Education and Research,184,4599,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Centre for Cellular and Molecular Biology,183,4675,CSIR,CSIR <-> CSIR,FALSE
-CSIR-IICT,Council of Scientific and Industrial Research,159,2947,CSIR,CSIR <-> CSIR,FALSE
-CSIR-IICT,University of Hyderabad,111,2077,CentralUniv,CSIR <-> CentralUniv,TRUE
+CSIR-IICT,Council of Scientific and Industrial Research,158,2938,CSIR,CSIR <-> CSIR,FALSE
+CSIR-IICT,University of Hyderabad,109,2071,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-IICT,Birla Institute of Technology and Science - Hyderabad Campus,99,2579,Private,CSIR <-> Private,TRUE
 CSIR-IICT,"Birla Institute of Technology and Science, Pilani",94,1895,Private,CSIR <-> Private,TRUE
 CSIR-IICT,GITAM University,83,815,Private,CSIR <-> Private,TRUE
-CSIR-IICT,"Jawaharlal Nehru Technological University, Hyderabad",76,1071,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-IICT,"Jawaharlal Nehru Technological University, Hyderabad",75,1070,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Bhabha Atomic Research Centre,59,1677,DAE,CSIR <-> DAE,TRUE
-CSIR-IICT,Indian Institute of Technology Hyderabad,59,1022,IIT,CSIR <-> IIT,TRUE
-CSIR-IICT,CSIR-NCL,58,969,CSIR,CSIR <-> CSIR,FALSE
+CSIR-IICT,Indian Institute of Technology Hyderabad,58,1022,IIT,CSIR <-> IIT,TRUE
 CSIR-IICT,National Institute of Technology Warangal,57,3052,NIT,CSIR <-> NIT,TRUE
+CSIR-IICT,CSIR-NCL,56,969,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Central Drug Research Institute,49,1091,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Andhra University,47,1030,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-IICT,Indian Institute of Technology Kanpur,47,1595,IIT,CSIR <-> IIT,TRUE
-CSIR-IICT,CSIR National Physical Laboratory of India,43,882,CSIR,CSIR <-> CSIR,FALSE
+CSIR-IICT,Indian Institute of Technology Kanpur,45,1594,IIT,CSIR <-> IIT,TRUE
+CSIR-IICT,CSIR National Physical Laboratory of India,42,873,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Yogi Vemana University,42,1186,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Goa University,39,582,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Sri Venkateswara University,39,964,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-IICT,National Institute for Interdisciplinary Science and Technology,38,446,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,North East Institute of Science and Technology,38,721,CSIR,CSIR <-> CSIR,FALSE
-CSIR-IICT,Kakatiya University,37,819,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-IICT,Swami Ramanand Teerth Marathwada University,35,387,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-IICT,National Institute for Interdisciplinary Science and Technology,37,446,CSIR,CSIR <-> CSIR,FALSE
+CSIR-IICT,Kakatiya University,36,812,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-IICT,Swami Ramanand Teerth Marathwada University,34,387,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Jadavpur University,33,2856,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-IICT,Indian Institute of Technology BHU,30,388,IIT,CSIR <-> IIT,TRUE
 CSIR-IICT,Acharya Nagarjuna University,29,569,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Banaras Hindu University,29,404,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-IICT,Homi Bhabha National Institute,29,487,DAE,CSIR <-> DAE,TRUE
+CSIR-IICT,Indian Institute of Technology BHU,28,388,IIT,CSIR <-> IIT,TRUE
 CSIR-IICT,Koneru Lakshmaiah Education Foundation,28,660,Private,CSIR <-> Private,TRUE
 CSIR-IICT,Central University of Gujarat,27,1126,CentralUniv,CSIR <-> CentralUniv,TRUE
-CSIR-IICT,Indian Institute of Technology Kharagpur,27,541,IIT,CSIR <-> IIT,TRUE
+CSIR-IICT,Indian Institute of Technology Kharagpur,26,541,IIT,CSIR <-> IIT,TRUE
 CSIR-IICT,Central University of Rajasthan,25,2169,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-IICT,National Institute of Nutrition,25,552,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Indian Institute of Integrative Medicine,24,243,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Manipal Academy of Higher Education,24,339,Private,CSIR <-> Private,TRUE
 CSIR-IICT,Sambalpur University,24,187,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-IICT,Indian Institute of Petroleum,22,605,CSIR,CSIR <-> CSIR,FALSE
+CSIR-IICT,Indian Institute of Petroleum,21,605,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Indian Institute of Technology Bombay,21,388,IIT,CSIR <-> IIT,TRUE
 CSIR-IICT,Jamia Hamdard,21,388,Other,CSIR <-> Other,TRUE
 CSIR-IICT,LNM Institute of Information Technology,21,292,Other,CSIR <-> Other,TRUE
 CSIR-IICT,"SRM University, Andhra Pradesh",21,350,Private,CSIR <-> Private,TRUE
 CSIR-IICT,Central Salt and Marine Chemicals Research Institute,20,426,CSIR,CSIR <-> CSIR,FALSE
-CSIR-IICT,Indian Institute of Science Bangalore,20,445,IISc,CSIR <-> IISc,TRUE
 CSIR-IICT,Tezpur University,20,347,CentralUniv,CSIR <-> CentralUniv,TRUE
+CSIR-IICT,Indian Institute of Science Bangalore,19,445,IISc,CSIR <-> IISc,TRUE
 CSIR-IICT,Indian Institute of Toxicology Research,19,465,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Telangana University,19,200,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Indian Association for the Cultivation of Science,18,825,Other,CSIR <-> Other,TRUE
@@ -419,7 +419,6 @@ CSIR-IICT,CSIR-CECRI,16,444,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Chaitanya Bharathi Institute of Technology,16,157,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Indian Institute of Science Education and Research Kolkata,16,342,IISER,CSIR <-> IISER,TRUE
 CSIR-IICT,Indrashil University,16,137,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-IICT,Institute of Chemical Technology,16,200,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Jain University,16,381,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Pondicherry University,16,299,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-IICT,Savitribai Phule Pune University,16,439,StateUniv,CSIR <-> StateUniv,TRUE
@@ -428,6 +427,7 @@ CSIR-IICT,Vellore Institute of Technology University,16,320,Private,CSIR <-> Pri
 CSIR-IICT,Amrita Vishwa Vidyapeetham,15,399,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Central Institute of Medicinal and Aromatic Plants,15,141,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Indian Institute of Chemical Biology,15,144,CSIR,CSIR <-> CSIR,FALSE
+CSIR-IICT,Institute of Chemical Technology,15,200,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Institute of Minerals and Materials Technology,15,271,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Pandit Deendayal Energy University,15,196,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Central University of Karnataka,14,78,CentralUniv,CSIR <-> CentralUniv,TRUE
@@ -438,19 +438,19 @@ CSIR-IICT,Indian Institute of Technology Roorkee,13,487,IIT,CSIR <-> IIT,TRUE
 CSIR-IICT,Indian Statistical Institute,13,742,Other,CSIR <-> Other,TRUE
 CSIR-IICT,SASTRA University,13,525,Private,CSIR <-> Private,TRUE
 CSIR-IICT,University of Delhi,13,356,CentralUniv,CSIR <-> CentralUniv,TRUE
-CSIR-IICT,Annamalai University,12,375,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Central Leather Research Institute,12,243,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Government of Andhra Pradesh,12,92,Government,CSIR <-> Government,TRUE
-CSIR-IICT,Jawaharlal Nehru Centre for Advanced Scientific Research,12,429,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Patna University,12,561,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,University of Mumbai,12,131,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-IICT,All India Institute of Medical Sciences,11,129,Other,CSIR <-> Other,TRUE
 CSIR-IICT,"Anna University, Chennai",11,327,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-IICT,Annamalai University,11,375,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,GVK (India),11,196,Industry,CSIR <-> Industry,TRUE
 CSIR-IICT,Indian Institute of Technology Delhi,11,328,IIT,CSIR <-> IIT,TRUE
 CSIR-IICT,Institute for Stem Cell Biology and Regenerative Medicine,11,269,Other,CSIR <-> Other,TRUE
+CSIR-IICT,Jawaharlal Nehru Centre for Advanced Scientific Research,11,428,Other,CSIR <-> Other,TRUE
 CSIR-IICT,National Environmental Engineering Research Institute,11,351,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Adikavi Nannaya University,10,52,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-IICT,All India Institute of Medical Sciences,10,129,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Amity University,10,1977,Private,CSIR <-> Private,TRUE
 CSIR-IICT,Banasthali University,10,136,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Dr. Babasaheb Ambedkar Marathwada University,10,370,StateUniv,CSIR <-> StateUniv,TRUE
@@ -462,7 +462,6 @@ CSIR-IICT,Bharathidasan University,9,118,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,"Birla Institute of Technology, Mesra",9,320,Private,CSIR <-> Private,TRUE
 CSIR-IICT,Center for Excellence in Basic Sciences,9,119,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Centre of Biomedical Research,9,156,Other,CSIR <-> Other,TRUE
-CSIR-IICT,Defence Metallurgical Research Laboratory,9,270,Other,CSIR <-> Other,TRUE
 CSIR-IICT,"Indian Institute of Science Education and Research, Bhopal",9,156,IISER,CSIR <-> IISER,TRUE
 CSIR-IICT,National Aerospace Laboratories,9,193,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,National Geophysical Research Institute,9,111,CSIR,CSIR <-> CSIR,FALSE
@@ -476,6 +475,7 @@ CSIR-IICT,Bose Institute,8,92,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Central Agricultural University,8,65,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,"Christian Medical College, Vellore",8,102,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Cipla (India),8,28,Industry,CSIR <-> Industry,TRUE
+CSIR-IICT,Defence Metallurgical Research Laboratory,8,270,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Fourth Paradigm Institute,8,205,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Guru Ghasidas Vishwavidyalaya,8,259,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,ICMR-National Institute of Virology,8,202,ICMR,CSIR <-> ICMR,TRUE
@@ -512,7 +512,6 @@ CSIR-IICT,Kalasalingam Academy of Research and Education,6,122,Private,CSIR <-> 
 CSIR-IICT,National Institute of Technology Karnataka,6,146,NIT,CSIR <-> NIT,TRUE
 CSIR-IICT,National Institute of Technology Kurukshetra,6,118,NIT,CSIR <-> NIT,TRUE
 CSIR-IICT,National Institute of Technology Rourkela,6,98,NIT,CSIR <-> NIT,TRUE
-CSIR-IICT,Periyar University,6,182,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,SRM University,6,39,Private,CSIR <-> Private,TRUE
 CSIR-IICT,Sanjay Gandhi Post Graduate Institute of Medical Sciences,6,102,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Sri Balaji Vidyapeeth University,6,38,StateUniv,CSIR <-> StateUniv,TRUE
@@ -522,7 +521,6 @@ CSIR-IICT,Visvesvaraya National Institute of Technology,6,80,NIT,CSIR <-> NIT,TR
 CSIR-IICT,Aligarh Muslim University,5,74,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-IICT,"All India Institute of Ayurveda, New Delhi",5,46,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Amrita Institute of Medical Sciences and Research Centre,5,193,Healthcare,CSIR <-> Healthcare,TRUE
-CSIR-IICT,Assam University,5,29,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-IICT,Babu Banarasi Das University,5,95,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Central Food Technological Research Institute,5,134,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Chaitanya,5,102,Other,CSIR <-> Other,TRUE
@@ -540,12 +538,14 @@ CSIR-IICT,National Institute of Research in Tuberculosis,5,124,Other,CSIR <-> Ot
 CSIR-IICT,National Institute of Technology Calicut,5,274,NIT,CSIR <-> NIT,TRUE
 CSIR-IICT,National Metallurgical Laboratory,5,55,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Palamuru University,5,83,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-IICT,Periyar University,5,175,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,REVA University,5,203,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Siksha O Anusandhan University,5,64,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Tata Institute of Fundamental Research,5,28,DAE,CSIR <-> DAE,TRUE
 CSIR-IICT,University of Kalyani,5,373,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,All India Institute of Medical Sciences Bibinagar,4,32,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Assam Agricultural University,4,21,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-IICT,Assam University,4,29,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-IICT,Bharathiar University,4,116,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Bidhannagar College,4,56,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Central Scientific Instruments Organisation,4,54,CSIR,CSIR <-> CSIR,FALSE
@@ -580,7 +580,6 @@ CSIR-IICT,Central Electronics Engineering Research Institute,3,41,CSIR,CSIR <-> 
 CSIR-IICT,Central Institute of Mining and Fuel Research,3,41,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Central Mechanical Engineering Research Institute,3,68,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Centre for Nano and Soft Matter Sciences,3,12,Other,CSIR <-> Other,TRUE
-CSIR-IICT,Centurion University of Technology and Management,3,5,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Dayananda Sagar College of Engineering,3,3,Other,CSIR <-> Other,TRUE
 CSIR-IICT,Dhirubhai Ambani University,3,47,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Dibrugarh University,3,172,StateUniv,CSIR <-> StateUniv,TRUE
@@ -647,6 +646,7 @@ CSIR-IICT,Central Building Research Institute,2,41,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Central Glass and Ceramic Research Institute,2,23,CSIR,CSIR <-> CSIR,FALSE
 CSIR-IICT,Central University of Kerala,2,89,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-IICT,Central University of South Bihar,2,14,CentralUniv,CSIR <-> CentralUniv,TRUE
+CSIR-IICT,Centurion University of Technology and Management,2,5,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Chhatrapati Shahu Ji Maharaj University,2,47,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Cochin University of Science and Technology,2,26,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,D.Y. Patil University,2,14,StateUniv,CSIR <-> StateUniv,TRUE
@@ -788,7 +788,6 @@ CSIR-IICT,Harish-Chandra Research Institute,1,18,DAE,CSIR <-> DAE,TRUE
 CSIR-IICT,Hemwati Nandan Bahuguna Garhwal University,1,14,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Hindustan Petroleum Corporation Limited (India),1,50,Industry,CSIR <-> Industry,TRUE
 CSIR-IICT,Hislop College,1,15,Other,CSIR <-> Other,TRUE
-CSIR-IICT,Honeywell (India),1,0,Industry,CSIR <-> Industry,TRUE
 CSIR-IICT,ICAR Research Complex for NEH Region,1,3,ICAR,CSIR <-> ICAR,TRUE
 CSIR-IICT,ICAR-Indian Institute of Maize Research,1,43,ICAR,CSIR <-> ICAR,TRUE
 CSIR-IICT,India Meteorological Department,1,18,Government,CSIR <-> Government,TRUE
@@ -931,78 +930,77 @@ CSIR-IICT,Wadia Institute of Himalayan Geology,1,10,Other,CSIR <-> Other,TRUE
 CSIR-IICT,West Bengal University of Health Sciences,1,22,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-IICT,Wipro (India),1,0,Industry,CSIR <-> Industry,TRUE
 CSIR-IICT,Woxsen School of Business,1,0,Other,CSIR <-> Other,TRUE
-CSIR-NCL,Savitribai Phule Pune University,358,8723,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-NCL,Indian Institute of Science Education and Research Pune,245,7036,IISER,CSIR <-> IISER,TRUE
-CSIR-NCL,Academy of Scientific and Innovative Research,226,5370,CSIR,CSIR <-> CSIR,FALSE
-CSIR-NCL,Council of Scientific and Industrial Research,117,3289,CSIR,CSIR <-> CSIR,FALSE
-CSIR-NCL,Bhabha Atomic Research Centre,102,1872,DAE,CSIR <-> DAE,TRUE
-CSIR-NCL,Indian Institute of Science Education and Research Kolkata,86,6118,IISER,CSIR <-> IISER,TRUE
-CSIR-NCL,Indian Institute of Technology Bombay,86,1732,IIT,CSIR <-> IIT,TRUE
+CSIR-NCL,Savitribai Phule Pune University,355,8704,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-NCL,Indian Institute of Science Education and Research Pune,230,6842,IISER,CSIR <-> IISER,TRUE
+CSIR-NCL,Academy of Scientific and Innovative Research,225,5333,CSIR,CSIR <-> CSIR,FALSE
+CSIR-NCL,Council of Scientific and Industrial Research,116,3252,CSIR,CSIR <-> CSIR,FALSE
+CSIR-NCL,Bhabha Atomic Research Centre,101,1871,DAE,CSIR <-> DAE,TRUE
+CSIR-NCL,Indian Institute of Technology Bombay,84,1692,IIT,CSIR <-> IIT,TRUE
+CSIR-NCL,Indian Institute of Science Education and Research Kolkata,82,5974,IISER,CSIR <-> IISER,TRUE
 CSIR-NCL,Shivaji University,66,1582,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-NCL,Indian Institute of Science Bangalore,65,2868,IISc,CSIR <-> IISc,TRUE
-CSIR-NCL,CSIR-IICT,58,969,CSIR,CSIR <-> CSIR,FALSE
-CSIR-NCL,Jawaharlal Nehru Centre for Advanced Scientific Research,50,1911,Other,CSIR <-> Other,TRUE
+CSIR-NCL,Indian Institute of Science Bangalore,62,2829,IISc,CSIR <-> IISc,TRUE
+CSIR-NCL,CSIR-IICT,56,969,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Institute of Chemical Technology,49,1177,Other,CSIR <-> Other,TRUE
 CSIR-NCL,National Centre for Cell Science,49,1283,Other,CSIR <-> Other,TRUE
 CSIR-NCL,University of Hyderabad,49,2059,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-NCL,Bharati Vidyapeeth (Deemed to be University),48,1981,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-NCL,Jawaharlal Nehru Centre for Advanced Scientific Research,48,1903,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Central Salt and Marine Chemicals Research Institute,45,1258,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Homi Bhabha National Institute,42,871,DAE,CSIR <-> DAE,TRUE
 CSIR-NCL,Indian Institute of Technology Madras,40,1010,IIT,CSIR <-> IIT,TRUE
-CSIR-NCL,Symbiosis International University,39,888,Private,CSIR <-> Private,TRUE
-CSIR-NCL,"Indian Institute of Science Education and Research, Tirupati",38,1187,IISER,CSIR <-> IISER,TRUE
 CSIR-NCL,Centre for Materials for Electronics Technology,37,1134,Government,CSIR <-> Government,TRUE
+CSIR-NCL,"Indian Institute of Science Education and Research, Tirupati",36,1181,IISER,CSIR <-> IISER,TRUE
 CSIR-NCL,Institute of Genomics and Integrative Biology,36,1082,CSIR,CSIR <-> CSIR,FALSE
+CSIR-NCL,Symbiosis International University,36,881,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Indian Institute of Technology Delhi,35,835,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,University of Mumbai,35,826,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Visvesvaraya National Institute of Technology,34,1689,NIT,CSIR <-> NIT,TRUE
-CSIR-NCL,"Indian Institute of Science Education and Research, Bhopal",33,2177,IISER,CSIR <-> IISER,TRUE
 CSIR-NCL,Dr. Babasaheb Ambedkar Marathwada University,32,1165,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,SRM Institute of Science and Technology,32,688,Private,CSIR <-> Private,TRUE
-CSIR-NCL,CSIR-CECRI,31,727,CSIR,CSIR <-> CSIR,FALSE
-CSIR-NCL,National Institute for Interdisciplinary Science and Technology,31,1232,CSIR,CSIR <-> CSIR,FALSE
-CSIR-NCL,Indian Institute of Technology Hyderabad,28,607,IIT,CSIR <-> IIT,TRUE
+CSIR-NCL,"Indian Institute of Science Education and Research, Bhopal",31,2163,IISER,CSIR <-> IISER,TRUE
+CSIR-NCL,CSIR-CECRI,30,727,CSIR,CSIR <-> CSIR,FALSE
+CSIR-NCL,National Institute for Interdisciplinary Science and Technology,30,1195,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Cochin University of Science and Technology,27,492,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-NCL,Indian Institute of Technology Hyderabad,27,607,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Solapur University,26,872,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Indian Institute of Petroleum,25,589,CSIR,CSIR <-> CSIR,FALSE
-CSIR-NCL,Agharkar Research Institute,24,741,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Defence Institute of Advanced Technology,24,727,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Abasaheb Garware College,23,759,Other,CSIR <-> Other,TRUE
+CSIR-NCL,Agharkar Research Institute,23,727,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Indian Institute of Integrative Medicine,22,163,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Indian Institute of Science Education and Research Mohali,22,714,IISER,CSIR <-> IISER,TRUE
 CSIR-NCL,Manipal Academy of Higher Education,22,500,Private,CSIR <-> Private,TRUE
 CSIR-NCL,University of Delhi,22,920,CentralUniv,CSIR <-> CentralUniv,TRUE
-CSIR-NCL,Banaras Hindu University,21,258,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-NCL,Centre for Cellular and Molecular Biology,21,664,CSIR,CSIR <-> CSIR,FALSE
-CSIR-NCL,Centre for Nano and Soft Matter Sciences,21,255,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Vellore Institute of Technology University,21,631,Private,CSIR <-> Private,TRUE
+CSIR-NCL,Banaras Hindu University,20,255,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-NCL,Indian Institute of Technology Roorkee,20,564,IIT,CSIR <-> IIT,TRUE
+CSIR-NCL,Centre for Nano and Soft Matter Sciences,19,249,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Indian Association for the Cultivation of Science,19,357,Other,CSIR <-> Other,TRUE
 CSIR-NCL,MIT World Peace University,19,69,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-NCL,Tata Institute of Fundamental Research,19,329,DAE,CSIR <-> DAE,TRUE
-CSIR-NCL,Indian Institute of Technology Kharagpur,17,2591,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,National Institute of Technology Warangal,17,420,NIT,CSIR <-> NIT,TRUE
 CSIR-NCL,Reliance Industries (India),17,408,Industry,CSIR <-> Industry,TRUE
 CSIR-NCL,Central Drug Research Institute,16,296,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Central Food Technological Research Institute,16,414,CSIR,CSIR <-> CSIR,FALSE
+CSIR-NCL,Indian Institute of Technology Kharagpur,16,2531,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,National Environmental Engineering Research Institute,16,231,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Kavayitri Bahinabai Chaudhari North Maharashtra University,15,248,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-NCL,Tata Institute of Fundamental Research,15,326,DAE,CSIR <-> DAE,TRUE
 CSIR-NCL,"Birla Institute of Technology and Science, Pilani",14,334,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Central Leather Research Institute,14,284,CSIR,CSIR <-> CSIR,FALSE
-CSIR-NCL,Goa University,14,209,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Indian Institute of Technology Jodhpur,14,206,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Institute of Microbial Technology,14,265,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Jain University,14,366,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,North East Institute of Science and Technology,14,542,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Osmania University,14,262,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Central Institute of Medicinal and Aromatic Plants,13,290,CSIR,CSIR <-> CSIR,FALSE
+CSIR-NCL,Goa University,13,203,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Shiv Nadar University,13,311,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Swami Ramanand Teerth Marathwada University,13,231,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Alliance University,12,278,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,CSIR National Physical Laboratory of India,12,271,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Central Glass and Ceramic Research Institute,12,263,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,Central University of Gujarat,12,349,CentralUniv,CSIR <-> CentralUniv,TRUE
-CSIR-NCL,Indian Institute of Science Education and Research Thiruvananthapuram,12,170,IISER,CSIR <-> IISER,TRUE
 CSIR-NCL,Indian Institute of Technology Bhubaneswar,12,582,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Indian Institute of Technology Guwahati,12,315,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Indian Institute of Technology Indore,12,365,IIT,CSIR <-> IIT,TRUE
@@ -1011,14 +1009,12 @@ CSIR-NCL,Indira Gandhi Centre for Atomic Research,12,630,DAE,CSIR <-> DAE,TRUE
 CSIR-NCL,Jawaharlal Nehru University,12,163,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-NCL,"MIT Art, Design and Technology University",12,118,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Maharaja Sayajirao University of Baroda,12,175,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-NCL,National Centre for Biological Sciences,12,53,Other,CSIR <-> Other,TRUE
-CSIR-NCL,Acharya Institute of Technology,11,131,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Central Scientific Instruments Organisation,11,207,CSIR,CSIR <-> CSIR,FALSE
+CSIR-NCL,Indian Institute of Science Education and Research Thiruvananthapuram,11,152,IISER,CSIR <-> IISER,TRUE
 CSIR-NCL,KIIT University,11,349,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,National Institute of Immunology,11,156,Government,CSIR <-> Government,TRUE
 CSIR-NCL,Rashtrasant Tukadoji Maharaj Nagpur University,11,55,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-NCL,SRM University,11,296,Private,CSIR <-> Private,TRUE
-CSIR-NCL,Armament Research and Development Establishment,10,286,Other,CSIR <-> Other,TRUE
+CSIR-NCL,Acharya Institute of Technology,10,124,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Ashoka University,10,34,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Birla Institute of Technology and Science - Hyderabad Campus,10,125,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Fergusson College,10,115,Other,CSIR <-> Other,TRUE
@@ -1036,22 +1032,24 @@ CSIR-NCL,UGC DAE Consortium for Scientific Research,10,184,Other,CSIR <-> Other,
 CSIR-NCL,Vishwakarma Institute of Technology,10,384,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Amity University Mumbai,9,159,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Government of India,9,249,Government,CSIR <-> Government,TRUE
-CSIR-NCL,Indian Institute of Technology Kanpur,9,998,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Rajiv Gandhi Centre for Biotechnology,9,211,Other,CSIR <-> Other,TRUE
+CSIR-NCL,SRM University,9,296,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Visvesvaraya Technological University,9,238,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Aligarh Muslim University,8,341,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-NCL,Amity University,8,91,Private,CSIR <-> Private,TRUE
+CSIR-NCL,Armament Research and Development Establishment,8,252,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Indian Institute of Technology Dhanbad,8,550,IIT,CSIR <-> IIT,TRUE
+CSIR-NCL,Indian Institute of Technology Kanpur,8,963,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Institute of Minerals and Materials Technology,8,221,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,International Centre for Genetic Engineering and Biotechnology,8,123,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Madurai Kamaraj University,8,186,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-NCL,National Centre for Biological Sciences,8,50,Other,CSIR <-> Other,TRUE
 CSIR-NCL,National Research Centre for Grapes,8,146,Other,CSIR <-> Other,TRUE
 CSIR-NCL,University of Calcutta,8,75,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,University of Kerala,8,169,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,University of Madras,8,166,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Aditya Birla (India),7,190,Industry,CSIR <-> Industry,TRUE
 CSIR-NCL,All India Institute of Medical Sciences,7,273,Other,CSIR <-> Other,TRUE
-CSIR-NCL,Amrita Vishwa Vidyapeetham,7,214,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,"Birla Institute of Technology, Mesra",7,125,Private,CSIR <-> Private,TRUE
 CSIR-NCL,D.Y. Patil University,7,606,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Dr. Hari Singh Gour University,7,445,StateUniv,CSIR <-> StateUniv,TRUE
@@ -1062,13 +1060,13 @@ CSIR-NCL,Mahatma Gandhi University,7,108,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,National Institute of Technology Karnataka,7,200,NIT,CSIR <-> NIT,TRUE
 CSIR-NCL,Periyar University,7,74,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,University of Mysore,7,143,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-NCL,Amrita Vishwa Vidyapeetham,6,197,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Bhavnagar University,6,231,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Central University of Kerala,6,38,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-NCL,Chellaram Hospital,6,51,Healthcare,CSIR <-> Healthcare,TRUE
 CSIR-NCL,Dayananda Sagar University,6,275,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Gauhati University,6,224,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Guru Ghasidas Vishwavidyalaya,6,201,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-NCL,Harish-Chandra Research Institute,6,207,DAE,CSIR <-> DAE,TRUE
 CSIR-NCL,High Energy Materials Research Laboratory,6,164,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Indian Institute of Technology Bhilai,6,111,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Ministry of Electronics and Information Technology,6,224,Government,CSIR <-> Government,TRUE
@@ -1079,11 +1077,11 @@ CSIR-NCL,Nitte University,6,62,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Praj (India),6,94,Industry,CSIR <-> Industry,TRUE
 CSIR-NCL,Saha Institute of Nuclear Physics,6,50,DAE,CSIR <-> DAE,TRUE
 CSIR-NCL,University of Allahabad,6,63,CentralUniv,CSIR <-> CentralUniv,TRUE
-CSIR-NCL,BAIF Development Research Foundation,5,24,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Central Electronics Engineering Research Institute,5,282,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,"Dr. D.Y. Patil Vidyapeeth, Pune",5,41,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,GITAM University,5,11,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Gondwana University,5,32,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-NCL,Harish-Chandra Research Institute,5,206,DAE,CSIR <-> DAE,TRUE
 CSIR-NCL,Indian Institute of Technology Patna,5,397,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Inter-University Accelerator Centre,5,78,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,"International Institute of Information Technology, Hyderabad",5,113,Other,CSIR <-> Other,TRUE
@@ -1097,13 +1095,13 @@ CSIR-NCL,National Aerospace Laboratories,5,132,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,National Institute of Technology Srinagar,5,61,NIT,CSIR <-> NIT,TRUE
 CSIR-NCL,Poornaprajna Institute of Scientific Research,5,101,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Regional Centre for Biotechnology,5,89,Government,CSIR <-> Government,TRUE
-CSIR-NCL,"SRM University, Andhra Pradesh",5,51,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Sathyabama Institute of Science and Technology,5,82,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Siksha O Anusandhan University,5,112,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,University of Kashmir,5,76,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Advanced Materials and Processes Research Institute,4,143,CSIR,CSIR <-> CSIR,FALSE
 CSIR-NCL,"Anna University, Chennai",4,66,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,B. J. Medical College & Sassoon Hospital,4,17,Other,CSIR <-> Other,TRUE
+CSIR-NCL,BAIF Development Research Foundation,4,23,Other,CSIR <-> Other,TRUE
 CSIR-NCL,BRIC-National Agri-Food and Biomanufacturing Institute,4,105,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Bharat Petroleum (India),4,97,Industry,CSIR <-> Industry,TRUE
 CSIR-NCL,"Bharati Vidyapeeth College of Pharmacy, Kolhapur",4,73,StateUniv,CSIR <-> StateUniv,TRUE
@@ -1122,7 +1120,6 @@ CSIR-NCL,Jamia Hamdard,4,51,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Karunya University,4,244,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,M S Ramaiah University of Applied Sciences,4,100,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Madras Diabetes Research Foundation,4,41,Other,CSIR <-> Other,TRUE
-CSIR-NCL,Mangalore University,4,82,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Manipur University,4,130,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,National AIDS Research Institute,4,48,Other,CSIR <-> Other,TRUE
 CSIR-NCL,National Institute of Oceanography,4,41,CSIR,CSIR <-> CSIR,FALSE
@@ -1133,7 +1130,6 @@ CSIR-NCL,Saurashtra University,4,19,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Saveetha University,4,10,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Shell (India),4,78,Industry,CSIR <-> Industry,TRUE
 CSIR-NCL,Shri Govindram Seksaria Institute of Technology and Science,4,127,Other,CSIR <-> Other,TRUE
-CSIR-NCL,TCG Crest,4,66,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Tamil Nadu Agricultural University,4,18,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Translational Health Science and Technology Institute,4,73,Government,CSIR <-> Government,TRUE
 CSIR-NCL,"University of Agricultural Sciences, Bangalore",4,101,StateUniv,CSIR <-> StateUniv,TRUE
@@ -1158,12 +1154,11 @@ CSIR-NCL,Indian Institute of Sugarcane Research,3,4,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Indian Institute of Technology Gandhinagar,3,19,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Indian Institute of Technology Mandi,3,51,IIT,CSIR <-> IIT,TRUE
 CSIR-NCL,Indian Institute of Technology Ropar,3,9,IIT,CSIR <-> IIT,TRUE
-CSIR-NCL,Institute of Medical Sciences,3,51,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Integral University,3,118,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-NCL,International Centre for Theoretical Sciences,3,40,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Kuvempu University,3,86,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Lovely Professional University,3,75,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Maharshi Dayanand University,3,84,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-NCL,Mangalore University,3,82,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Maulana Azad National Institute of Technology,3,52,NIT,CSIR <-> NIT,TRUE
 CSIR-NCL,National Brain Research Centre,3,38,Government,CSIR <-> Government,TRUE
 CSIR-NCL,National Institute of Malaria Research,3,23,Other,CSIR <-> Other,TRUE
@@ -1177,10 +1172,12 @@ CSIR-NCL,Pandit Ravishankar Shukla University,3,147,StateUniv,CSIR <-> StateUniv
 CSIR-NCL,Piramal (India),3,112,Industry,CSIR <-> Industry,TRUE
 CSIR-NCL,RK University,3,91,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Raja Ramanna Centre for Advanced Technology,3,6,DAE,CSIR <-> DAE,TRUE
+CSIR-NCL,"SRM University, Andhra Pradesh",3,51,Private,CSIR <-> Private,TRUE
 CSIR-NCL,Sacred Heart College,3,239,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Sami Labs (India),3,54,Industry,CSIR <-> Industry,TRUE
 CSIR-NCL,Sri Sivasubramaniya Nadar College of Engineering,3,30,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Sugarcane Breeding Institute,3,4,Other,CSIR <-> Other,TRUE
+CSIR-NCL,TCG Crest,3,65,Other,CSIR <-> Other,TRUE
 CSIR-NCL,TIFR Centre for Interdisciplinary Sciences,3,23,DAE,CSIR <-> DAE,TRUE
 CSIR-NCL,Tata Memorial Hospital,3,36,Healthcare,CSIR <-> Healthcare,TRUE
 CSIR-NCL,Tripura University,3,107,StateUniv,CSIR <-> StateUniv,TRUE
@@ -1190,7 +1187,6 @@ CSIR-NCL,"Vignan's Foundation for Science, Technology & Research",3,11,Other,CSI
 CSIR-NCL,Visva-Bharati University,3,17,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-NCL,Yenepoya Research Centre,3,53,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Yenepoya University,3,53,StateUniv,CSIR <-> StateUniv,TRUE
-CSIR-NCL,Advanced Enzyme Technologies Limited (India),2,1,Industry,CSIR <-> Industry,TRUE
 CSIR-NCL,Alagappa University,2,25,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Amity University Gurugram,2,30,Private,CSIR <-> Private,TRUE
 CSIR-NCL,"Annasaheb Magar Mahavidyalaya, Hadapsar, Pune",2,1,Other,CSIR <-> Other,TRUE
@@ -1221,8 +1217,10 @@ CSIR-NCL,Indraprastha Institute of Information Technology Delhi,2,31,Other,CSIR 
 CSIR-NCL,Institute for Stem Cell Biology and Regenerative Medicine,2,28,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Institute of Advanced Study in Science and Technology,2,36,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Institute of Life Sciences,2,14,Other,CSIR <-> Other,TRUE
+CSIR-NCL,Institute of Medical Sciences,2,48,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Institute of Nuclear Medicine & Allied Sciences,2,32,Other,CSIR <-> Other,TRUE
 CSIR-NCL,"Institute of Physics, Bhubaneshwar",2,32,DAE,CSIR <-> DAE,TRUE
+CSIR-NCL,International Centre for Theoretical Sciences,2,34,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Jamia Millia Islamia,2,25,CentralUniv,CSIR <-> CentralUniv,TRUE
 CSIR-NCL,Jawaharlal Nehru Technological University Anantapur,2,10,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Jaypee University of Information Technology,2,51,StateUniv,CSIR <-> StateUniv,TRUE
@@ -1274,6 +1272,7 @@ CSIR-NCL,Veer Narmad South Gujarat University,2,20,StateUniv,CSIR <-> StateUniv,
 CSIR-NCL,Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology,2,21,Other,CSIR <-> Other,TRUE
 CSIR-NCL,West Bengal State University,2,6,StateUniv,CSIR <-> StateUniv,TRUE
 CSIR-NCL,Adamas University,1,35,StateUniv,CSIR <-> StateUniv,TRUE
+CSIR-NCL,Advanced Enzyme Technologies Limited (India),1,0,Industry,CSIR <-> Industry,TRUE
 CSIR-NCL,Advanced Numerical Research and Analysis Group,1,0,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Advanced Systems Laboratory,1,32,Other,CSIR <-> Other,TRUE
 CSIR-NCL,Ahmedabad University,1,1,StateUniv,CSIR <-> StateUniv,TRUE

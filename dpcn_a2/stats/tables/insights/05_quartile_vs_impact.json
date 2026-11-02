@@ -4,14 +4,14 @@
   "headline": "Q1 is a strong filter but not a guarantee: 88.7% of the cluster's top-10% most-cited papers appeared in Q1 journals, yet only 14.0% of Q1 papers reach the top 10% (vs 3.5% of Q2\u2013Q3 papers).",
   "metrics": {
     "pct_top10_from_nonQ1": 11.32,
-    "pct_Q1_uncited": 1.42,
-    "pct_Q2Q3_in_top10": 3.45,
-    "pct_Q1_in_top10": 13.97,
-    "eligible_papers": 10212,
+    "pct_Q1_uncited": 1.12,
+    "pct_Q2Q3_in_top10": 3.46,
+    "pct_Q1_in_top10": 14.03,
+    "eligible_papers": 10171,
     "counts_by_quartile": {
-      "Q1": 6615,
-      "Q2": 2696,
-      "Q3": 723,
+      "Q1": 6584,
+      "Q2": 2688,
+      "Q3": 721,
       "Q4": 178
     }
   },
@@ -21,9 +21,9 @@
       "xAxis": {
         "type": "category",
         "data": [
-          "Q1 (n=6,615)",
-          "Q2 (n=2,696)",
-          "Q3 (n=723)",
+          "Q1 (n=6,584)",
+          "Q2 (n=2,688)",
+          "Q3 (n=721)",
           "Q4 (n=178)"
         ]
       },
@@ -47,9 +47,9 @@
           "type": "bar",
           "stack": "total",
           "data": [
-            1.42,
-            2.41,
-            5.95,
+            1.12,
+            2.23,
+            5.83,
             19.1
           ],
           "itemStyle": {
@@ -61,9 +61,9 @@
           "type": "bar",
           "stack": "total",
           "data": [
-            84.61,
-            93.69,
-            92.25,
+            84.84,
+            93.86,
+            92.37,
             80.9
           ],
           "itemStyle": {
@@ -75,8 +75,8 @@
           "type": "bar",
           "stack": "total",
           "data": [
-            13.97,
-            3.89,
+            14.03,
+            3.91,
             1.8,
             0.0
           ],
@@ -87,6 +87,6 @@
       ]
     }
   },
-  "method_note": "Evaluated on 10,212 journal papers with a SCImago quartile (2016\u20132023; 2024\u20132026 excluded due to citation latency). Top 10% = at or above the 90th citation percentile of the publication year, so ties can push a year's share slightly above 10%.",
-  "computed_at": "2026-10-31T04:40:54.240747+00:00"
+  "method_note": "Evaluated on 10,171 journal papers with a SCImago quartile (2016\u20132023; 2024\u20132026 excluded due to citation latency). Top 10% = at or above the 90th citation percentile of the publication year, so ties can push a year's share slightly above 10%.",
+  "computed_at": "2026-11-02T17:41:10.035560+00:00"
 }

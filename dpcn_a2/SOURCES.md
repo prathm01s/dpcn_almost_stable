@@ -3,7 +3,7 @@
 **DPCN Research Mapping Project 2026** · CSIR-NCL (Pune), CSIR-IICT (Hyderabad), CSIR-CECRI (Karaikudi) · publications 2016–2026
 
 This file lists every source the Group 24 dataset, statistics report and dashboard were built from.
-All 14,352 papers, their DOIs, citation counts, authors, affiliations and research topics come from **OpenAlex**.
+All 14,208 papers, their DOIs, citation counts, authors, affiliations and research topics come from **OpenAlex**.
 The faculty roster comes from the three institutes' **official websites**, and journal quartiles from **SCImago Journal Rank**.
 No data was taken from other groups.
 
@@ -72,8 +72,8 @@ Manual roster corrections (duplicate listings, wrong author matches) are listed 
   (identical to the file in the package's GitHub repository).
 - **Use**: a paper's `quartile` is the journal's SJR *best quartile* in the paper's publication year, matched on ISSN
   (`08_resolve_quartiles.py`). 2026 papers use the 2025 ranking; a journal missing in that year takes the nearest year
-  within ±2. Of 14,166 journal papers: 13,251 matched by ISSN, 231 by
-  nearest year, 684 unranked.
+  within ±2. Of 14,029 journal papers: 13,195 matched by ISSN, 230 by
+  nearest year, 604 unranked.
 - `data/external/scimagojr_2023.csv` (the 2023 export downloaded from scimagojr.com) is kept for reference but not
   used by the pipeline.
 
@@ -86,7 +86,7 @@ assigned from the institution name by `src/common/sectors.py`.
 ## 6. Conference ranks — CORE
 
 The assignment asks for CORE ranks (A*/A/B/C) for conference papers. CORE ranks mainly computer-science venues, and
-no CORE rankings file was imported, so the `quartile` column is blank for all 186 conference papers
+no CORE rankings file was imported, so the `quartile` column is blank for all 179 conference papers
 (Appendix B lists their venues).
 
 ## 7. Sources not used
@@ -94,19 +94,19 @@ no CORE rankings file was imported, so the `quartile` column is blank for all 18
 Scopus, Web of Science / JCR quartiles, Google Scholar, IRINS/VIDWAN and Crossref were not used as data sources.
 DOIs are as recorded by OpenAlex.
 
-## Appendix A — Journals (1,892)
+## Appendix A — Journals (1,884)
 
-Every journal in which at least one of the 14,352 papers appeared, with the number of distinct papers.
+Every journal in which at least one of the 14,208 papers appeared, with the number of distinct papers.
 Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue name in OpenAlex.
 
 | Venue | ISSN | OpenAlex source | Papers |
 |---|---|---|---:|
-| ChemistrySelect | 2365-6549 | [S4210221416](https://openalex.org/S4210221416) | 443 |
-| New Journal of Chemistry | 0398-9836 | [S36793815](https://openalex.org/S36793815) | 270 |
-| RSC Advances | 2046-2069 | [S2481244646](https://openalex.org/S2481244646) | 245 |
-| Chemical Communications | 1359-7345 | [S152760256](https://openalex.org/S152760256) | 239 |
-| Organic & Biomolecular Chemistry | 1477-0520 | [S179810352](https://openalex.org/S179810352) | 225 |
+| ChemistrySelect | 2365-6549 | [S4210221416](https://openalex.org/S4210221416) | 442 |
+| New Journal of Chemistry | 0398-9836 | [S36793815](https://openalex.org/S36793815) | 269 |
+| RSC Advances | 2046-2069 | [S2481244646](https://openalex.org/S2481244646) | 241 |
+| Chemical Communications | 1359-7345 | [S152760256](https://openalex.org/S152760256) | 237 |
 | The Journal of Organic Chemistry | 0022-3263 | [S205050996](https://openalex.org/S205050996) | 225 |
+| Organic & Biomolecular Chemistry | 1477-0520 | [S179810352](https://openalex.org/S179810352) | 223 |
 | Organic Letters | 1523-7052 | [S201989124](https://openalex.org/S201989124) | 195 |
 | ACS Omega | 2470-1343 | [S4210239500](https://openalex.org/S4210239500) | 178 |
 | ChemInform | 0009-2975 | [S41354064](https://openalex.org/S41354064) | 176 |
@@ -117,11 +117,11 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | International Journal of Hydrogen Energy | 0360-3199 | [S48860480](https://openalex.org/S48860480) | 124 |
 | Journal of Materials Chemistry A | 2050-7488 | [S2764437742](https://openalex.org/S2764437742) | 119 |
 | ACS Applied Energy Materials | 2574-0962 | [S4210188958](https://openalex.org/S4210188958) | 116 |
-| Chemistry - An Asian Journal | 1861-471X | [S188582317](https://openalex.org/S188582317) | 110 |
+| Chemistry - An Asian Journal | 1861-471X | [S188582317](https://openalex.org/S188582317) | 109 |
 | Journal of Molecular Structure | 0022-2860 | [S203479135](https://openalex.org/S203479135) | 108 |
-| Bioresource Technology | 0960-8524 | [S21442059](https://openalex.org/S21442059) | 100 |
-| Scientific Reports | 2045-2322 | [S196734849](https://openalex.org/S196734849) | 100 |
+| Bioresource Technology | 0960-8524 | [S21442059](https://openalex.org/S21442059) | 99 |
 | Chemical Engineering Journal | 1385-8947 | [S149937609](https://openalex.org/S149937609) | 99 |
+| Scientific Reports | 2045-2322 | [S196734849](https://openalex.org/S196734849) | 99 |
 | Electrochimica Acta | 0013-4686 | [S198339081](https://openalex.org/S198339081) | 97 |
 | Bioorganic & Medicinal Chemistry Letters | 0960-894X | [S30970080](https://openalex.org/S30970080) | 92 |
 | Physical Chemistry Chemical Physics | 1463-9076 | [S181332294](https://openalex.org/S181332294) | 90 |
@@ -133,18 +133,17 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Journal of Alloys and Compounds | 0925-8388 | [S67716761](https://openalex.org/S67716761) | 79 |
 | Small | 1613-6810 | [S94619837](https://openalex.org/S94619837) | 79 |
 | ACS Applied Nano Materials | 2574-0970 | [S4210191493](https://openalex.org/S4210191493) | 74 |
-| Asian Journal of Organic Chemistry | 2193-5807 | [S2491942749](https://openalex.org/S2491942749) | 71 |
-| Chemistry - A European Journal | 0947-6539 | [S68911691](https://openalex.org/S68911691) | 70 |
+| Asian Journal of Organic Chemistry | 2193-5807 | [S2491942749](https://openalex.org/S2491942749) | 70 |
 | Nanoscale | 2040-3364 | [S23181512](https://openalex.org/S23181512) | 70 |
-| Journal of Materials Science Materials in Electronics | 0957-4522 | [S189509794](https://openalex.org/S189509794) | 69 |
 | European Journal of Medicinal Chemistry | 0223-5234 | [S4210169613](https://openalex.org/S4210169613) | 68 |
+| Journal of Materials Science Materials in Electronics | 0957-4522 | [S189509794](https://openalex.org/S189509794) | 68 |
 | Synthesis | 0039-7881 | [S197964166](https://openalex.org/S197964166) | 68 |
 | Dalton Transactions | 1477-9226 | [S166159787](https://openalex.org/S166159787) | 67 |
 | Sustainable Energy & Fuels | 2398-4902 | [S2764650158](https://openalex.org/S2764650158) | 66 |
 | Advanced Synthesis & Catalysis | 1615-4150 | [S36069537](https://openalex.org/S36069537) | 65 |
-| Angewandte Chemie | 0044-8249 | [S4210200754](https://openalex.org/S4210200754) | 65 |
-| Angewandte Chemie International Edition | 1433-7851 | [S67393510](https://openalex.org/S67393510) | 65 |
+| Chemistry - A European Journal | 0947-6539 | [S68911691](https://openalex.org/S68911691) | 65 |
 | Industrial & Engineering Chemistry Research | 0888-5885 | [S202680183](https://openalex.org/S202680183) | 65 |
+| Angewandte Chemie International Edition | 1433-7851 | [S67393510](https://openalex.org/S67393510) | 64 |
 | Synthetic Communications | 0039-7911 | [S114976158](https://openalex.org/S114976158) | 64 |
 | Catalysis Letters | 1011-372X | [S7359802](https://openalex.org/S7359802) | 63 |
 | Catalysis Science & Technology | 2044-4753 | [S2482773761](https://openalex.org/S2482773761) | 61 |
@@ -161,13 +160,13 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | ChemCatChem | 1867-3880 | [S206633562](https://openalex.org/S206633562) | 55 |
 | Materials Letters | 0167-577X | [S55626769](https://openalex.org/S55626769) | 53 |
 | Green Chemistry | 1463-9262 | [S55009144](https://openalex.org/S55009144) | 51 |
-| Materials Chemistry and Physics | 0254-0584 | [S5707928](https://openalex.org/S5707928) | 51 |
+| Materials Chemistry and Physics | 0254-0584 | [S5707928](https://openalex.org/S5707928) | 50 |
 | ACS Catalysis | 2155-5435 | [S37391459](https://openalex.org/S37391459) | 49 |
-| ChemElectroChem | 2196-0216 | [S4210214564](https://openalex.org/S4210214564) | 49 |
 | Ceramics International | 0272-8842 | [S106928643](https://openalex.org/S106928643) | 48 |
 | Synlett | 0936-5214 | [S80698544](https://openalex.org/S80698544) | 48 |
 | Journal of Applied Polymer Science | 0021-8995 | [S200764475](https://openalex.org/S200764475) | 46 |
 | Journal of Power Sources | 0378-7753 | [S177147899](https://openalex.org/S177147899) | 46 |
+| ChemElectroChem | 2196-0216 | [S4210214564](https://openalex.org/S4210214564) | 44 |
 | Molecular Catalysis | 2468-8231 | [S2764968843](https://openalex.org/S2764968843) | 44 |
 | Chemical Science | 2041-6520 | [S184645833](https://openalex.org/S184645833) | 43 |
 | ACS Applied Bio Materials | 2576-6422 | [S4210214000](https://openalex.org/S4210214000) | 42 |
@@ -176,8 +175,8 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Biomass Conversion and Biorefinery | 2190-6815 | [S2764923638](https://openalex.org/S2764923638) | 38 |
 | Catalysis Communications | 1566-7367 | [S48346357](https://openalex.org/S48346357) | 38 |
 | Materials Today Proceedings | 2214-7853 | [S2898407351](https://openalex.org/S2898407351) | 38 |
-| Research on Chemical Intermediates | 0922-6168 | [S89199708](https://openalex.org/S89199708) | 37 |
 | Journal of Colloid and Interface Science | 0021-9797 | [S204609040](https://openalex.org/S204609040) | 36 |
+| Research on Chemical Intermediates | 0922-6168 | [S89199708](https://openalex.org/S89199708) | 36 |
 | Journal of Biomolecular Structure and Dynamics | 0739-1102 | [S178711970](https://openalex.org/S178711970) | 34 |
 | Journal of Electroanalytical Chemistry | 1572-6657 | [S143604795](https://openalex.org/S143604795) | 34 |
 | Environmental Science and Pollution Research | 0944-1344 | [S87561820](https://openalex.org/S87561820) | 33 |
@@ -196,24 +195,24 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Asian Journal of Chemistry | 0970-7077 | [S194824834](https://openalex.org/S194824834) | 28 |
 | Journal of Nanoscience and Nanotechnology | 1533-4880 | [S133947007](https://openalex.org/S133947007) | 28 |
 | Applied Catalysis A General | 0926-860X | [S84179801](https://openalex.org/S84179801) | 27 |
-| Catalysis Today | 0920-5861 | [S117279562](https://openalex.org/S117279562) | 27 |
 | Journal of Cleaner Production | 0959-6526 | [S58516903](https://openalex.org/S58516903) | 27 |
-| Journal of Materials Chemistry B | 2050-750X | [S2479884170](https://openalex.org/S2479884170) | 27 |
 | Materials Science and Engineering C | 0928-4931 | [S43139658](https://openalex.org/S43139658) | 27 |
 | Progress in Organic Coatings | 0300-9440 | [S41155759](https://openalex.org/S41155759) | 27 |
 | The Journal of Chemical Physics | 0021-9606 | [S77047749](https://openalex.org/S77047749) | 27 |
 | ARKIVOC | 1551-7004 | [S116969037](https://openalex.org/S116969037) | 26 |
 | ChemMedChem | 1860-7179 | [S136164820](https://openalex.org/S136164820) | 26 |
-| Industrial Crops and Products | 0926-6690 | [S178362034](https://openalex.org/S178362034) | 26 |
+| Journal of Materials Chemistry B | 2050-750X | [S2479884170](https://openalex.org/S2479884170) | 26 |
 | Rapid Communications in Mass Spectrometry | 0951-4198 | [S89689683](https://openalex.org/S89689683) | 26 |
-| The Chemical Record | 1527-8999 | [S134994606](https://openalex.org/S134994606) | 26 |
+| Catalysis Today | 0920-5861 | [S117279562](https://openalex.org/S117279562) | 25 |
 | Chemosphere | 0045-6535 | [S203465130](https://openalex.org/S203465130) | 25 |
-| Energy Technology | 2194-4288 | [S2765059294](https://openalex.org/S2765059294) | 25 |
+| Industrial Crops and Products | 0926-6690 | [S178362034](https://openalex.org/S178362034) | 25 |
 | Inorganic Chemistry Communications | 1387-7003 | [S166634186](https://openalex.org/S166634186) | 25 |
 | Ionics | 0947-7047 | [S137979523](https://openalex.org/S137979523) | 25 |
 | Organic Chemistry Frontiers | 2052-4110 | [S2764884854](https://openalex.org/S2764884854) | 25 |
+| The Chemical Record | 1527-8999 | [S134994606](https://openalex.org/S134994606) | 25 |
 | Bulletin of Materials Science | 0250-4707 | [S99612230](https://openalex.org/S99612230) | 24 |
 | Carbon | 0008-6223 | [S188605413](https://openalex.org/S188605413) | 24 |
+| Energy Technology | 2194-4288 | [S2765059294](https://openalex.org/S2765059294) | 24 |
 | Microchemical Journal | 0026-265X | [S151030190](https://openalex.org/S151030190) | 24 |
 | Organometallics | 0276-7333 | [S4924609](https://openalex.org/S4924609) | 24 |
 | Colloids and Surfaces A Physicochemical and Engineering Aspects | 0927-7757 | [S94313546](https://openalex.org/S94313546) | 23 |
@@ -222,13 +221,12 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Molecules | 1420-3049 | [S108911230](https://openalex.org/S108911230) | 23 |
 | The Science of The Total Environment | 0048-9697 | [S86852077](https://openalex.org/S86852077) | 23 |
 | Applied Catalysis B: Environmental | 0926-3373 | [S134307298](https://openalex.org/S134307298) | 22 |
-| ChemPhysChem | 1439-4235 | [S169445072](https://openalex.org/S169445072) | 22 |
 | Journal of Solid State Electrochemistry | 1432-8488 | [S25422132](https://openalex.org/S25422132) | 22 |
 | Microporous and Mesoporous Materials | 1387-1811 | [S52195378](https://openalex.org/S52195378) | 22 |
 | Organic Process Research & Development | 1083-6160 | [S107255770](https://openalex.org/S107255770) | 22 |
 | Process Safety and Environmental Protection | 0263-8762 | [S166351637](https://openalex.org/S166351637) | 22 |
 | 3 Biotech | 2190-572X | [S4210190239](https://openalex.org/S4210190239) | 21 |
-| ChemPlusChem | 2192-6506 | [S163199293](https://openalex.org/S163199293) | 21 |
+| ChemPhysChem | 1439-4235 | [S169445072](https://openalex.org/S169445072) | 21 |
 | ChemSusChem | 1864-5631 | [S193447295](https://openalex.org/S193447295) | 21 |
 | Journal of the Indian Chemical Society | 0019-4522 | [S2765077160](https://openalex.org/S2765077160) | 21 |
 | Materials Chemistry Frontiers | 2052-1537 | [S2765048856](https://openalex.org/S2765048856) | 21 |
@@ -239,6 +237,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Batteries & Supercaps | 2566-6223 | [S4210241147](https://openalex.org/S4210241147) | 20 |
 | Bioorganic & Medicinal Chemistry | 0968-0896 | [S10422866](https://openalex.org/S10422866) | 20 |
 | Chemistry of Materials | 0897-4756 | [S66104727](https://openalex.org/S66104727) | 20 |
+| ChemPlusChem | 2192-6506 | [S163199293](https://openalex.org/S163199293) | 20 |
 | Colloids and Surfaces B Biointerfaces | 0927-7765 | [S22793308](https://openalex.org/S22793308) | 20 |
 | Journal of Chemical & Engineering Data | 0021-9568 | [S204459408](https://openalex.org/S204459408) | 20 |
 | Journal of Industrial and Engineering Chemistry | 1226-086X | [S145420111](https://openalex.org/S145420111) | 20 |
@@ -269,7 +268,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Materials Today Chemistry | 2468-5194 | [S2898120712](https://openalex.org/S2898120712) | 17 |
 | MedChemComm | 2040-2503 | [S191926780](https://openalex.org/S191926780) | 17 |
 | Polymer | 0032-3861 | [S186054908](https://openalex.org/S186054908) | 17 |
-| Surfaces and Interfaces | 2468-0230 | [S2764987357](https://openalex.org/S2764987357) | 17 |
 | SynOpen | 2509-9396 | [S4210211857](https://openalex.org/S4210211857) | 17 |
 | Applied Physics A | 0947-8396 | [S52123058](https://openalex.org/S52123058) | 16 |
 | Biocatalysis and Agricultural Biotechnology | 1878-8181 | [S2764378920](https://openalex.org/S2764378920) | 16 |
@@ -285,13 +283,13 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Polymers for Advanced Technologies | 1042-7147 | [S40708307](https://openalex.org/S40708307) | 16 |
 | Process Biochemistry | 0032-9592 | [S173499201](https://openalex.org/S173499201) | 16 |
 | Separation and Purification Technology | 1383-5866 | [S69753523](https://openalex.org/S69753523) | 16 |
+| Surfaces and Interfaces | 2468-0230 | [S2764987357](https://openalex.org/S2764987357) | 16 |
 | ACS Applied Engineering Materials | 2771-9545 | [S4387282792](https://openalex.org/S4387282792) | 15 |
 | Advanced Functional Materials | 1616-301X | [S135204980](https://openalex.org/S135204980) | 15 |
 | Biomaterials Science | 2047-4830 | [S2494179437](https://openalex.org/S2494179437) | 15 |
 | Catalysts | 2073-4344 | [S2738539744](https://openalex.org/S2738539744) | 15 |
 | Chemical Physics Letters | 0009-2614 | [S44567922](https://openalex.org/S44567922) | 15 |
 | Coordination Chemistry Reviews | 0010-8545 | [S117186765](https://openalex.org/S117186765) | 15 |
-| European Journal of Inorganic Chemistry | 1099-0682 | [S16435181](https://openalex.org/S16435181) | 15 |
 | Indian Chemical Engineer | 0019-4506 | [S43990833](https://openalex.org/S43990833) | 15 |
 | Journal of Drug Delivery Science and Technology | 1773-2247 | [S97205441](https://openalex.org/S97205441) | 15 |
 | Journal of Physics and Chemistry of Solids | 0022-3697 | [S171512606](https://openalex.org/S171512606) | 15 |
@@ -300,6 +298,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Biochemical Engineering Journal | 1369-703X | [S168210271](https://openalex.org/S168210271) | 14 |
 | Biosensors and Bioelectronics | 0956-5663 | [S156181945](https://openalex.org/S156181945) | 14 |
 | Energy Storage | 2578-4862 | [S4210199075](https://openalex.org/S4210199075) | 14 |
+| European Journal of Inorganic Chemistry | 1099-0682 | [S16435181](https://openalex.org/S16435181) | 14 |
 | Journal of Membrane Science | 0376-7388 | [S119469986](https://openalex.org/S119469986) | 14 |
 | Journal of Organometallic Chemistry | 0022-328X | [S108008259](https://openalex.org/S108008259) | 14 |
 | Journal of Water Process Engineering | 2214-7144 | [S2764434589](https://openalex.org/S2764434589) | 14 |
@@ -312,12 +311,10 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Chemical Engineering and Processing - Process Intensification | 0255-2701 | [S94212472](https://openalex.org/S94212472) | 13 |
 | Chemical Engineering Science | 0009-2509 | [S33892871](https://openalex.org/S33892871) | 13 |
 | ChemNanoMat | 2199-692X | [S4210190284](https://openalex.org/S4210190284) | 13 |
-| ChemPhotoChem | 2367-0932 | [S4210205840](https://openalex.org/S4210205840) | 13 |
 | Electroanalysis | 1040-0397 | [S79832926](https://openalex.org/S79832926) | 13 |
 | Energy Advances | 2753-1457 | [S4210221295](https://openalex.org/S4210221295) | 13 |
 | Journal of Flow Chemistry | 2062-249X | [S2500698275](https://openalex.org/S2500698275) | 13 |
 | Journal of Porous Materials | 1380-2224 | [S19938693](https://openalex.org/S19938693) | 13 |
-| Journal of Proteomics | 1874-3919 | [S100014387](https://openalex.org/S100014387) | 13 |
 | Materials Today Communications | 2352-4928 | [S2765035490](https://openalex.org/S2765035490) | 13 |
 | Polymer International | 0959-8103 | [S162033819](https://openalex.org/S162033819) | 13 |
 | Renewable and Sustainable Energy Reviews | 1364-0321 | [S68497187](https://openalex.org/S68497187) | 13 |
@@ -328,7 +325,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Beilstein Journal of Organic Chemistry | 1860-5397 | [S13215905](https://openalex.org/S13215905) | 12 |
 | Bioresource Technology Reports | 2589-014X | [S2898243299](https://openalex.org/S2898243299) | 12 |
 | Carbohydrate Polymers | 0144-8617 | [S64311837](https://openalex.org/S64311837) | 12 |
-| Catalysis in Green Chemistry and Engineering | 2572-9896 | [S4210178110](https://openalex.org/S4210178110) | 12 |
 | Chemistry and Physics of Lipids | 0009-3084 | [S99078529](https://openalex.org/S99078529) | 12 |
 | Desalination and Water Treatment | 1944-3986 | [S124203677](https://openalex.org/S124203677) | 12 |
 | International Journal of Energy Research | 0363-907X | [S32776067](https://openalex.org/S32776067) | 12 |
@@ -336,15 +332,17 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Journal of Fluorescence | 1053-0509 | [S98273654](https://openalex.org/S98273654) | 12 |
 | Journal of Mass Spectrometry | 1076-5174 | [S37349105](https://openalex.org/S37349105) | 12 |
 | Journal of Polymer Research | 1022-9760 | [S103518591](https://openalex.org/S103518591) | 12 |
+| Journal of Proteomics | 1874-3919 | [S100014387](https://openalex.org/S100014387) | 12 |
 | Macromolecules | 0024-9297 | [S177196338](https://openalex.org/S177196338) | 12 |
 | Materials Science in Semiconductor Processing | 1369-8001 | [S82126420](https://openalex.org/S82126420) | 12 |
 | Natural Product Communications | 1555-9475 | [S124250138](https://openalex.org/S124250138) | 12 |
 | Polymer Engineering and Science | 0032-3888 | [S114499311](https://openalex.org/S114499311) | 12 |
-| Russian Journal of General Chemistry | 1070-3632 | [S95954025](https://openalex.org/S95954025) | 12 |
 | Separation Science Plus | 2573-1815 | [S4210212791](https://openalex.org/S4210212791) | 12 |
 | Biomedical Materials | 1748-6041 | [S110088896](https://openalex.org/S110088896) | 11 |
+| Catalysis in Green Chemistry and Engineering | 2572-9896 | [S4210178110](https://openalex.org/S4210178110) | 11 |
 | Chemical Biology & Drug Design | 1747-0277 | [S123587420](https://openalex.org/S123587420) | 11 |
 | Chemistry & Biodiversity | 1612-1872 | [S206700086](https://openalex.org/S206700086) | 11 |
+| ChemPhotoChem | 2367-0932 | [S4210205840](https://openalex.org/S4210205840) | 11 |
 | European Journal of Mass Spectrometry | 1356-1049 | [S4210216295](https://openalex.org/S4210216295) | 11 |
 | Food Chemistry | 0308-8146 | [S98026630](https://openalex.org/S98026630) | 11 |
 | Frontiers in Chemistry | 2296-2646 | [S2764970645](https://openalex.org/S2764970645) | 11 |
@@ -352,6 +350,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Journal of Photochemistry and Photobiology B Biology | 1011-1344 | [S148303206](https://openalex.org/S148303206) | 11 |
 | Journal of Saudi Chemical Society | 1319-6103 | [S77754710](https://openalex.org/S77754710) | 11 |
 | Optical Materials | 0925-3467 | [S199247034](https://openalex.org/S199247034) | 11 |
+| Russian Journal of General Chemistry | 1070-3632 | [S95954025](https://openalex.org/S95954025) | 11 |
 | Surface and Coatings Technology | 0257-8972 | [S76010543](https://openalex.org/S76010543) | 11 |
 | Tetrahedron Asymmetry | 0957-4166 | [S88152556](https://openalex.org/S88152556) | 11 |
 | Analytical and Bioanalytical Chemistry | 1618-2642 | [S18188872](https://openalex.org/S18188872) | 10 |
@@ -363,7 +362,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Cellular Signalling | 0898-6568 | [S113768434](https://openalex.org/S113768434) | 10 |
 | Chemical Engineering & Technology | 0930-7516 | [S154487680](https://openalex.org/S154487680) | 10 |
 | Chemical Papers | 0366-6352 | [S201842594](https://openalex.org/S201842594) | 10 |
-| eLife | 2050-084X | [S1336409049](https://openalex.org/S1336409049) | 10 |
 | Environmental Progress & Sustainable Energy | 1944-7442 | [S4210214890](https://openalex.org/S4210214890) | 10 |
 | Helvetica Chimica Acta | 0018-019X | [S181847678](https://openalex.org/S181847678) | 10 |
 | Journal of Environmental Management | 0301-4797 | [S44455300](https://openalex.org/S44455300) | 10 |
@@ -405,14 +403,12 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | BioNanoScience | 2191-1630 | [S4210168380](https://openalex.org/S4210168380) | 8 |
 | Biophysical Chemistry | 0301-4622 | [S63395545](https://openalex.org/S63395545) | 8 |
 | Catalysis Reviews | 0161-4940 | [S72781473](https://openalex.org/S72781473) | 8 |
-| ChemBioChem | 1439-4227 | [S154285657](https://openalex.org/S154285657) | 8 |
 | Communications Chemistry | 2399-3669 | [S4210191625](https://openalex.org/S4210191625) | 8 |
 | Computational and Theoretical Chemistry | 2210-271X | [S137947318](https://openalex.org/S137947318) | 8 |
 | Environmental Research | 0013-9351 | [S173943867](https://openalex.org/S173943867) | 8 |
 | Frontiers in Microbiology | 1664-302X | [S2484704948](https://openalex.org/S2484704948) | 8 |
 | Future Medicinal Chemistry | 1756-8919 | [S122867665](https://openalex.org/S122867665) | 8 |
 | International Journal of Environmental Science and Technology | 1735-1472 | [S85680945](https://openalex.org/S85680945) | 8 |
-| Journal of Applied Electrochemistry | 0021-891X | [S111985066](https://openalex.org/S111985066) | 8 |
 | Journal of Applied Physics | 0021-8979 | [S187991544](https://openalex.org/S187991544) | 8 |
 | Journal of Asian Natural Products Research | 1028-6020 | [S201142877](https://openalex.org/S201142877) | 8 |
 | Journal of Proteins and Proteomics | 0975-8151 | [S2764942636](https://openalex.org/S2764942636) | 8 |
@@ -424,7 +420,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Sustainable Chemistry and Pharmacy | 2352-5541 | [S2898513339](https://openalex.org/S2898513339) | 8 |
 | The Canadian Journal of Chemical Engineering | 0008-4034 | [S83557516](https://openalex.org/S83557516) | 8 |
 | Ultrasonics Sonochemistry | 1350-4177 | [S130447213](https://openalex.org/S130447213) | 8 |
-| Vacuum | 0042-207X | [S86481247](https://openalex.org/S86481247) | 8 |
 | Advanced Powder Technology | 0921-8831 | [S9304834](https://openalex.org/S9304834) | 7 |
 | Advanced Science | 2198-3844 | [S2737737698](https://openalex.org/S2737737698) | 7 |
 | Advances in Colloid and Interface Science | 0001-8686 | [S28247071](https://openalex.org/S28247071) | 7 |
@@ -434,6 +429,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Bioconjugate Chemistry | 1043-1802 | [S155115410](https://openalex.org/S155115410) | 7 |
 | Bioelectrochemistry | 1567-5394 | [S99498898](https://openalex.org/S99498898) | 7 |
 | Cellulose | 0969-0239 | [S130536152](https://openalex.org/S130536152) | 7 |
+| ChemBioChem | 1439-4227 | [S154285657](https://openalex.org/S154285657) | 7 |
 | Clean Technologies and Environmental Policy | 1618-954X | [S101593883](https://openalex.org/S101593883) | 7 |
 | Current Environmental Engineering | 2212-7178 | [S4210181111](https://openalex.org/S4210181111) | 7 |
 | Current Organic Synthesis | 1570-1794 | [S107400764](https://openalex.org/S107400764) | 7 |
@@ -448,6 +444,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | International Journal of Pharmaceutics | 0378-5173 | [S131016564](https://openalex.org/S131016564) | 7 |
 | iScience | 2589-0042 | [S2898358376](https://openalex.org/S2898358376) | 7 |
 | IUCrJ | 2052-2525 | [S2737064587](https://openalex.org/S2737064587) | 7 |
+| Journal of Applied Electrochemistry | 0021-891X | [S111985066](https://openalex.org/S111985066) | 7 |
 | Journal of Biological Chemistry | 0021-9258 | [S140251998](https://openalex.org/S140251998) | 7 |
 | Journal of ISAS | 2583-5459 | [S4387288564](https://openalex.org/S4387288564) | 7 |
 | Journal of Macromolecular Science Part B | 0022-2348 | [S118630506](https://openalex.org/S118630506) | 7 |
@@ -466,6 +463,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Russian Journal of Organic Chemistry | 0022-3271 | [S73388172](https://openalex.org/S73388172) | 7 |
 | Spectrochimica Acta Part A Molecular and Biomolecular Spectroscopy | 1386-1425 | [S96873385](https://openalex.org/S96873385) | 7 |
 | Topics in Catalysis | 1022-5528 | [S176313377](https://openalex.org/S176313377) | 7 |
+| Vacuum | 0042-207X | [S86481247](https://openalex.org/S86481247) | 7 |
 | ACS Materials Letters | 2639-4979 | [S4210213087](https://openalex.org/S4210213087) | 6 |
 | ACS Nano | 1936-0851 | [S145476921](https://openalex.org/S145476921) | 6 |
 | ACS Sustainable Resource Management | 2837-1445 | [S4389158299](https://openalex.org/S4389158299) | 6 |
@@ -518,7 +516,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Solid State Ionics | 0167-2738 | [S101472891](https://openalex.org/S101472891) | 6 |
 | Synthetic Metals | 0379-6779 | [S171076697](https://openalex.org/S171076697) | 6 |
 | Transactions of the Indian Institute of Metals | 0972-2815 | [S4210202889](https://openalex.org/S4210202889) | 6 |
-| Zenodo (CERN European Organization for Nuclear Research) |  | [S4306400562](https://openalex.org/S4306400562) | 6 |
 | AAPS PharmSciTech | 1530-9932 | [S1234972](https://openalex.org/S1234972) | 5 |
 | Acta Crystallographica Section B Structural Science Crystal Engineering and Materials | 2052-5192 | [S4210168249](https://openalex.org/S4210168249) | 5 |
 | Acta Crystallographica Section C Structural Chemistry | 2053-2296 | [S4393918092](https://openalex.org/S4393918092) | 5 |
@@ -537,6 +534,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Colloid & Polymer Science | 0303-402X | [S100444939](https://openalex.org/S100444939) | 5 |
 | Comptes Rendus Chimie | 1631-0748 | [S176166730](https://openalex.org/S176166730) | 5 |
 | Current Catalysis | 2211-5447 | [S4210184777](https://openalex.org/S4210184777) | 5 |
+| eLife | 2050-084X | [S1336409049](https://openalex.org/S1336409049) | 5 |
 | European Journal of Lipid Science and Technology | 1438-7697 | [S106501229](https://openalex.org/S106501229) | 5 |
 | European Journal of Pharmacology | 0014-2999 | [S187816532](https://openalex.org/S187816532) | 5 |
 | Food Research International | 0963-9969 | [S38919146](https://openalex.org/S38919146) | 5 |
@@ -554,7 +552,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Journal of Biosciences | 0250-5991 | [S65171370](https://openalex.org/S65171370) | 5 |
 | Journal of Biotechnology | 0168-1656 | [S182099265](https://openalex.org/S182099265) | 5 |
 | Journal of Food Science and Technology | 0022-1155 | [S4210169910](https://openalex.org/S4210169910) | 5 |
-| Journal of King Saud University - Science | 1018-3647 | [S163784168](https://openalex.org/S163784168) | 5 |
 | Journal of Materials Engineering and Performance | 1059-9495 | [S70681891](https://openalex.org/S70681891) | 5 |
 | Journal of Molecular Graphics and Modelling | 1093-3263 | [S76694907](https://openalex.org/S76694907) | 5 |
 | Journal of Molecular Modeling | 0948-5023 | [S113170167](https://openalex.org/S113170167) | 5 |
@@ -596,7 +593,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Cellular and Molecular Neurobiology | 0272-4340 | [S33948212](https://openalex.org/S33948212) | 4 |
 | Chemical Physics | 0301-0104 | [S190037396](https://openalex.org/S190037396) | 4 |
 | Chemical Product and Process Modeling | 1934-2659 | [S56901069](https://openalex.org/S56901069) | 4 |
-| ChemistryOpen | 2191-1363 | [S2488117985](https://openalex.org/S2488117985) | 4 |
 | Clinical Epidemiology and Global Health | 2213-3984 | [S2764432518](https://openalex.org/S2764432518) | 4 |
 | Current Applied Physics | 1567-1739 | [S159232998](https://openalex.org/S159232998) | 4 |
 | Current Bioactive Compounds | 1573-4072 | [S197782650](https://openalex.org/S197782650) | 4 |
@@ -624,6 +620,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Journal of Chromatography B | 1570-0232 | [S103248676](https://openalex.org/S103248676) | 4 |
 | Journal of Coatings Technology and Research | 1547-0091 | [S4210172278](https://openalex.org/S4210172278) | 4 |
 | Journal of Energy and Environmental Sustainability | 2455-2259 | [S4210181181](https://openalex.org/S4210181181) | 4 |
+| Journal of King Saud University - Science | 1018-3647 | [S163784168](https://openalex.org/S163784168) | 4 |
 | Journal of Nanoparticle Research | 1388-0764 | [S194298869](https://openalex.org/S194298869) | 4 |
 | Journal of Photochemistry and Photobiology | 2666-4690 | [S4210219111](https://openalex.org/S4210219111) | 4 |
 | Journal of the mechanical behavior of biomedical materials/Journal of mechanical behavior of biomedical materials | 1751-6161 | [S100249163](https://openalex.org/S100249163) | 4 |
@@ -687,10 +684,10 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Brazilian Archives of Biology and Technology | 1516-8913 | [S175992573](https://openalex.org/S175992573) | 3 |
 | Bulletin of the Korean Chemical Society | 0253-2964 | [S77209346](https://openalex.org/S77209346) | 3 |
 | Carbohydrate Polymer Technologies and Applications | 2666-8939 | [S4210218043](https://openalex.org/S4210218043) | 3 |
-| Characterization and Application of Nanomaterials | 2578-1995 | [S4210210482](https://openalex.org/S4210210482) | 3 |
 | Chem | 2451-9294 | [S2898106599](https://openalex.org/S2898106599) | 3 |
 | Chemical Reviews | 0009-2665 | [S41143188](https://openalex.org/S41143188) | 3 |
 | Chemistry of Heterocyclic Compounds | 0009-3122 | [S110436767](https://openalex.org/S110436767) | 3 |
+| ChemistryOpen | 2191-1363 | [S2488117985](https://openalex.org/S2488117985) | 3 |
 | Chemosensors | 2227-9040 | [S4210174123](https://openalex.org/S4210174123) | 3 |
 | Clinica Chimica Acta | 0009-8981 | [S207549998](https://openalex.org/S207549998) | 3 |
 | Clinical Proteomics | 1542-6416 | [S103738789](https://openalex.org/S103738789) | 3 |
@@ -752,7 +749,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Journal of Proteome Research | 1535-3893 | [S74367812](https://openalex.org/S74367812) | 3 |
 | Journal of Structural Biology | 1047-8477 | [S89954039](https://openalex.org/S89954039) | 3 |
 | Journal of Superconductivity and Novel Magnetism | 1557-1939 | [S89963981](https://openalex.org/S89963981) | 3 |
-| Journal of Visualized Experiments | 1940-087X | [S199738284](https://openalex.org/S199738284) | 3 |
 | Letters in Applied Microbiology | 0266-8254 | [S171033905](https://openalex.org/S171033905) | 3 |
 | Macromolecular Bioscience | 1616-5187 | [S182383103](https://openalex.org/S182383103) | 3 |
 | Materials Circular Economy | 2524-8146 | [S4210179475](https://openalex.org/S4210179475) | 3 |
@@ -784,7 +780,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Progress in Additive Manufacturing | 2363-9512 | [S4210206835](https://openalex.org/S4210206835) | 3 |
 | RASAYAN Journal of Chemistry | 0974-1496 | [S4210208286](https://openalex.org/S4210208286) | 3 |
 | Recent Patents on Biotechnology | 1872-2083 | [S165193634](https://openalex.org/S165193634) | 3 |
-| Regulatory Toxicology and Pharmacology | 0273-2300 | [S87719511](https://openalex.org/S87719511) | 3 |
 | RSC Applied Polymers | 2755-371X | [S4387288668](https://openalex.org/S4387288668) | 3 |
 | Saudi Journal of Biological Sciences | 1319-562X | [S32679471](https://openalex.org/S32679471) | 3 |
 | Sensors | 1424-8220 | [S101949793](https://openalex.org/S101949793) | 3 |
@@ -851,6 +846,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Cellular and Molecular Life Sciences | 1420-682X | [S60362788](https://openalex.org/S60362788) | 2 |
 | Cellular Physiology and Biochemistry | 1015-8987 | [S161399637](https://openalex.org/S161399637) | 2 |
 | Cement and Concrete Composites | 0958-9465 | [S123887920](https://openalex.org/S123887920) | 2 |
+| Characterization and Application of Nanomaterials | 2578-1995 | [S4210210482](https://openalex.org/S4210210482) | 2 |
 | ChemBioEng Reviews | 2196-9744 | [S4210181929](https://openalex.org/S4210181929) | 2 |
 | Chemical Engineering Journal Advances | 2666-8211 | [S4210233595](https://openalex.org/S4210233595) | 2 |
 | Chemical Society Reviews | 0306-0012 | [S316438](https://openalex.org/S316438) | 2 |
@@ -895,7 +891,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | FEBS Letters | 0014-5793 | [S104830714](https://openalex.org/S104830714) | 2 |
 | FEMS Microbiology Letters | 0378-1097 | [S34954451](https://openalex.org/S34954451) | 2 |
 | FEMS Yeast Research | 1567-1356 | [S58380981](https://openalex.org/S58380981) | 2 |
-| Figshare |  | [S4377196282](https://openalex.org/S4377196282) | 2 |
 | Food and Bioprocess Technology | 1935-5130 | [S181365921](https://openalex.org/S181365921) | 2 |
 | Food and Bioproducts Processing | 0960-3085 | [S115749436](https://openalex.org/S115749436) | 2 |
 | Food and Chemical Toxicology | 0278-6915 | [S84231135](https://openalex.org/S84231135) | 2 |
@@ -1016,6 +1011,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Journal of the Science of Food and Agriculture | 0022-5142 | [S206298197](https://openalex.org/S206298197) | 2 |
 | Journal of Trace Elements and Minerals | 2773-0506 | [S4220651556](https://openalex.org/S4220651556) | 2 |
 | Journal of Vacuum Science & Technology B Nanotechnology and Microelectronics Materials Processing Measurement and Phenomena | 2166-2746 | [S4210235835](https://openalex.org/S4210235835) | 2 |
+| Journal of Visualized Experiments | 1940-087X | [S199738284](https://openalex.org/S199738284) | 2 |
 | Kinetics and Catalysis | 0023-1584 | [S205357056](https://openalex.org/S205357056) | 2 |
 | Korean Journal of Chemical Engineering | 0256-1115 | [S197055754](https://openalex.org/S197055754) | 2 |
 | Life Sciences in Space Research | 2214-5524 | [S2764866528](https://openalex.org/S2764866528) | 2 |
@@ -1049,7 +1045,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Molecular Systems Design & Engineering | 2058-9689 | [S4210223080](https://openalex.org/S4210223080) | 2 |
 | mSphere | 2379-5042 | [S4210207018](https://openalex.org/S4210207018) | 2 |
 | Mutagenesis | 0267-8357 | [S101337917](https://openalex.org/S101337917) | 2 |
-| Mutation Research/Genetic Toxicology and Environmental Mutagenesis | 1383-5718 | [S29775604](https://openalex.org/S29775604) | 2 |
 | Nano Letters | 1530-6984 | [S143846845](https://openalex.org/S143846845) | 2 |
 | Nanoscale Horizons | 2055-6756 | [S4210181981](https://openalex.org/S4210181981) | 2 |
 | Nanotechnology Reviews | 2191-9089 | [S4210182563](https://openalex.org/S4210182563) | 2 |
@@ -1064,7 +1059,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | npj Emerging Contaminants | 3059-3719 | [S5407047685](https://openalex.org/S5407047685) | 2 |
 | Oncogene | 0950-9232 | [S128439998](https://openalex.org/S128439998) | 2 |
 | Oncotarget | 1949-2553 | [S126644158](https://openalex.org/S126644158) | 2 |
-| Open Journal of Biological Sciences | 2640-7795 | [S4210176647](https://openalex.org/S4210176647) | 2 |
 | Organic Preparations and Procedures International | 0030-4948 | [S4210169069](https://openalex.org/S4210169069) | 2 |
 | Oriental Journal Of Chemistry | 0970-020X | [S2764376875](https://openalex.org/S2764376875) | 2 |
 | Particuology | 1674-2001 | [S62602987](https://openalex.org/S62602987) | 2 |
@@ -1101,6 +1095,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | PROTOPLASMA | 0033-183X | [S201230245](https://openalex.org/S201230245) | 2 |
 | Reaction Kinetics Mechanisms and Catalysis | 1878-5190 | [S167175129](https://openalex.org/S167175129) | 2 |
 | Reactions | 2624-781X | [S4210207985](https://openalex.org/S4210207985) | 2 |
+| Regulatory Toxicology and Pharmacology | 0273-2300 | [S87719511](https://openalex.org/S87719511) | 2 |
 | Research Journal of Life Sciences Bioinformatics Pharmaceutical and Chemical Sciences | 2454-6348 | [S4210222942](https://openalex.org/S4210222942) | 2 |
 | Results in Surfaces and Interfaces | 2666-8459 | [S4210207554](https://openalex.org/S4210207554) | 2 |
 | Rheologica Acta | 0035-4511 | [S24603639](https://openalex.org/S24603639) | 2 |
@@ -1129,7 +1124,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Transactions of Nonferrous Metals Society of China | 1003-6326 | [S4210194876](https://openalex.org/S4210194876) | 2 |
 | Trends in Parasitology | 1471-4922 | [S182404557](https://openalex.org/S182404557) | 2 |
 | Tribology in Industry | 0354-8996 | [S4210209753](https://openalex.org/S4210209753) | 2 |
-| Tumor Biology | 1010-4283 | [S12644804](https://openalex.org/S12644804) | 2 |
 | UTTAR PRADESH JOURNAL OF ZOOLOGY | 0256-971X | [S2764565682](https://openalex.org/S2764565682) | 2 |
 | Water Practice & Technology | 1751-231X | [S137656717](https://openalex.org/S137656717) | 2 |
 | Water Research | 0043-1354 | [S52566953](https://openalex.org/S52566953) | 2 |
@@ -1338,7 +1332,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Designed Monomers & Polymers | 1385-772X | [S20456899](https://openalex.org/S20456899) | 1 |
 | Detritus | 2611-4127 | [S4210170762](https://openalex.org/S4210170762) | 1 |
 | Diabetes | 0012-1797 | [S129060628](https://openalex.org/S129060628) | 1 |
-| Diagnostic Pathology | 1746-1596 | [S124750060](https://openalex.org/S124750060) | 1 |
 | Diagnostics | 2075-4418 | [S4210172076](https://openalex.org/S4210172076) | 1 |
 | Digital twins and applications. | 2995-2182 | [S4404664149](https://openalex.org/S4404664149) | 1 |
 | Discover Agriculture | 2731-9598 | [S4387290765](https://openalex.org/S4387290765) | 1 |
@@ -1477,7 +1470,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Infectious Diseases Now | 2666-9919 | [S4210196242](https://openalex.org/S4210196242) | 1 |
 | Infectious Medicine | 2097-0684 | [S4210185135](https://openalex.org/S4210185135) | 1 |
 | InfoMat | 2567-3165 | [S4210212605](https://openalex.org/S4210212605) | 1 |
-| Infoscience (Ecole Polytechnique Fédérale de Lausanne) |  | [S4306400487](https://openalex.org/S4306400487) | 1 |
 | Innovative Food Science & Emerging Technologies | 1466-8564 | [S130676932](https://openalex.org/S130676932) | 1 |
 | Inorganic Materials | 0020-1685 | [S70837955](https://openalex.org/S70837955) | 1 |
 | Integrated ferroelectrics | 1026-7530 | [S194927175](https://openalex.org/S194927175) | 1 |
@@ -1760,6 +1752,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Molecular Therapy — Nucleic Acids | 2162-2531 | [S2764969478](https://openalex.org/S2764969478) | 1 |
 | Molecular Therapy — Oncolytics | 2372-7705 | [S2898235705](https://openalex.org/S2898235705) | 1 |
 | MRS Bulletin | 0883-7694 | [S55806205](https://openalex.org/S55806205) | 1 |
+| Mutation Research/Genetic Toxicology and Environmental Mutagenesis | 1383-5718 | [S29775604](https://openalex.org/S29775604) | 1 |
 | Nano hybrids and composites | 2234-9871 | [S4210222556](https://openalex.org/S4210222556) | 1 |
 | Nano Select | 2688-4011 | [S4210201393](https://openalex.org/S4210201393) | 1 |
 | Nano Today | 1748-0132 | [S183222223](https://openalex.org/S183222223) | 1 |
@@ -1790,7 +1783,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Next Sustainability | 2949-8236 | [S4387292877](https://openalex.org/S4387292877) | 1 |
 | NFS Journal | 2352-3646 | [S2898411350](https://openalex.org/S2898411350) | 1 |
 | Nitric Oxide | 1089-8603 | [S152998702](https://openalex.org/S152998702) | 1 |
-| NOT FOUND REPOSITORY (Indian Institute of Science Bangalore) |  | [S4377196309](https://openalex.org/S4377196309) | 1 |
 | npj Biofilms and Microbiomes | 2055-5008 | [S4210229179](https://openalex.org/S4210229179) | 1 |
 | npj Materials Degradation | 2397-2106 | [S4210234193](https://openalex.org/S4210234193) | 1 |
 | npj Microgravity | 2373-8065 | [S4210211936](https://openalex.org/S4210211936) | 1 |
@@ -1807,11 +1799,11 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Oncology Research Featuring Preclinical and Clinical Cancer Therapeutics | 0965-0407 | [S146643948](https://openalex.org/S146643948) | 1 |
 | Open Access Journal of Microbiology & Biotechnology | 2576-7771 | [S4210203039](https://openalex.org/S4210203039) | 1 |
 | Open Access Journal of Science | 2575-9086 | [S4210234537](https://openalex.org/S4210234537) | 1 |
-| Open Archive Toulouse Archive Ouverte (University of Toulouse) |  | [S4306401987](https://openalex.org/S4306401987) | 1 |
 | Open Biology | 2046-2441 | [S80033963](https://openalex.org/S80033963) | 1 |
 | Open Chemistry | 2391-5420 | [S4210229753](https://openalex.org/S4210229753) | 1 |
 | Open Engineering | 2081-9927 | [S2738317984](https://openalex.org/S2738317984) | 1 |
 | Open Forum Infectious Diseases | 2328-8957 | [S2735126445](https://openalex.org/S2735126445) | 1 |
+| Open Journal of Biological Sciences | 2640-7795 | [S4210176647](https://openalex.org/S4210176647) | 1 |
 | Open Journal of Physical Chemistry | 2162-1969 | [S2764559428](https://openalex.org/S2764559428) | 1 |
 | Open Journal of Synthesis Theory and Applications | 2168-1244 | [S4210169739](https://openalex.org/S4210169739) | 1 |
 | OpenNano | 2352-9520 | [S2898377343](https://openalex.org/S2898377343) | 1 |
@@ -1885,7 +1877,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Research & Reviews: Journal of Herbal Science | 2278-2257 | [S4306525889](https://openalex.org/S4306525889) | 1 |
 | Research in Microbiology | 0769-2609 | [S37853641](https://openalex.org/S37853641) | 1 |
 | Research in Pharmaceutical Sciences | 1735-5362 | [S2739408508](https://openalex.org/S2739408508) | 1 |
-| Research Portal (Queen's University Belfast) |  | [S4306402319](https://openalex.org/S4306402319) | 1 |
 | Resources Conservation and Recycling | 0921-3449 | [S18051569](https://openalex.org/S18051569) | 1 |
 | Results in Physics | 2211-3797 | [S2764941219](https://openalex.org/S2764941219) | 1 |
 | Reviews in Chemical Engineering | 0167-8299 | [S186775512](https://openalex.org/S186775512) | 1 |
@@ -1968,6 +1959,7 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Tropical Medicine and Infectious Disease | 2414-6366 | [S2737916383](https://openalex.org/S2737916383) | 1 |
 | Tropical Plant Research | 2349-1183 | [S4210212737](https://openalex.org/S4210212737) | 1 |
 | Tuberculosis | 1472-9792 | [S29633479](https://openalex.org/S29633479) | 1 |
+| Tumor Biology | 1010-4283 | [S12644804](https://openalex.org/S12644804) | 1 |
 | TURKISH JOURNAL OF CHEMISTRY | 1300-0527 | [S185920249](https://openalex.org/S185920249) | 1 |
 | UPI Journal of Pharmaceutical Medical and Health Sciences | 2581-4532 | [S4210224360](https://openalex.org/S4210224360) | 1 |
 | Vegetos | 0970-4078 | [S48234298](https://openalex.org/S48234298) | 1 |
@@ -1994,15 +1986,15 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Физика металлов и металловедение | 0015-3230 | [S99252752](https://openalex.org/S99252752) | 1 |
 | Химико-фармацевтический журнал | 0023-1134 | [S4210218453](https://openalex.org/S4210218453) | 1 |
 
-## Appendix B — Conferences and proceedings (82)
+## Appendix B — Conferences and proceedings (78)
 
 22 conference papers have no venue name in OpenAlex.
 
 | Venue | ISSN | OpenAlex source | Papers |
 |---|---|---|---:|
 | AIP conference proceedings |  | [S2764696622](https://openalex.org/S2764696622) | 25 |
-| ACS symposium series |  | [S205053445](https://openalex.org/S205053445) | 9 |
 | IOP Conference Series Materials Science and Engineering |  | [S4210189194](https://openalex.org/S4210189194) | 8 |
+| ACS symposium series |  | [S205053445](https://openalex.org/S205053445) | 7 |
 | Indian Control Conference |  | [S4306418869](https://openalex.org/S4306418869) | 6 |
 | International Symposium on Embedded Computing and System Design (ISED) |  | [S7407087878](https://openalex.org/S7407087878) | 6 |
 | Communications in computer and information science |  | [S2764900261](https://openalex.org/S2764900261) | 4 |
@@ -2014,7 +2006,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | International Vacuum Nanoelectronics Conference |  | [S4306420253](https://openalex.org/S4306420253) | 3 |
 | Photonics in Dermatology and Plastic Surgery |  | [S7407088441](https://openalex.org/S7407088441) | 3 |
 | Conference on Lasers and Electro-Optics |  | [S4306418073](https://openalex.org/S4306418073) | 2 |
-| Conference on Lasers and Electro-Optics Pacific Rim (CLEO-PR) |  | [S7407089323](https://openalex.org/S7407089323) | 2 |
 | ECS Transactions |  | [S4210205149](https://openalex.org/S4210205149) | 2 |
 | Environmental science and engineering |  | [S4210184122](https://openalex.org/S4210184122) | 2 |
 | IEEE Asia Pacific Conference on Circuits and Systems (APCCAS) |  | [S7407087888](https://openalex.org/S7407087888) | 2 |
@@ -2032,9 +2023,8 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Advances in science and technology |  | [S136072078](https://openalex.org/S136072078) | 1 |
 | Annual Meeting of the Forum for Information Retrieval Evaluation (FIRE) |  | [S7407088045](https://openalex.org/S7407088045) | 1 |
 | ASCE International Airfield and Highway Pavements Conference |  | [S4306501207](https://openalex.org/S4306501207) | 1 |
-| E3S Web of Conferences |  | [S4210186093](https://openalex.org/S4210186093) | 1 |
+| Conference on Lasers and Electro-Optics Pacific Rim (CLEO-PR) |  | [S7407089323](https://openalex.org/S7407089323) | 1 |
 | Frontiers in Optics + Laser Science (FiO, LS) |  | [S4363604389](https://openalex.org/S4363604389) | 1 |
-| HAL (Le Centre pour la Communication Scientifique Directe) |  | [S4306402512](https://openalex.org/S4306402512) | 1 |
 | IEEE International Conference on Advanced Computing (IACC) |  | [S7407087243](https://openalex.org/S7407087243) | 1 |
 | IEEE International Conference on Nanotechnology (IEEE-NANO) |  | [S4363608401](https://openalex.org/S4363608401) | 1 |
 | IEEE International Conference on Power Electronics, Drives and Energy Systems |  | [S4306418702](https://openalex.org/S4306418702) | 1 |
@@ -2045,7 +2035,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | IEEE Power India International Conference |  | [S4306422824](https://openalex.org/S4306422824) | 1 |
 | IEEE Transportation Electrification Conference (ITEC-India) |  | [S4306498168](https://openalex.org/S4306498168) | 1 |
 | IEEE Wireless Communications and Networking Conference |  | [S4210195247](https://openalex.org/S4210195247) | 1 |
-| Infoscience (Ecole Polytechnique Fédérale de Lausanne) |  | [S4306400487](https://openalex.org/S4306400487) | 1 |
 | International Conference on Automation, Computing and Renewable Systems (ICACRS) |  | [S4363607919](https://openalex.org/S4363607919) | 1 |
 | International Conference on Computational Linguistics |  | [S4306419219](https://openalex.org/S4306419219) | 1 |
 | International Conference on Computer and Communication Technology |  | [S4306419230](https://openalex.org/S4306419230) | 1 |
@@ -2077,7 +2066,6 @@ Names, ISSNs and source IDs are from OpenAlex. 17 journal papers have no venue n
 | Procedia Engineering |  | [S45645249](https://openalex.org/S45645249) | 1 |
 | Proceedings of IEEE Southeastcon |  | [S4393917016](https://openalex.org/S4393917016) | 1 |
 | Qatar Foundation Annual Research Conference (ARC) |  | [S4306525075](https://openalex.org/S4306525075) | 1 |
-| Research Portal (Queen's University Belfast) |  | [S4306402319](https://openalex.org/S4306402319) | 1 |
 | SAE technical papers on CD-ROM/SAE technical paper series |  | [S4210202285](https://openalex.org/S4210202285) | 1 |
 | Sustainable civil infrastructures |  | [S4210174136](https://openalex.org/S4210174136) | 1 |
 | Text REtrieval Conference |  | [S4306421043](https://openalex.org/S4306421043) | 1 |

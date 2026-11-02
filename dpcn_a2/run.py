@@ -40,17 +40,11 @@ def run_target(target: str) -> None:
         insights_main()
         build_insights_js()
     elif target == "macro-insights":
-        from src.stats.macro_insights.s21_smart_specialization import run_smart_specialization_analysis
+        # Only Study 1.1 is built: Studies 2.1, 3.1, 5.1 and 5.2 are withdrawn from the dashboard
+        # (D-33) because their inputs are hand-entered values without a source file.
         from src.stats.macro_insights.s11_academic_bridge import run_academic_bridge_analysis
-        from src.stats.macro_insights.s51_frugal_innovation import run_frugal_innovation_analysis
-        from src.stats.macro_insights.s52_patents_vs_papers import run_patents_vs_papers_analysis
-        from src.stats.macro_insights.s31_leiden_benchmarks import run_leiden_benchmarks_analysis
         from src.dashboard.build_macro_insights_bundle import bundle_macro_insights
-        run_smart_specialization_analysis()
         run_academic_bridge_analysis()
-        run_frugal_innovation_analysis()
-        run_patents_vs_papers_analysis()
-        run_leiden_benchmarks_analysis()
         bundle_macro_insights()
     elif target == "test":
         subprocess.run([sys.executable, "-m", "pytest", "tests/"], check=True)

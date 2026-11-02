@@ -30,6 +30,7 @@ import pandas as pd
 from scipy.sparse.linalg import eigs
 
 from src.common.logging import get_logger
+from src.stats.networks import corpus_dois, incorpus_citation_edges, labelled_faculty_graphs
 
 logger = get_logger("s11_nimfa_spreading")
 
@@ -245,10 +246,24 @@ def run_all_simulations():
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
     author_vecs, author_field_shares, author_labs = build_author_profiles()
 
-    fm = pd.read_csv(DATA_FINAL / "faculty_master.csv", keep_default_na=False)
-    matched_fm = fm[fm["author_id"].str.strip().ne("")].copy()
-    fac_names = set(matched_fm["full_name"])
-    fac_lab_map = dict(zip(matched_fm["full_name"], matched_fm["inst_key"].map({"iict": "CSIR-IICT", "ncl": "CSIR-NCL", "cecri": "CSIR-CECRI"})))
+    # Cadre (roster-faculty) graphs come from src/stats/networks.py, keyed by faculty_id and
+    # relabelled to unique display labels, so they match the dashboard and network_summary.csv (D-33)
+    fm = pd.read_csv(DATA_FINAL / "faculty_master.csv", dtype=str, keep_default_na=False)
+    ext_all = pd.read_csv(DATA_FINAL / "group24_data_extended.csv", dtype=str, keep_default_na=False)
+    cite_all = pd.read_csv(DATA_FINAL / "citation_network.csv", dtype=str, keep_default_na=False)
+    FA, FC, _, labels = labelled_faculty_graphs(ext_all, fm, incorpus_citation_edges(cite_all, corpus_dois(ext_all)))
+    fac_names = set(labels.values())
+    fac_lab_map = dict(FA.nodes(data="lab"))
+    # a label with the lab added (two scientists sharing a name) uses the profile of that name
+    name_of = dict(zip(fm["faculty_id"], fm["full_name"]))
+    for fid, lbl in labels.items():
+        nm = name_of[fid]
+        if lbl != nm:
+            if nm in author_vecs:
+                author_vecs[lbl] = author_vecs[nm]
+            if nm in author_field_shares:
+                author_field_shares[lbl] = author_field_shares[nm]
+        author_labs[lbl] = fac_lab_map[lbl]
 
     auth_df = pd.read_csv(DATA_FINAL / "authorship_network.csv", keep_default_na=False)
     cite_df = pd.read_csv(DATA_FINAL / "citation_network.csv", keep_default_na=False)
@@ -265,38 +280,26 @@ def run_all_simulations():
     lcc_nodes_1 = max(nx.connected_components(G1_full), key=len)
     G1 = G1_full.subgraph(lcc_nodes_1).copy()
 
-    # 2. Cadre Co-Authorship
-    cadre_auth = auth_df[auth_df["author_a"].isin(fac_names) & auth_df["author_b"].isin(fac_names)]
+    # 2. Cadre Co-Authorship (scientists with >= 1 faculty co-author)
     G2 = nx.Graph()
-    for a, b in zip(cadre_auth["author_a"], cadre_auth["author_b"]):
-        if a and b and a != b:
-            G2.add_edge(a, b)
+    G2.add_edges_from(FA.edges())
 
     # 3. Full Citation
-    corpus_dois = set(ext_df["doi"]) - {""}
-    in_corpus_cite = cite_df[cite_df["source_doi"].isin(corpus_dois) & cite_df["target_doi"].isin(corpus_dois)]
+    corpus_doi_set = set(ext_df["doi"]) - {""}
+    in_corpus_cite = cite_df[cite_df["source_doi"].isin(corpus_doi_set) & cite_df["target_doi"].isin(corpus_doi_set)]
     G3 = nx.DiGraph()
     for s, t in zip(in_corpus_cite["source_doi"], in_corpus_cite["target_doi"]):
         G3.add_edge(t, s)
 
-    # 4. Cadre Citation
-    fac_ext = ext_df[ext_df["author_role"] == "faculty"]
-    doi_to_fac = fac_ext.groupby("doi")["author"].apply(set).to_dict()
-    fac_cite = cite_df[cite_df["source_doi"].isin(doi_to_fac) & cite_df["target_doi"].isin(doi_to_fac)]
+    # 4. Cadre Citation: information flows from the cited scientist to the citing one
     G4 = nx.DiGraph()
-    for _, r in fac_cite.iterrows():
-        s_facs = doi_to_fac.get(r["source_doi"], set())
-        t_facs = doi_to_fac.get(r["target_doi"], set())
-        for s in s_facs:
-            for t in t_facs:
-                if s != t:
-                    G4.add_edge(t, s)
+    G4.add_edges_from((t, s) for s, t in FC.edges())
 
     networks_dict = {
-        "full_authorship": {"G": G1, "name": "Full Co-Authorship (N=7,509)", "type": "author"},
-        "cadre_authorship": {"G": G2, "name": "Cadre Co-Authorship (N=235)", "type": "cadre_author"},
-        "full_citation": {"G": G3, "name": "Full In-Corpus Citation (N=10,988)", "type": "paper"},
-        "cadre_citation": {"G": G4, "name": "Cadre Faculty Citation (N=245)", "type": "cadre_author"},
+        "full_authorship": {"G": G1, "name": f"Full Co-Authorship (N={G1.number_of_nodes():,})", "type": "author"},
+        "cadre_authorship": {"G": G2, "name": f"Cadre Co-Authorship (N={G2.number_of_nodes():,})", "type": "cadre_author"},
+        "full_citation": {"G": G3, "name": f"Full In-Corpus Citation (N={G3.number_of_nodes():,})", "type": "paper"},
+        "cadre_citation": {"G": G4, "name": f"Cadre Faculty Citation (N={G4.number_of_nodes():,})", "type": "cadre_author"},
     }
 
     full_comparison = {}
@@ -516,11 +519,10 @@ def run_all_simulations():
             G_intra_full_lcc = nx.Graph()
 
         # 2. Intra-Lab Cadre Co-Authorship
-        intra_cadre = cadre_auth[(cadre_auth["inst_a"] == lab) & (cadre_auth["inst_b"] == lab)]
+        # (was zip(intra_cadre["author_a"], cadre_auth["author_b"]): mixed a filtered and an unfiltered
+        #  column, pairing the wrong scientists; D-33)
         G_intra_cadre = nx.Graph()
-        for a, b in zip(intra_cadre["author_a"], cadre_auth["author_b"]):
-            if a and b and a != b:
-                G_intra_cadre.add_edge(a, b)
+        G_intra_cadre.add_edges_from((a, b) for a, b in G2.edges() if fac_lab_map[a] == lab and fac_lab_map[b] == lab)
 
         # 3. Intra-Lab Citation
         intra_cite = in_corpus_cite[(in_corpus_cite["source_inst"] == lab) & (in_corpus_cite["target_inst"] == lab)]

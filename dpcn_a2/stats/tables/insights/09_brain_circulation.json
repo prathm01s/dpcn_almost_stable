@@ -1,7 +1,7 @@
 {
   "id": "09_brain_circulation",
   "question": "How many of our scientists trained in India, worked abroad, and came back, and did time abroad change their research?",
-  "headline": "17.0% of classifiable CSIR scientists are returnees (NCL 17.7% (n=141), IICT 17.0% (n=106), CECRI 11.1% (n=18)); their abroad spell was most often in the US (25 of 45). Their papers' citations do not differ significantly from home-grown peers of similar career age (+8%, 95% CI -20% to +46%); 20.6% of returnees' papers vs 16.9% of home-grown scientists' papers have a foreign co-author.",
+  "headline": "17.0% of classifiable CSIR scientists are returnees (NCL 17.7% (n=141), IICT 17.0% (n=106), CECRI 11.1% (n=18)); their abroad spell was most often in the US (25 of 45). Their papers' citations do not differ significantly from home-grown peers of similar career age (+9%, 95% CI -19% to +47%); 20.5% of returnees' papers vs 16.7% of home-grown scientists' papers have a foreign co-author.",
   "metrics": {
     "n_total_classified": 306,
     "n_classifiable": 265,
@@ -25,14 +25,14 @@
       "GB": 2,
       "SA": 2
     },
-    "ols_adjusted_diff_pct": 7.94,
+    "ols_adjusted_diff_pct": 8.89,
     "ols_95ci": [
-      -19.93,
-      45.52
+      -19.3,
+      46.94
     ],
-    "ols_pvalue": 0.6145,
-    "returnee_foreign_coauthor_pct": 20.64,
-    "homegrown_foreign_coauthor_pct": 16.86,
+    "ols_pvalue": 0.5759,
+    "returnee_foreign_coauthor_pct": 20.49,
+    "homegrown_foreign_coauthor_pct": 16.72,
     "validation_status": "validation pending"
   },
   "chart": {
@@ -102,12 +102,12 @@
             {
               "source": "PhD: Abroad",
               "target": "Host: US",
-              "value": 11
+              "value": 9
             },
             {
               "source": "PhD: Abroad",
               "target": "No Abroad Spell",
-              "value": 9
+              "value": 11
             },
             {
               "source": "PhD: India",
@@ -152,12 +152,12 @@
             {
               "source": "No Abroad Spell",
               "target": "CSIR-NCL",
-              "value": 94
+              "value": 96
             },
             {
               "source": "Host: US",
               "target": "CSIR-NCL",
-              "value": 25
+              "value": 23
             },
             {
               "source": "Host: GB",
@@ -243,6 +243,6 @@
       ]
     }
   },
-  "method_note": "Full OpenAlex career histories of 306 matched roster scientists; 265 classifiable. PhD proxy = main institution on the first 3 papers; abroad spell = \u22652 consecutive years with only non-Indian affiliations and \u22652 papers. OLS on log(1+citations/paper, 2016\u201326) with academic age and lab. Classification validation: validation pending.",
-  "computed_at": "2026-10-26T05:46:34.758371+00:00"
+  "method_note": "Full OpenAlex career histories of 306 matched roster scientists; 265 classifiable. PhD proxy = main institution on the first 3 papers; returnee = Indian PhD proxy, then an abroad spell (\u22652 consecutive years with only non-Indian affiliations and \u22652 papers, starting no earlier than the 3rd paper's year), then an Indian affiliation again. OLS on log(1+citations/paper, 2016\u201326) with academic age and lab. Classification validation: validation pending.",
+  "computed_at": "2026-11-02T17:42:07.437388+00:00"
 }

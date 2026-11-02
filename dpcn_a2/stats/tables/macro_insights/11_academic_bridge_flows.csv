@@ -1,39 +1,39 @@
 csir_lab,academic_hei,tier,c_hei_to_csir,c_csir_to_hei,ker,net_flow
-CSIR-NCL,IISc Bangalore,Tier 1: Elite National Flagship,751,1365,0.55,-614
-CSIR-IICT,IISc Bangalore,Tier 1: Elite National Flagship,282,1068,0.264,-786
-CSIR-CECRI,IISc Bangalore,Tier 1: Elite National Flagship,249,695,0.358,-446
-CSIR-NCL,IIT Bombay,Tier 1: Elite National Flagship,506,674,0.751,-168
-CSIR-IICT,IIT Bombay,Tier 1: Elite National Flagship,357,713,0.501,-356
+CSIR-NCL,IISc Bangalore,Tier 1: Elite National Flagship,745,1351,0.551,-606
+CSIR-IICT,IISc Bangalore,Tier 1: Elite National Flagship,282,1066,0.265,-784
+CSIR-CECRI,IISc Bangalore,Tier 1: Elite National Flagship,249,694,0.359,-445
+CSIR-NCL,IIT Bombay,Tier 1: Elite National Flagship,502,671,0.748,-169
+CSIR-IICT,IIT Bombay,Tier 1: Elite National Flagship,357,711,0.502,-354
 CSIR-CECRI,IIT Bombay,Tier 1: Elite National Flagship,272,297,0.916,-25
-CSIR-NCL,IIT Madras,Tier 1: Elite National Flagship,574,503,1.141,71
-CSIR-IICT,IIT Madras,Tier 1: Elite National Flagship,251,486,0.516,-235
+CSIR-NCL,IIT Madras,Tier 1: Elite National Flagship,574,501,1.146,73
+CSIR-IICT,IIT Madras,Tier 1: Elite National Flagship,251,481,0.522,-230
 CSIR-CECRI,IIT Madras,Tier 1: Elite National Flagship,364,538,0.677,-174
-CSIR-NCL,IIT Delhi,Tier 1: Elite National Flagship,430,564,0.762,-134
+CSIR-NCL,IIT Delhi,Tier 1: Elite National Flagship,429,562,0.763,-133
 CSIR-IICT,IIT Delhi,Tier 1: Elite National Flagship,397,443,0.896,-46
 CSIR-CECRI,IIT Delhi,Tier 1: Elite National Flagship,277,280,0.989,-3
-CSIR-NCL,IIT Kharagpur,Tier 1: Elite National Flagship,411,540,0.761,-129
-CSIR-IICT,IIT Kharagpur,Tier 1: Elite National Flagship,443,759,0.584,-316
+CSIR-NCL,IIT Kharagpur,Tier 1: Elite National Flagship,406,537,0.756,-131
+CSIR-IICT,IIT Kharagpur,Tier 1: Elite National Flagship,443,758,0.584,-315
 CSIR-CECRI,IIT Kharagpur,Tier 1: Elite National Flagship,266,420,0.633,-154
-CSIR-NCL,IIT Kanpur,Tier 1: Elite National Flagship,365,370,0.986,-5
-CSIR-IICT,IIT Kanpur,Tier 1: Elite National Flagship,223,507,0.44,-284
+CSIR-NCL,IIT Kanpur,Tier 1: Elite National Flagship,363,364,0.997,-1
+CSIR-IICT,IIT Kanpur,Tier 1: Elite National Flagship,223,505,0.442,-282
 CSIR-CECRI,IIT Kanpur,Tier 1: Elite National Flagship,306,170,1.8,136
-CSIR-NCL,IIT Roorkee,Tier 1: Elite National Flagship,535,383,1.397,152
+CSIR-NCL,IIT Roorkee,Tier 1: Elite National Flagship,533,383,1.392,150
 CSIR-IICT,IIT Roorkee,Tier 1: Elite National Flagship,368,469,0.785,-101
 CSIR-CECRI,IIT Roorkee,Tier 1: Elite National Flagship,211,213,0.991,-2
-CSIR-NCL,IIT Guwahati,Tier 1: Elite National Flagship,400,331,1.208,69
+CSIR-NCL,IIT Guwahati,Tier 1: Elite National Flagship,399,330,1.209,69
 CSIR-IICT,IIT Guwahati,Tier 1: Elite National Flagship,437,567,0.771,-130
 CSIR-CECRI,IIT Guwahati,Tier 1: Elite National Flagship,219,181,1.21,38
-CSIR-NCL,IIT Hyderabad,Tier 1: Elite National Flagship,304,134,2.269,170
-CSIR-IICT,IIT Hyderabad,Tier 1: Elite National Flagship,351,208,1.688,143
-CSIR-CECRI,IIT Hyderabad,Tier 1: Elite National Flagship,210,84,2.5,126
-CSIR-NCL,SPPU (Pune Univ),Tier 2: Regional State University,808,1156,0.699,-348
+CSIR-NCL,IIT Hyderabad,Tier 1: Elite National Flagship,304,132,2.303,172
+CSIR-IICT,IIT Hyderabad,Tier 1: Elite National Flagship,351,207,1.696,144
+CSIR-CECRI,IIT Hyderabad,Tier 1: Elite National Flagship,210,83,2.53,127
+CSIR-NCL,SPPU (Pune Univ),Tier 2: Regional State University,805,1150,0.7,-345
 CSIR-IICT,SPPU (Pune Univ),Tier 2: Regional State University,280,330,0.848,-50
 CSIR-CECRI,SPPU (Pune Univ),Tier 2: Regional State University,164,153,1.072,11
-CSIR-NCL,Univ of Hyderabad (UoH),Tier 2: Regional State University,272,683,0.398,-411
-CSIR-IICT,Univ of Hyderabad (UoH),Tier 2: Regional State University,401,1149,0.349,-748
-CSIR-CECRI,Univ of Hyderabad (UoH),Tier 2: Regional State University,86,119,0.723,-33
+CSIR-NCL,Univ of Hyderabad (UoH),Tier 2: Regional State University,268,676,0.396,-408
+CSIR-IICT,Univ of Hyderabad (UoH),Tier 2: Regional State University,398,1143,0.348,-745
+CSIR-CECRI,Univ of Hyderabad (UoH),Tier 2: Regional State University,86,117,0.735,-31
 CSIR-NCL,Osmania University,Tier 2: Regional State University,130,140,0.929,-10
-CSIR-IICT,Osmania University,Tier 2: Regional State University,414,542,0.764,-128
+CSIR-IICT,Osmania University,Tier 2: Regional State University,413,540,0.765,-127
 CSIR-CECRI,Osmania University,Tier 2: Regional State University,57,40,1.425,17
 CSIR-NCL,Alagappa University,Tier 2: Regional State University,106,76,1.395,30
 CSIR-IICT,Alagappa University,Tier 2: Regional State University,92,131,0.702,-39
@@ -42,5 +42,5 @@ CSIR-NCL,Anna University (Chennai),Tier 2: Regional State University,200,186,1.0
 CSIR-IICT,Anna University (Chennai),Tier 2: Regional State University,250,422,0.592,-172
 CSIR-CECRI,Anna University (Chennai),Tier 2: Regional State University,464,396,1.172,68
 CSIR-NCL,Madras University,Tier 2: Regional State University,120,117,1.026,3
-CSIR-IICT,Madras University,Tier 2: Regional State University,141,269,0.524,-128
+CSIR-IICT,Madras University,Tier 2: Regional State University,141,268,0.526,-127
 CSIR-CECRI,Madras University,Tier 2: Regional State University,317,232,1.366,85

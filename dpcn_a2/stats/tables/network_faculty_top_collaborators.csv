@@ -1,0 +1,11 @@
+rank,faculty_id,name,institution,faculty_coauthors,shared_papers,betweenness
+1,FAC_NCL_0113,Dr. Rajesh G. Gonnade,CSIR-NCL,38,196,0.09501
+2,FAC_NCL_0069,Dr. Kumar Vanka,CSIR-NCL,31,152,0.11567
+3,FAC_IICT_0174,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,22,79,0.14179
+4,FAC_IICT_0206,Dr. Sunil Misra,CSIR-IICT,22,52,0.11442
+5,FAC_NCL_0041,Dr. Dhiman Sarkar,CSIR-NCL,21,29,0.12174
+6,FAC_NCL_0123,Dr. Sailaja Krishnamurty,CSIR-NCL,20,78,0.02763
+7,FAC_NCL_0010,Dr. Arun Torris,CSIR-NCL,19,75,0.01772
+8,FAC_IICT_0211,Dr. Andugulapati Sai Balagi,CSIR-IICT,19,44,0.05331
+9,FAC_NCL_0144,Dr. Sreekumar Kurungot,CSIR-NCL,18,79,0.01829
+10,FAC_NCL_0109,Dr. R. Nandini Devi,CSIR-NCL,15,35,0.01224

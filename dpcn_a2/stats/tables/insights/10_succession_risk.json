@@ -1,7 +1,7 @@
 {
   "id": "10_succession_risk",
   "question": "How much of each lab's output depends on scientists close to retirement?",
-  "headline": "In CECRI, 46.3% of recent papers (48.6% of their citations) have only roster authors likely to retire within ~5 years (IICT 20.8%, NCL 11.5%). Highest exposure: Electrochemical Process Engineering, CECRI (74.6% of 193 papers).",
+  "headline": "In CECRI, 46.3% of recent papers (36.4\u201351.1% for age cut-offs 32\u201328; 48.6% of their citations) have only roster authors likely to retire within ~5 years (IICT 20.9%, NCL 11.7%). Highest exposure: Electrochemical Process Engineering, CECRI (74.5% of 192 papers).",
   "metrics": {
     "threshold_used": 30,
     "highlight_lab": "CSIR-CECRI",
@@ -14,160 +14,160 @@
     "lab_metrics": {
       "CSIR-IICT": {
         "28": {
-          "total_papers": 1356,
-          "total_citations": 18659,
-          "share_any_papers": 31.42,
-          "share_sole_papers": 25.15,
-          "share_any_citations": 33.07,
+          "total_papers": 1348,
+          "total_citations": 18649,
+          "share_any_papers": 31.45,
+          "share_sole_papers": 25.22,
+          "share_any_citations": 33.08,
           "share_sole_citations": 25.66
         },
         "30": {
-          "total_papers": 1356,
-          "total_citations": 18659,
-          "share_any_papers": 26.25,
-          "share_sole_papers": 20.8,
-          "share_any_citations": 29.73,
-          "share_sole_citations": 23.4
+          "total_papers": 1348,
+          "total_citations": 18649,
+          "share_any_papers": 26.26,
+          "share_sole_papers": 20.85,
+          "share_any_citations": 29.74,
+          "share_sole_citations": 23.41
         },
         "32": {
-          "total_papers": 1356,
-          "total_citations": 18659,
-          "share_any_papers": 15.49,
-          "share_sole_papers": 11.8,
+          "total_papers": 1348,
+          "total_citations": 18649,
+          "share_any_papers": 15.5,
+          "share_sole_papers": 11.87,
           "share_any_citations": 11.79,
           "share_sole_citations": 9.75
         }
       },
       "CSIR-NCL": {
         "28": {
-          "total_papers": 1569,
-          "total_citations": 21163,
-          "share_any_papers": 38.88,
-          "share_sole_papers": 28.94,
-          "share_any_citations": 42.92,
-          "share_sole_citations": 35.96
+          "total_papers": 1537,
+          "total_citations": 21075,
+          "share_any_papers": 39.23,
+          "share_sole_papers": 29.15,
+          "share_any_citations": 42.98,
+          "share_sole_citations": 36.04
         },
         "30": {
-          "total_papers": 1569,
-          "total_citations": 21163,
-          "share_any_papers": 18.1,
-          "share_sole_papers": 11.54,
-          "share_any_citations": 16.22,
-          "share_sole_citations": 12.54
+          "total_papers": 1537,
+          "total_citations": 21075,
+          "share_any_papers": 18.35,
+          "share_sole_papers": 11.71,
+          "share_any_citations": 16.24,
+          "share_sole_citations": 12.59
         },
         "32": {
-          "total_papers": 1569,
-          "total_citations": 21163,
-          "share_any_papers": 11.09,
-          "share_sole_papers": 6.63,
-          "share_any_citations": 7.3,
-          "share_sole_citations": 4.9
+          "total_papers": 1537,
+          "total_citations": 21075,
+          "share_any_papers": 11.26,
+          "share_sole_papers": 6.77,
+          "share_any_citations": 7.29,
+          "share_sole_citations": 4.93
         }
       },
       "CSIR-CECRI": {
         "28": {
-          "total_papers": 380,
-          "total_citations": 11317,
-          "share_any_papers": 52.63,
-          "share_sole_papers": 51.05,
-          "share_any_citations": 56.99,
-          "share_sole_citations": 53.34
+          "total_papers": 376,
+          "total_citations": 11332,
+          "share_any_papers": 52.66,
+          "share_sole_papers": 51.06,
+          "share_any_citations": 57.04,
+          "share_sole_citations": 53.4
         },
         "30": {
-          "total_papers": 380,
-          "total_citations": 11317,
-          "share_any_papers": 48.16,
-          "share_sole_papers": 46.32,
-          "share_any_citations": 52.3,
-          "share_sole_citations": 48.56
+          "total_papers": 376,
+          "total_citations": 11332,
+          "share_any_papers": 48.14,
+          "share_sole_papers": 46.28,
+          "share_any_citations": 52.36,
+          "share_sole_citations": 48.62
         },
         "32": {
-          "total_papers": 380,
-          "total_citations": 11317,
-          "share_any_papers": 38.16,
-          "share_sole_papers": 36.58,
-          "share_any_citations": 43.86,
-          "share_sole_citations": 40.51
+          "total_papers": 376,
+          "total_citations": 11332,
+          "share_any_papers": 38.03,
+          "share_sole_papers": 36.44,
+          "share_any_citations": 43.94,
+          "share_sole_citations": 40.59
         }
       }
     },
     "top_exposed_division": {
       "division": "ELECTROCHEMICAL PROCESS ENGINEERING",
       "lab": "CSIR-CECRI",
-      "total_papers": 193,
-      "sole_papers": 144,
-      "share_sole_pct": 74.61
+      "total_papers": 192,
+      "sole_papers": 143,
+      "share_sole_pct": 74.48
     },
     "all_exposed_divisions": [
       {
-        "division": "Analytical & Structural Chemistry",
-        "lab": "CSIR-IICT",
-        "total_papers": 156,
-        "sole_papers": 8,
-        "share_sole": 5.13
+        "division": "ELECTROCHEMICAL PROCESS ENGINEERING",
+        "lab": "CSIR-CECRI",
+        "total_papers": 192,
+        "sole_papers": 143,
+        "share_sole": 74.48
       },
       {
-        "division": "Applied Biology",
+        "division": "Energy & Environmental Engg.",
         "lab": "CSIR-IICT",
-        "total_papers": 229,
-        "sole_papers": 6,
-        "share_sole": 2.62
+        "total_papers": 139,
+        "sole_papers": 103,
+        "share_sole": 74.1
       },
       {
-        "division": "Biochemical Science Division",
+        "division": "ELECTRODICS AND ELECTROCATALYSIS",
+        "lab": "CSIR-CECRI",
+        "total_papers": 68,
+        "sole_papers": 38,
+        "share_sole": 55.88
+      },
+      {
+        "division": "Fluoro-Agrochemicals",
+        "lab": "CSIR-IICT",
+        "total_papers": 112,
+        "sole_papers": 48,
+        "share_sole": 42.86
+      },
+      {
+        "division": "Polymers & Functional Materials",
+        "lab": "CSIR-IICT",
+        "total_papers": 257,
+        "sole_papers": 78,
+        "share_sole": 30.35
+      },
+      {
+        "division": "Polymer Science and Engineering Division",
         "lab": "CSIR-NCL",
-        "total_papers": 189,
-        "sole_papers": 34,
-        "share_sole": 17.99
+        "total_papers": 233,
+        "sole_papers": 56,
+        "share_sole": 24.03
       },
       {
-        "division": "CECRI CHENNAI UNIT",
-        "lab": "CSIR-CECRI",
-        "total_papers": 31,
-        "sole_papers": 0,
-        "share_sole": 0.0
-      },
-      {
-        "division": "CENTRAL INSTRUMENTATION FACILITY",
-        "lab": "CSIR-CECRI",
-        "total_papers": 45,
-        "sole_papers": 0,
-        "share_sole": 0.0
-      },
-      {
-        "division": "Catalysis & Fine Chemicals",
-        "lab": "CSIR-IICT",
-        "total_papers": 131,
-        "sole_papers": 11,
-        "share_sole": 8.4
-      },
-      {
-        "division": "Catalysis Division",
-        "lab": "CSIR-CECRI",
-        "total_papers": 277,
-        "sole_papers": 23,
-        "share_sole": 8.3
+        "division": "Organic Chemistry Division",
+        "lab": "CSIR-NCL",
+        "total_papers": 289,
+        "sole_papers": 68,
+        "share_sole": 23.53
       },
       {
         "division": "Chemical Engg. & Process Technology (CE & PT)",
         "lab": "CSIR-IICT",
-        "total_papers": 93,
+        "total_papers": 92,
         "sole_papers": 19,
-        "share_sole": 20.43
+        "share_sole": 20.65
+      },
+      {
+        "division": "Biochemical Science Division",
+        "lab": "CSIR-NCL",
+        "total_papers": 187,
+        "sole_papers": 34,
+        "share_sole": 18.18
       },
       {
         "division": "Chemical Engineering & Process Development",
         "lab": "CSIR-NCL",
-        "total_papers": 176,
+        "total_papers": 175,
         "sole_papers": 30,
-        "share_sole": 17.05
-      },
-      {
-        "division": "Contact Number:",
-        "lab": "CSIR-CECRI",
-        "total_papers": 45,
-        "sole_papers": 17,
-        "share_sole": 37.78
+        "share_sole": 17.14
       }
     ]
   },
@@ -198,25 +198,25 @@
           "name": "Papers with only at-risk roster authors",
           "type": "bar",
           "data": [
-            20.8,
-            11.54,
-            46.32
+            20.85,
+            11.71,
+            46.28
           ],
           "itemStyle": {
             "color": "#2563eb"
           },
           "error_range": [
             [
-              11.8,
-              25.15
+              11.87,
+              25.22
             ],
             [
-              6.63,
-              28.94
+              6.77,
+              29.15
             ],
             [
-              36.58,
-              51.05
+              36.44,
+              51.06
             ]
           ]
         },
@@ -224,9 +224,9 @@
           "name": "Citations of those papers",
           "type": "bar",
           "data": [
-            23.4,
-            12.54,
-            48.56
+            23.41,
+            12.59,
+            48.62
           ],
           "itemStyle": {
             "color": "#dc2626"
@@ -237,12 +237,12 @@
               25.66
             ],
             [
-              4.9,
-              35.96
+              4.93,
+              36.04
             ],
             [
-              40.51,
-              53.34
+              40.59,
+              53.4
             ]
           ]
         }
@@ -250,85 +250,85 @@
       "sensitivity_table": {
         "CSIR-IICT": {
           "T_28": {
-            "total_papers": 1356,
-            "total_citations": 18659,
-            "share_any_papers": 31.42,
-            "share_sole_papers": 25.15,
-            "share_any_citations": 33.07,
+            "total_papers": 1348,
+            "total_citations": 18649,
+            "share_any_papers": 31.45,
+            "share_sole_papers": 25.22,
+            "share_any_citations": 33.08,
             "share_sole_citations": 25.66
           },
           "T_30": {
-            "total_papers": 1356,
-            "total_citations": 18659,
-            "share_any_papers": 26.25,
-            "share_sole_papers": 20.8,
-            "share_any_citations": 29.73,
-            "share_sole_citations": 23.4
+            "total_papers": 1348,
+            "total_citations": 18649,
+            "share_any_papers": 26.26,
+            "share_sole_papers": 20.85,
+            "share_any_citations": 29.74,
+            "share_sole_citations": 23.41
           },
           "T_32": {
-            "total_papers": 1356,
-            "total_citations": 18659,
-            "share_any_papers": 15.49,
-            "share_sole_papers": 11.8,
+            "total_papers": 1348,
+            "total_citations": 18649,
+            "share_any_papers": 15.5,
+            "share_sole_papers": 11.87,
             "share_any_citations": 11.79,
             "share_sole_citations": 9.75
           }
         },
         "CSIR-NCL": {
           "T_28": {
-            "total_papers": 1569,
-            "total_citations": 21163,
-            "share_any_papers": 38.88,
-            "share_sole_papers": 28.94,
-            "share_any_citations": 42.92,
-            "share_sole_citations": 35.96
+            "total_papers": 1537,
+            "total_citations": 21075,
+            "share_any_papers": 39.23,
+            "share_sole_papers": 29.15,
+            "share_any_citations": 42.98,
+            "share_sole_citations": 36.04
           },
           "T_30": {
-            "total_papers": 1569,
-            "total_citations": 21163,
-            "share_any_papers": 18.1,
-            "share_sole_papers": 11.54,
-            "share_any_citations": 16.22,
-            "share_sole_citations": 12.54
+            "total_papers": 1537,
+            "total_citations": 21075,
+            "share_any_papers": 18.35,
+            "share_sole_papers": 11.71,
+            "share_any_citations": 16.24,
+            "share_sole_citations": 12.59
           },
           "T_32": {
-            "total_papers": 1569,
-            "total_citations": 21163,
-            "share_any_papers": 11.09,
-            "share_sole_papers": 6.63,
-            "share_any_citations": 7.3,
-            "share_sole_citations": 4.9
+            "total_papers": 1537,
+            "total_citations": 21075,
+            "share_any_papers": 11.26,
+            "share_sole_papers": 6.77,
+            "share_any_citations": 7.29,
+            "share_sole_citations": 4.93
           }
         },
         "CSIR-CECRI": {
           "T_28": {
-            "total_papers": 380,
-            "total_citations": 11317,
-            "share_any_papers": 52.63,
-            "share_sole_papers": 51.05,
-            "share_any_citations": 56.99,
-            "share_sole_citations": 53.34
+            "total_papers": 376,
+            "total_citations": 11332,
+            "share_any_papers": 52.66,
+            "share_sole_papers": 51.06,
+            "share_any_citations": 57.04,
+            "share_sole_citations": 53.4
           },
           "T_30": {
-            "total_papers": 380,
-            "total_citations": 11317,
-            "share_any_papers": 48.16,
-            "share_sole_papers": 46.32,
-            "share_any_citations": 52.3,
-            "share_sole_citations": 48.56
+            "total_papers": 376,
+            "total_citations": 11332,
+            "share_any_papers": 48.14,
+            "share_sole_papers": 46.28,
+            "share_any_citations": 52.36,
+            "share_sole_citations": 48.62
           },
           "T_32": {
-            "total_papers": 380,
-            "total_citations": 11317,
-            "share_any_papers": 38.16,
-            "share_sole_papers": 36.58,
-            "share_any_citations": 43.86,
-            "share_sole_citations": 40.51
+            "total_papers": 376,
+            "total_citations": 11332,
+            "share_any_papers": 38.03,
+            "share_sole_papers": 36.44,
+            "share_any_citations": 43.94,
+            "share_sole_citations": 40.59
           }
         }
       }
     }
   },
-  "method_note": "Distinct 2021\u20132025 papers with \u22651 matched roster author (305 scientists with career data). Academic age = 2026 \u2212 first OpenAlex publication year; at risk = age \u226530, a proxy for \u2264~5 years to CSIR superannuation at 60 (no birth dates available). Divisions with \u226520 papers. Tooltips show thresholds 28 and 32.",
-  "computed_at": "2026-10-26T05:46:45.453983+00:00"
+  "method_note": "Distinct 2021\u20132025 papers with \u22651 matched roster author (305 scientists with career data). Academic age = 2026 \u2212 first OpenAlex publication year; at risk = age \u226530, a proxy for \u2264~5 years to CSIR superannuation at 60 (no birth dates available). Divisions (from the roster, per lab) with \u226520 papers; a division's paper counts as exposed when all of that division's roster authors on it are at risk. Tooltips show thresholds 28 and 32.",
+  "computed_at": "2026-11-02T17:43:02.901431+00:00"
 }

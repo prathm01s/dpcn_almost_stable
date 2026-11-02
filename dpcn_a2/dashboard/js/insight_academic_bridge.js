@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
   
+  bindBridgeNumbers();
   initKerChart();
   initFlowChart();
   renderBridgeTable();
@@ -189,4 +190,34 @@ function renderBridgeTable() {
     `;
     tbody.appendChild(tr);
   });
+}
+
+// Numbers in the headline cards and explanations come from the data bundle (D-33)
+function bindBridgeNumbers() {
+  const D = window.G24_ACADEMIC_BRIDGE_DATA;
+  const rows = (D.institutions_evaluated || []).slice();
+  const f = n => Number(n || 0).toLocaleString();
+  const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+  const total = rows.reduce((a, r) => a + r.c_in_received_from_hei + r.c_out_sent_to_hei, 0);
+  set("ab-k1", f(total));
+  set("ab-k1s", `Citations between the three labs' papers and the ${rows.length} institutions, both directions.`);
+  set("ab-lead-n", `In total, ${f(total)} such citation links.`);
+  const ok = rows.filter(r => r.c_out_sent_to_hei > 0 && r.c_in_received_from_hei > 0);
+  const byKer = ok.slice().sort((a, b) => b.ker - a.ker);
+  const hi = byKer[0], lo = byKer[byKer.length - 1];
+  const net = rows.slice().sort((a, b) => b.net_citation_delta - a.net_citation_delta)[0];
+  if (hi) { set("ab-k2", `${hi.ker.toFixed(2)}×`); set("ab-k2s", `<b>${hi.academic_institution}</b> cites the labs ${f(hi.c_in_received_from_hei)} times; the labs cite it ${f(hi.c_out_sent_to_hei)} times.`); }
+  if (lo) { set("ab-k3", `${lo.ker.toFixed(2)}×`); set("ab-k3s", `The labs cite <b>${lo.academic_institution}</b> ${f(lo.c_out_sent_to_hei)} times; it cites the labs ${f(lo.c_in_received_from_hei)} times.`); }
+  if (net) { set("ab-k4", `${net.net_citation_delta >= 0 ? "+" : ""}${f(net.net_citation_delta)}`); set("ab-k4s", `Citations received from <b>${net.academic_institution}</b> minus citations given to it (K<sub>ER</sub> ${net.ker.toFixed(2)}).`); }
+  const exp = byKer.filter(r => r.ker >= 1), imp = byKer.filter(r => r.ker < 1);
+  set("ab-interp-ker",
+    `K<sub>ER</sub> above 1 means the institution cites the labs more than the labs cite it. ` +
+    `${exp.length} of ${ok.length} institutions are above 1` + (exp.length ? ` (highest: ${exp.slice(0, 3).map(r => `${r.academic_institution} ${r.ker.toFixed(2)}`).join(", ")})` : "") + `; ` +
+    `${imp.length} are below 1` + (imp.length ? ` (lowest: ${imp.slice(-3).reverse().map(r => `${r.academic_institution} ${r.ker.toFixed(2)}`).join(", ")})` : "") + `. ` +
+    `The ratio describes citation direction only; it does not show why researchers cite each other.`);
+  const big = rows.slice().sort((a, b) => (b.c_in_received_from_hei + b.c_out_sent_to_hei) - (a.c_in_received_from_hei + a.c_out_sent_to_hei))[0];
+  set("ab-interp-flow",
+    `Points near the diagonal exchange about as many citations in each direction as they receive. ` +
+    (big ? `The largest exchange is with ${big.academic_institution}: ${f(big.c_out_sent_to_hei)} citations from the labs and ${f(big.c_in_received_from_hei)} to the labs. ` : "") +
+    `Counts are citation links (a lab-paper pair counted once per lab), not distinct papers.`);
 }
