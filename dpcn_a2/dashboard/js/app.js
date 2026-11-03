@@ -364,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const keys = ["iict", "ncl", "cecri", "all"];
     const names = { iict: "CSIR-IICT", ncl: "CSIR-NCL", cecri: "CSIR-CECRI", all: "All three" };
     const stats = keys.map(k => impactStats(filteredPapersFor(k), threshold));
-    const label = { show: true, position: "top", formatter: p => `${p.value.toFixed(1)}%` };
+    const label = { show: true, position: "top", formatter: p => `${p.value.toFixed(1)}%`, color: ink().text, textBorderWidth: 0, fontWeight: 600 };
 
     charts.impactRatio.setOption({
       tooltip: {
@@ -458,7 +458,7 @@ document.addEventListener("DOMContentLoaded", () => {
       series: irFixed.map((t, i) => ({
         name: `IR > ${t}`, type: "bar", itemStyle: { color: tColors[i % 2] },
         data: keys.map(k => byKey[k].above[t].length),
-        label: { show: true, position: "top", formatter: p => `${p.value} (${(byKey[keys[p.dataIndex]].n ? p.value / byKey[keys[p.dataIndex]].n * 100 : 0).toFixed(1)}%)`, fontSize: 10 },
+        label: { show: true, position: "top", formatter: p => `${p.value} (${(byKey[keys[p.dataIndex]].n ? p.value / byKey[keys[p.dataIndex]].n * 100 : 0).toFixed(2)}%)`, fontSize: 11, fontWeight: 600, color: ink().text, textBorderWidth: 0 },
       })),
     }, true);
 
@@ -1360,12 +1360,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const q = st.q.toLowerCase().trim();
     let nodes = nd.nodes.filter(n => {
       if (st.inst !== "all" && st.inst !== "cross" && n.inst !== st.inst) return false;
-      if (isCite && n.in_degree < st.min) return false;
       return true;
     });
     const ids = new Set(nodes.map(n => n.id));
     let links = nd.links.filter(l => ids.has(l.source) && ids.has(l.target)
-      && (isCite || l.weight >= st.min) && (st.inst !== "cross" || l.is_cross));
+      && l.weight >= st.min && (st.inst !== "cross" || l.is_cross));
     let hit = null;
     if (q) {
       hit = new Set(nodes.filter(n => n.name.toLowerCase().includes(q)).map(n => n.id));

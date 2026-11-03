@@ -469,7 +469,7 @@
           <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
             <div>
               <div class="card-title"><span class="panel-tag">Panel 10</span>Faculty citation network</div>
-              <div class="card-subtitle">Directed · node size = citations received from other scientists · click a scientist for their profile</div>
+              <div class="card-subtitle">Directed · line thickness = paper-to-paper citations · node size = citations received from other scientists · click a scientist for their profile</div>
             </div>
           <div class="net-toolbar">
             <div class="net-control-group">
@@ -483,8 +483,8 @@
               </select>
             </div>
             <div class="net-control-group">
-              <label for="fac-cite-slider">Min. citations received: <span id="fac-cite-slider-val" class="net-slider-val">5</span></label>
-              <input type="range" id="fac-cite-slider" min="0" max="50" value="5" class="net-slider">
+              <label for="fac-cite-slider" title="Hide weak links: a link A → B is drawn only if papers of A cite papers of B at least this many times">Min. citations per link: <span id="fac-cite-slider-val" class="net-slider-val">5</span></label>
+              <input type="range" id="fac-cite-slider" min="1" max="30" value="5" class="net-slider">
             </div>
             <div class="net-control-group">
               <input type="text" id="fac-cite-search" placeholder="Search scientist name..." class="net-search-input">
