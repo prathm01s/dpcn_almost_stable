@@ -226,7 +226,13 @@
             ${(p.top_papers || []).map(t => `<div class="prof-pub">
               ${t.doi ? `<a href="${esc(t.doi)}" target="_blank" rel="noopener">${esc(t.title)}</a>` : `<span class="prof-pub-title">${esc(t.title)}</span>`}
               <div class="meta">${esc(t.journal)} · ${t.year}${t.quartile ? ` · ${esc(t.quartile)}` : ""} · <b>${fmt(t.citations)}</b> citations${t.references ? ` · ${fmt(t.references)} refs · IR <b>${t.ir.toFixed(2)}</b>` : ""}</div>
-            </div>`).join("")}
+  `).join("")}
+            ${(p.top_if || []).length ? `<div class="prof-section-title" style="margin-top:1.1rem;">Top 10 publications by journal impact factor</div>
+            <div class="prof-section-sub">Journal IF = SCImago 2-year cites per document in the paper's year (Scopus-based)</div>
+            ${p.top_if.map(t => `<div class="prof-pub">
+              ${t.doi ? `<a href="${esc(t.doi)}" target="_blank" rel="noopener">${esc(t.title)}</a>` : `<span class="prof-pub-title">${esc(t.title)}</span>`}
+              <div class="meta">${esc(t.journal_name)} · ${t.year} · IF <b>${t.journal_if == null ? "–" : Number(t.journal_if).toFixed(1)}</b>${t.quartile ? ` · ${esc(t.quartile)}` : ""} · ${fmt(t.citations)} citations</div>
+            </div>`).join("")}` : ""}
           </div>
           <div style="display:flex; flex-direction:column; gap:1.25rem;">
             <div class="card">

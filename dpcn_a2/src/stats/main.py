@@ -9,6 +9,7 @@ Executes:
 3. src.stats.make_report -> compiles PowerPoint report (<=10 slides) and PDF in stats/report/
 """
 
+from src.stats.phase2 import run_phase2
 from src.stats.metrics import run_metrics_computation
 from src.stats.connectivity import run_connectivity_metrics
 from src.stats.networks import run_network_metrics
@@ -26,6 +27,7 @@ def main() -> None:
     run_connectivity_metrics()
     run_network_metrics()
     run_impact_ratio()
+    run_phase2()
     run_figure_generation()
     run_report_generation()
     logger.info("=== Phase 2 Completed Successfully! ===")

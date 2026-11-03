@@ -1,0 +1,5 @@
+institution,active_faculty,papers,q1_papers,q1_if_gt5,q1_if_gt10,papers_with_if,papers_lt10_authors,papers_ge10_authors,papers_ge30_authors,papers_100plus_authors,mean_authors,collab_institutions,collab_institutions_indian,collab_institutions_foreign,collab_countries,intl_papers_pct
+CSIR-IICT,129,6123,3138,1442,229,5684,5743,380,9,6,5.53,1724,594,1130,74,22.11
+CSIR-NCL,151,5316,3414,1556,387,5061,4970,346,9,2,5.16,1564,571,993,76,18.19
+CSIR-CECRI,26,2870,2010,1143,206,2740,2735,135,4,2,5.2,1040,376,664,69,30.35
+Group 24 Combined,306,14208,8487,4098,815,13386,13364,844,17,6,5.29,3027,933,2094,95,22.32

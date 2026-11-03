@@ -11,6 +11,7 @@ import networkx as nx
 import pandas as pd
 
 from src.common.logging import get_logger
+from src.stats.journal_if import journal_if_lookup  # noqa: F401  (shared with src/stats)
 from src.stats.networks import (
     authorship_graph, citation_graph, corpus_dois, incorpus_citation_edges, lab_authorship_edges,
 )
@@ -44,44 +45,6 @@ def ordered_subgraph(G: "nx.Graph", nodes) -> "nx.Graph":
     H.add_nodes_from((n, G.nodes[n]) for n in G if n in keep)
     H.add_edges_from((u, v, d) for u, v, d in G.edges(data=True) if u in keep and v in keep)
     return H
-
-
-def journal_if_lookup(df_papers: pd.DataFrame) -> Dict[str, float]:
-    """work_id -> SCImago 'Cites / Doc. (2 years)' of the journal, an impact-factor analogue on Scopus data.
-
-    Taken from the same SCImago year as the paper's quartile (quartile_year_used), matched on issn / issn_l and
-    then on the cleaned journal title, as in step 08. Not Clarivate's JIF. Papers without a quartile get no value.
-    """
-    import importlib
-    import pyreadr
-    from src.common.issn import to_sjr_issn
-
-    step08 = importlib.import_module("src.collect.08_resolve_quartiles")
-    sjr = list(pyreadr.read_r("data/external/sjr_journals.rda").values())[0]
-    sjr = sjr[(sjr["year"] >= 2014) & sjr["citations_doc_2years"].notna()]
-    by_issn: Dict[tuple, float] = {}
-    by_title: Dict[tuple, float] = {}
-    for yr, issns, title, cd in zip(sjr["year"].astype(int), sjr["issn"], sjr["title"], sjr["citations_doc_2years"]):
-        for i in step08.parse_issns_from_sjr(issns):
-            by_issn[(yr, i)] = float(cd)
-        t = step08.clean_title_for_match(title)
-        if t:
-            by_title[(yr, t)] = float(cd)
-
-    out: Dict[str, float] = {}
-    for wid, yr, issn, issn_l, journal in df_papers.loc[
-        df_papers["quartile_year_used"].astype(str) != "",
-        ["work_id", "quartile_year_used", "issn", "issn_l", "journal_name"],
-    ].itertuples(index=False):
-        y = int(float(yr))
-        keys = [(y, k) for k in (to_sjr_issn(str(issn)), to_sjr_issn(str(issn_l))) if k]
-        val = next((by_issn[k] for k in keys if k in by_issn), None)
-        if val is None:
-            val = by_title.get((y, step08.clean_title_for_match(journal)))
-        if val is not None:
-            out[wid] = round(val, 2)
-    logger.info(f"Journal IF (SCImago 2-yr cites/doc) for {len(out):,} papers")
-    return out
 
 
 def build_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
@@ -383,6 +346,38 @@ def build_faculty_network_payload(df_ext: pd.DataFrame) -> Dict[str, Any]:
     }
 
 
+def build_phase2_payload() -> Dict[str, Any]:
+    """Phase II tables (src/stats/phase2.py) for the dashboard, keyed by institute key where per-lab (D-34)."""
+    def recs(name: str) -> List[Dict[str, Any]]:
+        return json.loads(load_csv(name).to_json(orient="records"))
+
+    def by_inst(name: str) -> Dict[str, List[Dict[str, Any]]]:
+        out: Dict[str, List[Dict[str, Any]]] = {}
+        for r in recs(name):
+            out.setdefault(INST_KEY_MAP.get(r.pop("institution"), "other"), []).append(r)
+        return out
+
+    top10 = {}
+    for r in recs("phase2_faculty_top10_by_if.csv"):
+        top10.setdefault(r.pop("faculty_id"), []).append(r)
+    return {
+        "overview": {INST_KEY_MAP[r["institution"]]: r for r in recs("phase2_overview.csv")},
+        "overview_by_year": by_inst("phase2_overview_by_year.csv"),
+        "faculty": recs("phase2_faculty_comparison.csv"),
+        "faculty_top10_if": top10,
+        "top30_if": by_inst("phase2_top30_by_if.csv"),
+        "journals": by_inst("phase2_frequent_journals.csv"),
+        "large_papers": recs("phase2_large_author_papers.csv"),
+        "inst_nodes": recs("phase2_institution_network_nodes.csv"),
+        "inst_edges": recs("phase2_institution_network_edges.csv"),
+        "temporal": recs("phase2_temporal.csv"),
+        "citing_sectors": recs("phase2_citing_sectors.csv"),
+        "citing_by_year": recs("phase2_citing_sectors_by_year.csv"),
+        "citing_diag": recs("phase2_citing_institutions_diagnostics.csv"),
+        "checks": recs("phase2_data_checks.csv"),
+    }
+
+
 def build_impact_ratio_payload() -> Dict[str, Any]:
     """Thresholds and authoritative (unfiltered) IR summary from stats/tables/impact_ratio_summary.csv."""
     from src.stats.impact_ratio import settings
@@ -504,6 +499,7 @@ def run_build_dashboard_data() -> None:
         "papers_compact": compact_papers,
         "network": build_network_payload(df_ext),
         "network_faculty": build_faculty_network_payload(df_ext),
+        "phase2": build_phase2_payload(),
         "impact_ratio": build_impact_ratio_payload(),
         "connectivity": build_connectivity_payload(),
     }

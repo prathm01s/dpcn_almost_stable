@@ -44,6 +44,15 @@ def build_profiles() -> dict:
     hubs = hubs[hubs["scope"] == "Group 24 Combined"].set_index("author_openalex_id")
 
     papers = ext.drop_duplicates("work_id").set_index("work_id")
+    top_if_path = Path("stats/tables/phase2_faculty_top10_by_if.csv")
+    top_if = {}
+    if top_if_path.exists():  # Phase II: each scientist's 10 papers in the highest-IF journals (D-34)
+        tif = pd.read_csv(top_if_path, keep_default_na=False)
+        for fid, g in tif.groupby("faculty_id"):
+            top_if[fid] = [{"title": r.title, "journal_name": r.journal_name, "year": int(r.year),
+                            "journal_if": float(r.journal_if) if r.journal_if != "" else None,
+                            "quartile": r.quartile, "citations": int(r.citations), "doi": r.doi}
+                           for r in g.sort_values("rank").itertuples()]
     rc = pd.read_csv("data/final/work_reference_counts.csv", dtype={"references_count": "Int64"})
     refs_of = {w: int(n) for w, n in zip(rc["work_id"], rc["references_count"]) if not pd.isna(n) and int(n) > 0}
     papers["citations_i"] = papers["citations"].astype(int)
@@ -124,6 +133,7 @@ def build_profiles() -> dict:
                                "ir": round(int(r["citations_i"]) / refs_of[wid], 2) if refs_of.get(wid) else None}
                               for wid, r in top.iterrows()]
 
+        prof["top_if"] = top_if.get(fid, [])
         partners = Counter(i for c in wp["coauthor_institutes"] for i in _split(c))
         prof["partners"] = [{"name": k, "papers": v} for k, v in partners.most_common(TOP_PARTNERS)]
 

@@ -29,6 +29,7 @@
           <a href="#areas" class="nav-link" data-sec="areas">Research Areas</a>
           <a href="#citations" class="nav-link" data-sec="citations">Citation Network</a>
           <a href="#coauthorship" class="nav-link" data-sec="coauthorship">Co-authorship</a>
+          <a href="#institutions" class="nav-link" data-sec="institutions">Institutions</a>
           <a href="#india" class="nav-link" data-sec="india">India Links</a>
           <a href="#data" class="nav-link" data-sec="data">Data & Methods</a>
       </nav>
@@ -189,7 +190,7 @@
   <section id="findings" class="page-section section-findings" data-label="Key Findings">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">01</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">01</span> / 10</div>
         <h2 class="section-title">Key Findings</h2>
         <p class="section-lead">Eleven questions we asked of the data beyond the descriptive statistics. Each box gives the answer in one number; click a box to see the chart, the full result and the method.</p>
       </header>
@@ -228,10 +229,23 @@
   <section id="trends" class="page-section" data-label="Trends">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">02</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">02</span> / 10</div>
         <h2 class="section-title">Publication Trends &amp; Journal Quality</h2>
         <p class="section-lead">How many papers the labs publish each year, how many appear in top-quartile (Q1) journals, and how the journal quartile compares with a citation-based Q1.</p>
       </header>
+
+      <div class="card p2-card" id="p2-overview-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title"><span class="panel-tag">Phase II</span>Institutional overview, 2016–2026</div>
+          <div class="card-subtitle">Faculty, papers and Q1 papers; Q1 papers in journals with IF &gt; 5 and IF &gt; 10; papers by number of authors; collaborating institutions. IF = SCImago 2-year cites per document (Scopus-based, not Clarivate's JIF). Authors = all authors listed by OpenAlex.</div>
+        </div></div>
+        <div style="overflow-x: auto;"><table class="net-table p2-table" id="p2-overview-table"></table></div>
+        <div class="grid-2" style="margin: 1.25rem 0 0;">
+          <div id="chart-p2-authors" class="chart-container" style="height: 340px;" role="img" aria-label="Papers per year by number of authors"></div>
+          <div id="chart-p2-collab" class="chart-container" style="height: 340px;" role="img" aria-label="Collaborating institutions per year"></div>
+        </div>
+        <div class="net-note" id="p2-overview-note"></div>
+      </div>
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
@@ -292,7 +306,7 @@
   <section id="faculty" class="page-section" data-label="Faculty">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">03</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">03</span> / 10</div>
         <h2 class="section-title">Faculty &amp; Divisions</h2>
         <p class="section-lead">The scientists behind the papers: most-cited scientists, the full faculty table (click any name for a profile), the h-index distribution and division performance.</p>
       </header>
@@ -315,6 +329,24 @@
           </div>
         </div>
         <div id="table-faculty" style="height: 420px;"></div>
+      </div>
+
+      <div class="card p2-card" id="p2-faculty-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title"><span class="panel-tag">Phase II</span>Faculty comparison</div>
+          <div class="card-subtitle">Papers, Q1 papers (and in IF &gt; 5 / IF &gt; 10 journals), citations, collaborations and flags for every scientist with papers. Papers at the scientist's own lab; students stay in paper counts but are not faculty. Click a name for the profile.</div>
+        </div></div>
+        <div class="p2-leaders" id="p2-leaders"></div>
+        <div id="table-p2-faculty" style="height: 460px; margin-top: 1rem;"></div>
+        <div class="net-note" id="p2-faculty-note"></div>
+      </div>
+
+      <div class="card p2-card" id="p2-large-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title">Flagged: papers with 30 or more authors</div>
+          <div class="card-subtitle">Consortium and multi-centre papers. Their citations say little about one lab's contribution; scientists whose citations come mainly from such papers are flagged above.</div>
+        </div></div>
+        <div style="overflow-x: auto;"><table class="net-table p2-table" id="p2-large-table"></table></div>
       </div>
 
       <div class="grid-2">
@@ -346,7 +378,7 @@
   <section id="journals" class="page-section" data-label="Journals">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">04</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">04</span> / 10</div>
         <h2 class="section-title">Journals &amp; Landmark Papers</h2>
         <p class="section-lead">Where the labs publish most, conference ranks, and the ten most-cited papers.</p>
       </header>
@@ -381,6 +413,22 @@
         </div>
         <div id="table-top-papers" style="height: 440px;"></div>
       </div>
+
+      <div class="card p2-card" id="p2-top30-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title"><span class="panel-tag">Phase II</span>Top 30 publications by journal impact factor</div>
+          <div class="card-subtitle">Papers in the journals with the highest IF (SCImago 2-year cites per document in the paper's year); ties broken by citations. Follows the institute buttons.</div>
+        </div></div>
+        <div id="table-p2-top30" style="height: 520px;"></div>
+      </div>
+
+      <div class="card p2-card" id="p2-journals-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title">Most frequently used journals (top 20)</div>
+          <div class="card-subtitle">Journals with the most papers; IF = median over the lab's papers in that journal.</div>
+        </div></div>
+        <div style="overflow-x: auto;"><table class="net-table p2-table" id="p2-journals-table"></table></div>
+      </div>
     </div>
       <a class="next-sec" href="#areas" aria-label="Next section: Research Areas"><span class="next-sec-label">Next · Research Areas</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
   </section>
@@ -389,7 +437,7 @@
   <section id="areas" class="page-section" data-label="Research Areas">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">05</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">05</span> / 10</div>
         <h2 class="section-title">Research Areas</h2>
         <p class="section-lead">What the labs work on: share of papers by OpenAlex field and the largest subfields.</p>
       </header>
@@ -422,7 +470,7 @@
   <section id="citations" class="page-section" data-label="Citation Network">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">06</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">06</span> / 10</div>
         <h2 class="section-title">Citation Network</h2>
         <p class="section-lead">Who cites whom among the three labs. The main view has one node per faculty scientist on the
           current roster (not students, and each person once). The paper view shows the same citations paper by paper.</p>
@@ -626,7 +674,7 @@
   <section id="coauthorship" class="page-section" data-label="Co-authorship">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">07</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">07</span> / 10</div>
         <h2 class="section-title">Co-authorship Network</h2>
         <p class="section-lead">Who writes with whom. The main view has one node per faculty scientist on the current roster.
           The second view adds every other author of the labs' papers (PhD students, postdocs, project staff), which is why it has thousands of nodes.</p>
@@ -824,6 +872,40 @@
         </div>
       </div>
     </div>
+      <a class="next-sec" href="#institutions" aria-label="Next section: Institutions &amp; Change over Time"><span class="next-sec-label">Next · Institutions &amp; Change over Time</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
+
+  <section id="institutions" class="page-section" data-label="Institutions & Time">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">08</span> / 10</div>
+        <h2 class="section-title">Institutions &amp; Change over Time</h2>
+        <p class="section-lead">Which institutions write papers with the three labs (all countries), and how output, team size and the faculty networks changed from 2016 to 2026.</p>
+      </header>
+
+      <div class="card p2-card" id="p2-inst-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title"><span class="panel-tag">Phase II</span>Institutional co-authorship network</div>
+          <div class="card-subtitle">Nodes = the three labs and their 60 most frequent partner institutions; a line joins two institutions that appear on the same paper (thickness = papers). Colour = sector.</div>
+        </div></div>
+        <div class="net-legend" id="p2-inst-legend"></div>
+        <div id="chart-p2-inst-network" class="net-canvas"></div>
+        <div style="overflow-x: auto; margin-top: 1rem;"><table class="net-table p2-table" id="p2-inst-table"></table></div>
+      </div>
+
+      <div class="card p2-card" id="p2-temporal-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title"><span class="panel-tag">Phase II</span>Temporal analysis</div>
+          <div class="card-subtitle">Four periods (2025–2026 is partial). Faculty networks per period: co-authorship on that period's papers; citation links from papers published in the period.</div>
+        </div></div>
+        <div class="grid-2" style="margin-bottom: 0;">
+          <div id="chart-p2-temporal" class="chart-container" style="height: 340px;" role="img" aria-label="Faculty network by period"></div>
+          <div id="chart-p2-teams" class="chart-container" style="height: 340px;" role="img" aria-label="Team size by period"></div>
+        </div>
+        <div style="overflow-x: auto; margin-top: 1rem;"><table class="net-table p2-table" id="p2-temporal-table"></table></div>
+        <div class="net-note" id="p2-temporal-note"></div>
+      </div>
+    </div>
       <a class="next-sec" href="#india" aria-label="Next section: Links with Other Indian Institutes"><span class="next-sec-label">Next · Links with Other Indian Institutes</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
   </section>
 
@@ -831,10 +913,24 @@
   <section id="india" class="page-section" data-label="India Links">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">08</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">09</span> / 10</div>
         <h2 class="section-title">Links with Other Indian Institutes</h2>
         <p class="section-lead">How the labs connect to the rest of Indian science: citations given and received, partner sectors, top partner institutes and the authors who bridge them.</p>
       </header>
+
+      <div class="card p2-card" id="p2-citing-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title"><span class="panel-tag">Phase II</span>Who cites the labs: non-governmental institutions</div>
+          <div class="card-subtitle">Indian papers outside the corpus that cite the labs, by sector of their institutions. Non-governmental = private universities and companies. The table tests possible reasons why some institutions cite so much.</div>
+        </div></div>
+        <div class="grid-2" style="margin-bottom: 0;">
+          <div id="chart-p2-sector-year" class="chart-container" style="height: 320px;" role="img" aria-label="Share of citing papers from non-governmental institutions"></div>
+          <div id="chart-p2-sectors" class="chart-container" style="height: 320px;" role="img" aria-label="Citing papers by sector"></div>
+        </div>
+        <div class="p2-findings" id="p2-citing-findings"></div>
+        <div id="table-p2-citing" style="height: 520px;"></div>
+        <div class="net-note" id="p2-citing-note"></div>
+      </div>
       <section class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-bottom: 1.25rem;">
         <div class="kpi-card">
           <div class="kpi-label">Papers with Indian Co-authors</div>
@@ -981,10 +1077,33 @@
   <section id="data" class="page-section" data-label="Data & Methods">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">09</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">10</span> / 10</div>
         <h2 class="section-title">Data, Downloads &amp; Methods</h2>
         <p class="section-lead">The submitted files, the report, and the rules behind every number on this page.</p>
       </header>
+
+      <div class="card p2-card" id="p2-checks-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title"><span class="panel-tag">Phase II</span>Data checks: author names and affiliations</div>
+          <div class="card-subtitle">What was checked, how many cases, and how each is handled.</div>
+        </div></div>
+        <div style="overflow-x: auto;"><table class="net-table p2-table" id="p2-checks-table"></table></div>
+      </div>
+
+      <div class="card p2-card" id="p2-sources-card" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title">Data sources, rankings and citation database</div>
+          <div class="card-subtitle">Where every number comes from.</div>
+        </div></div>
+        <ul class="p2-sources">
+          <li><strong>Papers, authors, affiliations, citations, references:</strong> OpenAlex (openalex.org), collected 13 Oct 2026; Indian citing and cited papers queried 20 Oct 2026. Citation counts are OpenAlex cited-by counts.</li>
+          <li><strong>Journal quartiles (Q1–Q4):</strong> SCImago Journal Rank (SJR, Scopus data), best quartile of the paper's year; 2026 papers use 2025.</li>
+          <li><strong>Journal impact factor (IF):</strong> SCImago "Cites / Doc. (2 years)" of the journal in the paper's year — a Scopus-based analogue; Clarivate JCR impact factors are paywalled and not used.</li>
+          <li><strong>Conference ranks:</strong> CORE portal (computer-science venues; chemistry conferences are mostly unranked).</li>
+          <li><strong>Faculty rosters:</strong> official CSIR-NCL, CSIR-IICT and CSIR-CECRI websites; matched to OpenAlex authors; technical staff removed.</li>
+          <li><strong>Institution identities and sectors:</strong> ROR and OpenAlex institution records; sectors by name rules, corrected in <code>config/overrides/sector_overrides.csv</code>.</li>
+        </ul>
+      </div>
       <div class="card" style="margin-bottom: 1.5rem;">
         <div class="card-header">
           <div>
@@ -1033,6 +1152,7 @@
     <a href="#areas" data-sec="areas" aria-label="Research Areas"><span class="dot-label">Research Areas</span><span class="dot"></span></a>
     <a href="#citations" data-sec="citations" aria-label="Citation Network"><span class="dot-label">Citation Network</span><span class="dot"></span></a>
     <a href="#coauthorship" data-sec="coauthorship" aria-label="Co-authorship"><span class="dot-label">Co-authorship</span><span class="dot"></span></a>
+    <a href="#institutions" data-sec="institutions" aria-label="Institutions &amp; Time"><span class="dot-label">Institutions &amp; Time</span><span class="dot"></span></a>
     <a href="#india" data-sec="india" aria-label="India Links"><span class="dot-label">India Links</span><span class="dot"></span></a>
     <a href="#data" data-sec="data" aria-label="Data &amp; Methods"><span class="dot-label">Data & Methods</span><span class="dot"></span></a>
   </nav>

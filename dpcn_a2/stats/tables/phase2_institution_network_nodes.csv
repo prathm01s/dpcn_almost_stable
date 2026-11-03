@@ -1,0 +1,64 @@
+institution_id,name,country_code,sector,papers_with_labs,degree,betweenness
+I99364266,Academy of Scientific and Innovative Research,IN,CSIR,6996,62,0.0786
+I55664587,CSIR-IICT,IN,Assigned lab,6123,62,0.0786
+I3125981224,CSIR-NCL,IN,Assigned lab,5316,59,0.0681
+I106349282,CSIR-CECRI,IN,Assigned lab,2870,53,0.0486
+I66760702,Council of Scientific and Industrial Research,IN,CSIR,2590,62,0.0786
+I878213199,Savitribai Phule Pune University,IN,StateUniv,406,33,0.012
+I8975392,Osmania University,IN,StateUniv,292,30,0.0118
+I82951845,RMIT University,AU,Foreign,272,33,0.0153
+I181996519,Indian Institute of Science Education and Research Pune,IN,IISER,258,32,0.0115
+I185638415,Centre for Cellular and Molecular Biology,IN,CSIR,207,30,0.0101
+I36893310,University of Hyderabad,IN,CentralUniv,178,35,0.0167
+I1329621470,Bhabha Atomic Research Centre,IN,DAE,176,39,0.0196
+I4210146715,National Institute of Pharmaceutical Education and Research,IN,Other,176,25,0.0056
+I1294671590,Centre National de la Recherche Scientifique,FR,Foreign,173,29,0.0112
+I131155284,Alagappa University,IN,StateUniv,171,15,0.0011
+I28022161,King Saud University,SA,Foreign,138,28,0.0106
+I128420443,Central Salt and Marine Chemicals Research Institute,IN,CSIR,124,27,0.0085
+I162827531,Indian Institute of Technology Bombay,IN,IIT,119,28,0.0078
+I74796645,"Birla Institute of Technology and Science, Pilani",IN,Private,117,32,0.0112
+I4210101034,Birla Institute of Technology and Science - Hyderabad Campus,IN,Private,116,29,0.0082
+I127439422,Indian Institute of Science Education and Research Kolkata,IN,IISER,115,20,0.0025
+I145286018,SRM Institute of Science and Technology,IN,Private,115,24,0.006
+I24676775,Indian Institute of Technology Madras,IN,IIT,112,23,0.0064
+I65181880,Indian Institute of Technology Hyderabad,IN,IIT,100,27,0.0078
+I59270414,Indian Institute of Science Bangalore,IN,IISc,98,26,0.0067
+I121750182,National Institute of Technology Warangal,IN,NIT,98,17,0.0018
+I885392262,GITAM University,IN,Private,97,20,0.0027
+I4210152674,National Institute of Pharmaceutical Education and Research,IN,Government,92,20,0.0019
+I200207707,Homi Bhabha National Institute,IN,DAE,89,28,0.009
+I140887281,Goa University,IN,StateUniv,86,17,0.0019
+I88910343,CSIR National Physical Laboratory of India,IN,CSIR,83,18,0.0022
+I146682468,National Institute for Interdisciplinary Science and Technology,IN,CSIR,80,14,0.001
+I10874241,"Jawaharlal Nehru Technological University, Hyderabad",IN,StateUniv,80,19,0.003
+I141641110,Shivaji University,IN,StateUniv,77,12,0.0002
+I876193797,Vellore Institute of Technology University,IN,Private,77,23,0.0061
+I4210154014,National Institute of Pharmaceutical Education and Research,IN,Other,74,14,0.0007
+I177828482,Institute of Genomics and Integrative Biology,IN,CSIR,73,20,0.0026
+I167751958,Institute of Chemical Technology,IN,Other,73,21,0.0034
+I164861460,Manipal Academy of Higher Education,IN,Private,72,20,0.0028
+I94234084,Indian Institute of Technology Kanpur,IN,IIT,71,23,0.0052
+I185249246,Central Drug Research Institute,IN,CSIR,71,23,0.0045
+I83073037,Yogi Vemana University,IN,StateUniv,69,17,0.0027
+I33585257,"Anna University, Chennai",IN,StateUniv,68,18,0.0017
+I4210090783,Institut des Sciences Chimiques de Rennes,FR,Foreign,63,12,0.0005
+I147481903,Jawaharlal Nehru Centre for Advanced Scientific Research,IN,Other,61,18,0.0018
+I4210104670,National Centre for Cell Science,IN,Other,61,14,0.0009
+I4210140410,"Indian Institute of Science Education and Research, Tirupati",IN,IISER,60,16,0.0013
+I91357014,Banaras Hindu University,IN,CentralUniv,60,22,0.0037
+I19716509,Jamia Hamdard,IN,Other,60,22,0.0029
+I56067802,Université de Rennes,FR,Foreign,59,11,0.0003
+I68891433,Indian Institute of Technology Delhi,IN,IIT,59,18,0.0018
+I106826634,Jain University,IN,Private,59,18,0.0018
+I4210108071,Indian Institute of Integrative Medicine,IN,CSIR,58,16,0.0009
+I2800857658,North East Institute of Science and Technology,IN,CSIR,57,16,0.0018
+I170347488,National Environmental Engineering Research Institute,IN,CSIR,57,14,0.0015
+I100887729,Andhra University,IN,StateUniv,56,14,0.0007
+I122964287,National Institute of Technology Tiruchirappalli,IN,NIT,54,14,0.0007
+I4076070,Bharathidasan University,IN,StateUniv,54,18,0.0021
+I887998513,Bharati Vidyapeeth (Deemed to be University),IN,StateUniv,53,17,0.0017
+I81556334,Amrita Vishwa Vidyapeetham,IN,Private,52,24,0.0057
+I80611190,Jeonbuk National University,KR,Foreign,51,9,0.0
+I84279003,Indian Institute of Petroleum,IN,CSIR,51,18,0.0021
+I106053113,Central University of Karnataka,IN,CentralUniv,51,10,0.0002

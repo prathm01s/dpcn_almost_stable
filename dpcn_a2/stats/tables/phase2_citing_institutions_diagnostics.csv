@@ -1,0 +1,30 @@
+institution,sector,non_governmental,citing_papers,citations_to_corpus,refs_to_corpus_per_paper,stacking_pct,shared_author_pct,lab_coauthor_pct,top_author_pct,recent_pct,median_references,median_citing_paper_citations
+Academy of Scientific and Innovative Research,CSIR,False,2440,4098,1.68,4.39,34.92,73.77,1.97,59.51,62.0,8.0
+Saveetha University,Private,True,1880,2372,1.26,0.9,8.35,46.01,1.97,88.56,67.0,9.0
+SRM Institute of Science and Technology,Private,True,1493,2116,1.42,1.41,17.28,62.69,4.89,68.18,60.0,9.0
+Vellore Institute of Technology University,Private,True,1381,1886,1.37,2.03,16.15,46.63,2.17,67.13,64.0,10.0
+Council of Scientific and Industrial Research,CSIR,False,1327,2035,1.53,2.94,32.33,67.52,2.86,49.96,59.0,9.0
+University of Delhi,CentralUniv,False,1057,1390,1.32,1.32,11.73,36.8,2.84,60.36,71.0,9.0
+Banaras Hindu University,CentralUniv,False,969,1248,1.29,1.14,13.73,39.11,4.13,61.2,67.0,9.0
+Savitribai Phule Pune University,StateUniv,False,866,1233,1.42,1.85,42.15,82.45,6.12,58.55,57.0,6.0
+Indian Institute of Technology Kharagpur,IIT,False,850,1117,1.31,1.41,12.94,47.06,7.29,52.94,66.5,13.0
+Chandigarh University,Private,True,843,1072,1.27,1.3,7.0,38.43,3.2,79.95,78.0,6.0
+Jain University,Private,True,831,1232,1.48,2.77,22.38,63.54,12.64,75.45,71.0,8.0
+Lovely Professional University,Private,True,828,1056,1.28,0.85,6.64,34.9,5.31,79.35,85.0,6.0
+Indian Institute of Technology Delhi,IIT,False,822,1098,1.34,1.34,13.26,50.97,5.47,57.06,66.0,11.0
+Indian Institute of Science Bangalore,IISc,False,817,1272,1.56,4.53,24.72,59.12,7.59,52.02,63.0,10.0
+Indian Institute of Technology Guwahati,IIT,False,816,1047,1.28,1.1,12.25,38.48,4.29,57.11,62.0,10.0
+Indian Institute of Technology Madras,IIT,False,806,1181,1.47,2.61,21.71,57.2,5.46,47.89,60.0,12.0
+Indian Institute of Technology Bombay,IIT,False,786,1130,1.44,1.91,20.1,47.33,6.36,49.24,65.0,11.0
+Indian Institute of Technology Roorkee,IIT,False,766,1102,1.44,3.13,16.06,47.78,5.48,61.49,65.0,11.0
+Homi Bhabha National Institute,DAE,False,762,1068,1.4,1.57,26.51,62.07,9.32,61.29,63.0,8.0
+Amity University,Private,True,723,900,1.24,0.83,9.41,37.48,2.35,68.6,80.0,7.0
+Manipal Academy of Higher Education,Private,True,682,887,1.3,1.47,14.37,55.57,4.4,70.97,64.0,8.5
+Bhabha Atomic Research Centre,DAE,False,664,898,1.35,1.36,32.08,77.56,12.8,52.26,61.0,9.5
+"Birla Institute of Technology and Science, Pilani",Private,True,643,953,1.48,2.49,18.97,47.74,6.07,61.59,62.0,11.0
+Indian Institute of Technology BHU,IIT,False,640,831,1.3,0.78,16.25,50.62,5.62,61.41,65.0,10.0
+Institute of Chemical Technology,Other,False,628,884,1.41,1.27,16.56,62.9,7.8,51.75,63.0,10.0
+"Benchmark: IITs, IISc, IISERs",benchmark,,10770,15900,1.48,2.58,21.05,52.88,0.58,56.04,64.0,11.0
+Benchmark: all government and public institutions,benchmark,,40169,57146,1.42,2.12,18.21,45.76,0.22,56.29,63.0,9.0
+"Benchmark: all non-governmental (Private, Industry)",benchmark,,14818,19918,1.34,1.5,13.79,46.73,0.71,71.08,66.0,8.0
+Benchmark: all Indian citing papers,benchmark,,54987,77064,1.4,1.95,17.02,46.02,0.2,60.28,64.0,8.0

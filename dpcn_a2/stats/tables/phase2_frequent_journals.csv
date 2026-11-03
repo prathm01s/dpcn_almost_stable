@@ -1,0 +1,81 @@
+institution,rank,journal_name,papers,share_pct,journal_if,quartile,citations
+CSIR-IICT,1,ChemistrySelect,239,3.9,1.87,Q2,1942
+CSIR-IICT,2,Organic & Biomolecular Chemistry,144,2.35,3.49,Q1,1875
+CSIR-IICT,3,Tetrahedron Letters,128,2.09,2.31,Q2,1194
+CSIR-IICT,4,ChemInform,122,1.99,,,2
+CSIR-IICT,5,The Journal of Organic Chemistry,120,1.96,4.11,Q1,2200
+CSIR-IICT,6,New Journal of Chemistry,119,1.94,3.26,Q1,2282
+CSIR-IICT,7,European Journal of Organic Chemistry,104,1.7,2.87,Q1,1135
+CSIR-IICT,8,Organic Letters,103,1.68,5.65,Q1,2610
+CSIR-IICT,9,RSC Advances,100,1.63,3.24,Q1,2331
+CSIR-IICT,10,Chemical Communications,99,1.62,5.09,Q1,1989
+CSIR-IICT,11,Bioresource Technology,89,1.45,9.81,Q1,5480
+CSIR-IICT,12,Journal of Molecular Structure,79,1.29,4.18,Q2,840
+CSIR-IICT,13,Bioorganic & Medicinal Chemistry Letters,71,1.16,2.68,Q1,2251
+CSIR-IICT,14,European Journal of Medicinal Chemistry,55,0.9,5.01,Q1,1959
+CSIR-IICT,15,Asian Journal of Organic Chemistry,53,0.87,2.58,Q1,506
+CSIR-IICT,16,Synthetic Communications,53,0.87,1.54,Q3,374
+CSIR-IICT,17,Bioorganic Chemistry,52,0.85,4.81,Q2,1354
+CSIR-IICT,18,ACS Omega,51,0.83,2.99,Q1,1225
+CSIR-IICT,19,Chemistry - An Asian Journal,49,0.8,3.19,Q2,483
+CSIR-IICT,20,Chemical Engineering Journal,47,0.77,13.04,Q1,1806
+CSIR-NCL,1,ChemistrySelect,140,2.63,1.86,Q2,1264
+CSIR-NCL,2,Chemical Communications,116,2.18,5.92,Q1,3896
+CSIR-NCL,3,The Journal of Organic Chemistry,106,1.99,4.33,Q1,1674
+CSIR-NCL,4,ACS Omega,97,1.82,2.99,Q1,1890
+CSIR-NCL,5,Organic Letters,94,1.77,6.21,Q1,2653
+CSIR-NCL,6,RSC Advances,91,1.71,3.24,Q1,2468
+CSIR-NCL,7,New Journal of Chemistry,88,1.66,3.26,Q1,1356
+CSIR-NCL,8,Organic & Biomolecular Chemistry,79,1.49,3.49,Q1,1130
+CSIR-NCL,9,ACS Applied Materials & Interfaces,72,1.35,8.33,Q1,4112
+CSIR-NCL,10,Chemistry - An Asian Journal,56,1.05,3.63,Q1,674
+CSIR-NCL,11,The Journal of Physical Chemistry C,54,1.02,4.12,Q1,1256
+CSIR-NCL,12,The Journal of Physical Chemistry B,51,0.96,3.1,Q1,1034
+CSIR-NCL,13,Angewandte Chemie International Edition,50,0.94,14.43,Q1,3960
+CSIR-NCL,14,ChemInform,50,0.94,,,0
+CSIR-NCL,15,International Journal of Biological Macromolecules,45,0.85,7.96,Q1,1407
+CSIR-NCL,16,Scientific Reports,44,0.83,4.46,Q1,2379
+CSIR-NCL,17,Chemistry - A European Journal,44,0.83,4.77,Q1,1438
+CSIR-NCL,18,Crystal Growth & Design,44,0.83,3.98,Q1,1153
+CSIR-NCL,19,European Journal of Organic Chemistry,43,0.81,2.9,Q1,451
+CSIR-NCL,20,Industrial & Engineering Chemistry Research,42,0.79,3.91,Q1,660
+CSIR-CECRI,1,Electrochimica Acta,77,2.68,5.61,Q1,2981
+CSIR-CECRI,2,Journal of Materials Chemistry A,68,2.37,9.19,Q1,3134
+CSIR-CECRI,3,ChemistrySelect,66,2.3,1.74,Q2,1473
+CSIR-CECRI,4,New Journal of Chemistry,64,2.23,3.26,Q1,1243
+CSIR-CECRI,5,International Journal of Hydrogen Energy,59,2.06,5.76,Q1,1699
+CSIR-CECRI,6,Journal of Alloys and Compounds,57,1.99,4.88,Q1,2114
+CSIR-CECRI,7,ACS Applied Energy Materials,56,1.95,5.4,Q1,1692
+CSIR-CECRI,8,Journal of The Electrochemical Society,55,1.92,3.82,Q1,1321
+CSIR-CECRI,9,RSC Advances,52,1.81,3.24,Q1,1904
+CSIR-CECRI,10,ACS Applied Materials & Interfaces,48,1.67,8.33,Q1,2084
+CSIR-CECRI,11,Journal of Materials Science Materials in Electronics,45,1.57,2.42,Q2,1032
+CSIR-CECRI,12,Inorganic Chemistry,44,1.53,4.81,Q1,1854
+CSIR-CECRI,13,Materials Letters,42,1.46,3.23,Q1,673
+CSIR-CECRI,14,Applied Surface Science,41,1.43,6.41,Q1,1741
+CSIR-CECRI,15,Energy & Fuels,41,1.43,4.35,Q1,1422
+CSIR-CECRI,16,Small,37,1.29,12.06,Q1,572
+CSIR-CECRI,17,Materials Chemistry and Physics,36,1.25,4.53,Q1,893
+CSIR-CECRI,18,Journal of Energy Storage,35,1.22,9.67,Q1,1361
+CSIR-CECRI,19,Journal of Power Sources,33,1.15,8.61,Q1,1733
+CSIR-CECRI,20,The Journal of Physical Chemistry C,32,1.11,4.23,Q1,700
+Group 24 Combined,1,ChemistrySelect,442,3.11,1.86,Q2,4664
+Group 24 Combined,2,New Journal of Chemistry,269,1.89,3.26,Q1,4877
+Group 24 Combined,3,RSC Advances,241,1.7,3.24,Q1,6699
+Group 24 Combined,4,Chemical Communications,237,1.67,5.75,Q1,6318
+Group 24 Combined,5,The Journal of Organic Chemistry,225,1.58,4.11,Q1,3908
+Group 24 Combined,6,Organic & Biomolecular Chemistry,223,1.57,3.49,Q1,3005
+Group 24 Combined,7,Organic Letters,195,1.37,6.15,Q1,5262
+Group 24 Combined,8,ACS Omega,178,1.25,2.99,Q1,4696
+Group 24 Combined,9,ChemInform,176,1.24,,,2
+Group 24 Combined,10,Tetrahedron Letters,166,1.17,2.31,Q2,1493
+Group 24 Combined,11,ACS Applied Materials & Interfaces,160,1.13,8.33,Q1,8336
+Group 24 Combined,12,European Journal of Organic Chemistry,148,1.04,2.88,Q1,1618
+Group 24 Combined,13,The Journal of Physical Chemistry C,129,0.91,4.23,Q1,3190
+Group 24 Combined,14,International Journal of Hydrogen Energy,124,0.87,7.18,Q1,3430
+Group 24 Combined,15,Journal of Materials Chemistry A,119,0.84,9.19,Q1,5136
+Group 24 Combined,16,ACS Applied Energy Materials,116,0.82,5.4,Q1,3077
+Group 24 Combined,17,Chemistry - An Asian Journal,109,0.77,3.57,Q1,1250
+Group 24 Combined,18,Journal of Molecular Structure,108,0.76,3.89,Q2,1094
+Group 24 Combined,19,Bioresource Technology,99,0.7,9.81,Q1,6145
+Group 24 Combined,20,Scientific Reports,99,0.7,4.46,Q1,5039

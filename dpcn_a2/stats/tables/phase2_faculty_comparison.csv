@@ -1,0 +1,307 @@
+faculty_id,name,institution,department,designation,papers,q1_papers,q1_if_gt5,q1_if_gt10,citations,h_index,faculty_coauthors,shared_papers_with_faculty,cited_by_faculty,collab_institutions,intl_papers,papers_ge10_authors,max_authors,citations_from_ge10_pct,flags,rank_productivity,rank_connectivity,rank_collab_institutions
+FAC_CECRI_0480,Dr Subrata Kundu,CSIR-CECRI,ELECTROCHEMICAL PROCESS ENGINEERING,Chief Scientist (Scientist-F),258,238,155,49,15782,59,7,18,179,129,77,22,17,4.8,,1,37,2
+FAC_NCL_0113,Dr. Rajesh G. Gonnade,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,240,159,70,20,4083,34,38,196,541,89,24,15,14,7.5,,2,1,6
+FAC_IICT_0269,Dr. S. Venkata Mohan,CSIR-IICT,Energy & Environmental Engg.,Chief Scientist (Scientist-G),226,198,177,67,11334,54,7,17,109,110,41,5,20,2.2,3 paper(s) under the same profile at another lab (moved labs or merged profile; not counted),3,37,5
+FAC_NCL_0144,Dr. Sreekumar Kurungot,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,177,165,112,36,8794,43,18,79,316,116,56,19,20,10.1,1 paper(s) under the same profile at another lab (moved labs or merged profile; not counted),4,9,3
+FAC_NCL_0069,Dr. Kumar Vanka,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,176,125,53,11,2790,28,31,152,560,67,18,11,12,10.2,,5,2,11
+FAC_IICT_0174,Dr. Jagadeesh Babu Nanubolu,CSIR-IICT,Analytical & Structural Chemistry,Chief Scientist (Scientist-F),163,93,41,5,2390,26,22,79,363,42,5,9,12,6.0,,6,3,26
+FAC_NCL_0165,Dr. Vinod C Prabhakaran,CSIR-NCL,Catalysis Division,Scientist,149,130,92,51,4737,39,14,39,165,86,29,16,16,7.2,,7,11,8
+FAC_IICT_0236,Dr. Ujjwal Pal,CSIR-IICT,Catalysis & Fine Chemicals,Chief Scientist (Scientist-G),148,128,91,21,4758,40,7,11,62,112,71,15,15,11.2,,8,37,4
+FAC_IICT_0401,Dr. Surya Prakash Singh,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-F),146,111,56,9,2722,30,6,11,42,85,49,11,22,8.0,,9,56,9
+FAC_IICT_0288,Dr. B.V. Subba Reddy,CSIR-IICT,Fluoro-Agrochemicals,Chief Scientist (Scientist-G),145,41,5,0,1497,19,11,20,66,39,9,2,11,1.6,,10,13,29
+FAC_CECRI_0459,Dr V Ganesh,CSIR-CECRI,DIRECTOR’S TECHNICAL CELL,Chief Scientist (Scientist-G),118,58,6,0,3584,31,2,3,10,146,35,6,73,1.6,large-collaboration papers,11,145,1
+FAC_IICT_0402,Dr. Sidhanath Vishwanath Bhosale,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-F),106,67,32,4,3120,24,2,3,18,39,53,5,16,4.2,,12,145,29
+FAC_NCL_0123,Dr. Sailaja Krishnamurty,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,106,79,54,15,1175,20,20,78,163,53,18,6,11,6.8,6 paper(s) under the same profile at another lab (moved labs or merged profile; not counted),12,6,19
+FAC_NCL_0015,Dr. Ashok Giri,CSIR-NCL,Biochemical Science Division,Scientist,100,79,36,5,4074,29,10,26,39,66,25,14,22,31.7,,14,16,14
+FAC_NCL_0041,Dr. Dhiman Sarkar,CSIR-NCL,Organic Chemistry Division,Scientist,100,39,6,0,2526,30,21,29,45,53,10,7,13,8.9,,14,5,19
+FAC_CECRI_0475,Dr Subbiah Alwarappan,CSIR-CECRI,ELECTRODICS AND ELECTROCATALYSIS,Chief Scientist (Scientist-F),97,78,41,10,3000,35,3,8,19,67,40,1,12,0.2,,16,114,11
+FAC_NCL_0079,Dr. Manjusha V. Shelke,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,87,71,49,6,2376,26,10,16,25,66,34,9,20,4.7,,17,16,14
+FAC_IICT_0211,Dr. Andugulapati Sai Balagi,CSIR-IICT,Applied Biology,Senior Principal Scientist,83,47,33,1,871,17,19,44,114,43,5,10,17,5.2,,18,7,24
+FAC_CECRI_0487,Dr A Pandikumar,CSIR-CECRI,ELECTROCHEMICAL PROCESS ENGINEERING,Chief Scientist (Scientist-F),82,70,53,10,3527,35,1,11,29,41,23,1,10,1.0,,19,178,27
+FAC_NCL_0004,Dr. Amol A. Kulkarni,CSIR-NCL,Chemical Engineering & Process Development,Scientist,80,66,13,10,1553,20,8,8,22,18,7,1,10,1.0,,20,33,75
+FAC_NCL_0038,Dr. Dattatray Late,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,80,45,14,2,4085,35,1,1,9,58,14,6,15,4.8,,20,178,17
+FAC_NCL_0125,Dr. Sakya S. Sen,CSIR-NCL,Catalysis Division,Scientist,80,58,20,4,1517,23,4,76,364,20,5,2,10,1.8,,20,86,69
+FAC_IICT_0206,Dr. Sunil Misra,CSIR-IICT,Applied Biology,Chief Scientist (Scientist-F),79,30,17,0,1060,17,22,52,134,39,7,16,14,20.8,,23,3,29
+FAC_IICT_0205,Dr. Chittaranjan Patra,CSIR-IICT,Applied Biology,Chief Scientist (Scientist-G),76,56,27,0,3178,33,5,9,65,30,12,4,12,4.2,,24,71,41
+FAC_CECRI_0492,Dr P Murugan,CSIR-CECRI,CENTRAL INSTRUMENTATION FACILITY,Chief Scientist (Scientist-G),74,67,33,9,1596,22,3,18,63,55,13,7,13,20.1,,25,114,18
+FAC_NCL_0010,Dr. Arun Torris,CSIR-NCL,Polymer Science and Engineering Division,Scientist,72,49,40,13,1593,21,19,75,108,60,16,7,15,5.3,,26,7,16
+FAC_NCL_0033,Dr. Chepuri V. Ramana,CSIR-NCL,Organic Chemistry Division,Scientist,70,38,13,0,935,16,4,9,15,13,3,0,7,0.0,,27,86,97
+FAC_NCL_0043,Dr. Durba Sengupta,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,67,44,7,1,927,16,10,15,14,51,10,3,35,10.9,large-collaboration papers,28,16,21
+FAC_NCL_0061,Dr. K. Krishnamoorthy,CSIR-NCL,Polymer Science and Engineering Division,Scientist,64,53,26,3,842,18,9,47,140,25,5,2,11,4.3,,29,25,54
+FAC_NCL_0075,Dr. Mahesh J Kulkarni,CSIR-NCL,Biochemical Science Division,Scientist,63,40,8,0,1549,20,10,23,39,77,7,14,100,25.6,large-collaboration papers,30,16,10
+FAC_NCL_0105,Dr. Prakash Wadgaonkar,CSIR-NCL,Polymer Science and Engineering Division,Scientist,61,36,8,1,1058,19,6,20,18,41,10,2,11,1.4,,31,56,27
+FAC_NCL_0126,Dr. Samir H. Chikkali,CSIR-NCL,Polymer Science and Engineering Division,Scientist,61,39,13,5,1243,17,9,29,79,12,2,1,10,1.0,,31,25,102
+FAC_CECRI_0500,Dr Akhila Kumar Sahu,CSIR-CECRI,CECRI CHENNAI UNIT,Chief Scientist (Scientist-F),57,51,30,2,2315,31,4,6,23,28,11,1,10,4.0,,33,86,45
+FAC_NCL_0145,Dr. Subashchandrabose Chinnathambi,CSIR-NCL,Biochemical Science Division,Scientist,57,42,21,0,3617,41,3,8,12,11,1,0,9,0.0,,33,114,114
+FAC_IICT_0399,Dr. Ramanuj Narayan,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-G),56,36,16,1,1352,18,6,31,73,24,15,2,10,1.1,,35,56,56
+FAC_NCL_0028,Dr. Benudhar Punji,CSIR-NCL,Organic Chemistry Division,Scientist,54,44,20,8,1973,21,4,28,131,19,2,1,15,32.5,,36,86,74
+FAC_IICT_0207,Dr. S. Nishant Jain,CSIR-IICT,Applied Biology,Chief Scientist (Scientist-F),53,24,4,0,994,20,11,18,61,28,3,4,11,5.4,,37,13,45
+FAC_IICT_0400,Dr. Pratyay Basak,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-G),53,40,27,2,792,18,6,30,66,27,15,2,10,1.9,,37,56,48
+FAC_IICT_0374,Dr. Vineet Aniya,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Senior Principal Scientist,52,39,24,1,616,14,3,26,50,20,3,0,9,0.0,,39,114,69
+FAC_CECRI_0466,Dr A Manuel Stephan,CSIR-CECRI,ELECTROCHEMICAL POWER SOURCES,Chief Scientist (Scientist-F),51,40,26,6,1966,25,1,2,15,35,32,4,12,7.8,,40,178,34
+FAC_IICT_0403,Dr. Vasundhara Mutta,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-F),51,29,16,1,751,13,3,3,4,43,9,6,12,17.0,,40,114,24
+FAC_NCL_0017,Dr. Ashwini Kumar Nangia,CSIR-NCL,Contact Number:,Scientist,51,41,10,2,2437,28,7,10,64,33,9,0,9,0.0,,40,37,37
+FAC_IICT_0363,Dr. S. Sridhar,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Chief Scientist (Scientist-G),50,27,19,6,1582,20,6,18,46,12,9,0,9,0.0,,43,56,102
+FAC_NCL_0062,Dr. Kadhiravan Shanmuganathan,CSIR-NCL,Polymer Science and Engineering Division,Scientist,50,38,25,8,1136,21,9,17,33,27,14,3,10,3.4,,43,25,48
+FAC_IICT_0173,Dr. Mohana Krishna Reddy Mudiam,CSIR-IICT,Analytical & Structural Chemistry,Chief Scientist (Scientist-F),49,25,16,3,695,16,10,13,43,35,10,3,15,8.5,,45,16,34
+FAC_NCL_0128,Dr. Sanjay P. Kamble,CSIR-NCL,Chemical Engineering & Process Development,Scientist,49,27,11,1,837,15,5,5,4,24,6,9,24,21.6,,45,71,56
+FAC_CECRI_0478,Dr M Pandiaraj,CSIR-CECRI,ELECTRODICS AND ELECTROCATALYSIS,Senior Principal Scientist,48,32,19,5,2629,24,2,4,14,36,24,5,15,11.0,,47,145,32
+FAC_IICT_0339,Dr. Surisetti Suresh,CSIR-IICT,Organic Synthesis & Process Chemistry,Chief Scientist (Scientist-F),48,32,12,0,788,17,4,16,65,8,6,1,11,0.0,,47,86,146
+FAC_NCL_0100,Dr. Paresh L. Dhepe,CSIR-NCL,Catalysis Division,Scientist,48,27,15,0,1498,22,6,9,29,23,8,1,16,1.9,,47,56,61
+FAC_IICT_0204,Dr. Amitava Das,CSIR-IICT,Applied Biology,Chief Scientist (Scientist-G),47,23,8,0,1125,20,4,6,18,17,1,2,15,1.0,,50,86,80
+FAC_IICT_0335,Dr. Debendra Kumar Mohapatra,CSIR-IICT,Organic Synthesis & Process Chemistry,Chief Scientist (Scientist-G),47,28,7,0,379,11,3,10,29,11,2,0,7,0.0,,50,114,114
+FAC_IICT_0340,Dr. Rambabu Chegondi,CSIR-IICT,Organic Synthesis & Process Chemistry,Chief Scientist (Scientist-F),46,41,21,3,831,17,2,17,110,5,0,0,8,0.0,,52,145,182
+FAC_NCL_0129,Dr. Santhosh Babu Sukumaran,CSIR-NCL,Organic Chemistry Division,Scientist,46,43,30,14,1295,18,11,29,52,26,4,5,10,4.8,,52,13,52
+FAC_IICT_0322,Dr. V. Ramalingam,CSIR-IICT,Natural Products & Medicinal Chemistry,Principal Scientist,45,23,19,2,759,15,7,19,111,32,19,0,9,0.0,,54,37,39
+FAC_NCL_0047,Dr. G. J. Sanjayan,CSIR-NCL,Organic Chemistry Division,Scientist,43,25,11,3,376,10,7,25,19,23,8,1,10,4.8,,55,37,61
+FAC_NCL_0130,Dr. Santosh B. Mhaske,CSIR-NCL,Organic Chemistry Division,Scientist,43,34,12,0,817,18,5,8,17,9,2,1,10,0.9,,55,71,128
+FAC_IICT_0333,Dr. Subhash Ghosh,CSIR-IICT,Organic Synthesis & Process Chemistry,Chief Scientist (Scientist-G),42,20,3,0,269,10,7,19,26,8,5,2,11,6.3,,57,37,146
+FAC_NCL_0119,Dr. Ravindar Kontham,CSIR-NCL,Organic Chemistry Division,Scientist,42,25,11,0,396,12,7,19,49,8,0,1,11,0.0,,57,37,146
+FAC_NCL_0161,Dr. Vijay Bokade,CSIR-NCL,Catalysis Division,Scientist,42,12,8,2,967,18,7,21,33,35,13,2,22,21.8,,57,37,34
+FAC_IICT_0210,Dr. Ramesh Ummanni,CSIR-IICT,Applied Biology,Chief Scientist (Scientist-F),41,23,1,0,715,15,3,6,32,36,8,3,10,23.2,,60,114,32
+FAC_IICT_0336,Dr. Maddi Sridhar Reddy,CSIR-IICT,Organic Synthesis & Process Chemistry,Chief Scientist (Scientist-G),41,34,15,1,831,18,4,24,160,8,0,0,7,0.0,,60,86,146
+FAC_NCL_0080,Dr. Manohar V. Badiger,CSIR-NCL,Polymer Science and Engineering Division,Scientist,41,22,12,2,1359,18,7,43,52,31,9,1,10,0.7,,60,37,40
+FAC_NCL_0086,Dr. Narendra Kadoo,CSIR-NCL,Biochemical Science Division,Scientist,41,26,7,0,714,14,6,7,11,46,7,4,32,14.6,large-collaboration papers,60,56,23
+FAC_NCL_0059,Dr. Jayaraj Nithyanandhan,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,40,34,19,1,635,14,5,37,274,4,1,0,8,0.0,,64,71,197
+FAC_IICT_0318,Dr. Haridas B. Rode,CSIR-IICT,Natural Products & Medicinal Chemistry,Chief Scientist (Scientist-G),39,17,6,0,503,14,10,21,59,24,6,11,14,34.2,,65,16,56
+FAC_IICT_0294,Dr. Bathini Nagendra Babu,CSIR-IICT,Fluoro-Agrochemicals,Chief Scientist (Scientist-F),38,22,5,0,491,15,5,9,19,24,2,6,12,23.4,,66,71,56
+FAC_IICT_0323,Dr. Surender Singh Jadav,CSIR-IICT,Natural Products & Medicinal Chemistry,Principal Scientist,38,15,6,0,373,12,14,32,31,33,9,8,19,20.6,,66,11,37
+FAC_NCL_0011,Dr. Arup Kumar Rath,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,38,29,23,6,548,15,5,7,11,15,3,2,16,3.6,,66,71,87
+FAC_NCL_0099,Dr. Pankaj Poddar,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,37,25,6,0,630,17,1,1,4,20,4,0,8,0.0,,69,178,69
+FAC_IICT_0231,Dr. A. Venugopal,CSIR-IICT,Catalysis & Fine Chemicals,Chief Scientist (Scientist-G),36,29,12,4,1611,20,4,9,20,15,9,1,10,3.6,,70,86,87
+FAC_NCL_0039,Dr. Dhanasekaran Shanmugam,CSIR-NCL,Biochemical Science Division,Scientist,36,26,8,3,576,14,9,9,11,87,11,16,32,46.9,large-collaboration papers,70,25,7
+FAC_NCL_0109,Dr. R. Nandini Devi,CSIR-NCL,Catalysis Division,Scientist,36,26,11,1,428,10,15,35,71,12,3,2,11,10.3,,70,10,102
+FAC_NCL_0163,Dr. Vinay M. Bhandari,CSIR-NCL,Chemical Engineering & Process Development,Scientist,36,19,10,0,1062,19,1,1,17,15,4,0,6,0.0,,70,178,87
+FAC_IICT_0256,Dr. Kaki Shiva Shanker,CSIR-IICT,"Oils, Lipid Science & Technology",Chief Scientist (Scientist-F),35,9,3,0,283,10,9,18,33,18,5,1,10,3.2,,74,25,75
+FAC_IICT_0272,Dr. Sameena Begum,CSIR-IICT,Energy & Environmental Engg.,Senior Scientist,35,28,24,4,828,18,3,5,11,6,9,0,8,0.0,,74,114,168
+FAC_NCL_0063,Dr. Kavita Joshi,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,35,30,18,8,404,13,9,11,37,9,2,0,9,0.0,,74,25,128
+FAC_NCL_0093,Dr. Nilesh A Mali,CSIR-NCL,Chemical Engineering & Process Development,Scientist,35,19,4,1,372,11,4,6,14,9,4,0,9,0.0,,74,86,128
+FAC_NCL_0139,Dr. Selvaraj Kaliaperumal,CSIR-NCL,Catalysis Division,Scientist,35,24,12,4,417,13,1,9,25,21,3,0,7,0.0,,74,178,67
+FAC_NCL_0138,Dr. Sayan Bagchi,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,34,29,10,0,598,15,5,5,11,21,7,0,9,0.0,,79,71,67
+FAC_IICT_0342,Dr. Ajay Kumar Singh,CSIR-IICT,Organic Synthesis & Process Chemistry,Senior Principal Scientist,32,26,14,2,432,12,5,11,51,6,8,0,8,0.0,,80,71,168
+FAC_NCL_0018,Dr. Asish K. Bhattacharya,CSIR-NCL,Organic Chemistry Division,Scientist,32,16,2,0,319,12,3,8,28,10,1,0,9,0.0,,80,114,120
+FAC_NCL_0049,Dr. Gurunath Suryavanshi,CSIR-NCL,Chemical Engineering & Process Development,Scientist,32,22,3,0,500,14,1,1,18,9,3,0,6,0.0,,80,178,128
+FAC_NCL_0072,Dr. M. Muthukrishnan,CSIR-NCL,Organic Chemistry Division,Scientist,32,14,3,0,308,11,1,2,13,7,0,0,8,0.0,,80,178,157
+FAC_CECRI_0499,Dr (Mrs) D Kalpana,CSIR-CECRI,CECRI CHENNAI UNIT,Chief Scientist (Scientist-G),31,21,16,6,972,17,1,2,9,27,15,0,9,0.0,,84,178,48
+FAC_IICT_0179,Dr. Sunil Kumar N.,CSIR-IICT,Analytical & Structural Chemistry,Principal Scientist,31,5,0,0,149,8,7,14,27,15,1,0,8,0.0,,84,37,87
+FAC_IICT_0232,Dr. Pravin R. Likhar,CSIR-IICT,Catalysis & Fine Chemicals,Chief Scientist (Scientist-G),31,17,4,0,569,13,1,1,15,22,5,3,16,12.5,,84,178,65
+FAC_NCL_0115,Dr. Ram Rup Sarkar,CSIR-NCL,Chemical Engineering & Process Development,Scientist,31,19,2,0,327,9,1,1,1,15,2,0,8,0.0,,84,178,87
+FAC_IICT_0202,Dr. Anthony Addlagatta,CSIR-IICT,Applied Biology,Chief Scientist (Scientist-G),30,22,15,3,271,11,7,20,16,30,5,9,19,35.4,,88,37,41
+FAC_NCL_0156,Dr. Udaya Kiran Marelli,CSIR-NCL,Organic Chemistry Division,Scientist,30,26,12,4,738,16,10,15,65,24,7,6,18,31.3,,88,16,56
+FAC_NCL_0166,Dr. Vrushali H. Jadhav,CSIR-NCL,Catalysis Division,Scientist,30,9,5,0,498,10,3,3,6,2,0,0,6,0.0,,88,114,242
+FAC_IICT_0215,Dr. Bonam Srinivasa Reddy,CSIR-IICT,Applied Biology,Principal Scientist,29,21,12,1,642,10,5,5,10,47,13,6,15,13.2,,91,71,22
+FAC_IICT_0343,Dr. Nayani Kiranmai,CSIR-IICT,Organic Synthesis & Process Chemistry,Senior Principal Scientist,29,17,5,2,215,8,4,6,14,6,0,1,11,1.4,,91,86,168
+FAC_NCL_0152,Dr. Sureshkumar Ramasamy,CSIR-NCL,Biochemical Science Division,Scientist,29,21,9,5,716,12,10,14,41,15,3,1,10,0.6,,91,16,87
+FAC_IICT_0203,Dr. Srigiridhar Kotamraju,CSIR-IICT,Applied Biology,Chief Scientist (Scientist-G),28,18,9,1,789,15,9,9,20,16,2,2,10,9.4,,94,25,83
+FAC_IICT_0319,Dr. Avijit Jana,CSIR-IICT,Natural Products & Medicinal Chemistry,Senior Principal Scientist,28,25,19,0,631,15,4,5,12,18,2,2,12,1.3,,94,86,75
+FAC_NCL_0068,Dr. Koteswara V.,CSIR-NCL,Biochemical Science Division,Scientist,28,5,2,0,507,11,8,16,20,12,1,1,11,0.0,,94,33,102
+FAC_NCL_0143,Dr. Shubhangi B Umbarkar,CSIR-NCL,Catalysis Division,Scientist,28,13,6,0,398,12,5,7,7,29,11,2,12,1.0,,94,71,44
+FAC_IICT_0295,Dr. Punna Nagender,CSIR-IICT,Fluoro-Agrochemicals,Senior Principal Scientist,27,20,3,0,203,9,3,10,28,7,2,0,7,0.0,,98,114,157
+FAC_IICT_0372,Dr. Alka Kumari,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Senior Principal Scientist,27,19,8,0,238,10,6,26,45,12,5,0,8,0.0,,98,56,102
+FAC_IICT_0172,Dr. Prakriti Ranjan Bangal,CSIR-IICT,Analytical & Structural Chemistry,Chief Scientist (Scientist-F),26,19,3,0,539,12,5,8,21,17,4,2,11,5.4,,100,71,80
+FAC_IICT_0234,Dr. Rajiv Trivedi,CSIR-IICT,Catalysis & Fine Chemicals,Chief Scientist (Scientist-G),26,11,4,0,446,13,4,5,8,9,5,2,12,3.1,,100,86,128
+FAC_IICT_0376,Dr. Siddhartha Moulik,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Senior Principal Scientist,26,20,18,6,631,14,7,13,35,12,1,0,7,0.0,,100,37,102
+FAC_NCL_0002,Dr. Ambade Ashootosh,CSIR-NCL,Polymer Science and Engineering Division,Scientist,26,15,7,0,167,6,7,9,4,8,3,1,10,1.2,,100,37,146
+FAC_NCL_0157,Dr. Ulhas K. Kharul,CSIR-NCL,Polymer Science and Engineering Division,Scientist,26,19,12,3,2402,14,10,19,29,9,1,2,11,29.7,,100,16,128
+FAC_IICT_0373,Dr. Reddi Kamesh,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Senior Principal Scientist,25,15,11,3,230,8,6,6,9,6,2,0,9,0.0,,105,56,168
+FAC_NCL_0019,Dr. Asmita Prabhune,CSIR-NCL,Biochemical Science Division,Scientist,25,13,3,0,508,14,7,14,20,13,1,0,9,0.0,,105,37,97
+FAC_NCL_0149,Dr. Suresh Bhat,CSIR-NCL,Polymer Science and Engineering Division,Scientist,25,18,10,5,500,13,7,24,47,22,5,3,11,30.2,,105,37,65
+FAC_IICT_0212,Dr. Ramars Amanchy,CSIR-IICT,Applied Biology,Senior Principal Scientist,24,9,3,0,595,12,7,9,13,28,7,10,15,49.1,,108,37,45
+FAC_IICT_0314,Dr. Sandip B. Bharate,CSIR-IICT,Natural Products & Medicinal Chemistry,Chief Scientist (Scientist-G),24,18,9,1,174,9,4,10,11,12,1,7,17,14.9,,108,86,102
+FAC_NCL_0064,Dr. Kiran A. Kulkarni,CSIR-NCL,Biochemical Science Division,Scientist,24,15,5,2,165,8,9,15,16,16,1,1,12,8.5,,108,25,83
+FAC_IICT_0290,Dr. A. Venkat Narsaiah,CSIR-IICT,Fluoro-Agrochemicals,Chief Scientist (Scientist-F),23,0,0,0,85,5,1,4,12,1,0,0,6,0.0,,111,178,265
+FAC_NCL_0001,Dr. Akkattu T. Biju,CSIR-NCL,Organic Chemistry Division,Scientist,23,13,7,3,1186,13,1,12,71,9,1,0,6,0.0,,111,178,128
+FAC_NCL_0029,Dr. Bhushan P. Chaudhari,CSIR-NCL,Biochemical Science Division,Scientist,23,6,3,0,361,10,4,10,11,23,5,2,10,4.4,,111,86,61
+FAC_NCL_0058,Dr. Jayant Gajbhiye,CSIR-NCL,Organic Chemistry Division,Scientist,23,7,2,0,183,8,8,11,13,8,2,1,10,0.5,,111,33,146
+FAC_NCL_0089,Dr. Nayana Vaval,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,23,13,2,0,251,10,2,2,3,13,2,1,10,0.4,,111,145,97
+FAC_NCL_0102,"Dr. Pradeep Kumar, FNA",CSIR-NCL,Contact Number:,Scientist,23,14,2,0,352,12,4,14,35,5,2,0,8,0.0,,111,86,182
+FAC_NCL_0131,Dr. Santosh Kumar Jha,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,23,19,0,0,272,12,1,3,13,4,1,0,5,0.0,,111,178,197
+FAC_IICT_0315,Dr. D. Srinivasa Reddy,CSIR-IICT,Natural Products & Medicinal Chemistry,Director,22,18,5,0,107,7,4,4,7,16,4,2,11,6.5,60 paper(s) under the same profile at another lab (moved labs or merged profile; not counted),118,86,83
+FAC_NCL_0146,Dr. Subhash P. Chavan,CSIR-NCL,Organic Chemistry Division,Scientist,22,13,2,0,162,8,6,17,26,3,2,0,8,0.0,,118,56,218
+FAC_IICT_0291,Dr. Ravindra Motiram Kumbhare,CSIR-IICT,Fluoro-Agrochemicals,Chief Scientist (Scientist-F),21,8,1,0,271,7,4,5,15,10,0,1,11,3.0,,120,86,120
+FAC_IICT_0394,Dr. Sutapa Ghosh,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-G),21,14,5,0,665,12,2,3,6,12,2,0,7,0.0,,120,145,102
+FAC_NCL_0008,Dr. Anuya Nisal,CSIR-NCL,Polymer Science and Engineering Division,Scientist,21,16,9,0,337,11,2,11,23,9,1,0,8,0.0,,120,145,128
+FAC_NCL_0034,Dr. Chetan Gadgil,CSIR-NCL,Chemical Engineering & Process Development,Scientist,21,16,7,4,237,7,1,4,4,25,5,3,21,34.6,,120,178,54
+FAC_NCL_0142,Dr. Shatabdi Porel Mukherjee,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,21,18,12,3,347,10,6,6,12,11,2,1,10,8.1,,120,56,114
+FAC_IICT_0341,Dr. T. Kumaraguru,CSIR-IICT,Organic Synthesis & Process Chemistry,Senior Principal Scientist,20,7,0,0,83,6,7,16,13,2,0,1,11,6.0,,125,37,242
+FAC_IICT_0397,Dr. Rohit Kumar Rana,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-G),20,18,11,3,333,11,1,2,18,13,1,2,11,3.3,,125,178,97
+FAC_IICT_0398,Dr. J. Vatsala Rani,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-G),20,10,7,1,163,7,2,5,9,6,1,0,5,0.0,,125,145,168
+FAC_NCL_0012,Dr. Asha S.K.,CSIR-NCL,Polymer Science and Engineering Division,Scientist,20,17,6,0,314,9,6,7,25,5,0,1,10,5.1,,125,56,182
+FAC_NCL_0027,Dr. Banu Marimuthu,CSIR-NCL,Catalysis Division,Scientist,20,12,9,0,228,7,2,3,9,15,2,0,8,0.0,,125,145,87
+FAC_NCL_0054,Dr. Harshawardhan Pol,CSIR-NCL,Polymer Science and Engineering Division,Scientist,20,9,4,1,183,10,8,12,12,18,6,1,10,0.0,,125,33,75
+FAC_NCL_0122,Dr. Sachin U. Nandanwar,CSIR-NCL,Catalysis Division,Scientist,20,9,6,1,278,8,4,17,22,7,4,0,9,0.0,,125,86,157
+FAC_NCL_0135,Dr. Sarika Maitra Bhattacharyya,CSIR-NCL,Polymer Science and Engineering Division,Scientist,20,17,3,0,252,10,0,0,0,18,6,0,9,0.0,,125,235,75
+FAC_NCL_0159,Dr. Utpal Das,CSIR-NCL,Organic Chemistry Division,Scientist,20,9,2,0,197,8,3,9,19,2,0,0,5,0.0,,125,114,242
+FAC_IICT_0365,Dr. T. Prathap Kumar,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Chief Scientist (Scientist-G),19,15,4,0,317,11,3,19,50,4,7,0,8,0.0,,134,114,197
+FAC_NCL_0082,Dr. Moneesha Fernandes,CSIR-NCL,Organic Chemistry Division,Scientist,19,12,1,0,130,7,7,15,8,10,1,1,10,5.4,,134,37,120
+FAC_NCL_0111,Dr. Rahul Bhambure,CSIR-NCL,Contact Number:,Scientist,19,10,4,1,267,7,3,3,4,15,3,2,13,13.1,,134,114,87
+FAC_IICT_0296,Dr. Praveen Kumar Reddy Adiyala,CSIR-IICT,Fluoro-Agrochemicals,Principal Scientist,18,9,1,0,284,9,2,3,14,9,4,1,10,22.5,,137,145,128
+FAC_IICT_0321,Dr. Linga Banoth,CSIR-IICT,Natural Products & Medicinal Chemistry,Principal Scientist,18,7,4,0,134,8,6,6,2,10,2,1,18,0.0,,137,56,120
+FAC_NCL_0026,Dr. Baijayantimala  Garnaik,CSIR-NCL,Polymer Science and Engineering Division,Scientist,18,13,4,1,532,12,0,0,2,10,1,1,10,5.1,,137,235,120
+FAC_NCL_0087,Dr. Narshinha P. Argade,CSIR-NCL,Organic Chemistry Division,Scientist,18,17,1,0,196,9,0,0,4,3,0,0,5,0.0,,137,235,218
+FAC_NCL_0095,Dr. Nitin T. Patil,CSIR-NCL,Organic Chemistry Division,Scientist,18,13,9,1,632,13,2,3,25,3,0,0,7,0.0,,137,145,218
+FAC_NCL_0103,Dr. Pradip Maity,CSIR-NCL,Organic Chemistry Division,Scientist,18,13,8,2,271,10,4,7,25,12,4,1,10,0.0,,137,86,102
+FAC_NCL_0147,Dr. Sudarsanam Putla,CSIR-NCL,Catalysis Division,Scientist,18,13,13,5,688,13,1,2,18,27,14,0,7,0.0,1 paper(s) under the same profile at another lab (moved labs or merged profile; not counted),137,178,48
+FAC_IICT_0177,Dr. Debasish Swain,CSIR-IICT,Analytical & Structural Chemistry,Principal Scientist,17,4,4,0,61,5,5,12,17,6,0,0,9,0.0,,144,71,168
+FAC_IICT_0337,Dr. Saibal Das,CSIR-IICT,Organic Synthesis & Process Chemistry,Chief Scientist (Scientist-F),17,6,0,0,111,7,0,0,8,7,7,0,9,0.0,,144,235,157
+FAC_IICT_0424,Dr. Sudhakar Manikrao Bansod,CSIR-IICT,Business Development & Research Management (BDRM),Senior Principal Scientist,17,8,6,0,41,5,4,5,4,26,5,1,14,4.9,,144,86,52
+FAC_NCL_0003,Dr. Amitava Das,CSIR-NCL,Organic Chemistry Division,Scientist,17,16,9,1,551,15,3,3,8,9,5,1,10,5.6,,144,114,128
+FAC_NCL_0005,Dr. Anil Kumar,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,17,11,0,0,227,8,0,0,0,3,0,0,4,0.0,,144,235,218
+FAC_NCL_0007,Dr. Anu Raghunathan,CSIR-NCL,Chemical Engineering & Process Development,Scientist,17,9,3,1,126,8,3,3,1,30,4,3,63,12.7,large-collaboration papers,144,114,41
+FAC_NCL_0114,Dr. Rajesh Kanawade,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,17,9,7,0,64,5,6,10,5,16,5,4,13,10.9,,144,56,83
+FAC_NCL_0067,Dr. Kishor L. Handore,CSIR-NCL,Organic Chemistry Division,Scientist,16,10,3,0,93,6,5,5,5,4,0,1,10,12.9,,151,71,197
+FAC_NCL_0127,Dr. Sandip S. Shinde,CSIR-NCL,Organic Chemistry Division,Scientist,16,5,3,1,465,11,4,6,20,11,3,2,10,29.2,,151,86,114
+FAC_IICT_0251,Dr. Sanjit Kanjilal,CSIR-IICT,"Oils, Lipid Science & Technology",Chief Scientist (Scientist-G),15,2,1,0,298,8,3,4,5,9,1,0,9,0.0,,153,114,128
+FAC_IICT_0299,Dr. Krishna Swaroop Desireddy,CSIR-IICT,Fluoro-Agrochemicals,Senior Scientist,15,9,0,0,335,8,4,10,15,5,0,2,11,14.9,,153,86,182
+FAC_NCL_0020,Dr. Atanu Das,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,15,13,0,0,71,5,4,6,12,9,1,0,6,0.0,,153,86,128
+FAC_IICT_0370,Dr. Sreepriya Vedantam,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Chief Scientist (Scientist-F),14,6,3,1,200,4,3,7,1,5,1,0,9,0.0,,156,114,182
+FAC_NCL_0081,Dr. Meitram Niraj Luwang,CSIR-NCL,Chemical Engineering & Process Development,Scientist,14,12,4,0,176,8,1,1,1,14,2,0,9,0.0,,156,178,96
+FAC_NCL_0084,Dr. Mugdha Gadgil,CSIR-NCL,Chemical Engineering & Process Development,Scientist,14,6,2,1,148,6,2,5,5,5,1,0,7,0.0,,156,145,182
+FAC_NCL_0097,Dr. P. R. Suresha,CSIR-NCL,Polymer Science and Engineering Division,Scientist,14,6,2,0,181,8,5,18,23,9,2,1,10,5.5,,156,71,128
+FAC_IICT_0348,Dr. Raju Adepu,CSIR-IICT,Organic Synthesis & Process Chemistry,Principal Scientist,13,10,2,0,65,5,3,3,5,3,1,0,8,0.0,,160,114,218
+FAC_IICT_0369,Dr. Nivedita Sahu,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Chief Scientist (Scientist-F),13,7,7,2,268,7,3,9,40,7,2,0,9,0.0,,160,114,157
+FAC_IICT_0405,Dr. Abhijit Hazarika,CSIR-IICT,Polymers & Functional Materials,Principal Scientist,13,11,9,3,661,7,2,3,1,20,9,2,12,25.3,,160,145,69
+FAC_NCL_0022,Dr. Avishek Saha,CSIR-NCL,Catalysis Division,Scientist,13,10,5,1,91,6,3,5,3,20,4,2,11,2.2,,160,114,69
+FAC_NCL_0073,Dr. M. S. Shashidhar,CSIR-NCL,Organic Chemistry Division,Scientist,13,7,2,2,84,4,1,8,7,8,2,0,5,0.0,,160,178,146
+FAC_IICT_0219,Dr. Aruna Jangam,CSIR-IICT,Applied Biology,Senior Scientist,12,7,5,0,79,6,6,18,16,7,0,3,19,22.8,,165,56,157
+FAC_IICT_0347,Dr. Abhishek Santra,CSIR-IICT,Organic Synthesis & Process Chemistry,Principal Scientist,12,2,0,0,39,4,2,2,1,3,0,0,7,0.0,,165,145,218
+FAC_NCL_0085,Dr. Nagaraju Barsu,CSIR-NCL,Organic Chemistry Division,Scientist,12,8,6,2,144,5,2,5,9,5,1,0,6,0.0,,165,145,182
+FAC_NCL_0110,Dr. R. Poulomi,CSIR-NCL,Contact Number:,Scientist,12,10,8,2,47,4,1,1,0,8,1,0,8,0.0,,165,178,146
+FAC_CECRI_0496,Mr T Mathankumar,CSIR-CECRI,CENTRAL INSTRUMENTATION FACILITY,Chief Scientist (Scientist-F),11,10,5,1,228,7,3,5,11,11,2,0,7,0.0,,169,114,114
+FAC_IICT_0175,Dr. Thota Jagadeshwar Reddy,CSIR-IICT,Analytical & Structural Chemistry,Chief Scientist (Scientist-F),11,5,1,0,110,7,0,0,0,23,5,3,18,27.3,,169,235,61
+FAC_IICT_0254,Dr. M.S.L. Karuna,CSIR-IICT,"Oils, Lipid Science & Technology",Chief Scientist (Scientist-G),11,3,2,1,107,4,3,3,2,12,3,0,9,0.0,,169,114,102
+FAC_IICT_0257,Dr. Ram Chandra Reddy Jala,CSIR-IICT,"Oils, Lipid Science & Technology",Senior Principal Scientist,11,3,0,0,204,6,2,4,10,3,1,1,10,7.4,,169,145,218
+FAC_IICT_0274,Dr. Boda Ravi Kiran,CSIR-IICT,Energy & Environmental Engg.,Senior Scientist,11,10,8,5,685,8,2,12,33,8,1,1,11,10.2,,169,145,146
+FAC_IICT_0404,Dr. Jayaramudu J,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-F),11,7,6,2,183,7,0,0,0,11,9,2,13,44.3,,169,235,114
+FAC_NCL_0046,Dr. G B Gathalkar,CSIR-NCL,Organic Chemistry Division,Scientist,11,4,1,0,61,5,1,1,0,6,0,1,10,19.7,,169,178,168
+FAC_NCL_0076,Dr. Mahesh S. Dharne,CSIR-NCL,Biochemical Science Division,Scientist,11,10,8,2,49,3,3,3,0,67,3,3,47,6.1,large-collaboration papers,169,114,11
+FAC_NCL_0141,Dr. Shashank G. Gaikwad,CSIR-NCL,Chemical Engineering & Process Development,Scientist,11,7,4,0,426,7,1,1,3,10,4,0,6,0.0,,169,178,120
+FAC_NCL_0160,Dr. Vaijayanti A. Kumar,CSIR-NCL,Contact Number:,Scientist,11,6,0,0,47,5,2,8,6,7,1,1,10,14.9,,169,145,157
+FAC_IICT_0408,Dr. Arindam Chakrabarty,CSIR-IICT,Polymers & Functional Materials,Principal Scientist,10,8,7,1,93,6,4,6,12,4,1,0,8,0.0,,179,86,197
+FAC_NCL_0053,Dr. Harsha Nagar,CSIR-NCL,Polymer Science and Engineering Division,Scientist,10,8,8,0,38,4,1,5,6,17,4,0,8,0.0,6 paper(s) under the same profile at another lab (moved labs or merged profile; not counted),179,178,80
+FAC_NCL_0070,Dr. Kushal Bhatte,CSIR-NCL,Contact Number:,Scientist,10,4,3,0,42,3,3,4,1,7,1,3,12,14.3,,179,114,157
+FAC_IICT_0169,Dr. B. Sridhar,CSIR-IICT,Analytical & Structural Chemistry,Chief Scientist (Scientist-G),9,3,2,0,6,1,3,4,3,1,0,1,18,0.0,,182,114,265
+FAC_IICT_0180,Dr. Nagaraju Rajana,CSIR-IICT,Analytical & Structural Chemistry,Senior Scientist,9,2,1,0,17,2,3,4,1,4,0,1,10,0.0,,182,114,197
+FAC_IICT_0253,DR. K.N. PRASANNA RANI,CSIR-IICT,"Oils, Lipid Science & Technology",Chief Scientist (Scientist-G),9,4,3,0,89,5,4,5,3,4,0,0,6,0.0,,182,86,197
+FAC_IICT_0320,Dr. Debabrata Maity,CSIR-IICT,Natural Products & Medicinal Chemistry,Senior Principal Scientist,9,4,0,0,50,4,0,0,0,8,4,0,9,0.0,,182,235,146
+FAC_IICT_0338,Dr. G. Sudhakar,CSIR-IICT,Organic Synthesis & Process Chemistry,Chief Scientist (Scientist-F),9,8,2,0,188,6,1,8,30,5,0,0,9,0.0,,182,178,182
+FAC_NCL_0014,Dr. Ashish V. Orpe,CSIR-NCL,Chemical Engineering & Process Development,Scientist,9,9,1,0,59,5,1,3,1,5,1,0,4,0.0,,182,178,182
+FAC_NCL_0035,Dr. Chiranjit Chowdhury,CSIR-NCL,Biochemical Science Division,Scientist,9,5,3,1,60,4,0,0,6,12,1,1,11,36.7,,182,235,102
+FAC_NCL_0136,Dr. Satyam Naidu Vasireddy,CSIR-NCL,Chemical Engineering & Process Development,Scientist,9,4,2,1,26,3,3,3,0,4,0,0,4,0.0,,182,114,197
+FAC_IICT_0237,Dr. Jangam Ashok,CSIR-IICT,Catalysis & Fine Chemicals,Senior Principal Scientist,8,6,6,1,19,4,3,6,0,4,0,0,9,0.0,,190,114,197
+FAC_IICT_0407,Dr. S.N. Raju Kutcherlapati,CSIR-IICT,Polymers & Functional Materials,Principal Scientist,8,6,6,0,46,4,2,4,10,3,1,0,7,0.0,,190,145,218
+FAC_NCL_0066,Dr. Kirandeep Singh,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,8,7,1,1,54,5,4,5,5,13,1,2,14,1.9,,190,86,97
+FAC_IICT_0271,Dr. Pavuluri Srinivasu,CSIR-IICT,Energy & Environmental Engg.,Chief Scientist (Scientist-F),7,5,4,3,39,3,1,1,1,9,1,1,10,0.0,,193,178,128
+FAC_IICT_0324,Dr. Remya Ramesh,CSIR-IICT,Natural Products & Medicinal Chemistry,Principal Scientist,7,2,0,0,75,3,1,1,4,5,1,0,6,0.0,6 paper(s) under the same profile at another lab (moved labs or merged profile; not counted),193,178,182
+FAC_IICT_0409,Dr. Dinesh Kumar Chelike,CSIR-IICT,Polymers & Functional Materials,Senior Scientist,7,1,1,0,182,5,0,0,0,3,0,0,7,0.0,,193,235,218
+FAC_NCL_0042,Dr. Dinesh Nanaji Sawant,CSIR-NCL,Organic Chemistry Division,Scientist,6,4,1,0,13,2,0,0,0,6,1,0,8,0.0,,196,235,168
+FAC_NCL_0056,Dr. Janardan Kundu,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,6,4,1,0,284,5,2,2,8,4,0,0,9,0.0,,196,145,197
+FAC_NCL_0057,Dr. Jancy Abraham,CSIR-NCL,Polymer Science and Engineering Division,Scientist,6,3,0,0,44,4,0,0,0,4,1,0,5,0.0,,196,235,197
+FAC_NCL_0151,Dr. Suresh Iyer,CSIR-NCL,Organic Chemistry Division,Scientist,6,0,0,0,56,5,1,1,0,2,0,0,8,0.0,,196,178,242
+FAC_CECRI_0504,Dr J Ravindran,CSIR-CECRI,CECRI MANDAPAM UNIT,Senior Principal Scientist,5,3,1,0,48,4,0,0,0,5,0,2,10,18.8,,200,235,182
+FAC_IICT_0255,Dr. Rajkumar Banerjee,CSIR-IICT,"Oils, Lipid Science & Technology",Chief Scientist (Scientist-G),5,2,1,0,3,1,0,0,0,6,0,0,7,0.0,,200,235,168
+FAC_IICT_0368,Dr. Shankarachar M. Sutar,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Chief Scientist (Scientist-F),5,1,1,0,12,2,1,1,0,6,0,0,5,0.0,,200,178,168
+FAC_IICT_0375,Dr. Pavani Vadthya,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Senior Principal Scientist,5,3,2,1,138,3,1,2,19,3,0,0,6,0.0,,200,178,218
+FAC_IICT_0428,Dr. Raju Gurrapu,CSIR-IICT,Business Development & Research Management (BDRM),Senior Scientist,5,0,0,0,42,4,0,0,0,2,0,0,5,0.0,,200,235,242
+FAC_NCL_0030,Dr. C. G. Suresh,CSIR-NCL,Biochemical Science Division,Scientist,5,2,0,0,125,4,2,2,3,2,1,0,6,0.0,,200,145,242
+FAC_NCL_0031,Dr. C. K. John,CSIR-NCL,Plant Tissue Culture Division,Scientist,5,2,1,0,117,5,2,2,2,2,0,0,8,0.0,,200,145,242
+FAC_NCL_0098,Dr. Pankaj Doshi,CSIR-NCL,Contact Number:,Scientist,5,5,0,0,54,5,1,3,6,3,1,0,4,0.0,,200,178,218
+FAC_NCL_0107,Dr. Premnath Venugopalan,CSIR-NCL,Polymer Science and Engineering Division,Scientist,5,5,3,0,95,3,1,4,10,0,0,0,8,0.0,,200,178,293
+FAC_NCL_0112,Dr. Rahul Shevate,CSIR-NCL,Polymer Science and Engineering Division,Scientist,5,3,3,0,4,1,5,8,3,6,2,4,15,100.0,large-collaboration papers,200,71,168
+FAC_CECRI_0468,Dr P Ragupathy,CSIR-CECRI,ELECTROCHEMICAL POWER SOURCES,Chief Scientist (Scientist-F),4,4,3,1,84,4,0,0,1,6,2,0,6,0.0,,210,235,168
+FAC_CECRI_0484,Dr S Vasudevan,CSIR-CECRI,ELECTROCHEMICAL PROCESS ENGINEERING,Emeritus Scientist,4,2,1,0,16,2,0,0,0,4,1,0,7,0.0,,210,235,197
+FAC_IICT_0268,Dr. A. Gangagni Rao,CSIR-IICT,Energy & Environmental Engg.,Chief Scientist (Scientist-G),4,2,1,1,138,2,1,1,2,4,1,0,9,0.0,,210,178,197
+FAC_IICT_0317,Dr. K. Suresh Babu,CSIR-IICT,Natural Products & Medicinal Chemistry,Chief Scientist (Scientist-G),4,2,0,0,51,3,2,2,10,15,1,1,12,37.3,,210,145,87
+FAC_IICT_0344,Dr. T. Ponpandian,CSIR-IICT,Organic Synthesis & Process Chemistry,Senior Principal Scientist,4,0,0,0,6,2,0,0,0,2,0,0,6,0.0,,210,235,242
+FAC_IICT_0345,Dr. Shiva Kumar Kota Balaji,CSIR-IICT,Organic Synthesis & Process Chemistry,Senior Principal Scientist,4,1,1,0,13,2,2,3,4,5,1,0,5,0.0,,210,145,182
+FAC_IICT_0442,SRI. P. ANIL KUMAR,CSIR-IICT,Knowledge and Information Management,Chief Scientist (Scientist-F),4,1,0,0,30,1,1,2,2,0,0,0,6,0.0,,210,178,293
+FAC_NCL_0065,Dr. Kiran Pandare,CSIR-NCL,Polymer Science and Engineering Division,Scientist,4,2,1,0,158,4,4,4,9,2,0,0,6,0.0,,210,86,242
+FAC_NCL_0148,Dr. Sudhakar Gaikwad,CSIR-NCL,Organic Chemistry Division,Scientist,4,2,0,0,26,3,0,0,0,6,1,1,10,0.0,,210,235,168
+FAC_NCL_0154,Dr. T.G.Ajithkumar,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,4,2,1,0,2,1,1,1,0,9,1,0,8,0.0,,210,178,128
+FAC_CECRI_0462,Mrs R Monika,CSIR-CECRI,CORROSION AND MATERIALS PROTECTION,Senior Principal Scientist,3,0,0,0,64,2,0,0,0,2,0,0,5,0.0,,220,235,242
+FAC_CECRI_0470,Dr Alagar Raja K,CSIR-CECRI,ELECTROCHEMICAL POWER SOURCES,Senior Scientist,3,3,3,3,5,1,0,0,0,7,3,0,8,0.0,,220,235,157
+FAC_CECRI_0471,Dr B Subramanian,CSIR-CECRI,ELECTROPLATING AND ELECTROMETALLURGY,Chief Scientist (Scientist-F),3,1,0,0,90,3,1,1,1,4,1,0,6,0.0,,220,178,197
+FAC_IICT_0171,Dr. U.V.R. Vijaya Sarathi,CSIR-IICT,Analytical & Structural Chemistry,Chief Scientist (Scientist-F),3,3,2,0,82,3,2,3,3,5,0,0,8,0.0,,220,145,182
+FAC_IICT_0176,Dr. G. Jithender Reddy,CSIR-IICT,Analytical & Structural Chemistry,Senior Principal Scientist,3,0,0,0,13,3,2,3,2,2,0,0,9,0.0,,220,145,242
+FAC_IICT_0213,Dr. K. Srinivasan,CSIR-IICT,Applied Biology,Senior Principal Scientist,3,1,1,0,89,3,1,1,13,1,0,0,6,0.0,,220,178,265
+FAC_IICT_0259,Dr. Olivia Dhara,CSIR-IICT,"Oils, Lipid Science & Technology",Senior Scientist,3,1,1,0,45,2,2,2,0,1,0,0,5,0.0,,220,145,265
+FAC_IICT_0300,Dr. Bandi Sony Priyanka,CSIR-IICT,Fluoro-Agrochemicals,Senior Scientist,3,3,2,0,13,1,1,1,0,7,1,1,11,100.0,large-collaboration papers,220,178,157
+FAC_IICT_0377,Dr. M. Madhu Mala,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Principal Scientist,3,2,2,1,23,3,1,2,0,1,1,0,6,0.0,,220,178,265
+FAC_NCL_0009,Dr. Archana Kumari,CSIR-NCL,Biochemical Science Division,Scientist,3,2,1,0,53,2,1,2,4,7,1,0,5,0.0,,220,178,157
+FAC_NCL_0013,Dr. Ashish K. Lele,CSIR-NCL,Polymer Science and Engineering Division,Scientist,3,1,1,0,79,3,4,4,9,3,0,0,7,0.0,,220,86,218
+FAC_NCL_0016,Dr. Ashwin N M R,CSIR-NCL,Biochemical Science Division,Scientist,3,2,1,0,4,1,0,0,0,10,2,1,11,100.0,large-collaboration papers,220,235,120
+FAC_NCL_0040,Dr. Dhanraj B Shinde,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,3,2,2,1,25,1,1,3,1,9,2,2,20,100.0,large-collaboration papers,220,178,128
+FAC_NCL_0074,Dr. Mahesh D. Patil,CSIR-NCL,Chemical Engineering & Process Development,Scientist,3,3,3,2,38,2,0,0,0,9,2,2,16,97.4,large-collaboration papers,220,235,128
+FAC_NCL_0077,Dr. Manasi A. Telang,CSIR-NCL,Contact Number:,Scientist,3,0,0,0,37,3,0,0,0,2,0,0,3,0.0,,220,235,242
+FAC_NCL_0078,Dr. Manish Kumar Mishra,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,3,1,0,0,29,2,1,3,4,1,0,0,5,0.0,,220,178,265
+FAC_NCL_0116,Dr. Rambabu Dandela,CSIR-NCL,Organic Chemistry Division,Scientist,3,3,1,0,114,3,3,5,8,3,0,0,6,0.0,,220,114,218
+FAC_NCL_0132,Dr. Santosh Kumar Meena,CSIR-NCL,Chemical Engineering & Process Development,Scientist,3,3,2,0,47,3,0,0,3,9,1,0,8,0.0,,220,235,128
+FAC_NCL_0134,Dr. Santosh P. Ghuge,CSIR-NCL,Chemical Engineering & Process Development,Scientist,3,1,1,1,10,2,1,1,0,3,0,0,5,0.0,,220,178,218
+FAC_NCL_0158,Dr. Urmil J. Mehta,CSIR-NCL,Plant Tissue Culture Division,Scientist,3,0,0,0,83,2,0,0,0,1,0,0,6,0.0,,220,235,265
+FAC_CECRI_0483,Dr Abhishek Meena,CSIR-CECRI,ELECTROCHEMICAL PROCESS ENGINEERING,Senior Scientist,2,2,2,0,2,1,0,0,0,5,1,0,9,0.0,,240,235,182
+FAC_IICT_0178,Dr. Alegete Pallavi,CSIR-IICT,Analytical & Structural Chemistry,Principal Scientist,2,1,0,0,13,1,0,0,3,2,0,0,4,0.0,,240,235,242
+FAC_IICT_0241,Dr. Tatiparthi Vikram Sagar,CSIR-IICT,Catalysis & Fine Chemicals,Senior Scientist,2,1,1,0,18,1,0,0,0,12,2,1,12,5.6,,240,235,102
+FAC_IICT_0325,Dr. Greeshma Gopalan,CSIR-IICT,Natural Products & Medicinal Chemistry,Senior Scientist,2,0,0,0,0,0,2,2,0,2,0,0,5,0.0,,240,145,242
+FAC_IICT_0334,Dr. Ch. Raji Reddy,CSIR-IICT,Organic Synthesis & Process Chemistry,Chief Scientist (Scientist-G),2,1,1,0,17,2,1,2,1,1,0,0,6,0.0,,240,178,265
+FAC_IICT_0380,Dr. Mohammad Shahab,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Senior Scientist,2,2,2,0,1,1,0,0,0,1,2,0,7,0.0,,240,235,265
+FAC_NCL_0025,Dr. Babul Prasad,CSIR-NCL,Polymer Science and Engineering Division,Scientist,2,2,2,0,70,2,0,0,0,4,2,0,7,0.0,,240,235,197
+FAC_NCL_0032,Dr. Chaitanya Mali,CSIR-NCL,Chemical Engineering & Process Development,Scientist,2,2,0,0,1,1,1,1,0,1,0,0,3,0.0,,240,178,265
+FAC_NCL_0044,Dr. E.Deenadayalan,CSIR-NCL,Polymer Science and Engineering Division,Scientist,2,1,0,0,57,2,0,0,2,3,0,0,6,0.0,,240,235,218
+FAC_NCL_0045,Dr. Eeshwaraiah Begari,CSIR-NCL,Organic Chemistry Division,Scientist,2,1,1,0,60,2,2,3,11,0,0,0,7,0.0,,240,145,293
+FAC_NCL_0048,Dr. Gaurav G. Dastane,CSIR-NCL,Chemical Engineering & Process Development,Scientist,2,2,0,0,1,1,1,1,0,2,0,0,3,0.0,,240,178,242
+FAC_NCL_0052,Dr. Hanumant B. Borate,CSIR-NCL,Organic Chemistry Division,Scientist,2,2,0,0,33,2,3,5,2,0,0,0,8,0.0,,240,114,293
+FAC_NCL_0071,Dr. M Karthikeyan,CSIR-NCL,Chemical Engineering & Process Development,Scientist,2,0,0,0,0,0,0,0,0,1,0,0,8,0.0,,240,235,265
+FAC_NCL_0088,Dr. Nayaka G P,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,2,1,1,0,10,1,1,1,0,8,1,1,10,100.0,large-collaboration papers,240,178,146
+FAC_NCL_0092,Dr. Nilanjana Majumdar,CSIR-NCL,Organic Chemistry Division,Scientist,2,2,0,0,0,0,0,0,0,3,0,1,13,0.0,,240,235,218
+FAC_NCL_0106,Dr. Preeti Nigam Joshi,CSIR-NCL,Organic Chemistry Division,Scientist,2,1,0,0,123,2,2,2,0,2,0,0,6,0.0,,240,145,242
+FAC_NCL_0118,Dr. Ravi P. Singh,CSIR-NCL,Organic Chemistry Division,Scientist,2,0,0,0,6,2,0,0,0,0,0,0,1,0.0,,240,235,293
+FAC_NCL_0150,Dr. Suresh Gokhale,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,2,1,0,0,91,2,0,0,0,4,0,0,5,0.0,,240,235,197
+FAC_CECRI_0456,Dr K Ramesha,CSIR-CECRI,CECRI MANDAPAM UNIT,Director,1,0,0,0,0,0,0,0,0,3,0,0,8,0.0,,258,235,218
+FAC_CECRI_0461,Dr V Saranyan,CSIR-CECRI,CORROSION AND MATERIALS PROTECTION,Senior Principal Scientist,1,0,0,0,13,1,0,0,0,2,0,0,4,0.0,,258,235,242
+FAC_CECRI_0473,Dr N Rajasekaran,CSIR-CECRI,ELECTROPLATING AND ELECTROMETALLURGY,Senior Principal Scientist,1,0,0,0,0,0,0,0,0,0,0,0,4,0.0,,258,235,293
+FAC_CECRI_0474,Dr S Natarajan,CSIR-CECRI,ELECTROPLATING AND ELECTROMETALLURGY,Principal Scientist,1,0,0,0,1,1,0,0,0,2,0,0,8,0.0,,258,235,242
+FAC_CECRI_0485,Dr N Lakshminarasimhan,CSIR-CECRI,ELECTROCHEMICAL PROCESS ENGINEERING,Chief Scientist (Scientist-G),1,1,1,0,1,1,0,0,0,6,1,1,10,100.0,large-collaboration papers,258,235,168
+FAC_CECRI_0486,Dr SM Senthil Kumar,CSIR-CECRI,ELECTROCHEMICAL PROCESS ENGINEERING,Chief Scientist (Scientist-G),1,0,0,0,22,1,0,0,1,1,0,0,4,0.0,,258,235,265
+FAC_CECRI_0490,Mr B Rajasekhar,CSIR-CECRI,CENTRAL INSTRUMENTATION FACILITY,Chief Scientist (Scientist-F),1,1,1,0,14,1,0,0,0,0,0,0,6,0.0,,258,235,293
+FAC_CECRI_0502,Mr A Balasubramanian,CSIR-CECRI,CECRI CHENNAI UNIT,Senior Principal Scientist,1,0,0,0,20,1,0,0,0,0,0,0,4,0.0,,258,235,293
+FAC_CECRI_0503,Mrs P Kalaiselvi,CSIR-CECRI,CECRI CHENNAI UNIT,Principal Scientist,1,1,1,0,41,1,1,1,0,1,0,0,4,0.0,,258,178,265
+FAC_IICT_0201,Dr. Shasi Vardhan Kalivendi,CSIR-IICT,Applied Biology,Chief Scientist (Scientist-G),1,0,0,0,5,1,0,0,0,0,0,0,6,0.0,,258,235,293
+FAC_IICT_0208,Dr. T. Anjana Devi,CSIR-IICT,Applied Biology,Chief Scientist (Scientist-F),1,1,0,0,11,1,0,0,0,3,1,0,6,0.0,,258,235,218
+FAC_IICT_0214,Dr. K. Muralidharan,CSIR-IICT,Applied Biology,Principal Scientist,1,0,0,0,0,0,1,1,0,1,0,0,5,0.0,,258,178,265
+FAC_IICT_0217,Dr. Kusuma Sai Davuluri,CSIR-IICT,Applied Biology,Senior Scientist,1,0,0,0,0,0,1,1,0,1,0,0,5,0.0,,258,178,265
+FAC_IICT_0235,Dr. P. Vijayanand,CSIR-IICT,Catalysis & Fine Chemicals,Chief Scientist (Scientist-G),1,1,1,0,27,1,1,1,8,3,0,0,6,0.0,,258,178,218
+FAC_IICT_0239,Dr. Sudipta De,CSIR-IICT,Catalysis & Fine Chemicals,Senior Scientist,1,0,0,0,0,0,0,0,0,1,0,0,2,0.0,,258,235,265
+FAC_IICT_0252,Dr. B.L.A. Prabhavathi Devi,CSIR-IICT,"Oils, Lipid Science & Technology",Chief Scientist (Scientist-G),1,0,0,0,0,0,0,0,0,3,0,1,12,0.0,,258,235,218
+FAC_IICT_0270,Dr. P. Anand,CSIR-IICT,Energy & Environmental Engg.,Chief Scientist (Scientist-F),1,1,1,0,45,1,1,1,6,2,1,0,6,0.0,,258,178,242
+FAC_IICT_0286,DR. A. KRISHNAIAH,CSIR-IICT,Fluoro-Agrochemicals,Chief Scientist (Scientist-G),1,1,1,0,43,1,0,0,0,4,1,1,10,100.0,large-collaboration papers,258,235,197
+FAC_IICT_0293,Dr. Galla V. Karunakar,CSIR-IICT,Fluoro-Agrochemicals,Chief Scientist (Scientist-F),1,0,0,0,3,1,0,0,0,1,0,0,5,0.0,,258,235,265
+FAC_IICT_0297,Dr. L. Ravithej Singh,CSIR-IICT,Fluoro-Agrochemicals,Principal Scientist,1,1,0,0,0,0,0,0,0,4,1,0,6,0.0,,258,235,197
+FAC_IICT_0298,Dr. B. Kariyanna,CSIR-IICT,Fluoro-Agrochemicals,Senior Scientist,1,0,0,0,0,0,0,0,0,0,0,0,2,0.0,,258,235,293
+FAC_IICT_0316,Dr. P. Mangala Gowri,CSIR-IICT,Natural Products & Medicinal Chemistry,Chief Scientist (Scientist-G),1,1,0,0,30,1,0,0,0,1,1,0,7,0.0,,258,235,265
+FAC_IICT_0326,Dr. Anmol,CSIR-IICT,Natural Products & Medicinal Chemistry,Senior Scientist,1,1,1,0,0,0,1,1,0,0,0,0,8,0.0,,258,178,293
+FAC_IICT_0349,Dr. Ajaz Ahmed,CSIR-IICT,Organic Synthesis & Process Chemistry,Senior Scientist,1,1,1,0,1,1,0,0,0,4,0,0,6,0.0,,258,235,197
+FAC_IICT_0364,Dr. Malothu Ramulu,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Chief Scientist (Scientist-G),1,0,0,0,0,0,0,0,0,2,0,0,2,0.0,,258,235,242
+FAC_IICT_0367,SRI. M. NAVEEN,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Chief Scientist (Scientist-F),1,0,0,0,0,0,0,0,0,1,1,0,4,0.0,,258,235,265
+FAC_IICT_0371,Dr. S. CHANDRA SEKHAR,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Senior Principal Scientist,1,0,0,0,8,1,0,0,0,1,0,0,4,0.0,,258,235,265
+FAC_IICT_0382,Dr. Prakhar Srivastava,CSIR-IICT,Chemical Engg. & Process Technology (CE & PT),Senior Scientist,1,1,1,0,0,0,0,0,0,1,0,0,6,0.0,,258,235,265
+FAC_IICT_0393,Dr. L. Giribabu,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-G),1,0,0,0,2,1,0,0,0,2,0,0,3,0.0,,258,235,242
+FAC_IICT_0396,Dr. Y. Soujanya,CSIR-IICT,Polymers & Functional Materials,Chief Scientist (Scientist-G),1,1,0,0,11,1,0,0,0,1,0,0,4,0.0,,258,235,265
+FAC_IICT_0422,Dr. S. Rama Mohan,CSIR-IICT,Business Development & Research Management (BDRM),Chief Scientist (Scientist-G),1,0,0,0,0,0,0,0,0,0,0,0,5,0.0,,258,235,293
+FAC_IICT_0423,Dr. S. Sreelatha,CSIR-IICT,Business Development & Research Management (BDRM),Chief Scientist (Scientist-G),1,1,1,0,0,0,2,2,0,2,0,0,6,0.0,,258,145,242
+FAC_IICT_0426,Dr. Sanjib Kr Paul,CSIR-IICT,Business Development & Research Management (BDRM),Principal Scientist,1,1,1,0,9,1,0,0,0,3,0,0,7,0.0,,258,235,218
+FAC_IICT_0432,SRI. G. NAGA SRINIVAS,CSIR-IICT,Centre for I.T. Services,Chief Scientist (Scientist-F),1,0,0,0,6,1,1,1,2,0,0,0,7,0.0,,258,178,293
+FAC_IICT_0443,SRI. SAMUEL L. RALTE,CSIR-IICT,Knowledge and Information Management,Senior Principal Scientist,1,1,0,0,5,1,2,2,0,1,0,1,11,100.0,large-collaboration papers,258,145,265
+FAC_NCL_0023,Dr. B L V Prasad,CSIR-NCL,Physical and Materials Chemistry Division,Scientist,1,0,0,0,0,0,0,0,0,4,1,0,5,0.0,,258,235,197
+FAC_NCL_0024,Dr. B. Senthil kumar,CSIR-NCL,Organic Chemistry Division,Scientist,1,0,0,0,12,1,0,0,0,0,0,0,3,0.0,,258,235,293
+FAC_NCL_0051,Dr. H. V. Thulasiram,CSIR-NCL,Organic Chemistry Division,Scientist,1,1,0,0,13,1,1,1,3,1,0,1,10,100.0,large-collaboration papers,258,178,265
+FAC_NCL_0060,Dr. Jayashree S,CSIR-NCL,Catalysis Division,Scientist,1,1,1,0,1,1,0,0,0,5,1,0,6,0.0,5 paper(s) under the same profile at another lab (moved labs or merged profile; not counted),258,235,182
+FAC_NCL_0101,Dr. Parveen Goyal,CSIR-NCL,Biochemical Science Division,Scientist,1,1,1,0,4,1,0,0,0,10,1,0,8,0.0,,258,235,120
+FAC_NCL_0104,Dr. Pragna Pratic Das,CSIR-NCL,Contact Number:,Scientist,1,1,1,0,0,0,1,1,0,3,0,0,3,0.0,,258,178,218
+FAC_NCL_0108,Dr. Puneet Kumar Chaudhary,CSIR-NCL,Chemical Engineering & Process Development,Scientist,1,1,1,0,12,1,0,0,0,1,0,0,6,0.0,,258,235,265
+FAC_NCL_0117,Dr. Ramesh C. Samanta,CSIR-NCL,Organic Chemistry Division,Scientist,1,0,0,0,30,1,2,2,3,1,0,0,4,0.0,,258,145,265
+FAC_NCL_0120,Dr. S. Kiran,CSIR-NCL,Polymer Science and Engineering Division,Scientist,1,0,0,0,2,1,0,0,0,2,0,0,5,0.0,,258,235,242
+FAC_NCL_0124,Dr. Saket Kumar,CSIR-NCL,Polymer Science and Engineering Division,Scientist,1,1,1,0,0,0,0,0,0,3,1,0,6,0.0,,258,235,218
+FAC_NCL_0133,Dr. Santosh Kumar Sriramoju,CSIR-NCL,Chemical Engineering & Process Development,Scientist,1,0,0,0,0,0,0,0,0,1,0,0,7,0.0,,258,235,265
+FAC_NCL_0153,Dr. Syed G Dastager,CSIR-NCL,Biochemical Science Division,Scientist,1,1,1,0,8,1,0,0,0,3,0,0,4,0.0,,258,235,218
+FAC_NCL_0162,Dr. Vijayamohanan Pillai,CSIR-NCL,Contact Number:,Scientist,1,1,1,0,78,1,1,1,4,4,1,0,6,0.0,26 paper(s) under the same profile at another lab (moved labs or merged profile; not counted),258,178,197
+FAC_NCL_0164,Dr. Vincent Paul,CSIR-NCL,Organic Chemistry Division,Scientist,1,0,0,0,0,0,0,0,0,1,0,0,4,0.0,,258,235,265

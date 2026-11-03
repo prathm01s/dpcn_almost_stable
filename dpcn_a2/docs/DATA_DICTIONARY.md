@@ -159,4 +159,19 @@ All 10 analyses conform strictly to the following common JSON contract schema:
   - `reach_t3_pct`: Early adoption traction (% reached by step $t=3$).
   - `final_reach_pct`: Asymptotic adoption reach (% reached by step $t=15$).
 
+## Phase II files (D-34)
+
+| File | Content |
+|---|---|
+| `data/final/work_author_counts.csv` | Per corpus paper: `n_authors` (all authors in OpenAlex, max 100), `authors_capped` (TRUE = 100 or more), `n_institutions`, `n_countries`, `countries`, `institution_ids`, `author_ids` (short OpenAlex ids). Step 21, from cached OpenAlex responses. |
+| `data/final/citing_works.csv` | Indian papers outside the corpus citing >= 1 corpus paper: `work_id`, `doi`, `year`, `cited_by_count`, `n_authors`, `author_ids`, `institution_ids`, `n_references`, `n_references_to_corpus`. |
+| `data/final/institutions_seen.csv` | Every institution on a corpus or citing paper: OpenAlex `display_name`, `country_code`, `type`, `sector` (Indian name rules; "Foreign" otherwise), `corpus_papers`, `citing_papers`. Sector corrections: `config/overrides/sector_overrides.csv`. |
+| `stats/tables/phase2_overview*.csv` | Per lab / year: faculty, papers, Q1 papers, Q1 in IF > 5 and IF > 10 journals, papers with < 10 / >= 10 / >= 30 / 100+ authors, collaborating institutions (Indian / foreign), countries, international papers %. |
+| `stats/tables/phase2_faculty_comparison.csv` | Per scientist: papers, Q1 (IF > 5, IF > 10), citations, h, faculty co-authors, collaborating institutions, international papers, >= 10-author papers, max authors, % citations from >= 10-author papers, flags, ranks. |
+| `stats/tables/phase2_top30_by_if.csv`, `phase2_frequent_journals.csv`, `phase2_faculty_top10_by_if.csv` | Top 30 papers by journal IF (ties: citations), top 20 journals by papers (median IF), each scientist's top 10 papers by journal IF. |
+| `stats/tables/phase2_large_author_papers.csv` | Papers with >= 30 authors (flagged). |
+| `stats/tables/phase2_institution_network_*.csv` | Institutional co-authorship network: the 3 labs + 60 most frequent partners; edge weight = shared papers. |
+| `stats/tables/phase2_temporal.csv` | Per period: papers, mean authors, % >= 10 authors, % international, collaborating institutions, active faculty, faculty co-author pairs (cross-lab), density, largest group, faculty citation links. |
+| `stats/tables/phase2_citing_*.csv` | Citing papers by sector and year; diagnostics per citing institution (shared author %, lab co-author %, >= 5 lab papers cited %, top-author %, 2023–26 %, median references, median citations) with benchmark rows. |
+| `stats/tables/phase2_data_checks.csv` | Name and affiliation checks with counts and handling. |
 

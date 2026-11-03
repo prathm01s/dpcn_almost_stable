@@ -210,7 +210,8 @@ def run_tests():
 
         # Scroll to each section of the single-page layout and check its content
         section_of = {"faculty": "faculty", "venues": "journals", "areas": "areas", "citation-net": "citations",
-                      "authorship-net": "coauthorship", "connectivity": "india", "insights": "findings", "docs": "data"}
+                      "authorship-net": "coauthorship", "connectivity": "india", "insights": "findings", "docs": "data",
+                      "institutions": "institutions"}
         client.evaluate("document.documentElement.style.scrollBehavior = 'auto'")
         tabs = [
             ("faculty", "03_tab_faculty.png"),
@@ -218,6 +219,7 @@ def run_tests():
             ("areas", "05_tab_areas.png"),
             ("citation-net", "06_tab_citation_net.png"),
             ("authorship-net", "07_tab_authorship_net.png"),
+            ("institutions", "07c_institutions_time.png"),
             ("connectivity", "07b_tab_connectivity.png"),
             ("insights", "insights.png"),
             ("docs", "08_tab_docs.png"),
@@ -307,6 +309,10 @@ def run_tests():
                 client.evaluate("document.querySelector('.net-view-btn[data-net=auth][data-view=faculty]').click()")
                 time.sleep(0.5)
             elif tab_id == "connectivity":
+                cit_rows = client.evaluate("Tabulator.findTable('#table-p2-citing')[0].getDataCount()")
+                findings = client.evaluate("document.getElementById('p2-citing-findings').textContent")
+                print(f"✓ Who cites the labs: diagnostic rows={cit_rows}")
+                assert cit_rows == 29 and "Largest non-governmental citers:" in findings and "Saveetha" in findings
                 flow_canvas = client.evaluate("document.querySelectorAll('#chart-conn-flow canvas').length")
                 sector_canvas = client.evaluate("document.querySelectorAll('#chart-conn-sectors canvas').length")
                 citing_rows = client.evaluate("document.querySelectorAll('#tbody-conn-citing tr').length")
@@ -358,6 +364,13 @@ def run_tests():
                 time.sleep(0.3)
                 assert client.evaluate("document.getElementById('ins-overlay').hidden"), "Escape should close the finding modal"
 
+            elif tab_id == "institutions":
+                # Phase II (D-34): institutional network and temporal analysis
+                inst_canvas = client.evaluate("document.querySelectorAll('#chart-p2-inst-network canvas').length")
+                temp_rows = client.evaluate("document.querySelectorAll('#p2-temporal-table tbody tr').length")
+                inst_rows = client.evaluate("document.querySelectorAll('#p2-inst-table tbody tr').length")
+                print(f"✓ Institutions & time: network canvas={inst_canvas}, partner rows={inst_rows}, periods={temp_rows}")
+                assert inst_canvas > 0 and inst_rows == 15 and temp_rows == 4
             elif tab_id == "docs":
                 download_links = client.evaluate("document.querySelectorAll('#data a[download]').length")
                 print(f"✓ Data & Methods: {download_links} downloadable deliverable links")
@@ -382,6 +395,18 @@ def run_tests():
         print(f"✓ IR card: IR>5 rows={rows5} (table {n5}), IR>10 rows={rows10} (table {n10})")
         assert f"{n5:,}" in kpi_txt and rows5 == n5 and rows10 == n10
         client.evaluate("document.querySelector('#ir-hi-tabs button[data-t=\"5\"]').click()")
+        # Phase II panels (D-34): numbers equal stats/tables/phase2_*.csv
+        with open("stats/tables/phase2_overview.csv", encoding="utf-8") as f:
+            p2o = {r["institution"]: r for r in csv.DictReader(f)}
+        ov_txt = client.evaluate("document.getElementById('p2-overview-table').textContent")
+        ov_rows = client.evaluate("document.querySelectorAll('#p2-overview-table tbody tr').length")
+        allr = p2o["Group 24 Combined"]
+        print(f"✓ Phase II overview: rows={ov_rows}, Q1&IF>10 all three={allr['q1_if_gt10']}")
+        assert ov_rows == 4 and f"{int(allr['q1_if_gt10']):,}" in ov_txt and f"{int(allr['papers_ge10_authors']):,}" in ov_txt
+        fac_rows = client.evaluate("Tabulator.findTable('#table-p2-faculty')[0].getDataCount()")
+        top30 = client.evaluate("Tabulator.findTable('#table-p2-top30')[0].getDataCount()")
+        print(f"✓ Phase II faculty comparison rows={fac_rows}, top-30 by IF rows={top30}")
+        assert fac_rows == int(p2o["Group 24 Combined"]["active_faculty"]) and top30 == 30
         time.sleep(0.3)
 
         # Filter Year: 2020 - 2024

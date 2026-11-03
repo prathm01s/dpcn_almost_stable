@@ -99,7 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const lazySections = {
     citations: () => renderCitationSection(),
     coauthorship: () => renderAuthorshipSection(),
-    india: () => renderConnectivity(),
+    india: () => { renderConnectivity(); renderP2Citing(); },
+    institutions: () => renderP2Institutions(),
   };
   const shownSections = new Set();
   function showSection(id) {
@@ -177,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderOverviewCharts();
     renderImpactRatio();
     renderIrHigh();
+    renderPhase2();
     renderFacultyPanels();
     renderVenuesPanels();
     renderResearchAreasCharts();
@@ -1418,6 +1420,294 @@ document.addEventListener("DOMContentLoaded", () => {
         emphasis: { focus: "adjacency", lineStyle: { width: 4, opacity: 1 } },
       }],
     }, true);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Phase II (instructor's directions, D-34): every number comes from data.phase2,
+  // built from stats/tables/phase2_*.csv. These panels follow the institute buttons.
+  // ---------------------------------------------------------------------------
+  const P2 = data.phase2 || null;
+  const isTrue = v => v === true || String(v).toLowerCase() === "true";
+  const P2_NAMES = { iict: "CSIR-IICT", ncl: "CSIR-NCL", cecri: "CSIR-CECRI", all: "All three" };
+  const p2Key = () => (currentInst === "compare" ? "all" : currentInst);
+  const pctN = (v, d = 1) => (v == null ? "–" : `${Number(v).toFixed(d)}%`);
+  const doiLink = (title, doi) => (doi ? `<a href="${esc(doi)}" target="_blank" rel="noopener">${esc(title)}</a>` : esc(title));
+  let p2FacultyTable = null, p2Top30Table = null, p2CitingTable = null;
+
+  function renderPhase2() {
+    if (!P2) return;
+    renderP2Overview();
+    renderP2Faculty();
+    renderP2Journals();
+    renderP2Checks();
+  }
+
+  function renderP2Overview() {
+    const key = p2Key();
+    const rows = ["iict", "ncl", "cecri", "all"].map(k => [k, P2.overview[k]]).filter(([, r]) => r);
+    const th = ["Institute", "Faculty", "Papers", "Q1 papers", "Q1 &amp; IF&gt;5", "Q1 &amp; IF&gt;10", "&lt;10 authors", "≥10 authors",
+      "≥30 authors", "Collaborating institutions", "Indian / foreign", "Countries", "International papers"];
+    document.getElementById("p2-overview-table").innerHTML =
+      `<thead><tr>${th.map(t => `<th>${t}</th>`).join("")}</tr></thead><tbody>` +
+      rows.map(([k, r]) => `<tr class="${k === key ? "p2-current" : ""}"><td><strong>${P2_NAMES[k]}</strong></td>
+        <td>${fmtN(r.active_faculty)}</td><td>${fmtN(r.papers)}</td>
+        <td>${fmtN(r.q1_papers)} <small>(${pctN(r.q1_papers / r.papers * 100, 0)})</small></td>
+        <td><strong>${fmtN(r.q1_if_gt5)}</strong></td><td><strong>${fmtN(r.q1_if_gt10)}</strong></td>
+        <td>${fmtN(r.papers_lt10_authors)}</td><td>${fmtN(r.papers_ge10_authors)} <small>(${pctN(r.papers_ge10_authors / r.papers * 100)})</small></td>
+        <td>${fmtN(r.papers_ge30_authors)}${r.papers_100plus_authors ? ` <small>(${r.papers_100plus_authors} with 100+)</small>` : ""}</td>
+        <td><strong>${fmtN(r.collab_institutions)}</strong></td><td>${fmtN(r.collab_institutions_indian)} / ${fmtN(r.collab_institutions_foreign)}</td>
+        <td>${fmtN(r.collab_countries)}</td><td>${pctN(r.intl_papers_pct)}</td></tr>`).join("") + "</tbody>";
+    const yr = (P2.overview_by_year[key] || []).slice().sort((a, b) => a.year - b.year);
+    const years = yr.map(r => (r.year === 2026 ? "2026*" : String(r.year)));
+    if (!charts.p2Authors) charts.p2Authors = echarts.init(document.getElementById("chart-p2-authors"));
+    charts.p2Authors.setOption({
+      title: { text: `Papers by number of authors · ${P2_NAMES[key]}`, left: "center", textStyle: { fontSize: 13 } },
+      tooltip: { trigger: "axis" }, legend: { bottom: 0 },
+      grid: { left: 50, right: 50, top: 40, bottom: 50 },
+      xAxis: { type: "category", data: years },
+      yAxis: [{ type: "value", name: "Papers" }, { type: "value", name: "Mean authors", splitLine: { show: false } }],
+      series: [
+        { name: "< 10 authors", type: "bar", stack: "a", data: yr.map(r => r.papers_lt10_authors), itemStyle: { color: colors.q2 } },
+        { name: "≥ 10 authors", type: "bar", stack: "a", data: yr.map(r => r.papers_ge10_authors), itemStyle: { color: "#f59e0b" } },
+        { name: "Mean authors per paper", type: "line", yAxisIndex: 1, data: yr.map(r => r.mean_authors), itemStyle: { color: colors.all } },
+      ],
+    }, true);
+    if (!charts.p2Collab) charts.p2Collab = echarts.init(document.getElementById("chart-p2-collab"));
+    charts.p2Collab.setOption({
+      title: { text: `Collaborating institutions per year · ${P2_NAMES[key]}`, left: "center", textStyle: { fontSize: 13 } },
+      tooltip: { trigger: "axis" }, legend: { bottom: 0 },
+      grid: { left: 50, right: 50, top: 40, bottom: 50 },
+      xAxis: { type: "category", data: years },
+      yAxis: [{ type: "value", name: "Institutions" }, { type: "value", name: "Countries", splitLine: { show: false } }],
+      series: [
+        { name: "Indian", type: "bar", stack: "c", data: yr.map(r => r.collab_institutions_indian), itemStyle: { color: colors.q1 } },
+        { name: "Foreign", type: "bar", stack: "c", data: yr.map(r => r.collab_institutions_foreign), itemStyle: { color: colors.q2 } },
+        { name: "Countries", type: "line", yAxisIndex: 1, data: yr.map(r => r.collab_countries), itemStyle: { color: "#f59e0b" } },
+      ],
+    }, true);
+    const r = P2.overview[key];
+    setText("p2-overview-note", r ? `${P2_NAMES[key]}: ${fmtN(r.q1_if_gt5)} Q1 papers in journals with IF > 5 and ${fmtN(r.q1_if_gt10)} with IF > 10 ` +
+      `(of ${fmtN(r.q1_papers)} Q1 papers; ${fmtN(r.papers - r.papers_with_if)} papers have no SCImago IF). ` +
+      `${pctN(r.papers_ge10_authors / r.papers * 100)} of papers have 10 or more authors. Institute buttons apply; the year and other filters do not. 2026 is partial.` : "");
+  }
+
+  function renderP2Faculty() {
+    const key = p2Key();
+    const lab = P2_NAMES[key];
+    const rows = P2.faculty.filter(f => key === "all" || f.institution === lab);
+    const top = (field, n = 5) => rows.slice().sort((a, b) => b[field] - a[field] || a.name.localeCompare(b.name)).slice(0, n);
+    const list = (title, field, unit) => `<div class="p2-leader"><div class="p2-leader-title">${title}</div><ol>` +
+      top(field).map(f => `<li ${window.G24Profiles && G24Profiles.has(f.faculty_id) ? `data-fid="${esc(f.faculty_id)}"` : ""}>` +
+        `<span>${esc(f.name)}</span><b>${fmtN(f[field])} ${unit}</b></li>`).join("") + "</ol></div>";
+    document.getElementById("p2-leaders").innerHTML =
+      list("Most productive", "papers", "papers") + list("Most connected (faculty co-authors)", "faculty_coauthors", "co-authors") +
+      list("Most collaborating institutions", "collab_institutions", "institutions") + list("Most Q1 papers in IF &gt; 10 journals", "q1_if_gt10", "papers");
+    const cols = [
+      { title: "Scientist", field: "name", frozen: true, minWidth: 190, tooltip: true },
+      { title: "Lab", field: "institution", width: 95, formatter: c => esc(c.getValue().replace("CSIR-", "")) },
+      { title: "Papers", field: "papers", sorter: "number", hozAlign: "right", width: 82 },
+      { title: "Q1", field: "q1_papers", sorter: "number", hozAlign: "right", width: 66 },
+      { title: "Q1 IF>5", field: "q1_if_gt5", sorter: "number", hozAlign: "right", width: 80 },
+      { title: "Q1 IF>10", field: "q1_if_gt10", sorter: "number", hozAlign: "right", width: 86 },
+      { title: "Citations", field: "citations", sorter: "number", hozAlign: "right", width: 90 },
+      { title: "h", field: "h_index", sorter: "number", hozAlign: "right", width: 55 },
+      { title: "Faculty co-authors", field: "faculty_coauthors", sorter: "number", hozAlign: "right", width: 100 },
+      { title: "Collab. institutions", field: "collab_institutions", sorter: "number", hozAlign: "right", width: 105 },
+      { title: "Intl papers", field: "intl_papers", sorter: "number", hozAlign: "right", width: 88 },
+      { title: "≥10-author papers", field: "papers_ge10_authors", sorter: "number", hozAlign: "right", width: 100 },
+      { title: "Max authors", field: "max_authors", sorter: "number", hozAlign: "right", width: 86, formatter: c => (c.getValue() >= 100 ? "100+" : c.getValue()) },
+      { title: "% cites from ≥10-author", field: "citations_from_ge10_pct", sorter: "number", hozAlign: "right", width: 110 },
+      { title: "Flags", field: "flags", minWidth: 220, tooltip: true, formatter: c => c.getValue() ? `<span class="flag-few">${esc(c.getValue())}</span>` : "" },
+    ];
+    if (!p2FacultyTable) {
+      p2FacultyTable = new Tabulator(document.getElementById("table-p2-faculty"), {
+        data: rows, layout: "fitDataStretch", columns: cols, initialSort: [{ column: "papers", dir: "desc" }],
+        rowFormatter: row => {
+          const fid = row.getData().faculty_id;
+          if (window.G24Profiles && G24Profiles.has(fid)) row.getElement().setAttribute("data-fid", fid);
+        },
+      });
+    } else {
+      p2FacultyTable.setData(rows);
+    }
+    const flagged = rows.filter(f => f.flags).length;
+    setText("p2-faculty-note", `${fmtN(rows.length)} scientists. Flags: ${fmtN(rows.filter(f => /large-collaboration/.test(f.flags)).length)} with large-collaboration papers ` +
+      `(≥ 1 paper with 30+ authors, or half their citations from papers with 10+ authors); ` +
+      `${fmtN(rows.filter(f => /another lab/.test(f.flags)).length)} whose OpenAlex profile also lists papers at another lab (not counted). ` +
+      `No scientist has 100,000 citations in 2016–2026 (highest: ${fmtN(Math.max(0, ...P2.faculty.map(f => f.citations)))}).` + (flagged ? "" : ""));
+    const big = P2.large_papers.filter(p => key === "all" || (p.labs || "").includes(lab));
+    document.getElementById("p2-large-table").innerHTML =
+      "<thead><tr><th>Paper</th><th>Journal</th><th>Year</th><th>Lab(s)</th><th>Authors</th><th>Citations</th></tr></thead><tbody>" +
+      (big.length ? big.map(p => `<tr><td>${doiLink(p.title, p.doi)}</td><td>${esc(p.journal_name)}</td><td>${p.year}</td>
+        <td>${esc((p.labs || "").replace(/CSIR-/g, ""))}</td><td><strong>${p.authors_100_or_more ? "100+" : p.n_authors}</strong></td>
+        <td>${fmtN(p.citations)}</td></tr>`).join("") : `<tr><td colspan="6">None for ${esc(P2_NAMES[key])}.</td></tr>`) + "</tbody>";
+  }
+
+  function renderP2Journals() {
+    const key = p2Key();
+    const rows = P2.top30_if[key] || [];
+    const cols = [
+      { title: "#", field: "rank", width: 50 },
+      { title: "Title", field: "title", minWidth: 260, widthGrow: 3, tooltip: true, formatter: c => doiLink(c.getValue(), c.getRow().getData().doi) },
+      { title: "Journal", field: "journal_name", minWidth: 170, widthGrow: 1.5, tooltip: true },
+      { title: "IF", field: "journal_if", sorter: "number", hozAlign: "right", width: 70, formatter: c => Number(c.getValue()).toFixed(1) },
+      { title: "SJR", field: "quartile", width: 72, formatter: c => qBadge(c.getValue()) },
+      { title: "Year", field: "year", width: 66 },
+      { title: "Citations", field: "citations", sorter: "number", hozAlign: "right", width: 88 },
+      { title: "Lab(s)", field: "labs", width: 100, formatter: c => esc((c.getValue() || "").replace(/CSIR-/g, "")) },
+      { title: "Authors", field: "n_authors", sorter: "number", hozAlign: "right", width: 78 },
+    ];
+    if (!p2Top30Table) p2Top30Table = new Tabulator(document.getElementById("table-p2-top30"), { data: rows, layout: "fitColumns", columns: cols });
+    else p2Top30Table.setData(rows);
+    const js = P2.journals[key] || [];
+    document.getElementById("p2-journals-table").innerHTML =
+      "<thead><tr><th>#</th><th>Journal</th><th>Papers</th><th>Share</th><th>IF (median)</th><th>SJR</th><th>Citations</th></tr></thead><tbody>" +
+      js.map(j => `<tr><td>${j.rank}</td><td><strong>${esc(j.journal_name)}</strong></td><td>${fmtN(j.papers)}</td><td>${pctN(j.share_pct)}</td>
+        <td>${j.journal_if == null ? "–" : Number(j.journal_if).toFixed(1)}</td><td>${j.quartile ? qBadge(j.quartile) : "–"}</td><td>${fmtN(j.citations)}</td></tr>`).join("") + "</tbody>";
+  }
+
+  const SECTOR_COLOR = { "Assigned lab": "#6366f1", Foreign: "#94a3b8", CSIR: "#14b8a6", IIT: "#a855f7", IISc: "#a855f7", IISER: "#a855f7",
+    NIT: "#c084fc", IIIT: "#c084fc", CentralUniv: "#22c55e", StateUniv: "#4ade80", Private: "#f59e0b", Industry: "#ef4444",
+    DAE: "#0ea5e9", Government: "#38bdf8", Healthcare: "#f472b6", Other: "#64748b" };
+  const sectorColor = s => SECTOR_COLOR[s] || "#64748b";
+
+  function renderP2Institutions() {
+    if (!P2) return;
+    const nodes = P2.inst_nodes, edges = P2.inst_edges.filter(e => e.papers >= 3);
+    const labColor = { "CSIR-IICT": colors.iict, "CSIR-NCL": colors.ncl, "CSIR-CECRI": colors.cecri };
+    const maxP = Math.max(...nodes.map(n => n.papers_with_labs));
+    if (!charts.p2Inst) charts.p2Inst = echarts.init(document.getElementById("chart-p2-inst-network"));
+    const nameOf = Object.fromEntries(nodes.map(n => [n.institution_id, n.name]));
+    charts.p2Inst.setOption({
+      tooltip: { formatter: p => p.dataType === "edge"
+        ? `${esc(nameOf[p.data.source])} — ${esc(nameOf[p.data.target])}<br/><strong>${fmtN(p.data.value)}</strong> shared papers`
+        : `<strong>${esc(p.data.name)}</strong><br/>${esc(p.data.sector)} · ${esc(p.data.country)}<br/>${fmtN(p.data.value)} papers with the labs<br/>links: ${p.data.degree}` },
+      series: [{
+        type: "graph", layout: "force", roam: true, draggable: true,
+        force: { repulsion: 520, edgeLength: [90, 280], gravity: 0.06 },
+        data: nodes.map(n => ({ id: n.institution_id, name: n.name, value: n.papers_with_labs, sector: n.sector, country: n.country_code,
+          degree: n.degree, symbolSize: 8 + 46 * Math.sqrt(n.papers_with_labs / maxP),
+          itemStyle: { color: labColor[n.name] || sectorColor(n.sector), borderColor: ink().surface, borderWidth: 1 },
+          label: { show: n.papers_with_labs >= maxP * 0.04, position: "right", fontSize: 10, color: ink().text2,
+            formatter: n.name.length > 34 ? n.name.slice(0, 32) + "…" : n.name } })),
+        links: edges.map(e => ({ source: e.source, target: e.target, value: e.papers,
+          lineStyle: { width: 0.5 + 5 * Math.sqrt(e.papers / maxP), opacity: 0.35, color: "source" } })),
+        emphasis: { focus: "adjacency", lineStyle: { opacity: 0.9 } },
+      }],
+    }, true);
+    const used = [...new Set(nodes.map(n => n.sector))];
+    document.getElementById("p2-inst-legend").innerHTML = used.map(s => `<span><i style="background:${s === "Assigned lab" ? "var(--accent-ink)" : sectorColor(s)}"></i>${esc(s === "Assigned lab" ? "The three labs" : s)}</span>`).join("") +
+      `<span class="net-hint">${fmtN(nodes.length)} institutions; lines with ≥ 3 shared papers (${fmtN(edges.length)} of ${fmtN(P2.inst_edges.length)}).</span>`;
+    const partners = nodes.filter(n => n.sector !== "Assigned lab").slice(0, 15);
+    document.getElementById("p2-inst-table").innerHTML =
+      "<thead><tr><th>#</th><th>Partner institution</th><th>Country</th><th>Sector</th><th>Papers with the labs</th><th>Links in this network</th></tr></thead><tbody>" +
+      partners.map((n, i) => `<tr><td>${i + 1}</td><td><strong>${esc(n.name)}</strong></td><td>${esc(n.country_code)}</td><td>${esc(n.sector)}</td><td>${fmtN(n.papers_with_labs)}</td><td>${n.degree}</td></tr>`).join("") + "</tbody>";
+    renderP2Temporal();
+  }
+
+  function renderP2Temporal() {
+    const t = P2.temporal;
+    const per = t.map(r => r.period);
+    if (!charts.p2Temp) charts.p2Temp = echarts.init(document.getElementById("chart-p2-temporal"));
+    charts.p2Temp.setOption({
+      title: { text: "Faculty networks by period", left: "center", textStyle: { fontSize: 13 } },
+      tooltip: { trigger: "axis" }, legend: { bottom: 0 }, grid: { left: 50, right: 50, top: 40, bottom: 50 },
+      xAxis: { type: "category", data: per },
+      yAxis: [{ type: "value", name: "Pairs / links" }, { type: "value", name: "Cross-lab pairs", splitLine: { show: false }, minInterval: 1 }],
+      series: [
+        { name: "Faculty co-author pairs", type: "bar", data: t.map(r => r.faculty_coauthor_pairs), itemStyle: { color: colors.q2 } },
+        { name: "Faculty citation links", type: "bar", data: t.map(r => r.faculty_citation_links), itemStyle: { color: colors.all } },
+        { name: "Cross-lab co-author pairs", type: "line", yAxisIndex: 1, data: t.map(r => r.cross_lab_pairs), itemStyle: { color: "#f59e0b" } },
+      ],
+    }, true);
+    if (!charts.p2Teams) charts.p2Teams = echarts.init(document.getElementById("chart-p2-teams"));
+    charts.p2Teams.setOption({
+      title: { text: "Team size and international work by period", left: "center", textStyle: { fontSize: 13 } },
+      tooltip: { trigger: "axis" }, legend: { bottom: 0 }, grid: { left: 50, right: 50, top: 40, bottom: 50 },
+      xAxis: { type: "category", data: per },
+      yAxis: [{ type: "value", name: "% of papers" }, { type: "value", name: "Mean authors", splitLine: { show: false } }],
+      series: [
+        { name: "Papers with ≥10 authors (%)", type: "bar", data: t.map(r => r.papers_ge10_authors_pct), itemStyle: { color: "#f59e0b" } },
+        { name: "International papers (%)", type: "bar", data: t.map(r => r.intl_papers_pct), itemStyle: { color: colors.q1 } },
+        { name: "Mean authors per paper", type: "line", yAxisIndex: 1, data: t.map(r => r.mean_authors), itemStyle: { color: colors.all } },
+      ],
+    }, true);
+    const th = ["Period", "Papers", "Mean authors", "≥10 authors", "International", "Collab. institutions", "Active faculty",
+      "Faculty pairs", "Cross-lab pairs", "Density", "Largest group", "Faculty citation links"];
+    document.getElementById("p2-temporal-table").innerHTML = `<thead><tr>${th.map(x => `<th>${x}</th>`).join("")}</tr></thead><tbody>` +
+      t.map(r => `<tr><td><strong>${esc(r.period)}</strong></td><td>${fmtN(r.papers)}</td><td>${r.mean_authors}</td><td>${pctN(r.papers_ge10_authors_pct)}</td>
+        <td>${pctN(r.intl_papers_pct)}</td><td>${fmtN(r.collab_institutions)}</td><td>${fmtN(r.active_faculty)}</td><td>${fmtN(r.faculty_coauthor_pairs)}</td>
+        <td>${fmtN(r.cross_lab_pairs)}</td><td>${r.faculty_network_density}</td><td>${fmtN(r.largest_group_scientists)}</td><td>${fmtN(r.faculty_citation_links)}</td></tr>`).join("") + "</tbody>";
+    const a = t[0], b = t[t.length - 2] || t[0];
+    setText("p2-temporal-note", `From ${a.period} to ${b.period}: mean authors per paper ${a.mean_authors} → ${b.mean_authors}; papers with 10+ authors ` +
+      `${pctN(a.papers_ge10_authors_pct)} → ${pctN(b.papers_ge10_authors_pct)}; faculty co-author pairs ${fmtN(a.faculty_coauthor_pairs)} → ${fmtN(b.faculty_coauthor_pairs)} ` +
+      `(cross-lab ${fmtN(a.cross_lab_pairs)} → ${fmtN(b.cross_lab_pairs)}); faculty citation links ${fmtN(a.faculty_citation_links)} → ${fmtN(b.faculty_citation_links)}. ` +
+      `Citation links grow partly because later papers can cite more earlier ones. ${t[t.length - 1].period} is partial.`);
+  }
+
+  function renderP2Citing() {
+    if (!P2) return;
+    const yr = P2.citing_by_year;
+    if (!charts.p2SecYear) charts.p2SecYear = echarts.init(document.getElementById("chart-p2-sector-year"));
+    charts.p2SecYear.setOption({
+      title: { text: "Share of Indian citing papers from non-governmental institutions", left: "center", textStyle: { fontSize: 13 } },
+      tooltip: { trigger: "axis" }, legend: { bottom: 0 }, grid: { left: 55, right: 50, top: 40, bottom: 50 },
+      xAxis: { type: "category", data: yr.map(r => (r.year === 2026 ? "2026*" : String(r.year))) },
+      yAxis: [{ type: "value", name: "Citing papers" }, { type: "value", name: "% non-governmental", max: 100, splitLine: { show: false } }],
+      series: [
+        { name: "All Indian citing papers", type: "bar", data: yr.map(r => r.indian_citing_papers), itemStyle: { color: colors.q2 } },
+        { name: "Non-governmental", type: "bar", data: yr.map(r => r.non_governmental_citing_papers), itemStyle: { color: "#f59e0b" } },
+        { name: "% non-governmental", type: "line", yAxisIndex: 1, data: yr.map(r => r.non_governmental_pct), itemStyle: { color: "#ef4444" },
+          label: { show: true, formatter: p => `${Math.round(p.value)}%`, color: ink().text, textBorderWidth: 0, fontSize: 10 } },
+      ],
+    }, true);
+    const sec = P2.citing_sectors.slice(0, 12).reverse();
+    if (!charts.p2Sec) charts.p2Sec = echarts.init(document.getElementById("chart-p2-sectors"));
+    charts.p2Sec.setOption({
+      title: { text: "Citing papers by sector (2016–2026)", left: "center", textStyle: { fontSize: 13 } },
+      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } }, grid: { left: 95, right: 40, top: 40, bottom: 25 },
+      xAxis: { type: "value" }, yAxis: { type: "category", data: sec.map(s => s.sector) },
+      series: [{ type: "bar", data: sec.map(s => ({ value: s.citing_papers, itemStyle: { color: isTrue(s.non_governmental) ? "#f59e0b" : sectorColor(s.sector) } })),
+        label: { show: true, position: "right", color: ink().text, textBorderWidth: 0, formatter: p => fmtN(p.value) } }],
+    }, true);
+    const d = P2.citing_diag;
+    const bench = d.find(r => /IITs, IISc/.test(r.institution)), ng = d.find(r => /all non-governmental/.test(r.institution));
+    const ngTop = d.filter(r => isTrue(r.non_governmental)).slice(0, 5);
+    const y0 = yr.find(r => r.year === 2016), y1 = yr.find(r => r.year === 2025);
+    const conc = d.filter(r => r.sector !== "benchmark" && r.top_author_pct >= 10);
+    document.getElementById("p2-citing-findings").innerHTML = (bench && ng && y0 && y1) ? `<ul>
+      <li><strong>Rising share:</strong> non-governmental institutions wrote ${pctN(y0.non_governmental_pct)} of Indian citing papers in 2016 and ${pctN(y1.non_governmental_pct)} in 2025.</li>
+      <li><strong>Largest non-governmental citers:</strong> ${ngTop.map(r => `${esc(r.institution)} (${fmtN(r.citing_papers)})`).join(", ")}.</li>
+      <li><strong>Not self-citation or stacking:</strong> ${pctN(ng.shared_author_pct)} of their citing papers share an author with the lab paper they cite (IITs/IISc/IISERs: ${pctN(bench.shared_author_pct)}); ${pctN(ng.stacking_pct)} cite five or more lab papers at once (${pctN(bench.stacking_pct)}).</li>
+      <li><strong>What differs:</strong> ${pctN(ng.recent_pct)} of their citing papers appeared in 2023–2026 (${pctN(bench.recent_pct)}), with longer reference lists (median ${ng.median_references} vs ${bench.median_references}) and fewer citations of their own (median ${ng.median_citing_paper_citations} vs ${bench.median_citing_paper_citations}): a recent surge of high-volume, reference-heavy papers explains most of the count.</li>
+      ${conc.length ? `<li><strong>Concentrated on one author (≥ 10% of an institution's citing papers):</strong> ${conc.map(r => `${esc(r.institution)} (${pctN(r.top_author_pct)})`).join(", ")}.</li>` : ""}
+      </ul>` : "";
+    const cols = [
+      { title: "Institution", field: "institution", minWidth: 230, frozen: true, tooltip: true, formatter: c => {
+        const r = c.getRow().getData();
+        return r.sector === "benchmark" ? `<em>${esc(c.getValue())}</em>` : esc(c.getValue()); } },
+      { title: "Sector", field: "sector", width: 100, formatter: c => isTrue(c.getRow().getData().non_governmental) ? `<span class="flag-few">${esc(c.getValue())}</span>` : esc(c.getValue()) },
+      { title: "Citing papers", field: "citing_papers", sorter: "number", hozAlign: "right", width: 92 },
+      { title: "Lab papers cited per paper", field: "refs_to_corpus_per_paper", sorter: "number", hozAlign: "right", width: 105 },
+      { title: "Cite ≥5 lab papers %", field: "stacking_pct", sorter: "number", hozAlign: "right", width: 95 },
+      { title: "Shared author %", field: "shared_author_pct", sorter: "number", hozAlign: "right", width: 90 },
+      { title: "Lab co-author %", field: "lab_coauthor_pct", sorter: "number", hozAlign: "right", width: 90 },
+      { title: "Top author %", field: "top_author_pct", sorter: "number", hozAlign: "right", width: 82 },
+      { title: "2023–26 %", field: "recent_pct", sorter: "number", hozAlign: "right", width: 82 },
+      { title: "Median refs", field: "median_references", sorter: "number", hozAlign: "right", width: 82 },
+      { title: "Median citations", field: "median_citing_paper_citations", sorter: "number", hozAlign: "right", width: 92 },
+    ];
+    if (!p2CitingTable) p2CitingTable = new Tabulator(document.getElementById("table-p2-citing"), { data: d, layout: "fitDataStretch", columns: cols });
+    document.getElementById("p2-citing-note").innerHTML = "<strong>Indicators:</strong> shared author = the citing paper and the cited lab paper share ≥ 1 author; " +
+      "lab co-author = the citing paper has an author who also appears on lab papers; top author = share of the institution's citing papers that include its most frequent author; " +
+      "cite ≥ 5 = one citing paper cites five or more lab papers. Citing papers = Indian papers outside the corpus with a DOI (OpenAlex, 20 Oct 2026). " +
+      "These patterns describe how the citations arise; they do not show intent.";
+  }
+
+  function renderP2Checks() {
+    const rows = P2.checks || [];
+    document.getElementById("p2-checks-table").innerHTML = "<thead><tr><th>Check</th><th>Cases</th><th>Detail</th><th>Handling</th></tr></thead><tbody>" +
+      rows.map(r => `<tr><td><strong>${esc(r.check)}</strong></td><td>${fmtN(r.count)}</td><td>${esc(r.detail || "")}</td><td>${esc(r.handling)}</td></tr>`).join("") + "</tbody>";
   }
 
   // 8. Indian Connectivity (Sections 7a / 7b)

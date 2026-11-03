@@ -1,0 +1,8 @@
+check,count,detail,handling
+Two different scientists with the same name,1,Dr. Amitava Das (CSIR-IICT); Dr. Amitava Das (CSIR-NCL),Kept as separate people (one faculty_id each) in all faculty tables and networks
+Lab author names that stand for > 1 OpenAlex author,110,,"Faculty analyses use faculty_id, not names; the all-author network is labelled 'by name'"
+Scientists whose OpenAlex profile also has papers at another lab,9,108 papers,Not counted for the scientist (possible merged profile)
+Author rows without an OpenAlex author ID,1568,,Kept in paper statistics; never counted as faculty
+Papers with >= 30 authors,17,,Flagged (phase2_large_author_papers.csv)
+Papers listed with 100 authors (100 or more),6,,Flagged; OpenAlex lists at most 100
+Duplicate or non-research records removed (Step 20),144,"{'Angewandte Chemie German edition of an International Edition paper': 64, 'non-research item (retraction notice / correction / cover / preface / editorial)': 48, 'repository copy, not a journal or conference paper': 15, 'duplicate record of the same paper in the same journal': 11, 'another version (DOI) of the same paper': 6}",Removed or merged into the kept record (data/review/duplicate_papers_removed.csv)
