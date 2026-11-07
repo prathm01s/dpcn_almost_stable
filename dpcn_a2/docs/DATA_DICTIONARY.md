@@ -175,3 +175,34 @@ All 10 analyses conform strictly to the following common JSON contract schema:
 | `stats/tables/phase2_citing_*.csv` | Citing papers by sector and year; diagnostics per citing institution (shared author %, lab co-author %, >= 5 lab papers cited %, top-author %, 2023–26 %, median references, median citations) with benchmark rows. |
 | `stats/tables/phase2_data_checks.csv` | Name and affiliation checks with counts and handling. |
 
+
+## Global benchmark files (D-35)
+
+Rules: `config/global_benchmark.yaml`; hand-reviewed rule-2b exclusions: `config/overrides/global_peer_exclusions.csv` (`institution_id, name, country, reason, date`). Built by `python run.py global` (Steps 22–23, then `src/stats/global_benchmark.py` and `src/dashboard/build_global.py`). Shown on `dashboard/global.html`.
+
+**Raw benchmark data (`data/final/global/`)**
+
+| File | Columns | Notes |
+|---|---|---|
+| `scope_subfields.csv` | subfield_id, subfield, lab_papers, share_pct, cum_share_pct, in_scope | OpenAlex primary-topic subfields of the three labs' papers 2016–2025 (articles, reviews); `in_scope` = the subfields making up 90% |
+| `candidates.csv` | country, country_code, institution_id, name, type, city, ror, in_scope_papers, rejected_because, sim_CSIR-NCL, sim_CSIR-IICT, sim_CSIR-CECRI, selected_twin_of | Every institution in each country's pool (rule 1) with the rule it failed, or its similarity to each lab |
+| `peers.csv` | group, country, institution_id, name, type, city, twin_of, similarity, in_scope_papers | The 3 labs, the foreign twins and the Indian reference group (for Indian peers `twin_of` = most similar lab) |
+| `subfield_profiles.csv` | institution_id, subfield_id, subfield, papers | All papers 2016–2025 by subfield (the similarity input) |
+| `bench_by_year.csv` | institution_id, year, papers_all, papers_scope, top10, top1, above_world, intl | `top10`/`top1`: OpenAlex `citation_normalized_percentile.is_in_top_10_percent` / `_1_percent`; `above_world`: `fwci > 1`; `intl`: `countries_distinct_count > 1`; all except `papers_all` in scope |
+| `country_by_year.csv` | country_code (IN, US, CN, KR, AU, WORLD), year, papers_scope, top10, top1 | Papers with ≥ 1 author in the country (whole counting) |
+| `collab_by_year.csv` | lab, institution_id, year, papers | Papers with both the lab and the peer (all fields) |
+| `citation_flows.csv` | lab, institution_id, direction, work_id, year, coauthored_with_lab | One row per peer paper and lab: `peer_cites_lab` = the peer paper cites ≥ 1 of the lab's curated papers; `lab_cites_peer` = it is cited by ≥ 1 of them. `year` = year of the peer paper |
+
+**Tables (`stats/tables/global_*.csv`)**
+
+| File | Content |
+|---|---|
+| `global_peers.csv` | peers.csv plus a short display name |
+| `global_summary.csv` | per institution 2016–2025: papers_all, papers_scope, scope_share_pct, papers_2016, papers_2025, cagr_pct, top10_pct, top1_pct, above_world_pct, intl_pct, top10_pct_early (2016–20), top10_pct_late (2021–25) |
+| `global_by_year.csv` | per institution and year: papers_scope, index_2016 (2016 = 100), top10_pct, intl_pct |
+| `global_countries.csv` | per country and year: papers_scope, world_share_pct, top10_pct, top1_pct |
+| `global_links.csv` | per lab and peer: coauthored_papers, peer_papers_citing_lab, peer_papers_cited_by_lab (both excluding papers co-authored with the lab), exchange_ratio = citing ÷ cited_by, is_twin |
+| `global_country_relations.csv` | every foreign country on the labs' curated papers 2016–2026: rank, papers, share_of_foreign_coauthored_pct, papers per lab, papers 2016–20 and 2021–26, partner_institutions, top_partners |
+| `global_rule_funnel.csv` | per country: pool size and institutions removed by each rule |
+| `global_similarity.csv` | every institution that reached the similarity test |
+| `global_profiles.csv` | share of each institution's papers in the 12 largest scope subfields |

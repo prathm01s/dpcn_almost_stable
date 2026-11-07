@@ -1,0 +1,20 @@
+group,country,institution_id,name,type,city,twin_of,similarity,in_scope_papers,short
+CSIR lab,India,I55664587,CSIR-IICT,facility,,,1.0,4973,CSIR-IICT
+CSIR lab,India,I3125981224,CSIR-NCL,facility,,,1.0,4475,CSIR-NCL
+CSIR lab,India,I106349282,CSIR-CECRI,facility,,,1.0,2476,CSIR-CECRI
+India,India,I59270414,Indian Institute of Science Bangalore,education,Bengaluru,CSIR-NCL,0.6137,12516,IISc
+India,India,I24676775,Indian Institute of Technology Madras,education,Chennai,CSIR-CECRI,0.5358,11651,IIT Madras
+India,India,I162827531,Indian Institute of Technology Bombay,education,Mumbai,CSIR-NCL,0.6437,10948,IIT Bombay
+India,India,I167751958,Institute of Chemical Technology,education,Mumbai,CSIR-NCL,0.8779,4786,ICT Mumbai
+India,India,I165998391,Indian Association for the Cultivation of Science,education,Kolkata,CSIR-NCL,0.82,3682,IACS Kolkata
+India,India,I181996519,Indian Institute of Science Education and Research Pune,education,Pune,CSIR-NCL,0.4894,2340,IISER Pune
+USA,USA,I1289243028,Oak Ridge National Laboratory,facility,Oak Ridge,CSIR-NCL,0.4838,15782,ORNL
+USA,USA,I1297288678,National Laboratory of the Rockies,facility,Golden,CSIR-CECRI,0.7837,6824,NLR (ex-NREL)
+China,China,I180585399,Dalian Institute of Chemical Physics,facility,Dalian,CSIR-NCL,0.7713,15717,DICP
+China,China,I4210119098,Fujian Institute of Research on the Structure of Matter,facility,Fuzhou,CSIR-CECRI,0.8182,9850,FJIRSM
+China,China,I4210112946,Shanghai Institute of Organic Chemistry,facility,Shanghai,CSIR-IICT,0.9666,9057,SIOC
+South Korea,South Korea,I4210104335,Institute for Basic Science,facility,Daejeon,CSIR-IICT,0.4202,6444,IBS
+South Korea,South Korea,I4210151417,Korea Research Institute of Chemical Technology,facility,Daejeon,CSIR-NCL,0.6611,4886,KRICT
+South Korea,South Korea,I4210127102,Korea Institute of Energy Research,facility,Daejeon,CSIR-CECRI,0.8128,3072,KIER
+Australia,Australia,I1334950195,Australian Nuclear Science and Technology Organisation,government,Sydney,CSIR-CECRI,0.6065,3330,ANSTO
+Australia,Australia,I4210154771,CSIRO Manufacturing,facility,Canberra,CSIR-NCL,0.7038,2234,CSIRO Manufacturing

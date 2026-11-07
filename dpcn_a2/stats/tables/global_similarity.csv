@@ -1,0 +1,50 @@
+country,institution_id,name,city,in_scope_papers,sim_CSIR-NCL,sim_CSIR-IICT,sim_CSIR-CECRI,selected_twin_of
+Australia,I2801244131,Queensland Government,Brisbane,4951,0.0699,0.0537,0.0157,
+Australia,I1334950195,Australian Nuclear Science and Technology Organisation,Sydney,3330,0.5346,0.3083,0.6065,CSIR-CECRI
+Australia,I4210154771,CSIRO Manufacturing,Canberra,2234,0.7038,0.5395,0.6352,CSIR-NCL
+Australia,I217937681,QIMR Berghofer Medical Research Institute,Brisbane,1577,0.1195,0.0866,0.0173,
+China,I4210138501,Chinese Academy of Agricultural Sciences,Beijing,30495,0.1967,0.1006,0.0574,
+China,I2802624667,Hefei Institutes of Physical Science,Hefei,17846,0.4674,0.2508,0.6703,
+China,I4210155088,Institute of Chemistry,Beijing,17653,0.6774,0.5236,0.7043,
+China,I180585399,Dalian Institute of Chemical Physics,Dalian,15717,0.7713,0.5682,0.7831,CSIR-NCL
+China,I4210092888,Changchun Institute of Applied Chemistry,Changchun,12241,0.6543,0.4492,0.722,
+China,I4210159876,Institute of Physics,Beijing,10558,0.3894,0.1972,0.5689,
+China,I2801345734,China Academy of Engineering Physics,Mianyang,10236,0.4603,0.2318,0.5805,
+China,I4210165339,Ningbo Institute of Industrial Technology,Ningbo,9881,0.5152,0.2848,0.7328,
+China,I4210119098,Fujian Institute of Research on the Structure of Matter,Fuzhou,9850,0.6708,0.4596,0.8182,CSIR-CECRI
+China,I4210137180,Institute of High Energy Physics,Beijing,9090,0.2726,0.1499,0.3765,
+China,I4210112946,Shanghai Institute of Organic Chemistry,Shanghai,9057,0.831,0.9666,0.1231,CSIR-IICT
+China,I4210145761,Shenzhen Institutes of Advanced Technology,Shenzhen,8834,0.4434,0.2493,0.5,
+China,I4210126304,Institute of Metal Research,Shenyang,8475,0.3913,0.2168,0.4505,
+China,I4210163874,Shanghai Institute of Ceramics,Shanghai,7568,0.4974,0.2624,0.7336,
+China,I4210133325,Institute of Process Engineering,Beijing,7508,0.5949,0.3646,0.7098,
+China,I4210149211,Institute of Semiconductors,Beijing,7364,0.3276,0.1657,0.5954,
+China,I4210140689,Technical Institute of Physics and Chemistry,Beijing,7256,0.578,0.3976,0.7638,
+China,I4210089297,Lanzhou Institute of Chemical Physics,Lanzhou,7225,0.5964,0.5184,0.4539,
+South Korea,I58716616,Korea Institute of Science and Technology,Seoul,12037,0.5886,0.3478,0.7515,
+South Korea,I4210104335,Institute for Basic Science,Daejeon,6444,0.5949,0.4202,0.471,CSIR-IICT
+South Korea,I4210151417,Korea Research Institute of Chemical Technology,Daejeon,4886,0.6611,0.4694,0.6891,CSIR-NCL
+South Korea,I73616290,Korea Research Institute of Bioscience and Biotechnology,Daejeon,3722,0.3353,0.1968,0.1085,
+South Korea,I4210139925,Korea Basic Science Institute,Daejeon,3258,0.6167,0.3768,0.7455,
+South Korea,I4210127102,Korea Institute of Energy Research,Daejeon,3072,0.4678,0.2808,0.8128,CSIR-CECRI
+South Korea,I155671955,Korea Atomic Energy Research Institute,Daejeon,2856,0.3747,0.1975,0.383,
+South Korea,I142401562,Electronics and Telecommunications Research Institute,Daejeon,2245,0.2247,0.1167,0.4977,
+South Korea,I2799611809,Korea Research Institute of Standards and Science,Daejeon,2140,0.3952,0.1996,0.5451,
+South Korea,I4210111434,Korea Institute of Machinery & Materials,Daejeon,1942,0.312,0.1603,0.5026,
+South Korea,I4210110928,Korea Institute of Ceramic Engineering and Technology,Cheonan,1608,0.4929,0.2538,0.7213,
+South Korea,I4405260606,National Institute of Horticultural and Herbal Science,Wanju,1495,0.1297,0.0588,0.0156,
+South Korea,I2801036362,Agency for Defense Development,Daejeon,1396,0.2774,0.1542,0.414,
+South Korea,I4210131650,Korea Electronics Technology Institute,Seongnam-si,1275,0.2838,0.1499,0.5864,
+USA,I1312222531,Agricultural Research Service,Washington,19524,0.1509,0.0756,0.0319,
+USA,I148283060,Lawrence Berkeley National Laboratory,Berkeley,16472,0.4322,0.2417,0.4858,
+USA,I1289243028,Oak Ridge National Laboratory,Oak Ridge,15782,0.4838,0.2551,0.5263,CSIR-NCL
+USA,I4210117453,Dana-Farber Cancer Institute,Boston,13402,0.0975,0.0732,0.0128,
+USA,I1282105669,Argonne National Laboratory,Lemont,12429,0.4188,0.2263,0.5806,
+USA,I4210140884,National Cancer Institute,Bethesda,12243,0.1678,0.1184,0.0232,
+USA,I1344073410,Howard Hughes Medical Institute,Chevy Chase,10767,0.25,0.1264,0.0297,
+USA,I1321296531,National Institute of Standards and Technology,Gaithersburg,10120,0.3627,0.1833,0.362,
+USA,I1343871089,Los Alamos National Laboratory,Los Alamos,9841,0.3333,0.1735,0.3641,
+USA,I142606810,Pacific Northwest National Laboratory,Richland,8717,0.4456,0.2534,0.4848,
+USA,I4210104735,Sandia National Laboratories,Albuquerque,7281,0.4501,0.2369,0.6002,
+USA,I1297288678,National Laboratory of the Rockies,Golden,6824,0.3791,0.2197,0.7837,CSIR-CECRI
+USA,I200870766,Brookhaven National Laboratory,Upton,5934,0.2654,0.1454,0.3743,

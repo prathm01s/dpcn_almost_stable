@@ -95,12 +95,23 @@ Individual pipeline targets:
 - `python3 run.py stats`: Calculates metric tables, generates 300 DPI figures, and compiles the 10-slide PPTX & PDF reports.
 - `python3 run.py dashboard`: Compiles the compact data payload into `dashboard/data/g24_data.js`.
 - `python3 run.py test`: Runs all Pytest unit, integrity, and consistency tests.
+- `python3 run.py global`: Global benchmark only (peer selection, benchmark data, tables and `dashboard/data/g24_global.js`); see 3.4.
 
 ### 3.3 Opening the Interactive Dashboard (Task 3)
 The dashboard is **100% self-contained and offline-capable**:
 1. Navigate to the `dashboard/` directory.
 2. Double-click `index.html` to open directly in any modern browser (Chrome, Firefox, Safari, Edge) via `file://`.
 3. No web server, Node.js, or internet connection is required.
+
+### 3.4 Global Benchmark (lead work, D-35)
+`dashboard/global.html`, opened from the highlighted **Global Benchmark** button on the home screen, compares
+CSIR-NCL, CSIR-IICT and CSIR-CECRI with their closest government-lab "twins" in the USA, China, South Korea
+and Australia and with six Indian reference institutes, and lists every country the labs co-author with.
+- Peer rules: `config/global_benchmark.yaml`; hand-reviewed exclusions: `config/overrides/global_peer_exclusions.csv`.
+- Data: `src/collect/22_global_peers.py` (peer selection) and `23_global_benchmark.py` (OpenAlex output,
+  field-normalised impact, co-authorship and citation flows), cached in `data/cache/`; raw files in `data/final/global/`.
+- Tables: `src/stats/global_benchmark.py` → `stats/tables/global_*.csv`; payload: `src/dashboard/build_global.py`.
+- Rebuild: `python run.py global` (re-runs from the cache at zero API cost).
 
 ---
 

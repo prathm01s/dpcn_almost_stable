@@ -91,3 +91,10 @@
 8. **Rows without an author ID**: the 1,579 dataset rows without an OpenAlex author ID all carry `faculty_id = FORMER_CECRI_0005` (936 different names), an artefact of the probable-former-faculty step. These rows are not roster faculty and do not affect faculty statistics, but `FORMER_CECRI_0005` should not be read as one person.
 9. **Insight 11 is a stylised model**: β0 = 0.20 is far above every field's epidemic threshold (βc ≈ 0.03–0.06), so spread is guaranteed in principle; the comparison between fields, conditions and seeds is the result, not the absolute speed.
 
+
+## Global benchmark (D-35)
+- Peers are the most similar government institutes by research mix, not identical organisations; US national labs publish much more physics and materials science, so their similarity to the CSIR labs is lower and no US or Australian institute is close enough to CSIR-IICT.
+- Rule 2b (stand-alone institutes) and the similarity floor 0.4 are judgment calls; every exclusion is listed with its reason.
+- All benchmark numbers come from raw OpenAlex queries (affiliation-based, whole counting). OpenAlex affiliation quality varies between institutes; a unit that was renamed or split can show an artificial drop (e.g. CSIRO Manufacturing's output falls by more than half between 2016 and 2025).
+- Top 10% / top 1% shares for the most recent years are less settled because recent papers have had little time to be cited.
+- Citation flows use the labs' curated papers (2016–2026) but count any peer paper, so they are not restricted to the scope; papers co-authored by the lab and the peer are left out of the flows.

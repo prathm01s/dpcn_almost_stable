@@ -1,0 +1,97 @@
+/* Global Benchmark page (global.html). Builds on style.css tokens. */
+
+/* Group colours: categorical slots 1-6 of the validated palette, fixed order.
+   CSIR labs, India (reference), USA, China, South Korea, Australia. */
+:root {
+  --g-csir: #2a78d6; --g-india: #eb6834; --g-usa: #1baf7a; --g-china: #eda100; --g-korea: #e87ba4; --g-australia: #008300;
+  --g-other: #9aa3af;
+  --g-seq-lo: #eef4fd; --g-seq-hi: #184f95;
+}
+:root[data-theme="dark"] {
+  --g-csir: #3987e5; --g-india: #d95926; --g-usa: #199e70; --g-china: #c98500; --g-korea: #d55181; --g-australia: #008300;
+  --g-other: #4b5563;
+  --g-seq-lo: #1b2539; --g-seq-hi: #86b6ef;
+}
+
+body.global-page { --header-h: 62px; }
+.global-page .page-section { min-height: auto; padding: 3rem 0 2.5rem; }
+.global-page .page-section.hero { min-height: auto; padding: 3rem 0 2.75rem; }
+.global-page .card { margin-bottom: 1.5rem; }
+.global-page .grid-2 .card { margin-bottom: 0; }
+.card-header { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+
+.g-back {
+  flex-shrink: 0; font-size: 0.84rem; font-weight: 700; text-decoration: none; color: var(--accent-ink);
+  border: 1px solid var(--tint-border); background: var(--tint); padding: 0.42rem 0.8rem; border-radius: 8px;
+}
+.g-back:hover { background: var(--chip-bg-hover); }
+@media (max-width: 1330px) { .g-back { margin-left: 0; } }
+@media (max-width: 560px) { .g-back { display: none; } }
+.g-back-big {
+  display: inline-flex; margin-top: 1rem; padding: 0.75rem 1.3rem; border-radius: 10px; font-weight: 700;
+  text-decoration: none; background: var(--primary); color: #fff;
+}
+
+.g-chart { width: 100%; height: 380px; }
+.g-chart-tall { height: 460px; }
+.g-chart-xl { height: 620px; }
+@media (max-width: 700px) { .g-chart { height: 340px; } .g-chart-tall { height: 420px; } .g-chart-xl { height: 560px; } }
+
+.g-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.6rem; line-height: 1.5; }
+
+.g-insight {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 0.9rem; margin-bottom: 1.5rem;
+}
+.g-insight:empty { display: none; }
+.g-box {
+  border: 1px solid var(--tint-border); background: var(--tint); border-radius: 12px; padding: 0.9rem 1rem;
+  font-size: 0.9rem; line-height: 1.5; color: var(--text);
+}
+.g-box b.g-big { display: block; font-size: 1.5rem; font-weight: 800; color: var(--accent-ink); letter-spacing: -0.02em; }
+
+.g-seg { display: inline-flex; flex-wrap: wrap; background: var(--surface-3); padding: 3px; border-radius: 8px; gap: 2px; }
+.g-seg button {
+  border: none; background: transparent; padding: 0.35rem 0.8rem; border-radius: 6px; cursor: pointer;
+  font: inherit; font-size: 0.82rem; font-weight: 600; color: var(--text-2);
+}
+.g-seg button.active { background: var(--surface); color: var(--accent-ink); box-shadow: var(--shadow); }
+.g-seg button:focus-visible, .g-dl:focus-visible { outline: 2px solid var(--secondary); outline-offset: 2px; }
+
+.g-dl {
+  border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer;
+  font: inherit; font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 6px;
+}
+.g-dl:hover { background: var(--surface-3); }
+
+.g-rules { padding-left: 1.2rem; display: grid; gap: 0.7rem; font-size: 0.9rem; line-height: 1.5; color: var(--text-2); }
+.g-rules li::marker { font-weight: 800; color: var(--accent-ink); }
+.g-rules b { color: var(--text); }
+
+.g-peer-groups { display: grid; gap: 0.9rem; }
+.g-peer-group h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.4rem;
+  display: flex; align-items: center; gap: 0.45rem; }
+.g-swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; flex-shrink: 0; }
+.g-peer-row { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.g-peer {
+  border: 1px solid var(--border); background: var(--surface-2); border-radius: 8px; padding: 0.4rem 0.65rem;
+  font-size: 0.82rem; line-height: 1.35; border-left: 4px solid var(--c, var(--border));
+}
+.g-peer b { display: block; color: var(--text); }
+.g-peer span { color: var(--text-muted); font-size: 0.76rem; }
+
+.g-focus { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+@media (max-width: 560px) { .g-focus { grid-template-columns: 1fr; } }
+.g-fc { border: 1px solid var(--border); border-top: 4px solid var(--c); border-radius: 10px; padding: 0.8rem 0.9rem; background: var(--surface-2); }
+.g-fc h4 { font-size: 1rem; color: var(--text); display: flex; justify-content: space-between; gap: 0.5rem; }
+.g-fc h4 small { color: var(--text-muted); font-weight: 600; font-size: 0.78rem; }
+.g-fc .g-fc-num { font-size: 1.6rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+.g-fc p { font-size: 0.8rem; color: var(--text-2); line-height: 1.45; margin-top: 0.25rem; }
+
+.g-list { padding-left: 1.1rem; display: grid; gap: 0.55rem; font-size: 0.88rem; line-height: 1.55; color: var(--text-2); }
+
+.g-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+.g-table th, .g-table td { text-align: left; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--surface-3); vertical-align: top; }
+.g-table th { background: var(--surface-2); color: var(--text-2); font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.g-table td.num, .g-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.g-table-wrap { overflow-x: auto; }
+.g-align-start { align-items: start; }

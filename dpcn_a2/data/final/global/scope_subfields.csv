@@ -1,0 +1,156 @@
+subfield_id,subfield,lab_papers,share_pct,cum_share_pct,in_scope
+1605,Organic Chemistry,3204,24.2,24.2,True
+2105,"Renewable Energy, Sustainability and the Environment",1446,10.92,35.12,True
+2505,Materials Chemistry,1243,9.39,44.51,True
+2208,Electrical and Electronic Engineering,951,7.18,51.7,True
+2504,"Electronic, Optical and Magnetic Materials",612,4.62,56.32,True
+1312,Molecular Biology,590,4.46,60.77,True
+1503,Catalysis,494,3.73,64.51,True
+1602,Analytical Chemistry,387,2.92,67.43,True
+2502,Biomaterials,340,2.57,70.0,True
+1606,Physical and Theoretical Chemistry,265,2.0,72.0,True
+1604,Inorganic Chemistry,262,1.98,73.98,True
+2312,Water Science and Technology,205,1.55,75.53,True
+2204,Biomedical Engineering,192,1.45,76.98,True
+2507,Polymers and Plastics,187,1.41,78.39,True
+1110,Plant Science,179,1.35,79.74,True
+2725,Infectious Diseases,122,0.92,80.66,True
+1507,Fluid Flow and Transfer Processes,109,0.82,81.49,True
+1607,Spectroscopy,106,0.8,82.29,True
+2305,Environmental Engineering,94,0.71,83.0,True
+3002,Drug Discovery,94,0.71,83.71,True
+2804,Cellular and Molecular Neuroscience,89,0.67,84.38,True
+1506,Filtration and Separation,84,0.63,85.01,True
+1508,Process Chemistry and Technology,84,0.63,85.65,True
+2730,Oncology,81,0.61,86.26,True
+2210,Mechanical Engineering,77,0.58,86.84,True
+2402,Applied Microbiology and Biotechnology,76,0.57,87.42,True
+1306,Cancer Research,74,0.56,87.97,True
+2508,"Surfaces, Coatings and Films",74,0.56,88.53,True
+2103,Fuel Technology,72,0.54,89.08,True
+3107,"Atomic and Molecular Physics, and Optics",67,0.51,89.58,True
+1106,Food Science,64,0.48,90.07,True
+2739,"Public Health, Environmental and Occupational Health",59,0.45,90.51,False
+1307,Cell Biology,49,0.37,90.88,False
+1305,Biotechnology,44,0.33,91.22,False
+2310,Pollution,44,0.33,91.55,False
+2304,Environmental Chemistry,36,0.27,91.82,False
+2707,Complementary and alternative medicine,36,0.27,92.09,False
+3003,Pharmaceutical Science,36,0.27,92.36,False
+1109,Insect Science,32,0.24,92.61,False
+3004,Pharmacology,32,0.24,92.85,False
+2736,Pharmacology (medical),31,0.23,93.08,False
+2207,Control and Systems Engineering,30,0.23,93.31,False
+2728,Clinical Neurology,29,0.22,93.53,False
+1603,Electrochemistry,28,0.21,93.74,False
+2205,Civil and Structural Engineering,28,0.21,93.95,False
+2506,Metals and Alloys,28,0.21,94.16,False
+2403,Immunology,27,0.2,94.37,False
+2746,Surgery,26,0.2,94.56,False
+1308,Clinical Biochemistry,24,0.18,94.74,False
+2712,"Endocrinology, Diabetes and Metabolism",24,0.18,94.92,False
+3102,Acoustics and Ultrasonics,23,0.17,95.1,False
+2203,Automotive Engineering,22,0.17,95.26,False
+2303,Ecology,21,0.16,95.42,False
+3104,Condensed Matter Physics,21,0.16,95.58,False
+1315,Structural Biology,20,0.15,95.73,False
+2206,Computational Mechanics,20,0.15,95.88,False
+2740,Pulmonary and Respiratory Medicine,20,0.15,96.03,False
+1105,"Ecology, Evolution, Behavior and Systematics",19,0.14,96.18,False
+2307,"Health, Toxicology and Mutagenesis",18,0.14,96.31,False
+2808,Neurology,17,0.13,96.44,False
+2916,Nutrition and Dietetics,17,0.13,96.57,False
+1303,Biochemistry,16,0.12,96.69,False
+1311,Genetics,16,0.12,96.81,False
+2209,Industrial and Manufacturing Engineering,15,0.11,96.93,False
+2215,Building and Construction,14,0.11,97.03,False
+2737,Physiology (medical),14,0.11,97.14,False
+2311,Waste Management and Disposal,13,0.1,97.24,False
+3005,Toxicology,13,0.1,97.33,False
+1313,Molecular Medicine,12,0.09,97.42,False
+1102,Agronomy and Crop Science,11,0.08,97.51,False
+2721,Hepatology,11,0.08,97.59,False
+2503,Ceramics and Composites,10,0.08,97.67,False
+2705,Cardiology and Cardiovascular Medicine,10,0.08,97.74,False
+2720,Hematology,10,0.08,97.82,False
+2723,Immunology and Allergy,10,0.08,97.89,False
+1405,Management of Technology and Innovation,9,0.07,97.96,False
+1906,Geochemistry and Petrology,9,0.07,98.03,False
+2405,Parasitology,9,0.07,98.1,False
+2727,Nephrology,9,0.07,98.16,False
+2729,Obstetrics and Gynecology,9,0.07,98.23,False
+2802,Behavioral Neuroscience,9,0.07,98.3,False
+2406,Virology,8,0.06,98.36,False
+2715,Gastroenterology,8,0.06,98.42,False
+2717,Geriatrics and Gerontology,8,0.06,98.48,False
+2734,Pathology and Forensic Medicine,8,0.06,98.54,False
+3309,Library and Information Sciences,8,0.06,98.6,False
+1100,General Agricultural and Biological Sciences,7,0.05,98.66,False
+1702,Artificial Intelligence,7,0.05,98.71,False
+2211,Mechanics of Materials,7,0.05,98.76,False
+2404,Microbiology,7,0.05,98.81,False
+2741,"Radiology, Nuclear Medicine and Imaging",7,0.05,98.87,False
+1310,Endocrinology,6,0.05,98.91,False
+1705,Computer Networks and Communications,6,0.05,98.96,False
+2738,Psychiatry and Mental health,6,0.05,99.0,False
+1103,Animal Science and Zoology,5,0.04,99.04,False
+1104,Aquatic Science,5,0.04,99.08,False
+1111,Soil Science,5,0.04,99.12,False
+2743,Reproductive Medicine,5,0.04,99.15,False
+2806,Developmental Neuroscience,5,0.04,99.19,False
+3103,Astronomy and Astrophysics,5,0.04,99.23,False
+1202,History,4,0.03,99.26,False
+1710,Information Systems,4,0.03,99.29,False
+2212,Ocean Engineering,4,0.03,99.32,False
+2611,Modeling and Simulation,4,0.03,99.35,False
+2704,Biochemistry (medical),4,0.03,99.38,False
+3500,General Dentistry,4,0.03,99.41,False
+2604,Applied Mathematics,3,0.02,99.43,False
+2708,Dermatology,3,0.02,99.46,False
+2713,Epidemiology,3,0.02,99.48,False
+2726,Microbiology (medical),3,0.02,99.5,False
+2803,Biological Psychiatry,3,0.02,99.52,False
+3105,Instrumentation,3,0.02,99.55,False
+3605,Health Information Management,3,0.02,99.57,False
+1302,Aging,2,0.02,99.58,False
+1707,Computer Vision and Pattern Recognition,2,0.02,99.6,False
+1708,Hardware and Architecture,2,0.02,99.61,False
+1803,Management Science and Operations Research,2,0.02,99.63,False
+1902,Atmospheric Science,2,0.02,99.64,False
+1907,Geology,2,0.02,99.66,False
+1908,Geophysics,2,0.02,99.68,False
+2102,Energy Engineering and Power Technology,2,0.02,99.69,False
+2213,"Safety, Risk, Reliability and Quality",2,0.02,99.71,False
+2731,Ophthalmology,2,0.02,99.72,False
+2732,Orthopedics and Sports Medicine,2,0.02,99.74,False
+2745,Rheumatology,2,0.02,99.75,False
+2748,Urology,2,0.02,99.77,False
+2807,Endocrine and Autonomic Systems,2,0.02,99.78,False
+3322,Urban Studies,2,0.02,99.8,False
+1207,History and Philosophy of Science,1,0.01,99.8,False
+1304,Biophysics,1,0.01,99.81,False
+1314,Physiology,1,0.01,99.82,False
+1403,Business and International Management,1,0.01,99.83,False
+1408,Strategy and Management,1,0.01,99.83,False
+1802,Information Systems and Management,1,0.01,99.84,False
+1911,Paleontology,1,0.01,99.85,False
+1912,Space and Planetary Science,1,0.01,99.86,False
+2002,Economics and Econometrics,1,0.01,99.86,False
+2306,Global and Planetary Change,1,0.01,99.87,False
+2309,Nature and Landscape Conservation,1,0.01,99.88,False
+2500,General Materials Science,1,0.01,99.89,False
+2706,Critical Care and Intensive Care Medicine,1,0.01,99.89,False
+2716,Genetics (clinical),1,0.01,99.9,False
+2718,Health Informatics,1,0.01,99.91,False
+2735,"Pediatrics, Perinatology and Child Health",1,0.01,99.92,False
+2809,Sensory Systems,1,0.01,99.92,False
+3108,Radiation,1,0.01,99.93,False
+3109,Statistical and Nonlinear Physics,1,0.01,99.94,False
+3202,Applied Psychology,1,0.01,99.95,False
+3203,Clinical Psychology,1,0.01,99.95,False
+3304,Education,1,0.01,99.96,False
+3306,Health,1,0.01,99.97,False
+3311,Safety Research,1,0.01,99.98,False
+3312,Sociology and Political Science,1,0.01,99.98,False
+3404,Small Animals,1,0.01,99.99,False
+3504,Oral Surgery,1,0.01,100.0,False

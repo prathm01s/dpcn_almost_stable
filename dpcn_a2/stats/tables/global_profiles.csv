@@ -1,0 +1,229 @@
+institution_id,short,group,subfield,share_pct
+I55664587,CSIR-IICT,CSIR lab,Organic Chemistry,36.75
+I55664587,CSIR-IICT,CSIR lab,"Renewable Energy, Sustainability and the Environment",6.61
+I55664587,CSIR-IICT,CSIR lab,Materials Chemistry,7.18
+I55664587,CSIR-IICT,CSIR lab,Electrical and Electronic Engineering,3.77
+I55664587,CSIR-IICT,CSIR lab,"Electronic, Optical and Magnetic Materials",2.35
+I55664587,CSIR-IICT,CSIR lab,Molecular Biology,4.18
+I55664587,CSIR-IICT,CSIR lab,Catalysis,4.27
+I55664587,CSIR-IICT,CSIR lab,Analytical Chemistry,1.56
+I55664587,CSIR-IICT,CSIR lab,Biomaterials,2.68
+I55664587,CSIR-IICT,CSIR lab,Physical and Theoretical Chemistry,1.62
+I55664587,CSIR-IICT,CSIR lab,Inorganic Chemistry,1.03
+I55664587,CSIR-IICT,CSIR lab,Water Science and Technology,1.46
+I3125981224,CSIR-NCL,CSIR lab,Organic Chemistry,21.74
+I3125981224,CSIR-NCL,CSIR lab,"Renewable Energy, Sustainability and the Environment",7.49
+I3125981224,CSIR-NCL,CSIR lab,Materials Chemistry,11.08
+I3125981224,CSIR-NCL,CSIR lab,Electrical and Electronic Engineering,5.18
+I3125981224,CSIR-NCL,CSIR lab,"Electronic, Optical and Magnetic Materials",3.41
+I3125981224,CSIR-NCL,CSIR lab,Molecular Biology,6.6
+I3125981224,CSIR-NCL,CSIR lab,Catalysis,4.82
+I3125981224,CSIR-NCL,CSIR lab,Analytical Chemistry,0.56
+I3125981224,CSIR-NCL,CSIR lab,Biomaterials,3.25
+I3125981224,CSIR-NCL,CSIR lab,Physical and Theoretical Chemistry,3.27
+I3125981224,CSIR-NCL,CSIR lab,Inorganic Chemistry,3.67
+I3125981224,CSIR-NCL,CSIR lab,Water Science and Technology,1.28
+I106349282,CSIR-CECRI,CSIR lab,Organic Chemistry,2.05
+I106349282,CSIR-CECRI,CSIR lab,"Renewable Energy, Sustainability and the Environment",26.63
+I106349282,CSIR-CECRI,CSIR lab,Materials Chemistry,10.9
+I106349282,CSIR-CECRI,CSIR lab,Electrical and Electronic Engineering,18.28
+I106349282,CSIR-CECRI,CSIR lab,"Electronic, Optical and Magnetic Materials",11.78
+I106349282,CSIR-CECRI,CSIR lab,Molecular Biology,0.99
+I106349282,CSIR-CECRI,CSIR lab,Catalysis,0.53
+I106349282,CSIR-CECRI,CSIR lab,Analytical Chemistry,10.3
+I106349282,CSIR-CECRI,CSIR lab,Biomaterials,1.03
+I106349282,CSIR-CECRI,CSIR lab,Physical and Theoretical Chemistry,0.42
+I106349282,CSIR-CECRI,CSIR lab,Inorganic Chemistry,0.8
+I106349282,CSIR-CECRI,CSIR lab,Water Science and Technology,2.24
+I59270414,IISc,India,Organic Chemistry,3.03
+I59270414,IISc,India,"Renewable Energy, Sustainability and the Environment",2.01
+I59270414,IISc,India,Materials Chemistry,8.77
+I59270414,IISc,India,Electrical and Electronic Engineering,8.29
+I59270414,IISc,India,"Electronic, Optical and Magnetic Materials",3.59
+I59270414,IISc,India,Molecular Biology,4.74
+I59270414,IISc,India,Catalysis,0.14
+I59270414,IISc,India,Analytical Chemistry,0.43
+I59270414,IISc,India,Biomaterials,1.07
+I59270414,IISc,India,Physical and Theoretical Chemistry,1.21
+I59270414,IISc,India,Inorganic Chemistry,0.81
+I59270414,IISc,India,Water Science and Technology,1.05
+I24676775,IIT Madras,India,Organic Chemistry,3.23
+I24676775,IIT Madras,India,"Renewable Energy, Sustainability and the Environment",2.77
+I24676775,IIT Madras,India,Materials Chemistry,6.02
+I24676775,IIT Madras,India,Electrical and Electronic Engineering,6.92
+I24676775,IIT Madras,India,"Electronic, Optical and Magnetic Materials",2.93
+I24676775,IIT Madras,India,Molecular Biology,2.02
+I24676775,IIT Madras,India,Catalysis,0.28
+I24676775,IIT Madras,India,Analytical Chemistry,0.5
+I24676775,IIT Madras,India,Biomaterials,1.28
+I24676775,IIT Madras,India,Physical and Theoretical Chemistry,1.03
+I24676775,IIT Madras,India,Inorganic Chemistry,0.87
+I24676775,IIT Madras,India,Water Science and Technology,1.16
+I162827531,IIT Bombay,India,Organic Chemistry,5.2
+I162827531,IIT Bombay,India,"Renewable Energy, Sustainability and the Environment",2.48
+I162827531,IIT Bombay,India,Materials Chemistry,6.37
+I162827531,IIT Bombay,India,Electrical and Electronic Engineering,7.81
+I162827531,IIT Bombay,India,"Electronic, Optical and Magnetic Materials",3.02
+I162827531,IIT Bombay,India,Molecular Biology,2.54
+I162827531,IIT Bombay,India,Catalysis,0.21
+I162827531,IIT Bombay,India,Analytical Chemistry,0.56
+I162827531,IIT Bombay,India,Biomaterials,0.79
+I162827531,IIT Bombay,India,Physical and Theoretical Chemistry,0.76
+I162827531,IIT Bombay,India,Inorganic Chemistry,1.01
+I162827531,IIT Bombay,India,Water Science and Technology,1.66
+I167751958,ICT Mumbai,India,Organic Chemistry,12.9
+I167751958,ICT Mumbai,India,"Renewable Energy, Sustainability and the Environment",4.08
+I167751958,ICT Mumbai,India,Materials Chemistry,7.19
+I167751958,ICT Mumbai,India,Electrical and Electronic Engineering,2.37
+I167751958,ICT Mumbai,India,"Electronic, Optical and Magnetic Materials",3.91
+I167751958,ICT Mumbai,India,Molecular Biology,5.01
+I167751958,ICT Mumbai,India,Catalysis,3.01
+I167751958,ICT Mumbai,India,Analytical Chemistry,1.17
+I167751958,ICT Mumbai,India,Biomaterials,3.58
+I167751958,ICT Mumbai,India,Physical and Theoretical Chemistry,3.76
+I167751958,ICT Mumbai,India,Inorganic Chemistry,1.96
+I167751958,ICT Mumbai,India,Water Science and Technology,4.23
+I165998391,IACS Kolkata,India,Organic Chemistry,10.34
+I165998391,IACS Kolkata,India,"Renewable Energy, Sustainability and the Environment",5.88
+I165998391,IACS Kolkata,India,Materials Chemistry,14.98
+I165998391,IACS Kolkata,India,Electrical and Electronic Engineering,7.82
+I165998391,IACS Kolkata,India,"Electronic, Optical and Magnetic Materials",6.7
+I165998391,IACS Kolkata,India,Molecular Biology,5.34
+I165998391,IACS Kolkata,India,Catalysis,0.97
+I165998391,IACS Kolkata,India,Analytical Chemistry,0.29
+I165998391,IACS Kolkata,India,Biomaterials,5.49
+I165998391,IACS Kolkata,India,Physical and Theoretical Chemistry,3.27
+I165998391,IACS Kolkata,India,Inorganic Chemistry,5.16
+I165998391,IACS Kolkata,India,Water Science and Technology,0.55
+I181996519,IISER Pune,India,Organic Chemistry,5.93
+I181996519,IISER Pune,India,"Renewable Energy, Sustainability and the Environment",1.72
+I181996519,IISER Pune,India,Materials Chemistry,6.9
+I181996519,IISER Pune,India,Electrical and Electronic Engineering,5.22
+I181996519,IISER Pune,India,"Electronic, Optical and Magnetic Materials",2.57
+I181996519,IISER Pune,India,Molecular Biology,7.12
+I181996519,IISER Pune,India,Catalysis,0.2
+I181996519,IISER Pune,India,Analytical Chemistry,0.16
+I181996519,IISER Pune,India,Biomaterials,1.66
+I181996519,IISER Pune,India,Physical and Theoretical Chemistry,1.5
+I181996519,IISER Pune,India,Inorganic Chemistry,3.82
+I181996519,IISER Pune,India,Water Science and Technology,0.24
+I1289243028,ORNL,USA,Organic Chemistry,0.71
+I1289243028,ORNL,USA,"Renewable Energy, Sustainability and the Environment",2.21
+I1289243028,ORNL,USA,Materials Chemistry,14.49
+I1289243028,ORNL,USA,Electrical and Electronic Engineering,8.24
+I1289243028,ORNL,USA,"Electronic, Optical and Magnetic Materials",3.41
+I1289243028,ORNL,USA,Molecular Biology,3.14
+I1289243028,ORNL,USA,Catalysis,0.61
+I1289243028,ORNL,USA,Analytical Chemistry,0.32
+I1289243028,ORNL,USA,Biomaterials,0.77
+I1289243028,ORNL,USA,Physical and Theoretical Chemistry,1.07
+I1289243028,ORNL,USA,Inorganic Chemistry,1.89
+I1289243028,ORNL,USA,Water Science and Technology,0.65
+I1297288678,NLR (ex-NREL),USA,Organic Chemistry,0.59
+I1297288678,NLR (ex-NREL),USA,"Renewable Energy, Sustainability and the Environment",15.24
+I1297288678,NLR (ex-NREL),USA,Materials Chemistry,4.58
+I1297288678,NLR (ex-NREL),USA,Electrical and Electronic Engineering,31.19
+I1297288678,NLR (ex-NREL),USA,"Electronic, Optical and Magnetic Materials",1.77
+I1297288678,NLR (ex-NREL),USA,Molecular Biology,2.7
+I1297288678,NLR (ex-NREL),USA,Catalysis,1.3
+I1297288678,NLR (ex-NREL),USA,Analytical Chemistry,0.19
+I1297288678,NLR (ex-NREL),USA,Biomaterials,0.6
+I1297288678,NLR (ex-NREL),USA,Physical and Theoretical Chemistry,0.47
+I1297288678,NLR (ex-NREL),USA,Inorganic Chemistry,0.73
+I1297288678,NLR (ex-NREL),USA,Water Science and Technology,0.56
+I180585399,DICP,China,Organic Chemistry,8.36
+I180585399,DICP,China,"Renewable Energy, Sustainability and the Environment",12.71
+I180585399,DICP,China,Materials Chemistry,11.92
+I180585399,DICP,China,Electrical and Electronic Engineering,15.07
+I180585399,DICP,China,"Electronic, Optical and Magnetic Materials",1.85
+I180585399,DICP,China,Molecular Biology,4.73
+I180585399,DICP,China,Catalysis,8.2
+I180585399,DICP,China,Analytical Chemistry,1.79
+I180585399,DICP,China,Biomaterials,0.68
+I180585399,DICP,China,Physical and Theoretical Chemistry,2.26
+I180585399,DICP,China,Inorganic Chemistry,6.22
+I180585399,DICP,China,Water Science and Technology,1.25
+I4210119098,FJIRSM,China,Organic Chemistry,7.66
+I4210119098,FJIRSM,China,"Renewable Energy, Sustainability and the Environment",12.75
+I4210119098,FJIRSM,China,Materials Chemistry,18.23
+I4210119098,FJIRSM,China,Electrical and Electronic Engineering,20.24
+I4210119098,FJIRSM,China,"Electronic, Optical and Magnetic Materials",11.75
+I4210119098,FJIRSM,China,Molecular Biology,0.59
+I4210119098,FJIRSM,China,Catalysis,1.44
+I4210119098,FJIRSM,China,Analytical Chemistry,0.23
+I4210119098,FJIRSM,China,Biomaterials,0.53
+I4210119098,FJIRSM,China,Physical and Theoretical Chemistry,0.59
+I4210119098,FJIRSM,China,Inorganic Chemistry,10.45
+I4210119098,FJIRSM,China,Water Science and Technology,0.45
+I4210112946,SIOC,China,Organic Chemistry,63.5
+I4210112946,SIOC,China,"Renewable Energy, Sustainability and the Environment",1.07
+I4210112946,SIOC,China,Materials Chemistry,5.07
+I4210112946,SIOC,China,Electrical and Electronic Engineering,3.29
+I4210112946,SIOC,China,"Electronic, Optical and Magnetic Materials",0.64
+I4210112946,SIOC,China,Molecular Biology,4.78
+I4210112946,SIOC,China,Catalysis,0.44
+I4210112946,SIOC,China,Analytical Chemistry,0.4
+I4210112946,SIOC,China,Biomaterials,1.06
+I4210112946,SIOC,China,Physical and Theoretical Chemistry,0.77
+I4210112946,SIOC,China,Inorganic Chemistry,3.29
+I4210112946,SIOC,China,Water Science and Technology,0.05
+I4210104335,IBS,South Korea,Organic Chemistry,5.39
+I4210104335,IBS,South Korea,"Renewable Energy, Sustainability and the Environment",3.54
+I4210104335,IBS,South Korea,Materials Chemistry,12.84
+I4210104335,IBS,South Korea,Electrical and Electronic Engineering,6.59
+I4210104335,IBS,South Korea,"Electronic, Optical and Magnetic Materials",2.72
+I4210104335,IBS,South Korea,Molecular Biology,5.72
+I4210104335,IBS,South Korea,Catalysis,0.44
+I4210104335,IBS,South Korea,Analytical Chemistry,0.3
+I4210104335,IBS,South Korea,Biomaterials,0.95
+I4210104335,IBS,South Korea,Physical and Theoretical Chemistry,0.76
+I4210104335,IBS,South Korea,Inorganic Chemistry,1.01
+I4210104335,IBS,South Korea,Water Science and Technology,0.21
+I4210151417,KRICT,South Korea,Organic Chemistry,6.0
+I4210151417,KRICT,South Korea,"Renewable Energy, Sustainability and the Environment",4.89
+I4210151417,KRICT,South Korea,Materials Chemistry,9.41
+I4210151417,KRICT,South Korea,Electrical and Electronic Engineering,20.3
+I4210151417,KRICT,South Korea,"Electronic, Optical and Magnetic Materials",2.66
+I4210151417,KRICT,South Korea,Molecular Biology,5.05
+I4210151417,KRICT,South Korea,Catalysis,5.04
+I4210151417,KRICT,South Korea,Analytical Chemistry,0.88
+I4210151417,KRICT,South Korea,Biomaterials,3.07
+I4210151417,KRICT,South Korea,Physical and Theoretical Chemistry,0.52
+I4210151417,KRICT,South Korea,Inorganic Chemistry,4.05
+I4210151417,KRICT,South Korea,Water Science and Technology,2.57
+I4210127102,KIER,South Korea,Organic Chemistry,1.07
+I4210127102,KIER,South Korea,"Renewable Energy, Sustainability and the Environment",15.41
+I4210127102,KIER,South Korea,Materials Chemistry,10.4
+I4210127102,KIER,South Korea,Electrical and Electronic Engineering,24.09
+I4210127102,KIER,South Korea,"Electronic, Optical and Magnetic Materials",2.31
+I4210127102,KIER,South Korea,Molecular Biology,0.79
+I4210127102,KIER,South Korea,Catalysis,6.09
+I4210127102,KIER,South Korea,Analytical Chemistry,0.82
+I4210127102,KIER,South Korea,Biomaterials,0.28
+I4210127102,KIER,South Korea,Physical and Theoretical Chemistry,0.2
+I4210127102,KIER,South Korea,Inorganic Chemistry,1.01
+I4210127102,KIER,South Korea,Water Science and Technology,1.21
+I1334950195,ANSTO,Australia,Organic Chemistry,1.57
+I1334950195,ANSTO,Australia,"Renewable Energy, Sustainability and the Environment",3.0
+I1334950195,ANSTO,Australia,Materials Chemistry,11.35
+I1334950195,ANSTO,Australia,Electrical and Electronic Engineering,10.75
+I1334950195,ANSTO,Australia,"Electronic, Optical and Magnetic Materials",4.04
+I1334950195,ANSTO,Australia,Molecular Biology,2.98
+I1334950195,ANSTO,Australia,Catalysis,0.69
+I1334950195,ANSTO,Australia,Analytical Chemistry,0.3
+I1334950195,ANSTO,Australia,Biomaterials,2.7
+I1334950195,ANSTO,Australia,Physical and Theoretical Chemistry,2.41
+I1334950195,ANSTO,Australia,Inorganic Chemistry,3.45
+I1334950195,ANSTO,Australia,Water Science and Technology,0.47
+I4210154771,CSIRO Manufacturing,Australia,Organic Chemistry,7.35
+I4210154771,CSIRO Manufacturing,Australia,"Renewable Energy, Sustainability and the Environment",3.64
+I4210154771,CSIRO Manufacturing,Australia,Materials Chemistry,8.65
+I4210154771,CSIRO Manufacturing,Australia,Electrical and Electronic Engineering,13.55
+I4210154771,CSIRO Manufacturing,Australia,"Electronic, Optical and Magnetic Materials",2.83
+I4210154771,CSIRO Manufacturing,Australia,Molecular Biology,3.67
+I4210154771,CSIRO Manufacturing,Australia,Catalysis,0.92
+I4210154771,CSIRO Manufacturing,Australia,Analytical Chemistry,1.22
+I4210154771,CSIRO Manufacturing,Australia,Biomaterials,5.7
+I4210154771,CSIRO Manufacturing,Australia,Physical and Theoretical Chemistry,1.22
+I4210154771,CSIRO Manufacturing,Australia,Inorganic Chemistry,3.25
+I4210154771,CSIRO Manufacturing,Australia,Water Science and Technology,4.52

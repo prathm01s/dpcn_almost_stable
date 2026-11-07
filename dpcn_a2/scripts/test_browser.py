@@ -598,6 +598,39 @@ def run_tests():
         finally:
             client_macro.stop()
 
+    # Global Benchmark page (D-35): linked from the home screen, renders offline without errors
+    print("\n=== TESTING GLOBAL BENCHMARK PAGE (file://) ===")
+    index_html = open("dashboard/index.html", encoding="utf-8").read()
+    assert 'href="global.html" class="btn-global"' in index_html, "Home screen lacks the Global Benchmark button"
+    client_g = ChromeDevToolsClient(port=9337)
+    try:
+        client_g.start(f"file://{os.path.abspath('dashboard/global.html')}")
+        for _ in range(40):
+            if client_g.evaluate("document.querySelectorAll('#g-kpis .kpi-card').length") > 0:
+                break
+            time.sleep(0.25)
+        assert "Global Benchmark" in client_g.evaluate("document.title")
+        for cid in ["ch-countries", "ch-index", "ch-cagr", "ch-world", "ch-impact", "ch-profiles", "ch-collab", "ch-flows"]:
+            n = client_g.evaluate(f"document.querySelectorAll('#{cid} canvas').length")
+            assert n > 0, f"Chart {cid} not rendered on global.html"
+        for tid in ["tbl-countries", "tbl-sim", "tbl-summary", "tbl-links"]:
+            rows = client_g.evaluate(f"document.querySelectorAll('#{tid} .tabulator-row').length")
+            assert rows > 0, f"Table {tid} empty on global.html"
+        assert client_g.evaluate("document.querySelectorAll('#g-rules li').length") >= 6, "Peer rules missing"
+        assert client_g.evaluate("document.querySelectorAll('#peer-cards .g-peer').length") >= 10, "Peer cards missing"
+        # every switch redraws without errors
+        client_g.evaluate("document.querySelectorAll('#seg-index button, #seg-impact button, #seg-flows button').forEach(b => b.click())")
+        time.sleep(0.5)
+        title_now = client_g.evaluate("document.getElementById('impact-title').textContent")
+        assert "international" in title_now.lower() or "country" in title_now.lower(), title_now
+        if client_g.console_errors:
+            for err in client_g.console_errors:
+                print("  ERROR:", err)
+            raise AssertionError("Console errors on global.html")
+        print("✓ global.html: 8 charts, 4 tables, rules and peers rendered; zero console errors")
+    finally:
+        client_g.stop()
+
     print("\n=== ALL BROWSER VERIFICATION TESTS PASSED SUCCESSFULLY! ===")
 
 

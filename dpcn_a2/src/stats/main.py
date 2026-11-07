@@ -5,11 +5,14 @@ Executes:
    src.stats.connectivity -> Indian citation flow & connectivity tables (Sections 7a/7b)
    src.stats.networks -> citation / authorship network metrics (Section 6)
    src.stats.impact_ratio -> citation impact ratio and IR-based Q1 classification
+   src.stats.phase2 -> instructor's additional directions (D-34)
+   src.stats.global_benchmark -> global benchmark tables (D-35)
 2. src.stats.make_figures -> generates 8 publication figures in stats/figures/
 3. src.stats.make_report -> compiles PowerPoint report (<=10 slides) and PDF in stats/report/
 """
 
 from src.stats.phase2 import run_phase2
+from src.stats.global_benchmark import run_global_benchmark
 from src.stats.metrics import run_metrics_computation
 from src.stats.connectivity import run_connectivity_metrics
 from src.stats.networks import run_network_metrics
@@ -28,6 +31,7 @@ def main() -> None:
     run_network_metrics()
     run_impact_ratio()
     run_phase2()
+    run_global_benchmark()
     run_figure_generation()
     run_report_generation()
     logger.info("=== Phase 2 Completed Successfully! ===")

@@ -6,6 +6,7 @@ Usage:
   python3 run.py collect
   python3 run.py stats
   python3 run.py dashboard
+  python3 run.py global      (global benchmark only)
   python3 run.py test
 """
 
@@ -25,7 +26,9 @@ def run_target(target: str) -> None:
         from src.dashboard.build_insights_js import build_insights_js
         from src.dashboard.build_profiles import run_build_profiles
         from src.dashboard.build_insights11_suite import build_suite_js
+        from src.dashboard.build_global import run_build_global
         run_build_dashboard_data()
+        run_build_global()
         build_insights_js()
         run_build_profiles()
         build_suite_js()
@@ -46,6 +49,15 @@ def run_target(target: str) -> None:
         from src.dashboard.build_macro_insights_bundle import bundle_macro_insights
         run_academic_bridge_analysis()
         bundle_macro_insights()
+    elif target == "global":
+        # Global benchmark only (D-35): peer selection, benchmark data, tables, dashboard payload
+        import importlib
+        importlib.import_module("src.collect.22_global_peers").run_step_22()
+        importlib.import_module("src.collect.23_global_benchmark").run_step_23()
+        from src.stats.global_benchmark import run_global_benchmark
+        from src.dashboard.build_global import run_build_global
+        run_global_benchmark()
+        run_build_global()
     elif target == "test":
         subprocess.run([sys.executable, "-m", "pytest", "tests/"], check=True)
     elif target == "browser-test":
@@ -59,7 +71,7 @@ def run_target(target: str) -> None:
         run_target("test")
     else:
         print(f"Unknown target: {target}")
-        print("Available targets: all, collect, stats, insights, insights-fetch, dashboard, test, browser-test")
+        print("Available targets: all, collect, global, stats, insights, insights-fetch, dashboard, test, browser-test")
         sys.exit(1)
 
 
