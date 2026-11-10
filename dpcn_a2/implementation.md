@@ -35,10 +35,10 @@ src/stats/insights/
   s04_price_law.py
   s05_quartile_vs_impact.py
   s06_pagerank_vs_citations.py
-  s07_sleeping_beauties.py
+  s07_sleeping_beauties.py     # removed 2026-11-10 (D-37)
   s08_covid_shock.py
   s09_brain_circulation.py
-  s10_succession_risk.py
+  s10_succession_risk.py       # removed 2026-11-10 (D-37)
   run_all.py                   # runs s01–s10 (skips C/D if caches are missing, marks them null)
 src/dashboard/
   build_insights_js.py         # stats/tables/insights/*.json -> dashboard/data/g24_insights.js

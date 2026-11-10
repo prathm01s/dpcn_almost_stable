@@ -1828,7 +1828,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---------------------------------------------------------------------------
-  // Key Findings: eleven insights shown as boxes, each opening a detail modal
+  // Key Findings: nine insights shown as boxes, each opening a detail modal (Sleeping beauties and
+  // Succession risk were removed after the instructor review, D-37)
   // ---------------------------------------------------------------------------
   const insightCharts = {};
 
@@ -1844,10 +1845,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "04_price_law",
     "05_quartile_vs_impact",
     "06_pagerank_vs_citations",
-    "07_sleeping_beauties",
     "08_covid_shock",
     "09_brain_circulation",
-    "10_succession_risk",
     "11_information_diffusion",
   ];
 
@@ -1887,10 +1886,6 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Hidden gems", tag: "Citations",
       stat: m => has(m.n_hidden_gems, m.spearman_rho) && [String(m.n_hidden_gems), `papers influential inside the cluster but little cited worldwide (ρ = ${(+m.spearman_rho).toFixed(2)})`],
     },
-    "07_sleeping_beauties": {
-      title: "Sleeping beauties", tag: "Citations",
-      stat: m => has(m.n_top1_sustained, m.n_top1_percent) && [`${m.n_top1_sustained} of ${m.n_top1_percent}`, "strongest late-recognised papers stayed cited after waking up"],
-    },
     "08_covid_shock": {
       title: "The COVID shock", tag: "Trends",
       stat: m => has(m.combined_change_2020_vs_2019_pct) && [`${m.combined_change_2020_vs_2019_pct > 0 ? "+" : ""}${pct(m.combined_change_2020_vs_2019_pct)}`, "change in papers from 2019 to 2020, set against the pre-2020 trend"],
@@ -1898,13 +1893,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "09_brain_circulation": {
       title: "Brain circulation", tag: "Careers",
       stat: m => has(m.returnee_pct_overall) && [pct(m.returnee_pct_overall), "of classifiable scientists trained in India, worked abroad and came back"],
-    },
-    "10_succession_risk": {
-      title: "Succession risk", tag: "Workforce",
-      stat: m => {
-        const v = m.lab_metrics && m.lab_metrics[m.highlight_lab] && m.lab_metrics[m.highlight_lab][String(m.threshold_used)];
-        return v && has(v.share_sole_papers) && [pct(v.share_sole_papers), `of ${m.highlight_lab}'s recent papers rely only on scientists near retirement`];
-      },
     },
     "11_information_diffusion": {
       title: "How ideas spread", tag: "Diffusion",

@@ -33,9 +33,7 @@ def run_target(target: str) -> None:
         run_build_profiles()
         build_suite_js()
     elif target == "insights-fetch":
-        from src.collect.fetch_counts_by_year import main as fetch_counts_main
         from src.collect.fetch_author_careers import main as fetch_careers_main
-        fetch_counts_main()
         fetch_careers_main()
     elif target == "insights":
         from src.stats.insights.run_all import run_all as insights_main

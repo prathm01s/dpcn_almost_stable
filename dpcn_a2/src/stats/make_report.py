@@ -814,10 +814,8 @@ INSIGHTS = [
     ("04_price_law", "Concentration (Price's law)"),
     ("05_quartile_vs_impact", "Journal quartile vs impact"),
     ("06_pagerank_vs_citations", "Local vs global influence"),
-    ("07_sleeping_beauties", "Sleeping beauties"),
     ("08_covid_shock", "COVID shock"),
     ("09_brain_circulation", "Brain circulation"),
-    ("10_succession_risk", "Succession risk"),
 ]
 
 
@@ -825,7 +823,7 @@ def slide_ten_findings(prs, d: Data):
     import json
 
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    header(s, "Ten non-obvious findings",
+    header(s, f"{len(INSIGHTS)} non-obvious findings",
            "Each finding answers one question; charts and method notes are in the dashboard's Key Findings section")
     rows = []
     for i, (key, label) in enumerate(INSIGHTS, 1):

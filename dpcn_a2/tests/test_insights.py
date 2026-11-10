@@ -1,11 +1,10 @@
-"""Unit and integration tests for the Group 24 Insights analyses (s01-s10).
+"""Unit and integration tests for the Group 24 Insights analyses.
 
 Covers:
-1. Schema and contract compliance of all 10 insight JSON files.
-2. Mathematical verification of Ke et al. (2015) Sleeping Beauty B-coefficient.
-3. Gini coefficient and Price's Law calculations.
-4. Friendship paradox network invariants.
-5. Brain circulation validation sample structure.
+1. Schema and contract compliance of the 9 insight JSON files (07 and 10 removed, D-37).
+2. Gini coefficient and Price's Law calculations.
+3. Friendship paradox network invariants.
+4. Brain circulation validation sample structure.
 """
 
 import json
@@ -22,10 +21,8 @@ INSIGHT_IDS = [
     "04_price_law",
     "05_quartile_vs_impact",
     "06_pagerank_vs_citations",
-    "07_sleeping_beauties",
     "08_covid_shock",
     "09_brain_circulation",
-    "10_succession_risk",
     "11_information_diffusion",
 ]
 
@@ -41,7 +38,7 @@ REQUIRED_KEYS = {
 
 
 def test_all_insight_files_exist_and_conform_to_schema():
-    """Verify each of the 10 insight JSON files exists and has all required contract fields."""
+    """Verify each insight JSON file exists and has all required contract fields."""
     for insight_id in INSIGHT_IDS:
         filepath = INSIGHTS_DIR / f"{insight_id}.json"
         assert filepath.exists(), f"Missing insight file: {filepath}"
@@ -60,37 +57,6 @@ def test_all_insight_files_exist_and_conform_to_schema():
 
         assert len(data["headline"]) > 10
         assert len(data["method_note"]) > 10
-
-
-def test_sleeping_beauty_ke_formula():
-    """Verify Ke et al. (2015) B-coefficient calculation on synthetic citation curves."""
-    from src.stats.insights.s07_sleeping_beauties import compute_sleeping_beauty
-
-    # Case 1: Early peak (within 2 years) -> filtered out per definition
-    early_cites = {2016: 50, 2017: 40, 2018: 10, 2019: 5, 2020: 2}
-    res_early = compute_sleeping_beauty(2016, early_cites)
-    assert res_early == {}, "Early peak papers should not be classified as sleeping beauties"
-
-    # Case 2: Classic Sleeping Beauty: flat/low citations for years, then large spike
-    sb_cites = {
-        2016: 1,
-        2017: 0,
-        2018: 1,
-        2019: 0,
-        2020: 2,
-        2021: 45,
-        2022: 70,
-        2023: 30,
-        2024: 15,
-        2025: 10,
-        2026: 5,
-    }
-    res_sb = compute_sleeping_beauty(2016, sb_cites)
-    assert res_sb != {}, "Clear sleeping beauty pattern should be detected"
-    assert res_sb["B"] > 5.0
-    assert res_sb["awakening_year"] in [2020, 2021, 2022]
-    assert res_sb["avg_post"] > res_sb["avg_pre"]
-
 
 
 def test_gini_and_price_law():
@@ -153,15 +119,6 @@ def test_headlines_have_no_invented_fallbacks():
 def test_rich_club_uses_top_set_threshold():
     d = json.loads(Path("stats/tables/insights/02_rich_club.json").read_text(encoding="utf-8"))
     assert d["metrics"]["rho_norm_at_k_star"] is not None
-
-
-def test_sleeping_beauty_ignores_partial_year_and_tiny_peaks():
-    from src.stats.insights.s07_sleeping_beauties import compute_sleeping_beauty
-    # Peak of 5 citations: too small to count, however late it comes
-    assert compute_sleeping_beauty(2016, {2016: 0, 2017: 0, 2018: 0, 2019: 0, 2020: 5, 2021: 5, 2022: 5, 2023: 5}) == {}
-    # A big 2026 (partial-year) value must not become the peak
-    res = compute_sleeping_beauty(2016, {2016: 5, 2017: 6, 2018: 8, 2019: 9, 2020: 12, 2021: 14, 2026: 90})
-    assert res == {} or res["peak_year"] <= 2025
 
 
 def test_information_diffusion_specifics():
@@ -320,3 +277,11 @@ def test_covid_headline_states_the_pre_pandemic_decline():
     assert m["pre_pandemic_annual_change_pct"] < 0
     assert f"{abs(m['pre_pandemic_annual_change_pct']):.1f}% a year" in d["headline"]
     assert f"{abs(m['combined_change_2020_vs_2019_pct']):.1f}% from 2019" in d["headline"]
+
+
+def test_removed_insights_are_gone():
+    """Sleeping beauties and Succession risk were removed after the instructor review (D-37)."""
+    for key in ("07_sleeping_beauties", "10_succession_risk"):
+        assert not (INSIGHTS_DIR / f"{key}.json").exists(), key
+    js = Path("dashboard/data/g24_insights.js").read_text(encoding="utf-8")
+    assert "sleeping_beauties" not in js and "succession_risk" not in js

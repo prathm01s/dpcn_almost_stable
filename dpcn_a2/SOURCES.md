@@ -43,7 +43,6 @@ so re-runs make no new calls. Default corpus (`core`).
 | References and authorships of our papers | `/works?filter=openalex_id:W1\|…\|W100` | `17_indian_links_api.py`, `18_reference_counts.py` |
 | Indian-affiliated papers our papers cite | `/works?filter=cited_by:W1\|…,authorships.countries:IN` | 17 |
 | Indian-affiliated papers citing our papers | `/works?filter=cites:W1\|…,authorships.countries:IN` | 17 |
-| Yearly citations of candidate "sleeping beauties" (Insight 7) | `/works?filter=openalex_id:…&select=id,publication_year,counts_by_year` | `fetch_counts_by_year.py` |
 | Full career histories of roster scientists (Insights 9–10) | `/works?filter=authorships.author.id:<A…>` | `fetch_author_careers.py` |
 
 **Fields used**: work ID, DOI, title, publication year, type, `cited_by_count` (the `citations` column), authorships

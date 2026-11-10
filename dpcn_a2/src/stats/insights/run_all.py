@@ -1,8 +1,9 @@
-"""Master runner for all 10 Group 24 Insights analyses.
+"""Master runner for the Group 24 Insights analyses.
 
-Executes s01 to s10 in order, writing each output JSON to stats/tables/insights/.
-Runs from local data only: Insights 7, 9 and 10 read the OpenAlex caches written by
-`make insights-fetch`; if those are missing they write a "Not computed" JSON instead.
+Executes s01-s06, s08, s09 and s11 in order, writing each output JSON to stats/tables/insights/.
+Sleeping beauties (s07) and Succession risk (s10) were removed after the instructor review (D-37).
+Runs from local data only: Insight 9 reads the OpenAlex cache written by `make insights-fetch`;
+if it is missing it writes a "Not computed" JSON instead.
 """
 
 import sys
@@ -14,7 +15,7 @@ logger = get_logger("insights_run_all")
 
 def run_all() -> None:
     logger.info("================================================================================")
-    logger.info("Starting Group 24 Insights Pipeline (10 Non-Obvious Analyses)")
+    logger.info("Starting Group 24 Insights Pipeline (9 analyses)")
     logger.info("================================================================================")
 
     # 1. Friendship Paradox
@@ -41,10 +42,6 @@ def run_all() -> None:
     from src.stats.insights.s06_pagerank_vs_citations import run as run_06
     run_06()
 
-    # 7. Sleeping Beauties
-    from src.stats.insights.s07_sleeping_beauties import run as run_07
-    run_07()
-
     # 8. COVID Shock
     from src.stats.insights.s08_covid_shock import run as run_08
     run_08()
@@ -53,16 +50,12 @@ def run_all() -> None:
     from src.stats.insights.s09_brain_circulation import run as run_09
     run_09()
 
-    # 10. Succession Risk
-    from src.stats.insights.s10_succession_risk import run as run_10
-    run_10()
-
     # 11. Information Diffusion & Epidemic Spreading
     from src.stats.insights.s11_information_diffusion import run as run_11
     run_11()
 
     logger.info("================================================================================")
-    logger.info("✓ Completed all 11 Insights analyses. Outputs saved in stats/tables/insights/")
+    logger.info("✓ Completed all 9 Insights analyses. Outputs saved in stats/tables/insights/")
     logger.info("================================================================================")
 
 

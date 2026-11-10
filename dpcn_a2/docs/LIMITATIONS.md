@@ -77,19 +77,15 @@
 
 ## 5. Non-Obvious Insights (Bibliometric & Network Analyses)
 
-1. **Sleeping Beauties Window & Censoring**:
-   - Sleeping beauty detection uses the Ke et al. (2015, *PNAS*) beauty coefficient $B$ on complete years 2016–2025 (2026 is partial), for papers published 2016–2020 with ≥20 citations and ≥10 citations in the peak year. With at most 10 years of history only short sleeps are visible, and B rewards any late peak, so a 'sustained' check (≥50% of the peak rate after the peak) separates real awakenings from 1–2-year spikes.
-2. **Career Abroad Spell Inferences (Brain Circulation)**:
+1. **Career Abroad Spell Inferences (Brain Circulation)**:
    - Returnee classification is inferred from institutional affiliation country codes on pre-CSIR publication records in OpenAlex `/authors` career histories. If an overseas postdoctoral spell produced no indexed publications, or if publisher metadata omitted institutional affiliations, the spell cannot be observed from OpenAlex alone. A 30-scientist sample was exported to `stats/tables/insights/09_validation_sample.csv` for manual validation against laboratory profile pages.
-3. **Faculty Retirement & Succession Risk Proxy**:
-   - CSIR institute scientific directories do not publish researcher birthdates or retirement dates. Academic age ($\text{Collection Year} - \text{Year of First Recorded Publication}$) serves as a proxy ($\ge 30$ years indicates probable retirement within 5 years). Sensitivity tests at thresholds 28 and 32 years confirmed that divisional risk rankings remain robust across definitions.
-4. **COVID-19 Publication Lag & Hardware Dependence**:
+2. **COVID-19 Publication Lag & Hardware Dependence**:
    - Journal publications lag the research by months, so 2020 output mostly reflects pre-pandemic work. CSIR-CECRI was 22.3% below its 2016–19 trend in 2020 and 33.9% in 2021, while IICT and NCL were above theirs; the linear trend extrapolates the 2016–19 decline (steep for IICT), so per-lab gaps depend strongly on that trend. No cause is inferred.
-5. **Roster cleanup (D-25)**: technical staff listed on the IICT staff pages and three wrong OpenAlex matches were removed from the faculty roster by Step 19 (`config/overrides/roster_overrides.csv`, `data/review/roster_excluded.csv`). The roster is still the website roster as of October 2026: scientists who left earlier are only flagged as probable former faculty, and further matching errors may remain.
-6. **Returnee classification is unvalidated** until `true_class` is filled in `stats/tables/insights/09_validation_sample.csv`.
-7. **Insight co-author graph vs Task 4 network**: Insights 1–3 and 11 use a co-author graph keyed by OpenAlex author ID (7,752 researchers in the LCC); the Task 4 authorship network in the report and dashboard is keyed by name. Their node counts and centralities therefore differ slightly.
-8. **Rows without an author ID**: the 1,579 dataset rows without an OpenAlex author ID all carry `faculty_id = FORMER_CECRI_0005` (936 different names), an artefact of the probable-former-faculty step. These rows are not roster faculty and do not affect faculty statistics, but `FORMER_CECRI_0005` should not be read as one person.
-9. **Insight 11 is a stylised model**: β0 = 0.20 is far above every field's epidemic threshold (βc ≈ 0.03–0.06), so spread is guaranteed in principle; the comparison between fields, conditions and seeds is the result, not the absolute speed.
+3. **Roster cleanup (D-25)**: technical staff listed on the IICT staff pages and three wrong OpenAlex matches were removed from the faculty roster by Step 19 (`config/overrides/roster_overrides.csv`, `data/review/roster_excluded.csv`). The roster is still the website roster as of October 2026: scientists who left earlier are only flagged as probable former faculty, and further matching errors may remain.
+4. **Returnee classification is unvalidated** until `true_class` is filled in `stats/tables/insights/09_validation_sample.csv`.
+5. **Insight co-author graph vs Task 4 network**: Insights 1–3 and 11 use a co-author graph keyed by OpenAlex author ID (7,752 researchers in the LCC); the Task 4 authorship network in the report and dashboard is keyed by name. Their node counts and centralities therefore differ slightly.
+6. **Rows without an author ID**: the 1,579 dataset rows without an OpenAlex author ID all carry `faculty_id = FORMER_CECRI_0005` (936 different names), an artefact of the probable-former-faculty step. These rows are not roster faculty and do not affect faculty statistics, but `FORMER_CECRI_0005` should not be read as one person.
+7. **Insight 11 is a stylised model**: β0 = 0.20 is far above every field's epidemic threshold (βc ≈ 0.03–0.06), so spread is guaranteed in principle; the comparison between fields, conditions and seeds is the result, not the absolute speed.
 
 
 ## Global benchmark (D-35)

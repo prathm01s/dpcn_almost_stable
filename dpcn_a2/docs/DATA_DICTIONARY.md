@@ -105,8 +105,8 @@ Network analysis (PageRank, Louvain, centralities) uses only the within-cluster 
 ## 4. Non-Obvious Insights (Bibliometric & Advanced Network Analytics)
 
 ### 4.1 JSON Deliverables (`stats/tables/insights/*.json`)
-All 10 analyses conform strictly to the following common JSON contract schema:
-- `id` (String): Unique identifier (e.g. `01_friendship_paradox`, `07_sleeping_beauties`).
+All insight files conform to the following common JSON contract schema:
+- `id` (String): Unique identifier (e.g. `01_friendship_paradox`, `08_covid_shock`).
 - `question` (String): Plain-language guiding inquiry.
 - `headline` (String): One-sentence punchline summarizing the core finding with quantitative numbers.
 - `metrics` (Object): Key quantitative summary scalars used in headline and text.
@@ -117,16 +117,15 @@ All 10 analyses conform strictly to the following common JSON contract schema:
 - `computed_at` (String): UTC ISO 8601 generation timestamp.
 
 ### 4.2 List of Insight Deliverables
+IDs keep their original numbers; 07 (sleeping beauties) and 10 (succession risk) were removed after the instructor review (D-37), so the dashboard shows nine findings numbered 01–09 in this order.
 1. `01_friendship_paradox.json`: Co-authorship degree vs neighbor average degree ($k$ vs $k_{nn}$).
 2. `02_rich_club.json`: Normalized rich-club coefficient $\rho_{norm}(k)$ against 20 degree-preserving rewired nulls.
 3. `03_fragility.json`: Targeted attack (betweenness & degree) vs random node percolation curves.
 4. `04_price_law.json`: Output inequality, Gini coefficients, and $\sqrt{N}$ productivity curve.
 5. `05_quartile_vs_impact.json`: Citation distributions by SJR quartile, top-decile outliers, and uncitedness.
 6. `06_pagerank_vs_citations.json`: Global raw citation count vs internal directed PageRank ranking.
-7. `07_sleeping_beauties.json`: Ke et al. (2015) beauty coefficient $B$, awakening trajectories, and asleep durations.
 8. `08_covid_shock.json`: Observed vs counterfactual output trajectories, topic shifts, and COVID synthesis shares.
 9. `09_brain_circulation.json`: Impact comparisons (citations, foreign co-authors) of returnee vs home-grown faculty.
-10. `10_succession_risk.json`: Senior-led research exposure shares across scientific divisions.
 11. `11_information_diffusion.json`: Susceptible-Infected (SI) epidemic spreading simulation of novel methodologies and reagents across 6 disciplinary fields, comparing topic-modulated transmission vs domain-restricted subgraphs, with super-spreaders and blockers.
 
 ### 4.3 Validation & Spreading Model Deliverables

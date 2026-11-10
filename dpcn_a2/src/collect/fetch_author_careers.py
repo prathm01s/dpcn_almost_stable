@@ -8,7 +8,7 @@ budget tracking). Only that author's own authorship entry is kept:
 
 Timelines are written to data/cache/openalex/careers/<author_id>.json (derived data, gitignored).
 A fetch error stops the run instead of caching a partial timeline.
-Used by Insights 9 (brain circulation) and 10 (succession risk).
+Used by Insight 9 (brain circulation).
 """
 
 import json

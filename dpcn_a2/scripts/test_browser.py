@@ -335,16 +335,16 @@ def run_tests():
                 card_count = client.evaluate("document.querySelectorAll('#insights-grid .insight-card').length")
                 stats = client.evaluate("document.querySelectorAll('#insights-grid .ic-stat').length")
                 print(f"✓ Key Findings: {card_count} finding boxes, {stats} with a headline number")
-                assert card_count == 11 and stats == 11
+                assert card_count == 9 and stats == 9
                 # Each box opens a modal with its chart
-                for i in range(11):
+                for i in range(card_count):
                     client.evaluate(f"document.querySelectorAll('#insights-grid .insight-card')[{i}].click()")
                     time.sleep(0.6)
                     shown = client.evaluate("!document.getElementById('ins-overlay').hidden")
                     canv = client.evaluate("document.querySelectorAll('#ins-body canvas, #ins-body svg').length")
                     assert shown and canv > 0, f"Finding {i + 1}: modal shown={shown}, chart elements={canv}"
-                print("  ✓ All 11 finding modals open with a chart")
-                # Finding 11 is open: test its interactive buttons
+                print(f"  ✓ All {card_count} finding modals open with a chart")
+                # The last finding (information diffusion) is open: test its interactive buttons
                 diff_table_rows = client.evaluate("document.querySelectorAll('#tbody-diff-spreaders tr').length")
                 assert diff_table_rows > 0, "Finding 11 table rows should be populated"
                 client.evaluate("document.querySelector('#diff-field-selector button[data-field=\"Materials\"]').click()")
