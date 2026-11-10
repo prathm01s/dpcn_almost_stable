@@ -91,9 +91,68 @@
     ];
     $("i-kpis").innerHTML = kpis.map(([l, v, s]) => `<div class="kpi-card"><div class="kpi-label">${esc(l)}</div><div class="kpi-val">${esc(v)}</div><div class="kpi-sub">${esc(s)}</div></div>`).join("");
     $("i-hero-note").textContent = `Data: OpenAlex, collected ${D.meta.collection_date}; simulations built ${D.meta.built}. One step = one round of contact between collaborators.`;
-    const order = ["C1", "C2", "C3", "C7", "C8", "C9", "C4", "C6", "C5"];
-    $("i-findings-list").innerHTML = order.map(claim).filter(Boolean).map((cl, i) =>
-      `<div class="i-finding"><span class="i-n">${i + 1}</span><p>${esc(cl.claim)}<small>Source: ${esc(cl.source)} · check: ${esc(cl.check)}</small></p>${badge(cl.passed)}</div>`).join("");
+    renderAnswers();
+  }
+
+  // ---------- "In short" answers (one per section) and the contents cards ----------
+  const ANS = {};
+  function setAnswer(key, text, cl) {
+    const el = $(`ans-${key}`);
+    if (!el) return;
+    el.innerHTML = esc(text) + (cl ? ` ${badge(cl.passed)}` : "");
+    ANS[key] = { text, cl };
+  }
+  function renderAnswers() {
+    const full = S.full_coauthorship, fac = S.faculty_coauthorship;
+    setAnswer("data", `Four networks from the labs' papers: ${fmt(full.nodes)} authors linked by co-authorship (faculty, students, project staff), ` +
+      `the ${fmt(fac.nodes)} faculty among them who have a faculty co-author, ${fmt(S.faculty_citation.nodes)} faculty linked by citations, ` +
+      `and ${fmt(S.full_citation.nodes)} papers linked by citations. Faculty = scientists on the institutes' own staff pages.`, claim("C10"));
+    setAnswer("model", `Each step, everyone who has the idea passes it to each collaborator with a probability of at most ${P.beta0}, higher for collaborators ` +
+      `who work on similar topics. We simulate this thousands of times (Monte Carlo) and also solve it with mean-field equations (NIMFA).`, null);
+    const map = { threshold: "C2", fields: "C7", networks: "C1", meanfield: "C4", labs: "C9" };
+    Object.entries(map).forEach(([k, id]) => { const c = claim(id); if (c) setAnswer(k, c.claim, c); });
+  }
+  function renderToc() {
+    const items = [
+      ["i-data", "01", "Data", "What networks do the labs form?", "data"],
+      ["i-model", "02", "Model", "How is spreading simulated?", "model"],
+      ["i-threshold", "03", "Tipping point", "Below what point does an idea die out?", "threshold"],
+      ["i-fields", "04", "Fields", "Does an idea stay in its discipline?", "fields"],
+      ["i-networks", "05", "Networks", "Which network spreads ideas fastest?", "networks"],
+      ["i-meanfield", "06", "Mean field", "Can equations replace the simulations?", "meanfield"],
+      ["i-labs", "07", "Labs", "Does the lab of origin matter?", "labs"],
+      ["i-proof", "08", "Claims & proof", "How can anyone check this page?", null],
+    ];
+    const c = D.claims || {};
+    $("i-toc").innerHTML = items.map(([id, n, t, q, key]) => {
+      const a = key && ANS[key];
+      const txt = a ? a.text : `${c.n_passed || 0} of ${c.n_claims || 0} claims pass their automatic check; every number, source file and test is listed.`;
+      return `<a href="#${id}"><span class="t-num">${n}</span><span class="t-title">${esc(t)}</span><span class="t-q">${esc(q)}</span>` +
+        `<span class="t-a">${esc(txt)}</span><span class="t-go">${a && a.cl ? badge(a.cl.passed) + " " : ""}See the evidence →</span></a>`;
+    }).join("");
+  }
+  function renderGlossary() {
+    const terms = [
+      ["Adopting an idea", "Taking up a new method, technique or reagent from a collaborator. Once adopted it is kept (the SI model)."],
+      ["Step", "One round of contact between collaborators: everyone who has the idea gets one chance to pass it to each collaborator. Not a calendar unit."],
+      ["Transmission probability β", `The chance that an idea passes along one link in one step: ${P.beta0} at most, scaled down when the two people work on different topics.`],
+      ["T50", "The first step at which half of the target group has adopted. \"Not reached\" when the typical run never gets there within 15 steps."],
+      ["Monte Carlo (MC)", "Running the random spreading process many times with different random numbers and averaging the results."],
+      ["NIMFA (mean field)", "Equations for each person's probability of having adopted, assuming neighbours are independent. Fast, but it over-estimates spreading."],
+      ["Tipping point (threshold)", "If people pass an idea on only once, it dies out below a certain transmission probability and spreads widely above it."],
+      ["Super-spreader", "A seed whose idea reaches the most people early on (by step 3)."],
+      ["Gatekeeper", "A person whose removal cuts the most researchers off from the rest of a field's network."],
+      ["Spillover", "The share of researchers outside a field who adopt an idea that started inside it."],
+    ];
+    $("i-glossary").innerHTML = terms.map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("");
+  }
+  function trackSection() {
+    const links = [...document.querySelectorAll("#nav-links .nav-link")];
+    const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && byId[e.target.id]) { links.forEach(a => a.classList.remove("current")); byId[e.target.id].classList.add("current"); }
+    }), { rootMargin: "-45% 0px -50% 0px" });
+    document.querySelectorAll("section.page-section").forEach(sec => obs.observe(sec));
   }
 
   // ---------- 01 Data ----------
@@ -196,8 +255,8 @@
       { title: "Formula \\(T_c\\)", field: "T_c_theory", num: true }, { title: "Measured peak", field: "T_peak_simulated", num: true },
       { title: "Measured / formula", field: "peak_over_theory", num: true, fmt: v => `${v}×` },
     ], keys.map(k => ({ k, ...TH[k] })));
-    const c3 = claim("C3"), c2 = claim("C2");
-    $("ins-threshold").innerHTML = [c2, c3].filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
+    const c3 = claim("C3");
+    $("ins-threshold").innerHTML = [c3].filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
   }
 
   // ---------- 04 Fields ----------
@@ -235,8 +294,8 @@
       { title: "\\(\\langle k\\rangle/\\langle k^2\\rangle\\)", html: r => num(r.thresholds.beta_c, 4) },
       { title: "\\(1/\\lambda_{\\max}\\)", html: r => num(r.thresholds.beta_c_spec, 4) },
     ], FIELDS.filter(f => FD[f]).map(f => FD[f]));
-    const c7 = claim("C7"), c5 = claim("C5");
-    $("ins-fields").innerHTML = [c7, c5].filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
+    const c5 = claim("C5");
+    $("ins-fields").innerHTML = [c5].filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
   }
 
   // ---------- 05 Networks ----------
@@ -259,7 +318,7 @@
       { title: "Gap min…max (pp)", html: r => `${num(r.min_gap)} … ${num(r.max_gap)}` }, { title: "Rank ρ", field: "rank_agreement_spearman", num: true, fmt: v => num(v) },
     ], D.grid);
     $("tbl-grid").style.maxHeight = "460px"; $("tbl-grid").style.overflow = "auto";
-    $("ins-networks").innerHTML = ["C1", "C8"].map(claim).filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
+    $("ins-networks").innerHTML = ["C8"].map(claim).filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
   }
 
   // ---------- 06 Mean field ----------
@@ -286,7 +345,7 @@
     };
     seg("seg-mf-net", NETS.map(k => [k, S[k].network_name.replace(" (all authors)", "")]), net, v => { net = v; draw(); });
     seg("seg-mf-field", [["Combined", "Everyone"], ...FIELDS.map(f => [f, f])], field, v => { field = v; draw(); });
-    $("ins-meanfield").innerHTML = ["C4", "C6"].map(claim).filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
+    $("ins-meanfield").innerHTML = ["C6"].map(claim).filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
   }
 
   // ---------- 07 Labs ----------
@@ -313,7 +372,7 @@
       { title: "Mean degree", field: "mean_degree", num: true }, { title: "MC T50", field: "mc_t50", num: true, fmt: (v, r) => (r.too_small ? "too small" : (v ?? "not reached")) },
       { title: "NIMFA T50", field: "nimfa_t50", num: true, fmt: (v, r) => (r.too_small ? "" : (v ?? "not reached")) },
       { title: "MC reach @15", field: "mc_final_reach", num: true, fmt: (v, r) => (r.too_small ? "" : pct(v)) }], rows);
-    $("ins-labs").innerHTML = ["C9"].map(claim).filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
+
   }
 
   // ---------- 08 Proof ----------
@@ -354,7 +413,7 @@
     ].map(t => `<li>${t}</li>`).join("");
   }
 
-  renderTop(); renderData(); renderThreshold(); renderFields(); renderNetworks(); renderMeanField(); renderLabs(); renderProof();
+  renderTop(); renderGlossary(); renderData(); renderThreshold(); renderFields(); renderNetworks(); renderMeanField(); renderLabs(); renderProof(); renderToc(); trackSection();
   // typeset formulas inside generated tables once MathJax has loaded
   const typeset = () => (window.MathJax && MathJax.typesetPromise ? MathJax.typesetPromise() : null);
   if (!typeset()) window.addEventListener("load", () => setTimeout(typeset, 0));

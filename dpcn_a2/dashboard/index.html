@@ -140,6 +140,38 @@
         <span class="lab-chip lab-iict"><b>CSIR-IICT</b> Indian Institute of Chemical Technology · Hyderabad</span>
         <span class="lab-chip lab-cecri"><b>CSIR-CECRI</b> Central Electrochemical Research Institute · Karaikudi</span>
       </div>
+      <div class="lead-studies" aria-label="Lead studies">
+        <div class="lead-head"><span class="lead-head-tag">Lead studies</span>
+          <span>Two in-depth analyses beyond the basic statistics. Open either one for the full story, the charts and the method.</span></div>
+        <div class="lead-grid">
+          <a href="global.html" class="lead-card lead-global" id="lead-global">
+            <span class="lead-tag"><span class="lead-icon" aria-hidden="true">🌐</span> Lead study 1 · Global Benchmark</span>
+            <strong class="lead-title">How do CSIR's chemistry labs compare with the world?</strong>
+            <span class="lead-desc">NCL, IICT and CECRI against their closest government-lab "twins" in the USA, China, South Korea and Australia,
+              six leading Indian institutes and fifteen Indian universities: output, field-normalised impact, research topics,
+              who writes papers with whom and who cites whom.</span>
+            <span class="lead-visual" id="lead-global-bars" aria-hidden="true"></span>
+            <span class="lead-stats" id="lead-global-stats"></span>
+            <span class="lead-inside"><b>Inside:</b>
+              <span>Peers chosen by fixed rules</span><span>World top-10% share</span><span>Growth 2016–2025</span><span>Who cites whom</span><span>15 Indian universities</span></span>
+            <span class="lead-cta">Explore the Global Benchmark <b>→</b></span>
+          </a>
+          <a href="insights11.html" class="lead-card lead-i11" id="lead-i11">
+            <span class="lead-tag"><span class="lead-icon" aria-hidden="true">🧪</span> Lead study 2 · Insight 11 <span class="lead-check" id="lead-i11-check"></span></span>
+            <strong class="lead-title">How fast does a new idea spread through the labs?</strong>
+            <span class="lead-desc">A new method or reagent "infects" the labs' collaboration and citation networks. We follow it through everyone who
+              publishes, through faculty alone, along citations, by field and by lab, with every formula written out and every claim checked automatically.</span>
+            <span class="lead-visual lead-spark" aria-hidden="true">
+              <svg id="lead-i11-spark" viewBox="0 0 320 110" preserveAspectRatio="none"></svg>
+              <span class="lead-legend"><i class="lg-all"></i>all authors <i class="lg-fac"></i>faculty only <i class="lg-half"></i>half reached</span>
+            </span>
+            <span class="lead-stats" id="lead-i11-stats"></span>
+            <span class="lead-inside"><b>Inside:</b>
+              <span>4 networks compared</span><span>Formulas written out</span><span>Theory vs. simulation</span><span>Spreading by field and lab</span><span>Claims &amp; proof</span></span>
+            <span class="lead-cta">Open the full study <b>→</b></span>
+          </a>
+        </div>
+      </div>
       <div class="kpi-grid hero-kpis" aria-live="polite">
           <div class="kpi-card">
             <div class="kpi-label">Distinct papers</div>
@@ -182,29 +214,6 @@
         <a href="#findings" class="btn-primary">See the 8 key findings</a>
         <a href="#trends" class="btn-ghost">Start with the statistics</a>
       </div>
-      <div class="hero-features">
-      <a href="global.html" class="btn-global" id="btn-global">
-        <span class="btn-global-icon" aria-hidden="true">🌐</span>
-        <span class="btn-global-text">
-          <small>New · Lead work</small>
-          <strong>Global Benchmark: CSIR labs vs. the world</strong>
-          <span>Twins in the USA, China, South Korea &amp; Australia, Indian peers, and every partner country</span>
-        </span>
-        <span class="btn-global-go" aria-hidden="true">→</span>
-      </a>
-      <a href="insights11.html" class="btn-i11" id="btn-i11" aria-label="Open Insight 11: how a new idea spreads through the labs">
-        <span class="i11-top">
-          <span class="i11-tag">Featured study · Insight 11</span>
-          <span class="i11-check" id="i11-check"></span>
-        </span>
-        <strong class="i11-title">How fast does a new idea spread through the labs?</strong>
-        <span class="i11-body">
-          <svg class="i11-spark" id="i11-spark" viewBox="0 0 160 64" preserveAspectRatio="none" aria-hidden="true"></svg>
-          <span class="i11-stats" id="i11-stats"></span>
-        </span>
-        <span class="i11-go">Simulations on 4 networks · formulas · every claim checked <b>Open →</b></span>
-      </a>
-      </div>
     </div>
     <a class="next-sec next-sec-hero" href="#findings" aria-label="Next section: Key Findings"><span class="next-sec-label">Scroll to explore</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
   </section>
@@ -224,20 +233,6 @@
         <!-- Insight boxes rendered by renderInsightCards() in app.js -->
       </div>
 
-      <div class="studies-block">
-        <div class="studies-head">
-          <h3>Extended study</h3>
-          <p>How knowledge flows between the labs and Indian universities, on its own page.</p>
-        </div>
-        <div class="studies-grid">
-          <a href="insight_academic_bridge.html" class="study-card">
-            <span class="study-tag">Study 1.1</span>
-            <span class="study-title">Academic bridge</span>
-            <span class="study-desc">Knowledge exchange with IITs, IISc and state universities</span>
-            <span class="study-go">Open page →</span>
-          </a>
-        </div>
-      </div>
     </div>
       <a class="next-sec" href="#trends" aria-label="Next section: Publication Trends &amp; Journal Quality"><span class="next-sec-label">Next · Publication Trends &amp; Journal Quality</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
   </section>
@@ -1203,6 +1198,7 @@
   <script src="vendor/tabulator.min.js"></script>
   <script src="data/g24_data.js"></script>
   <script src="data/g24_insights.js"></script>
+  <script src="data/g24_global_teaser.js"></script>
   <script src="data/g24_profiles.js"></script>
   <script src="js/profiles.js"></script>
   <script src="js/app.js"></script>

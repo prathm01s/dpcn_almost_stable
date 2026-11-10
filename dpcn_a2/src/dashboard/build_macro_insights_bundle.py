@@ -19,11 +19,6 @@ BUNDLES = [
         "var_name": "G24_SMART_SPEC_DATA"
     },
     {
-        "src": SRC_DIR / "11_academic_bridge.json",
-        "dest": DEST_DIR / "g24_academic_bridge.js",
-        "var_name": "G24_ACADEMIC_BRIDGE_DATA"
-    },
-    {
         "src": SRC_DIR / "51_frugal_innovation.json",
         "withdrawn": True,
         "dest": DEST_DIR / "g24_frugal_rd.js",

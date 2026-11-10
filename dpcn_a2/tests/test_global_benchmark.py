@@ -122,3 +122,38 @@ def test_dashboard_payload_matches_tables():
     assert [r["papers_scope"] for r in d["summary"]] == s["papers_scope"].tolist()
     assert len(d["exclusions"]) == len(pd.read_csv("config/overrides/global_peer_exclusions.csv"))
     assert "api_key" not in text
+
+
+def test_indian_universities_table():
+    """Former Study 1.1 (D-39): same definition as the peer links, exact name matching."""
+    u = pd.read_csv(T / "global_indian_universities.csv")
+    from src.stats.global_benchmark import UNIVERSITIES
+    assert len(u) == 4 * len(UNIVERSITIES)
+    names = set(pd.read_csv("data/final/citation_network.csv", dtype=str, keep_default_na=False)
+                .pipe(lambda c: set(";".join(c["source_inst"]).split(";")) | set(";".join(c["target_inst"]).split(";"))))
+    assert {n for n, _, _ in UNIVERSITIES} <= names
+    for uni, g in u.groupby("university"):
+        each = g[g["lab"] != "All three"]
+        allr = g[g["lab"] == "All three"].iloc[0]
+        # distinct papers over the three labs: at least the largest lab, at most the sum
+        assert each["papers_citing_lab"].max() <= allr["papers_citing_lab"] <= each["papers_citing_lab"].sum(), uni
+        assert each["papers_cited_by_lab"].max() <= allr["papers_cited_by_lab"] <= each["papers_cited_by_lab"].sum(), uni
+
+
+def test_university_counts_agree_with_peer_links():
+    """IISc, IIT Bombay and IIT Madras are counted twice from independent sources; they must agree closely."""
+    u = pd.read_csv(T / "global_indian_universities.csv")
+    lk = pd.read_csv(T / "global_links.csv")
+    m = u.merge(lk, left_on=["lab", "university"], right_on=["lab", "short"])
+    assert len(m) == 9
+    for a, b in (("papers_citing_lab", "peer_papers_citing_lab"), ("papers_cited_by_lab", "peer_papers_cited_by_lab")):
+        assert ((m[a] - m[b]).abs() / m[b]).max() < 0.10
+
+
+def test_home_teaser_matches_tables():
+    text = Path("dashboard/data/g24_global_teaser.js").read_text(encoding="utf-8")
+    t = json.loads(text[len("window.G24_GLOBAL_TEASER = "):].rstrip().rstrip(";"))
+    s = pd.read_csv(T / "global_summary.csv").set_index("short")
+    for lab, v in t["top10"].items():
+        assert abs(v - s.at[lab, "top10_pct"]) < 1e-9
+    assert t["countries"] == len(pd.read_csv(T / "global_country_relations.csv"))

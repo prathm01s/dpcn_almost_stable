@@ -95,3 +95,46 @@ body.global-page { --header-h: 62px; }
 .g-table td.num, .g-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .g-table-wrap { overflow-x: auto; }
 .g-align-start { align-items: start; }
+
+/* ---------- Reading structure shared by the Global Benchmark and Insight 11 pages (D-39) ---------- */
+.section-q { font-size: 1.05rem; font-weight: 700; color: var(--accent-ink); margin-top: 0.7rem; }
+.section-q::before { content: "The question · "; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.72rem; color: var(--text-muted); }
+.g-answer {
+  border-left: 5px solid var(--accent-ink); background: var(--tint); border-radius: 0 12px 12px 0;
+  padding: 0.95rem 1.2rem; margin: 0 0 1.4rem; font-size: 1.02rem; line-height: 1.6; color: var(--text);
+}
+.g-answer::before { content: "In short"; display: block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 0.25rem; }
+.g-answer:empty { display: none; }
+.g-howto { font-size: 0.82rem; color: var(--text-2); background: var(--surface-2); border: 1px dashed var(--border-strong); border-radius: 8px; padding: 0.5rem 0.75rem; margin: 0.6rem 0 0; line-height: 1.5; }
+.g-howto::before { content: "How to read this · "; font-weight: 800; color: var(--text); }
+
+details.g-more { margin-top: 1rem; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+details.g-more > summary {
+  cursor: pointer; list-style: none; padding: 0.7rem 1rem; font-weight: 700; font-size: 0.88rem; color: var(--accent-ink);
+  display: flex; justify-content: space-between; align-items: center; gap: 0.5rem;
+}
+details.g-more > summary::-webkit-details-marker { display: none; }
+details.g-more > summary::after { content: "Show ▾"; font-size: 0.78rem; color: var(--text-muted); }
+details.g-more[open] > summary::after { content: "Hide ▴"; }
+details.g-more > summary:focus-visible { outline: 2px solid var(--secondary); outline-offset: 2px; border-radius: 10px; }
+details.g-more > .g-more-body { padding: 0 1rem 1rem; }
+
+.g-toc { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 0.9rem; }
+.g-toc a {
+  display: flex; flex-direction: column; gap: 0.35rem; text-decoration: none; color: var(--text);
+  border: 1px solid var(--border); background: var(--card-bg); border-radius: 12px; padding: 0.95rem 1.05rem; box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.g-toc a:hover, .g-toc a:focus-visible { transform: translateY(-2px); border-color: var(--accent-ink); }
+.g-toc .t-num { font-size: 0.74rem; font-weight: 800; color: var(--secondary); letter-spacing: 0.08em; }
+.g-toc .t-title { font-size: 1rem; font-weight: 800; }
+.g-toc .t-q { font-size: 0.84rem; color: var(--text-muted); }
+.g-toc .t-a { font-size: 0.88rem; color: var(--text-2); line-height: 1.5; border-top: 1px solid var(--surface-3); padding-top: 0.45rem; margin-top: auto; }
+.g-toc .t-go { font-size: 0.8rem; font-weight: 700; color: var(--accent-ink); }
+
+.g-glossary { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 0.6rem 1.4rem; }
+.g-glossary div { border-bottom: 1px solid var(--surface-3); padding-bottom: 0.55rem; }
+.g-glossary dt { font-weight: 800; font-size: 0.9rem; color: var(--text); }
+.g-glossary dd { font-size: 0.86rem; color: var(--text-2); line-height: 1.5; margin-top: 0.15rem; }
+
+.nav-link.current { color: var(--accent-ink); background: var(--tint); }

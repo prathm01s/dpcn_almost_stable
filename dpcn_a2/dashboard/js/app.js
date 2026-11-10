@@ -1986,26 +1986,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.G24_openInsight = openInsight;  // used by the browser test
 
-  // Home-screen card for Insight 11 (its own page): mini adoption curves and three numbers, all from
-  // window.G24_I11_TEASER (built from stats/tables/insights/11_* by build_insights_js.py)
-  function renderI11Teaser() {
+  // Home-screen cards for the two lead studies (their own pages). Every number comes from
+  // window.G24_GLOBAL_TEASER (build_global.py) and window.G24_I11_TEASER (build_insights_js.py).
+  function renderLeadStudies() {
+    const stat = (v, s) => `<span class="lead-stat"><b>${esc(v)}</b><span>${esc(s)}</span></span>`;
+    const pc = v => (v == null ? "–" : `${Number(v).toFixed(1)}%`);
+
+    const g = window.G24_GLOBAL_TEASER;
+    const bars = document.getElementById("lead-global-bars");
+    if (g && g.top10 && bars) {
+      const rows = [
+        ...Object.entries(g.top10).map(([k, v]) => [k, v, "#60a5fa"]),
+        ["Foreign twins (median)", g.top10_twin_median, "#fbbf24"],
+        ["Indian peers (median)", g.top10_india_median, "#fb923c"],
+      ];
+      const max = Math.max(30, ...rows.map(r => r[1] || 0));
+      bars.innerHTML = '<span class="lead-bars">' + rows.map(([k, v, c]) =>
+        `<span class="lead-bar"><span>${esc(k)}</span><span class="lb-track"><span class="lb-fill" style="width:${(100 * v / max).toFixed(1)}%;background:${c}"></span>` +
+        `<span class="lb-world" style="left:${(100 * 10 / max).toFixed(1)}%"></span></span><b>${pc(v)}</b></span>`).join("") +
+        '</span><span class="lead-bars-cap">Share of papers among the world’s 10% most cited in their subject and year (dashed line: world average, 10%)</span>';
+      const low = Object.entries(g.cagr || {}).sort((a, b) => a[1] - b[1])[0];
+      document.getElementById("lead-global-stats").innerHTML =
+        stat(fmtN(g.countries), `countries co-author with the labs (${pc(g.foreign_share_pct)} of papers)`) +
+        stat(low ? `${low[1].toFixed(1)}%` : "–", low ? `yearly change in ${low[0]}'s output, 2016–2025, while its peers grew` : "") +
+        stat(g.exchange_ratio_foreign == null ? "–" : g.exchange_ratio_foreign.toFixed(2), "foreign peers cite the labs per paper the labs cite of theirs");
+    }
+
     const t = window.G24_I11_TEASER;
-    const svg = document.getElementById("i11-spark");
-    if (!t || !t.full_curve || !svg) return;
-    const W = 160, H = 64, pad = 4;
-    const pts = c => c.map((v, i) => `${(pad + i * (W - 2 * pad) / (c.length - 1)).toFixed(1)},${(H - pad - v / 100 * (H - 2 * pad)).toFixed(1)}`).join(" ");
-    const y50 = (H - pad - 0.5 * (H - 2 * pad)).toFixed(1);
-    svg.innerHTML = `<line x1="${pad}" x2="${W - pad}" y1="${y50}" y2="${y50}" stroke="rgba(255,255,255,0.35)" stroke-dasharray="3 3"/>` +
-      `<polyline points="${pts(t.faculty_curve)}" fill="none" stroke="#fcd34d" stroke-width="2" stroke-dasharray="4 3"/>` +
-      `<polyline points="${pts(t.full_curve)}" fill="none" stroke="#ffffff" stroke-width="2.5"/>`;
-    const st = (v, s) => `<span><b>${esc(v)}</b> ${esc(s)}</span>`;
-    document.getElementById("i11-stats").innerHTML =
-      st(t.t50_full == null ? "> 15 steps" : `${t.t50_full} steps`, `to reach half of all ${fmtN(t.n_full)} authors (white)`) +
-      st(t.t50_faculty == null ? "> 15 steps" : `${t.t50_faculty} steps`, `among faculty alone (yellow)`) +
-      st(`${t.spillover}%`, "of an idea leaks outside its field");
-    if (t.claims_total) document.getElementById("i11-check").textContent = `✓ ${t.claims_passed}/${t.claims_total} claims verified`;
+    const svg = document.getElementById("lead-i11-spark");
+    if (t && t.full_curve && svg) {
+      const W = 320, H = 110, pad = 6;
+      const pts = c => c.map((v, i) => `${(pad + i * (W - 2 * pad) / (c.length - 1)).toFixed(1)},${(H - pad - v / 100 * (H - 2 * pad)).toFixed(1)}`).join(" ");
+      const y50 = (H - pad - 0.5 * (H - 2 * pad)).toFixed(1);
+      svg.innerHTML = `<line x1="${pad}" x2="${W - pad}" y1="${y50}" y2="${y50}" stroke="rgba(255,255,255,0.45)" stroke-dasharray="2 4"/>` +
+        `<polyline points="${pts(t.faculty_curve)}" fill="none" stroke="#fcd34d" stroke-width="2.5" stroke-dasharray="6 4"/>` +
+        `<polyline points="${pts(t.full_curve)}" fill="none" stroke="#ffffff" stroke-width="3"/>`;
+      document.getElementById("lead-i11-stats").innerHTML =
+        stat(t.t50_full == null ? "> 15" : `${t.t50_full} steps`, `for an idea to reach half of all ${fmtN(t.n_full)} authors`) +
+        stat(t.t50_faculty == null ? "> 15" : `${t.t50_faculty} steps`, "for the same among faculty alone, without students and project staff") +
+        stat(`${t.spillover}%`, "of researchers outside the field adopt an idea that starts in chemistry");
+      if (t.claims_total) document.getElementById("lead-i11-check").textContent = `✓ ${t.claims_passed}/${t.claims_total} claims verified`;
+    }
   }
-  renderI11Teaser();
+  renderLeadStudies();
 
   function renderInsightChart(key, item) {
         if (!item || !item.chart) return;

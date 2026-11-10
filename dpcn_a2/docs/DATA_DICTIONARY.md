@@ -220,3 +220,10 @@ Page: `dashboard/insights11.html` (data `dashboard/data/g24_insights11_suite.js`
 | `11_claims.json` | Part 4: every claim on the page with its numbers, source file, check and pass/fail; `tests/test_insight11.py` requires all to pass |
 | `11_cadre_networks_summary.csv`, `11_cadre_coauthorship_graph.json`, `11_cadre_citation_graph.json` | Faculty networks (same as the dashboard's) |
 | `11_data_cleaning_stats.json` | Roster funnel (505 scraped → 120 removed → 385 roster → 306 with papers) and `excluded_staff_publishing` (removed staff who are authors) |
+
+**Added in D-39 (Global Benchmark)**
+
+| File | Content |
+|---|---|
+| `stats/tables/global_indian_universities.csv` | Former Study 1.1 (Academic Bridge): per university (9 IITs + IISc, 6 state universities) and lab (plus "All three", distinct papers): `papers_citing_lab` (university papers citing ≥ 1 lab paper), `papers_cited_by_lab` (university papers cited by ≥ 1 lab paper), both without papers co-authored with the lab; `exchange_ratio` = citing ÷ cited_by; `coauthored_papers` (indian_connections.csv). From `citation_network.csv`, exact institution names |
+| `dashboard/data/g24_global_teaser.js` | Numbers for the Global Benchmark card on the home screen (copied from the global tables) |

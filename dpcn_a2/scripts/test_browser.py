@@ -345,9 +345,13 @@ def run_tests():
                     assert shown and canv > 0, f"Finding {i + 1}: modal shown={shown}, chart elements={canv}"
                 print(f"  ✓ All {card_count} finding modals open with a chart")
                 # Insight 11 is a featured card on the home screen linking to its own page (D-38)
-                teaser = client.evaluate("[document.querySelectorAll('#i11-spark polyline').length, document.getElementById('i11-check').textContent, document.querySelector('#btn-i11').getAttribute('href')]")
-                print(f"  ✓ Insight 11 card: {teaser}")
-                assert teaser[0] == 2 and "claims verified" in teaser[1] and teaser[2] == "insights11.html"
+                # The two lead studies are large cards on the home screen, filled from the data (D-39)
+                lead = client.evaluate("[document.querySelectorAll('#lead-i11-spark polyline').length, document.getElementById('lead-i11-check').textContent, "
+                                       "document.querySelector('#lead-i11').getAttribute('href'), document.querySelectorAll('#lead-global-bars .lead-bar').length, "
+                                       "document.querySelector('#lead-global').getAttribute('href'), document.querySelectorAll('.lead-stat').length]")
+                print(f"  ✓ Lead-study cards: {lead}")
+                assert lead[0] == 2 and "claims verified" in lead[1] and lead[2] == "insights11.html"
+                assert lead[3] == 5 and lead[4] == "global.html" and lead[5] == 6
                 client.evaluate("document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))")
                 time.sleep(0.3)
                 assert client.evaluate("document.getElementById('ins-overlay').hidden"), "Escape should close the finding modal"
@@ -506,6 +510,8 @@ def run_tests():
         assert "Insight 11" in title_i11, title_i11
         for cid in ["ch-faculty", "ch-threshold", "ch-field", "ch-overlay", "ch-meanfield", "ch-origin"]:
             assert client_i11.evaluate(f"document.querySelectorAll('#{cid} canvas').length") > 0, f"{cid} not rendered"
+        assert client_i11.evaluate("document.querySelectorAll('#i-toc a').length") == 8
+        assert client_i11.evaluate("document.querySelectorAll('.g-answer').length") == 7
         claims = client_i11.evaluate("[document.querySelectorAll('#tbl-claims tbody tr').length, document.querySelectorAll('#tbl-claims .i-fail').length]")
         print(f"✓ insights11.html: 6 charts; claims table {claims[0]} rows, {claims[1]} failed")
         assert claims[0] >= 10 and claims[1] == 0
@@ -527,10 +533,6 @@ def run_tests():
     finally:
         client_i11.stop()
 
-    macro_pages = [
-        ("insight_academic_bridge.html", "Academic Bridge", "chart-ker"),
-    ]
-
     # Withdrawn studies (D-33): kept in the repo with a banner, not linked from the dashboard
     withdrawn_pages = ["insight_smart_spec.html", "insight_frugal_rd.html",
                        "insight_patents_papers.html", "insight_leiden_benchmarks.html"]
@@ -540,40 +542,15 @@ def run_tests():
         assert "Withdrawn from the Group 24 dashboard" in open(f"dashboard/{page_name}", encoding="utf-8").read()
     print(f"\n✓ Withdrawn pages unlinked and bannered: {len(withdrawn_pages)}")
 
-    for page_name, expected_title, chart_id in macro_pages:
-        print(f"\n=== TESTING OFFLINE file:// PROTOCOL FOR {page_name.upper()} ===")
-        abs_path = os.path.abspath(f"dashboard/{page_name}")
-        file_url = f"file://{abs_path}"
-        client_macro = ChromeDevToolsClient(port=9336)
-        try:
-            client_macro.start(file_url)
-            time.sleep(1.0)
-            page_title = client_macro.evaluate("document.title")
-            print(f"✓ {page_name} Loaded: Title='{page_title}'")
-            assert expected_title in page_title, f"Unexpected title {page_title} in {page_name}"
-            chart_elems = client_macro.evaluate(f"document.querySelectorAll('#{chart_id} canvas, #{chart_id} svg').length")
-            print(f"✓ {page_name} Chart '{chart_id}' rendered elements: {chart_elems}")
-            assert chart_elems > 0, f"Chart {chart_id} not rendered in {page_name}"
-            
-            # Verify MathJax SVG rendering on macro pages
-            mathjax_svgs = client_macro.evaluate("document.querySelectorAll('mjx-container svg').length")
-            print(f"✓ MathJax SVG Math Elements rendered on {page_name}: {mathjax_svgs}")
-            assert mathjax_svgs > 0, f"No MathJax SVG elements rendered on {page_name}"
-            
-            if client_macro.console_errors:
-                print(f"❌ Console errors on {page_name}:")
-                for err in client_macro.console_errors:
-                    print("  ERROR:", err)
-                raise AssertionError(f"Console errors on {page_name}")
-            else:
-                print(f"✓ ZERO Console errors on {page_name}! 100% offline-ready.")
-        finally:
-            client_macro.stop()
+    # The Academic Bridge (Study 1.1) is now part of the Global Benchmark (D-39); its old address redirects
+    bridge = open("dashboard/insight_academic_bridge.html", encoding="utf-8").read()
+    assert 'url=global.html#g-india' in bridge and "insight_academic_bridge.html" not in index_html
+    print("✓ Academic Bridge page redirects to global.html#g-india")
 
     # Global Benchmark page (D-35): linked from the home screen, renders offline without errors
     print("\n=== TESTING GLOBAL BENCHMARK PAGE (file://) ===")
     index_html = open("dashboard/index.html", encoding="utf-8").read()
-    assert 'href="global.html" class="btn-global"' in index_html, "Home screen lacks the Global Benchmark button"
+    assert 'href="global.html" class="lead-card lead-global"' in index_html, "Home screen lacks the Global Benchmark card"
     client_g = ChromeDevToolsClient(port=9337)
     try:
         client_g.start(f"file://{os.path.abspath('dashboard/global.html')}")
@@ -582,9 +559,16 @@ def run_tests():
                 break
             time.sleep(0.25)
         assert "Global Benchmark" in client_g.evaluate("document.title")
-        for cid in ["ch-countries", "ch-index", "ch-cagr", "ch-world", "ch-impact", "ch-profiles", "ch-collab", "ch-flows"]:
+        for cid in ["ch-countries", "ch-index", "ch-cagr", "ch-world", "ch-impact", "ch-profiles", "ch-collab", "ch-flows", "ch-india"]:
             n = client_g.evaluate(f"document.querySelectorAll('#{cid} canvas').length")
             assert n > 0, f"Chart {cid} not rendered on global.html"
+        # contents cards carry an answer for every section
+        assert client_g.evaluate("document.querySelectorAll('#g-toc a').length") == 8
+        assert client_g.evaluate("[...document.querySelectorAll('.g-answer')].every(e => e.textContent.trim().length > 40)")
+        # tables sit in collapsed sections and are built when opened
+        client_g.evaluate("document.querySelectorAll('details.g-more').forEach(d => d.open = true)")
+        time.sleep(1.0)
+        assert client_g.evaluate("document.querySelectorAll('#tbl-india tbody tr').length") == 60
         for tid in ["tbl-countries", "tbl-sim", "tbl-summary", "tbl-links"]:
             rows = client_g.evaluate(f"document.querySelectorAll('#{tid} .tabulator-row').length")
             assert rows > 0, f"Table {tid} empty on global.html"
@@ -599,7 +583,7 @@ def run_tests():
             for err in client_g.console_errors:
                 print("  ERROR:", err)
             raise AssertionError("Console errors on global.html")
-        print("✓ global.html: 8 charts, 4 tables, rules and peers rendered; zero console errors")
+        print("✓ global.html: 9 charts, contents with answers, 5 tables, rules and peers rendered; zero console errors")
     finally:
         client_g.stop()
 

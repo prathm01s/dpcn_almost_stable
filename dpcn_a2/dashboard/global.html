@@ -20,12 +20,14 @@
       </a>
       <nav class="nav-links" id="nav-links" aria-label="Sections">
         <a href="#g-home" class="nav-link" data-sec="home">Top</a>
+        <a href="#g-overview" class="nav-link">Overview</a>
         <a href="#g-countries" class="nav-link">Countries</a>
-        <a href="#g-peers" class="nav-link">How peers were chosen</a>
+        <a href="#g-peers" class="nav-link">Peers</a>
         <a href="#g-output" class="nav-link">Output</a>
         <a href="#g-impact" class="nav-link">Impact</a>
-        <a href="#g-profiles" class="nav-link">Research profiles</a>
+        <a href="#g-profiles" class="nav-link">Topics</a>
         <a href="#g-links" class="nav-link">Links</a>
+        <a href="#g-india" class="nav-link">Indian universities</a>
         <a href="#g-method" class="nav-link">Method</a>
       </nav>
       <button class="nav-menu-btn" id="nav-menu-btn" aria-expanded="false" aria-controls="nav-links">☰ Sections</button>
@@ -39,216 +41,264 @@
   <!-- Top -->
   <section id="g-home" class="page-section hero g-hero">
     <div class="section-inner hero-inner">
-      <div class="hero-eyebrow">DPCN 2026 · Group 24 · Lead work</div>
+      <div class="hero-eyebrow">DPCN 2026 · Group 24 · Lead study</div>
       <h1 class="hero-title">How do CSIR's chemistry labs compare with the world?</h1>
-      <p class="hero-lead">CSIR-NCL, CSIR-IICT and CSIR-CECRI measured against their closest government-lab "twins" in the USA,
-        China, South Korea and Australia, and against six leading Indian institutes, with the same OpenAlex queries for everyone.
-        Plus every country the labs actually work with.</p>
+      <p class="hero-lead">CSIR-NCL, CSIR-IICT and CSIR-CECRI against their closest government-lab "twins" in the USA, China,
+        South Korea and Australia, against six leading Indian institutes, and in their exchange with fifteen Indian universities.
+        Everyone is measured with the same OpenAlex queries.</p>
       <div class="kpi-grid hero-kpis" id="g-kpis"></div>
       <p class="hero-note" id="g-hero-note"></p>
       <div class="hero-actions">
-        <a href="#g-countries" class="btn-primary">Start with the countries</a>
+        <a href="#g-overview" class="btn-primary">The page in one minute</a>
         <a href="#g-peers" class="btn-ghost">How the peers were chosen</a>
       </div>
     </div>
   </section>
 
-  <!-- 1 Countries -->
-  <section id="g-countries" class="page-section">
+  <!-- 00 Overview -->
+  <section id="g-overview" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">01</span> / 07</div>
-        <h2 class="section-title">Which countries the labs work with</h2>
-        <p class="section-lead">Papers in our dataset (2016–2026) with at least one co-author in each country. A paper with partners in two
-          countries counts for both. The four benchmark countries are highlighted.</p>
+        <div class="section-eyebrow"><span class="section-num">00</span> / 08</div>
+        <h2 class="section-title">The page in one minute</h2>
+        <p class="section-lead">Eight questions, each answered from the data. Click a card to see the evidence.</p>
       </header>
-      <div class="g-insight" id="ins-countries"></div>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-header"><h3 class="card-title">Co-authored papers by country (top 15)</h3></div>
-          <div id="ch-countries" class="g-chart g-chart-tall" role="img" aria-label="Bar chart of papers co-authored with each country"></div>
-        </div>
-        <div class="card">
-          <div class="card-header"><h3 class="card-title">The benchmark countries at a glance</h3></div>
-          <div id="focus-countries" class="g-focus"></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Every partner country</h3>
-          <button class="g-dl" data-dl="country_relations">Download CSV</button>
-        </div>
-        <div id="tbl-countries"></div>
-        <p class="g-note">Top partners: the three institutions in that country on the most papers (paper counts in brackets).
-          Source: work_author_counts.csv and institutions_seen.csv (OpenAlex affiliations of every author).</p>
-      </div>
+      <nav class="g-toc" id="g-toc" aria-label="Sections with their answers"></nav>
     </div>
   </section>
 
-  <!-- 2 Peers -->
+  <!-- 01 Countries -->
+  <section id="g-countries" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">01</span> / 08</div>
+        <h2 class="section-title">Which countries the labs work with</h2>
+        <p class="section-q">Which countries do the labs write papers with, and are our four benchmark countries among them?</p>
+      </header>
+      <div class="g-answer" id="ans-countries"></div>
+      <div class="grid-2 g-align-start">
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Co-authored papers by country (top 15)</h3></div>
+          <div id="ch-countries" class="g-chart g-chart-tall" role="img" aria-label="Bar chart of papers co-authored with each country"></div>
+          <p class="g-howto">Each bar is the number of the labs' papers (2016–2026) with at least one co-author in that country. Coloured bars are the four
+            benchmark countries; grey bars are the others.</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">The four benchmark countries</h3></div>
+          <div id="focus-countries" class="g-focus"></div>
+        </div>
+      </div>
+      <details class="g-more">
+        <summary>All <span id="n-countries"></span> partner countries (table, CSV)</summary>
+        <div class="g-more-body">
+          <div style="text-align:right;margin-bottom:.5rem"><button class="g-dl" data-dl="country_relations">Download CSV</button></div>
+          <div id="tbl-countries"></div>
+          <p class="g-note">Top partners: the three institutions in that country on the most papers (paper counts in brackets). A paper with partners in two
+            countries counts for both. Source: work_author_counts.csv and institutions_seen.csv.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 02 Peers -->
   <section id="g-peers" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">02</span> / 07</div>
-        <h2 class="section-title">How the peers were chosen</h2>
-        <p class="section-lead">Foreign peers are picked by fixed rules from OpenAlex data, not by name. Each CSIR lab gets the most similar
-          government institute in each country as its "twin". The Indian reference group was chosen by the team.</p>
+        <div class="section-eyebrow"><span class="section-num">02</span> / 08</div>
+        <h2 class="section-title">Who the labs are compared with</h2>
+        <p class="section-q">Which institutes are fair comparisons, and how were they picked?</p>
       </header>
+      <div class="g-answer" id="ans-peers"></div>
       <div class="grid-2 g-align-start">
-        <div class="card">
-          <div class="card-header"><h3 class="card-title">The rules</h3></div>
-          <ol class="g-rules" id="g-rules"></ol>
-        </div>
         <div class="card">
           <div class="card-header"><h3 class="card-title">The selected peers</h3></div>
           <div id="peer-cards" class="g-peer-groups"></div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header"><h3 class="card-title">What each rule removed</h3></div>
-        <div id="tbl-funnel"></div>
-        <p class="g-note">Pool: the 200 institutions with the most in-scope papers on the country's papers. Rule 2b removals were reviewed by
-          hand; each is listed below with its reason.</p>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Research-profile similarity of every institute tested</h3>
-          <button class="g-dl" data-dl="similarity">Download CSV</button>
-        </div>
-        <div id="tbl-sim"></div>
-        <p class="g-note">Cosine similarity of paper counts across all research subfields, 2016–2025 (1 = identical mix, 0 = no overlap).
-          Darker cells are more similar. A ★ marks the selected twin.</p>
-      </div>
-      <div class="grid-2">
         <div class="card">
-          <div class="card-header"><h3 class="card-title">Rule 2b: removed as not stand-alone institutes</h3></div>
-          <div id="tbl-ex"></div>
-        </div>
-        <div class="card">
-          <div class="card-header"><h3 class="card-title">Benchmark scope: the subfields measured</h3></div>
-          <div id="tbl-scope"></div>
+          <div class="card-header"><h3 class="card-title">The rules, in order</h3></div>
+          <ol class="g-rules" id="g-rules"></ol>
         </div>
       </div>
+      <details class="g-more">
+        <summary>What each rule removed, country by country</summary>
+        <div class="g-more-body"><div id="tbl-funnel"></div>
+          <p class="g-note">Pool: the 200 institutions with the most in-scope papers on the country's papers.</p></div>
+      </details>
+      <details class="g-more">
+        <summary>Similarity of every institute tested (table, CSV)</summary>
+        <div class="g-more-body">
+          <div style="text-align:right;margin-bottom:.5rem"><button class="g-dl" data-dl="similarity">Download CSV</button></div>
+          <div id="tbl-sim"></div>
+          <p class="g-note">Cosine similarity of paper counts across all research subfields, 2016–2025 (1 = identical mix, 0 = no overlap). Darker = more similar;
+            ★ = selected twin.</p>
+        </div>
+      </details>
+      <details class="g-more">
+        <summary>Institutions removed by hand (rule 2b), with reasons</summary>
+        <div class="g-more-body"><div id="tbl-ex"></div></div>
+      </details>
+      <details class="g-more">
+        <summary>The <span id="n-scope"></span> research subfields measured</summary>
+        <div class="g-more-body"><div id="tbl-scope"></div></div>
+      </details>
     </div>
   </section>
 
-  <!-- 3 Output -->
+  <!-- 03 Output -->
   <section id="g-output" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">03</span> / 07</div>
+        <div class="section-eyebrow"><span class="section-num">03</span> / 08</div>
         <h2 class="section-title">Output and growth, 2016–2025</h2>
-        <p class="section-lead">Research papers (articles and reviews) in the benchmark scope. 2026 is left out because it is a partial year.</p>
+        <p class="section-q">Are the labs publishing more or less over time, and how does that compare with their peers and with whole countries?</p>
       </header>
-      <div class="g-insight" id="ins-output"></div>
+      <div class="g-answer" id="ans-output"></div>
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Papers per year, indexed to 2016 = 100</h3>
           <div class="g-seg" id="seg-index" role="group" aria-label="Lab"></div>
         </div>
         <div id="ch-index" class="g-chart" role="img" aria-label="Line chart of papers per year indexed to 2016"></div>
-        <p class="g-note">Each line is one institution: the chosen CSIR lab and its twin in each country. Index = papers that year ÷ papers in 2016 × 100.</p>
+        <p class="g-howto">Pick a lab; the other lines are its twin in each country. A line above 100 means more papers than in 2016, below 100 fewer.
+          Only research papers in the benchmark subfields count; 2026 is left out (partial year).</p>
       </div>
       <div class="grid-2">
         <div class="card">
           <div class="card-header"><h3 class="card-title">Yearly growth rate, 2016 → 2025</h3></div>
           <div id="ch-cagr" class="g-chart g-chart-tall" role="img" aria-label="Bar chart of compound annual growth per institution"></div>
-          <p class="g-note">Compound annual growth of in-scope papers between 2016 and 2025.</p>
+          <p class="g-howto">Average change in papers per year. Bars to the left of zero: shrinking output.</p>
         </div>
         <div class="card">
-          <div class="card-header"><h3 class="card-title">Country share of world output in the scope</h3></div>
+          <div class="card-header"><h3 class="card-title">Each country's share of world output</h3></div>
           <div id="ch-world" class="g-chart g-chart-tall" role="img" aria-label="Line chart of each country's share of world papers"></div>
-          <p class="g-note">Papers with at least one author in the country ÷ all papers worldwide in the same subfields. Papers with
-            authors in two countries count for both.</p>
+          <p class="g-howto">Papers with an author in the country ÷ all papers worldwide in the same subfields. A paper with authors in two countries counts for both.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4 Impact -->
+  <!-- 04 Impact -->
   <section id="g-impact" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">04</span> / 07</div>
-        <h2 class="section-title">Field-normalised impact</h2>
-        <p class="section-lead">Each paper is compared with papers worldwide of the same subfield, type and year (OpenAlex's own world
-          baselines), so a chemistry lab is not judged against medicine or physics.</p>
+        <div class="section-eyebrow"><span class="section-num">04</span> / 08</div>
+        <h2 class="section-title">How much their papers are cited</h2>
+        <p class="section-q">Compared fairly by subject and year, are the labs' papers cited as much as their peers'?</p>
       </header>
-      <div class="g-insight" id="ins-impact"></div>
+      <div class="g-answer" id="ans-impact"></div>
       <div class="card">
         <div class="card-header">
           <h3 class="card-title" id="impact-title">Share of papers in the world's top 10%</h3>
           <div class="g-seg" id="seg-impact" role="group" aria-label="Measure"></div>
         </div>
         <div id="ch-impact" class="g-chart g-chart-xl" role="img" aria-label="Bar chart of the selected impact measure per institution"></div>
-        <p class="g-note" id="impact-note"></p>
+        <p class="g-howto" id="impact-note"></p>
       </div>
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">All benchmark numbers</h3>
-          <button class="g-dl" data-dl="summary">Download CSV</button>
+      <details class="g-more">
+        <summary>All benchmark numbers for the 19 institutions (table, CSV)</summary>
+        <div class="g-more-body">
+          <div style="text-align:right;margin-bottom:.5rem"><button class="g-dl" data-dl="summary">Download CSV</button></div>
+          <div id="tbl-summary"></div>
         </div>
-        <div id="tbl-summary"></div>
-      </div>
+      </details>
     </div>
   </section>
 
-  <!-- 5 Profiles -->
+  <!-- 05 Profiles -->
   <section id="g-profiles" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">05</span> / 07</div>
-        <h2 class="section-title">Research profiles</h2>
-        <p class="section-lead">Share of each institution's papers (2016–2025, all fields) in the twelve subfields where the CSIR labs publish most.
-          This is what the similarity scores in section 02 compare.</p>
+        <div class="section-eyebrow"><span class="section-num">05</span> / 08</div>
+        <h2 class="section-title">What they work on</h2>
+        <p class="section-q">How similar are the peers' research topics to the labs'?</p>
       </header>
+      <div class="g-answer" id="ans-profiles"></div>
       <div class="card">
         <div id="ch-profiles" class="g-chart g-chart-xl" role="img" aria-label="Heatmap of research subfield shares"></div>
+        <p class="g-howto">Each row is an institution, each column one of the twelve subfields where the CSIR labs publish most. Darker = a larger share of
+          that institution's papers (scale capped at 30%). Hover a cell for the exact share.</p>
       </div>
     </div>
   </section>
 
-  <!-- 6 Links -->
+  <!-- 06 Links -->
   <section id="g-links" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">06</span> / 07</div>
-        <h2 class="section-title">Links between the labs and the peers</h2>
-        <p class="section-lead">Co-authored papers (2016–2025) and knowledge flows: how many of a peer's papers cite the lab, and how many of
-          the peer's papers the lab cites. Papers co-authored with the lab itself are left out of the flows.</p>
+        <div class="section-eyebrow"><span class="section-num">06</span> / 08</div>
+        <h2 class="section-title">Working with and learning from the peers</h2>
+        <p class="section-q">Do the labs write papers with these peers, and who cites whom?</p>
       </header>
-      <div class="g-insight" id="ins-links"></div>
+      <div class="g-answer" id="ans-links"></div>
       <div class="card">
         <div class="card-header"><h3 class="card-title">Co-authored papers, 2016–2025</h3></div>
         <div id="ch-collab" class="g-chart" role="img" aria-label="Heatmap of co-authored papers between each lab and each peer"></div>
+        <p class="g-howto">Each cell counts papers written together by a CSIR lab (row) and a peer (column).</p>
       </div>
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Knowledge flows</h3>
+          <h3 class="card-title">Who cites whom</h3>
           <div class="g-seg" id="seg-flows" role="group" aria-label="Lab"></div>
         </div>
         <div id="ch-flows" class="g-chart g-chart-tall" role="img" aria-label="Bar chart of citation flows between the lab and each peer"></div>
-        <p class="g-note">Exchange ratio = peer papers citing the lab ÷ peer papers cited by the lab. Above 1: the peer draws on the lab more
-          than the lab draws on the peer.</p>
+        <p class="g-howto">Purple: the peer's papers that cite the lab. Red: the peer's papers that the lab cites. Papers co-authored with the lab are left out.
+          Exchange ratio = purple ÷ red; below 1, the lab draws on the peer more than the peer draws on the lab. ★ = twin.</p>
       </div>
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">All links</h3>
-          <button class="g-dl" data-dl="links">Download CSV</button>
+      <details class="g-more">
+        <summary>All lab–peer links (table, CSV)</summary>
+        <div class="g-more-body">
+          <div style="text-align:right;margin-bottom:.5rem"><button class="g-dl" data-dl="links">Download CSV</button></div>
+          <div id="tbl-links"></div>
         </div>
-        <div id="tbl-links"></div>
-      </div>
+      </details>
     </div>
   </section>
 
-  <!-- 7 Method -->
+  <!-- 07 Indian universities (formerly Study 1.1, Academic Bridge) -->
+  <section id="g-india" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">07</span> / 08</div>
+        <h2 class="section-title">Knowledge exchange with Indian universities</h2>
+        <p class="section-q">Do Indian universities draw on the labs' work more than the labs draw on theirs?</p>
+      </header>
+      <div class="g-answer" id="ans-india"></div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Exchange ratio with 15 universities</h3>
+          <div class="g-seg" id="seg-india" role="group" aria-label="Lab"></div>
+        </div>
+        <div id="ch-india" class="g-chart g-chart-xl" role="img" aria-label="Bar chart of the exchange ratio with each university"></div>
+        <p class="g-howto">Exchange ratio = the university's papers citing the lab ÷ the university's papers the lab cites (papers co-authored with the lab left
+          out), the same definition as section 06. Right of the line at 1: the university draws on the lab more than the lab draws on it.
+          Labels give both counts.</p>
+      </div>
+      <div class="g-insight" id="ins-india-check"></div>
+      <details class="g-more">
+        <summary>Every lab × university pair (table, CSV)</summary>
+        <div class="g-more-body">
+          <div style="text-align:right;margin-bottom:.5rem"><button class="g-dl" data-dl="universities">Download CSV</button></div>
+          <div id="tbl-india"></div>
+          <p class="g-note">Source: the dataset's citation network (data/final/citation_network.csv: Indian papers citing or cited by the labs, 2016–2026) and
+            co-authored papers from indian_connections.csv. Institutions are matched by their exact OpenAlex name. This section replaces the former
+            "Academic Bridge" page.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 08 Method -->
   <section id="g-method" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">07</span> / 07</div>
-        <h2 class="section-title">Data and method</h2>
+        <div class="section-eyebrow"><span class="section-num">08</span> / 08</div>
+        <h2 class="section-title">Method, sources and key terms</h2>
       </header>
-      <div class="grid-2">
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">Key terms</h3></div>
+        <dl class="g-glossary" id="g-glossary"></dl>
+      </div>
+      <div class="grid-2" style="margin-top:1.5rem">
         <div class="card">
           <div class="card-header"><h3 class="card-title">Sources</h3></div>
           <ul class="g-list" id="g-sources"></ul>

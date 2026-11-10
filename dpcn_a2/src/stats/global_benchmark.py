@@ -164,6 +164,61 @@ def country_relations() -> pd.DataFrame:
     return out
 
 
+# Indian universities (merged from the former Study 1.1 "Academic Bridge", D-39)
+UNIVERSITIES = [
+    ("Indian Institute of Science Bangalore", "IISc", "IISc / IIT"),
+    ("Indian Institute of Technology Bombay", "IIT Bombay", "IISc / IIT"),
+    ("Indian Institute of Technology Madras", "IIT Madras", "IISc / IIT"),
+    ("Indian Institute of Technology Delhi", "IIT Delhi", "IISc / IIT"),
+    ("Indian Institute of Technology Kharagpur", "IIT Kharagpur", "IISc / IIT"),
+    ("Indian Institute of Technology Kanpur", "IIT Kanpur", "IISc / IIT"),
+    ("Indian Institute of Technology Roorkee", "IIT Roorkee", "IISc / IIT"),
+    ("Indian Institute of Technology Guwahati", "IIT Guwahati", "IISc / IIT"),
+    ("Indian Institute of Technology Hyderabad", "IIT Hyderabad", "IISc / IIT"),
+    ("Savitribai Phule Pune University", "Pune University", "State university"),
+    ("University of Hyderabad", "Univ. of Hyderabad", "State university"),
+    ("Osmania University", "Osmania University", "State university"),
+    ("Alagappa University", "Alagappa University", "State university"),
+    ("Anna University, Chennai", "Anna University", "State university"),
+    ("University of Madras", "University of Madras", "State university"),
+]
+
+
+def indian_universities() -> pd.DataFrame:
+    """Knowledge exchange between each lab and 15 Indian universities, from the dataset's citation network
+    (data/final/citation_network.csv: Indian citing / cited papers, 2016-2026) and co-authorship
+    (indian_connections.csv). Same definition as the peer links (global_links.csv):
+      papers_citing_lab   = distinct university papers that cite >= 1 of the lab's papers
+      papers_cited_by_lab = distinct university papers that >= 1 of the lab's papers cite
+    both leaving out papers co-authored with the lab; exchange_ratio = citing / cited_by.
+    Institutions are matched by exact name in the ';'-separated lists (no substring matching)."""
+    c = pd.read_csv("data/final/citation_network.csv", dtype=str, keep_default_na=False)
+    conn = pd.read_csv("data/final/indian_connections.csv", dtype=str, keep_default_na=False)
+    src = c["source_inst"].str.split(";").apply(set)
+    tgt = c["target_inst"].str.split(";").apply(set)
+    rows = []
+    for name, short, tier in UNIVERSITIES:
+        u_src, u_tgt = src.apply(lambda s: name in s), tgt.apply(lambda s: name in s)
+        all_in, all_out = set(), set()
+        per_lab = {}
+        for lab in LAB_SHORT:
+            l_src, l_tgt = src.apply(lambda s: lab in s), tgt.apply(lambda s: lab in s)
+            inn = set(c.loc[u_src & l_tgt & ~l_src, "source_doi"])   # university paper cites the lab
+            out = set(c.loc[l_src & u_tgt & ~l_tgt, "target_doi"])   # lab paper cites the university
+            co = conn[(conn["your_inst"] == lab) & (conn["partner_inst"] == name)]["shared_papers"]
+            per_lab[lab] = (len(inn), len(out), int(co.astype(int).sum()) if len(co) else 0)
+            all_in |= inn
+            all_out |= out
+        for lab, (i, o, co) in per_lab.items():
+            rows.append({"university": short, "full_name": name, "tier": tier, "lab": lab, "papers_citing_lab": i,
+                         "papers_cited_by_lab": o, "exchange_ratio": round(i / o, 2) if o else None, "coauthored_papers": co})
+        rows.append({"university": short, "full_name": name, "tier": tier, "lab": "All three",
+                     "papers_citing_lab": len(all_in), "papers_cited_by_lab": len(all_out),
+                     "exchange_ratio": round(len(all_in) / len(all_out), 2) if all_out else None,
+                     "coauthored_papers": sum(v[2] for v in per_lab.values())})
+    return pd.DataFrame(rows)
+
+
 def funnel_table(cfg: dict) -> pd.DataFrame:
     c = pd.read_csv(G / "candidates.csv", dtype={"institution_id": str})
     c["rejected_because"] = c["rejected_because"].fillna("")
@@ -234,6 +289,7 @@ def run_global_benchmark() -> None:
     funnel_table(cfg).to_csv(T / "global_rule_funnel.csv", index=False)
     similarity_table().to_csv(T / "global_similarity.csv", index=False)
     profiles_table(peers).to_csv(T / "global_profiles.csv", index=False)
+    indian_universities().to_csv(T / "global_indian_universities.csv", index=False)
     logger.info(f"Global benchmark tables written ({len(peers)} institutions, {len(cr)} countries)")
 
 

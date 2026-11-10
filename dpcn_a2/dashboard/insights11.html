@@ -24,6 +24,7 @@
       </a>
       <nav class="nav-links" id="nav-links" aria-label="Sections">
         <a href="#i-top" class="nav-link" data-sec="home">Top</a>
+        <a href="#i-findings" class="nav-link">Overview</a>
         <a href="#i-data" class="nav-link">Data</a>
         <a href="#i-model" class="nav-link">Model</a>
         <a href="#i-threshold" class="nav-link">Threshold</a>
@@ -52,7 +53,7 @@
       <div class="kpi-grid hero-kpis" id="i-kpis"></div>
       <p class="hero-note" id="i-hero-note"></p>
       <div class="hero-actions">
-        <a href="#i-findings" class="btn-primary">The findings in one minute</a>
+        <a href="#i-findings" class="btn-primary">The study in one minute</a>
         <a href="#i-proof" class="btn-ghost">Claims &amp; proof</a>
       </div>
     </div>
@@ -63,10 +64,10 @@
     <div class="section-inner">
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">00</span> / 08</div>
-        <h2 class="section-title">The findings in one minute</h2>
-        <p class="section-lead">Each statement is generated from the simulation output and carries the check that backs it (full list in section 08).</p>
+        <h2 class="section-title">The study in one minute</h2>
+        <p class="section-lead">Seven questions, each answered from the simulations and marked when its automatic check passes. Click a card for the evidence.</p>
       </header>
-      <div id="i-findings-list" class="i-findings"></div>
+      <nav class="g-toc" id="i-toc" aria-label="Sections with their answers"></nav>
     </div>
   </section>
 
@@ -76,10 +77,12 @@
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">01</span> / 08</div>
         <h2 class="section-title">The data: four networks</h2>
+        <p class="section-q">What networks do the labs form, and who counts as faculty?</p>
         <p class="section-lead">All four are built from the project's final dataset (OpenAlex, collected <span data-meta="collection_date"></span>).
           People are identified by OpenAlex author ID, so two scientists with the same name stay two nodes and one scientist with
           several spellings is one node.</p>
       </header>
+      <div class="g-answer" id="ans-data"></div>
       <div class="card">
         <div class="card-header"><h3 class="card-title">What each network is</h3></div>
         <div id="tbl-networks"></div>
@@ -109,9 +112,11 @@
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">02</span> / 08</div>
         <h2 class="section-title">The model, written out</h2>
+        <p class="section-q">How exactly is the spreading of an idea simulated?</p>
         <p class="section-lead">A Susceptible–Infected (SI) process in discrete steps: once a researcher adopts the idea they keep it and keep
           passing it to collaborators. One step is one round of contact, not a calendar unit.</p>
       </header>
+      <div class="g-answer" id="ans-model"></div>
       <div class="grid-2 g-align-start">
         <div class="card i-math">
           <h3 class="card-title">1 · Stochastic SI (Monte Carlo)</h3>
@@ -153,10 +158,12 @@
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">03</span> / 08</div>
         <h2 class="section-title">Is there a tipping point? Theory vs. simulation</h2>
+        <p class="section-q">Is there a point below which an idea dies out, and does the textbook formula find it?</p>
         <p class="section-lead">If each person passes the idea on only once (with probability \(T\)) and then stops, the outbreak from a seed is
           exactly the seed's cluster when every collaboration link is kept with probability \(T\) (bond percolation). So we can measure the tipping point
           directly and compare it with the formula \(T_c=\langle k\rangle/(\langle k^2\rangle-\langle k\rangle)\).</p>
       </header>
+      <div class="g-answer" id="ans-threshold"></div>
       <div class="g-insight" id="ins-threshold"></div>
       <div class="card">
         <div class="card-header">
@@ -168,10 +175,10 @@
         <p class="g-note">\(S(T)\) = share of the network in the largest outbreak; \(\chi(T)=\sum_{\text{other clusters}} s^2/N\) = mean size of a small
           outbreak, which peaks at the tipping point. <span data-thr="repeats"></span> random repeats per \(T\), \(T\) in steps of 0.005.</p>
       </div>
-      <div class="card">
-        <div class="card-header"><h3 class="card-title">All networks</h3></div>
-        <div id="tbl-threshold"></div>
-      </div>
+      <details class="g-more">
+        <summary>All eight networks: formula vs. measured tipping point</summary>
+        <div class="g-more-body"><div id="tbl-threshold"></div></div>
+      </details>
     </div>
   </section>
 
@@ -181,9 +188,11 @@
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">04</span> / 08</div>
         <h2 class="section-title">By field: does an idea stay in its discipline?</h2>
+        <p class="section-q">If an idea starts among chemists, does it stay among chemists?</p>
         <p class="section-lead">Seeds: the 15 roster scientists most active in the field (field share × number of co-authors), each run
           <span data-param="n_trials"></span> times for <span data-param="max_steps"></span> steps, on the full co-authorship network.</p>
       </header>
+      <div class="g-answer" id="ans-fields"></div>
       <div class="g-insight" id="ins-fields"></div>
       <div class="card">
         <div class="card-header">
@@ -191,8 +200,9 @@
           <div class="g-seg" id="seg-field" role="group" aria-label="Field"></div>
         </div>
         <div id="ch-field" class="g-chart" role="img" aria-label="Adoption curves for the selected field"></div>
-        <p class="g-note">A: topic-weighted transmission on the whole network (blue: researchers in the field; orange: everyone else).
-          B: uniform transmission inside the field's own network.</p>
+        <p class="g-howto">Pick a field. Blue: share of that field's researchers who have adopted the idea after each step, when hand-overs depend on topic
+          overlap. Orange: everyone outside the field (the idea leaking out). Green: the same idea if it could only travel between researchers of that field.
+          The dashed line marks half of the field.</p>
       </div>
       <div class="grid-2 g-align-start">
         <div class="card">
@@ -205,10 +215,10 @@
           <p class="g-note">Highest betweenness (sampled, 200 sources); "network lost" = share of the field network cut off when that person is removed.</p>
         </div>
       </div>
-      <div class="card">
-        <div class="card-header"><h3 class="card-title">All six fields</h3></div>
-        <div id="tbl-fields"></div>
-      </div>
+      <details class="g-more">
+        <summary>All six fields side by side</summary>
+        <div class="g-more-body"><div id="tbl-fields"></div></div>
+      </details>
     </div>
   </section>
 
@@ -218,9 +228,11 @@
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">05</span> / 08</div>
         <h2 class="section-title">Which network carries ideas best?</h2>
+        <p class="section-q">Which network spreads ideas fastest, and what happens without students and project staff?</p>
         <p class="section-lead">The same rule and the same number of seeds and runs on all four networks (Monte Carlo, <span data-param="seeds_per_run"></span>
           best-connected seeds × <span data-param="mc_runs_per_seed"></span> runs).</p>
       </header>
+      <div class="g-answer" id="ans-networks"></div>
       <div class="g-insight" id="ins-networks"></div>
       <div class="card">
         <div class="card-header">
@@ -228,12 +240,16 @@
           <div class="g-seg" id="seg-overlay" role="group" aria-label="Target group"></div>
         </div>
         <div id="ch-overlay" class="g-chart" role="img" aria-label="Adoption curves on the four networks"></div>
+        <p class="g-howto">Each line is one network: the share of its members who have the idea after each step. Steeper and higher = faster spreading.
+          Blue (everyone) against orange (faculty only) shows what students and project staff add.</p>
       </div>
-      <div class="card">
-        <div class="card-header"><h3 class="card-title">Every network × field run</h3>
-          <button class="g-dl" data-dl="grid">Download CSV</button></div>
-        <div id="tbl-grid"></div>
-      </div>
+      <details class="g-more">
+        <summary>Every network × field run (table, CSV)</summary>
+        <div class="g-more-body">
+          <div style="text-align:right;margin-bottom:.5rem"><button class="g-dl" data-dl="grid">Download CSV</button></div>
+          <div id="tbl-grid"></div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -243,9 +259,11 @@
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">06</span> / 08</div>
         <h2 class="section-title">Mean field vs. simulation</h2>
+        <p class="section-q">Can a fast set of equations (NIMFA) replace thousands of simulated runs?</p>
         <p class="section-lead">Both models run from the same seeds on the same links. The gap NIMFA − simulation tells how much ignoring
           correlations between neighbours inflates the prediction.</p>
       </header>
+      <div class="g-answer" id="ans-meanfield"></div>
       <div class="g-insight" id="ins-meanfield"></div>
       <div class="card">
         <div class="card-header">
@@ -256,6 +274,8 @@
           </div>
         </div>
         <div id="ch-meanfield" class="g-chart" role="img" aria-label="Monte Carlo and NIMFA adoption curves with their gap"></div>
+        <p class="g-howto">Blue: average of the simulated runs. Orange dashed: the mean-field prediction. Green bars: how many percentage points the prediction
+          is above the simulation at each step.</p>
       </div>
       <div class="card">
         <div class="card-header"><h3 class="card-title">Super-spreaders on this network and field</h3></div>
@@ -271,8 +291,10 @@
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">07</span> / 08</div>
         <h2 class="section-title">Does it matter which lab an idea starts in?</h2>
+        <p class="section-q">Do ideas from one lab spread further than ideas from another?</p>
         <p class="section-lead">Seeds: the 10 best-connected faculty of one lab; target: the whole network. Then each lab on its own.</p>
       </header>
+      <div class="g-answer" id="ans-labs"></div>
       <div class="g-insight" id="ins-labs"></div>
       <div class="card">
         <div class="card-header">
@@ -280,12 +302,14 @@
           <div class="g-seg" id="seg-origin" role="group" aria-label="Network"></div>
         </div>
         <div id="ch-origin" class="g-chart" role="img" aria-label="Adoption curves by lab of origin"></div>
+        <p class="g-howto">One colour per lab where the idea starts (its 10 best-connected faculty). Solid: simulation; dotted: mean field. The y-axis is the share of
+          the whole network reached.</p>
       </div>
-      <div class="card">
-        <div class="card-header"><h3 class="card-title">Inside each lab</h3></div>
-        <div id="tbl-intra"></div>
-        <p class="g-note">Each lab's own members only (largest connected part); the 8 best-connected members as seeds.</p>
-      </div>
+      <details class="g-more">
+        <summary>Inside each lab: spreading among the lab's own members</summary>
+        <div class="g-more-body"><div id="tbl-intra"></div>
+          <p class="g-note">Each lab's own members only (largest connected part); the 8 best-connected members as seeds.</p></div>
+      </details>
     </div>
   </section>
 
@@ -295,9 +319,14 @@
       <header class="section-head">
         <div class="section-eyebrow"><span class="section-num">08</span> / 08</div>
         <h2 class="section-title">Claims &amp; proof</h2>
+        <p class="section-q">How can anyone check what this page says?</p>
         <p class="section-lead">Every claim on this page, the numbers behind it, where they are stored, and the check that was run.
           The project's test suite fails if any check fails, so the page cannot silently drift from the data.</p>
       </header>
+      <div class="card" style="margin-bottom:1.5rem">
+        <div class="card-header"><h3 class="card-title">Key terms</h3></div>
+        <dl class="g-glossary" id="i-glossary"></dl>
+      </div>
       <div id="tbl-claims"></div>
       <div class="grid-2 g-align-start" style="margin-top:1.5rem">
         <div class="card">

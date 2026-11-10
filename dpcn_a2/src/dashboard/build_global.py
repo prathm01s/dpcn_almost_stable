@@ -58,11 +58,38 @@ def run_build_global() -> None:
         "profiles": _records(pd.read_csv(T / "global_profiles.csv", dtype={"institution_id": str})),
         "scope": _records(scope[scope["in_scope"]][["subfield", "share_pct", "cum_share_pct"]]),
         "exclusions": _records(ex[["name", "country", "reason"]]),
+        "universities": _records(pd.read_csv(T / "global_indian_universities.csv")),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text("window.G24_GLOBAL = " + json.dumps(payload, separators=(",", ":"), ensure_ascii=False) + ";\n",
                    encoding="utf-8")
     logger.info(f"Wrote {OUT} ({OUT.stat().st_size // 1024} KB)")
+    write_teaser(payload)
+
+
+def write_teaser(payload: dict) -> None:
+    """Small file for the Global Benchmark card on the home screen (dashboard/index.html)."""
+    s = {r["short"]: r for r in payload["summary"]}
+    labs = [r for r in payload["summary"] if r["group"] == "CSIR lab"]
+    foreign = [r for r in payload["summary"] if r["group"] not in ("CSIR lab", "India")]
+    india = [r for r in payload["summary"] if r["group"] == "India"]
+    med = lambda xs: float(pd.Series(xs).median()) if xs else None
+    links = [r for r in payload["links"] if r["group"] != "India"]
+    inn, out = sum(r["peer_papers_citing_lab"] for r in links), sum(r["peer_papers_cited_by_lab"] for r in links)
+    teaser = {
+        "countries": len(payload["country_relations"]),
+        "foreign_share_pct": round(100 * payload["meta"]["foreign_coauthored_papers"] / payload["meta"]["corpus_papers"], 1),
+        "benchmark_countries": list(payload["meta"]["countries"].values()),
+        "n_foreign_twins": len(foreign), "n_indian": len(india), "n_universities": len({r["university"] for r in payload["universities"]}),
+        "top10": {r["short"]: r["top10_pct"] for r in labs},
+        "top10_twin_median": med([r["top10_pct"] for r in foreign]),
+        "top10_india_median": med([r["top10_pct"] for r in india]),
+        "cagr": {r["short"]: r["cagr_pct"] for r in labs},
+        "exchange_ratio_foreign": round(inn / out, 2) if out else None,
+    }
+    path = OUT.parent / "g24_global_teaser.js"
+    path.write_text("window.G24_GLOBAL_TEASER = " + json.dumps(teaser, separators=(",", ":"), ensure_ascii=False) + ";\n", encoding="utf-8")
+    logger.info(f"Wrote {path}")
 
 
 if __name__ == "__main__":

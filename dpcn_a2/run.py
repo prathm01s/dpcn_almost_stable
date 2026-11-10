@@ -42,12 +42,9 @@ def run_target(target: str) -> None:
         insights_main()
         build_insights_js()
     elif target == "macro-insights":
-        # Only Study 1.1 is built: Studies 2.1, 3.1, 5.1 and 5.2 are withdrawn from the dashboard
-        # (D-33) because their inputs are hand-entered values without a source file.
-        from src.stats.macro_insights.s11_academic_bridge import run_academic_bridge_analysis
-        from src.dashboard.build_macro_insights_bundle import bundle_macro_insights
-        run_academic_bridge_analysis()
-        bundle_macro_insights()
+        # Nothing left to build: Studies 2.1, 3.1, 5.1 and 5.2 are withdrawn (D-33: hand-entered inputs) and
+        # Study 1.1 (Academic Bridge) is part of the Global Benchmark (D-39, `python run.py global`).
+        print("No macro studies to build: 2.1, 3.1, 5.1, 5.2 withdrawn (D-33); 1.1 merged into the Global Benchmark (D-39).")
     elif target == "global":
         # Global benchmark only (D-35): peer selection, benchmark data, tables, dashboard payload
         import importlib

@@ -34,27 +34,6 @@ def test_smart_specialization_data():
     assert ncl_row["state_lq"] > 1.2, "Maharashtra chemical LQ should exceed 1.2"
 
 
-def test_academic_bridge_data():
-    json_path = DATA_DIR / "11_academic_bridge.json"
-    assert json_path.exists(), f"Missing {json_path}"
-    data = json.loads(json_path.read_text(encoding="utf-8"))
-    
-    assert "institutions_evaluated" in data
-    assert len(data["institutions_evaluated"]) >= 12
-    
-    for item in data["institutions_evaluated"]:
-        assert item["ker"] >= 0, "KER must be non-negative"
-        assert item["c_in_received_from_hei"] >= 0
-        assert item["c_out_sent_to_hei"] >= 0
-        assert item["exchange_role"] in ["Net Knowledge Exporter", "Net Knowledge Importer"]
-
-    # Verify key role relationships
-    by_name = {item["academic_institution"]: item for item in data["institutions_evaluated"]}
-    assert by_name["IIT Hyderabad"]["ker"] > 1.5, "IIT Hyderabad should be net exporter from CSIR"
-    assert by_name["IISc Bangalore"]["ker"] < 0.6, "IISc should be net importer to CSIR"
-    assert by_name["Alagappa University"]["ker"] > 1.2, "Alagappa Univ should be net exporter from CSIR"
-
-
 @pytest.mark.skip(reason="Study withdrawn from the dashboard (D-33): its inputs are hand-entered values without a source file")
 def test_frugal_innovation_data():
     json_path = DATA_DIR / "51_frugal_innovation.json"
@@ -118,7 +97,6 @@ def test_leiden_benchmarks_data():
 def test_js_bundles_offline_ready():
     bundle_files = [
         ("g24_smart_spec.js", "window.G24_SMART_SPEC_DATA"),
-        ("g24_academic_bridge.js", "window.G24_ACADEMIC_BRIDGE_DATA"),
         ("g24_frugal_rd.js", "window.G24_FRUGAL_RD_DATA"),
         ("g24_patents_papers.js", "window.G24_PATENTS_PAPERS_DATA"),
         ("g24_leiden_benchmarks.js", "window.G24_LEIDEN_BENCHMARKS_DATA")

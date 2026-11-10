@@ -84,13 +84,23 @@
       "</tbody></table></div>";
   }
   function box(html) { return `<div class="g-box">${html}</div>`; }
+  // "In short" answers: shown in each section and reused by the contents cards at the top
+  const ANS = {};
+  function answer(key, html) { $(`ans-${key}`).innerHTML = html; ANS[key] = $(`ans-${key}`).textContent; }
+  // Tables inside a collapsed <details> are built the first time it is opened (Tabulator needs a visible box)
+  function whenOpen(id, build) {
+    const d = $(id).closest("details");
+    if (!d || d.open) { build(); return; }
+    const once = () => { if (d.open) { d.removeEventListener("toggle", once); build(); } };
+    d.addEventListener("toggle", once);
+  }
   // Text colour on the strong end of the sequential scale (dark blue in light mode, light blue in dark mode)
   const onStrong = () => (window.G24Theme && window.G24Theme.isDark() ? "#0b1120" : "#fff");
 
   // CSV downloads of the tables behind the page
   const CSV = {
     country_relations: () => D.country_relations.map(r => ({ country: cname(r.country_code), ...r })),
-    similarity: () => D.similarity, summary: () => D.summary, links: () => D.links,
+    similarity: () => D.similarity, summary: () => D.summary, links: () => D.links, universities: () => D.universities || [],
   };
   document.addEventListener("click", e => {
     const b = e.target.closest(".g-dl"); if (!b) return;
@@ -157,17 +167,14 @@
         Top partners: ${esc(r.top_partners)}<br><b>Benchmark twins:</b> ${esc(tw)}</p></div>`;
     }).join("");
 
-    const ranked = focusCC.map(cc => cr.find(x => x.country_code === cc)).filter(Boolean).sort((a, b) => a.rank - b.rank);
     const [c1, c2, c3] = cr;
     const china = cr.find(x => x.country_code === "CN");
-    $("ins-countries").innerHTML = [
-      box(`<b class="g-big">${pct(100 * total / D.meta.corpus_papers)}</b>of the labs' ${fmt(D.meta.corpus_papers)} papers have a co-author abroad, from ${fmt(cr.length)} countries.`),
-      box(`<b class="g-big">${esc(cname(c1.country_code))}, ${esc(cname(c2.country_code))}, ${esc(cname(c3.country_code))}</b>are the three largest partners (${fmt(c1.papers)}, ${fmt(c2.papers)} and ${fmt(c3.papers)} papers).`),
-      china ? box(`<b class="g-big">China #${china.rank}</b>with ${fmt(china.papers)} co-authored papers, although it is the world's largest producer in these subfields (section 03).`) : "",
-      box(`<b class="g-big">${ranked.map(r => `#${r.rank}`).join(" · ")}</b>ranks of ${ranked.map(r => esc(D.meta.countries[r.country_code])).join(", ")} among all partner countries.`),
-    ].join("");
+    $("n-countries").textContent = fmt(cr.length);
+    answer("countries", `<b>${pct(100 * total / D.meta.corpus_papers)}</b> of the labs' ${fmt(D.meta.corpus_papers)} papers have a co-author abroad, from ${fmt(cr.length)} countries. ` +
+      `The three largest partners are ${esc(cname(c1.country_code))} (${fmt(c1.papers)} papers), ${esc(cname(c2.country_code))} (${fmt(c2.papers)}) and ${esc(cname(c3.country_code))} (${fmt(c3.papers)})` +
+      (china ? `; China ranks only #${china.rank} (${fmt(china.papers)}), although it is the world's largest producer in these subjects (section 03).` : "."));
 
-    new Tabulator("#tbl-countries", {
+    whenOpen("tbl-countries", () => new Tabulator("#tbl-countries", {
       data: cr, layout: "fitColumns", height: 440, index: "country_code",
       rowFormatter: row => { if (row.getData().focus_country) row.getElement().style.boxShadow = `inset 4px 0 0 ${gc(CC_GROUP[row.getData().country_code])}`; },
       columns: [
@@ -183,7 +190,7 @@
         { title: "Partner inst.", field: "partner_institutions", hozAlign: "right", width: 100 },
         { title: "Top partners", field: "top_partners", minWidth: 280, formatter: "textarea" },
       ],
-    });
+    }));
   }
 
   // ---------- 02 Peers ----------
@@ -223,7 +230,14 @@
       title: lab.replace("CSIR-", ""), field: `sim_${lab}`, hozAlign: "right", width: 92,
       formatter: cell => { cell.getElement().setAttribute("style", cell.getElement().getAttribute("style") + ";" + shade(cell.getValue())); return (cell.getValue() == null ? "–" : Number(cell.getValue()).toFixed(2)) + (cell.getRow().getData().selected_twin_of === lab ? " ★" : ""); },
     });
-    new Tabulator("#tbl-sim", {
+    const best = [...foreign].sort((a, b) => b.similarity - a.similarity)[0];
+    const noTwin = Object.values(D.meta.countries).flatMap(cn => LABS.filter(l => !foreign.some(p => p.group === cn && p.twin_of === l)).map(l => `${l} in ${cn}`));
+    const nInd = peers.filter(p => p.group === "India").length;
+    $("n-scope").textContent = D.scope.length;
+    answer("peers", `<b>${foreign.length + nInd} comparison institutes.</b> ${foreign.length} foreign government labs were picked by six fixed rules ` +
+      `as the most similar "twin" of each CSIR lab in each country (closest: ${esc(best.short)} for ${esc(best.twin_of)}, similarity ${Number(best.similarity).toFixed(2)}), ` +
+      `plus ${nInd} leading Indian institutes chosen by the team.` + (noTwin.length ? ` No twin was similar enough for ${esc(noTwin.join(" and "))}.` : ""));
+    whenOpen("tbl-sim", () => new Tabulator("#tbl-sim", {
       data: D.similarity, layout: "fitColumns", height: 420, groupBy: "country",
       columns: [
         { title: "Institute", field: "name", minWidth: 260 },
@@ -231,7 +245,7 @@
         { title: "In-scope papers", field: "in_scope_papers", hozAlign: "right", width: 120 },
         simCol("CSIR-NCL"), simCol("CSIR-IICT"), simCol("CSIR-CECRI"),
       ],
-    });
+    }));
 
     table("tbl-ex", [{ title: "Institution", field: "name" }, { title: "Country", field: "country" }, { title: "Reason", field: "reason" }], D.exclusions);
     $("tbl-ex").style.maxHeight = "420px"; $("tbl-ex").style.overflow = "auto";
@@ -297,11 +311,9 @@
     const twinCagr = median(foreign.map(p => sumById[p.institution_id].cagr_pct));
     const indCagr = median(peers.filter(p => p.group === "India").map(p => sumById[p.institution_id].cagr_pct));
     const share = (c, y) => (D.countries.find(r => r.country_code === c && r.year === y) || {}).world_share_pct;
-    $("ins-output").innerHTML = [
-      box(`<b class="g-big">${labs.map(r => pct(r.cagr_pct)).join(" · ")}</b>yearly change of in-scope papers at NCL, IICT and CECRI, ${y0}→${y1} (${labs.map(r => `${fmt(r[`papers_${y0}`])}→${fmt(r[`papers_${y1}`])}`).join(", ")}).`),
-      box(`<b class="g-big">${pct(twinCagr)}</b>median yearly change of the ${foreign.length} foreign twins; ${pct(indCagr)} for the Indian reference group.`),
-      box(`<b class="g-big">${pct(share("CN", y0))} → ${pct(share("CN", y1))}</b>China's share of world papers in these subfields; India ${pct(share("IN", y0))} → ${pct(share("IN", y1))}, USA ${pct(share("US", y0))} → ${pct(share("US", y1))}.`),
-    ].join("");
+    answer("output", `Between ${y0} and ${y1} NCL's output changed by <b>${pct(labs[0].cagr_pct)}</b> a year and IICT's by <b>${pct(labs[1].cagr_pct)}</b>, while CECRI held steady (${pct(labs[2].cagr_pct)}). ` +
+      `Their foreign twins grew by ${pct(twinCagr)} a year (median) and the Indian reference group by ${pct(indCagr)}. ` +
+      `Meanwhile China's share of world papers in these subjects rose from ${pct(share("CN", y0))} to ${pct(share("CN", y1))} and India's from ${pct(share("IN", y0))} to ${pct(share("IN", y1))}.`);
   }
 
   // ---------- 04 Impact ----------
@@ -332,7 +344,7 @@
     addLegend("ch-impact", GROUPS);
     seg("seg-impact", Object.entries(METRICS).map(([k2, v]) => [k2, v.label]), "top10_pct", draw);
 
-    new Tabulator("#tbl-summary", {
+    whenOpen("tbl-summary", () => new Tabulator("#tbl-summary", {
       data: D.summary, layout: "fitColumns", height: 460,
       rowFormatter: row => { row.getElement().style.boxShadow = `inset 4px 0 0 ${gc(row.getData().group)}`; },
       columns: [
@@ -351,18 +363,16 @@
         { title: "Above world", field: "above_world_pct", hozAlign: "right", width: 95, formatter: c => pct(c.getValue()) },
         { title: "International", field: "intl_pct", hozAlign: "right", width: 100, formatter: c => pct(c.getValue()) },
       ],
-    });
+    }));
 
     const rank = [...D.summary].sort((a, b) => b.top10_pct - a.top10_pct);
     const labs = LABS.map(l => sumById[labRow(l).institution_id]);
     const twinMed = median(foreign.map(p => sumById[p.institution_id].top10_pct));
     const indMed = median(peers.filter(p => p.group === "India").map(p => sumById[p.institution_id].top10_pct));
     const best = labs.reduce((a, b) => (b.top10_pct > a.top10_pct ? b : a));
-    $("ins-impact").innerHTML = [
-      box(`<b class="g-big">${labs.map(r => pct(r.top10_pct)).join(" · ")}</b>of NCL, IICT and CECRI papers are in the world's top 10% (world expectation 10%).`),
-      box(`<b class="g-big">${pct(twinMed)}</b>median for the foreign twins, against ${pct(indMed)} for the Indian reference group.`),
-      box(`<b class="g-big">#${rank.indexOf(best) + 1} of ${rank.length}</b>${esc(best.short)} is the best-placed CSIR lab on this measure among all ${rank.length} institutions.`),
-    ].join("");
+    answer("impact", `${labs.map(r => `${esc(r.short.replace("CSIR-", ""))} <b>${pct(r.top10_pct)}</b>`).join(", ")} of papers are among the world's 10% most cited in their subject and year ` +
+      `(the world average is 10%). The foreign twins reach ${pct(twinMed)} (median) and the Indian reference group ${pct(indMed)}; ` +
+      `${esc(best.short)} is the best-placed CSIR lab, #${rank.indexOf(best) + 1} of ${rank.length}.`);
   }
 
   // ---------- 05 Profiles ----------
@@ -387,6 +397,12 @@
         data: data.map(d => ({ value: d, label: { color: d[2] / cap > 0.55 ? onStrong() : k.text } })),
         emphasis: { itemStyle: { borderColor: k.text, borderWidth: 1 } } }],
     });
+    const bySim = [...foreign].sort((a, b) => b.similarity - a.similarity);
+    const lo = bySim[bySim.length - 1], hi = bySim[0];
+    const us = foreign.filter(p => p.group === "USA");
+    answer("profiles", `The closest match is ${esc(hi.short)} for ${esc(hi.twin_of)} (similarity ${Number(hi.similarity).toFixed(2)}); the least similar twin is ` +
+      `${esc(lo.short)} (${esc(lo.group)}, ${Number(lo.similarity).toFixed(2)}). The US national labs publish far more physics and materials science than the CSIR labs: ` +
+      `their twins score ${us.map(p => `${esc(p.short)} ${Number(p.similarity).toFixed(2)}`).join(" and ")}, and no US lab is similar enough to IICT.`);
   }
 
   // ---------- 06 Links ----------
@@ -429,7 +445,7 @@
     };
     seg("seg-flows", LABS.map(l => [l, l]), LABS[0], draw);
 
-    new Tabulator("#tbl-links", {
+    whenOpen("tbl-links", () => new Tabulator("#tbl-links", {
       data: D.links, layout: "fitColumns", height: 420, groupBy: "lab",
       columns: [
         { title: "Peer", field: "short", minWidth: 150, formatter: c => esc(c.getValue()) + (c.getRow().getData().is_twin ? " ★" : "") },
@@ -439,7 +455,7 @@
         { title: "Peer papers cited by the lab", field: "peer_papers_cited_by_lab", hozAlign: "right", width: 180 },
         { title: "Exchange ratio", field: "exchange_ratio", hozAlign: "right", width: 120, formatter: c => (c.getValue() == null ? "–" : Number(c.getValue()).toFixed(2)) },
       ],
-    });
+    }));
 
     const L = D.links;
     const top = LABS.map(lab => L.filter(r => r.lab === lab).reduce((a, b) => (b.coauthored_papers > a.coauthored_papers ? b : a)));
@@ -448,16 +464,111 @@
     const nForeign = new Set(fx.map(r => r.institution_id)).size;
     const forCo = fx.reduce((a, r) => a + r.coauthored_papers, 0);
     const indCo = L.filter(r => r.group === "India").reduce((a, r) => a + r.coauthored_papers, 0);
-    $("ins-links").innerHTML = [
-      box(`<b class="g-big">${top.map(r => esc(r.short)).join(" · ")}</b>closest co-author among the peers for NCL, IICT and CECRI (${top.map(r => fmt(r.coauthored_papers)).join(", ")} papers).`),
-      box(`<b class="g-big">${fmt(forCo)} vs ${fmt(indCo)}</b>papers co-authored with the ${nForeign} foreign peers vs with the six Indian reference institutes, ${y0}–${y1} (lab–peer pairs summed).`),
-      box(`<b class="g-big">${outF ? (inF / outF).toFixed(2) : "–"}</b>exchange ratio with the foreign peers: ${fmt(inF)} of their papers cite the labs, while the labs cite ${fmt(outF)} of theirs (lab–peer pairs summed). By country: ` +
-        GROUPS.filter(g => g !== "CSIR lab").map(g => {
-          const r = L.filter(x => x.group === g);
-          const a = r.reduce((s, x) => s + x.peer_papers_citing_lab, 0), b = r.reduce((s, x) => s + x.peer_papers_cited_by_lab, 0);
-          return `${esc(g)} ${b ? (a / b).toFixed(2) : "–"}`;
-        }).join(", ") + "."),
-    ].join("");
+    const byCountry = GROUPS.filter(g => !["CSIR lab", "India"].includes(g)).map(g => {
+      const r = L.filter(x => x.group === g);
+      const a = r.reduce((t, x) => t + x.peer_papers_citing_lab, 0), b = r.reduce((t, x) => t + x.peer_papers_cited_by_lab, 0);
+      return `${esc(g)} ${b ? (a / b).toFixed(2) : "–"}`;
+    });
+    answer("links", `The labs barely write papers with their foreign peers: <b>${fmt(forCo)}</b> co-authored papers with the ${nForeign} foreign peers in ${y0}–${y1}, ` +
+      `against <b>${fmt(indCo)}</b> with the six Indian institutes. They also draw on the foreign peers more than the peers draw on them: ` +
+      `${fmt(inF)} of the peers' papers cite the labs while the labs cite ${fmt(outF)} of theirs (exchange ratio <b>${outF ? (inF / outF).toFixed(2) : "–"}</b>; by country ${byCountry.join(", ")}).`);
+  }
+
+  // ---------- 07 Indian universities (formerly the "Academic Bridge" page) ----------
+  const n2 = v => (v == null || Number.isNaN(v) ? "–" : Number(v).toFixed(2));
+  function renderIndia() {
+    const U = D.universities || [];
+    if (!U.length) return;
+    const k = ink();
+    const TIER_VAR = { "IISc / IIT": "--g-csir", "State university": "--g-india" };
+    const draw = lab => {
+      const rows = U.filter(r => r.lab === lab && r.exchange_ratio != null).sort((a, b) => a.exchange_ratio - b.exchange_ratio);
+      chart("ch-india", {
+        grid: { left: 8, right: 130, top: 8, bottom: 8, containLabel: true },
+        tooltip: { ...tooltipBase(), trigger: "item", formatter: p => {
+          const r = rows[p.dataIndex];
+          return `<b>${esc(r.full_name)}</b> (${esc(r.tier)})<br>${fmt(r.papers_citing_lab)} of its papers cite ${esc(lab === "All three" ? "the labs" : lab)}<br>` +
+            `${fmt(r.papers_cited_by_lab)} of its papers are cited by ${esc(lab === "All three" ? "the labs" : lab)}<br>exchange ratio ${n2(r.exchange_ratio)} · ${fmt(r.coauthored_papers)} co-authored papers`;
+        } },
+        xAxis: { type: "value", ...axisCommon() },
+        yAxis: { type: "category", data: rows.map(r => r.university), ...axisCommon(), axisTick: { show: false } },
+        series: [{ type: "bar", barMaxWidth: 18,
+          data: rows.map(r => ({ value: r.exchange_ratio, itemStyle: { color: css(TIER_VAR[r.tier]), borderRadius: [0, 4, 4, 0] } })),
+          label: { show: true, position: "right", color: k.text2, formatter: p => { const r = rows[p.dataIndex]; return `${n2(r.exchange_ratio)}  (${fmt(r.papers_citing_lab)} ÷ ${fmt(r.papers_cited_by_lab)})`; } },
+          markLine: { silent: true, symbol: "none", lineStyle: { color: k.muted, type: "dashed" }, data: [{ xAxis: 1 }], label: { color: k.muted, formatter: "balanced" } } }],
+      });
+    };
+    $("ch-india").insertAdjacentHTML("beforebegin", '<div class="g-legend" style="display:flex;gap:.9rem;font-size:.8rem;color:var(--text-2);margin:.25rem 0 .5rem">' +
+      Object.entries(TIER_VAR).map(([t, v]) => `<span style="display:inline-flex;align-items:center;gap:.35rem"><span class="g-swatch" style="background:${css(v)}"></span>${esc(t)}</span>`).join("") + "</div>");
+    seg("seg-india", [["All three", "All three labs"], ...LABS.map(l => [l, l])], "All three", draw);
+
+    const all = U.filter(r => r.lab === "All three");
+    const sum = (rs, f) => rs.reduce((t, r) => t + r[f], 0);
+    const tier = t => { const r = all.filter(x => x.tier === t); return sum(r, "papers_cited_by_lab") ? sum(r, "papers_citing_lab") / sum(r, "papers_cited_by_lab") : null; };
+    const sorted = [...all].filter(r => r.exchange_ratio != null).sort((a, b) => b.exchange_ratio - a.exchange_ratio);
+    const top = sorted[0], bottom = sorted[sorted.length - 1];
+    answer("india", `The exchange is close to balanced but the labs draw slightly more on the universities than the other way round: ratio <b>${n2(tier("IISc / IIT"))}</b> with IISc and the IITs ` +
+      `and <b>${n2(tier("State university"))}</b> with the six state universities. ${esc(top.university)} draws on the labs most (${n2(top.exchange_ratio)}); ` +
+      `${esc(bottom.university)} least (${n2(bottom.exchange_ratio)}: the labs cite ${fmt(bottom.papers_cited_by_lab)} of its papers, ${fmt(bottom.papers_citing_lab)} of its papers cite the labs).`);
+
+    // Cross-check: IISc, IIT Bombay and IIT Madras are also peers in section 06, counted there from separate OpenAlex queries
+    const pairs = [];
+    U.filter(r => r.lab !== "All three").forEach(r => {
+      const l = D.links.find(x => x.lab === r.lab && x.short === r.university);
+      if (l) pairs.push([r, l]);
+    });
+    if (pairs.length) {
+      const rel = (a, b) => (b ? Math.abs(a - b) / b * 100 : 0);
+      const worst = Math.max(...pairs.flatMap(([r, l]) => [rel(r.papers_citing_lab, l.peer_papers_citing_lab), rel(r.papers_cited_by_lab, l.peer_papers_cited_by_lab)]));
+      const ex = pairs.find(([r]) => r.lab === "CSIR-NCL" && r.university === "IISc");
+      $("ins-india-check").innerHTML = box(`<b class="g-big">Two sources, same answer</b>IISc, IIT Bombay and IIT Madras appear both here (counted from our dataset's citation network) ` +
+        `and in section 06 (counted from separate OpenAlex queries). For all ${pairs.length} lab–university pairs the two counts agree within <b>${worst.toFixed(1)}%</b>` +
+        (ex ? `; for example NCL ↔ IISc: ${fmt(ex[0].papers_citing_lab)} vs ${fmt(ex[1].peer_papers_citing_lab)} citing papers and ${fmt(ex[0].papers_cited_by_lab)} vs ${fmt(ex[1].peer_papers_cited_by_lab)} cited papers.` : "."));
+    }
+    whenOpen("tbl-india", () => table("tbl-india", [
+      { title: "University", field: "university" }, { title: "Type", field: "tier" }, { title: "Lab", field: "lab" },
+      { title: "Its papers citing the lab", field: "papers_citing_lab", num: true, fmt: fmt },
+      { title: "Its papers the lab cites", field: "papers_cited_by_lab", num: true, fmt: fmt },
+      { title: "Exchange ratio", field: "exchange_ratio", num: true, fmt: n2 },
+      { title: "Co-authored papers", field: "coauthored_papers", num: true, fmt: fmt }], U));
+  }
+
+  // ---------- Contents, glossary, current-section highlight ----------
+  function renderToc() {
+    const items = [
+      ["g-countries", "01", "Countries", "Which countries do the labs write papers with?", "countries"],
+      ["g-peers", "02", "Peers", "Who are fair comparisons, and how were they picked?", "peers"],
+      ["g-output", "03", "Output", "Are the labs growing as fast as their peers?", "output"],
+      ["g-impact", "04", "Impact", "Are their papers cited as much?", "impact"],
+      ["g-profiles", "05", "Topics", "How similar are the peers' topics?", "profiles"],
+      ["g-links", "06", "Links", "Do they work with and learn from the peers?", "links"],
+      ["g-india", "07", "Indian universities", "Who learns from whom: the labs or the universities?", "india"],
+      ["g-method", "08", "Method", "How was all this measured?", null],
+    ];
+    $("g-toc").innerHTML = items.map(([id, n, t, q, key]) => `<a href="#${id}"><span class="t-num">${n}</span><span class="t-title">${esc(t)}</span>` +
+      `<span class="t-q">${esc(q)}</span><span class="t-a">${esc(key && ANS[key] ? ANS[key] : "Sources, definitions, key terms and what to read with care.")}</span>` +
+      `<span class="t-go">See the evidence →</span></a>`).join("");
+  }
+  function renderGlossary() {
+    const terms = [
+      ["Twin", "For each CSIR lab and each country, the government research institute whose mix of research topics is most similar (rules in section 02)."],
+      ["Benchmark subfields (scope)", `The ${D.scope.length} research subfields that make up ${Math.round(D.meta.scope_coverage * 100)}% of the three labs' papers. Every institution is measured only on papers in these subfields.`],
+      ["Similarity", "Cosine similarity of two institutions' paper counts across all subfields: 1 = the same mix of topics, 0 = no overlap."],
+      ["World top 10%", "A paper among the 10% most cited papers worldwide of the same subfield, type and year (OpenAlex). For an average institution 10% of papers would be."],
+      ["FWCI", "Field-weighted citation impact: citations ÷ the world average for papers of the same subfield, type and year. Above 1 = cited more than average."],
+      ["Growth rate", `Compound annual change in papers between ${y0} and ${y1}.`],
+      ["Exchange ratio", "A partner's papers that cite the lab ÷ the partner's papers the lab cites (papers written together left out). Above 1: the partner draws on the lab more than the lab draws on the partner."],
+      ["Whole counting", "A paper with authors at two institutions or in two countries counts fully for each."],
+    ];
+    $("g-glossary").innerHTML = terms.map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("");
+  }
+  function trackSection() {
+    const links = [...document.querySelectorAll("#nav-links .nav-link")];
+    const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && byId[e.target.id]) { links.forEach(a => a.classList.remove("current")); byId[e.target.id].classList.add("current"); }
+    }), { rootMargin: "-45% 0px -50% 0px" });
+    document.querySelectorAll("section.page-section").forEach(sec => obs.observe(sec));
   }
 
   // ---------- 07 Method ----------
@@ -469,6 +580,7 @@
       `Country context: the same scope for all papers with an author in each country, and for the whole world.`,
       `Links: co-authored papers from the same queries; citation flows from the labs' ${fmt(m.corpus_papers)} curated papers (filters cites: and cited_by:, in batches of 100), keeping papers of the peers.`,
       `Partner countries (section 01): every author affiliation on the labs' curated papers, 2016–2026 (main dataset, collected ${esc(m.collection_date)}).`,
+      `Indian universities (section 07, formerly the "Academic Bridge" study): the dataset's citation network of Indian papers citing or cited by the labs (citation_network.csv, 2016–2026) and co-authored papers (indian_connections.csv); institutions matched by exact name.`,
       `Files: config/global_benchmark.yaml (rules), config/overrides/global_peer_exclusions.csv (rule 2b), data/final/global/ (raw benchmark data), stats/tables/global_*.csv (every number on this page).`,
     ].map(t => `<li>${t}</li>`).join("");
     $("g-caveats").innerHTML = [
@@ -482,11 +594,15 @@
   }
 
   renderTop();
+  renderGlossary();
   renderCountries();
   renderPeers();
   renderOutput();
   renderImpact();
   renderProfiles();
   renderLinks();
+  renderIndia();
   renderMethod();
+  renderToc();
+  trackSection();
 })();
