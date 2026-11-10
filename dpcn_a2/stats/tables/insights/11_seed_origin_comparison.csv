@@ -1,7 +1,7 @@
-network,seed_origin_institute,seeds_evaluated,t50,reach_step_3,final_reach
-full_authorship,CSIR-IICT,10,7.8,5.47,92.43
-full_authorship,CSIR-NCL,10,8.4,2.39,92.09
-full_authorship,CSIR-CECRI,10,9.1,1.71,90.82
-cadre_authorship,CSIR-IICT,10,12.0,4.22,67.06
-cadre_authorship,CSIR-NCL,10,11.3,5.01,67.06
-cadre_authorship,CSIR-CECRI,10,14.8,0.92,37.27
+network,seed_origin_institute,seeds_evaluated,nimfa_t50,mc_t50,nimfa_reach_step3,mc_reach_step3,nimfa_final_reach,mc_final_reach
+full_coauthorship,CSIR-IICT,10,8.0,9.0,3.89,3.73,92.07,88.79
+full_coauthorship,CSIR-NCL,10,8.0,9.0,2.31,2.19,91.57,87.58
+full_coauthorship,CSIR-CECRI,10,10.0,11.0,1.14,1.09,89.15,82.6
+faculty_coauthorship,CSIR-IICT,10,12.0,14.0,4.21,4.05,66.99,55.27
+faculty_coauthorship,CSIR-NCL,10,11.5,13.0,5.05,4.78,66.8,57.39
+faculty_coauthorship,CSIR-CECRI,10,,,0.94,0.88,38.81,13.55

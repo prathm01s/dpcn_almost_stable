@@ -1828,8 +1828,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---------------------------------------------------------------------------
-  // Key Findings: nine insights shown as boxes, each opening a detail modal (Sleeping beauties and
-  // Succession risk were removed after the instructor review, D-37)
+  // Key Findings: eight insights shown as boxes, each opening a detail modal (Sleeping beauties and
+  // Succession risk were removed, D-37; Insight 11 has its own page, insights11.html, D-38)
   // ---------------------------------------------------------------------------
   const insightCharts = {};
 
@@ -1847,7 +1847,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "06_pagerank_vs_citations",
     "08_covid_shock",
     "09_brain_circulation",
-    "11_information_diffusion",
   ];
 
   // Box contents: a short title, a theme tag and one headline number read from the insight's own metrics
@@ -1894,10 +1893,6 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Brain circulation", tag: "Careers",
       stat: m => has(m.returnee_pct_overall) && [pct(m.returnee_pct_overall), "of classifiable scientists trained in India, worked abroad and came back"],
     },
-    "11_information_diffusion": {
-      title: "How ideas spread", tag: "Diffusion",
-      stat: m => has(m.global_beta_c_theoretical, m.beta_base) && [`βc = ${m.global_beta_c_theoretical}`, `epidemic threshold of the co-authorship network, far below the simulated β0 = ${m.beta_base}`],
-    },
   };
 
   function renderInsightCards() {
@@ -1911,7 +1906,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try { stat = meta.stat(item.metrics || {}); } catch (e) { stat = null; }
       const color = (isDark() ? TAG_COLORS_DARK : TAG_COLORS)[meta.tag] || "var(--accent-ink)";
       return `
-        <button type="button" class="insight-card${key === "11_information_diffusion" ? " wide" : ""}" data-key="${key}" style="--tc:${color}"
+        <button type="button" class="insight-card" data-key="${key}" style="--tc:${color}"
                 aria-label="Finding ${idx + 1}: ${esc(meta.title)}. Open the analysis">
           <span class="ic-top"><span class="ic-num">${String(idx + 1).padStart(2, "0")}</span><span class="ic-tag">${esc(meta.tag)}</span></span>
           <span class="ic-title">${esc(meta.title)}</span>
@@ -1933,54 +1928,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function insightBodyHTML(key, item) {
     const method = `<div class="ins-method"><strong>Method.</strong> ${esc(item.method_note || "")}</div>`;
-    if (key === "11_information_diffusion") {
-      return `
-        <div id="card-insight-11">
-          <div class="diff-controls">
-            <div class="inst-segmented" id="diff-field-selector">
-              ${["Chemistry", "Materials", "Engineering", "Energy", "Biochemistry", "Medicine"].map((f, i) =>
-                `<button class="inst-btn${i === 0 ? " active" : ""}" data-field="${f}">${f}</button>`).join("")}
-            </div>
-            <div class="inst-segmented" id="diff-cond-selector">
-              <button class="inst-btn active" data-cond="condition_a">Topic-Modulated (Full Net)</button>
-              <button class="inst-btn" data-cond="condition_b">Domain Subgraph (Uniform)</button>
-            </div>
-          </div>
-          <div id="diff-headline" class="ins-headline">${formatHeadline(esc(item.headline))}</div>
-          <div class="diff-layout">
-            <div id="chart-insight-11_information_diffusion" class="chart-container" style="height: 400px;"></div>
-            <div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
-                <div style="background:var(--surface-2); border:1px solid var(--border); border-radius: 8px; padding: 0.6rem 0.8rem;">
-                  <div style="font-size: 0.75rem; color:var(--text-muted); font-weight: 600; text-transform: uppercase;">Epidemic Threshold</div>
-                  <div id="diff-kpi-betac" style="font-size: 1.25rem; font-weight: 800; color: #2563eb;">–</div>
-                  <div id="diff-kpi-spectral" style="font-size: 0.75rem; color:var(--text-muted);"></div>
-                </div>
-                <div style="background:var(--surface-2); border:1px solid var(--border); border-radius: 8px; padding: 0.6rem 0.8rem;">
-                  <div style="font-size: 0.75rem; color:var(--text-muted); font-weight: 600; text-transform: uppercase;">Adoption Speed (T50)</div>
-                  <div id="diff-kpi-t50" style="font-size: 1.25rem; font-weight: 800; color: #16a34a;">–</div>
-                  <div id="diff-kpi-nodes" style="font-size: 0.75rem; color:var(--text-muted);"></div>
-                </div>
-              </div>
-              <div style="border:1px solid var(--border); border-radius: 8px; overflow: hidden; background:var(--surface);">
-                <div style="background:var(--surface-3); padding: 0.5rem 0.75rem; font-weight: 700; font-size: 0.825rem; color:var(--text); display: flex; justify-content: space-between;">
-                  <span id="diff-table-title">Top 5 Super-Spreaders (Full Net)</span>
-                  <span style="font-size: 0.75rem; font-weight: 500; color:var(--text-muted);">Adoption Traction</span>
-                </div>
-                <table class="net-table" style="font-size: 0.8rem;">
-                  <thead><tr>
-                    <th style="padding: 0.4rem 0.6rem;">#</th><th style="padding: 0.4rem 0.6rem;">Author</th>
-                    <th style="padding: 0.4rem 0.6rem;">Lab</th><th style="padding: 0.4rem 0.6rem;">Field %</th>
-                    <th style="padding: 0.4rem 0.6rem;">Reach (t=3)</th>
-                  </tr></thead>
-                  <tbody id="tbody-diff-spreaders"></tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          ${method}
-        </div>`;
-    }
     return `
       <div class="ins-headline">${formatHeadline(esc(item.headline))}</div>
       <div id="chart-insight-${key}" class="chart-container" style="height: 420px;"></div>
@@ -2011,7 +1958,6 @@ document.addEventListener("DOMContentLoaded", () => {
     insOverlay.hidden = false;
     insOverlay.scrollTop = 0;
     document.body.classList.add("prof-lock");
-    if (key === "11_information_diffusion") { currentDiffField = "Chemistry"; currentDiffCond = "condition_a"; }
     requestAnimationFrame(() => renderInsightChart(key, item));
     document.getElementById("ins-close").focus({ preventScroll: true });
   }
@@ -2040,15 +1986,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.G24_openInsight = openInsight;  // used by the browser test
 
+  // Home-screen card for Insight 11 (its own page): mini adoption curves and three numbers, all from
+  // window.G24_I11_TEASER (built from stats/tables/insights/11_* by build_insights_js.py)
+  function renderI11Teaser() {
+    const t = window.G24_I11_TEASER;
+    const svg = document.getElementById("i11-spark");
+    if (!t || !t.full_curve || !svg) return;
+    const W = 160, H = 64, pad = 4;
+    const pts = c => c.map((v, i) => `${(pad + i * (W - 2 * pad) / (c.length - 1)).toFixed(1)},${(H - pad - v / 100 * (H - 2 * pad)).toFixed(1)}`).join(" ");
+    const y50 = (H - pad - 0.5 * (H - 2 * pad)).toFixed(1);
+    svg.innerHTML = `<line x1="${pad}" x2="${W - pad}" y1="${y50}" y2="${y50}" stroke="rgba(255,255,255,0.35)" stroke-dasharray="3 3"/>` +
+      `<polyline points="${pts(t.faculty_curve)}" fill="none" stroke="#fcd34d" stroke-width="2" stroke-dasharray="4 3"/>` +
+      `<polyline points="${pts(t.full_curve)}" fill="none" stroke="#ffffff" stroke-width="2.5"/>`;
+    const st = (v, s) => `<span><b>${esc(v)}</b> ${esc(s)}</span>`;
+    document.getElementById("i11-stats").innerHTML =
+      st(t.t50_full == null ? "> 15 steps" : `${t.t50_full} steps`, `to reach half of all ${fmtN(t.n_full)} authors (white)`) +
+      st(t.t50_faculty == null ? "> 15 steps" : `${t.t50_faculty} steps`, `among faculty alone (yellow)`) +
+      st(`${t.spillover}%`, "of an idea leaks outside its field");
+    if (t.claims_total) document.getElementById("i11-check").textContent = `✓ ${t.claims_passed}/${t.claims_total} claims verified`;
+  }
+  renderI11Teaser();
+
   function renderInsightChart(key, item) {
         if (!item || !item.chart) return;
         const el = document.getElementById(`chart-insight-${key}`);
         if (!el) return;
-
-        if (key === "11_information_diffusion") {
-          initDiffusionCard(item);
-          return;
-        }
 
         if (!insightCharts[key]) {
           insightCharts[key] = echarts.init(el);
@@ -2152,178 +2114,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         ch.resize();
   }
-
-  let currentDiffField = "Chemistry";
-  let currentDiffCond = "condition_a";
-
-  function initDiffusionCard(item) {
-    const el = document.getElementById("chart-insight-11_information_diffusion");
-    if (!el || !item || !item.fields_data) return;
-
-    if (!insightCharts["11_information_diffusion"]) {
-      insightCharts["11_information_diffusion"] = echarts.init(el);
-    }
-
-    function updateDiffusionView() {
-      const fData = item.fields_data[currentDiffField];
-      if (!fData) return;
-      const condData = fData[currentDiffCond];
-      if (!condData) return;
-
-      const hlEl = document.getElementById("diff-headline");
-      const steps = condData.adoption_curve.length - 1;
-      const t50Text = c => c.t50_median !== null && c.t50_median !== undefined
-        ? `half the field adopts by step <strong>${c.t50_median}</strong> (median over ${c.n_seeds} faculty seeds; ${c.seeds_reaching_50} reach 50% within ${steps} steps)`
-        : `the typical faculty seed does not reach half the field within ${steps} steps (${c.seeds_reaching_50} of ${c.n_seeds} seeds do)`;
-      if (hlEl) {
-        if (currentDiffCond === "condition_a") {
-          const finalReach = condData.adoption_curve[steps];
-          const finalSpill = condData.spillover_curve[steps];
-          hlEl.innerHTML = formatHeadline(
-            `In <strong>${esc(fData.field)}</strong>, topic-weighted transmission on the full network reaches <strong>${finalReach}%</strong> of the field and <strong>${finalSpill}%</strong> of researchers outside it by step ${steps}; ${t50Text(condData)}. Epidemic threshold βc = <strong>${fData.thresholds.beta_c}</strong>.`
-          );
-        } else {
-          hlEl.innerHTML = formatHeadline(
-            `In the <strong>${esc(fData.field)}</strong> subgraph (${fData.subgraph_lcc_size.toLocaleString()} researchers), with uniform transmission ${t50Text(condData)}. Epidemic threshold βc = <strong>${fData.thresholds.beta_c}</strong>.`
-          );
-        }
-      }
-
-      const kpiBetaEl = document.getElementById("diff-kpi-betac");
-      const kpiSpecEl = document.getElementById("diff-kpi-spectral");
-      const kpiT50El = document.getElementById("diff-kpi-t50");
-      const kpiNodesEl = document.getElementById("diff-kpi-nodes");
-
-      if (kpiBetaEl) kpiBetaEl.textContent = `βc = ${fData.thresholds.beta_c}`;
-      if (kpiSpecEl) kpiSpecEl.innerHTML = `Spectral: <strong>${fData.thresholds.beta_c_spec}</strong> | &lt;k&gt; = <strong>${fData.thresholds.k_mean}</strong>`;
-      if (kpiT50El) {
-        kpiT50El.textContent = condData.t50_median !== null && condData.t50_median !== undefined
-          ? `T50 = ${condData.t50_median} steps`
-          : `T50 > ${steps} (reach ${condData.adoption_curve[steps]}%)`;
-      }
-      if (kpiNodesEl) kpiNodesEl.textContent = `LCC Nodes: ${fData.subgraph_lcc_size.toLocaleString()} (${fData.subgraph_edges.toLocaleString()} edges)`;
-
-      const tbodyEl = document.getElementById("tbody-diff-spreaders");
-      const tableTitleEl = document.getElementById("diff-table-title");
-      if (tableTitleEl) {
-        tableTitleEl.textContent = currentDiffCond === "condition_a"
-          ? `Top 5 Super-Spreaders (Full Net)`
-          : `Top 5 Super-Spreaders (Domain Subgraph)`;
-      }
-
-      if (tbodyEl && condData.top_super_spreaders) {
-        tbodyEl.innerHTML = condData.top_super_spreaders.map((sp, idx) => {
-          const labColor = sp.lab === "CSIR-IICT" ? "#2b5c8f" : sp.lab === "CSIR-NCL" ? "#2e7d32" : "#d95f02";
-          return `
-            <tr>
-              <td style="font-weight:700; color:var(--text-muted); padding:0.4rem 0.6rem;">${idx + 1}</td>
-              <td ${sp.faculty_id ? `data-fid="${esc(sp.faculty_id)}"` : ""} style="font-weight:600; color:var(--text); padding:0.4rem 0.6rem; max-width:140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;${sp.faculty_id ? " cursor:pointer;" : ""}" title="${esc(sp.name)}">
-                ${esc(sp.name)}
-              </td>
-              <td style="padding:0.4rem 0.6rem;">
-                <span class="net-badge-lab" style="background:${labColor}; font-size:0.7rem; padding:0.15rem 0.4rem;">${esc(sp.lab)}</span>
-              </td>
-              <td style="font-weight:600; color:var(--text-2); padding:0.4rem 0.6rem;">${sp.field_share}%</td>
-              <td style="font-weight:700; color:#2563eb; padding:0.4rem 0.6rem;">${(sp.reach_t3 * 100).toFixed(1)}%</td>
-            </tr>
-          `;
-        }).join("");
-      }
-
-      const ch = insightCharts["11_information_diffusion"];
-      const chartSteps = Array.from({ length: 16 }, (_, i) => String(i));
-      let series = [];
-      let legendData = [];
-
-      if (currentDiffCond === "condition_a") {
-        legendData = ["In-Field Adoption", "Cross-Field Spillover", "50% Adoption Line"];
-        series = [
-          {
-            name: "In-Field Adoption",
-            type: "line",
-            data: fData.condition_a.adoption_curve,
-            smooth: true,
-            itemStyle: { color: "#2563eb" },
-            lineStyle: { width: 3 },
-          },
-          {
-            name: "Cross-Field Spillover",
-            type: "line",
-            data: fData.condition_a.spillover_curve,
-            smooth: true,
-            itemStyle: { color: "#f59e0b" },
-            lineStyle: { width: 2.5, type: "dotted" },
-          },
-          {
-            name: "50% Adoption Line",
-            type: "line",
-            data: Array(chartSteps.length).fill(50),
-            itemStyle: { color: "#dc2626" },
-            lineStyle: { width: 1.5, type: "dashed" },
-          },
-        ];
-      } else {
-        legendData = ["Domain Subgraph Adoption", "50% Adoption Line"];
-        series = [
-          {
-            name: "Domain Subgraph Adoption",
-            type: "line",
-            data: fData.condition_b.adoption_curve,
-            smooth: true,
-            itemStyle: { color: "#16a34a" },
-            lineStyle: { width: 3 },
-          },
-          {
-            name: "50% Adoption Line",
-            type: "line",
-            data: Array(chartSteps.length).fill(50),
-            itemStyle: { color: "#dc2626" },
-            lineStyle: { width: 1.5, type: "dashed" },
-          },
-        ];
-      }
-
-      ch.setOption({
-        tooltip: {
-          trigger: "axis",
-          formatter: p => {
-            let s = `<strong>Step ${p[0].axisValue}</strong><br/>`;
-            p.forEach(x => { s += `${x.marker} ${x.seriesName}: <strong>${x.value.toFixed(1)}%</strong><br/>`; });
-            return s;
-          },
-        },
-        legend: { data: legendData, top: "bottom", textStyle: { fontSize: 11, color: ink().text2 } },
-        xAxis: { type: "category", name: "Diffusion Step (t)", data: chartSteps, nameLocation: "middle", nameGap: 28, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
-        yAxis: { type: "value", name: "% Adoption I(t)", min: 0, max: 100, nameLocation: "middle", nameGap: 48, splitLine: { lineStyle: { type: "dashed", opacity: 0.25 } } },
-        series: series,
-        grid: { left: 65, right: 25, top: 20, bottom: 65 },
-      }, true);
-      ch.resize();
-    }
-
-    const fBtns = document.querySelectorAll("#diff-field-selector button");
-    fBtns.forEach(btn => {
-      btn.onclick = () => {
-        fBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        currentDiffField = btn.getAttribute("data-field");
-        updateDiffusionView();
-      };
-    });
-
-    const cBtns = document.querySelectorAll("#diff-cond-selector button");
-    cBtns.forEach(btn => {
-      btn.onclick = () => {
-        cBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        currentDiffCond = btn.getAttribute("data-cond");
-        updateDiffusionView();
-      };
-    });
-
-    updateDiffusionView();
-  }
-
 
   // Window resize handler
   window.addEventListener("resize", () => {

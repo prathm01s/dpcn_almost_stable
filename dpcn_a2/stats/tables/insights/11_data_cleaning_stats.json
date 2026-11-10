@@ -142,8 +142,12 @@
     }
   ],
   "paper_attribution": {
-    "faculty_paper_rows": 8344,
-    "distinct_faculty_dois": 7043
+    "faculty_paper_rows": 8241,
+    "distinct_faculty_dois": 6963
+  },
+  "excluded_staff_publishing": {
+    "with_papers": 38,
+    "papers_total": 341
   },
   "sample_excluded": [
     {

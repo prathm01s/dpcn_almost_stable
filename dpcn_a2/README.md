@@ -95,6 +95,7 @@ Individual pipeline targets:
 - `python3 run.py stats`: Calculates metric tables, generates 300 DPI figures, and compiles the 10-slide PPTX & PDF reports.
 - `python3 run.py dashboard`: Compiles the compact data payload into `dashboard/data/g24_data.js`.
 - `python3 run.py test`: Runs all Pytest unit, integrity, and consistency tests.
+- `python3 run.py insight11`: Insight 11 only (how ideas spread: field study, four networks, threshold test, claims and the page data for `dashboard/insights11.html`; no API calls).
 - `python3 run.py global`: Global benchmark only (peer selection, benchmark data, tables and `dashboard/data/g24_global.js`); see 3.4.
 
 ### 3.3 Opening the Interactive Dashboard (Task 3)

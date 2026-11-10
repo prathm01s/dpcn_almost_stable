@@ -1,29 +1,29 @@
-network,field,target_nodes,mc_t50,nimfa_t50,t50_speedup,mc_final_reach,nimfa_final_reach,mean_gap,beta_c,beta_c_spectral
-"Full Co-Authorship (N=7,523)",Chemistry,3200,7.11,6.6,0.51,95.78,97.01,2.91,0.0321,0.0298
-"Full Co-Authorship (N=7,523)",Materials,2085,8.63,7.67,0.96,90.35,93.46,4.51,0.0321,0.0298
-"Full Co-Authorship (N=7,523)",Engineering,2076,8.97,8.27,0.7,90.22,93.55,4.51,0.0321,0.0298
-"Full Co-Authorship (N=7,523)",Energy,1060,7.89,7.13,0.76,95.55,97.02,4.06,0.0321,0.0298
-"Full Co-Authorship (N=7,523)",Biochemistry,1418,7.51,7.27,0.24,92.19,94.46,2.81,0.0321,0.0298
-"Full Co-Authorship (N=7,523)",Medicine,984,7.49,6.8,0.69,91.56,94.41,4.27,0.0321,0.0298
-"Full Co-Authorship (N=7,523)",Combined,7523,8.74,8.0,0.74,89.01,92.42,4.17,0.0321,0.0298
-Cadre Co-Authorship (N=234),Chemistry,160,11.37,9.67,1.7,69.77,79.29,6.66,0.1024,0.0952
-Cadre Co-Authorship (N=234),Materials,140,12.43,11.07,1.36,61.73,70.25,5.01,0.1024,0.0952
-Cadre Co-Authorship (N=234),Engineering,133,13.69,12.4,1.29,52.29,63.02,4.98,0.1024,0.0952
-Cadre Co-Authorship (N=234),Energy,65,13.74,11.87,1.87,52.7,65.68,6.82,0.1024,0.0952
-Cadre Co-Authorship (N=234),Biochemistry,104,10.63,9.47,1.16,73.16,81.6,5.12,0.1024,0.0952
-Cadre Co-Authorship (N=234),Medicine,85,10.6,9.4,1.2,74.02,82.5,4.53,0.1024,0.0952
-Cadre Co-Authorship (N=234),Combined,234,12.74,11.27,1.47,59.28,68.23,4.17,0.1024,0.0952
-"Full In-Corpus Citation (N=10,931)",Chemistry,10931,15.0,15.0,0.0,1.74,1.88,0.04,0.1719,0.7071
-"Full In-Corpus Citation (N=10,931)",Materials,10931,15.0,15.0,0.0,1.74,1.88,0.04,0.1719,0.7071
-"Full In-Corpus Citation (N=10,931)",Engineering,10931,15.0,15.0,0.0,1.74,1.88,0.04,0.1719,0.7071
-"Full In-Corpus Citation (N=10,931)",Energy,10931,15.0,15.0,0.0,1.74,1.88,0.04,0.1719,0.7071
-"Full In-Corpus Citation (N=10,931)",Biochemistry,10931,15.0,15.0,0.0,1.74,1.88,0.04,0.1719,0.7071
-"Full In-Corpus Citation (N=10,931)",Medicine,10931,15.0,15.0,0.0,1.74,1.88,0.04,0.1719,0.7071
-"Full In-Corpus Citation (N=10,931)",Combined,10931,15.0,15.0,0.0,1.74,1.88,0.04,0.1719,0.7071
-Cadre Faculty Citation (N=246),Chemistry,166,7.6,7.07,0.53,87.07,89.97,3.03,0.0801,0.08
-Cadre Faculty Citation (N=246),Materials,146,8.54,7.87,0.67,78.79,82.34,2.37,0.0801,0.08
-Cadre Faculty Citation (N=246),Engineering,135,8.91,8.2,0.71,77.21,81.32,3.55,0.0801,0.08
-Cadre Faculty Citation (N=246),Energy,68,7.17,7.07,0.1,83.15,84.77,2.29,0.0801,0.08
-Cadre Faculty Citation (N=246),Biochemistry,110,7.86,7.47,0.39,80.29,83.91,2.53,0.0801,0.08
-Cadre Faculty Citation (N=246),Medicine,89,8.51,7.67,0.84,80.48,85.6,4.51,0.0801,0.08
-Cadre Faculty Citation (N=246),Combined,246,8.97,8.4,0.57,74.88,78.87,2.91,0.0801,0.08
+network,field,target_nodes,seeds,mc_runs,mc_t50,nimfa_t50,mc_final_reach,nimfa_final_reach,mean_gap,min_gap,max_gap,rank_agreement_spearman,beta_c_hmf,beta_c_qmf
+full_coauthorship,Chemistry,3254,15,300,7.0,6.0,95.84,97.08,3.25,-0.01,8.79,0.982,0.0324,0.0302
+full_coauthorship,Materials,2109,15,300,8.0,8.0,89.93,93.26,4.2,-0.01,9.37,0.993,0.0324,0.0302
+full_coauthorship,Engineering,2116,15,300,9.0,8.0,89.7,93.23,4.74,-0.0,11.28,0.968,0.0324,0.0302
+full_coauthorship,Energy,1094,15,300,8.0,7.0,94.94,96.87,4.69,-0.04,12.08,0.975,0.0324,0.0302
+full_coauthorship,Biochemistry,1428,15,300,7.0,7.0,91.93,94.26,3.68,-0.06,8.98,0.982,0.0324,0.0302
+full_coauthorship,Medicine,987,15,300,7.0,7.0,91.06,93.76,3.66,-0.01,7.94,0.979,0.0324,0.0302
+full_coauthorship,Combined,7735,15,300,9.0,8.0,88.72,92.14,4.08,-0.01,8.99,0.989,0.0324,0.0302
+faculty_coauthorship,Chemistry,160,15,300,11.0,10.0,70.21,79.09,5.15,-0.2,10.12,0.857,0.1024,0.0952
+faculty_coauthorship,Materials,139,15,300,12.0,11.0,59.52,69.49,4.64,-0.17,10.09,0.986,0.1024,0.0952
+faculty_coauthorship,Engineering,132,15,300,14.0,12.0,52.93,62.94,4.61,-0.09,10.02,0.979,0.1024,0.0952
+faculty_coauthorship,Energy,64,15,300,13.0,11.0,52.65,65.38,5.51,0.0,12.73,0.913,0.1024,0.0952
+faculty_coauthorship,Biochemistry,104,15,300,11.0,10.0,71.85,81.23,5.17,-0.37,11.07,0.99,0.1024,0.0952
+faculty_coauthorship,Medicine,85,15,300,11.0,9.0,70.5,81.78,5.73,-0.06,12.05,0.972,0.1024,0.0952
+faculty_coauthorship,Combined,234,15,300,13.0,12.0,59.52,68.18,4.27,-0.24,8.89,0.933,0.1024,0.0952
+full_citation,Chemistry,3057,15,300,,,1.67,1.91,0.11,-0.01,0.24,0.987,,0.7071
+full_citation,Materials,1952,15,300,,,2.39,2.48,0.06,-0.0,0.09,0.996,,0.7071
+full_citation,Engineering,2112,15,300,,,1.23,1.34,0.06,-0.0,0.11,0.956,,0.7071
+full_citation,Energy,1288,15,300,,,15.73,16.27,0.46,0.0,0.68,0.989,,0.7071
+full_citation,Biochemistry,792,15,300,,,1.04,1.07,0.02,0.0,0.04,0.954,,0.7071
+full_citation,Medicine,571,15,300,,,2.96,3.04,0.04,-0.0,0.08,0.974,,0.7071
+full_citation,Combined,10931,15,300,,,1.68,1.85,0.08,-0.0,0.17,0.996,,0.7071
+faculty_citation,Chemistry,166,15,300,7.0,7.0,87.76,89.94,3.1,-0.0,5.97,0.957,,0.08
+faculty_citation,Materials,145,15,300,8.0,8.0,79.45,82.49,3.08,-0.0,5.78,0.924,,0.08
+faculty_citation,Engineering,134,15,300,9.0,8.0,76.32,81.8,4.55,-0.01,8.59,0.993,,0.08
+faculty_citation,Energy,67,15,300,7.0,6.0,82.92,85.21,3.52,0.0,7.16,0.938,,0.08
+faculty_citation,Biochemistry,110,15,300,8.0,8.0,79.93,83.75,3.69,-0.0,6.73,0.975,,0.08
+faculty_citation,Medicine,89,15,300,8.0,7.0,80.45,85.53,4.42,0.0,7.76,0.95,,0.08
+faculty_citation,Combined,246,15,300,9.0,8.0,75.54,79.01,3.01,-0.01,5.19,0.921,,0.08

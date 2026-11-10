@@ -1,0 +1,37 @@
+/* Insight 11 page (insights11.html). Builds on style.css and global.css. */
+
+/* Series colours: categorical slots 1-4 of the validated palette, fixed order. */
+:root { --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; }
+:root[data-theme="dark"] { --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; }
+
+.i-findings { display: grid; gap: 0.9rem; }
+.i-finding {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 0.9rem; align-items: start;
+  border: 1px solid var(--border); background: var(--card-bg); border-radius: 12px; padding: 1rem 1.1rem; box-shadow: var(--shadow);
+}
+.i-finding .i-n { font-weight: 800; color: var(--accent-ink); font-size: 1.05rem; min-width: 2.2rem; }
+.i-finding p { font-size: 0.95rem; line-height: 1.55; color: var(--text); }
+.i-finding small { display: block; color: var(--text-muted); font-size: 0.78rem; margin-top: 0.3rem; }
+
+.i-badge { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.74rem; font-weight: 800; padding: 0.2rem 0.55rem;
+  border-radius: 999px; white-space: nowrap; border: 1px solid; }
+.i-pass { color: var(--good-ink); border-color: currentColor; }
+.i-fail { color: #dc2626; border-color: currentColor; }
+[data-theme="dark"] .i-fail { color: #f87171; }
+
+.i-math p { font-size: 0.9rem; line-height: 1.6; color: var(--text-2); margin: 0.4rem 0 0.6rem; }
+.i-math .card-title { margin-top: 1rem; }
+.i-math .card-title:first-child { margin-top: 0; }
+.i-math mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: 0.2rem 0; }
+
+.i-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.i-funnel { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 0.5rem; }
+.i-funnel .kpi-val { font-size: 1.6rem; }
+
+.g-table td code, .g-list code { font-size: 0.8rem; background: var(--surface-3); padding: 0.05rem 0.3rem; border-radius: 4px; }
+.i-claims td:first-child { font-weight: 800; color: var(--accent-ink); }
+.i-claims td { font-size: 0.84rem; line-height: 1.5; }
+.i-claims td:nth-child(2) { min-width: 320px; }
+.i-claims td:nth-child(3) { max-width: 260px; }
+.i-claims td:nth-child(4) { max-width: 220px; }
+.i-claims code { white-space: normal; word-break: break-word; display: inline-block; }

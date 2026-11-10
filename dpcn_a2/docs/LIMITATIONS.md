@@ -85,7 +85,7 @@
 4. **Returnee classification is unvalidated** until `true_class` is filled in `stats/tables/insights/09_validation_sample.csv`.
 5. **Insight co-author graph vs Task 4 network**: Insights 1–3 and 11 use a co-author graph keyed by OpenAlex author ID (7,752 researchers in the LCC); the Task 4 authorship network in the report and dashboard is keyed by name. Their node counts and centralities therefore differ slightly.
 6. **Rows without an author ID**: the 1,579 dataset rows without an OpenAlex author ID all carry `faculty_id = FORMER_CECRI_0005` (936 different names), an artefact of the probable-former-faculty step. These rows are not roster faculty and do not affect faculty statistics, but `FORMER_CECRI_0005` should not be read as one person.
-7. **Insight 11 is a stylised model**: β0 = 0.20 is far above every field's epidemic threshold (βc ≈ 0.03–0.06), so spread is guaranteed in principle; the comparison between fields, conditions and seeds is the result, not the absolute speed.
+7. **Insight 11 is a stylised model**: β0 = 0.20 per step is chosen, not estimated, and the networks merge 2016–2026 into one static network. SI spreading has no threshold (any β > 0 eventually reaches the connected network); the structural thresholds reported (⟨k⟩/⟨k²⟩, 1/λmax) apply to spreading with recovery, and the measured SIR threshold is 1.5–2.6× the configuration-model formula because the networks are clustered (D-38). The comparison between networks, fields, conditions and labs is the result, not the absolute speed.
 
 
 ## Global benchmark (D-35)

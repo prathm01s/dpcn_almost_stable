@@ -8,8 +8,10 @@ through collaborative ties across the top 6 scientific fields, comparing:
 2. Condition B (Domain-Restricted Subgraph): Uniform transmission strictly confined to
    researchers who have published in that target field.
 
-Evaluates theoretical epidemic thresholds (degree moments and spectral radius) and identifies
-top Super-Spreaders (fastest adoption seeds) and Super-Blockers (structural gatekeepers).
+Also reports each field network's structural spreading thresholds (degree moments and spectral radius).
+These apply to spreading with recovery (SIS/SIR); plain SI, simulated here, has no threshold: any beta > 0
+eventually reaches the whole connected network. Part 3 (s11_threshold_check.py) measures the threshold
+directly. Identifies top Super-Spreaders (fastest adoption seeds) and Super-Blockers (structural gatekeepers).
 """
 
 import json
@@ -54,7 +56,8 @@ TRIALS_RANGE = [25, 50, 100]  # convergence check on the top seed
 
 
 def compute_thresholds(G: nx.Graph) -> Tuple[float, float, float, float]:
-    """Compute <k>, <k^2>, beta_c = <k>/<k^2>, and spectral beta_c_spec = 1/lambda_max."""
+    """Compute <k>, <k^2>, beta_c = <k>/<k^2> (heterogeneous mean field) and beta_c_spec = 1/lambda_max
+    (quenched mean field): structural thresholds for spreading with recovery, not for SI."""
     N = G.number_of_nodes()
     if N == 0:
         return 0.0, 0.0, 0.0, 0.0
@@ -547,10 +550,10 @@ def run() -> dict:
         b_txt = (f"the typical faculty seed does not reach half of the Chemistry subgraph within {MAX_STEPS} steps "
                  f"({chem_b['seeds_reaching_50']} of {chem_b['n_seeds']} seeds do)")
     headline = (
-        f"Epidemic thresholds are low in every field (βc = {lo_f['thresholds']['beta_c']} in {lo_f['short_label']} to "
-        f"{hi_f['thresholds']['beta_c']} in {hi_f['short_label']}), far below the simulated β0 = {BETA_BASE}. "
         f"With uniform transmission {b_txt}; with topic-weighted transmission on the full network, {chem_reach:g}% of "
-        f"Chemistry researchers and {chem_spill:g}% of researchers outside Chemistry adopt by step {MAX_STEPS}."
+        f"Chemistry researchers and {chem_spill:g}% of researchers outside Chemistry adopt by step {MAX_STEPS}. "
+        f"The field networks' structural thresholds for spreading with recovery range from βc = "
+        f"{lo_f['thresholds']['beta_c']} ({lo_f['short_label']}) to {hi_f['thresholds']['beta_c']} ({hi_f['short_label']})."
     )
 
     sizes = [f["active_researchers"] for f in results_by_field.values()]
@@ -579,7 +582,8 @@ def run() -> dict:
         "method_note": (
             f"Susceptible-Infected (SI) Monte Carlo on the co-author LCC ({N_global:,} researchers, keyed by OpenAlex "
             f"author ID) for the 6 largest fields ({min(sizes):,}–{max(sizes):,} active researchers each). "
-            f"Thresholds βc = <k>/<k²> and 1/λ_max per field subgraph. "
+            f"Structural thresholds βc = <k>/<k²> and 1/λ_max per field subgraph (they apply to spreading with recovery; "
+            f"SI itself has no threshold). "
             f"Condition A: β = β0 × subfield cosine similarity × receiver's field share (min {EPSILON_RECEPTIVITY}) on the "
             f"full network; Condition B: uniform β0 = {BETA_BASE} inside the field subgraph. "
             f"Top {N_SEEDS} roster faculty per field (field share × degree) as seeds, {N_TRIALS} runs each, {MAX_STEPS} steps; "

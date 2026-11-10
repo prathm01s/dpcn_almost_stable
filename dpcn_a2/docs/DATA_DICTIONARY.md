@@ -205,3 +205,18 @@ Rules: `config/global_benchmark.yaml`; hand-reviewed rule-2b exclusions: `config
 | `global_rule_funnel.csv` | per country: pool size and institutions removed by each rule |
 | `global_similarity.csv` | every institution that reached the similarity test |
 | `global_profiles.csv` | share of each institution's papers in the 12 largest scope subfields |
+
+## Insight 11 files (D-38)
+
+Page: `dashboard/insights11.html` (data `dashboard/data/g24_insights11_suite.js`). Rebuild: `python run.py insight11` (no API calls).
+
+| File (`stats/tables/insights/`) | Content |
+|---|---|
+| `11_information_diffusion.json`, `11_field_diffusion_metrics.csv`, `11_super_spreaders_blockers.csv` | Part 1, field study: SI on the full co-authorship network (OpenAlex author IDs), conditions A (topic-weighted) and B (field network only), per field curves, T50 (censored median), structural thresholds, fastest seeds, gatekeepers, convergence check |
+| `11_nimfa_vs_si_comparison.json` | Part 2: per network (full / faculty co-authorship, paper / faculty citation) size, thresholds (`beta_c_hmf` = ⟨k⟩/⟨k²⟩, `beta_c_sir` = ⟨k⟩/(⟨k²⟩−⟨k⟩), `beta_c_qmf` = 1/λmax, None when λmax = 0), `is_acyclic`, `nodes_in_cycles`; per field Monte Carlo and NIMFA curves (% of target), T50, gap curve and min/mean/max gap, Spearman agreement of the two models' seed rankings, super-spreaders (expected adopters at step 3 and 15); `seed_origins` (10 best-connected faculty of each lab as seeds) and `intra_institute` (each lab's own members) |
+| `11_simulation_grid_metrics.csv` | One row per network × field of the above |
+| `11_seed_origin_comparison.csv`, `11_intra_institute_comparison.csv` | Lab-of-origin and inside-each-lab results |
+| `11_threshold_check.json` / `.csv` | Part 3: bond-percolation sweep (= one-shot SIR) on the full and faculty co-authorship networks and the six field networks: S(T) largest-outbreak share, χ(T) mean small-outbreak size, formula T_c, measured peak, ratio, clustering |
+| `11_claims.json` | Part 4: every claim on the page with its numbers, source file, check and pass/fail; `tests/test_insight11.py` requires all to pass |
+| `11_cadre_networks_summary.csv`, `11_cadre_coauthorship_graph.json`, `11_cadre_citation_graph.json` | Faculty networks (same as the dashboard's) |
+| `11_data_cleaning_stats.json` | Roster funnel (505 scraped → 120 removed → 385 roster → 306 with papers) and `excluded_staff_publishing` (removed staff who are authors) |

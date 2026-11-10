@@ -335,7 +335,7 @@ def run_tests():
                 card_count = client.evaluate("document.querySelectorAll('#insights-grid .insight-card').length")
                 stats = client.evaluate("document.querySelectorAll('#insights-grid .ic-stat').length")
                 print(f"✓ Key Findings: {card_count} finding boxes, {stats} with a headline number")
-                assert card_count == 9 and stats == 9
+                assert card_count == 8 and stats == 8
                 # Each box opens a modal with its chart
                 for i in range(card_count):
                     client.evaluate(f"document.querySelectorAll('#insights-grid .insight-card')[{i}].click()")
@@ -344,22 +344,10 @@ def run_tests():
                     canv = client.evaluate("document.querySelectorAll('#ins-body canvas, #ins-body svg').length")
                     assert shown and canv > 0, f"Finding {i + 1}: modal shown={shown}, chart elements={canv}"
                 print(f"  ✓ All {card_count} finding modals open with a chart")
-                # The last finding (information diffusion) is open: test its interactive buttons
-                diff_table_rows = client.evaluate("document.querySelectorAll('#tbody-diff-spreaders tr').length")
-                assert diff_table_rows > 0, "Finding 11 table rows should be populated"
-                client.evaluate("document.querySelector('#diff-field-selector button[data-field=\"Materials\"]').click()")
-                time.sleep(0.3)
-                client.evaluate("document.querySelector('#diff-cond-selector button[data-cond=\"condition_a\"]').click()")
-                time.sleep(0.5)
-                client.capture_screenshot("dashboard/screenshots/11_card11_diffusion_cond_a_materials.png")
-                print("  ✓ Captured: 11_card11_diffusion_cond_a_materials.png")
-                client.evaluate("document.querySelector('#diff-cond-selector button[data-cond=\"condition_b\"]').click()")
-                time.sleep(0.3)
-                mat_rows = client.evaluate("document.querySelectorAll('#tbody-diff-spreaders tr').length")
-                print(f"  ✓ Finding 11 interactive toggle: Materials (Condition B) rendered {mat_rows} spreader rows")
-                assert mat_rows > 0
-                client.capture_screenshot("dashboard/screenshots/11_card11_diffusion.png")
-                print("  ✓ Captured: 11_card11_diffusion.png")
+                # Insight 11 is a featured card on the home screen linking to its own page (D-38)
+                teaser = client.evaluate("[document.querySelectorAll('#i11-spark polyline').length, document.getElementById('i11-check').textContent, document.querySelector('#btn-i11').getAttribute('href')]")
+                print(f"  ✓ Insight 11 card: {teaser}")
+                assert teaser[0] == 2 and "claims verified" in teaser[1] and teaser[2] == "insights11.html"
                 client.evaluate("document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))")
                 time.sleep(0.3)
                 assert client.evaluate("document.getElementById('ins-overlay').hidden"), "Escape should close the finding modal"
@@ -505,53 +493,37 @@ def run_tests():
     finally:
         client_file.stop()
 
-    # Test 3: Offline file:// test for insights11.html
+    # Test 3: Insight 11 page (D-38), offline over file://
     print("\n=== TESTING OFFLINE file:// PROTOCOL FOR INSIGHTS11.HTML ===")
     client_i11 = ChromeDevToolsClient(port=9335)
     try:
-        abs_path_i11 = os.path.abspath("dashboard/insights11.html")
-        file_url_i11 = f"file://{abs_path_i11}"
-        print(f"Loading {file_url_i11}...")
-        client_i11.start(file_url_i11)
-        time.sleep(1.5)
-
+        client_i11.start(f"file://{os.path.abspath('dashboard/insights11.html')}")
+        for _ in range(40):
+            if client_i11.evaluate("document.querySelectorAll('#i-kpis .kpi-card').length") > 0:
+                break
+            time.sleep(0.25)
         title_i11 = client_i11.evaluate("document.title")
-        # The page opens on the overlay section; network stats fill in when Networks is shown
-        client_i11.evaluate("document.querySelector(\".nav-btn[data-section='networks']\").click()")
-        time.sleep(0.5)
-        nodes_txt = client_i11.evaluate("document.getElementById('net-stat-nodes').textContent")
-        print(f"✓ insights11.html Loaded: Title='{title_i11}', Connected Faculty Nodes={nodes_txt}")
-        assert "Cadre Faculty Networks" in title_i11
-        assert nodes_txt == f"{int(net_val('faculty_coauthorship', 'scientists with >= 1 faculty co-author')):,}"
-
-        # Switch to Cleaning section
-        client_i11.evaluate("document.querySelector(\".nav-btn[data-section='cleaning']\").click()")
-        time.sleep(0.5)
-        raw_val = client_i11.evaluate("document.getElementById('clean-stat-raw').textContent")
-        print(f"✓ Cleaning section rendered: Raw Scraped={raw_val}")
-        assert raw_val == "505"
-
-        # Switch to Diffusion section
-        client_i11.evaluate("document.querySelector(\".nav-btn[data-section='diffusion']\").click()")
-        time.sleep(0.5)
-        kpi_nimfa = client_i11.evaluate("document.getElementById('diff-kpi-nimfa-t50').textContent")
-        print(f"✓ Diffusion section rendered: NIMFA T50={kpi_nimfa}")
-        assert "steps" in kpi_nimfa
-
-        # Verify MathJax SVG rendering
+        assert "Insight 11" in title_i11, title_i11
+        for cid in ["ch-faculty", "ch-threshold", "ch-field", "ch-overlay", "ch-meanfield", "ch-origin"]:
+            assert client_i11.evaluate(f"document.querySelectorAll('#{cid} canvas').length") > 0, f"{cid} not rendered"
+        claims = client_i11.evaluate("[document.querySelectorAll('#tbl-claims tbody tr').length, document.querySelectorAll('#tbl-claims .i-fail').length]")
+        print(f"✓ insights11.html: 6 charts; claims table {claims[0]} rows, {claims[1]} failed")
+        assert claims[0] >= 10 and claims[1] == 0
+        # every switch redraws
+        client_i11.evaluate("document.querySelectorAll('.g-seg button').forEach(b => b.click())")
+        time.sleep(1.0)
+        for _ in range(40):
+            if client_i11.evaluate("document.querySelectorAll('mjx-container svg').length") > 10:
+                break
+            time.sleep(0.25)
         mathjax_svgs = client_i11.evaluate("document.querySelectorAll('mjx-container svg').length")
-        print(f"✓ MathJax SVG Math Elements rendered on insights11.html: {mathjax_svgs}")
-        assert mathjax_svgs > 0, "No MathJax SVG elements rendered on insights11.html"
-
-        client_i11.capture_screenshot("dashboard/screenshots/11_cadre_networks_suite.png")
-
+        print(f"✓ MathJax formulas rendered on insights11.html: {mathjax_svgs}")
+        assert mathjax_svgs > 10, "Formulas did not render"
         if client_i11.console_errors:
-            print(f"❌ Console errors on insights11.html file://:")
             for err in client_i11.console_errors:
                 print("  ERROR:", err)
             raise AssertionError("Console errors on insights11.html")
-        else:
-            print("✓ ZERO Console errors on insights11.html! Standalone suite is 100% offline-ready.")
+        print("✓ ZERO Console errors on insights11.html")
     finally:
         client_i11.stop()
 

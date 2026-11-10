@@ -3,613 +3,324 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadre Faculty Networks &amp; Discrete-Time Markov Spreading — Group 24</title>
-  <link rel="stylesheet" href="css/insights11.css">
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    };
-  </script>
-  <script src="vendor/mathjax/tex-svg.js"></script>
   <meta name="color-scheme" content="dark light">
-  <script src="vendor/echarts.min.js"></script>
   <script src="js/theme.js"></script>
-  <script src="data/g24_insights11_suite.js"></script>
-  <script src="js/insights11.js" defer></script>
+  <title>Insight 11: How Ideas Spread — Group 24</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/insight11.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] }, svg: { fontCache: "global" } };
+  </script>
+  <script src="vendor/mathjax/tex-svg.js" defer></script>
 </head>
-<body>
+<body class="global-page">
 
-  <!-- Sticky Top Navigation (Tier 1: Global Suite Links) -->
-  <header class="suite-header">
-    <div class="suite-nav-container">
-      <div class="suite-brand">
-        <span class="brand-badge">CSIR Cadre Suite</span>
-        <div>
-          <span class="brand-title">Cadre Networks &amp; Discrete-Time Markov Spreading</span>
-          <span class="brand-sub"> · CSIR-NCL · CSIR-IICT · CSIR-CECRI</span>
-        </div>
-      </div>
-
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link-btn primary">Main Dashboard</a></li>
-          <li><a href="insight_academic_bridge.html" class="nav-link-btn">1.1 Academic Bridge</a></li>
-        </ul>
+  <header class="site-header">
+    <div class="topnav">
+      <a href="index.html" class="brand" title="Back to the main dashboard">
+        <span class="brand-mark">11</span>
+        <span class="brand-text"><strong>How Ideas Spread</strong><small>Insight 11 · full study</small></span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Sections">
+        <a href="#i-top" class="nav-link" data-sec="home">Top</a>
+        <a href="#i-data" class="nav-link">Data</a>
+        <a href="#i-model" class="nav-link">Model</a>
+        <a href="#i-threshold" class="nav-link">Threshold</a>
+        <a href="#i-fields" class="nav-link">Fields</a>
+        <a href="#i-networks" class="nav-link">Networks</a>
+        <a href="#i-meanfield" class="nav-link">Mean field</a>
+        <a href="#i-labs" class="nav-link">Labs</a>
+        <a href="#i-proof" class="nav-link">Claims &amp; proof</a>
       </nav>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-expanded="false" aria-controls="nav-links">☰ Sections</button>
+      <a href="index.html" class="g-back">← Main dashboard</a>
+      <span class="theme-slot" data-theme-slot></span>
     </div>
   </header>
 
-  <!-- Secondary Subnav (Tier 2: On-Page Section Tabs) -->
-  <nav class="subnav-bar">
-    <div class="subnav-container">
-      <button class="subnav-tab nav-btn active" data-section="overlay">4-Network Overlay</button>
-      <button class="subnav-tab nav-btn" data-section="seed-origin">Seed Origin Dynamics</button>
-      <button class="subnav-tab nav-btn" data-section="intra-institute">Intra-Institute Spreading</button>
-      <button class="subnav-tab nav-btn" data-section="networks">Cadre Faculty Graphs</button>
-      <button class="subnav-tab nav-btn" data-section="diffusion">SI vs. NIMFA Theory</button>
-      <button class="subnav-tab nav-btn" data-section="cleaning">Roster &amp; Cleaning Audit</button>
+  <main class="page-main">
+
+  <!-- Top -->
+  <section id="i-top" class="page-section hero g-hero">
+    <div class="section-inner hero-inner">
+      <div class="hero-eyebrow">DPCN 2026 · Group 24 · Insight 11</div>
+      <h1 class="hero-title">How does a new idea spread through CSIR's chemistry labs?</h1>
+      <p class="hero-lead">We let a new method or reagent "infect" the labs' collaboration and citation networks and watch how far and how
+        fast it travels: through everyone who publishes, through faculty alone, along citations, by field and by lab of origin.
+        Every number below is computed from our data, every formula is written out, and every claim is checked automatically.</p>
+      <div class="kpi-grid hero-kpis" id="i-kpis"></div>
+      <p class="hero-note" id="i-hero-note"></p>
+      <div class="hero-actions">
+        <a href="#i-findings" class="btn-primary">The findings in one minute</a>
+        <a href="#i-proof" class="btn-ghost">Claims &amp; proof</a>
+      </div>
     </div>
-  </nav>
+  </section>
 
-  <main class="suite-main">
+  <!-- Findings -->
+  <section id="i-findings" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">00</span> / 08</div>
+        <h2 class="section-title">The findings in one minute</h2>
+        <p class="section-lead">Each statement is generated from the simulation output and carries the check that backs it (full list in section 08).</p>
+      </header>
+      <div id="i-findings-list" class="i-findings"></div>
+    </div>
+  </section>
 
-    <!-- ========================================================================= -->
-    <!-- SECTION 1: FOUR-NETWORK OVERLAY COMPARISON                                -->
-    <!-- ========================================================================= -->
-    <section id="section-overlay" class="section-view active">
-      <div class="hero-card">
-        <div class="hero-tag">Topological Comparison · Coordinate Overlay</div>
-        <h1 class="hero-title">Four-Network Diffusion Dynamics</h1>
-        <p class="hero-desc">
-          Benchmark of closed-form Discrete-Time Markov Chain (NIMFA) adoption curves across all four network topologies plotted on identical coordinate axes.
-        </p>
+  <!-- 1 Data -->
+  <section id="i-data" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">01</span> / 08</div>
+        <h2 class="section-title">The data: four networks</h2>
+        <p class="section-lead">All four are built from the project's final dataset (OpenAlex, collected <span data-meta="collection_date"></span>).
+          People are identified by OpenAlex author ID, so two scientists with the same name stay two nodes and one scientist with
+          several spellings is one node.</p>
+      </header>
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">What each network is</h3></div>
+        <div id="tbl-networks"></div>
+        <p class="g-note">Structural thresholds: \(\langle k\rangle/\langle k^2\rangle\) (heterogeneous mean field) and \(1/\lambda_{\max}\) (quenched mean field)
+          apply to spreading with recovery; see section 03. For directed networks only \(1/\lambda_{\max}\) is defined, and it does not exist when
+          \(\lambda_{\max}=0\) (no citation cycles).</p>
       </div>
+      <div class="grid-2 g-align-start">
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Who counts as faculty</h3></div>
+          <div class="kpi-grid i-funnel" id="i-funnel"></div>
+          <p class="g-note" id="i-funnel-note"></p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Faculty co-authorship network</h3>
+            <span class="g-note" style="margin:0">drag · scroll to zoom · hover for details</span></div>
+          <div id="ch-faculty" class="g-chart g-chart-tall" role="img" aria-label="Force-directed graph of faculty co-authorship"></div>
+          <p class="g-note" id="i-faculty-note"></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- Controls -->
-      <div class="control-bar">
-        <div class="control-group">
-          <span class="control-label">Domain Discipline:</span>
-          <div class="pill-group">
-            <button class="pill-btn active" data-overlay-field="Chemistry">Chemistry Domain</button>
-            <button class="pill-btn" data-overlay-field="Combined">All-Domain (Combined)</button>
+  <!-- 2 Model -->
+  <section id="i-model" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">02</span> / 08</div>
+        <h2 class="section-title">The model, written out</h2>
+        <p class="section-lead">A Susceptible–Infected (SI) process in discrete steps: once a researcher adopts the idea they keep it and keep
+          passing it to collaborators. One step is one round of contact, not a calendar unit.</p>
+      </header>
+      <div class="grid-2 g-align-start">
+        <div class="card i-math">
+          <h3 class="card-title">1 · Stochastic SI (Monte Carlo)</h3>
+          <p>Each step, every adopter \(u\) tries once to pass the idea to each non-adopting neighbour \(v\), succeeding with probability \(\beta_{uv}\):</p>
+          \[ P\big(v \text{ adopts at } t+1 \,\big|\, \text{state at } t\big) = 1-\prod_{u \in \mathcal{N}(v),\ u \text{ adopted}} \big(1-\beta_{uv}\big). \]
+          <p>We start from one seed, repeat with independent random numbers, and average the share of adopters \(I(t)\).</p>
+          <h3 class="card-title">2 · Mean field (NIMFA)</h3>
+          <p>Instead of sampling, track each person's adoption probability \(x_i(t)\) and assume neighbours are independent:</p>
+          \[ x_i(t+1) = x_i(t) + \big(1-x_i(t)\big)\Big[1-\prod_{j \to i}\big(1-\beta_{ji}\,x_j(t)\big)\Big],\qquad x_{\text{seed}}(0)=1. \]
+          <p>Neighbours' states are in fact positively correlated (if your co-author has the idea, their other co-authors probably do too), so
+            mean field is expected to over-estimate spreading. We do not assume this: section 05 measures the gap.</p>
+          <h3 class="card-title">3 · Speed: T50</h3>
+          <p>\(T_{50}\) = first step at which at least half of the target group has adopted. Some runs never get there within 15 steps, so we
+            report the <b>censored median</b>: the median counting "not reached" as later than any number, and "not reached" if the median run never gets there.</p>
+        </div>
+        <div class="card i-math">
+          <h3 class="card-title">4 · How likely is a hand-over? \(\beta_{uv}\)</h3>
+          <p>People share ideas more readily with collaborators who work on similar topics. Each person (or paper) has a profile \(\mathbf{p}\):
+            their paper counts per OpenAlex subfield, scaled to length 1. Similarity \(\cos(u,v)=\mathbf{p}_u\cdot\mathbf{p}_v\).</p>
+          <p><b>Field study (section 04)</b>, with \(s_v(F)\) = share of \(v\)'s papers in field \(F\):</p>
+          \[ \text{A (topic-weighted, whole network):}\quad \beta_{uv}=\beta_0\,\cos(u,v)\,\max\!\big(s_v(F),\,\varepsilon\big) \]
+          \[ \text{B (field only):}\quad \beta_{uv}=\beta_0 \ \text{ inside the field's own network} \]
+          <p><b>Network comparison (sections 05–07):</b> \(\beta_{uv}=\beta_0\,\max(0.1,\cos(u,v))\); for a paper the profile is its own
+            subfield, so \(\cos=1\) for the same subfield and \(0\) otherwise.</p>
+          <div id="tbl-params"></div>
+          <h3 class="card-title">5 · Thresholds</h3>
+          <p>With recovery (an adopter stops passing the idea on), spreading only takes off above a threshold. Standard predictions:</p>
+          \[ \beta_c^{\text{HMF}}=\frac{\langle k\rangle}{\langle k^2\rangle},\qquad \beta_c^{\text{QMF}}=\frac{1}{\lambda_{\max}(A)},\qquad
+             T_c^{\text{SIR}}=\frac{\langle k\rangle}{\langle k^2\rangle-\langle k\rangle}. \]
+          <p>Plain SI has <b>no</b> threshold: any \(\beta>0\) eventually reaches the whole connected network. Section 03 tests the SIR threshold directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Threshold -->
+  <section id="i-threshold" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">03</span> / 08</div>
+        <h2 class="section-title">Is there a tipping point? Theory vs. simulation</h2>
+        <p class="section-lead">If each person passes the idea on only once (with probability \(T\)) and then stops, the outbreak from a seed is
+          exactly the seed's cluster when every collaboration link is kept with probability \(T\) (bond percolation). So we can measure the tipping point
+          directly and compare it with the formula \(T_c=\langle k\rangle/(\langle k^2\rangle-\langle k\rangle)\).</p>
+      </header>
+      <div class="g-insight" id="ins-threshold"></div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Outbreak size vs. transmissibility</h3>
+          <div class="g-seg" id="seg-threshold" role="group" aria-label="Network"></div>
+        </div>
+        <div id="ch-threshold" class="g-chart g-chart-tall" role="img" aria-label="Largest outbreak share and mean small-outbreak size against transmissibility"></div>
+        <p class="g-note" id="i-threshold-caption"></p>
+        <p class="g-note">\(S(T)\) = share of the network in the largest outbreak; \(\chi(T)=\sum_{\text{other clusters}} s^2/N\) = mean size of a small
+          outbreak, which peaks at the tipping point. <span data-thr="repeats"></span> random repeats per \(T\), \(T\) in steps of 0.005.</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">All networks</h3></div>
+        <div id="tbl-threshold"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Fields -->
+  <section id="i-fields" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">04</span> / 08</div>
+        <h2 class="section-title">By field: does an idea stay in its discipline?</h2>
+        <p class="section-lead">Seeds: the 15 roster scientists most active in the field (field share × number of co-authors), each run
+          <span data-param="n_trials"></span> times for <span data-param="max_steps"></span> steps, on the full co-authorship network.</p>
+      </header>
+      <div class="g-insight" id="ins-fields"></div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Adoption over time</h3>
+          <div class="g-seg" id="seg-field" role="group" aria-label="Field"></div>
+        </div>
+        <div id="ch-field" class="g-chart" role="img" aria-label="Adoption curves for the selected field"></div>
+        <p class="g-note">A: topic-weighted transmission on the whole network (blue: researchers in the field; orange: everyone else).
+          B: uniform transmission inside the field's own network.</p>
+      </div>
+      <div class="grid-2 g-align-start">
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Fastest seeds (A)</h3></div>
+          <div id="tbl-field-spreaders"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Gatekeepers in the field network (B)</h3></div>
+          <div id="tbl-field-blockers"></div>
+          <p class="g-note">Highest betweenness (sampled, 200 sources); "network lost" = share of the field network cut off when that person is removed.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">All six fields</h3></div>
+        <div id="tbl-fields"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Networks -->
+  <section id="i-networks" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">05</span> / 08</div>
+        <h2 class="section-title">Which network carries ideas best?</h2>
+        <p class="section-lead">The same rule and the same number of seeds and runs on all four networks (Monte Carlo, <span data-param="seeds_per_run"></span>
+          best-connected seeds × <span data-param="mc_runs_per_seed"></span> runs).</p>
+      </header>
+      <div class="g-insight" id="ins-networks"></div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Adoption over time on each network</h3>
+          <div class="g-seg" id="seg-overlay" role="group" aria-label="Target group"></div>
+        </div>
+        <div id="ch-overlay" class="g-chart" role="img" aria-label="Adoption curves on the four networks"></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">Every network × field run</h3>
+          <button class="g-dl" data-dl="grid">Download CSV</button></div>
+        <div id="tbl-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Mean field -->
+  <section id="i-meanfield" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">06</span> / 08</div>
+        <h2 class="section-title">Mean field vs. simulation</h2>
+        <p class="section-lead">Both models run from the same seeds on the same links. The gap NIMFA − simulation tells how much ignoring
+          correlations between neighbours inflates the prediction.</p>
+      </header>
+      <div class="g-insight" id="ins-meanfield"></div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Two models, one network</h3>
+          <div class="i-controls">
+            <div class="g-seg" id="seg-mf-net" role="group" aria-label="Network"></div>
+            <div class="g-seg" id="seg-mf-field" role="group" aria-label="Field"></div>
           </div>
         </div>
-        <div class="control-group" style="margin-left:auto;">
-          <span class="legend-item"><span class="legend-color" style="background:#2563eb;"></span> Full Co-Authorship</span>
-          <span class="legend-item"><span class="legend-color" style="background:#ea580c;"></span> Cadre Co-Authorship</span>
-          <span class="legend-item"><span class="legend-color" style="background:#7c3aed;"></span> Cadre Citation</span>
-          <span class="legend-item"><span class="legend-color" style="background:#059669;"></span> Full Citation (DAG)</span>
+        <div id="ch-meanfield" class="g-chart" role="img" aria-label="Monte Carlo and NIMFA adoption curves with their gap"></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">Super-spreaders on this network and field</h3></div>
+        <div id="tbl-spreaders"></div>
+        <p class="g-note" id="i-spreader-note"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 Labs -->
+  <section id="i-labs" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">07</span> / 08</div>
+        <h2 class="section-title">Does it matter which lab an idea starts in?</h2>
+        <p class="section-lead">Seeds: the 10 best-connected faculty of one lab; target: the whole network. Then each lab on its own.</p>
+      </header>
+      <div class="g-insight" id="ins-labs"></div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Spread from each lab across the cluster</h3>
+          <div class="g-seg" id="seg-origin" role="group" aria-label="Network"></div>
+        </div>
+        <div id="ch-origin" class="g-chart" role="img" aria-label="Adoption curves by lab of origin"></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">Inside each lab</h3></div>
+        <div id="tbl-intra"></div>
+        <p class="g-note">Each lab's own members only (largest connected part); the 8 best-connected members as seeds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 Claims & proof -->
+  <section id="i-proof" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">08</span> / 08</div>
+        <h2 class="section-title">Claims &amp; proof</h2>
+        <p class="section-lead">Every claim on this page, the numbers behind it, where they are stored, and the check that was run.
+          The project's test suite fails if any check fails, so the page cannot silently drift from the data.</p>
+      </header>
+      <div id="tbl-claims"></div>
+      <div class="grid-2 g-align-start" style="margin-top:1.5rem">
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Reproduce it</h3></div>
+          <ul class="g-list" id="i-repro"></ul>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Corrections made in this version</h3></div>
+          <ul class="g-list" id="i-fixes"></ul>
         </div>
       </div>
-
-      <!-- Overlay Canvas -->
-      <div class="panel-card">
-        <div class="panel-head">
-          <div class="panel-title">Multi-Network Adoption Curves $I(t)$ vs. Diffusion Step ($t = 0 \dots 15$)</div>
-          <span style="font-size:0.8rem; color:var(--text-muted);">Simulated with baseline infectivity $\beta_0 = 0.20$</span>
-        </div>
-        <div id="overlay-chart-canvas" class="chart-container"></div>
-
-        <!-- Detailed Scientific Interpretation Paragraph -->
-        <div class="interpretation-card">
-          <div class="interpretation-title">Topological Analysis and Spreading Dynamics</div>
-          <p id="interp-overlay">Loading…</p>
-        </div>
+      <div class="card" style="margin-top:1.5rem">
+        <div class="card-header"><h3 class="card-title">Read with care</h3></div>
+        <ul class="g-list" id="i-limits"></ul>
       </div>
-
-      <!-- Four Network Metrics Table -->
-      <div class="panel-card">
-        <div class="panel-head">
-          <div class="panel-title">Comparative Mathematical Topology Metrics</div>
-        </div>
-        <div class="scientific-table-wrap">
-          <table class="scientific-table">
-            <thead>
-              <tr>
-                <th>Network Representation</th>
-                <th>Nodes ($N$)</th>
-                <th>Edges ($E$)</th>
-                <th>Mean Degree ($\langle k \rangle$)</th>
-                <th>Density</th>
-                <th>Clustering</th>
-                <th>Threshold ($\beta_c$)</th>
-                <th>$T_{50}$ Speed</th>
-                <th>Final Reach ($t=15$)</th>
-              </tr>
-            </thead>
-            <tbody id="cmp-tbody"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SECTION 2: SEED ORIGIN CONTRAST (PUNE VS HYDERABAD VS KARAIKUDI)           -->
-    <!-- ========================================================================= -->
-    <section id="section-seed-origin" class="section-view">
-      <div class="hero-card">
-        <div class="hero-tag">Geographical &amp; Institutional Asymmetry</div>
-        <h1 class="hero-title">Spillover Dynamics by Seeding Institution</h1>
-        <p class="hero-desc">
-          Evaluation of diffusion cascades initiated strictly by faculty seeds in <b>CSIR-NCL (Pune)</b>, <b>CSIR-IICT (Hyderabad)</b>, and <b>CSIR-CECRI (Karaikudi)</b> under discrete-time NIMFA dynamics.
-        </p>
-      </div>
-
-      <!-- Controls -->
-      <div class="control-bar">
-        <div class="control-group">
-          <span class="control-label">Diffusion Substrate:</span>
-          <div class="pill-group">
-            <button class="pill-btn active" data-seed-net="cadre_authorship">Cadre Co-Authorship (Faculty Only)</button>
-            <button class="pill-btn" data-seed-net="full_authorship">Full Co-Authorship (Faculty + Trainees)</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Seed Origin Stats Grid -->
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">CSIR-IICT Seed $T_{50}$</div>
-          <div id="seed-stat-iict-t50" class="stat-value" style="color:var(--iict);">–</div>
-          <div class="stat-sub">Final cluster reach: <b id="seed-stat-iict-reach">–</b></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">CSIR-NCL Seed $T_{50}$</div>
-          <div id="seed-stat-ncl-t50" class="stat-value" style="color:var(--ncl);">–</div>
-          <div class="stat-sub">Final cluster reach: <b id="seed-stat-ncl-reach">–</b></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">CSIR-CECRI Seed $T_{50}$</div>
-          <div id="seed-stat-cecri-t50" class="stat-value" style="color:var(--cecri);">–</div>
-          <div class="stat-sub">Final cluster reach: <b id="seed-stat-cecri-reach" style="color:var(--rose);">–</b></div>
-        </div>
-      </div>
-
-      <!-- Seed Origin Canvas -->
-      <div class="panel-card">
-        <div class="panel-head">
-          <div class="panel-title">Cluster-Wide Adoption Velocity by Originating Laboratory</div>
-          <span style="font-size:0.8rem; color:var(--text-muted);">Blue = IICT Seeds · Green = NCL Seeds · Orange = CECRI Seeds</span>
-        </div>
-        <div id="seed-origin-chart-canvas" class="chart-container"></div>
-
-        <!-- Detailed Scientific Interpretation Paragraph -->
-        <div class="interpretation-card">
-          <div class="interpretation-title">Comparative Propagation by Origin Lab</div>
-          <p id="interp-seed">Loading…</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SECTION 3: INTRA-INSTITUTE SPREADING (INTERNAL LAB COMPARISON)            -->
-    <!-- ========================================================================= -->
-    <section id="section-intra-institute" class="section-view">
-      <div class="hero-card">
-        <div class="hero-tag">Internal Lab Communication · Intra-Institute Only</div>
-        <h1 class="hero-title">Intra-Institute Internal Spreading Comparison</h1>
-        <p class="hero-desc">
-          Quantification of internal collaborative dynamics within the isolated subgraphs of <b>CSIR-IICT</b>, <b>CSIR-NCL</b>, and <b>CSIR-CECRI</b>, evaluating how rapidly ideas circulate strictly within institutional boundaries.
-        </p>
-      </div>
-
-      <!-- Controls -->
-      <div class="control-bar">
-        <div class="control-group">
-          <span class="control-label">Internal Network Type:</span>
-          <div class="pill-group">
-            <button class="pill-btn active" data-intra-net="cadre_authorship">Intra-Cadre Co-Authorship</button>
-            <button class="pill-btn" data-intra-net="full_authorship">Intra-Lab Full Authorship</button>
-            <button class="pill-btn" data-intra-net="full_citation">Intra-Lab Paper Citation</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Intra Stats Grid -->
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">CSIR-IICT Internal $T_{50}$</div>
-          <div id="intra-stat-iict-t50" class="stat-value" style="color:var(--iict);">–</div>
-          <div class="stat-sub">Internal nodes: <b id="intra-stat-iict-nodes">–</b> · $\beta_c$: <b id="intra-stat-iict-betac">–</b></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">CSIR-NCL Internal $T_{50}$</div>
-          <div id="intra-stat-ncl-t50" class="stat-value" style="color:var(--ncl);">–</div>
-          <div class="stat-sub">Internal nodes: <b id="intra-stat-ncl-nodes">–</b> · $\beta_c$: <b id="intra-stat-ncl-betac">–</b></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">CSIR-CECRI Internal $T_{50}$</div>
-          <div id="intra-stat-cecri-t50" class="stat-value" style="color:var(--cecri);">–</div>
-          <div class="stat-sub">Internal nodes: <b id="intra-stat-cecri-nodes">–</b> · $\beta_c$: <b id="intra-stat-cecri-betac" style="color:var(--rose);">–</b></div>
-        </div>
-      </div>
-
-      <!-- Intra Canvas -->
-      <div class="panel-card">
-        <div class="panel-head">
-          <div class="panel-title">Intra-Institute Internal Adoption Curves (% Internal Saturation)</div>
-          <span style="font-size:0.8rem; color:var(--text-muted);">Blue = Intra-IICT · Green = Intra-NCL · Orange = Intra-CECRI</span>
-        </div>
-        <div id="intra-chart-canvas" class="chart-container"></div>
-
-        <!-- Detailed Scientific Interpretation Paragraph -->
-        <div class="interpretation-card">
-          <div class="interpretation-title">Intra-Institute Diffusion Rates</div>
-          <p id="interp-intra">Loading…</p>
-        </div>
-      </div>
-
-      <!-- Intra Comparison Table -->
-      <div class="panel-card">
-        <div class="panel-head">
-          <div class="panel-title">Intra-Institute Internal Metric Grid</div>
-        </div>
-        <div class="scientific-table-wrap">
-          <table class="scientific-table">
-            <thead>
-              <tr>
-                <th>Institute</th>
-                <th>Internal Subgraph</th>
-                <th>Nodes ($N$)</th>
-                <th>Edges ($E$)</th>
-                <th>Mean Degree ($\langle k \rangle$)</th>
-                <th>Critical Point ($\beta_c$)</th>
-                <th>Spectral ($1/\lambda_{\max}$)</th>
-                <th>Internal $T_{50}$</th>
-                <th>Final Reach</th>
-              </tr>
-            </thead>
-            <tbody id="intra-tbody"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SECTION 4: CADRE NETWORKS (FORCE-DIRECTED GRAPHS)                         -->
-    <!-- ========================================================================= -->
-    <section id="section-networks" class="section-view">
-      <div class="hero-card">
-        <div class="hero-tag">Topological Analysis · Faculty Cadre Only</div>
-        <h1 class="hero-title">Cadre Faculty Co-Authorship &amp; Citation Networks</h1>
-        <p class="hero-desc">
-          Interactive force-directed graph representations of the <b>306 permanent cadre faculty</b>. 
-          Node size reflects collaboration volume; edge thickness denotes joint publications or direct citation weights.
-        </p>
-      </div>
-
-      <!-- Controls -->
-      <div class="control-bar">
-        <div class="control-group">
-          <span class="control-label">Network Modality:</span>
-          <div class="pill-group">
-            <button class="pill-btn active" data-net-tab="coauthorship">Cadre Co-Authorship (Undirected)</button>
-            <button class="pill-btn" data-net-tab="citation">Faculty Citation (Directed)</button>
-          </div>
-        </div>
-        <div class="control-group" style="margin-left:auto;">
-          <span class="legend-item"><span class="legend-color" style="background:#2563eb;"></span> CSIR-IICT</span>
-          <span class="legend-item"><span class="legend-color" style="background:#059669;"></span> CSIR-NCL</span>
-          <span class="legend-item"><span class="legend-color" style="background:#ea580c;"></span> CSIR-CECRI</span>
-        </div>
-      </div>
-
-      <!-- Stat Grid -->
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">Connected Faculty Nodes</div>
-          <div id="net-stat-nodes" class="stat-value">–</div>
-          <div class="stat-sub">of 306 matched cadre scientists</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Network Edges / Links</div>
-          <div id="net-stat-edges" class="stat-value">–</div>
-          <div class="stat-sub">distinct inter-faculty links</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Network Density</div>
-          <div id="net-stat-density" class="stat-value">–</div>
-          <div class="stat-sub">density of potential ties</div>
-        </div>
-        <div class="stat-card">
-          <div id="net-stat-special-label" class="stat-label">Avg Clustering</div>
-          <div id="net-stat-special" class="stat-value">–</div>
-          <div class="stat-sub">triadic closure / reciprocity</div>
-        </div>
-      </div>
-
-      <!-- Canvas -->
-      <div class="panel-card">
-        <div class="panel-head">
-          <div class="panel-title">Interactive Force-Directed Network Graph</div>
-          <span style="font-size:0.8rem; color:var(--text-muted);">Drag nodes · Scroll to zoom · Hover node for faculty metrics</span>
-        </div>
-        <div id="cadre-network-canvas" class="chart-container"></div>
-
-        <!-- Detailed Scientific Interpretation Paragraph -->
-        <div class="interpretation-card">
-          <div class="interpretation-title">Structural Topology and Cadre Connectivity</div>
-          <p id="interp-networks">Loading…</p>
-        </div>
-      </div>
-
-      <!-- 2-Column Tables -->
-      <div class="grid-2">
-        <div class="panel-card">
-          <div class="panel-head">
-            <div id="net-leader-title" class="panel-title">Top Cadre Collaborators</div>
-          </div>
-          <div class="scientific-table-wrap">
-            <table class="scientific-table">
-              <thead>
-                <tr><th>Faculty Name</th><th>Institution</th><th>Degree</th><th>Joint Papers</th></tr>
-              </thead>
-              <tbody id="net-leaderboard-body"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="panel-card">
-          <div class="panel-head">
-            <div id="net-matrix-title" class="panel-title">Inter-Lab Collaboration Matrix</div>
-          </div>
-          <div class="scientific-table-wrap">
-            <table class="scientific-table">
-              <thead>
-                <tr><th>Institute Pair</th><th>Weight / Interactions</th></tr>
-              </thead>
-              <tbody id="net-matrix-body"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SECTION 5: SI VS NIMFA MARKOV SPREADING THEORY                            -->
-    <!-- ========================================================================= -->
-    <section id="section-diffusion" class="section-view">
-      <div class="hero-card">
-        <div class="hero-tag">Mathematical Epidemiology &amp; Mean-Field Theory</div>
-        <h1 class="hero-title">Stochastic SI vs. Deterministic NIMFA Markov Chain</h1>
-        <p class="hero-desc">
-          Comparison of empirical Monte Carlo stochastic simulations ($M = 35$ trials) against the exact closed-form <b>$N$-Intertwined Mean-Field Approximation (NIMFA)</b> discrete difference equations. 
-          NIMFA provides deterministic individual-level trajectories while quantifying the <b>Jensen Inequality Gap</b>.
-        </p>
-      </div>
-
-      <!-- Controls -->
-      <div class="control-bar">
-        <div class="control-group">
-          <span class="control-label">Network Topology:</span>
-          <div class="pill-group">
-            <button class="pill-btn active" data-sim-net="cadre_authorship">Cadre Co-Authorship</button>
-            <button class="pill-btn" data-sim-net="full_authorship">Full Co-Authorship</button>
-            <button class="pill-btn" data-sim-net="cadre_citation">Cadre Citation</button>
-            <button class="pill-btn" data-sim-net="full_citation">Full Citation</button>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <span class="control-label">Model Display:</span>
-          <div class="pill-group">
-            <button class="pill-btn active" data-sim-model="overlay">Both (Overlay Comparison)</button>
-            <button class="pill-btn" data-sim-model="mc">Monte Carlo SI</button>
-            <button class="pill-btn" data-sim-model="nimfa">NIMFA Markov</button>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <span class="control-label">Discipline:</span>
-          <div class="pill-group">
-            <button class="pill-btn active" data-sim-field="Chemistry">Chemistry</button>
-            <button class="pill-btn" data-sim-field="Materials">Materials</button>
-            <button class="pill-btn" data-sim-field="Engineering">Engineering</button>
-            <button class="pill-btn" data-sim-field="Energy">Energy</button>
-            <button class="pill-btn" data-sim-field="Biochemistry">Biochemistry</button>
-            <button class="pill-btn" data-sim-field="Combined">All-Domain</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- KPIs -->
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">NIMFA $T_{50}$ (Steps)</div>
-          <div id="diff-kpi-nimfa-t50" class="stat-value" style="color:var(--purple);">–</div>
-          <div class="stat-sub">Deterministic time to 50% reach</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Monte Carlo $T_{50}$ (Steps)</div>
-          <div id="diff-kpi-mc-t50" class="stat-value" style="color:var(--cyan);">–</div>
-          <div class="stat-sub">Stochastic average ($M=35$ trials)</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Jensen Mean Gap ($\Delta$)</div>
-          <div id="diff-kpi-gap" class="stat-value" style="color:var(--amber);">–</div>
-          <div class="stat-sub">Mean-Field correlation over-estimate</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Degree Epidemic Threshold ($\beta_c$)</div>
-          <div id="diff-kpi-betac" class="stat-value">–</div>
-          <div class="stat-sub">$\langle k \rangle / \langle k^2 \rangle$ critical point</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Spectral Threshold ($\beta_c^{\text{spec}}$)</div>
-          <div id="diff-kpi-spectral" class="stat-value">–</div>
-          <div class="stat-sub">$1 / \lambda_{\max}(A)$ adjacency inverse</div>
-        </div>
-      </div>
-
-      <!-- Canvas -->
-      <div class="panel-card">
-        <div class="panel-head">
-          <div class="panel-title">Model Comparison: Stochastic SI vs. Deterministic NIMFA</div>
-          <span style="font-size:0.8rem; color:var(--text-muted);">Cyan = Stochastic MC SI · Purple = Deterministic NIMFA Markov · Red = 50% Threshold</span>
-        </div>
-        <div id="diffusion-chart-canvas" class="chart-container"></div>
-
-        <!-- Detailed Scientific Interpretation Paragraph -->
-        <div class="interpretation-card">
-          <div class="interpretation-title">Mean-Field Approximation and Jensen Gap</div>
-          <p>
-            Comparing the deterministic Discrete-Time Markov Chain against the stochastic Monte Carlo average provides empirical confirmation of Jensen's inequality in networked contagion processes. 
-            NIMFA operates under the individual-based mean-field assumption that neighbor infection states are statistically independent ($\mathbb{E}[x_i x_j] = \mathbb{E}[x_i]\mathbb{E}[x_j]$). 
-            However, real co-authorship networks feature dense, localized collaborative cliques where co-authors' infection states are positively correlated. 
-            Because the discrete non-infection transmission function $f(x) = \prod (1 - \beta x_j)$ is concave with respect to multiple infected neighbors, 
-            Jensen's inequality proves that the mean-field approximation acts as a theoretical upper bound on empirical spreading ($I_{\text{NIMFA}}(t) \ge I_{\text{MC}}(t)$). 
-            Across these simulations, this produces a consistent positive gap of $\Delta(t) \in [+1.8\%, +5.8\%]$ and accelerates the predicted time to 50% adoption ($T_{50}^{\text{NIMFA}} \le T_{50}^{\text{MC}}$).
-          </p>
-        </div>
-      </div>
-
-      <!-- Super-Spreaders Table & Math Formulation -->
-      <div class="grid-2">
-        <div class="panel-card">
-          <div class="panel-head">
-            <div class="panel-title">Top Super-Spreaders (Dynamical Influence Centrality)</div>
-          </div>
-          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">
-            Ranked by marginal expected cascade reach $\partial \sum_k x_k(t) / \partial x_i(0)$ under NIMFA Markov update equations.
-          </p>
-          <div class="scientific-table-wrap">
-            <table class="scientific-table">
-              <thead>
-                <tr><th>Faculty Name</th><th>Lab</th><th>Dynamical Impact</th><th>Ties</th></tr>
-              </thead>
-              <tbody id="diff-spreaders-tbody"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="panel-card">
-          <div class="panel-head">
-            <div class="panel-title">Mathematical Formulation: Discrete-Time NIMFA</div>
-          </div>
-          <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6;">
-            Let $x_i(t) \in [0, 1]$ represent the exact probability that researcher $i$ has adopted the method at step $t$. 
-            Under independent neighbor transmission, the individual-based Markov state transition is:
-          </p>
-          <div class="math-formula">
-            $$x_i(t+1) = x_i(t) + (1 - x_i(t)) \left[ 1 - \prod_{j \in N_{\text{in}}(i)} (1 - \beta_{ji} x_j(t)) \right]$$
-          </div>
-          <div class="math-callout">
-            <b>Exact Dynamical Sensitivity:</b><br/>
-            The marginal influence of researcher $i$ is evaluated as the derivative:
-            <div class="math-formula">
-              $$\Phi_i(t) = \frac{\partial \sum_{k=1}^N x_k(t)}{\partial x_i(0)}$$
-            </div>
-            This quantifies the exact expected number of additional researchers across the entire CSIR cluster who adopt the innovation at time $t$ solely due to researcher $i$'s initial origination.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SECTION 6: DATA CLEANING & CADRE PROVENANCE AUDIT                          -->
-    <!-- ========================================================================= -->
-    <section id="section-cleaning" class="section-view">
-      <div class="hero-card">
-        <div class="hero-tag">Roster Audit &amp; Methodological Integrity</div>
-        <h1 class="hero-title">Cadre Faculty Data Cleaning &amp; Verification Pipeline</h1>
-        <p class="hero-desc">
-          Official staff directories from government laboratories frequently include non-scientific technical staff alongside permanent scientists.
-          Under Decision D-20, strict rule-based filters and manual verification were implemented to ensure that only tenured, publishing scientific cadre members 
-          ($\text{Scientist} \to \text{Chief Scientist} \to \text{Director}$) are evaluated.
-        </p>
-      </div>
-
-      <!-- Funnel KPI Cards -->
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">1. Raw Scraped Entries</div>
-          <div id="clean-stat-raw" class="stat-value">–</div>
-          <div class="stat-sub">Scraped from NCL, IICT &amp; CECRI directories</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">2. Excluded Non-Cadre Staff</div>
-          <div id="clean-stat-ex" class="stat-value" style="color:var(--rose);">–</div>
-          <div class="stat-sub">119 technical staff + 1 duplicate listing</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">3. Verified Cadre Roster</div>
-          <div id="clean-stat-roster" class="stat-value">–</div>
-          <div class="stat-sub">Legitimate scientific staff (168 IICT, 166 NCL, 51 CECRI)</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">4. Active Publishing Cadre</div>
-          <div id="clean-stat-active" class="stat-value" style="color:var(--emerald);">–</div>
-          <div class="stat-sub">&ge;1 paper in 2016–2026 corpus (129 IICT, 151 NCL, 26 CECRI)</div>
-        </div>
-      </div>
-
-      <!-- Cleaning Logic Explanation -->
-      <div class="grid-2">
-        <div class="panel-card">
-          <div class="panel-head">
-            <div class="panel-title">Why Data Cleaning Was Necessary</div>
-          </div>
-          <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:1rem;">
-            When scraping CSIR staff directories (particularly CSIR-IICT), technical staff such as <i>Senior Technical Officers</i>, <i>Technical Assistants</i>, and <i>Technicians</i> were listed under departmental rosters. 
-            The raw scraper captured their job titles into the author name field (e.g. <code>"Dr. X Sr. Technical Officer (3)"</code>) while recording their designation generically as <code>"Scientist"</code>.
-          </p>
-          <div class="math-callout">
-            <b>Rule-Based Filtering Applied:</b><br/>
-            Any roster record matching the regular expression:<br/>
-            <div class="math-formula">/(?:Sr|Senior|Principal)?\s*(?:Technical Officer|Technical Assistant|Technician)(?:\s*\(\d+\))?$/i</div>
-            was stripped of job titles, excluded from <code>faculty_master.csv</code>, and cataloged in <code>data/review/roster_excluded.csv</code>.
-          </div>
-        </div>
-
-        <div class="panel-card">
-          <div class="panel-head">
-            <div class="panel-title">Manual Deduplication &amp; Disambiguation</div>
-          </div>
-          <ul style="color:var(--text-secondary); font-size:0.88rem; list-style-position:inside; line-height:1.7;">
-            <li><b>Cross-Institute Duplicate Removal:</b> Dr. D. Srinivasa Reddy was listed simultaneously on the NCL Organic Chemistry page and as Director of CSIR-IICT. Kept uniquely as IICT Director (FAC_IICT_0315) and stale NCL listing removed.</li>
-            <li><b>OpenAlex Profile Disambiguation:</b> Profile <code>A5087530076</code> had merged multiple distinct scientists into an ambiguous "A. V." record. These profiles were unlinked and assigned to paper-printed names.</li>
-            <li><b>Paper Row Reclassification:</b> 282 dataset rows attributable to technical staff were retained as <code>affiliated_author</code> rather than faculty rows, ensuring complete publication recall while protecting faculty metric integrity.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Detailed Scientific Interpretation Paragraph -->
-      <div class="panel-card">
-        <div class="interpretation-card" style="margin-top:0;">
-          <div class="interpretation-title">Roster Harmonization and Cadre Demarcation</div>
-          <p>
-            Rigorous data cleaning is the cornerstone of trustworthy bibliometrics. 
-            Had the 119 technical officers and technicians been erroneously retained in the scientific cadre, the CSIR Chemistry cluster's median $h$-index would have been artificially deflated from 7.0 down to 6.0, and 1,290 co-authorship ties would have carried distorted job title suffixes. 
-            By segregating permanent scientific investigators from support cadre and contractual scholars, topological diffusion simulations accurately reflect the institutional governance of CSIR laboratories.
-          </p>
-        </div>
-      </div>
-
-      <!-- Searchable Audit Table of Excluded Records -->
-      <div class="panel-card">
-        <div class="panel-head">
-          <div class="panel-title">Audit Table: Excluded Non-Cadre Entries (120 Records)</div>
-          <input type="text" id="clean-search" class="search-input" placeholder="Search by name, title, department...">
-        </div>
-        <div class="scientific-table-wrap" style="max-height: 400px; overflow-y: auto;">
-          <table class="scientific-table">
-            <thead>
-              <tr><th>Full Name</th><th>Institute</th><th>Captured Job Title</th><th>Department</th><th>Audit Exclusion Rationale</th></tr>
-            </thead>
-            <tbody id="clean-audit-tbody"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+      <a href="index.html" class="g-back-big">← Back to the main dashboard</a>
+    </div>
+  </section>
 
   </main>
 
+  <script src="vendor/echarts.min.js"></script>
+  <script src="data/g24_insights11_suite.js"></script>
+  <script src="js/insights11.js"></script>
 </body>
 </html>

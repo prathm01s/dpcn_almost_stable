@@ -7,6 +7,7 @@ Usage:
   python3 run.py stats
   python3 run.py dashboard
   python3 run.py global      (global benchmark only)
+  python3 run.py insight11   (Insight 11 study only)
   python3 run.py test
 """
 
@@ -56,6 +57,12 @@ def run_target(target: str) -> None:
         from src.dashboard.build_global import run_build_global
         run_global_benchmark()
         run_build_global()
+    elif target == "insight11":
+        # Insight 11 only (D-38): every analysis behind dashboard/insights11.html, then both page payloads
+        from src.stats.insights.run_all import run_insight11
+        from src.dashboard.build_insights_js import build_insights_js
+        run_insight11()
+        build_insights_js()
     elif target == "test":
         subprocess.run([sys.executable, "-m", "pytest", "tests/"], check=True)
     elif target == "browser-test":
@@ -69,7 +76,7 @@ def run_target(target: str) -> None:
         run_target("test")
     else:
         print(f"Unknown target: {target}")
-        print("Available targets: all, collect, global, stats, insights, insights-fetch, dashboard, test, browser-test")
+        print("Available targets: all, collect, global, insight11, stats, insights, insights-fetch, dashboard, test, browser-test")
         sys.exit(1)
 
 

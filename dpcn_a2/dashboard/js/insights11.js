@@ -1,890 +1,361 @@
 /**
- * Insight 11 Interactive Scientific Portal Logic
- * Renders Cadre Networks, 4-Network Overlay, Seed Origin Differences, Intra-Institute Spreading,
- * SI vs. NIMFA Spreading Suite, and Data Cleaning Provenance.
+ * Insight 11 page (insights11.html): how ideas spread through the labs' networks.
+ * Data: window.G24_I11 from data/g24_insights11_suite.js (src/dashboard/build_insights11_suite.py), which copies
+ * stats/tables/insights/11_*. Every number and sentence here is read from that payload.
  */
-
 (function () {
-  const SUITE = window.G24_INSIGHTS11_SUITE || {};
-
-  // State
-  let currentSection = "overlay";
-  let currentNetworkTab = "coauthorship";
-  let currentSimNetwork = "cadre_authorship";
-  let currentSimField = "Chemistry";
-  let currentSimModel = "overlay";
-  let currentOverlayField = "Chemistry";
-  let currentSeedOriginNet = "cadre_authorship";
-  let currentIntraNet = "cadre_authorship";
-
-  let networkChart = null;
-  let overlayChart = null;
-  let seedOriginChart = null;
-  let intraChart = null;
-  let diffusionChart = null;
-
-  const LAB_COLORS = {
-    "CSIR-IICT": "#2563eb",
-    "CSIR-NCL": "#059669",
-    "CSIR-CECRI": "#ea580c"
-  };
-
-  function fmt(n) {
-    return Number(n || 0).toLocaleString();
+  "use strict";
+  const D = window.G24_I11;
+  if (!D || !D.spreading || !D.spreading.full_coauthorship) {
+    document.querySelector("main").insertAdjacentHTML("afterbegin",
+      '<p style="padding:2rem">Insight 11 data not found (data/g24_insights11_suite.js). Run <code>python run.py insight11</code>.</p>');
+    return;
   }
 
-  /* ---------------- Navigation ---------------- */
-  function initNav() {
-    document.querySelectorAll("[data-section]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const sec = btn.getAttribute("data-section");
-        showSection(sec);
-      });
+  // ---------- helpers ----------
+  const $ = id => document.getElementById(id);
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const ink = () => (window.G24Theme ? window.G24Theme.ink() : { text: "#1e293b", text2: "#475569", muted: "#64748b", split: "#e2e8f0" });
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const fmt = n => (n == null || Number.isNaN(n) ? "–" : Number(n).toLocaleString("en-US"));
+  const num = (v, d = 2) => (v == null || Number.isNaN(v) ? "–" : Number(v).toFixed(d));
+  const pct = (v, d = 1) => (v == null || Number.isNaN(v) ? "–" : `${Number(v).toFixed(d)}%`);
+  const steps = v => (v == null ? "not reached" : `${Number(v)} steps`);
+  const S = D.spreading, P = S.parameters, DF = D.diffusion, TH = D.threshold.networks || {};
+  const NETS = ["full_coauthorship", "faculty_coauthorship", "faculty_citation", "full_citation"];
+  const NET_COLOR = { full_coauthorship: "--s1", faculty_coauthorship: "--s2", faculty_citation: "--s3", full_citation: "--s4" };
+  const LAB_VAR = { "CSIR-IICT": "--c-iict", "CSIR-NCL": "--c-ncl", "CSIR-CECRI": "--c-cecri" };
+  const LAB_KEYS = ["iict", "ncl", "cecri"];
+  const FIELDS = ["Chemistry", "Materials", "Engineering", "Energy", "Biochemistry", "Medicine"];
+  const netName = k => (S[k] ? S[k].network_name : (k.startsWith("field_") ? `${k.slice(6)} field network` : k));
+  const claim = id => ((D.claims && D.claims.claims) || []).find(c => c.id === id);
+
+  const charts = [];
+  function chart(id, option) {
+    const el = $(id);
+    let c = echarts.getInstanceByDom(el);
+    if (!c) { c = echarts.init(el); charts.push(c); }
+    c.setOption(option, true);
+    return c;
+  }
+  window.addEventListener("resize", () => charts.forEach(c => c.resize()));
+  const axis = () => { const k = ink(); return { axisLabel: { color: k.text2 }, axisLine: { lineStyle: { color: k.split } }, splitLine: { lineStyle: { color: k.split } }, nameTextStyle: { color: k.muted } }; };
+  const tip = extra => ({ confine: true, backgroundColor: css("--surface"), borderColor: css("--border-strong"), textStyle: { color: ink().text }, ...extra });
+  const legend = () => ({ top: 0, textStyle: { color: ink().text2 }, itemWidth: 18 });
+  const stepAxis = n => ({ type: "category", name: "step", nameLocation: "middle", nameGap: 26, data: Array.from({ length: n }, (_, i) => i), boundaryGap: false, ...axis() });
+  const line = (name, data, color, extra = {}) => ({ type: "line", name, data, symbolSize: 6, showSymbol: false, lineStyle: { width: 2, color, ...(extra.lineStyle || {}) }, itemStyle: { color }, ...extra });
+  const half = () => ({ silent: true, symbol: "none", lineStyle: { color: ink().muted, type: "dashed" }, data: [{ yAxis: 50 }], label: { color: ink().muted, formatter: "50%" } });
+
+  function table(el, cols, rows, cls = "") {
+    $(el).innerHTML = `<div class="g-table-wrap"><table class="g-table ${cls}"><thead><tr>` +
+      cols.map(c => `<th class="${c.num ? "num" : ""}">${c.title}</th>`).join("") + "</tr></thead><tbody>" +
+      rows.map(r => "<tr>" + cols.map(c => `<td class="${c.num ? "num" : ""}">${c.html ? c.html(r) : esc(c.fmt ? c.fmt(r[c.field], r) : r[c.field])}</td>`).join("") + "</tr>").join("") +
+      "</tbody></table></div>";
+  }
+  function seg(id, items, active, onPick) {
+    const box = $(id);
+    box.innerHTML = items.map(([v, label]) => `<button type="button" data-v="${esc(v)}" class="${v === active ? "active" : ""}" aria-pressed="${v === active}">${esc(label)}</button>`).join("");
+    box.addEventListener("click", e => {
+      const b = e.target.closest("button"); if (!b) return;
+      box.querySelectorAll("button").forEach(x => { x.classList.toggle("active", x === b); x.setAttribute("aria-pressed", String(x === b)); });
+      onPick(b.dataset.v);
     });
+    onPick(active);
+  }
+  const box = html => `<div class="g-box">${html}</div>`;
+  const badge = ok => `<span class="i-badge ${ok ? "i-pass" : "i-fail"}">${ok ? "✓ verified" : "✗ check failed"}</span>`;
+
+  // Mobile menu + data-* fillers
+  const menuBtn = $("nav-menu-btn"), menu = $("nav-links");
+  menuBtn.addEventListener("click", () => { const o = !menu.classList.contains("open"); menu.classList.toggle("open", o); menuBtn.setAttribute("aria-expanded", String(o)); });
+  menu.addEventListener("click", e => { if (e.target.closest("a")) menu.classList.remove("open"); });
+  const PARAMS = { ...P, n_trials: DF.metrics.n_trials, max_steps: DF.metrics.max_steps };
+  document.querySelectorAll("[data-param]").forEach(el => { el.textContent = PARAMS[el.dataset.param]; });
+  document.querySelectorAll("[data-thr]").forEach(el => { el.textContent = (D.threshold.method || {})[el.dataset.thr] ?? ""; });
+  document.querySelectorAll("[data-meta]").forEach(el => { el.textContent = D.meta[el.dataset.meta] || ""; });
+
+  // ---------- Top ----------
+  function renderTop() {
+    const full = S.full_coauthorship.fields.Combined, fac = S.faculty_coauthorship.fields.Combined;
+    const ratios = Object.values(TH).map(t => t.peak_over_theory);
+    const ch = DF.fields_data.Chemistry.condition_a;
+    const runs = D.grid.reduce((a, r) => a + (r.mc_runs || 0), 0);
+    const c = D.claims || {};
+    const kpis = [
+      ["Steps to reach half of all authors", full.mc_t50 == null ? "–" : full.mc_t50, `full network, ${fmt(S.full_coauthorship.nodes)} people`],
+      ["…of faculty, faculty-only network", fac.mc_t50 == null ? "> 15" : fac.mc_t50, `${fmt(S.faculty_coauthorship.nodes)} connected scientists`],
+      ["Real tipping point vs. formula", `${Math.min(...ratios).toFixed(1)}–${Math.max(...ratios).toFixed(1)}×`, "measured / textbook threshold"],
+      ["Ideas leaving their field", pct(ch.spillover_curve[ch.spillover_curve.length - 1]), "outside Chemistry by step 15"],
+      ["Monte Carlo runs", fmt(runs), "network comparison alone"],
+      ["Claims verified", `${c.n_passed || 0} / ${c.n_claims || 0}`, "automatic checks, section 08"],
+    ];
+    $("i-kpis").innerHTML = kpis.map(([l, v, s]) => `<div class="kpi-card"><div class="kpi-label">${esc(l)}</div><div class="kpi-val">${esc(v)}</div><div class="kpi-sub">${esc(s)}</div></div>`).join("");
+    $("i-hero-note").textContent = `Data: OpenAlex, collected ${D.meta.collection_date}; simulations built ${D.meta.built}. One step = one round of contact between collaborators.`;
+    const order = ["C1", "C2", "C3", "C7", "C8", "C9", "C4", "C6", "C5"];
+    $("i-findings-list").innerHTML = order.map(claim).filter(Boolean).map((cl, i) =>
+      `<div class="i-finding"><span class="i-n">${i + 1}</span><p>${esc(cl.claim)}<small>Source: ${esc(cl.source)} · check: ${esc(cl.check)}</small></p>${badge(cl.passed)}</div>`).join("");
   }
 
-  function showSection(secId) {
-    currentSection = secId;
-    document.querySelectorAll("[data-section]").forEach(b => {
-      b.classList.toggle("active", b.getAttribute("data-section") === secId);
+  // ---------- 01 Data ----------
+  function renderData() {
+    const rows = NETS.map(k => {
+      const n = S[k], t = n.thresholds;
+      const desc = {
+        full_coauthorship: "Everyone who published with a lab affiliation (faculty, students, project staff, others); link = co-authored ≥ 1 paper (papers with > 30 authors left out); largest connected part",
+        faculty_coauthorship: "Roster scientists with ≥ 1 faculty co-author; link = co-authored ≥ 1 paper at their roster lab (the main dashboard's faculty network)",
+        faculty_citation: "Roster scientists; arrow from cited to citing scientist (self-citations left out)",
+        full_citation: "Papers in the corpus; arrow from cited to citing paper (ideas move forward in time)",
+      }[k];
+      return { k, name: n.network_name, desc, nodes: n.nodes, edges: n.edges, directed: t.directed, kmean: t.k_mean,
+        hmf: t.beta_c_hmf, qmf: t.beta_c_qmf, cyc: n.is_acyclic === undefined ? "" : (n.is_acyclic ? "acyclic" : `${fmt(n.nodes_in_cycles)} in cycles`) };
     });
-    document.querySelectorAll(".section-view").forEach(v => {
-      v.classList.toggle("active", v.id === `section-${secId}`);
-    });
-
-    if (secId === "overlay") {
-      setTimeout(renderOverlayChart, 60);
-    } else if (secId === "seed-origin") {
-      setTimeout(renderSeedOriginChart, 60);
-    } else if (secId === "intra-institute") {
-      setTimeout(renderIntraChart, 60);
-    } else if (secId === "networks") {
-      setTimeout(renderNetworkGraph, 60);
-    } else if (secId === "diffusion") {
-      setTimeout(renderDiffusionChart, 60);
+    table("tbl-networks", [
+      { title: "Network", html: r => `<b>${esc(r.name)}</b><br><span class="g-note" style="margin:0">${esc(r.desc)}</span>` },
+      { title: "Nodes", field: "nodes", num: true, fmt: fmt }, { title: "Links", field: "edges", num: true, fmt: fmt },
+      { title: "Type", html: r => (r.directed ? "directed" + (r.cyc ? ` · ${esc(r.cyc)}` : "") : "undirected") },
+      { title: "Mean degree", field: "kmean", num: true, fmt: v => num(v) },
+      { title: "\\(\\langle k\\rangle/\\langle k^2\\rangle\\)", field: "hmf", num: true, fmt: v => (v == null ? "n/a" : num(v, 4)) },
+      { title: "\\(1/\\lambda_{\\max}\\)", field: "qmf", num: true, fmt: v => (v == null ? "none (λ = 0)" : num(v, 4)) },
+    ], rows);
+    const pc = S.full_citation;
+    if (pc.nodes_in_cycles && pc.nodes_in_cycles < 0.01 * pc.nodes) {
+      $("tbl-networks").insertAdjacentHTML("beforeend", `<p class="g-note">Paper citation: \\(\\lambda_{\\max}\\) comes only from the ${fmt(pc.nodes_in_cycles)} papers that cite each other in loops (mutual citations); for the other ${fmt(pc.nodes - pc.nodes_in_cycles)} papers the network is acyclic, so \\(1/\\lambda_{\\max}\\) says nothing about spreading there.</p>`);
     }
 
-    if (window.MathJax && window.MathJax.typesetPromise) {
-      window.MathJax.typesetPromise();
-    }
-  }
+    const f = D.cleaning.funnel || {};
+    const st = (k, l) => f[k] ? [l, f[k].total ?? f[k].total_excluded] : null;
+    $("i-funnel").innerHTML = [st("stage_1_raw_scraped", "Scraped from staff pages"), st("stage_2_excluded_technical_and_duplicates", "Removed (technical staff, duplicates)"),
+      st("stage_3_clean_roster", "Roster scientists"), st("stage_4_active_cadre_with_papers", "With papers 2016–2026")].filter(Boolean)
+      .map(([l, v]) => `<div class="kpi-card"><div class="kpi-label">${esc(l)}</div><div class="kpi-val">${fmt(v)}</div></div>`).join("");
+    const ex = D.cleaning.excluded_staff_publishing || {};
+    const s4 = f.stage_4_active_cadre_with_papers || { by_lab: {} };
+    $("i-funnel-note").textContent = `Faculty = scientific cadre on the institutes' own staff pages (Scientist to Director). Technical officers, technicians and duplicate listings were removed by rule and by hand (data/review/roster_excluded.csv). ` +
+      `${fmt(ex.with_papers)} of the removed staff are authors on papers (${fmt(ex.papers_total)} author–paper entries); they stay in the dataset and in the full network, only faculty statistics and faculty networks leave them out. ` +
+      `With papers: ${Object.entries(s4.by_lab || {}).map(([k, v]) => `${k} ${v}`).join(", ")}.`;
 
-  /* ---------------- Section: 4-Network Overlay Comparison ---------------- */
-  function initOverlay() {
-    document.querySelectorAll(".pill-btn[data-overlay-field]").forEach(b => {
-      b.addEventListener("click", () => {
-        document.querySelectorAll(".pill-btn[data-overlay-field]").forEach(btn => btn.classList.remove("active"));
-        b.classList.add("active");
-        currentOverlayField = b.getAttribute("data-overlay-field");
-        renderOverlayChart();
+    const g = D.faculty_graph || {};
+    if (g.nodes) {
+      const k = ink();
+      const maxDeg = Math.max(...g.nodes.map(n => n.degree || 1));
+      chart("ch-faculty", {
+        tooltip: tip({ formatter: p => p.dataType === "node" ? `<b>${esc(p.data.name)}</b><br>${esc(p.data.lab)} · ${esc(p.data.dept || "")}<br>${p.data.degree} faculty co-authors · ${p.data.papers} papers · h ${p.data.h_index}`
+          : `${esc(p.data.source)} – ${esc(p.data.target)}: ${p.data.weight} joint papers` }),
+        legend: { ...legend(), data: Object.keys(LAB_VAR) },
+        series: [{
+          type: "graph", layout: "force", roam: true, draggable: true, force: { repulsion: 60, edgeLength: [20, 70], gravity: 0.12 },
+          categories: Object.keys(LAB_VAR).map(l => ({ name: l, itemStyle: { color: css(LAB_VAR[l]) } })),
+          data: g.nodes.map(n => ({ ...n, itemStyle: undefined, category: Object.keys(LAB_VAR).indexOf(n.lab), symbolSize: 5 + 15 * Math.sqrt((n.degree || 1) / maxDeg) })),
+          links: g.links.map(l => ({ ...l, lineStyle: { width: Math.min(4, 0.6 + 0.4 * l.weight), opacity: 0.35, color: k.muted } })),
+          emphasis: { focus: "adjacency" }, label: { show: false },
+        }],
       });
-    });
-  }
-
-  function renderOverlayChart() {
-    const el = document.getElementById("overlay-chart-canvas");
-    if (!el || !window.echarts) return;
-    if (overlayChart) overlayChart.dispose();
-    overlayChart = echarts.init(el);
-
-    const sims = SUITE.simulations || {};
-    const ovData = (sims.overlay_comparison || {})[currentOverlayField] || {};
-
-    const steps = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"];
-
-    const series = [
-      {
-        name: "Full Co-Authorship (All 7,509 Researchers)",
-        type: "line",
-        data: ovData.full_authorship_nimfa || [],
-        smooth: true,
-        itemStyle: { color: "#2563eb" },
-        lineStyle: { width: 3.5 },
-        symbolSize: 6
-      },
-      {
-        name: "Cadre Co-Authorship (235 Cadre Faculty)",
-        type: "line",
-        data: ovData.cadre_authorship_nimfa || [],
-        smooth: true,
-        itemStyle: { color: "#ea580c" },
-        lineStyle: { width: 3, type: "dashed" },
-        symbolSize: 6
-      },
-      {
-        name: "Cadre Faculty Citation (245 Faculty Directed)",
-        type: "line",
-        data: ovData.cadre_citation_nimfa || [],
-        smooth: true,
-        itemStyle: { color: "#7c3aed" },
-        lineStyle: { width: 2.5 },
-        symbolSize: 5
-      },
-      {
-        name: "Full In-Corpus Citation (10,988 Papers DAG)",
-        type: "line",
-        data: ovData.full_citation_nimfa || [],
-        smooth: true,
-        itemStyle: { color: "#059669" },
-        lineStyle: { width: 2, type: "dotted" },
-        symbolSize: 4
-      },
-      {
-        name: "50% Adoption Threshold (T50)",
-        type: "line",
-        data: Array(16).fill(50),
-        itemStyle: { color: "#e11d48" },
-        lineStyle: { width: 1.5, type: "dashed" },
-        symbol: "none"
-      }
-    ];
-
-    overlayChart.setOption({
-      backgroundColor: "transparent",
-      tooltip: {
-        trigger: "axis",
-        backgroundColor: "#ffffff",
-        borderColor: "#cbd5e1",
-        textStyle: { color: "#0f172a" },
-        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-        formatter: prm => {
-          let s = `<div style="font-weight:700; color:#4f46e5; margin-bottom:0.25rem;">Diffusion Step ${prm[0].name}</div>`;
-          prm.forEach(item => {
-            s += `<div>${item.marker} ${item.seriesName}: <b>${item.value}%</b></div>`;
-          });
-          return s;
-        }
-      },
-      legend: {
-        data: series.map(s => s.name),
-        textStyle: { color: "#475569", fontSize: 11 },
-        top: "bottom"
-      },
-      grid: { left: "4%", right: "4%", bottom: "12%", top: "8%", containLabel: true },
-      xAxis: {
-        type: "category",
-        name: "Step (t)",
-        nameTextStyle: { color: "#64748b" },
-        data: steps,
-        axisLine: { lineStyle: { color: "#cbd5e1" } },
-        axisLabel: { color: "#475569" }
-      },
-      yAxis: {
-        type: "value",
-        name: "% Population Adoption I(t)",
-        nameTextStyle: { color: "#64748b" },
-        min: 0,
-        max: 100,
-        splitLine: { lineStyle: { color: "#f1f5f9" } },
-        axisLabel: { color: "#475569" }
-      },
-      series: series
-    });
-  }
-
-  /* ---------------- Section: Seed Origin Comparison ---------------- */
-  function initSeedOrigin() {
-    document.querySelectorAll(".pill-btn[data-seed-net]").forEach(b => {
-      b.addEventListener("click", () => {
-        document.querySelectorAll(".pill-btn[data-seed-net]").forEach(btn => btn.classList.remove("active"));
-        b.classList.add("active");
-        currentSeedOriginNet = b.getAttribute("data-seed-net");
-        renderSeedOriginChart();
-      });
-    });
-  }
-
-  function renderSeedOriginChart() {
-    const el = document.getElementById("seed-origin-chart-canvas");
-    if (!el || !window.echarts) return;
-    if (seedOriginChart) seedOriginChart.dispose();
-    seedOriginChart = echarts.init(el);
-
-    const sims = SUITE.simulations || {};
-    const seedData = (sims.seed_origins || {})[currentSeedOriginNet] || {};
-
-    const steps = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"];
-
-    const ncl = seedData.ncl || { curve: [0]*16, t50: 15, final_reach: 0 };
-    const iict = seedData.iict || { curve: [0]*16, t50: 15, final_reach: 0 };
-    const cecri = seedData.cecri || { curve: [0]*16, t50: 15, final_reach: 0 };
-
-    document.getElementById("seed-stat-ncl-t50").textContent = ncl.t50 + " steps";
-    document.getElementById("seed-stat-iict-t50").textContent = iict.t50 + " steps";
-    document.getElementById("seed-stat-cecri-t50").textContent = cecri.t50 + " steps";
-
-    document.getElementById("seed-stat-ncl-reach").textContent = ncl.final_reach + "%";
-    document.getElementById("seed-stat-iict-reach").textContent = iict.final_reach + "%";
-    document.getElementById("seed-stat-cecri-reach").textContent = cecri.final_reach + "%";
-
-    const series = [
-      {
-        name: "Seeds at CSIR-IICT (Hyderabad)",
-        type: "line",
-        data: iict.curve || [],
-        smooth: true,
-        itemStyle: { color: LAB_COLORS["CSIR-IICT"] },
-        lineStyle: { width: 3.5 },
-        symbolSize: 6
-      },
-      {
-        name: "Seeds at CSIR-NCL (Pune)",
-        type: "line",
-        data: ncl.curve || [],
-        smooth: true,
-        itemStyle: { color: LAB_COLORS["CSIR-NCL"] },
-        lineStyle: { width: 3.5 },
-        symbolSize: 6
-      },
-      {
-        name: "Seeds at CSIR-CECRI (Karaikudi)",
-        type: "line",
-        data: cecri.curve || [],
-        smooth: true,
-        itemStyle: { color: LAB_COLORS["CSIR-CECRI"] },
-        lineStyle: { width: 3.5, type: currentSeedOriginNet === "cadre_authorship" ? "dashed" : "solid" },
-        symbolSize: 6
-      },
-      {
-        name: "50% Adoption Threshold",
-        type: "line",
-        data: Array(16).fill(50),
-        itemStyle: { color: "#e11d48" },
-        lineStyle: { width: 1.5, type: "dashed" },
-        symbol: "none"
-      }
-    ];
-
-    seedOriginChart.setOption({
-      backgroundColor: "transparent",
-      tooltip: {
-        trigger: "axis",
-        backgroundColor: "#ffffff",
-        borderColor: "#cbd5e1",
-        textStyle: { color: "#0f172a" },
-        formatter: prm => {
-          let s = `<div style="font-weight:700; color:#4f46e5; margin-bottom:0.25rem;">Step ${prm[0].name}</div>`;
-          prm.forEach(item => {
-            s += `<div>${item.marker} ${item.seriesName}: <b>${item.value}%</b></div>`;
-          });
-          return s;
-        }
-      },
-      legend: {
-        data: series.map(s => s.name),
-        textStyle: { color: "#475569", fontSize: 11 },
-        top: "bottom"
-      },
-      grid: { left: "4%", right: "4%", bottom: "12%", top: "8%", containLabel: true },
-      xAxis: {
-        type: "category",
-        name: "Step (t)",
-        nameTextStyle: { color: "#64748b" },
-        data: steps,
-        axisLine: { lineStyle: { color: "#cbd5e1" } },
-        axisLabel: { color: "#475569" }
-      },
-      yAxis: {
-        type: "value",
-        name: "% Cluster Adoption I(t)",
-        nameTextStyle: { color: "#64748b" },
-        min: 0,
-        max: 100,
-        splitLine: { lineStyle: { color: "#f1f5f9" } },
-        axisLabel: { color: "#475569" }
-      },
-      series: series
-    });
-  }
-
-  /* ---------------- Section: Intra-Institute Spreading ---------------- */
-  function initIntra() {
-    document.querySelectorAll(".pill-btn[data-intra-net]").forEach(b => {
-      b.addEventListener("click", () => {
-        document.querySelectorAll(".pill-btn[data-intra-net]").forEach(btn => btn.classList.remove("active"));
-        b.classList.add("active");
-        currentIntraNet = b.getAttribute("data-intra-net");
-        renderIntraChart();
-      });
-    });
-  }
-
-  function renderIntraChart() {
-    const el = document.getElementById("intra-chart-canvas");
-    if (!el || !window.echarts) return;
-    if (intraChart) intraChart.dispose();
-    intraChart = echarts.init(el);
-
-    const sims = SUITE.simulations || {};
-    const intra = sims.intra_institute || {};
-
-    const iict = (intra.iict || {})[currentIntraNet] || { curve: [0]*16, t50: 15, reach: 0, beta_c: 0, nodes: 0, edges: 0 };
-    const ncl = (intra.ncl || {})[currentIntraNet] || { curve: [0]*16, t50: 15, reach: 0, beta_c: 0, nodes: 0, edges: 0 };
-    const cecri = (intra.cecri || {})[currentIntraNet] || { curve: [0]*16, t50: 15, reach: 0, beta_c: 0, nodes: 0, edges: 0 };
-
-    document.getElementById("intra-stat-iict-nodes").textContent = fmt(iict.nodes);
-    document.getElementById("intra-stat-ncl-nodes").textContent = fmt(ncl.nodes);
-    document.getElementById("intra-stat-cecri-nodes").textContent = fmt(cecri.nodes);
-
-    document.getElementById("intra-stat-iict-t50").textContent = iict.t50 + " steps";
-    document.getElementById("intra-stat-ncl-t50").textContent = ncl.t50 + " steps";
-    document.getElementById("intra-stat-cecri-t50").textContent = cecri.t50 + " steps";
-
-    document.getElementById("intra-stat-iict-betac").textContent = iict.beta_c;
-    document.getElementById("intra-stat-ncl-betac").textContent = ncl.beta_c;
-    document.getElementById("intra-stat-cecri-betac").textContent = cecri.beta_c;
-
-    const steps = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"];
-
-    const series = [
-      {
-        name: "Intra CSIR-IICT (Internal Diffusion)",
-        type: "line",
-        data: iict.curve || [],
-        smooth: true,
-        itemStyle: { color: LAB_COLORS["CSIR-IICT"] },
-        lineStyle: { width: 3.5 },
-        symbolSize: 6
-      },
-      {
-        name: "Intra CSIR-NCL (Internal Diffusion)",
-        type: "line",
-        data: ncl.curve || [],
-        smooth: true,
-        itemStyle: { color: LAB_COLORS["CSIR-NCL"] },
-        lineStyle: { width: 3.5 },
-        symbolSize: 6
-      },
-      {
-        name: "Intra CSIR-CECRI (Internal Diffusion)",
-        type: "line",
-        data: cecri.curve || [],
-        smooth: true,
-        itemStyle: { color: LAB_COLORS["CSIR-CECRI"] },
-        lineStyle: { width: 3.5, type: currentIntraNet === "cadre_authorship" ? "dashed" : "solid" },
-        symbolSize: 6
-      },
-      {
-        name: "50% Adoption Threshold",
-        type: "line",
-        data: Array(16).fill(50),
-        itemStyle: { color: "#e11d48" },
-        lineStyle: { width: 1.5, type: "dashed" },
-        symbol: "none"
-      }
-    ];
-
-    intraChart.setOption({
-      backgroundColor: "transparent",
-      tooltip: {
-        trigger: "axis",
-        backgroundColor: "#ffffff",
-        borderColor: "#cbd5e1",
-        textStyle: { color: "#0f172a" },
-        formatter: prm => {
-          let s = `<div style="font-weight:700; color:#4f46e5; margin-bottom:0.25rem;">Step ${prm[0].name}</div>`;
-          prm.forEach(item => {
-            s += `<div>${item.marker} ${item.seriesName}: <b>${item.value}%</b></div>`;
-          });
-          return s;
-        }
-      },
-      legend: {
-        data: series.map(s => s.name),
-        textStyle: { color: "#475569", fontSize: 11 },
-        top: "bottom"
-      },
-      grid: { left: "4%", right: "4%", bottom: "12%", top: "8%", containLabel: true },
-      xAxis: {
-        type: "category",
-        name: "Step (t)",
-        nameTextStyle: { color: "#64748b" },
-        data: steps,
-        axisLine: { lineStyle: { color: "#cbd5e1" } },
-        axisLabel: { color: "#475569" }
-      },
-      yAxis: {
-        type: "value",
-        name: "% Intra-Lab Adoption I(t)",
-        nameTextStyle: { color: "#64748b" },
-        min: 0,
-        max: 100,
-        splitLine: { lineStyle: { color: "#f1f5f9" } },
-        axisLabel: { color: "#475569" }
-      },
-      series: series
-    });
-  }
-
-  /* ---------------- Section: Cadre Networks ---------------- */
-  function initNetworks() {
-    document.querySelectorAll(".pill-btn[data-net-tab]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".pill-btn[data-net-tab]").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        currentNetworkTab = btn.getAttribute("data-net-tab");
-        renderNetworkGraph();
-      });
-    });
-  }
-
-  function renderNetworkGraph() {
-    const el = document.getElementById("cadre-network-canvas");
-    if (!el || !window.echarts) return;
-    if (networkChart) networkChart.dispose();
-    networkChart = echarts.init(el);
-
-    const isAuth = currentNetworkTab === "coauthorship";
-    const graphData = isAuth ? SUITE.cadre_coauthorship : SUITE.cadre_citation;
-
-    if (!graphData || !graphData.nodes) {
-      el.innerHTML = '<div style="padding:2rem; text-align:center; color:#94a3b8;">Network data loading...</div>';
-      return;
+      const m = g.metrics;
+      $("i-faculty-note").textContent = `${fmt(m.connected_faculty)} of ${fmt(m.total_cadre_faculty)} active scientists have a faculty co-author; ${fmt(m.edges)} pairs, mean degree ${S.faculty_coauthorship.thresholds.k_mean} among the connected scientists, clustering ${m.clustering}. ` +
+        `Showing the ${fmt(m.shown_nodes)} with the most joint papers. Across labs: ${(g.collab_matrix || []).map(r => `${r.pair} ${r.joint_papers}`).join("; ")} (joint papers summed over pairs).`;
     }
 
-    const m = graphData.metrics || {};
-    document.getElementById("net-stat-nodes").textContent = fmt(m.connected_faculty || m.total_cadre_faculty);
-    document.getElementById("net-stat-edges").textContent = fmt(m.edges);
-    document.getElementById("net-stat-density").textContent = m.density;
-    document.getElementById("net-stat-special").textContent = isAuth ? (m.clustering ?? "–") : (m.reciprocity ?? "–");
-    document.getElementById("net-stat-special-label").textContent = isAuth ? "Avg Clustering" : "Reciprocity";
+    table("tbl-params", [{ title: "Parameter", field: "p" }, { title: "Value", field: "v", num: true }, { title: "Used in", field: "u" }], [
+      { p: "\\(\\beta_0\\)", v: P.beta0, u: "all simulations" },
+      { p: "\\(\\varepsilon\\) (receptivity floor, A)", v: DF.metrics && 0.05, u: "field study" },
+      { p: "similarity floor", v: P.similarity_floor, u: "network comparison" },
+      { p: "similarity when a profile is missing", v: P.neutral_similarity, u: "network comparison" },
+      { p: "steps", v: P.max_steps, u: "all" },
+      { p: "seeds per run / runs per seed", v: `${P.seeds_per_run} / ${P.mc_runs_per_seed}`, u: "network comparison" },
+      { p: "seeds / runs per seed", v: `${DF.metrics.n_seeds_per_field} / ${DF.metrics.n_trials}`, u: "field study" },
+      { p: "random seed", v: P.rng_seed, u: "all (numpy RandomState)" },
+    ].map(r => ({ ...r, p: r.p })));
+  }
 
-    const nodes = (graphData.nodes || []).map(n => {
-      const val = isAuth ? (n.degree || 1) : ((n.in_degree || 0) + (n.out_degree || 0));
-      return {
-        id: n.id,
-        name: n.name,
-        lab: n.lab,
-        dept: n.dept,
-        faculty_id: n.faculty_id,
-        symbolSize: Math.max(12, Math.min(36, Math.sqrt(val) * 6)),
-        itemStyle: { color: LAB_COLORS[n.lab] || "#64748b", borderColor: "#ffffff", borderWidth: 2 },
-        value: val,
-        raw: n
-      };
-    });
+  // ---------- 03 Threshold ----------
+  function renderThreshold() {
+    const keys = Object.keys(TH);
+    const draw = key => {
+      const t = TH[key], k = ink();
+      chart("ch-threshold", {
+        legend: legend(), grid: { left: 8, right: 40, top: 48, bottom: 40, containLabel: true },
+        tooltip: tip({ trigger: "axis", valueFormatter: v => (v == null ? "–" : Number(v).toFixed(3)) }),
+        xAxis: { type: "value", name: "transmissibility T", nameLocation: "middle", nameGap: 26, min: 0, max: 0.5, ...axis() },
+        yAxis: [{ type: "value", name: "share", max: 1, ...axis() }],
+        series: [
+          line("S(T): largest outbreak share", t.T_grid.map((x, i) => [x, t.S[i]]), css("--s1"), {
+            markLine: { silent: true, symbol: "none", data: [
+              { xAxis: t.T_c_theory, lineStyle: { color: css("--s2"), type: "dashed", width: 2 }, label: { show: false } },
+              { xAxis: t.T_peak_simulated, lineStyle: { color: css("--s3"), type: "solid", width: 2 }, label: { show: false } }] } }),
+          line("χ(T) scaled: small-outbreak size (peak = tipping point)", t.T_grid.map((x, i) => [x, t.chi[i] / Math.max(...t.chi)]), css("--s3"), { lineStyle: { type: "dotted" } }),
+        ],
+      });
+      $("i-threshold-caption").innerHTML = `Orange dashed line: formula \\(T_c\\) = ${t.T_c_theory}. Green line: measured tipping point (peak of \\(\\chi\\)) = ${t.T_peak_simulated}, ` +
+        `${t.peak_over_theory}× the formula. Clustering ${t.clustering}; ${fmt(t.nodes)} nodes.`;
+      if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([$("i-threshold-caption")]);
+    };
+    seg("seg-threshold", keys.map(k => [k, netName(k).replace(" (all authors)", "")]), "full_coauthorship", draw);
+    table("tbl-threshold", [
+      { title: "Network", html: r => esc(netName(r.k)) },
+      { title: "Nodes", field: "nodes", num: true, fmt: fmt }, { title: "\\(\\langle k\\rangle\\)", field: "k_mean", num: true },
+      { title: "\\(\\langle k^2\\rangle\\)", field: "k2_mean", num: true }, { title: "Clustering", field: "clustering", num: true },
+      { title: "Formula \\(T_c\\)", field: "T_c_theory", num: true }, { title: "Measured peak", field: "T_peak_simulated", num: true },
+      { title: "Measured / formula", field: "peak_over_theory", num: true, fmt: v => `${v}×` },
+    ], keys.map(k => ({ k, ...TH[k] })));
+    const c3 = claim("C3"), c2 = claim("C2");
+    $("ins-threshold").innerHTML = [c2, c3].filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
+  }
 
-    const links = (graphData.links || []).map(l => ({
-      source: l.source,
-      target: l.target,
-      value: l.weight || 1,
-      lineStyle: {
-        color: isAuth ? "rgba(100, 116, 139, 0.3)" : "rgba(37, 99, 235, 0.4)",
-        width: Math.min(4, Math.max(1, (l.weight || 1) * 0.7)),
-        curveness: isAuth ? 0 : 0.15
-      }
+  // ---------- 04 Fields ----------
+  function renderFields() {
+    const FD = DF.fields_data;
+    const draw = f => {
+      const d = FD[f], a = d.condition_a, b = d.condition_b, n = a.adoption_curve.length;
+      chart("ch-field", {
+        legend: legend(), grid: { left: 8, right: 40, top: 48, bottom: 40, containLabel: true },
+        tooltip: tip({ trigger: "axis", valueFormatter: v => pct(v) }),
+        xAxis: stepAxis(n), yAxis: { type: "value", name: "% adopted", max: 100, ...axis() },
+        series: [line(`A · ${f} researchers`, a.adoption_curve, css("--s1"), { markLine: half() }),
+          line("A · everyone else (spillover)", a.spillover_curve, css("--s2"), { lineStyle: { type: "dotted" } }),
+          line(`B · inside the ${f} network`, b.adoption_curve, css("--s3"), { lineStyle: { type: "dashed" } })],
+      });
+      table("tbl-field-spreaders", [
+        { title: "#", html: (r, i) => "" }, { title: "Seed", field: "name" }, { title: "Lab", field: "lab" },
+        { title: "Co-authors", field: "degree", num: true }, { title: "Field share", field: "field_share", num: true, fmt: v => pct(v, 0) },
+        { title: "T50", field: "t50", num: true, fmt: v => (v == null ? "–" : v) }, { title: "Runs reaching 50%", field: "p_reach50", num: true, fmt: v => pct(100 * v, 0) },
+        { title: "Reach by step 3", field: "reach_t3", num: true, fmt: v => pct(100 * v) },
+      ].filter(c => c.title !== "#"), a.top_super_spreaders);
+      table("tbl-field-blockers", [{ title: "Person", field: "name" }, { title: "Lab", field: "lab" },
+        { title: "Faculty", field: "is_faculty", fmt: v => (v ? "yes" : "no") }, { title: "Betweenness", field: "betweenness", num: true, fmt: v => num(v, 4) },
+        { title: "Network lost", field: "lcc_drop_pct", num: true, fmt: v => pct(v, 2) }], b.top_super_blockers || []);
+    };
+    seg("seg-field", FIELDS.filter(f => FD[f]).map(f => [f, f]), "Chemistry", draw);
+    table("tbl-fields", [
+      { title: "Field", field: "short_label" }, { title: "Active researchers", field: "active_researchers", num: true, fmt: fmt },
+      { title: "Field network", field: "subgraph_lcc_size", num: true, fmt: fmt },
+      { title: "A: T50", html: r => esc(r.condition_a.t50_median ?? "not reached") },
+      { title: "A: field reached", html: r => pct(r.condition_a.adoption_curve.at(-1)) },
+      { title: "A: outside reached", html: r => pct(r.condition_a.spillover_curve.at(-1)) },
+      { title: "B: T50", html: r => esc(r.condition_b.t50_median ?? "not reached") },
+      { title: "B: seeds reaching 50%", html: r => `${r.condition_b.seeds_reaching_50} / ${r.condition_b.n_seeds}` },
+      { title: "\\(\\langle k\\rangle/\\langle k^2\\rangle\\)", html: r => num(r.thresholds.beta_c, 4) },
+      { title: "\\(1/\\lambda_{\\max}\\)", html: r => num(r.thresholds.beta_c_spec, 4) },
+    ], FIELDS.filter(f => FD[f]).map(f => FD[f]));
+    const c7 = claim("C7"), c5 = claim("C5");
+    $("ins-fields").innerHTML = [c7, c5].filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
+  }
+
+  // ---------- 05 Networks ----------
+  function renderNetworks() {
+    const draw = target => {
+      const n = S.full_coauthorship.fields[target].mc_curve.length;
+      chart("ch-overlay", {
+        legend: legend(), grid: { left: 8, right: 40, top: 48, bottom: 40, containLabel: true },
+        tooltip: tip({ trigger: "axis", valueFormatter: v => pct(v) }),
+        xAxis: stepAxis(n), yAxis: { type: "value", name: "% adopted", max: 100, ...axis() },
+        series: NETS.map((k, i) => line(S[k].network_name, S[k].fields[target].mc_curve, css(NET_COLOR[k]), i === 0 ? { markLine: half() } : {})),
+      });
+    };
+    seg("seg-overlay", [["Combined", "Everyone"], ["Chemistry", "Chemistry only"]], "Combined", draw);
+    table("tbl-grid", [
+      { title: "Network", html: r => esc(netName(r.network)) }, { title: "Target", field: "field" },
+      { title: "Target size", field: "target_nodes", num: true, fmt: fmt }, { title: "MC runs", field: "mc_runs", num: true, fmt: fmt },
+      { title: "MC T50", field: "mc_t50", num: true, fmt: v => (v == null ? "–" : v) }, { title: "NIMFA T50", field: "nimfa_t50", num: true, fmt: v => (v == null ? "–" : v) },
+      { title: "MC reach @15", field: "mc_final_reach", num: true, fmt: v => pct(v) }, { title: "NIMFA reach @15", field: "nimfa_final_reach", num: true, fmt: v => pct(v) },
+      { title: "Gap min…max (pp)", html: r => `${num(r.min_gap)} … ${num(r.max_gap)}` }, { title: "Rank ρ", field: "rank_agreement_spearman", num: true, fmt: v => num(v) },
+    ], D.grid);
+    $("tbl-grid").style.maxHeight = "460px"; $("tbl-grid").style.overflow = "auto";
+    $("ins-networks").innerHTML = ["C1", "C8"].map(claim).filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
+  }
+
+  // ---------- 06 Mean field ----------
+  function renderMeanField() {
+    let net = "full_coauthorship", field = "Combined";
+    const draw = () => {
+      const r = S[net].fields[field];
+      if (!r) return;
+      const n = r.mc_curve.length;
+      chart("ch-meanfield", {
+        legend: legend(), grid: { left: 8, right: 40, top: 48, bottom: 40, containLabel: true },
+        tooltip: tip({ trigger: "axis", valueFormatter: v => pct(v, 2) }),
+        xAxis: stepAxis(n), yAxis: { type: "value", name: "%", min: 0, max: 100, ...axis() },
+        series: [line(`Monte Carlo (${fmt(r.mc_runs)} runs)`, r.mc_curve, css("--s1"), { markLine: half() }),
+          line("NIMFA (mean field)", r.nimfa_curve, css("--s2"), { lineStyle: { type: "dashed" } }),
+          { type: "bar", name: "gap NIMFA − MC", data: r.gap_curve, itemStyle: { color: css("--s3"), borderRadius: [4, 4, 0, 0] }, barMaxWidth: 14 }],
+      });
+      table("tbl-spreaders", [{ title: "Seed", field: "name" }, { title: "Lab", field: "lab", fmt: v => (v || "").replace(/; /g, ", ") },
+        { title: "Links", field: "degree", num: true }, { title: `NIMFA adopters by step ${P.early_step}`, field: "nimfa_adopters_early", num: true, fmt: v => num(v, 1) },
+        { title: `Simulation adopters by step ${P.early_step}`, field: "mc_adopters_early", num: true, fmt: v => num(v, 1) },
+        { title: "NIMFA adopters by step 15", field: "nimfa_adopters_final", num: true, fmt: v => num(v, 1) }], r.super_spreaders || []);
+      $("i-spreader-note").textContent = `Seeds ranked by expected adopters at step ${P.early_step} under NIMFA (at step 15 most seeds have reached nearly everyone, so a late count cannot separate them). ` +
+        `Agreement of the two models' rankings over all ${r.n_seeds} seeds: Spearman ρ = ${num(r.rank_agreement_spearman)}.`;
+    };
+    seg("seg-mf-net", NETS.map(k => [k, S[k].network_name.replace(" (all authors)", "")]), net, v => { net = v; draw(); });
+    seg("seg-mf-field", [["Combined", "Everyone"], ...FIELDS.map(f => [f, f])], field, v => { field = v; draw(); });
+    $("ins-meanfield").innerHTML = ["C4", "C6"].map(claim).filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
+  }
+
+  // ---------- 07 Labs ----------
+  function renderLabs() {
+    const draw = net => {
+      const o = S.seed_origins[net] || {};
+      const n = (o.ncl || o.iict).mc_curve.length;
+      chart("ch-origin", {
+        legend: legend(), grid: { left: 8, right: 40, top: 48, bottom: 40, containLabel: true },
+        tooltip: tip({ trigger: "axis", valueFormatter: v => pct(v) }),
+        xAxis: stepAxis(n), yAxis: { type: "value", name: "%", max: 100, ...axis() },
+        series: LAB_KEYS.filter(k => o[k]).flatMap(k => [
+          line(`${o[k].institute} seeds · simulation`, o[k].mc_curve, css(LAB_VAR[o[k].institute]), k === "ncl" ? { markLine: half() } : {}),
+          line(`${o[k].institute} seeds · NIMFA`, o[k].nimfa_curve, css(LAB_VAR[o[k].institute]), { lineStyle: { type: "dotted", width: 1.5 } })]),
+      });
+    };
+    seg("seg-origin", [["faculty_coauthorship", "Faculty network"], ["full_coauthorship", "Full network"]], "faculty_coauthorship", draw);
+    const rows = [];
+    LAB_KEYS.forEach(l => ["full_coauthorship", "faculty_coauthorship", "full_citation"].forEach(k => {
+      const r = (S.intra_institute[l] || {})[k]; if (r) rows.push(r);
     }));
-
-    networkChart.setOption({
-      backgroundColor: "transparent",
-      tooltip: {
-        trigger: "item",
-        backgroundColor: "#ffffff",
-        borderColor: "#cbd5e1",
-        textStyle: { color: "#0f172a" },
-        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-        formatter: p => {
-          if (p.dataType === "edge") {
-            return `<b>${isAuth ? "Co-authorship" : "Citation"} Link</b><br/>${p.data.source} → ${p.data.target}<br/>Weight: <b>${p.data.value}</b> ${isAuth ? "joint papers" : "citations"}`;
-          }
-          const d = p.data.raw;
-          if (isAuth) {
-            return `<div style="font-weight:700; color:#4f46e5;">${d.name}</div>
-                    <div style="font-size:0.8rem; color:#64748b;">${d.desig || ""} · ${d.lab}</div>
-                    <div style="font-size:0.8rem; color:#64748b;">${d.dept}</div>
-                    <div style="margin-top:0.4rem; font-size:0.85rem;">
-                      Faculty Degree: <b>${d.degree}</b> peers<br/>
-                      Strength: <b>${d.strength}</b> joint papers<br/>
-                      Betweenness: <b>${d.betweenness}</b><br/>
-                      In-Corpus Papers: <b>${d.papers}</b> · h-index: <b>${d.h_index}</b>
-                    </div>`;
-          } else {
-            return `<div style="font-weight:700; color:#4f46e5;">${d.name}</div>
-                    <div style="font-size:0.8rem; color:#64748b;">${d.lab}</div>
-                    <div style="margin-top:0.4rem; font-size:0.85rem;">
-                      In-Citations (From Cadre): <b>${d.in_degree}</b><br/>
-                      Out-Citations (To Cadre): <b>${d.out_degree}</b><br/>
-                      PageRank Centrality: <b>${d.pagerank}</b>
-                    </div>`;
-          }
-        }
-      },
-      series: [{
-        type: "graph",
-        layout: "force",
-        roam: true,
-        draggable: true,
-        data: nodes,
-        links: links,
-        edgeSymbol: isAuth ? ["none", "none"] : ["none", "arrow"],
-        edgeSymbolSize: isAuth ? [0, 0] : [0, 6],
-        force: {
-          repulsion: isAuth ? 160 : 190,
-          edgeLength: [40, 140],
-          gravity: 0.1
-        },
-        emphasis: {
-          focus: "adjacency",
-          lineStyle: { width: 3 }
-        }
-      }]
-    });
-
-    renderNetworkTables(isAuth, graphData);
+    table("tbl-intra", [{ title: "Lab", field: "institute" }, { title: "Network", html: r => esc(netName(r.subgraph_type)) },
+      { title: "Nodes", field: "nodes", num: true, fmt: fmt }, { title: "Links", field: "edges", num: true, fmt: fmt },
+      { title: "Mean degree", field: "mean_degree", num: true }, { title: "MC T50", field: "mc_t50", num: true, fmt: (v, r) => (r.too_small ? "too small" : (v ?? "not reached")) },
+      { title: "NIMFA T50", field: "nimfa_t50", num: true, fmt: (v, r) => (r.too_small ? "" : (v ?? "not reached")) },
+      { title: "MC reach @15", field: "mc_final_reach", num: true, fmt: (v, r) => (r.too_small ? "" : pct(v)) }], rows);
+    $("ins-labs").innerHTML = ["C9"].map(claim).filter(Boolean).map(c => box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`)).join("");
   }
 
-  function renderNetworkTables(isAuth, data) {
-    const leaderEl = document.getElementById("net-leaderboard-body");
-    const matrixEl = document.getElementById("net-matrix-body");
-    if (!leaderEl || !matrixEl) return;
-
-    if (isAuth) {
-      document.getElementById("net-leader-title").textContent = "Top Cadre Collaborators (Degree & Strength)";
-      document.getElementById("net-matrix-title").textContent = "Inter-Lab Co-Authorship Matrix";
-
-      leaderEl.innerHTML = (data.top_degree || []).slice(0, 8).map(r => `
-        <tr>
-          <td><b>${r.name}</b></td>
-          <td><span class="inst-badge ${r.lab === 'CSIR-IICT' ? 'iict' : (r.lab === 'CSIR-NCL' ? 'ncl' : 'cecri')}">${r.lab}</span></td>
-          <td><b>${r.degree}</b> peers</td>
-          <td>${r.strength} papers</td>
-        </tr>
-      `).join("");
-
-      matrixEl.innerHTML = (data.collab_matrix || []).map(r => `
-        <tr>
-          <td><b>${r.pair}</b></td>
-          <td><b>${fmt(r.joint_papers)}</b> joint papers</td>
-        </tr>
-      `).join("");
-    } else {
-      document.getElementById("net-leader-title").textContent = "Top Cited Cadre Faculty (In-Degree & PageRank)";
-      document.getElementById("net-matrix-title").textContent = "Inter-Lab Citation Flow Matrix";
-
-      leaderEl.innerHTML = (data.top_cited_faculty || []).slice(0, 8).map(r => `
-        <tr>
-          <td><b>${r.name}</b></td>
-          <td><span class="inst-badge ${r.lab === 'CSIR-IICT' ? 'iict' : (r.lab === 'CSIR-NCL' ? 'ncl' : 'cecri')}">${r.lab}</span></td>
-          <td><b>${r.in_citations}</b> citations</td>
-          <td>PR: ${r.pagerank}</td>
-        </tr>
-      `).join("");
-
-      matrixEl.innerHTML = (data.citation_flow_matrix || []).map(r => `
-        <tr>
-          <td><b>${r.source_lab} → ${r.target_lab}</b></td>
-          <td><b>${fmt(r.citations)}</b> citations</td>
-        </tr>
-      `).join("");
-    }
+  // ---------- 08 Proof ----------
+  function renderProof() {
+    const cl = (D.claims && D.claims.claims) || [];
+    table("tbl-claims", [{ title: "#", field: "id" }, { title: "Claim", field: "claim" },
+      { title: "Numbers", html: r => {
+        const v = r.value;
+        const show = x => (x !== null && typeof x === "object" ? JSON.stringify(x) : String(x));
+        const lines = Array.isArray(v) ? v.map(show) : (v && typeof v === "object" ? Object.entries(v).map(([k, x]) => `${k}: ${show(x)}`) : [show(v)]);
+        return lines.map(l => `<code>${esc(l)}</code>`).join("<br>");
+      } },
+      { title: "Source", html: r => `<code>${esc(r.source)}</code>` }, { title: "Check", field: "check" },
+      { title: "Status", html: r => badge(r.passed) }], cl, "i-claims");
+    $("i-repro").innerHTML = [
+      "<code>python run.py insight11</code> rebuilds everything on this page from <code>data/final/</code> (no API calls): faculty networks, roster audit, the field study, the network comparison, the threshold test, the claims and the page data.",
+      "Scripts: <code>src/stats/insights/s11_information_diffusion.py</code> (field study), <code>s11_nimfa_spreading.py</code> (four networks, mean field, labs), <code>s11_threshold_check.py</code> (percolation), <code>s11_claims.py</code> (checks), <code>s11_cadre_networks.py</code>, <code>s11_data_cleaning_audit.py</code>.",
+      `All randomness comes from numpy RandomState with fixed seeds (${P.rng_seed}); nodes are processed in a fixed order, so a rerun gives identical numbers (tested under different PYTHONHASHSEED values).`,
+      "Outputs: <code>stats/tables/insights/11_*.json / .csv</code>. Tests: <code>tests/test_insight11.py</code> (every claim passes, NIMFA equation and SI step checked on small graphs by brute force), <code>tests/test_insights.py</code>, <code>tests/test_cadre_networks.py</code>.",
+      "Inputs: <code>group24_data_extended.csv</code>, <code>faculty_master.csv</code>, <code>citation_network.csv</code>, <code>data/review/roster_excluded.csv</code>.",
+    ].map(t => `<li>${t}</li>`).join("");
+    $("i-fixes").innerHTML = [
+      "The \"epidemic threshold\" was presented as a property of the SI model; SI has none. Thresholds are now labelled as structural thresholds for spreading with recovery and are tested directly (section 03).",
+      "The extended study built the full co-authorship network by author name, merging different people; it now uses the same network as the field study, keyed by OpenAlex author ID.",
+      "Monte Carlo and mean field were compared on different seed weightings (some seeds 3 runs, others 2) and T50 averaged \"not reached\" as step 15; both now use the same seeds, equal runs per seed and the censored median.",
+      "Citation networks reported thresholds of 0.71 and 1.0 (artefacts of an acyclic network) and copied the all-field result into every field; now no threshold where none exists, and papers are assigned to fields by their own field.",
+      "Super-spreaders were ranked by reach at step 15, where the top seeds differed by 0.3%, and described as a derivative that was not computed; they are now ranked at step 3, with the simulation's ranking as a check.",
+      "\"Jensen's inequality proves…\" and a typed-in gap range (+1.8% to +5.8%) were replaced by the measured gap and a check of its sign; typed-in roster claims (h-index 7.0 → 6.0, 1,290 ties, 282 rows) without a source were removed.",
+      "The extended-study scripts were not part of any pipeline; <code>python run.py insight11</code> now runs all of them.",
+      "Reruns were not identical: subgraphs iterated their nodes in a hash-dependent order, so random numbers landed on different people from run to run. Every study network is now built in a fixed order (tested under two hash seeds), and the tipping-point test uses 100 instead of 40 repeats.",
+    ].map(t => `<li>${t}</li>`).join("");
+    $("i-limits").innerHTML = [
+      "The model is stylised: β0 = 0.2 per step is chosen, not estimated. The results compare networks, fields and labs under the same rule; they do not predict how many months an idea takes.",
+      "Links are co-authorships and citations from 2016–2026 merged into one static network; who worked with whom changed over the decade.",
+      "The full network includes students and project staff identified only by their OpenAlex profile; profile errors (split or merged people) remain possible.",
+      "Field shares come from OpenAlex's topic classification of each paper.",
+      "The textbook formula assumes a network without clustering; the measured threshold is the one to trust.",
+    ].map(t => `<li>${t}</li>`).join("");
   }
 
-  /* ---------------- Section: Data Cleaning ---------------- */
-  function initCleaning() {
-    const cl = SUITE.cleaning || {};
-    const f = cl.funnel || {};
-
-    if (f.stage_1_raw_scraped) {
-      document.getElementById("clean-stat-raw").textContent = fmt(f.stage_1_raw_scraped.total);
-      document.getElementById("clean-stat-ex").textContent = fmt(f.stage_2_excluded_technical_and_duplicates.total_excluded);
-      document.getElementById("clean-stat-roster").textContent = fmt(f.stage_3_clean_roster.total);
-      document.getElementById("clean-stat-active").textContent = fmt(f.stage_4_active_cadre_with_papers.total);
-    }
-
-    renderCleaningAuditTable(cl.sample_excluded || []);
-
-    const searchInput = document.getElementById("clean-search");
-    if (searchInput) {
-      searchInput.addEventListener("input", e => {
-        const query = e.target.value.toLowerCase();
-        const filtered = (cl.sample_excluded || []).filter(r => 
-          r.full_name.toLowerCase().includes(query) ||
-          r.job_title.toLowerCase().includes(query) ||
-          r.department.toLowerCase().includes(query) ||
-          r.reason.toLowerCase().includes(query)
-        );
-        renderCleaningAuditTable(filtered);
-      });
-    }
-  }
-
-  function renderCleaningAuditTable(records) {
-    const tbody = document.getElementById("clean-audit-tbody");
-    if (!tbody) return;
-
-    if (!records.length) {
-      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:1.5rem; color:#64748b;">No matching excluded records found.</td></tr>';
-      return;
-    }
-
-    tbody.innerHTML = records.slice(0, 50).map(r => `
-      <tr>
-        <td><b>${r.full_name}</b></td>
-        <td><span class="inst-badge ${r.lab === 'CSIR-IICT' ? 'iict' : (r.lab === 'CSIR-NCL' ? 'ncl' : 'cecri')}">${r.lab}</span></td>
-        <td><span style="color:#e11d48; font-weight:600;">${r.job_title}</span></td>
-        <td>${r.department}</td>
-        <td style="font-size:0.8rem; color:var(--text-secondary);">${r.reason}</td>
-      </tr>
-    `).join("");
-  }
-
-  /* ---------------- Section: Diffusion Suite (SI vs NIMFA) ---------------- */
-  function initDiffusion() {
-    document.querySelectorAll(".pill-btn[data-sim-net]").forEach(b => {
-      b.addEventListener("click", () => {
-        document.querySelectorAll(".pill-btn[data-sim-net]").forEach(btn => btn.classList.remove("active"));
-        b.classList.add("active");
-        currentSimNetwork = b.getAttribute("data-sim-net");
-        renderDiffusionChart();
-      });
-    });
-
-    document.querySelectorAll(".pill-btn[data-sim-model]").forEach(b => {
-      b.addEventListener("click", () => {
-        document.querySelectorAll(".pill-btn[data-sim-model]").forEach(btn => btn.classList.remove("active"));
-        b.classList.add("active");
-        currentSimModel = b.getAttribute("data-sim-model");
-        renderDiffusionChart();
-      });
-    });
-
-    document.querySelectorAll(".pill-btn[data-sim-field]").forEach(b => {
-      b.addEventListener("click", () => {
-        document.querySelectorAll(".pill-btn[data-sim-field]").forEach(btn => btn.classList.remove("active"));
-        b.classList.add("active");
-        currentSimField = b.getAttribute("data-sim-field");
-        renderDiffusionChart();
-      });
-    });
-  }
-
-  function renderDiffusionChart() {
-    const el = document.getElementById("diffusion-chart-canvas");
-    if (!el || !window.echarts) return;
-    if (diffusionChart) diffusionChart.dispose();
-    diffusionChart = echarts.init(el);
-
-    const sims = SUITE.simulations || {};
-    const netData = sims[currentSimNetwork] || {};
-    const fieldData = (netData.fields || {})[currentSimField] || {};
-
-    if (!fieldData.mc_curve) {
-      el.innerHTML = '<div style="padding:2rem; text-align:center; color:#94a3b8;">Simulation data unavailable for this selection.</div>';
-      return;
-    }
-
-    const th = netData.thresholds || {};
-    document.getElementById("diff-kpi-nimfa-t50").textContent = fieldData.nimfa_t50 != null ? fieldData.nimfa_t50 + " steps" : "–";
-    document.getElementById("diff-kpi-mc-t50").textContent = fieldData.mc_t50 != null ? fieldData.mc_t50 + " steps" : "–";
-    document.getElementById("diff-kpi-gap").textContent = (fieldData.mean_jensen_gap != null ? "+" + fieldData.mean_jensen_gap + "%" : "–");
-    document.getElementById("diff-kpi-betac").textContent = th.beta_c || "–";
-    document.getElementById("diff-kpi-spectral").textContent = th.beta_c_spec || "–";
-
-    const steps = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"];
-    const series = [];
-
-    if (currentSimModel === "overlay" || currentSimModel === "mc") {
-      series.push({
-        name: "Monte Carlo SI (M=35 Stochastic Trials)",
-        type: "line",
-        data: fieldData.mc_curve,
-        smooth: true,
-        itemStyle: { color: "#0284c7" },
-        lineStyle: { width: 3 },
-        symbolSize: 6
-      });
-    }
-
-    if (currentSimModel === "overlay" || currentSimModel === "nimfa") {
-      series.push({
-        name: "Discrete-Time Markov Chain (NIMFA Closed-Form)",
-        type: "line",
-        data: fieldData.nimfa_curve,
-        smooth: true,
-        itemStyle: { color: "#7c3aed" },
-        lineStyle: { width: 2.5, type: currentSimModel === "overlay" ? "dashed" : "solid" },
-        symbolSize: 6
-      });
-    }
-
-    series.push({
-      name: "50% Adoption Threshold (T50)",
-      type: "line",
-      data: Array(16).fill(50),
-      itemStyle: { color: "#e11d48" },
-      lineStyle: { width: 1.5, type: "dotted" },
-      symbol: "none"
-    });
-
-    diffusionChart.setOption({
-      backgroundColor: "transparent",
-      tooltip: {
-        trigger: "axis",
-        backgroundColor: "#ffffff",
-        borderColor: "#cbd5e1",
-        textStyle: { color: "#0f172a" },
-        formatter: prm => {
-          let s = `<div style="font-weight:700; color:#4f46e5; margin-bottom:0.25rem;">Step ${prm[0].name}</div>`;
-          prm.forEach(item => {
-            s += `<div>${item.marker} ${item.seriesName}: <b>${item.value}%</b></div>`;
-          });
-          return s;
-        }
-      },
-      legend: {
-        data: series.map(s => s.name),
-        textStyle: { color: "#475569", fontSize: 11 },
-        top: "bottom"
-      },
-      grid: { left: "4%", right: "4%", bottom: "12%", top: "8%", containLabel: true },
-      xAxis: {
-        type: "category",
-        name: "Step (t)",
-        nameTextStyle: { color: "#64748b" },
-        data: steps,
-        axisLine: { lineStyle: { color: "#cbd5e1" } },
-        axisLabel: { color: "#475569" }
-      },
-      yAxis: {
-        type: "value",
-        name: "% Adoption I(t)",
-        nameTextStyle: { color: "#64748b" },
-        min: 0,
-        max: 100,
-        splitLine: { lineStyle: { color: "#f1f5f9" } },
-        axisLabel: { color: "#475569" }
-      },
-      series: series
-    });
-
-    renderSuperSpreaders(fieldData.top_super_spreaders || []);
-  }
-
-  function renderSuperSpreaders(spreaders) {
-    const tbody = document.getElementById("diff-spreaders-tbody");
-    if (!tbody) return;
-
-    if (!spreaders.length) {
-      tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:1rem; color:#64748b;">No super-spreader data available.</td></tr>';
-      return;
-    }
-
-    tbody.innerHTML = spreaders.map(s => `
-      <tr>
-        <td><b>${s.name}</b></td>
-        <td><span class="inst-badge ${s.lab === 'CSIR-IICT' ? 'iict' : (s.lab === 'CSIR-NCL' ? 'ncl' : 'cecri')}">${s.lab}</span></td>
-        <td><b style="color:#7c3aed;">${s.dynamical_impact}</b> expected adopters</td>
-        <td><b>${s.out_degree}</b> ties</td>
-      </tr>
-    `).join("");
-  }
-
-  /* ---------------- Data-bound tables and text (D-33) ----------------
-   * Every number in these tables and paragraphs comes from the suite bundle (simulation output
-   * and the cadre network summary); nothing is typed into the page. */
-  const NET_ROWS = [
-    ["full_authorship", "Full Co-Authorship", "Full Co-Authorship"],
-    ["cadre_authorship", "Cadre Co-Authorship", "Cadre Co-Authorship"],
-    ["cadre_citation", "Cadre Faculty Citation", "Cadre Faculty Citation"],
-    ["full_citation", "Full In-Corpus Citation", "Full Citation"],
-  ];
-  const num = (v, d = 2) => (v == null || isNaN(v) ? "–" : Number(v).toFixed(d));
-  const pctTxt = v => (v == null ? "–" : `${Number(v).toFixed(1)}%`);
-  const last = a => (a && a.length ? a[a.length - 1] : null);
-  const t50Txt = v => (v == null ? "–" : (Number(v) >= 15 ? "&gt;15 steps" : `${num(v)} steps`));
-  const setHTML = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
-
-  function bindNumbers() {
-    const S = SUITE.simulations || {};
-    const summ = Object.fromEntries((SUITE.cadre_summary || []).map(r => [r.network, r]));
-    const ov = (S.overlay_comparison || {}).Chemistry || {};
-    const rows = NET_ROWS.map(([key, label, summKey]) => {
-      const n = S[key] || {}, f = ((n.fields || {}).Chemistry) || {}, sm = summ[summKey] || {};
-      return { key, label, nodes: n.nodes, edges: n.edges, k: (n.thresholds || {}).k_mean, density: sm.density,
-               clustering: sm.clustering_coef, beta: (n.thresholds || {}).beta_c, t50: f.nimfa_t50, reach: last(ov[`${key}_nimfa`]) };
-    });
-    setHTML("cmp-tbody", rows.map(r => `<tr><td><b>${r.label}</b></td><td>${fmt(r.nodes)}</td><td>${fmt(r.edges)}</td>
-      <td>${num(r.k)}</td><td>${num(r.density, 4)}</td><td>${num(r.clustering, 3)}</td><td><b>${num(r.beta, 4)}</b></td>
-      <td><b>${t50Txt(r.t50)}</b></td><td><b>${pctTxt(r.reach)}</b></td></tr>`).join(""));
-    const R = Object.fromEntries(rows.map(r => [r.key, r]));
-    const fastest = rows.filter(r => r.t50 != null).sort((a, b) => a.t50 - b.t50)[0];
-    setHTML("interp-overlay",
-      `Chemistry field, NIMFA model, baseline infectivity β₀ = 0.20, 15 steps. ` +
-      `Fastest to 50% adoption: <b>${fastest ? fastest.label : "–"}</b> (T<sub>50</sub> = ${fastest ? t50Txt(fastest.t50) : "–"}). ` +
-      `Full co-authorship (${fmt(R.full_authorship.nodes)} authors, students included) reaches ${pctTxt(R.full_authorship.reach)}; ` +
-      `cadre co-authorship (${fmt(R.cadre_authorship.nodes)} scientists) reaches ${pctTxt(R.cadre_authorship.reach)} with T<sub>50</sub> = ${t50Txt(R.cadre_authorship.t50)}, ` +
-      `so removing students and project staff slows spreading. ` +
-      `The paper citation network reaches only ${pctTxt(R.full_citation.reach)}: citations point back in time, so spreading follows only the papers that cite a paper. ` +
-      `The faculty citation network (mean degree ⟨k⟩ = ${num(R.cadre_citation.k)}) reaches ${pctTxt(R.cadre_citation.reach)}. ` +
-      `These are model scenarios on the observed networks, not observed diffusion.`);
-
-    // seed origin
-    const so = ((S.seed_origins || {}).cadre_authorship) || {}, sf = ((S.seed_origins || {}).full_authorship) || {};
-    const labs = ["iict", "ncl", "cecri"], nm = { iict: "CSIR-IICT", ncl: "CSIR-NCL", cecri: "CSIR-CECRI" };
-    if (so.iict) {
-      const order = labs.slice().sort((a, b) => (so[b].final_reach || 0) - (so[a].final_reach || 0));
-      setHTML("interp-seed",
-        `Cadre co-authorship network, seeds chosen among each lab's scientists. Final reach after 15 steps: ` +
-        order.map(k => `<b>${nm[k]}</b> ${pctTxt(so[k].final_reach)} (reach at step 3: ${pctTxt(so[k].early_reach_t3)}, T<sub>50</sub> = ${t50Txt(so[k].t50)})`).join("; ") + ". " +
-        (sf.cecri ? `With students and project staff included (full co-authorship), a start at CECRI reaches ${pctTxt(sf.cecri.final_reach)} ` +
-          `(T<sub>50</sub> = ${t50Txt(sf.cecri.t50)}), against ${pctTxt(so.cecri.final_reach)} on the faculty-only network.` : ""));
-    }
-
-    // intra-institute
-    const ii = S.intra_institute || {};
-    const subs = [["full_authorship", "Full Authorship"], ["cadre_authorship", "Cadre Authorship"], ["full_citation", "Paper Citation"]];
-    const trs = [];
-    labs.forEach(k => subs.forEach(([sk, sl]) => {
-      const d = (ii[k] || {})[sk];
-      if (!d) return;
-      trs.push(`<tr><td><b>${nm[k]}</b></td><td>${sl}</td><td>${fmt(d.nodes)}</td><td>${fmt(d.edges)}</td><td>${num(d.k_mean)}</td>
-        <td>${num(d.beta_c, 4)}</td><td>${num(d.beta_c_spectral, 4)}</td><td>${t50Txt(d.t50)}</td><td>${pctTxt(d.final_reach)}</td></tr>`);
-    }));
-    setHTML("intra-tbody", trs.join(""));
-    if (ii.ncl) {
-      const c = k => (ii[k] || {}).cadre_authorship || {};
-      const sub = labs.filter(k => c(k).beta_c != null && c(k).beta_c > 0.2);
-      setHTML("interp-intra",
-        `Spreading only among each lab's own scientists (cadre co-authorship within the lab): ` +
-        labs.map(k => `<b>${nm[k]}</b> ${fmt(c(k).nodes)} connected scientists, ${fmt(c(k).edges)} pairs, ⟨k⟩ = ${num(c(k).k_mean)}, ` +
-          `β<sub>c</sub> = ${num(c(k).beta_c, 4)}, final reach ${pctTxt(c(k).final_reach)}`).join("; ") + ". " +
-        (sub.length ? `For ${sub.map(k => nm[k]).join(" and ")} the threshold β<sub>c</sub> is above the simulated β₀ = 0.20, so spreading inside that lab's faculty network stays sub-critical.` : ""));
-    }
-
-    // network structure
-    const ma = (SUITE.cadre_coauthorship || {}).metrics || {}, mc = (SUITE.cadre_citation || {}).metrics || {};
-    setHTML("interp-networks",
-      `Co-authorship: ${fmt(ma.connected_faculty)} of ${fmt(ma.total_cadre_faculty)} active scientists have at least one faculty co-author; ` +
-      `${fmt(ma.edges)} co-author pairs, average clustering ${num(ma.clustering, 3)}, modularity Q = ${num(ma.modularity, 3)} ` +
-      `(high modularity: scientists publish mostly within groups that rarely overlap). ` +
-      `Citation: ${fmt(mc.connected_faculty)} scientists cite or are cited by another; ${fmt(mc.edges)} directed links ` +
-      `(${fmt(mc.citation_links)} paper-to-paper citations; ${fmt(mc.self_citation_pairs_excluded)} self-citations left out), reciprocity ${num(mc.reciprocity, 3)}.`);
-  }
-
-  /* ---------------- Init on DOM Ready ---------------- */
-  document.addEventListener("DOMContentLoaded", () => {
-    initNav();
-    initOverlay();
-    initSeedOrigin();
-    initIntra();
-    initNetworks();
-    initCleaning();
-    initDiffusion();
-    bindNumbers();
-
-    const hash = window.location.hash.replace("#", "");
-    if (["overlay", "seed-origin", "intra-institute", "networks", "diffusion", "cleaning"].includes(hash)) {
-      showSection(hash);
-    } else {
-      showSection("overlay");
-    }
-
-    window.addEventListener("resize", () => {
-      if (overlayChart) overlayChart.resize();
-      if (seedOriginChart) seedOriginChart.resize();
-      if (intraChart) intraChart.resize();
-      if (networkChart) networkChart.resize();
-      if (diffusionChart) diffusionChart.resize();
-    });
-  });
+  renderTop(); renderData(); renderThreshold(); renderFields(); renderNetworks(); renderMeanField(); renderLabs(); renderProof();
+  // typeset formulas inside generated tables once MathJax has loaded
+  const typeset = () => (window.MathJax && MathJax.typesetPromise ? MathJax.typesetPromise() : null);
+  if (!typeset()) window.addEventListener("load", () => setTimeout(typeset, 0));
 })();

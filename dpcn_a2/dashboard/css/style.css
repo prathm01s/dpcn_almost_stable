@@ -970,3 +970,27 @@ body.on-hero .dot-nav a.active .dot { background: #fff; }
   50% { box-shadow: 0 0 0 7px rgba(251, 191, 36, 0.18), 0 14px 34px rgba(245, 158, 11, 0.45); }
 }
 @media (prefers-reduced-motion: reduce) { .btn-global { animation: none; } }
+
+/* Home hero: Global Benchmark + Insight 11 feature cards (D-38) */
+.hero-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 1rem; margin-top: 1.4rem; max-width: 1240px; }
+.hero-features .btn-global { margin-top: 0; max-width: none; }
+.btn-i11 {
+  display: flex; flex-direction: column; gap: 0.45rem; padding: 1rem 1.2rem; border-radius: 14px; text-decoration: none; color: #fff;
+  background: linear-gradient(135deg, #0f766e 0%, #1d4ed8 55%, #6d28d9 100%);
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.35), 0 14px 34px rgba(29, 78, 216, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-i11:hover, .btn-i11:focus-visible { transform: translateY(-2px); box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.55), 0 18px 40px rgba(29, 78, 216, 0.45); }
+.btn-i11:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.i11-top { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+.i11-tag { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #99f6e4; }
+.i11-check { font-size: 0.72rem; font-weight: 800; background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.35); padding: 0.15rem 0.55rem; border-radius: 999px; white-space: nowrap; }
+.i11-check:empty { display: none; }
+.i11-title { font-size: 1.15rem; font-weight: 800; line-height: 1.25; }
+.i11-body { display: grid; grid-template-columns: 150px 1fr; gap: 0.9rem; align-items: center; }
+.i11-spark { width: 150px; height: 60px; background: rgba(255, 255, 255, 0.08); border-radius: 8px; }
+.i11-stats { display: grid; gap: 0.25rem; font-size: 0.82rem; color: #e0e7ff; line-height: 1.35; }
+.i11-stats b { color: #fff; font-size: 1.05rem; }
+.i11-go { font-size: 0.8rem; color: #c7d2fe; display: flex; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+.i11-go b { color: #fff; font-size: 0.95rem; }
+@media (max-width: 480px) { .i11-body { grid-template-columns: 1fr; } .i11-spark { width: 100%; } }

@@ -1,7 +1,7 @@
 {
   "id": "11_information_diffusion",
   "question": "How do new experimental methodologies and reagents diffuse across labs, and who are the super-spreaders?",
-  "headline": "Epidemic thresholds are low in every field (\u03b2c = 0.0326 in Chemistry to 0.0555 in Engineering), far below the simulated \u03b20 = 0.2. With uniform transmission half of the Chemistry subgraph adopts by step 6 (median over 15 faculty seeds; 15 reach 50% within 15 steps); with topic-weighted transmission on the full network, 76.41% of Chemistry researchers and 2.42% of researchers outside Chemistry adopt by step 15.",
+  "headline": "With uniform transmission half of the Chemistry subgraph adopts by step 6 (median over 15 faculty seeds; 15 reach 50% within 15 steps); with topic-weighted transmission on the full network, 76.41% of Chemistry researchers and 2.42% of researchers outside Chemistry adopt by step 15. The field networks' structural thresholds for spreading with recovery range from \u03b2c = 0.0326 (Chemistry) to 0.0555 (Engineering).",
   "metrics": {
     "global_lcc_nodes": 7735,
     "global_beta_c_theoretical": 0.0324,
@@ -1808,6 +1808,6 @@
       ]
     }
   },
-  "method_note": "Susceptible-Infected (SI) Monte Carlo on the co-author LCC (7,735 researchers, keyed by OpenAlex author ID) for the 6 largest fields (987\u20133,254 active researchers each). Thresholds \u03b2c = <k>/<k\u00b2> and 1/\u03bb_max per field subgraph. Condition A: \u03b2 = \u03b20 \u00d7 subfield cosine similarity \u00d7 receiver's field share (min 0.05) on the full network; Condition B: uniform \u03b20 = 0.2 inside the field subgraph. Top 15 roster faculty per field (field share \u00d7 degree) as seeds, 50 runs each, 15 steps; T50 = median step at which 50% of the field has adopted, 'not reached' when the median run never gets there. Seeded (SEED=24) and order-independent, so reruns give identical numbers.",
-  "computed_at": "2026-11-02T17:55:35.521390+00:00"
+  "method_note": "Susceptible-Infected (SI) Monte Carlo on the co-author LCC (7,735 researchers, keyed by OpenAlex author ID) for the 6 largest fields (987\u20133,254 active researchers each). Structural thresholds \u03b2c = <k>/<k\u00b2> and 1/\u03bb_max per field subgraph (they apply to spreading with recovery; SI itself has no threshold). Condition A: \u03b2 = \u03b20 \u00d7 subfield cosine similarity \u00d7 receiver's field share (min 0.05) on the full network; Condition B: uniform \u03b20 = 0.2 inside the field subgraph. Top 15 roster faculty per field (field share \u00d7 degree) as seeds, 50 runs each, 15 steps; T50 = median step at which 50% of the field has adopted, 'not reached' when the median run never gets there. Seeded (SEED=24) and order-independent, so reruns give identical numbers.",
+  "computed_at": "2026-11-10T15:14:47.087784+00:00"
 }

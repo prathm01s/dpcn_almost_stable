@@ -119,6 +119,12 @@ def audit_data_cleaning() -> dict:
             "faculty_paper_rows": total_fac_paper_rows,
             "distinct_faculty_dois": distinct_fac_dois,
         },
+        # Excluded staff stay in the dataset as ordinary authors (affiliated_author); only faculty statistics
+        # and the faculty networks leave them out
+        "excluded_staff_publishing": {
+            "with_papers": int((pd.to_numeric(ex["n_papers_corpus"], errors="coerce").fillna(0) > 0).sum()),
+            "papers_total": int(pd.to_numeric(ex["n_papers_corpus"], errors="coerce").fillna(0).sum()),
+        },
         "sample_excluded": excluded_records
     }
 
