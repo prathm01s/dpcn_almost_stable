@@ -45,7 +45,7 @@
   color-scheme: light;
 }
 
-/* Dark theme (default; js/theme.js sets <html data-theme>) */
+/* Dark theme (switched on by the header button; js/theme.js sets <html data-theme>) */
 :root[data-theme="dark"] {
   --bg-page: #0b1120;
   --bg-surface: #0f172a;

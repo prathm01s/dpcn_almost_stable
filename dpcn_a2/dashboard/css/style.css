@@ -46,7 +46,7 @@
   color-scheme: light;
 }
 
-/* Dark theme (default; set on <html data-theme="dark"> by js/theme.js) */
+/* Dark theme (switched on by the header button; set on <html data-theme="dark"> by js/theme.js) */
 :root[data-theme="dark"] {
   --primary: #4f46e5;
   --primary-light: #a5b4fc;

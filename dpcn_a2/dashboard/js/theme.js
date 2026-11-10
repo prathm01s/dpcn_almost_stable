@@ -1,5 +1,5 @@
 /**
- * Light / dark theme for every dashboard page. Dark is the default.
+ * Light / dark theme for every dashboard page. Light is the default (D-36).
  * Load in <head> (before the stylesheets apply) so the page never flashes the wrong theme.
  *
  * - Sets <html data-theme="dark|light">; the CSS defines both colour sets.
@@ -14,7 +14,7 @@
   const root = document.documentElement;
   let saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) { /* storage blocked: use the default */ }
-  let theme = saved === "light" || saved === "dark" ? saved : "dark";
+  let theme = saved === "light" || saved === "dark" ? saved : "light";
   root.setAttribute("data-theme", theme);
 
   const ink = {

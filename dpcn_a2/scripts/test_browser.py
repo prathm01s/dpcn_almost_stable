@@ -154,18 +154,18 @@ def run_tests():
                 break
             time.sleep(0.25)
 
-        # Theme: dark by default; the header toggle switches to light and back, redrawing the charts
+        # Theme: light by default (D-36); the header toggle switches to dark and back, redrawing the charts
         client.evaluate("try { localStorage.removeItem('g24-theme'); } catch (e) {}")
-        assert client.evaluate("document.documentElement.dataset.theme") == "dark", "Dark theme should be the default"
-        client.evaluate("document.querySelector('.theme-toggle').click()")
-        time.sleep(1.0)
-        light = client.evaluate("document.documentElement.dataset.theme")
-        trend_ok = client.evaluate("!!echarts.getInstanceByDom(document.getElementById('chart-trend'))")
+        assert client.evaluate("document.documentElement.dataset.theme") == "light", "Light theme should be the default"
         client.evaluate("document.querySelector('.theme-toggle').click()")
         time.sleep(1.0)
         dark = client.evaluate("document.documentElement.dataset.theme")
-        print(f"✓ Theme toggle: dark -> {light} -> {dark}, charts redrawn: {trend_ok}")
-        assert light == "light" and dark == "dark" and trend_ok
+        trend_ok = client.evaluate("!!echarts.getInstanceByDom(document.getElementById('chart-trend'))")
+        client.evaluate("document.querySelector('.theme-toggle').click()")
+        time.sleep(1.0)
+        light = client.evaluate("document.documentElement.dataset.theme")
+        print(f"✓ Theme toggle: light -> {dark} -> {light}, charts redrawn: {trend_ok}")
+        assert dark == "dark" and light == "light" and trend_ok
 
         total_papers = client.evaluate("document.getElementById('kpi-total-papers').textContent")
         journal_papers = client.evaluate("document.getElementById('kpi-journal-papers').textContent")
