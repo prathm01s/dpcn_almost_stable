@@ -14,7 +14,10 @@ Outputs (stats/tables/global_*.csv)
                               and top 10% share by year
 - global_links.csv            per CSIR lab and peer: co-authored papers, peer papers citing the
                               lab, peer papers the lab cites (each excluding papers co-authored
-                              with the lab), and the exchange ratio
+                              with the lab, and both counting only peer papers published in the
+                              dataset's years, 2016-2026), and the exchange ratio
+- global_world_baseline.csv   the world's own share of top 10% / top 1% papers in the scope (the
+                              reference line for the impact shares; not exactly 10% / 1%)
 - global_country_relations.csv every country co-authoring with the labs (curated data, 2016-2026)
 - global_rule_funnel.csv      per country: institutions removed by each selection rule
 - global_similarity.csv       research-profile similarity of every candidate to each lab
@@ -34,6 +37,15 @@ G = Path("data/final/global")
 T = Path("stats/tables")
 LAB_SHORT = {"CSIR-NCL": "CSIR-NCL", "CSIR-IICT": "CSIR-IICT", "CSIR-CECRI": "CSIR-CECRI"}
 COUNTRY_NAMES = {"IN": "India", "US": "USA", "CN": "China", "KR": "South Korea", "AU": "Australia", "WORLD": "World"}
+
+
+def _flow_years() -> tuple:
+    """Both directions of a citation flow count only papers published in the dataset's years (D-40):
+    the labs' papers are 2016-2026, so a peer paper citing them is too, while the papers the labs cite
+    go back decades. Counting older cited papers as well made every partner look like a net source."""
+    with open("config/settings.yaml", encoding="utf-8") as f:
+        y = yaml.safe_load(f)["years"]
+    return int(y["start"]), int(y["end"])
 
 
 def _cfg() -> dict:
@@ -101,11 +113,26 @@ def countries_table() -> pd.DataFrame:
     return c[["country_code", "country", "year", "papers_scope", "world_share_pct", "top10_pct", "top1_pct"]]
 
 
+def world_baseline(cfg: dict) -> pd.DataFrame:
+    """The world's share of top 10% / top 1% papers in the benchmark scope, over the whole period and
+    the early / late halves. OpenAlex marks ties at the threshold, so the share is a little above 10%."""
+    c = pd.read_csv(G / "country_by_year.csv", keep_default_na=False)
+    w = c[c["country_code"] == "WORLD"].set_index("year")
+    y0, y1 = cfg["years"]["start"], cfg["years"]["end"]
+    rows = []
+    for period, g in [(f"{y0}-{y1}", w), (f"{y0}-{y0 + 4}", w.loc[y0:y0 + 4]), (f"{y1 - 4}-{y1}", w.loc[y1 - 4:y1])]:
+        rows.append({"period": period, "papers_scope": int(g["papers_scope"].sum()),
+                     "top10_pct": _pct(g["top10"].sum(), g["papers_scope"].sum()),
+                     "top1_pct": _pct(g["top1"].sum(), g["papers_scope"].sum())})
+    return pd.DataFrame(rows)
+
+
 def links_table(peers: pd.DataFrame) -> pd.DataFrame:
     co = pd.read_csv(G / "collab_by_year.csv", dtype={"institution_id": str})
     fl = pd.read_csv(G / "citation_flows.csv", dtype={"institution_id": str, "work_id": str})
     fl["coauthored_with_lab"] = fl["coauthored_with_lab"].astype(str).str.upper() == "TRUE"
-    clean = fl[~fl["coauthored_with_lab"]]
+    y0, y1 = _flow_years()
+    clean = fl[~fl["coauthored_with_lab"] & fl["year"].between(y0, y1)]
     rows = []
     for _, p in peers[peers["group"] != "CSIR lab"].iterrows():
         for lab in LAB_SHORT:
@@ -186,14 +213,20 @@ UNIVERSITIES = [
 
 def indian_universities() -> pd.DataFrame:
     """Knowledge exchange between each lab and 15 Indian universities, from the dataset's citation network
-    (data/final/citation_network.csv: Indian citing / cited papers, 2016-2026) and co-authorship
-    (indian_connections.csv). Same definition as the peer links (global_links.csv):
+    (data/final/citation_network.csv) and co-authorship (indian_connections.csv). Same definition as
+    the peer links (global_links.csv):
       papers_citing_lab   = distinct university papers that cite >= 1 of the lab's papers
       papers_cited_by_lab = distinct university papers that >= 1 of the lab's papers cite
-    both leaving out papers co-authored with the lab; exchange_ratio = citing / cited_by.
+    both leaving out papers co-authored with the lab and counting only university papers published
+    in the dataset's years (2016-2026; years from indian_linked_works.csv); exchange_ratio = citing / cited_by.
     Institutions are matched by exact name in the ';'-separated lists (no substring matching)."""
     c = pd.read_csv("data/final/citation_network.csv", dtype=str, keep_default_na=False)
     conn = pd.read_csv("data/final/indian_connections.csv", dtype=str, keep_default_na=False)
+    linked = pd.read_csv("data/final/indian_linked_works.csv", dtype=str, keep_default_na=False, usecols=["doi", "year"])
+    year_of = pd.to_numeric(linked.drop_duplicates("doi").set_index("doi")["year"], errors="coerce")
+    y0, y1 = _flow_years()
+    src_ok = c["source_doi"].map(year_of).between(y0, y1)
+    tgt_ok = c["target_doi"].map(year_of).between(y0, y1)
     src = c["source_inst"].str.split(";").apply(set)
     tgt = c["target_inst"].str.split(";").apply(set)
     rows = []
@@ -203,8 +236,8 @@ def indian_universities() -> pd.DataFrame:
         per_lab = {}
         for lab in LAB_SHORT:
             l_src, l_tgt = src.apply(lambda s: lab in s), tgt.apply(lambda s: lab in s)
-            inn = set(c.loc[u_src & l_tgt & ~l_src, "source_doi"])   # university paper cites the lab
-            out = set(c.loc[l_src & u_tgt & ~l_tgt, "target_doi"])   # lab paper cites the university
+            inn = set(c.loc[u_src & l_tgt & ~l_src & src_ok, "source_doi"])   # university paper cites the lab
+            out = set(c.loc[l_src & u_tgt & ~l_tgt & tgt_ok, "target_doi"])   # lab paper cites the university
             co = conn[(conn["your_inst"] == lab) & (conn["partner_inst"] == name)]["shared_papers"]
             per_lab[lab] = (len(inn), len(out), int(co.astype(int).sum()) if len(co) else 0)
             all_in |= inn
@@ -283,6 +316,7 @@ def run_global_benchmark() -> None:
     summ.to_csv(T / "global_summary.csv", index=False)
     by_year.to_csv(T / "global_by_year.csv", index=False)
     countries_table().to_csv(T / "global_countries.csv", index=False)
+    world_baseline(cfg).to_csv(T / "global_world_baseline.csv", index=False)
     links_table(peers).to_csv(T / "global_links.csv", index=False)
     cr = country_relations()
     cr.to_csv(T / "global_country_relations.csv", index=False)

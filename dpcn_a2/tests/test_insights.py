@@ -191,7 +191,7 @@ def test_information_diffusion_specifics():
 
 
 def test_coauthor_graph_has_one_node_per_scientist():
-    """Nodes are OpenAlex author IDs: no roster scientist is split across name variants."""
+    """One node per person: no roster scientist is split across name variants or OpenAlex profiles (D-41)."""
     from collections import Counter
     from src.stats.insights.common import coauthor_graph
     G = coauthor_graph()

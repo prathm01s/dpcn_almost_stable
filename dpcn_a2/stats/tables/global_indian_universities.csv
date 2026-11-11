@@ -1,61 +1,61 @@
 university,full_name,tier,lab,papers_citing_lab,papers_cited_by_lab,exchange_ratio,coauthored_papers
-IISc,Indian Institute of Science Bangalore,IISc / IIT,CSIR-NCL,421,834,0.5,62
-IISc,Indian Institute of Science Bangalore,IISc / IIT,CSIR-IICT,245,716,0.34,19
-IISc,Indian Institute of Science Bangalore,IISc / IIT,CSIR-CECRI,204,417,0.49,16
-IISc,Indian Institute of Science Bangalore,IISc / IIT,All three,812,1764,0.46,97
-IIT Bombay,Indian Institute of Technology Bombay,IISc / IIT,CSIR-NCL,382,443,0.86,84
-IIT Bombay,Indian Institute of Technology Bombay,IISc / IIT,CSIR-IICT,283,443,0.64,21
-IIT Bombay,Indian Institute of Technology Bombay,IISc / IIT,CSIR-CECRI,179,218,0.82,9
-IIT Bombay,Indian Institute of Technology Bombay,IISc / IIT,All three,784,1009,0.78,114
-IIT Madras,Indian Institute of Technology Madras,IISc / IIT,CSIR-NCL,412,395,1.04,40
-IIT Madras,Indian Institute of Technology Madras,IISc / IIT,CSIR-IICT,194,356,0.54,4
-IIT Madras,Indian Institute of Technology Madras,IISc / IIT,CSIR-CECRI,259,368,0.7,61
-IIT Madras,Indian Institute of Technology Madras,IISc / IIT,All three,801,1010,0.79,105
-IIT Delhi,Indian Institute of Technology Delhi,IISc / IIT,CSIR-NCL,361,394,0.92,35
-IIT Delhi,Indian Institute of Technology Delhi,IISc / IIT,CSIR-IICT,297,352,0.84,11
-IIT Delhi,Indian Institute of Technology Delhi,IISc / IIT,CSIR-CECRI,222,223,1.0,14
-IIT Delhi,Indian Institute of Technology Delhi,IISc / IIT,All three,821,888,0.92,60
-IIT Kharagpur,Indian Institute of Technology Kharagpur,IISc / IIT,CSIR-NCL,327,393,0.83,16
-IIT Kharagpur,Indian Institute of Technology Kharagpur,IISc / IIT,CSIR-IICT,343,563,0.61,26
-IIT Kharagpur,Indian Institute of Technology Kharagpur,IISc / IIT,CSIR-CECRI,224,295,0.76,4
-IIT Kharagpur,Indian Institute of Technology Kharagpur,IISc / IIT,All three,846,1119,0.76,46
-IIT Kanpur,Indian Institute of Technology Kanpur,IISc / IIT,CSIR-NCL,284,280,1.01,8
-IIT Kanpur,Indian Institute of Technology Kanpur,IISc / IIT,CSIR-IICT,175,358,0.49,45
-IIT Kanpur,Indian Institute of Technology Kanpur,IISc / IIT,CSIR-CECRI,187,146,1.28,18
-IIT Kanpur,Indian Institute of Technology Kanpur,IISc / IIT,All three,601,724,0.83,71
-IIT Roorkee,Indian Institute of Technology Roorkee,IISc / IIT,CSIR-NCL,376,282,1.33,20
-IIT Roorkee,Indian Institute of Technology Roorkee,IISc / IIT,CSIR-IICT,273,365,0.75,13
-IIT Roorkee,Indian Institute of Technology Roorkee,IISc / IIT,CSIR-CECRI,181,179,1.01,1
-IIT Roorkee,Indian Institute of Technology Roorkee,IISc / IIT,All three,766,746,1.03,34
-IIT Guwahati,Indian Institute of Technology Guwahati,IISc / IIT,CSIR-NCL,321,264,1.22,12
-IIT Guwahati,Indian Institute of Technology Guwahati,IISc / IIT,CSIR-IICT,358,425,0.84,17
-IIT Guwahati,Indian Institute of Technology Guwahati,IISc / IIT,CSIR-CECRI,188,133,1.41,8
-IIT Guwahati,Indian Institute of Technology Guwahati,IISc / IIT,All three,815,754,1.08,37
-IIT Hyderabad,Indian Institute of Technology Hyderabad,IISc / IIT,CSIR-NCL,231,104,2.22,27
-IIT Hyderabad,Indian Institute of Technology Hyderabad,IISc / IIT,CSIR-IICT,231,146,1.58,58
-IIT Hyderabad,Indian Institute of Technology Hyderabad,IISc / IIT,CSIR-CECRI,157,75,2.09,5
-IIT Hyderabad,Indian Institute of Technology Hyderabad,IISc / IIT,All three,568,295,1.93,90
-Pune University,Savitribai Phule Pune University,State university,CSIR-NCL,554,511,1.08,355
-Pune University,Savitribai Phule Pune University,State university,CSIR-IICT,231,248,0.93,16
-Pune University,Savitribai Phule Pune University,State university,CSIR-CECRI,147,121,1.21,3
-Pune University,Savitribai Phule Pune University,State university,All three,858,808,1.06,374
-Univ. of Hyderabad,University of Hyderabad,State university,CSIR-NCL,169,347,0.49,49
-Univ. of Hyderabad,University of Hyderabad,State university,CSIR-IICT,267,525,0.51,109
-Univ. of Hyderabad,University of Hyderabad,State university,CSIR-CECRI,68,95,0.72,6
-Univ. of Hyderabad,University of Hyderabad,State university,All three,466,852,0.55,164
-Osmania University,Osmania University,State university,CSIR-NCL,79,100,0.79,14
-Osmania University,Osmania University,State university,CSIR-IICT,292,269,1.09,258
-Osmania University,Osmania University,State university,CSIR-CECRI,55,34,1.62,0
-Osmania University,Osmania University,State university,All three,396,382,1.04,272
-Alagappa University,Alagappa University,State university,CSIR-NCL,102,64,1.59,2
-Alagappa University,Alagappa University,State university,CSIR-IICT,87,122,0.71,2
-Alagappa University,Alagappa University,State university,CSIR-CECRI,480,272,1.76,167
-Alagappa University,Alagappa University,State university,All three,621,424,1.46,171
-Anna University,"Anna University, Chennai",State university,CSIR-NCL,182,152,1.2,4
-Anna University,"Anna University, Chennai",State university,CSIR-IICT,196,276,0.71,11
-Anna University,"Anna University, Chennai",State university,CSIR-CECRI,269,275,0.98,50
-Anna University,"Anna University, Chennai",State university,All three,606,646,0.94,65
-University of Madras,University of Madras,State university,CSIR-NCL,112,96,1.17,8
-University of Madras,University of Madras,State university,CSIR-IICT,117,214,0.55,6
-University of Madras,University of Madras,State university,CSIR-CECRI,235,167,1.41,31
-University of Madras,University of Madras,State university,All three,432,441,0.98,45
+IISc,Indian Institute of Science Bangalore,IISc / IIT,CSIR-NCL,421,285,1.48,62
+IISc,Indian Institute of Science Bangalore,IISc / IIT,CSIR-IICT,245,258,0.95,19
+IISc,Indian Institute of Science Bangalore,IISc / IIT,CSIR-CECRI,204,190,1.07,16
+IISc,Indian Institute of Science Bangalore,IISc / IIT,All three,812,668,1.22,97
+IIT Bombay,Indian Institute of Technology Bombay,IISc / IIT,CSIR-NCL,382,220,1.74,84
+IIT Bombay,Indian Institute of Technology Bombay,IISc / IIT,CSIR-IICT,283,241,1.17,21
+IIT Bombay,Indian Institute of Technology Bombay,IISc / IIT,CSIR-CECRI,179,93,1.92,9
+IIT Bombay,Indian Institute of Technology Bombay,IISc / IIT,All three,784,511,1.53,114
+IIT Madras,Indian Institute of Technology Madras,IISc / IIT,CSIR-NCL,412,170,2.42,40
+IIT Madras,Indian Institute of Technology Madras,IISc / IIT,CSIR-IICT,194,200,0.97,4
+IIT Madras,Indian Institute of Technology Madras,IISc / IIT,CSIR-CECRI,259,181,1.43,61
+IIT Madras,Indian Institute of Technology Madras,IISc / IIT,All three,801,508,1.58,105
+IIT Delhi,Indian Institute of Technology Delhi,IISc / IIT,CSIR-NCL,361,194,1.86,35
+IIT Delhi,Indian Institute of Technology Delhi,IISc / IIT,CSIR-IICT,297,200,1.49,11
+IIT Delhi,Indian Institute of Technology Delhi,IISc / IIT,CSIR-CECRI,222,124,1.79,14
+IIT Delhi,Indian Institute of Technology Delhi,IISc / IIT,All three,821,487,1.69,60
+IIT Kharagpur,Indian Institute of Technology Kharagpur,IISc / IIT,CSIR-NCL,327,191,1.71,16
+IIT Kharagpur,Indian Institute of Technology Kharagpur,IISc / IIT,CSIR-IICT,343,271,1.27,26
+IIT Kharagpur,Indian Institute of Technology Kharagpur,IISc / IIT,CSIR-CECRI,224,154,1.45,4
+IIT Kharagpur,Indian Institute of Technology Kharagpur,IISc / IIT,All three,846,565,1.5,46
+IIT Kanpur,Indian Institute of Technology Kanpur,IISc / IIT,CSIR-NCL,284,128,2.22,8
+IIT Kanpur,Indian Institute of Technology Kanpur,IISc / IIT,CSIR-IICT,175,161,1.09,45
+IIT Kanpur,Indian Institute of Technology Kanpur,IISc / IIT,CSIR-CECRI,187,85,2.2,18
+IIT Kanpur,Indian Institute of Technology Kanpur,IISc / IIT,All three,601,346,1.74,71
+IIT Roorkee,Indian Institute of Technology Roorkee,IISc / IIT,CSIR-NCL,376,158,2.38,20
+IIT Roorkee,Indian Institute of Technology Roorkee,IISc / IIT,CSIR-IICT,273,206,1.33,13
+IIT Roorkee,Indian Institute of Technology Roorkee,IISc / IIT,CSIR-CECRI,181,71,2.55,1
+IIT Roorkee,Indian Institute of Technology Roorkee,IISc / IIT,All three,766,401,1.91,34
+IIT Guwahati,Indian Institute of Technology Guwahati,IISc / IIT,CSIR-NCL,321,148,2.17,12
+IIT Guwahati,Indian Institute of Technology Guwahati,IISc / IIT,CSIR-IICT,358,253,1.42,17
+IIT Guwahati,Indian Institute of Technology Guwahati,IISc / IIT,CSIR-CECRI,188,81,2.32,8
+IIT Guwahati,Indian Institute of Technology Guwahati,IISc / IIT,All three,815,451,1.81,37
+IIT Hyderabad,Indian Institute of Technology Hyderabad,IISc / IIT,CSIR-NCL,231,89,2.6,27
+IIT Hyderabad,Indian Institute of Technology Hyderabad,IISc / IIT,CSIR-IICT,231,130,1.78,58
+IIT Hyderabad,Indian Institute of Technology Hyderabad,IISc / IIT,CSIR-CECRI,157,62,2.53,5
+IIT Hyderabad,Indian Institute of Technology Hyderabad,IISc / IIT,All three,568,253,2.25,90
+Pune University,Savitribai Phule Pune University,State university,CSIR-NCL,554,261,2.12,355
+Pune University,Savitribai Phule Pune University,State university,CSIR-IICT,231,98,2.36,16
+Pune University,Savitribai Phule Pune University,State university,CSIR-CECRI,147,51,2.88,3
+Pune University,Savitribai Phule Pune University,State university,All three,858,381,2.25,374
+Univ. of Hyderabad,University of Hyderabad,State university,CSIR-NCL,169,124,1.36,49
+Univ. of Hyderabad,University of Hyderabad,State university,CSIR-IICT,267,233,1.15,109
+Univ. of Hyderabad,University of Hyderabad,State university,CSIR-CECRI,68,53,1.28,6
+Univ. of Hyderabad,University of Hyderabad,State university,All three,466,372,1.25,164
+Osmania University,Osmania University,State university,CSIR-NCL,79,48,1.65,14
+Osmania University,Osmania University,State university,CSIR-IICT,292,155,1.88,258
+Osmania University,Osmania University,State university,CSIR-CECRI,55,17,3.24,0
+Osmania University,Osmania University,State university,All three,396,206,1.92,272
+Alagappa University,Alagappa University,State university,CSIR-NCL,102,30,3.4,2
+Alagappa University,Alagappa University,State university,CSIR-IICT,87,73,1.19,2
+Alagappa University,Alagappa University,State university,CSIR-CECRI,480,150,3.2,167
+Alagappa University,Alagappa University,State university,All three,621,237,2.62,171
+Anna University,"Anna University, Chennai",State university,CSIR-NCL,182,64,2.84,4
+Anna University,"Anna University, Chennai",State university,CSIR-IICT,196,127,1.54,11
+Anna University,"Anna University, Chennai",State university,CSIR-CECRI,269,124,2.17,50
+Anna University,"Anna University, Chennai",State university,All three,606,293,2.07,65
+University of Madras,University of Madras,State university,CSIR-NCL,112,34,3.29,8
+University of Madras,University of Madras,State university,CSIR-IICT,117,83,1.41,6
+University of Madras,University of Madras,State university,CSIR-CECRI,235,101,2.33,31
+University of Madras,University of Madras,State university,All three,432,204,2.12,45

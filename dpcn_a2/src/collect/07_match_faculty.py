@@ -199,11 +199,13 @@ def run_step_07() -> None:
                 if cand["n_papers"] >= 10 and len(cand["years"]) >= 3:
                     ffid = f"FORMER_{inst_k.upper()}_{former_faculty_counter:04d}"
                     former_faculty_counter += 1
+                    # A flag for review, not a known post: designation and department stay unknown (D-40).
+                    # Step 19 drops the student pattern (AGENTS.md 5.7.6), which needs author positions.
                     matched_aid_to_faculty[aid] = {
                         "faculty_id": ffid,
                         "full_name": cand["display_name"],
-                        "designation": "Former Scientist / Senior Researcher",
-                        "department": "Chemistry / Chemical Sciences",
+                        "designation": "",
+                        "department": "Unassigned",
                         "author_role": "probable_former_faculty",
                     }
                     review_queue.append({

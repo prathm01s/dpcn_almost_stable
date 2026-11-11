@@ -1,5 +1,5 @@
 institution,active_faculty_count,mean_h_index,median_h_index,p25_h_index,p75_h_index,max_h_index
-CSIR-IICT,129,8.12,6.0,1.0,12.0,54
-CSIR-NCL,151,9.75,8.0,3.0,14.0,43
-CSIR-CECRI,26,11.92,2.5,1.0,23.5,59
-Group 24 Combined,306,9.25,7.0,2.0,13.75,59
+CSIR-IICT,129,8.57,7.0,1.0,13.0,54
+CSIR-NCL,151,10.05,8.0,3.0,14.0,43
+CSIR-CECRI,26,14.0,5.5,1.0,24.75,59
+Group 24 Combined,306,9.76,7.0,2.0,14.0,59

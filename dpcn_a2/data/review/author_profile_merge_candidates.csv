@@ -1,0 +1,172 @@
+keep_faculty_id,lab,keep_name,merge_author_id,merge_name,merge_role,merge_papers,shared_papers,shared_coauthors,coauthor_share,passes_rule,ambiguous
+FAC_IICT_0402,CSIR-IICT,Dr. Sidhanath Vishwanath Bhosale,https://openalex.org/A5111454705,Sidhanath V. Bhosale,probable_former_faculty,25,1,18,0.72,False,False
+FORMER_IICT_0290,CSIR-IICT,Y. Poornachandra,https://openalex.org/A5071100596,Yedla Poornachandra,probable_former_faculty,10,0,7,0.18,False,False
+FAC_NCL_0013,CSIR-NCL,Dr. Ashish K. Lele,https://openalex.org/A5070692924,Ashish K. Lele,affiliated_author,9,0,2,0.22,False,False
+FAC_NCL_0033,CSIR-NCL,Dr. Chepuri V. Ramana,https://openalex.org/A5108513622,Chepuri Venkata Ramana,affiliated_author,1,0,2,1.0,False,False
+FAC_NCL_0041,CSIR-NCL,Dr. Dhiman Sarkar,https://openalex.org/A5103819859,Dhiman D. Sarkar,affiliated_author,1,0,2,1.0,False,False
+FAC_NCL_0051,CSIR-NCL,Dr. H. V. Thulasiram,https://openalex.org/A5031773512,Hirekodathakallu Venkataramaiah Thulasiram,probable_former_faculty,48,0,2,0.29,False,False
+FAC_NCL_0116,CSIR-NCL,Dr. Rambabu Dandela,https://openalex.org/A5040258685,Rambabu Dandela,affiliated_author,5,0,2,0.33,False,False
+FAC_IICT_0272,CSIR-IICT,Dr. Sameena Begum,https://openalex.org/A5110435362,S.A. Begum,affiliated_author,2,0,2,0.67,False,False
+FAC_IICT_0293,CSIR-IICT,Dr. Galla V. Karunakar,https://openalex.org/A5027433203,Galla Venkata Karunakar,probable_former_faculty,48,0,2,0.67,False,False
+FAC_IICT_0369,CSIR-IICT,Dr. Nivedita Sahu,https://openalex.org/A5110148844,N. K. Sahu,affiliated_author,1,0,2,0.67,False,False
+FAC_IICT_0396,CSIR-IICT,Dr. Y. Soujanya,https://openalex.org/A5057905338,Yarasi Soujanya,probable_former_faculty,25,0,2,1.0,False,False
+FAC_IICT_0400,CSIR-IICT,Dr. Pratyay Basak,https://openalex.org/A5057702914,P. Basak,affiliated_author,1,0,2,0.67,False,False
+FAC_CECRI_0492,CSIR-CECRI,Dr P Murugan,https://openalex.org/A5132420501,P. Murugan,affiliated_author,1,0,2,0.4,False,False
+FORMER_CECRI_0064,CSIR-CECRI,Subramanian Mohan,https://openalex.org/A5103678329,Subramanian Mohan,affiliated_author,4,0,2,0.33,False,False
+FORMER_CECRI_0071,CSIR-CECRI,Singaram Vengatesan,https://openalex.org/A5061277305,Singaram Vengatesan,affiliated_author,1,0,2,0.4,False,False
+FORMER_CECRI_0019,CSIR-CECRI,Shanmugasundaram Kumaraguru,https://openalex.org/A5109496929,S. Kumaraguru,affiliated_author,3,0,2,0.67,False,False
+FORMER_CECRI_0081,CSIR-CECRI,D. Jeyakumar,https://openalex.org/A5103391194,Duraisamy Jeyakumar,affiliated_author,9,0,2,0.4,False,False
+FORMER_IICT_0499,CSIR-IICT,Yogesh Chandra,https://openalex.org/A5128787862,Yogesh Chandra,affiliated_author,2,0,2,0.33,False,False
+FORMER_IICT_0210,CSIR-IICT,Ähmed Kamal,https://openalex.org/A5121191855,Ahmed Kamal,affiliated_author,2,0,2,0.33,False,False
+FORMER_IICT_0284,CSIR-IICT,Bolla Srinivasa Rao,https://openalex.org/A5113513175,B. V. S. K. Rao,affiliated_author,3,0,2,0.15,False,False
+FORMER_IICT_0194,CSIR-IICT,Halmuthur M. Sampath Kumar,https://openalex.org/A5125607690,H.M.S. Sampath Kumar,affiliated_author,1,0,2,0.12,False,False
+FORMER_IICT_0435,CSIR-IICT,Malapaka Chandrasekharam,https://openalex.org/A5101799194,Malapaka Chandrasekharam,affiliated_author,1,0,2,0.5,False,False
+FORMER_IICT_0274,CSIR-IICT,S. Prabhakar,https://openalex.org/A5039079535,S. PRABHAKAR,affiliated_author,1,0,2,0.5,False,False
+FORMER_IICT_0274,CSIR-IICT,S. Prabhakar,https://openalex.org/A5108685647,Singaraboina Prabhakar,affiliated_author,3,0,2,0.22,False,False
+FORMER_IICT_0297,CSIR-IICT,R. B. N. Prasad,https://openalex.org/A5103214280,Ravi Prasad,affiliated_author,1,0,2,0.4,False,False
+FORMER_IICT_0191,CSIR-IICT,Manupati Hemalatha,https://openalex.org/A5108279526,Manupati Hemalatha,affiliated_author,5,0,2,0.4,False,False
+FORMER_IICT_0297,CSIR-IICT,R. B. N. Prasad,https://openalex.org/A5103214280,Ravi Prasad,affiliated_author,1,0,2,0.4,False,False
+FORMER_NCL_0534,CSIR-NCL,Rakesh S. Joshi,https://openalex.org/A5121405471,Rakesh Joshi,affiliated_author,1,0,2,0.29,False,False
+FORMER_NCL_0534,CSIR-NCL,Rakesh S. Joshi,https://openalex.org/A5125591885,Rakesh Joshi,affiliated_author,1,0,2,1.0,False,False
+FORMER_NCL_0527,CSIR-NCL,Bhagavatula L. V. Prasad,https://openalex.org/A5062349421,Bhagavatula LV Prasad,affiliated_author,1,0,2,1.0,False,False
+FORMER_NCL_0559,CSIR-NCL,C.V.V. Satyanarayana,https://openalex.org/A5135746627,C.V.V. Satyanarayana,affiliated_author,1,0,2,0.4,False,False
+FORMER_NCL_0631,CSIR-NCL,Poonam Yadav,https://openalex.org/A5068642789,Poonam Yadav,affiliated_author,5,0,2,0.67,False,False
+FORMER_NCL_0534,CSIR-NCL,Rakesh S. Joshi,https://openalex.org/A5121405471,Rakesh Joshi,affiliated_author,1,0,2,0.33,False,False
+FAC_NCL_0020,CSIR-NCL,Dr. Atanu Das,https://openalex.org/A5137236286,Atanu Das,affiliated_author,1,0,1,1.0,False,False
+FAC_NCL_0020,CSIR-NCL,Dr. Atanu Das,https://openalex.org/A5140179223,Atanu Das,affiliated_author,1,0,1,0.5,False,False
+FAC_NCL_0075,CSIR-NCL,Dr. Mahesh J Kulkarni,https://openalex.org/A5135250961,Mahesh J. Kulkarni,affiliated_author,1,0,1,1.0,False,False
+FAC_NCL_0153,CSIR-NCL,Dr. Syed G Dastager,https://openalex.org/A5009439460,Syed Gulam Dastager,probable_former_faculty,99,0,1,1.0,False,False
+FAC_NCL_0154,CSIR-NCL,Dr. T.G.Ajithkumar,https://openalex.org/A5114163493,Thallaseril G. Ajithkumar,affiliated_author,2,0,1,0.2,False,False
+FAC_IICT_0169,CSIR-IICT,Dr. B. Sridhar,https://openalex.org/A5103472788,Balasubramaniam Sridhar,affiliated_author,1,0,1,0.33,False,False
+FAC_IICT_0175,CSIR-IICT,Dr. Thota Jagadeshwar Reddy,https://openalex.org/A5128724198,T. Jagadeshwar Reddy,affiliated_author,1,0,1,0.25,False,False
+FAC_IICT_0177,CSIR-IICT,Dr. Debasish Swain,https://openalex.org/A5032029481,Debasish Swain,affiliated_author,4,0,1,0.14,False,False
+FAC_IICT_0241,CSIR-IICT,Dr. Tatiparthi Vikram Sagar,https://openalex.org/A5109331640,T. V. Sagar,affiliated_author,8,0,1,0.5,False,False
+FAC_IICT_0254,CSIR-IICT,Dr. M.S.L. Karuna,https://openalex.org/A5108249358,MSL Karuna,affiliated_author,1,0,1,0.5,False,False
+FAC_IICT_0288,CSIR-IICT,Dr. B.V. Subba Reddy,https://openalex.org/A5027571821,B. V. Subba Reddy,affiliated_author,3,0,1,0.14,False,False
+FAC_IICT_0315,CSIR-IICT,Dr. D. Srinivasa Reddy,https://openalex.org/A5153577020,D. Srinivasa Reddy,affiliated_author,1,0,1,0.25,False,False
+FAC_IICT_0317,CSIR-IICT,Dr. K. Suresh Babu,https://openalex.org/A5091621296,Kattragadda Suresh Babu,affiliated_author,1,0,1,0.2,False,False
+FAC_IICT_0342,CSIR-IICT,Dr. Ajay Kumar Singh,https://openalex.org/A5100727879,Ajay Singh,affiliated_author,1,0,1,1.0,False,False
+FAC_IICT_0372,CSIR-IICT,Dr. Alka Kumari,https://openalex.org/A5034954217,Alka Kumari,affiliated_author,1,0,1,0.33,False,False
+FAC_IICT_0401,CSIR-IICT,Dr. Surya Prakash Singh,https://openalex.org/A5136514771,Surya Prakash Singh,affiliated_author,1,0,1,0.5,False,False
+FAC_CECRI_0456,CSIR-CECRI,Dr K Ramesha,https://openalex.org/A5084670747,Kannadka Ramesha,probable_former_faculty,45,0,1,0.33,False,False
+FAC_CECRI_0459,CSIR-CECRI,Dr V Ganesh,https://openalex.org/A5032116740,V. Ganesh,affiliated_author,2,0,1,0.33,False,False
+FAC_CECRI_0468,CSIR-CECRI,Dr P Ragupathy,https://openalex.org/A5125417491,P. Ragupathy,affiliated_author,2,0,1,0.5,False,False
+FORMER_CECRI_0116,CSIR-CECRI,Abbasriyaludeen Abdul Raheem,https://openalex.org/A5112425401,A. A. Raheem,affiliated_author,1,0,1,1.0,False,False
+FORMER_CECRI_0003,CSIR-CECRI,Kannimuthu Karthick,https://openalex.org/A5038842681,K. Karthick,affiliated_author,1,0,1,0.33,False,False
+FORMER_CECRI_0141,CSIR-CECRI,V. Krishnan,https://openalex.org/A5138041659,Vinoth Krishnan,affiliated_author,1,0,1,1.0,False,False
+FORMER_CECRI_0112,CSIR-CECRI,Karuppusamy Mariyappan,https://openalex.org/A5005574788,K. Mariyappan,affiliated_author,1,0,1,1.0,False,False
+FORMER_CECRI_0120,CSIR-CECRI,Natchimuthu Karuppusamy Murugasenapathi,https://openalex.org/A5059104901,N.K. Murugasenapathi,affiliated_author,1,0,1,0.25,False,False
+FORMER_CECRI_0062,CSIR-CECRI,S. Sathiyanarayanan,https://openalex.org/A5108196633,Sadagopan Sathiyanarayanan,affiliated_author,2,0,1,0.33,False,False
+FORMER_CECRI_0100,CSIR-CECRI,J. Anandha Raj,https://openalex.org/A5113563174,Jeyaraman Anandha Raj,affiliated_author,2,0,1,0.33,False,False
+FORMER_CECRI_0086,CSIR-CECRI,Sakkarapalayam Murugesan Senthil Kumar,https://openalex.org/A5110098638,S.M. Senthil Kumar,affiliated_author,3,0,1,1.0,False,False
+FORMER_IICT_0282,CSIR-IICT,Komandur V. R. Chary,https://openalex.org/A5000252265,K CHARY,affiliated_author,1,0,1,0.33,False,False
+FORMER_IICT_0321,CSIR-IICT,R. Uday Kumar,https://openalex.org/A5102736110,R. Uday Kumar,affiliated_author,1,0,1,0.2,False,False
+FORMER_IICT_0442,CSIR-IICT,Cheemalamarri Chandrasekhar,https://openalex.org/A5008627859,Dr. C. Chandrasekhar,affiliated_author,66,0,1,0.02,False,False
+FORMER_IICT_0259,CSIR-IICT,V. Jayathirtha Rao,https://openalex.org/A5068851933,V. Jayathirtha Rao,affiliated_author,1,0,1,0.5,False,False
+FORMER_IICT_0316,CSIR-IICT,G. Ravi Kumar,https://openalex.org/A5108506730,Gurram Ravi Kumar,affiliated_author,1,0,1,0.33,False,False
+FORMER_IICT_0346,CSIR-IICT,Vadithe Lakshma Nayak,https://openalex.org/A5087530076,Dr. V. Lakshma Nayak,affiliated_author,1,0,1,1.0,False,False
+FORMER_IICT_0297,CSIR-IICT,R. B. N. Prasad,https://openalex.org/A5080591087,Rajendra Prasad,affiliated_author,1,0,1,1.0,False,False
+FORMER_NCL_0534,CSIR-NCL,Rakesh S. Joshi,https://openalex.org/A5126035615,Rakesh Shamsunder Joshi,affiliated_author,1,0,1,0.33,False,False
+FORMER_NCL_0543,CSIR-NCL,Bhaskar D. Kulkarni,https://openalex.org/A5113280999,B. D. Kulkarni,affiliated_author,6,0,1,0.25,False,False
+FORMER_NCL_0693,CSIR-NCL,Snehal More,https://openalex.org/A5112865282,Snehal V. More,affiliated_author,2,0,1,0.33,False,False
+FORMER_NCL_0534,CSIR-NCL,Rakesh S. Joshi,https://openalex.org/A5125591885,Rakesh Joshi,affiliated_author,1,0,1,0.5,False,False
+FAC_NCL_0005,CSIR-NCL,Dr. Anil Kumar,https://openalex.org/A5104000837,Anil Kumar,affiliated_author,1,0,0,0.0,False,False
+FAC_NCL_0013,CSIR-NCL,Dr. Ashish K. Lele,https://openalex.org/A5034982473,A. Lele,affiliated_author,2,0,0,0.0,False,False
+FAC_NCL_0015,CSIR-NCL,Dr. Ashok Giri,https://openalex.org/A5075739536,Ashok R. Giri,affiliated_author,1,0,0,0.0,False,False
+FAC_NCL_0023,CSIR-NCL,Dr. B L V Prasad,https://openalex.org/A5026043667,Bhagavatula L. V. Prasad,probable_former_faculty,58,0,0,0.0,False,False
+FAC_NCL_0023,CSIR-NCL,Dr. B L V Prasad,https://openalex.org/A5062349421,Bhagavatula LV Prasad,affiliated_author,1,0,0,0.0,False,False
+FAC_NCL_0071,CSIR-NCL,Dr. M Karthikeyan,https://openalex.org/A5101586963,Muthukumarasamy Karthikeyan,probable_former_faculty,13,0,0,0.0,False,False
+FAC_NCL_0071,CSIR-NCL,Dr. M Karthikeyan,https://openalex.org/A5103914086,Muthukumarasamy Karthikeyan,affiliated_author,1,0,0,0.0,False,False
+FAC_NCL_0071,CSIR-NCL,Dr. M Karthikeyan,https://openalex.org/A5111519406,Muthukumarasamy Karthikeyan,affiliated_author,2,0,0,0.0,False,False
+FAC_NCL_0071,CSIR-NCL,Dr. M Karthikeyan,https://openalex.org/A5155541615,M. Karthikeyan,affiliated_author,1,0,0,0.0,False,False
+FAC_NCL_0075,CSIR-NCL,Dr. Mahesh J Kulkarni,https://openalex.org/A5135379410,Mahesh Kulkarni,affiliated_author,2,0,0,0.0,False,False
+FAC_NCL_0078,CSIR-NCL,Dr. Manish Kumar Mishra,https://openalex.org/A5053509020,Manish Kumar Mishra,probable_former_faculty,20,0,0,0.0,False,False
+FAC_NCL_0117,CSIR-NCL,Dr. Ramesh C. Samanta,https://openalex.org/A5012029780,Ramesh C. Samanta,affiliated_author,4,0,0,0.0,False,False
+FAC_NCL_0118,CSIR-NCL,Dr. Ravi P. Singh,https://openalex.org/A5074128076,Ravi Prakash Singh,affiliated_author,1,0,0,0.0,False,False
+FAC_NCL_0120,CSIR-NCL,Dr. S. Kiran,https://openalex.org/A5103872019,Saritha Kiran,affiliated_author,1,0,0,0.0,False,False
+FAC_NCL_0124,CSIR-NCL,Dr. Saket Kumar,https://openalex.org/A5147860134,Saket Kumar,affiliated_author,1,0,0,0.0,False,False
+FAC_NCL_0154,CSIR-NCL,Dr. T.G.Ajithkumar,https://openalex.org/A5148143022,T.G. Ajithkumar,affiliated_author,1,0,0,0.0,False,False
+FAC_NCL_0160,CSIR-NCL,Dr. Vaijayanti A. Kumar,https://openalex.org/A5073346189,V. Kumar,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0169,CSIR-IICT,Dr. B. Sridhar,https://openalex.org/A5086161036,Balasubramanyam Sridhar,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0169,CSIR-IICT,Dr. B. Sridhar,https://openalex.org/A5100990125,Bojja Sridhar,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0176,CSIR-IICT,Dr. G. Jithender Reddy,https://openalex.org/A5069422431,G. Jithender Reddy,affiliated_author,2,0,0,0.0,False,False
+FAC_IICT_0177,CSIR-IICT,Dr. Debasish Swain,https://openalex.org/A5153612648,Debasish  Srinivasa Swain,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0201,CSIR-IICT,Dr. Shasi Vardhan Kalivendi,https://openalex.org/A5004588361,Shasi V. Kalivendi,probable_former_faculty,19,0,0,0.0,False,False
+FAC_IICT_0208,CSIR-IICT,Dr. T. Anjana Devi,https://openalex.org/A5058098043,Tangutur Anjana Devi,affiliated_author,5,0,0,0.0,False,False
+FAC_IICT_0213,CSIR-IICT,Dr. K. Srinivasan,https://openalex.org/A5100967898,Krishnamoorthy Srinivasan,affiliated_author,2,0,0,0.0,False,False
+FAC_IICT_0239,CSIR-IICT,Dr. Sudipta De,https://openalex.org/A5129710238,Sudipta De,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0252,CSIR-IICT,Dr. B.L.A. Prabhavathi Devi,https://openalex.org/A5068328170,Bethala L. A. Prabhavathi Devi,probable_former_faculty,16,0,0,0.0,False,False
+FAC_IICT_0268,CSIR-IICT,Dr. A. Gangagni Rao,https://openalex.org/A5033054692,Anupoju Gangagni Rao,affiliated_author,2,0,0,0.0,False,False
+FAC_IICT_0269,CSIR-IICT,Dr. S. Venkata Mohan,https://openalex.org/A5103816592,Srinivasula Reddy Venkata Mohan,affiliated_author,2,0,0,0.0,False,False
+FAC_IICT_0270,CSIR-IICT,Dr. P. Anand,https://openalex.org/A5100916211,Polumati Anand,affiliated_author,2,0,0,0.0,False,False
+FAC_IICT_0270,CSIR-IICT,Dr. P. Anand,https://openalex.org/A5135015769,P. Anand,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0288,CSIR-IICT,Dr. B.V. Subba Reddy,https://openalex.org/A5013757077,BV. Subba Reddy,affiliated_author,2,0,0,0.0,False,False
+FAC_IICT_0298,CSIR-IICT,Dr. B. Kariyanna,https://openalex.org/A5110634393,Bheeranna Kariyanna,affiliated_author,15,0,0,0.0,False,False
+FAC_IICT_0315,CSIR-IICT,Dr. D. Srinivasa Reddy,https://openalex.org/A5122916650,D. Srinivasa Reddy,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0317,CSIR-IICT,Dr. K. Suresh Babu,https://openalex.org/A5101974566,Korrapati Suresh Babu,probable_former_faculty,12,0,0,0.0,False,False
+FAC_IICT_0334,CSIR-IICT,Dr. Ch. Raji Reddy,https://openalex.org/A5111559929,Ch. Raji Reddy,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0338,CSIR-IICT,Dr. G. Sudhakar,https://openalex.org/A5033673675,Gangarajula Sudhakar,probable_former_faculty,22,0,0,0.0,False,False
+FAC_IICT_0363,CSIR-IICT,Dr. S. Sridhar,https://openalex.org/A5104134526,S. Sridhar,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0371,CSIR-IICT,Dr. S. CHANDRA SEKHAR,https://openalex.org/A5058988096,Sugali Chandra Sekhar,affiliated_author,7,0,0,0.0,False,False
+FAC_IICT_0372,CSIR-IICT,Dr. Alka Kumari,https://openalex.org/A5123430259,Alka kumari,affiliated_author,1,0,0,0.0,False,False
+FAC_IICT_0393,CSIR-IICT,Dr. L. Giribabu,https://openalex.org/A5016088115,Lingamallu Giribabu,probable_former_faculty,165,0,0,0.0,False,False
+FAC_IICT_0409,CSIR-IICT,Dr. Dinesh Kumar Chelike,https://openalex.org/A5006182468,Dinesh Kumar Chelike,affiliated_author,2,0,0,0.0,False,False
+FAC_IICT_0432,CSIR-IICT,SRI. G. NAGA SRINIVAS,https://openalex.org/A5132579866,G. Naga Srinivas,affiliated_author,1,0,0,0.0,False,False
+FAC_CECRI_0473,CSIR-CECRI,Dr N Rajasekaran,https://openalex.org/A5003184208,Neelamegam Rajasekaran,probable_former_faculty,12,0,0,0.0,False,False
+FAC_CECRI_0483,CSIR-CECRI,Dr Abhishek Meena,https://openalex.org/A5152839232,Abhishek Meena,affiliated_author,1,0,0,0.0,False,False
+FAC_CECRI_0484,CSIR-CECRI,Dr S Vasudevan,https://openalex.org/A5051396555,Sudharshan Vasudevan,affiliated_author,6,0,0,0.0,False,False
+FAC_CECRI_0485,CSIR-CECRI,Dr N Lakshminarasimhan,https://openalex.org/A5064782925,Narayanan Lakshminarasimhan,probable_former_faculty,36,0,0,0.0,False,False
+FAC_CECRI_0486,CSIR-CECRI,Dr SM Senthil Kumar,https://openalex.org/A5110098638,S.M. Senthil Kumar,affiliated_author,3,0,0,0.0,False,False
+FAC_CECRI_0492,CSIR-CECRI,Dr P Murugan,https://openalex.org/A5114098095,Paranjothi Murugan,affiliated_author,1,0,0,0.0,False,False
+FAC_CECRI_0499,CSIR-CECRI,Dr (Mrs) D Kalpana,https://openalex.org/A5138943764,D. Kalpana,affiliated_author,3,0,0,0.0,False,False
+FORMER_CECRI_0141,CSIR-CECRI,V. Krishnan,https://openalex.org/A5113811349,Venkatasubramanian Krishnan,affiliated_author,1,0,0,0.0,False,False
+FORMER_CECRI_0098,CSIR-CECRI,Shanmugam Senthil Kumar,https://openalex.org/A5110098638,S.M. Senthil Kumar,affiliated_author,3,0,0,0.0,False,False
+FORMER_CECRI_0036,CSIR-CECRI,Kuldeep Singh,https://openalex.org/A5100622429,Kuldeep Singh,affiliated_author,5,0,0,0.0,False,False
+FORMER_CECRI_0036,CSIR-CECRI,Kuldeep Singh,https://openalex.org/A5130743415,Kuldeep Singh,affiliated_author,1,0,0,0.0,False,False
+FORMER_CECRI_0092,CSIR-CECRI,Nallathamby Kalaiselvi,https://openalex.org/A5013253025,N. Kalaiselvi,affiliated_author,1,0,0,0.0,False,False
+FORMER_CECRI_0075,CSIR-CECRI,Sivaprakasam Radhakrishnan,https://openalex.org/A5101621123,S. Radhakrishnan,affiliated_author,2,0,0,0.0,False,False
+FORMER_CECRI_0037,CSIR-CECRI,Krishnan Giribabu,https://openalex.org/A5121968856,K. Giribabu,affiliated_author,1,0,0,0.0,False,False
+FORMER_CECRI_0037,CSIR-CECRI,Krishnan Giribabu,https://openalex.org/A5121968856,K. Giribabu,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0472,CSIR-IICT,Jhillu Singh Yadav,https://openalex.org/A5156576052,J. S. Yadav,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0454,CSIR-IICT,Batchu Venkateswara Rao,https://openalex.org/A5113513175,B. V. S. K. Rao,affiliated_author,3,0,0,0.0,False,False
+FORMER_IICT_0194,CSIR-IICT,Halmuthur M. Sampath Kumar,https://openalex.org/A5103854012,H. M. Sampath Kumar,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0194,CSIR-IICT,Halmuthur M. Sampath Kumar,https://openalex.org/A5104265262,Halmuthur. M. Sampath Kumar,affiliated_author,4,0,0,0.0,False,False
+FORMER_IICT_0472,CSIR-IICT,Jhillu Singh Yadav,https://openalex.org/A5156576052,J. S. Yadav,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0411,CSIR-IICT,Srinivas Indu Kumari,https://openalex.org/A5123986005,S. Indu Kumari,affiliated_author,2,0,0,0.0,False,False
+FORMER_IICT_0432,CSIR-IICT,K. Bhanuprakash,https://openalex.org/A5011196199,K. Bhanuprakash,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0456,CSIR-IICT,Kommu Nagaiah,https://openalex.org/A5090156559,K. Nagaiah,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0456,CSIR-IICT,Kommu Nagaiah,https://openalex.org/A5103185353,K. Nagaiah,probable_former_faculty,10,0,0,0.0,False,False
+FORMER_IICT_0274,CSIR-IICT,S. Prabhakar,https://openalex.org/A5018779582,Seggem Prabhakar,affiliated_author,4,0,0,0.0,False,False
+FORMER_IICT_0274,CSIR-IICT,S. Prabhakar,https://openalex.org/A5108616410,Sunchu Prabhakar,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0435,CSIR-IICT,Malapaka Chandrasekharam,https://openalex.org/A5101799194,Malapaka Chandrasekharam,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0359,CSIR-IICT,B. Srinivas,https://openalex.org/A5107030639,Batthula Srinivas,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0359,CSIR-IICT,B. Srinivas,https://openalex.org/A5109042386,Basavaraju Srinivas,affiliated_author,2,0,0,0.0,False,False
+FORMER_IICT_0359,CSIR-IICT,B. Srinivas,https://openalex.org/A5110548967,Dr. B. Srinivas,affiliated_author,2,0,0,0.0,False,False
+FORMER_IICT_0321,CSIR-IICT,R. Uday Kumar,https://openalex.org/A5102736110,R. Uday Kumar,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0455,CSIR-IICT,K. Nagaiah,https://openalex.org/A5076052745,Kommu Nagaiah,probable_former_faculty,10,0,0,0.0,False,False
+FORMER_IICT_0455,CSIR-IICT,K. Nagaiah,https://openalex.org/A5090156559,K. Nagaiah,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0297,CSIR-IICT,R. B. N. Prasad,https://openalex.org/A5080591087,Rajendra Prasad,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0297,CSIR-IICT,R. B. N. Prasad,https://openalex.org/A5111976199,RBN Prasad,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0346,CSIR-IICT,Vadithe Lakshma Nayak,https://openalex.org/A5120140491,V Lakshma Nayak,affiliated_author,3,0,0,0.0,False,False
+FORMER_IICT_0297,CSIR-IICT,R. B. N. Prasad,https://openalex.org/A5111976199,RBN Prasad,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0210,CSIR-IICT,Ähmed Kamal,https://openalex.org/A5121191855,Ahmed Kamal,affiliated_author,2,0,0,0.0,False,False
+FORMER_IICT_0501,CSIR-IICT,Biswajit Mishra,https://openalex.org/A5112228308,Biswajit Mishra,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0511,CSIR-IICT,Biswanath Das,https://openalex.org/A5141255583,B. Das,affiliated_author,1,0,0,0.0,False,False
+FORMER_IICT_0458,CSIR-IICT,Jagadeshwar Reddy Thota,https://openalex.org/A5157891627,Jagadeshwar Reddy Thota,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0574,CSIR-NCL,Varun Natu,https://openalex.org/A5153331888,Varun Natu,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0566,CSIR-NCL,Imtiaz S. Mulla,https://openalex.org/A5109624772,I. S. Mulla,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0577,CSIR-NCL,Chandrashekhar Vasant Rode,https://openalex.org/A5152719371,Chandrashekhar V. Rode,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0586,CSIR-NCL,Vijay M. Khedkar,https://openalex.org/A5000140506,Vijay M. Khedkar,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0690,CSIR-NCL,Sapna Ravindranathan,https://openalex.org/A5128292908,Sapna Ravindranathan,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0688,CSIR-NCL,Rahul Choudhury,https://openalex.org/A5044267059,Rahul Roy Choudhury,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0736,CSIR-NCL,Ravi Kumar,https://openalex.org/A5062210752,Ravi Kumar,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0736,CSIR-NCL,Ravi Kumar,https://openalex.org/A5112789985,Ravi Kumar,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0714,CSIR-NCL,Muthukumarasamy Karthikeyan,https://openalex.org/A5103914086,Muthukumarasamy Karthikeyan,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0714,CSIR-NCL,Muthukumarasamy Karthikeyan,https://openalex.org/A5111519406,Muthukumarasamy Karthikeyan,affiliated_author,2,0,0,0.0,False,False
+FORMER_NCL_0714,CSIR-NCL,Muthukumarasamy Karthikeyan,https://openalex.org/A5155541615,M. Karthikeyan,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0674,CSIR-NCL,Anand Pal Singh,https://openalex.org/A5100611411,Anand P. Singh,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0674,CSIR-NCL,Anand Pal Singh,https://openalex.org/A5108413481,Anand Pal Singh,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0713,CSIR-NCL,V. Ravi Kumar,https://openalex.org/A5000172250,V. Ravi Kumar,affiliated_author,2,0,0,0.0,False,False
+FORMER_NCL_0713,CSIR-NCL,V. Ravi Kumar,https://openalex.org/A5073346189,V. Kumar,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0543,CSIR-NCL,Bhaskar D. Kulkarni,https://openalex.org/A5113779817,B.D. Kulkarni,affiliated_author,1,0,0,0.0,False,False
+FORMER_NCL_0534,CSIR-NCL,Rakesh S. Joshi,https://openalex.org/A5126035615,Rakesh Shamsunder Joshi,affiliated_author,1,0,0,0.0,False,False

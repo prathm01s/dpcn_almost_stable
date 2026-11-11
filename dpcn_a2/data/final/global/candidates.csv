@@ -408,7 +408,7 @@ South Korea,KR,I197347611,Korea University,education,Seoul,https://ror.org/047dq
 South Korea,KR,I848706,Sungkyunkwan University,education,Suwon,https://ror.org/04q78tk20,23316,type education (rule 2),,,,
 South Korea,KR,I157485424,Korea Advanced Institute of Science and Technology,education,Daejeon,https://ror.org/05apxxy63,17462,type education (rule 2),,,,
 South Korea,KR,I4575257,Hanyang University,education,Seoul,https://ror.org/046865y68,17234,type education (rule 2),,,,
-South Korea,KR,I27494661,National Research Foundation of Korea,government,Daejeon,https://ror.org/013aysd81,14847,umbrella body of other pool members (rule 2),,,,
+South Korea,KR,I27494661,National Research Foundation of Korea,government,Daejeon,https://ror.org/013aysd81,14847,"not a stand-alone institute (rule 2b): research funding agency, not a research institute",,,,
 South Korea,KR,I35928602,Kyung Hee University,education,Seoul,https://ror.org/01zqcg218,13657,type education (rule 2),,,,
 South Korea,KR,I31419693,Kyungpook National University,education,Daegu,https://ror.org/040c17130,13556,type education (rule 2),,,,
 South Korea,KR,I4921948,Pusan National University,education,Busan,https://ror.org/01an57a31,12697,type education (rule 2),,,,
@@ -431,7 +431,7 @@ South Korea,KR,I12832649,Gachon University,education,Seongnam-si,https://ror.org
 South Korea,KR,I4210160791,Yonsei University Health System,healthcare,Seoul,https://ror.org/04sze3c15,6838,type healthcare (rule 2),,,,
 South Korea,KR,I28777354,Sejong University,education,Seoul,https://ror.org/00aft1q37,6562,type education (rule 2),,,,
 South Korea,KR,I2802835388,Seoul National University Hospital,healthcare,Seoul,https://ror.org/01z4nnt86,6518,type healthcare (rule 2),,,,
-South Korea,KR,I4210104335,Institute for Basic Science,facility,Daejeon,https://ror.org/00y0zf565,6444,,0.5949,0.4202,0.471,CSIR-IICT
+South Korea,KR,I4210104335,Institute for Basic Science,facility,Daejeon,https://ror.org/00y0zf565,6444,"not a stand-alone institute (rule 2b): university-hosted laboratories: most IBS research centres sit on university campuses (KAIST, POSTECH, UNIST, SNU and others), D-40",,,,
 South Korea,KR,I165507594,Kangwon National University,education,Chuncheon,https://ror.org/01mh5ph17,6350,type education (rule 2),,,,
 South Korea,KR,I163753206,Chungbuk National University,education,Cheongju-si,https://ror.org/02wnxgj78,5996,type education (rule 2),,,,
 South Korea,KR,I57664883,Ajou University,education,Suwon,https://ror.org/03tzb2h73,5967,type education (rule 2),,,,

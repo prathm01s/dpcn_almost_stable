@@ -68,15 +68,15 @@ def test_data_cleaning_audit_json():
 
     # Exact numbers verification
     assert f["stage_1_raw_scraped"]["total"] == 505
-    assert f["stage_2_excluded_technical_and_duplicates"]["total_excluded"] == 120
+    assert f["stage_2_excluded_technical_and_duplicates"]["total_excluded"] == 123  # + 3 page-text entries (D-40)
     assert f["stage_2_excluded_technical_and_duplicates"]["technical_staff_excluded"] == 119
-    assert f["stage_3_clean_roster"]["total"] == 385
+    assert f["stage_3_clean_roster"]["total"] == 382
     assert f["stage_4_active_cadre_with_papers"]["total"] == 306
 
     # Breakdown by institute
     assert f["stage_3_clean_roster"]["by_lab"]["CSIR-IICT"] == 168
     assert f["stage_3_clean_roster"]["by_lab"]["CSIR-NCL"] == 166
-    assert f["stage_3_clean_roster"]["by_lab"]["CSIR-CECRI"] == 51
+    assert f["stage_3_clean_roster"]["by_lab"]["CSIR-CECRI"] == 48
 
     assert f["stage_4_active_cadre_with_papers"]["by_lab"]["CSIR-IICT"] == 129
     assert f["stage_4_active_cadre_with_papers"]["by_lab"]["CSIR-NCL"] == 151

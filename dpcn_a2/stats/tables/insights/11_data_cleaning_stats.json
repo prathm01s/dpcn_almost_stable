@@ -10,20 +10,20 @@
       "description": "Raw staff directories scraped directly from official institute websites."
     },
     "stage_2_excluded_technical_and_duplicates": {
-      "total_excluded": 120,
+      "total_excluded": 123,
       "technical_staff_excluded": 119,
       "duplicates_removed": 1,
       "unmatched_wrong_profiles": 3,
-      "description": "Rule-based filtering removing non-scientific cadre staff (Technical Officers/Technicians) and duplicate listings."
+      "description": "Rule-based filtering removing non-scientific cadre staff (Technical Officers/Technicians), duplicate listings and page text scraped as names (D-40)."
     },
     "stage_3_clean_roster": {
-      "total": 385,
+      "total": 382,
       "by_lab": {
         "CSIR-IICT": 168,
         "CSIR-NCL": 166,
-        "CSIR-CECRI": 51
+        "CSIR-CECRI": 48
       },
-      "description": "Legitimate permanent scientific cadre (Scientist, Sr. Scientist, Principal Scientist, Chief Scientist, Director)."
+      "description": "Legitimate permanent scientific cadre (Scientist, Senior Scientist, Principal Scientist, Senior Principal Scientist, Chief Scientist, Director)."
     },
     "stage_4_active_cadre_with_papers": {
       "total": 306,
@@ -67,19 +67,19 @@
       "count": 45
     },
     {
-      "designation": "Chief Scientist (Scientist-F)",
+      "designation": "Senior Principal Scientist (Scientist-F)",
       "count": 39
     },
     {
-      "designation": "Senior Principal Scientist",
+      "designation": "Principal Scientist (Scientist-E)",
       "count": 28
     },
     {
-      "designation": "Principal Scientist",
+      "designation": "Senior Scientist (Scientist-D)",
       "count": 20
     },
     {
-      "designation": "Senior Scientist",
+      "designation": "Scientist (Scientist-C)",
       "count": 20
     },
     {
@@ -142,8 +142,8 @@
     }
   ],
   "paper_attribution": {
-    "faculty_paper_rows": 8241,
-    "distinct_faculty_dois": 6963
+    "faculty_paper_rows": 9063,
+    "distinct_faculty_dois": 7491
   },
   "excluded_staff_publishing": {
     "with_papers": 38,
@@ -1229,6 +1229,33 @@
       "department": "Knowledge and Information Management",
       "papers_in_corpus": 0,
       "reason": "Not scientific cadre: roster name carries technical title 'Technician (1)'"
+    },
+    {
+      "faculty_id": "FAC_CECRI_0455",
+      "lab": "CSIR-CECRI",
+      "full_name": "Last Updated: 07-10-2026",
+      "job_title": "Duplicate Roster Listing",
+      "department": "CECRI MANDAPAM UNIT",
+      "papers_in_corpus": 0,
+      "reason": "Not a person: roster page text scraped as a name (D-40)"
+    },
+    {
+      "faculty_id": "FAC_CECRI_0457",
+      "lab": "CSIR-CECRI",
+      "full_name": "director.cecri@csir.res.in",
+      "job_title": "Duplicate Roster Listing",
+      "department": "DIRECTOR OFFICE",
+      "papers_in_corpus": 0,
+      "reason": "Not a person: roster page text scraped as a name (D-40)"
+    },
+    {
+      "faculty_id": "FAC_CECRI_0458",
+      "lab": "CSIR-CECRI",
+      "full_name": "mjkannan.cecri@csir.res.in",
+      "job_title": "Duplicate Roster Listing",
+      "department": "DIRECTOR\u2019S TECHNICAL CELL",
+      "papers_in_corpus": 0,
+      "reason": "Not a person: roster page text scraped as a name (D-40)"
     }
   ]
 }

@@ -70,16 +70,19 @@ def normalize_csir_designation(desig: str) -> str:
         return "Distinguished Scientist"
     if "OUTSTANDING" in d_up:
         return "Outstanding Scientist"
-    if "SCIENTIST-G" in d_up or "SCIENTIST - G" in d_up or "SCIENTIST – G" in d_up:
-        return "Chief Scientist (Scientist-G)"
-    if "SCIENTIST-F" in d_up or "SCIENTIST - F" in d_up or "SCIENTIST – F" in d_up:
-        return "Chief Scientist (Scientist-F)"
-    if "SCIENTIST-E" in d_up or "SCIENTIST - E" in d_up or "SCIENTIST – E" in d_up or "SR. PRINCIPAL SCIENTIST" in d_up:
-        return "Senior Principal Scientist"
-    if "SCIENTIST-D" in d_up or "SCIENTIST - D" in d_up or "SCIENTIST – D" in d_up or "PRINCIPAL SCIENTIST" in d_up:
-        return "Principal Scientist"
-    if "SCIENTIST-C" in d_up or "SCIENTIST - C" in d_up or "SCIENTIST – C" in d_up or "SENIOR SCIENTIST" in d_up:
-        return "Senior Scientist"
+    # CSIR ladder (recruitment rules: E = L-13, F = L-13A, G = L-14). D-41: F was labelled "Chief
+    # Scientist" and every lower grade one title too high.
+    grade = re.search(r"SCIENTIST\s*[-–]\s*([B-H])\b", d_up)
+    if grade:
+        return {"G": "Chief Scientist (Scientist-G)", "F": "Senior Principal Scientist (Scientist-F)",
+                "E": "Principal Scientist (Scientist-E)", "D": "Senior Scientist (Scientist-D)",
+                "C": "Scientist (Scientist-C)", "B": "Scientist (Scientist-B)",
+                "H": "Outstanding Scientist (Scientist-H)"}[grade.group(1)]
+    for title in ("CHIEF SCIENTIST", "SENIOR PRINCIPAL SCIENTIST", "SR. PRINCIPAL SCIENTIST",
+                  "PRINCIPAL SCIENTIST", "SENIOR SCIENTIST", "SR. SCIENTIST"):
+        if title in d_up:
+            return {"SR. PRINCIPAL SCIENTIST": "Senior Principal Scientist",
+                    "SR. SCIENTIST": "Senior Scientist"}.get(title, title.title())
     if "SCIENTIST" in d_up:
         return "Scientist"
     return d

@@ -43,7 +43,7 @@
 | **DOI Completeness** | 99.92% | Papers with permanent resolving DOI |
 | **Journal ISSN Completeness** | 99.91% | Hyphenated linking/print ISSN |
 | **Journal Quartile Completeness** | 95.77% | SJR 1999–2025 historical panel matching |
-| **Faculty Roster Match Rate** | 79.5% (306 / 385) | Scientific cadre faculty with papers in 2016–2026 |
+| **Faculty Roster Match Rate** | 80.1% (306 / 382) | Scientific cadre faculty with papers in 2016–2026 |
 | **Indian Coauthorship Flag (`cites_indian_inst`)** | 89.3% TRUE | Papers citing other Indian institutions |
 | **Indian Citation Flag (`cited_by_indian_inst`)** | 72.7% TRUE | Papers cited by other Indian institutions |
 

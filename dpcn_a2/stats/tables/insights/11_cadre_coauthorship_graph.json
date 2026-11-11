@@ -15,14 +15,48 @@
       },
       "degree": 2,
       "strength": 3,
-      "betweenness": 0.0084
+      "betweenness": 0.0004
+    },
+    {
+      "id": "Dr P Ragupathy",
+      "name": "Dr P Ragupathy",
+      "lab": "CSIR-CECRI",
+      "dept": "ELECTROCHEMICAL POWER SOURCES",
+      "desig": "Senior Principal Scientist (Scientist-F)",
+      "faculty_id": "FAC_CECRI_0468",
+      "h_index": 24,
+      "papers": 63,
+      "citations": 1738,
+      "itemStyle": {
+        "color": "#ea580c"
+      },
+      "degree": 3,
+      "strength": 5,
+      "betweenness": 0.0166
+    },
+    {
+      "id": "Dr B Subramanian",
+      "name": "Dr B Subramanian",
+      "lab": "CSIR-CECRI",
+      "dept": "ELECTROPLATING AND ELECTROMETALLURGY",
+      "desig": "Senior Principal Scientist (Scientist-F)",
+      "faculty_id": "FAC_CECRI_0471",
+      "h_index": 26,
+      "papers": 93,
+      "citations": 2207,
+      "itemStyle": {
+        "color": "#ea580c"
+      },
+      "degree": 6,
+      "strength": 25,
+      "betweenness": 0.0334
     },
     {
       "id": "Dr Subbiah Alwarappan",
       "name": "Dr Subbiah Alwarappan",
       "lab": "CSIR-CECRI",
       "dept": "ELECTRODICS AND ELECTROCATALYSIS",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_CECRI_0475",
       "h_index": 35,
       "papers": 97,
@@ -32,14 +66,14 @@
       },
       "degree": 3,
       "strength": 8,
-      "betweenness": 0.0125
+      "betweenness": 0.0122
     },
     {
       "id": "Dr M Pandiaraj",
       "name": "Dr M Pandiaraj",
       "lab": "CSIR-CECRI",
       "dept": "ELECTRODICS AND ELECTROCATALYSIS",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_CECRI_0478",
       "h_index": 24,
       "papers": 48,
@@ -56,7 +90,7 @@
       "name": "Dr Subrata Kundu",
       "lab": "CSIR-CECRI",
       "dept": "ELECTROCHEMICAL PROCESS ENGINEERING",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_CECRI_0480",
       "h_index": 59,
       "papers": 258,
@@ -64,16 +98,16 @@
       "itemStyle": {
         "color": "#ea580c"
       },
-      "degree": 7,
-      "strength": 18,
-      "betweenness": 0.0848
+      "degree": 9,
+      "strength": 26,
+      "betweenness": 0.1243
     },
     {
       "id": "Dr A Pandikumar",
       "name": "Dr A Pandikumar",
       "lab": "CSIR-CECRI",
       "dept": "ELECTROCHEMICAL PROCESS ENGINEERING",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_CECRI_0487",
       "h_index": 35,
       "papers": 82,
@@ -81,8 +115,8 @@
       "itemStyle": {
         "color": "#ea580c"
       },
-      "degree": 1,
-      "strength": 11,
+      "degree": 2,
+      "strength": 13,
       "betweenness": 0.0
     },
     {
@@ -98,16 +132,16 @@
       "itemStyle": {
         "color": "#ea580c"
       },
-      "degree": 3,
-      "strength": 18,
-      "betweenness": 0.0084
+      "degree": 5,
+      "strength": 22,
+      "betweenness": 0.0148
     },
     {
       "id": "Mr T Mathankumar",
       "name": "Mr T Mathankumar",
       "lab": "CSIR-CECRI",
       "dept": "CENTRAL INSTRUMENTATION FACILITY",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_CECRI_0496",
       "h_index": 7,
       "papers": 11,
@@ -115,43 +149,26 @@
       "itemStyle": {
         "color": "#ea580c"
       },
-      "degree": 3,
-      "strength": 5,
-      "betweenness": 0.0042
-    },
-    {
-      "id": "Dr (Mrs) D Kalpana",
-      "name": "Dr (Mrs) D Kalpana",
-      "lab": "CSIR-CECRI",
-      "dept": "CECRI CHENNAI UNIT",
-      "desig": "Chief Scientist (Scientist-G)",
-      "faculty_id": "FAC_CECRI_0499",
-      "h_index": 17,
-      "papers": 31,
-      "citations": 972,
-      "itemStyle": {
-        "color": "#ea580c"
-      },
-      "degree": 1,
-      "strength": 2,
-      "betweenness": 0.0
+      "degree": 4,
+      "strength": 14,
+      "betweenness": 0.0043
     },
     {
       "id": "Dr Akhila Kumar Sahu",
       "name": "Dr Akhila Kumar Sahu",
       "lab": "CSIR-CECRI",
       "dept": "CECRI CHENNAI UNIT",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_CECRI_0500",
       "h_index": 31,
-      "papers": 57,
-      "citations": 2315,
+      "papers": 63,
+      "citations": 2608,
       "itemStyle": {
         "color": "#ea580c"
       },
-      "degree": 4,
-      "strength": 6,
-      "betweenness": 0.0332
+      "degree": 5,
+      "strength": 7,
+      "betweenness": 0.0215
     },
     {
       "id": "Dr. B. Sridhar",
@@ -160,39 +177,22 @@
       "dept": "Analytical & Structural Chemistry",
       "desig": "Chief Scientist (Scientist-G)",
       "faculty_id": "FAC_IICT_0169",
-      "h_index": 1,
-      "papers": 9,
-      "citations": 6,
+      "h_index": 29,
+      "papers": 329,
+      "citations": 3642,
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 3,
-      "strength": 4,
-      "betweenness": 0.0027
-    },
-    {
-      "id": "Dr. U.V.R. Vijaya Sarathi",
-      "name": "Dr. U.V.R. Vijaya Sarathi",
-      "lab": "CSIR-IICT",
-      "dept": "Analytical & Structural Chemistry",
-      "desig": "Chief Scientist (Scientist-F)",
-      "faculty_id": "FAC_IICT_0171",
-      "h_index": 3,
-      "papers": 3,
-      "citations": 82,
-      "itemStyle": {
-        "color": "#2563eb"
-      },
-      "degree": 2,
-      "strength": 3,
-      "betweenness": 0.0
+      "degree": 29,
+      "strength": 170,
+      "betweenness": 0.0952
     },
     {
       "id": "Dr. Prakriti Ranjan Bangal",
       "name": "Dr. Prakriti Ranjan Bangal",
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0172",
       "h_index": 12,
       "papers": 26,
@@ -202,14 +202,14 @@
       },
       "degree": 5,
       "strength": 8,
-      "betweenness": 0.0204
+      "betweenness": 0.0111
     },
     {
       "id": "Dr. Mohana Krishna Reddy Mudiam",
       "name": "Dr. Mohana Krishna Reddy Mudiam",
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0173",
       "h_index": 16,
       "papers": 49,
@@ -217,33 +217,33 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 10,
-      "strength": 13,
-      "betweenness": 0.0149
+      "degree": 11,
+      "strength": 16,
+      "betweenness": 0.0071
     },
     {
       "id": "Dr. Jagadeesh Babu Nanubolu",
       "name": "Dr. Jagadeesh Babu Nanubolu",
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0174",
       "h_index": 26,
-      "papers": 163,
-      "citations": 2390,
+      "papers": 181,
+      "citations": 2412,
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 22,
-      "strength": 79,
-      "betweenness": 0.2432
+      "degree": 24,
+      "strength": 100,
+      "betweenness": 0.2055
     },
     {
       "id": "Dr. G. Jithender Reddy",
       "name": "Dr. G. Jithender Reddy",
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0176",
       "h_index": 3,
       "papers": 3,
@@ -251,8 +251,8 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 2,
-      "strength": 3,
+      "degree": 3,
+      "strength": 4,
       "betweenness": 0.0
     },
     {
@@ -260,7 +260,7 @@
       "name": "Dr. Debasish Swain",
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0177",
       "h_index": 5,
       "papers": 17,
@@ -268,16 +268,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 5,
-      "strength": 12,
-      "betweenness": 0.0095
+      "degree": 7,
+      "strength": 16,
+      "betweenness": 0.0204
     },
     {
       "id": "Dr. Sunil Kumar N.",
       "name": "Dr. Sunil Kumar N.",
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0179",
       "h_index": 8,
       "papers": 31,
@@ -285,16 +285,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 7,
-      "strength": 14,
-      "betweenness": 0.0242
+      "degree": 9,
+      "strength": 24,
+      "betweenness": 0.0173
     },
     {
       "id": "Dr. Nagaraju Rajana",
       "name": "Dr. Nagaraju Rajana",
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
-      "desig": "Senior Scientist",
+      "desig": "Scientist (Scientist-C)",
       "faculty_id": "FAC_IICT_0180",
       "h_index": 2,
       "papers": 9,
@@ -302,9 +302,9 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 3,
-      "strength": 4,
-      "betweenness": 0.0049
+      "degree": 4,
+      "strength": 5,
+      "betweenness": 0.0082
     },
     {
       "id": "Dr. Anthony Addlagatta",
@@ -321,7 +321,7 @@
       },
       "degree": 7,
       "strength": 20,
-      "betweenness": 0.0012
+      "betweenness": 0.0007
     },
     {
       "id": "Dr. Srigiridhar Kotamraju",
@@ -338,7 +338,7 @@
       },
       "degree": 9,
       "strength": 9,
-      "betweenness": 0.0116
+      "betweenness": 0.0064
     },
     {
       "id": "Dr. Amitava Das (IICT)",
@@ -353,9 +353,9 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 4,
-      "strength": 6,
-      "betweenness": 0.0058
+      "degree": 5,
+      "strength": 7,
+      "betweenness": 0.0029
     },
     {
       "id": "Dr. Chittaranjan Patra",
@@ -372,31 +372,31 @@
       },
       "degree": 5,
       "strength": 9,
-      "betweenness": 0.0105
+      "betweenness": 0.0085
     },
     {
       "id": "Dr. Sunil Misra",
       "name": "Dr. Sunil Misra",
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0206",
-      "h_index": 17,
-      "papers": 79,
-      "citations": 1060,
+      "h_index": 18,
+      "papers": 95,
+      "citations": 1189,
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 22,
-      "strength": 52,
-      "betweenness": 0.1963
+      "degree": 30,
+      "strength": 75,
+      "betweenness": 0.2264
     },
     {
       "id": "Dr. S. Nishant Jain",
       "name": "Dr. S. Nishant Jain",
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0207",
       "h_index": 20,
       "papers": 53,
@@ -405,15 +405,15 @@
         "color": "#2563eb"
       },
       "degree": 11,
-      "strength": 18,
-      "betweenness": 0.0252
+      "strength": 26,
+      "betweenness": 0.0163
     },
     {
       "id": "Dr. Ramesh Ummanni",
       "name": "Dr. Ramesh Ummanni",
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0210",
       "h_index": 15,
       "papers": 41,
@@ -421,16 +421,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 3,
-      "strength": 6,
-      "betweenness": 0.0
+      "degree": 5,
+      "strength": 11,
+      "betweenness": 0.0002
     },
     {
       "id": "Dr. Andugulapati Sai Balagi",
       "name": "Dr. Andugulapati Sai Balagi",
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0211",
       "h_index": 17,
       "papers": 83,
@@ -438,16 +438,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 19,
-      "strength": 44,
-      "betweenness": 0.0914
+      "degree": 20,
+      "strength": 49,
+      "betweenness": 0.0618
     },
     {
       "id": "Dr. Ramars Amanchy",
       "name": "Dr. Ramars Amanchy",
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0212",
       "h_index": 12,
       "papers": 24,
@@ -455,16 +455,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 7,
-      "strength": 9,
-      "betweenness": 0.0156
+      "degree": 8,
+      "strength": 10,
+      "betweenness": 0.0115
     },
     {
       "id": "Dr. Bonam Srinivasa Reddy",
       "name": "Dr. Bonam Srinivasa Reddy",
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0215",
       "h_index": 10,
       "papers": 29,
@@ -473,15 +473,15 @@
         "color": "#2563eb"
       },
       "degree": 5,
-      "strength": 5,
-      "betweenness": 0.0028
+      "strength": 6,
+      "betweenness": 0.0008
     },
     {
       "id": "Dr. Aruna Jangam",
       "name": "Dr. Aruna Jangam",
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
-      "desig": "Senior Scientist",
+      "desig": "Scientist (Scientist-C)",
       "faculty_id": "FAC_IICT_0219",
       "h_index": 6,
       "papers": 12,
@@ -491,7 +491,7 @@
       },
       "degree": 6,
       "strength": 18,
-      "betweenness": 0.0006
+      "betweenness": 0.0004
     },
     {
       "id": "Dr. A. Venugopal",
@@ -508,7 +508,24 @@
       },
       "degree": 4,
       "strength": 9,
-      "betweenness": 0.0092
+      "betweenness": 0.0091
+    },
+    {
+      "id": "Dr. Pravin R. Likhar",
+      "name": "Dr. Pravin R. Likhar",
+      "lab": "CSIR-IICT",
+      "dept": "Catalysis & Fine Chemicals",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0232",
+      "h_index": 13,
+      "papers": 31,
+      "citations": 569,
+      "itemStyle": {
+        "color": "#2563eb"
+      },
+      "degree": 2,
+      "strength": 15,
+      "betweenness": 0.0083
     },
     {
       "id": "Dr. Rajiv Trivedi",
@@ -523,9 +540,9 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 4,
-      "strength": 5,
-      "betweenness": 0.0094
+      "degree": 5,
+      "strength": 16,
+      "betweenness": 0.0011
     },
     {
       "id": "Dr. Ujjwal Pal",
@@ -542,14 +559,14 @@
       },
       "degree": 7,
       "strength": 11,
-      "betweenness": 0.0397
+      "betweenness": 0.0334
     },
     {
       "id": "Dr. Jangam Ashok",
       "name": "Dr. Jangam Ashok",
       "lab": "CSIR-IICT",
       "dept": "Catalysis & Fine Chemicals",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0237",
       "h_index": 4,
       "papers": 8,
@@ -574,9 +591,9 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 3,
-      "strength": 4,
-      "betweenness": 0.0195
+      "degree": 4,
+      "strength": 5,
+      "betweenness": 0.0064
     },
     {
       "id": "DR. K.N. PRASANNA RANI",
@@ -585,15 +602,15 @@
       "dept": "Oils, Lipid Science & Technology",
       "desig": "Chief Scientist (Scientist-G)",
       "faculty_id": "FAC_IICT_0253",
-      "h_index": 5,
-      "papers": 9,
-      "citations": 89,
+      "h_index": 6,
+      "papers": 13,
+      "citations": 120,
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 4,
-      "strength": 5,
-      "betweenness": 0.0136
+      "degree": 6,
+      "strength": 11,
+      "betweenness": 0.0175
     },
     {
       "id": "Dr. M.S.L. Karuna",
@@ -602,22 +619,22 @@
       "dept": "Oils, Lipid Science & Technology",
       "desig": "Chief Scientist (Scientist-G)",
       "faculty_id": "FAC_IICT_0254",
-      "h_index": 4,
-      "papers": 11,
-      "citations": 107,
+      "h_index": 15,
+      "papers": 38,
+      "citations": 870,
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 3,
-      "strength": 3,
-      "betweenness": 0.0077
+      "degree": 4,
+      "strength": 6,
+      "betweenness": 0.0075
     },
     {
       "id": "Dr. Kaki Shiva Shanker",
       "name": "Dr. Kaki Shiva Shanker",
       "lab": "CSIR-IICT",
       "dept": "Oils, Lipid Science & Technology",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0256",
       "h_index": 10,
       "papers": 35,
@@ -625,16 +642,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 9,
-      "strength": 18,
-      "betweenness": 0.0117
+      "degree": 10,
+      "strength": 24,
+      "betweenness": 0.0201
     },
     {
       "id": "Dr. Ram Chandra Reddy Jala",
       "name": "Dr. Ram Chandra Reddy Jala",
       "lab": "CSIR-IICT",
       "dept": "Oils, Lipid Science & Technology",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0257",
       "h_index": 6,
       "papers": 11,
@@ -642,9 +659,9 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 2,
-      "strength": 4,
-      "betweenness": 0.0
+      "degree": 3,
+      "strength": 5,
+      "betweenness": 0.0063
     },
     {
       "id": "Dr. S. Venkata Mohan",
@@ -660,15 +677,15 @@
         "color": "#2563eb"
       },
       "degree": 7,
-      "strength": 17,
-      "betweenness": 0.0269
+      "strength": 18,
+      "betweenness": 0.0208
     },
     {
       "id": "Dr. Sameena Begum",
       "name": "Dr. Sameena Begum",
       "lab": "CSIR-IICT",
       "dept": "Energy & Environmental Engg.",
-      "desig": "Senior Scientist",
+      "desig": "Scientist (Scientist-C)",
       "faculty_id": "FAC_IICT_0272",
       "h_index": 18,
       "papers": 35,
@@ -678,14 +695,14 @@
       },
       "degree": 3,
       "strength": 5,
-      "betweenness": 0.01
+      "betweenness": 0.0098
     },
     {
       "id": "Dr. Boda Ravi Kiran",
       "name": "Dr. Boda Ravi Kiran",
       "lab": "CSIR-IICT",
       "dept": "Energy & Environmental Engg.",
-      "desig": "Senior Scientist",
+      "desig": "Scientist (Scientist-C)",
       "faculty_id": "FAC_IICT_0274",
       "h_index": 8,
       "papers": 11,
@@ -704,22 +721,22 @@
       "dept": "Fluoro-Agrochemicals",
       "desig": "Chief Scientist (Scientist-G)",
       "faculty_id": "FAC_IICT_0288",
-      "h_index": 19,
-      "papers": 145,
-      "citations": 1497,
+      "h_index": 21,
+      "papers": 184,
+      "citations": 1845,
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 11,
-      "strength": 20,
-      "betweenness": 0.0917
+      "degree": 12,
+      "strength": 104,
+      "betweenness": 0.0858
     },
     {
       "id": "Dr. A. Venkat Narsaiah",
       "name": "Dr. A. Venkat Narsaiah",
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0290",
       "h_index": 5,
       "papers": 23,
@@ -727,8 +744,8 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 1,
-      "strength": 4,
+      "degree": 2,
+      "strength": 7,
       "betweenness": 0.0
     },
     {
@@ -736,7 +753,7 @@
       "name": "Dr. Ravindra Motiram Kumbhare",
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0291",
       "h_index": 7,
       "papers": 21,
@@ -744,16 +761,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 4,
-      "strength": 5,
-      "betweenness": 0.0011
+      "degree": 7,
+      "strength": 10,
+      "betweenness": 0.0061
     },
     {
       "id": "Dr. Bathini Nagendra Babu",
       "name": "Dr. Bathini Nagendra Babu",
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0294",
       "h_index": 15,
       "papers": 38,
@@ -761,16 +778,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 5,
-      "strength": 9,
-      "betweenness": 0.0009
+      "degree": 6,
+      "strength": 10,
+      "betweenness": 0.001
     },
     {
       "id": "Dr. Punna Nagender",
       "name": "Dr. Punna Nagender",
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0295",
       "h_index": 9,
       "papers": 27,
@@ -778,16 +795,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 3,
-      "strength": 10,
-      "betweenness": 0.0012
+      "degree": 4,
+      "strength": 13,
+      "betweenness": 0.0017
     },
     {
       "id": "Dr. Praveen Kumar Reddy Adiyala",
       "name": "Dr. Praveen Kumar Reddy Adiyala",
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0296",
       "h_index": 9,
       "papers": 18,
@@ -804,7 +821,7 @@
       "name": "Dr. Krishna Swaroop Desireddy",
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
-      "desig": "Senior Scientist",
+      "desig": "Scientist (Scientist-C)",
       "faculty_id": "FAC_IICT_0299",
       "h_index": 8,
       "papers": 15,
@@ -814,7 +831,7 @@
       },
       "degree": 4,
       "strength": 10,
-      "betweenness": 0.0085
+      "betweenness": 0.0083
     },
     {
       "id": "Dr. Sandip B. Bharate",
@@ -829,9 +846,9 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 4,
-      "strength": 10,
-      "betweenness": 0.0038
+      "degree": 5,
+      "strength": 11,
+      "betweenness": 0.001
     },
     {
       "id": "Dr. D. Srinivasa Reddy",
@@ -840,15 +857,32 @@
       "dept": "Natural Products & Medicinal Chemistry",
       "desig": "Director",
       "faculty_id": "FAC_IICT_0315",
-      "h_index": 7,
-      "papers": 22,
-      "citations": 107,
+      "h_index": 8,
+      "papers": 24,
+      "citations": 120,
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 4,
-      "strength": 4,
-      "betweenness": 0.0068
+      "degree": 5,
+      "strength": 7,
+      "betweenness": 0.0097
+    },
+    {
+      "id": "Dr. K. Suresh Babu",
+      "name": "Dr. K. Suresh Babu",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "desig": "Chief Scientist (Scientist-G)",
+      "faculty_id": "FAC_IICT_0317",
+      "h_index": 16,
+      "papers": 56,
+      "citations": 673,
+      "itemStyle": {
+        "color": "#2563eb"
+      },
+      "degree": 10,
+      "strength": 41,
+      "betweenness": 0.004
     },
     {
       "id": "Dr. Haridas B. Rode",
@@ -863,16 +897,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 10,
-      "strength": 21,
-      "betweenness": 0.0623
+      "degree": 11,
+      "strength": 31,
+      "betweenness": 0.0545
     },
     {
       "id": "Dr. Avijit Jana",
       "name": "Dr. Avijit Jana",
       "lab": "CSIR-IICT",
       "dept": "Natural Products & Medicinal Chemistry",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0319",
       "h_index": 15,
       "papers": 28,
@@ -882,14 +916,14 @@
       },
       "degree": 4,
       "strength": 5,
-      "betweenness": 0.0037
+      "betweenness": 0.0014
     },
     {
       "id": "Dr. Linga Banoth",
       "name": "Dr. Linga Banoth",
       "lab": "CSIR-IICT",
       "dept": "Natural Products & Medicinal Chemistry",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0321",
       "h_index": 8,
       "papers": 18,
@@ -897,16 +931,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 6,
-      "strength": 6,
-      "betweenness": 0.0071
+      "degree": 7,
+      "strength": 7,
+      "betweenness": 0.0027
     },
     {
       "id": "Dr. V. Ramalingam",
       "name": "Dr. V. Ramalingam",
       "lab": "CSIR-IICT",
       "dept": "Natural Products & Medicinal Chemistry",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0322",
       "h_index": 15,
       "papers": 45,
@@ -915,15 +949,15 @@
         "color": "#2563eb"
       },
       "degree": 7,
-      "strength": 19,
-      "betweenness": 0.0148
+      "strength": 28,
+      "betweenness": 0.0086
     },
     {
       "id": "Dr. Surender Singh Jadav",
       "name": "Dr. Surender Singh Jadav",
       "lab": "CSIR-IICT",
       "dept": "Natural Products & Medicinal Chemistry",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0323",
       "h_index": 12,
       "papers": 38,
@@ -931,9 +965,9 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 14,
-      "strength": 32,
-      "betweenness": 0.0301
+      "degree": 16,
+      "strength": 38,
+      "betweenness": 0.0185
     },
     {
       "id": "Dr. Subhash Ghosh",
@@ -943,14 +977,14 @@
       "desig": "Chief Scientist (Scientist-G)",
       "faculty_id": "FAC_IICT_0333",
       "h_index": 10,
-      "papers": 42,
-      "citations": 269,
+      "papers": 44,
+      "citations": 278,
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 7,
-      "strength": 19,
-      "betweenness": 0.0152
+      "degree": 8,
+      "strength": 21,
+      "betweenness": 0.0154
     },
     {
       "id": "Dr. Debendra Kumar Mohapatra",
@@ -965,9 +999,9 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 3,
-      "strength": 10,
-      "betweenness": 0.0167
+      "degree": 4,
+      "strength": 11,
+      "betweenness": 0.0166
     },
     {
       "id": "Dr. Maddi Sridhar Reddy",
@@ -982,16 +1016,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 4,
-      "strength": 24,
-      "betweenness": 0.0037
+      "degree": 5,
+      "strength": 32,
+      "betweenness": 0.0028
     },
     {
       "id": "Dr. G. Sudhakar",
       "name": "Dr. G. Sudhakar",
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0338",
       "h_index": 6,
       "papers": 9,
@@ -1008,7 +1042,7 @@
       "name": "Dr. Surisetti Suresh",
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0339",
       "h_index": 17,
       "papers": 48,
@@ -1016,16 +1050,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 4,
-      "strength": 16,
-      "betweenness": 0.0004
+      "degree": 5,
+      "strength": 21,
+      "betweenness": 0.0006
     },
     {
       "id": "Dr. Rambabu Chegondi",
       "name": "Dr. Rambabu Chegondi",
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0340",
       "h_index": 17,
       "papers": 46,
@@ -1034,7 +1068,7 @@
         "color": "#2563eb"
       },
       "degree": 2,
-      "strength": 17,
+      "strength": 18,
       "betweenness": 0.0
     },
     {
@@ -1042,7 +1076,7 @@
       "name": "Dr. T. Kumaraguru",
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0341",
       "h_index": 6,
       "papers": 20,
@@ -1052,14 +1086,14 @@
       },
       "degree": 7,
       "strength": 16,
-      "betweenness": 0.0219
+      "betweenness": 0.0204
     },
     {
       "id": "Dr. Ajay Kumar Singh",
       "name": "Dr. Ajay Kumar Singh",
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0342",
       "h_index": 12,
       "papers": 32,
@@ -1069,14 +1103,14 @@
       },
       "degree": 5,
       "strength": 11,
-      "betweenness": 0.0093
+      "betweenness": 0.0087
     },
     {
       "id": "Dr. Nayani Kiranmai",
       "name": "Dr. Nayani Kiranmai",
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0343",
       "h_index": 8,
       "papers": 29,
@@ -1084,33 +1118,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 4,
-      "strength": 6,
-      "betweenness": 0.0096
-    },
-    {
-      "id": "Dr. Shiva Kumar Kota Balaji",
-      "name": "Dr. Shiva Kumar Kota Balaji",
-      "lab": "CSIR-IICT",
-      "dept": "Organic Synthesis & Process Chemistry",
-      "desig": "Senior Principal Scientist",
-      "faculty_id": "FAC_IICT_0345",
-      "h_index": 2,
-      "papers": 4,
-      "citations": 13,
-      "itemStyle": {
-        "color": "#2563eb"
-      },
-      "degree": 2,
-      "strength": 3,
-      "betweenness": 0.0002
+      "degree": 6,
+      "strength": 10,
+      "betweenness": 0.0017
     },
     {
       "id": "Dr. Raju Adepu",
       "name": "Dr. Raju Adepu",
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0348",
       "h_index": 5,
       "papers": 13,
@@ -1118,9 +1135,9 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 3,
-      "strength": 3,
-      "betweenness": 0.0005
+      "degree": 4,
+      "strength": 4,
+      "betweenness": 0.0002
     },
     {
       "id": "Dr. S. Sridhar",
@@ -1130,14 +1147,14 @@
       "desig": "Chief Scientist (Scientist-G)",
       "faculty_id": "FAC_IICT_0363",
       "h_index": 20,
-      "papers": 50,
-      "citations": 1582,
+      "papers": 54,
+      "citations": 1590,
       "itemStyle": {
         "color": "#2563eb"
       },
       "degree": 6,
-      "strength": 18,
-      "betweenness": 0.0263
+      "strength": 20,
+      "betweenness": 0.0243
     },
     {
       "id": "Dr. T. Prathap Kumar",
@@ -1146,39 +1163,39 @@
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
       "desig": "Chief Scientist (Scientist-G)",
       "faculty_id": "FAC_IICT_0365",
-      "h_index": 11,
-      "papers": 19,
-      "citations": 317,
+      "h_index": 12,
+      "papers": 25,
+      "citations": 379,
       "itemStyle": {
         "color": "#2563eb"
       },
       "degree": 3,
-      "strength": 19,
-      "betweenness": 0.0021
+      "strength": 25,
+      "betweenness": 0.0027
     },
     {
       "id": "Dr. Nivedita Sahu",
       "name": "Dr. Nivedita Sahu",
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0369",
       "h_index": 7,
-      "papers": 13,
+      "papers": 14,
       "citations": 268,
       "itemStyle": {
         "color": "#2563eb"
       },
       "degree": 3,
-      "strength": 9,
-      "betweenness": 0.0258
+      "strength": 11,
+      "betweenness": 0.0244
     },
     {
       "id": "Dr. Sreepriya Vedantam",
       "name": "Dr. Sreepriya Vedantam",
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0370",
       "h_index": 4,
       "papers": 14,
@@ -1195,24 +1212,24 @@
       "name": "Dr. Alka Kumari",
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0372",
       "h_index": 10,
-      "papers": 27,
-      "citations": 238,
+      "papers": 28,
+      "citations": 240,
       "itemStyle": {
         "color": "#2563eb"
       },
       "degree": 6,
-      "strength": 26,
-      "betweenness": 0.0271
+      "strength": 28,
+      "betweenness": 0.025
     },
     {
       "id": "Dr. Reddi Kamesh",
       "name": "Dr. Reddi Kamesh",
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0373",
       "h_index": 8,
       "papers": 25,
@@ -1222,14 +1239,14 @@
       },
       "degree": 6,
       "strength": 6,
-      "betweenness": 0.0145
+      "betweenness": 0.0133
     },
     {
       "id": "Dr. Vineet Aniya",
       "name": "Dr. Vineet Aniya",
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0374",
       "h_index": 14,
       "papers": 52,
@@ -1238,15 +1255,15 @@
         "color": "#2563eb"
       },
       "degree": 3,
-      "strength": 26,
-      "betweenness": 0.0084
+      "strength": 27,
+      "betweenness": 0.0083
     },
     {
       "id": "Dr. Siddhartha Moulik",
       "name": "Dr. Siddhartha Moulik",
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0376",
       "h_index": 14,
       "papers": 26,
@@ -1255,8 +1272,8 @@
         "color": "#2563eb"
       },
       "degree": 7,
-      "strength": 13,
-      "betweenness": 0.0565
+      "strength": 14,
+      "betweenness": 0.0525
     },
     {
       "id": "Dr. Sutapa Ghosh",
@@ -1266,13 +1283,13 @@
       "desig": "Chief Scientist (Scientist-G)",
       "faculty_id": "FAC_IICT_0394",
       "h_index": 12,
-      "papers": 21,
-      "citations": 665,
+      "papers": 23,
+      "citations": 666,
       "itemStyle": {
         "color": "#2563eb"
       },
       "degree": 2,
-      "strength": 3,
+      "strength": 5,
       "betweenness": 0.0
     },
     {
@@ -1307,7 +1324,7 @@
       },
       "degree": 6,
       "strength": 31,
-      "betweenness": 0.0099
+      "betweenness": 0.0075
     },
     {
       "id": "Dr. Pratyay Basak",
@@ -1324,14 +1341,14 @@
       },
       "degree": 6,
       "strength": 30,
-      "betweenness": 0.0194
+      "betweenness": 0.0187
     },
     {
       "id": "Dr. Surya Prakash Singh",
       "name": "Dr. Surya Prakash Singh",
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0401",
       "h_index": 30,
       "papers": 146,
@@ -1340,32 +1357,15 @@
         "color": "#2563eb"
       },
       "degree": 6,
-      "strength": 11,
-      "betweenness": 0.0065
-    },
-    {
-      "id": "Dr. Sidhanath Vishwanath Bhosale",
-      "name": "Dr. Sidhanath Vishwanath Bhosale",
-      "lab": "CSIR-IICT",
-      "dept": "Polymers & Functional Materials",
-      "desig": "Chief Scientist (Scientist-F)",
-      "faculty_id": "FAC_IICT_0402",
-      "h_index": 24,
-      "papers": 106,
-      "citations": 3120,
-      "itemStyle": {
-        "color": "#2563eb"
-      },
-      "degree": 2,
-      "strength": 3,
-      "betweenness": 0.0137
+      "strength": 17,
+      "betweenness": 0.0049
     },
     {
       "id": "Dr. Vasundhara Mutta",
       "name": "Dr. Vasundhara Mutta",
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
-      "desig": "Chief Scientist (Scientist-F)",
+      "desig": "Senior Principal Scientist (Scientist-F)",
       "faculty_id": "FAC_IICT_0403",
       "h_index": 13,
       "papers": 51,
@@ -1373,16 +1373,16 @@
       "itemStyle": {
         "color": "#2563eb"
       },
-      "degree": 3,
-      "strength": 3,
-      "betweenness": 0.0045
+      "degree": 4,
+      "strength": 4,
+      "betweenness": 0.0056
     },
     {
       "id": "Dr. Abhijit Hazarika",
       "name": "Dr. Abhijit Hazarika",
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0405",
       "h_index": 7,
       "papers": 13,
@@ -1392,14 +1392,14 @@
       },
       "degree": 2,
       "strength": 3,
-      "betweenness": 0.0021
+      "betweenness": 0.0019
     },
     {
       "id": "Dr. S.N. Raju Kutcherlapati",
       "name": "Dr. S.N. Raju Kutcherlapati",
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0407",
       "h_index": 4,
       "papers": 8,
@@ -1416,7 +1416,7 @@
       "name": "Dr. Arindam Chakrabarty",
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
-      "desig": "Principal Scientist",
+      "desig": "Senior Scientist (Scientist-D)",
       "faculty_id": "FAC_IICT_0408",
       "h_index": 6,
       "papers": 10,
@@ -1433,7 +1433,7 @@
       "name": "Dr. Sudhakar Manikrao Bansod",
       "lab": "CSIR-IICT",
       "dept": "Business Development & Research Management (BDRM)",
-      "desig": "Senior Principal Scientist",
+      "desig": "Principal Scientist (Scientist-E)",
       "faculty_id": "FAC_IICT_0424",
       "h_index": 5,
       "papers": 17,
@@ -1443,7 +1443,24 @@
       },
       "degree": 4,
       "strength": 5,
-      "betweenness": 0.0028
+      "betweenness": 0.0003
+    },
+    {
+      "id": "SRI. P. ANIL KUMAR",
+      "name": "SRI. P. ANIL KUMAR",
+      "lab": "CSIR-IICT",
+      "dept": "Knowledge and Information Management",
+      "desig": "Senior Principal Scientist (Scientist-F)",
+      "faculty_id": "FAC_IICT_0442",
+      "h_index": 1,
+      "papers": 4,
+      "citations": 30,
+      "itemStyle": {
+        "color": "#2563eb"
+      },
+      "degree": 2,
+      "strength": 4,
+      "betweenness": 0.0
     },
     {
       "id": "Dr. Akkattu T. Biju",
@@ -1477,7 +1494,7 @@
       },
       "degree": 7,
       "strength": 9,
-      "betweenness": 0.0093
+      "betweenness": 0.0071
     },
     {
       "id": "Dr. Amitava Das (NCL)",
@@ -1494,7 +1511,7 @@
       },
       "degree": 3,
       "strength": 3,
-      "betweenness": 0.001
+      "betweenness": 0.0007
     },
     {
       "id": "Dr. Amol A. Kulkarni",
@@ -1509,9 +1526,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 8,
-      "strength": 8,
-      "betweenness": 0.005
+      "degree": 9,
+      "strength": 9,
+      "betweenness": 0.0088
     },
     {
       "id": "Dr. Anu Raghunathan",
@@ -1543,9 +1560,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 2,
-      "strength": 11,
-      "betweenness": 0.0084
+      "degree": 3,
+      "strength": 13,
+      "betweenness": 0.0083
     },
     {
       "id": "Dr. Arun Torris",
@@ -1560,9 +1577,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 19,
-      "strength": 75,
-      "betweenness": 0.0304
+      "degree": 20,
+      "strength": 77,
+      "betweenness": 0.0298
     },
     {
       "id": "Dr. Arup Kumar Rath",
@@ -1579,7 +1596,7 @@
       },
       "degree": 5,
       "strength": 7,
-      "betweenness": 0.0102
+      "betweenness": 0.0094
     },
     {
       "id": "Dr. Asha S.K.",
@@ -1596,7 +1613,7 @@
       },
       "degree": 6,
       "strength": 7,
-      "betweenness": 0.0066
+      "betweenness": 0.0037
     },
     {
       "id": "Dr. Ashish K. Lele",
@@ -1613,7 +1630,7 @@
       },
       "degree": 4,
       "strength": 4,
-      "betweenness": 0.0013
+      "betweenness": 0.0008
     },
     {
       "id": "Dr. Ashish V. Orpe",
@@ -1645,15 +1662,15 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 10,
-      "strength": 26,
-      "betweenness": 0.0132
+      "degree": 11,
+      "strength": 27,
+      "betweenness": 0.0138
     },
     {
       "id": "Dr. Ashwini Kumar Nangia",
       "name": "Dr. Ashwini Kumar Nangia",
       "lab": "CSIR-NCL",
-      "dept": "Contact Number:",
+      "dept": "",
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0017",
       "h_index": 28,
@@ -1662,9 +1679,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 7,
-      "strength": 10,
-      "betweenness": 0.0309
+      "degree": 8,
+      "strength": 11,
+      "betweenness": 0.0296
     },
     {
       "id": "Dr. Asish K. Bhattacharya",
@@ -1681,7 +1698,7 @@
       },
       "degree": 3,
       "strength": 8,
-      "betweenness": 0.0053
+      "betweenness": 0.0042
     },
     {
       "id": "Dr. Asmita Prabhune",
@@ -1696,9 +1713,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 7,
-      "strength": 14,
-      "betweenness": 0.0276
+      "degree": 8,
+      "strength": 15,
+      "betweenness": 0.0192
     },
     {
       "id": "Dr. Atanu Das",
@@ -1715,7 +1732,7 @@
       },
       "degree": 4,
       "strength": 6,
-      "betweenness": 0.0091
+      "betweenness": 0.0089
     },
     {
       "id": "Dr. Avishek Saha",
@@ -1766,7 +1783,7 @@
       },
       "degree": 4,
       "strength": 28,
-      "betweenness": 0.0013
+      "betweenness": 0.0006
     },
     {
       "id": "Dr. Bhushan P. Chaudhari",
@@ -1781,9 +1798,26 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 4,
-      "strength": 10,
+      "degree": 5,
+      "strength": 11,
       "betweenness": 0.0007
+    },
+    {
+      "id": "Dr. C. G. Suresh",
+      "name": "Dr. C. G. Suresh",
+      "lab": "CSIR-NCL",
+      "dept": "Biochemical Science Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0030",
+      "h_index": 8,
+      "papers": 11,
+      "citations": 329,
+      "itemStyle": {
+        "color": "#16a34a"
+      },
+      "degree": 3,
+      "strength": 8,
+      "betweenness": 0.0026
     },
     {
       "id": "Dr. Chepuri V. Ramana",
@@ -1800,7 +1834,7 @@
       },
       "degree": 4,
       "strength": 9,
-      "betweenness": 0.0052
+      "betweenness": 0.0046
     },
     {
       "id": "Dr. Chetan Gadgil",
@@ -1832,9 +1866,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 9,
-      "strength": 9,
-      "betweenness": 0.025
+      "degree": 11,
+      "strength": 12,
+      "betweenness": 0.0275
     },
     {
       "id": "Dr. Dhanraj B Shinde",
@@ -1866,9 +1900,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 21,
-      "strength": 29,
-      "betweenness": 0.2088
+      "degree": 22,
+      "strength": 30,
+      "betweenness": 0.2183
     },
     {
       "id": "Dr. Durba Sengupta",
@@ -1885,7 +1919,7 @@
       },
       "degree": 10,
       "strength": 15,
-      "betweenness": 0.0151
+      "betweenness": 0.0138
     },
     {
       "id": "Dr. Eeshwaraiah Begari",
@@ -1919,7 +1953,7 @@
       },
       "degree": 7,
       "strength": 25,
-      "betweenness": 0.0106
+      "betweenness": 0.0078
     },
     {
       "id": "Dr. Hanumant B. Borate",
@@ -1970,7 +2004,7 @@
       },
       "degree": 8,
       "strength": 12,
-      "betweenness": 0.0115
+      "betweenness": 0.0083
     },
     {
       "id": "Dr. Jayant Gajbhiye",
@@ -1979,14 +2013,14 @@
       "dept": "Organic Chemistry Division",
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0058",
-      "h_index": 8,
-      "papers": 23,
-      "citations": 183,
+      "h_index": 9,
+      "papers": 25,
+      "citations": 265,
       "itemStyle": {
         "color": "#16a34a"
       },
       "degree": 8,
-      "strength": 11,
+      "strength": 12,
       "betweenness": 0.0062
     },
     {
@@ -2004,7 +2038,7 @@
       },
       "degree": 5,
       "strength": 37,
-      "betweenness": 0.0014
+      "betweenness": 0.0011
     },
     {
       "id": "Dr. K. Krishnamoorthy",
@@ -2019,9 +2053,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 9,
-      "strength": 47,
-      "betweenness": 0.0102
+      "degree": 10,
+      "strength": 48,
+      "betweenness": 0.0074
     },
     {
       "id": "Dr. Kadhiravan Shanmuganathan",
@@ -2038,7 +2072,7 @@
       },
       "degree": 9,
       "strength": 17,
-      "betweenness": 0.0498
+      "betweenness": 0.027
     },
     {
       "id": "Dr. Kavita Joshi",
@@ -2055,7 +2089,7 @@
       },
       "degree": 9,
       "strength": 11,
-      "betweenness": 0.0211
+      "betweenness": 0.0184
     },
     {
       "id": "Dr. Kiran A. Kulkarni",
@@ -2072,7 +2106,7 @@
       },
       "degree": 9,
       "strength": 15,
-      "betweenness": 0.0154
+      "betweenness": 0.0122
     },
     {
       "id": "Dr. Kiran Pandare",
@@ -2089,7 +2123,7 @@
       },
       "degree": 4,
       "strength": 4,
-      "betweenness": 0.0015
+      "betweenness": 0.001
     },
     {
       "id": "Dr. Kirandeep Singh",
@@ -2098,15 +2132,15 @@
       "dept": "Physical and Materials Chemistry Division",
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0066",
-      "h_index": 5,
-      "papers": 8,
-      "citations": 54,
+      "h_index": 6,
+      "papers": 10,
+      "citations": 63,
       "itemStyle": {
         "color": "#16a34a"
       },
       "degree": 4,
-      "strength": 5,
-      "betweenness": 0.0009
+      "strength": 7,
+      "betweenness": 0.0003
     },
     {
       "id": "Dr. Kishor L. Handore",
@@ -2122,8 +2156,8 @@
         "color": "#16a34a"
       },
       "degree": 5,
-      "strength": 5,
-      "betweenness": 0.0332
+      "strength": 6,
+      "betweenness": 0.0285
     },
     {
       "id": "Dr. Koteswara V.",
@@ -2139,8 +2173,8 @@
         "color": "#16a34a"
       },
       "degree": 8,
-      "strength": 16,
-      "betweenness": 0.0142
+      "strength": 17,
+      "betweenness": 0.0054
     },
     {
       "id": "Dr. Kumar Vanka",
@@ -2155,15 +2189,15 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 31,
-      "strength": 152,
-      "betweenness": 0.1984
+      "degree": 32,
+      "strength": 154,
+      "betweenness": 0.1736
     },
     {
       "id": "Dr. Kushal Bhatte",
       "name": "Dr. Kushal Bhatte",
       "lab": "CSIR-NCL",
-      "dept": "Contact Number:",
+      "dept": "",
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0070",
       "h_index": 3,
@@ -2172,9 +2206,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 3,
-      "strength": 4,
-      "betweenness": 0.0007
+      "degree": 4,
+      "strength": 5,
+      "betweenness": 0.0014
     },
     {
       "id": "Dr. M. S. Shashidhar",
@@ -2206,9 +2240,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 10,
-      "strength": 23,
-      "betweenness": 0.0145
+      "degree": 11,
+      "strength": 24,
+      "betweenness": 0.016
     },
     {
       "id": "Dr. Mahesh S. Dharne",
@@ -2217,15 +2251,15 @@
       "dept": "Biochemical Science Division",
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0076",
-      "h_index": 3,
-      "papers": 11,
-      "citations": 49,
+      "h_index": 23,
+      "papers": 90,
+      "citations": 1700,
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 3,
-      "strength": 3,
-      "betweenness": 0.009
+      "degree": 14,
+      "strength": 30,
+      "betweenness": 0.0464
     },
     {
       "id": "Dr. Manish Kumar Mishra",
@@ -2259,7 +2293,7 @@
       },
       "degree": 10,
       "strength": 16,
-      "betweenness": 0.031
+      "betweenness": 0.0298
     },
     {
       "id": "Dr. Manohar V. Badiger",
@@ -2276,7 +2310,7 @@
       },
       "degree": 7,
       "strength": 43,
-      "betweenness": 0.0103
+      "betweenness": 0.0093
     },
     {
       "id": "Dr. Moneesha Fernandes",
@@ -2293,7 +2327,7 @@
       },
       "degree": 7,
       "strength": 15,
-      "betweenness": 0.0205
+      "betweenness": 0.0178
     },
     {
       "id": "Dr. Mugdha Gadgil",
@@ -2310,7 +2344,7 @@
       },
       "degree": 2,
       "strength": 5,
-      "betweenness": 0.0084
+      "betweenness": 0.0083
     },
     {
       "id": "Dr. Nagaraju Barsu",
@@ -2337,14 +2371,14 @@
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0086",
       "h_index": 14,
-      "papers": 41,
-      "citations": 714,
+      "papers": 42,
+      "citations": 721,
       "itemStyle": {
         "color": "#16a34a"
       },
       "degree": 6,
       "strength": 7,
-      "betweenness": 0.0078
+      "betweenness": 0.0068
     },
     {
       "id": "Dr. Nilesh A Mali",
@@ -2395,13 +2429,13 @@
       },
       "degree": 5,
       "strength": 18,
-      "betweenness": 0.0009
+      "betweenness": 0.0008
     },
     {
       "id": "Dr. Pankaj Doshi",
       "name": "Dr. Pankaj Doshi",
       "lab": "CSIR-NCL",
-      "dept": "Contact Number:",
+      "dept": "",
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0098",
       "h_index": 5,
@@ -2429,13 +2463,13 @@
       },
       "degree": 6,
       "strength": 9,
-      "betweenness": 0.005
+      "betweenness": 0.0044
     },
     {
       "id": "Dr. Pradeep Kumar, FNA",
       "name": "Dr. Pradeep Kumar, FNA",
       "lab": "CSIR-NCL",
-      "dept": "Contact Number:",
+      "dept": "",
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0102",
       "h_index": 12,
@@ -2445,7 +2479,7 @@
         "color": "#16a34a"
       },
       "degree": 4,
-      "strength": 14,
+      "strength": 15,
       "betweenness": 0.001
     },
     {
@@ -2480,7 +2514,7 @@
       },
       "degree": 6,
       "strength": 20,
-      "betweenness": 0.0177
+      "betweenness": 0.0135
     },
     {
       "id": "Dr. Premnath Venugopalan",
@@ -2514,13 +2548,13 @@
       },
       "degree": 15,
       "strength": 35,
-      "betweenness": 0.021
+      "betweenness": 0.016
     },
     {
       "id": "Dr. Rahul Bhambure",
       "name": "Dr. Rahul Bhambure",
       "lab": "CSIR-NCL",
-      "dept": "Contact Number:",
+      "dept": "",
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0111",
       "h_index": 7,
@@ -2547,8 +2581,8 @@
         "color": "#16a34a"
       },
       "degree": 5,
-      "strength": 8,
-      "betweenness": 0.0011
+      "strength": 9,
+      "betweenness": 0.0008
     },
     {
       "id": "Dr. Rajesh G. Gonnade",
@@ -2563,9 +2597,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 38,
-      "strength": 196,
-      "betweenness": 0.163
+      "degree": 39,
+      "strength": 197,
+      "betweenness": 0.1558
     },
     {
       "id": "Dr. Rajesh Kanawade",
@@ -2575,14 +2609,14 @@
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0114",
       "h_index": 5,
-      "papers": 17,
+      "papers": 19,
       "citations": 64,
       "itemStyle": {
         "color": "#16a34a"
       },
       "degree": 6,
-      "strength": 10,
-      "betweenness": 0.0021
+      "strength": 12,
+      "betweenness": 0.0017
     },
     {
       "id": "Dr. Rambabu Dandela",
@@ -2616,7 +2650,7 @@
       },
       "degree": 7,
       "strength": 19,
-      "betweenness": 0.0177
+      "betweenness": 0.0099
     },
     {
       "id": "Dr. Sachin U. Nandanwar",
@@ -2648,9 +2682,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 20,
-      "strength": 78,
-      "betweenness": 0.0474
+      "degree": 21,
+      "strength": 79,
+      "betweenness": 0.041
     },
     {
       "id": "Dr. Sakya S. Sen",
@@ -2666,7 +2700,7 @@
         "color": "#16a34a"
       },
       "degree": 4,
-      "strength": 76,
+      "strength": 77,
       "betweenness": 0.0
     },
     {
@@ -2684,7 +2718,7 @@
       },
       "degree": 9,
       "strength": 29,
-      "betweenness": 0.0175
+      "betweenness": 0.0098
     },
     {
       "id": "Dr. Sandip S. Shinde",
@@ -2699,9 +2733,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 4,
-      "strength": 6,
-      "betweenness": 0.007
+      "degree": 5,
+      "strength": 9,
+      "betweenness": 0.0048
     },
     {
       "id": "Dr. Sanjay P. Kamble",
@@ -2711,14 +2745,14 @@
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0128",
       "h_index": 15,
-      "papers": 49,
+      "papers": 51,
       "citations": 837,
       "itemStyle": {
         "color": "#16a34a"
       },
       "degree": 5,
-      "strength": 5,
-      "betweenness": 0.0175
+      "strength": 16,
+      "betweenness": 0.0118
     },
     {
       "id": "Dr. Santhosh Babu Sukumaran",
@@ -2735,7 +2769,7 @@
       },
       "degree": 11,
       "strength": 29,
-      "betweenness": 0.0206
+      "betweenness": 0.0115
     },
     {
       "id": "Dr. Santosh B. Mhaske",
@@ -2752,41 +2786,7 @@
       },
       "degree": 5,
       "strength": 8,
-      "betweenness": 0.0022
-    },
-    {
-      "id": "Dr. Santosh Kumar Jha",
-      "name": "Dr. Santosh Kumar Jha",
-      "lab": "CSIR-NCL",
-      "dept": "Physical and Materials Chemistry Division",
-      "desig": "Scientist",
-      "faculty_id": "FAC_NCL_0131",
-      "h_index": 12,
-      "papers": 23,
-      "citations": 272,
-      "itemStyle": {
-        "color": "#16a34a"
-      },
-      "degree": 1,
-      "strength": 3,
-      "betweenness": 0.0
-    },
-    {
-      "id": "Dr. Satyam Naidu Vasireddy",
-      "name": "Dr. Satyam Naidu Vasireddy",
-      "lab": "CSIR-NCL",
-      "dept": "Chemical Engineering & Process Development",
-      "desig": "Scientist",
-      "faculty_id": "FAC_NCL_0136",
-      "h_index": 3,
-      "papers": 9,
-      "citations": 26,
-      "itemStyle": {
-        "color": "#16a34a"
-      },
-      "degree": 3,
-      "strength": 3,
-      "betweenness": 0.0
+      "betweenness": 0.0018
     },
     {
       "id": "Dr. Sayan Bagchi",
@@ -2803,7 +2803,7 @@
       },
       "degree": 5,
       "strength": 5,
-      "betweenness": 0.0117
+      "betweenness": 0.011
     },
     {
       "id": "Dr. Selvaraj Kaliaperumal",
@@ -2837,7 +2837,7 @@
       },
       "degree": 6,
       "strength": 6,
-      "betweenness": 0.0167
+      "betweenness": 0.012
     },
     {
       "id": "Dr. Shubhangi B Umbarkar",
@@ -2852,9 +2852,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 5,
-      "strength": 7,
-      "betweenness": 0.0108
+      "degree": 6,
+      "strength": 8,
+      "betweenness": 0.0119
     },
     {
       "id": "Dr. Sreekumar Kurungot",
@@ -2870,8 +2870,8 @@
         "color": "#16a34a"
       },
       "degree": 18,
-      "strength": 79,
-      "betweenness": 0.0314
+      "strength": 81,
+      "betweenness": 0.0177
     },
     {
       "id": "Dr. Subashchandrabose Chinnathambi",
@@ -2888,7 +2888,7 @@
       },
       "degree": 3,
       "strength": 8,
-      "betweenness": 0.0005
+      "betweenness": 0.0004
     },
     {
       "id": "Dr. Subhash P. Chavan",
@@ -2905,7 +2905,7 @@
       },
       "degree": 6,
       "strength": 17,
-      "betweenness": 0.0039
+      "betweenness": 0.0035
     },
     {
       "id": "Dr. Suresh Bhat",
@@ -2920,9 +2920,9 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 7,
-      "strength": 24,
-      "betweenness": 0.0013
+      "degree": 8,
+      "strength": 26,
+      "betweenness": 0.0009
     },
     {
       "id": "Dr. Sureshkumar Ramasamy",
@@ -2938,8 +2938,25 @@
         "color": "#16a34a"
       },
       "degree": 10,
-      "strength": 14,
-      "betweenness": 0.0046
+      "strength": 19,
+      "betweenness": 0.003
+    },
+    {
+      "id": "Dr. T.G.Ajithkumar",
+      "name": "Dr. T.G.Ajithkumar",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "desig": "Scientist",
+      "faculty_id": "FAC_NCL_0154",
+      "h_index": 21,
+      "papers": 62,
+      "citations": 1711,
+      "itemStyle": {
+        "color": "#16a34a"
+      },
+      "degree": 11,
+      "strength": 18,
+      "betweenness": 0.0413
     },
     {
       "id": "Dr. Udaya Kiran Marelli",
@@ -2956,7 +2973,7 @@
       },
       "degree": 10,
       "strength": 15,
-      "betweenness": 0.0095
+      "betweenness": 0.0087
     },
     {
       "id": "Dr. Ulhas K. Kharul",
@@ -2973,7 +2990,7 @@
       },
       "degree": 10,
       "strength": 19,
-      "betweenness": 0.0289
+      "betweenness": 0.0175
     },
     {
       "id": "Dr. Utpal Das",
@@ -2990,13 +3007,13 @@
       },
       "degree": 3,
       "strength": 9,
-      "betweenness": 0.0084
+      "betweenness": 0.0083
     },
     {
       "id": "Dr. Vaijayanti A. Kumar",
       "name": "Dr. Vaijayanti A. Kumar",
       "lab": "CSIR-NCL",
-      "dept": "Contact Number:",
+      "dept": "",
       "desig": "Scientist",
       "faculty_id": "FAC_NCL_0160",
       "h_index": 5,
@@ -3024,7 +3041,7 @@
       },
       "degree": 7,
       "strength": 21,
-      "betweenness": 0.0066
+      "betweenness": 0.0046
     },
     {
       "id": "Dr. Vinod C Prabhakaran",
@@ -3039,32 +3056,51 @@
       "itemStyle": {
         "color": "#16a34a"
       },
-      "degree": 14,
-      "strength": 39,
-      "betweenness": 0.0585
-    },
-    {
-      "id": "Dr. Vrushali H. Jadhav",
-      "name": "Dr. Vrushali H. Jadhav",
-      "lab": "CSIR-NCL",
-      "dept": "Catalysis Division",
-      "desig": "Scientist",
-      "faculty_id": "FAC_NCL_0166",
-      "h_index": 10,
-      "papers": 30,
-      "citations": 498,
-      "itemStyle": {
-        "color": "#16a34a"
-      },
-      "degree": 3,
-      "strength": 3,
-      "betweenness": 0.0084
+      "degree": 15,
+      "strength": 44,
+      "betweenness": 0.0365
     }
   ],
   "links": [
     {
       "source": "Dr V Ganesh",
+      "target": "Dr B Subramanian",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr V Ganesh",
       "target": "Dr Akhila Kumar Sahu",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr P Ragupathy",
+      "target": "Dr B Subramanian",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr Subrata Kundu",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr P Murugan",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Mr T Mathankumar",
+      "weight": 9,
+      "value": 9
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr A Pandikumar",
       "weight": 2,
       "value": 2
     },
@@ -3097,6 +3133,12 @@
       "target": "Dr P Murugan",
       "weight": 6,
       "value": 6
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr Subrata Kundu",
@@ -3135,10 +3177,10 @@
       "value": 1
     },
     {
-      "source": "Dr (Mrs) D Kalpana",
+      "source": "Dr P Murugan",
       "target": "Dr Akhila Kumar Sahu",
-      "weight": 2,
-      "value": 2
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr Akhila Kumar Sahu",
@@ -3149,30 +3191,162 @@
     {
       "source": "Dr. B. Sridhar",
       "target": "Dr. B.V. Subba Reddy",
+      "weight": 78,
+      "value": 78
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Pravin R. Likhar",
+      "weight": 14,
+      "value": 14
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Rajiv Trivedi",
+      "weight": 11,
+      "value": 11
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "SRI. P. ANIL KUMAR",
       "weight": 2,
       "value": 2
     },
     {
       "source": "Dr. B. Sridhar",
-      "target": "Dr. Linga Banoth",
+      "target": "Dr. Surisetti Suresh",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Amitava Das (IICT)",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Jagadeesh Babu Nanubolu",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Maddi Sridhar Reddy",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Bathini Nagendra Babu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Ravindra Motiram Kumbhare",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Ramars Amanchy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Haridas B. Rode",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Sunil Misra",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Ramesh Ummanni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. G. Jithender Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Sunil Kumar N.",
+      "weight": 9,
+      "value": 9
     },
     {
       "source": "Dr. B. Sridhar",
       "target": "Dr. Surya Prakash Singh",
-      "weight": 1,
-      "value": 1
+      "weight": 7,
+      "value": 7
     },
     {
-      "source": "Dr. U.V.R. Vijaya Sarathi",
-      "target": "Dr. Andugulapati Sai Balagi",
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Nayani Kiranmai",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Subhash Ghosh",
       "weight": 2,
       "value": 2
     },
     {
-      "source": "Dr. U.V.R. Vijaya Sarathi",
-      "target": "Dr. Jagadeesh Babu Nanubolu",
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Debendra Kumar Mohapatra",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Debasish Swain",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. A. Venkat Narsaiah",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Sandip B. Bharate",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Punna Nagender",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Linga Banoth",
       "weight": 1,
       "value": 1
     },
@@ -3205,6 +3379,12 @@
       "target": "Dr. Abhijit Hazarika",
       "weight": 2,
       "value": 2
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Mohana Krishna Reddy Mudiam",
@@ -3269,14 +3449,14 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Surisetti Suresh",
-      "weight": 12,
-      "value": 12
+      "weight": 13,
+      "value": 13
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Rambabu Chegondi",
-      "weight": 16,
-      "value": 16
+      "weight": 17,
+      "value": 17
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -3293,8 +3473,8 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. B.V. Subba Reddy",
-      "weight": 2,
-      "value": 2
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -3328,15 +3508,9 @@
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
-      "target": "Dr. Sidhanath Vishwanath Bhosale",
-      "weight": 2,
-      "value": 2
-    },
-    {
-      "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Maddi Sridhar Reddy",
-      "weight": 21,
-      "value": 21
+      "weight": 25,
+      "value": 25
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -3352,15 +3526,21 @@
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. Ravindra Motiram Kumbhare",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Haridas B. Rode",
-      "weight": 1,
-      "value": 1
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Punna Nagender",
-      "weight": 2,
-      "value": 2
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -3377,8 +3557,8 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Sunil Misra",
-      "weight": 1,
-      "value": 1
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -3418,6 +3598,12 @@
     },
     {
       "source": "Dr. Debasish Swain",
+      "target": "Dr. Sunil Misra",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Debasish Swain",
       "target": "Dr. Siddhartha Moulik",
       "weight": 1,
       "value": 1
@@ -3441,14 +3627,20 @@
       "value": 1
     },
     {
-      "source": "Dr. Nagaraju Rajana",
-      "target": "Dr. Shiva Kumar Kota Balaji",
-      "weight": 2,
-      "value": 2
+      "source": "Dr. Sunil Kumar N.",
+      "target": "Dr. Sunil Misra",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Nagaraju Rajana",
       "target": "Dr. Nayani Kiranmai",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Nagaraju Rajana",
+      "target": "Dr. Sunil Misra",
       "weight": 1,
       "value": 1
     },
@@ -3587,14 +3779,14 @@
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Sutapa Ghosh",
-      "weight": 2,
-      "value": 2
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Kaki Shiva Shanker",
-      "weight": 8,
-      "value": 8
+      "weight": 11,
+      "value": 11
     },
     {
       "source": "Dr. Sunil Misra",
@@ -3616,15 +3808,15 @@
     },
     {
       "source": "Dr. Sunil Misra",
-      "target": "Dr. Haridas B. Rode",
-      "weight": 10,
-      "value": 10
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 6,
+      "value": 6
     },
     {
       "source": "Dr. Sunil Misra",
-      "target": "Dr. B.V. Subba Reddy",
-      "weight": 2,
-      "value": 2
+      "target": "Dr. Haridas B. Rode",
+      "weight": 10,
+      "value": 10
     },
     {
       "source": "Dr. Sunil Misra",
@@ -3643,6 +3835,12 @@
       "target": "Dr. Surender Singh Jadav",
       "weight": 3,
       "value": 3
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Sunil Misra",
@@ -3670,6 +3868,12 @@
     },
     {
       "source": "Dr. Sunil Misra",
+      "target": "Dr. Vasundhara Mutta",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
       "target": "Dr. Aruna Jangam",
       "weight": 1,
       "value": 1
@@ -3677,8 +3881,26 @@
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Bonam Srinivasa Reddy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Ravindra Motiram Kumbhare",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Nayani Kiranmai",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. S. Nishant Jain",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 8,
+      "value": 8
     },
     {
       "source": "Dr. S. Nishant Jain",
@@ -3689,8 +3911,8 @@
     {
       "source": "Dr. S. Nishant Jain",
       "target": "Dr. B.V. Subba Reddy",
-      "weight": 2,
-      "value": 2
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. S. Nishant Jain",
@@ -3718,6 +3940,12 @@
     },
     {
       "source": "Dr. Ramesh Ummanni",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Ramesh Ummanni",
       "target": "Dr. Surender Singh Jadav",
       "weight": 4,
       "value": 4
@@ -3727,6 +3955,12 @@
       "target": "Dr. Andugulapati Sai Balagi",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. Andugulapati Sai Balagi",
@@ -3868,6 +4102,12 @@
     },
     {
       "source": "Dr. Rajiv Trivedi",
+      "target": "SRI. P. ANIL KUMAR",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Rajiv Trivedi",
       "target": "Dr. Linga Banoth",
       "weight": 1,
       "value": 1
@@ -3922,6 +4162,12 @@
     },
     {
       "source": "Dr. Sanjit Kanjilal",
+      "target": "Dr. M.S.L. Karuna",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sanjit Kanjilal",
       "target": "DR. K.N. PRASANNA RANI",
       "weight": 1,
       "value": 1
@@ -3929,8 +4175,14 @@
     {
       "source": "DR. K.N. PRASANNA RANI",
       "target": "Dr. T. Prathap Kumar",
-      "weight": 2,
-      "value": 2
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "DR. K.N. PRASANNA RANI",
+      "target": "Dr. Ram Chandra Reddy Jala",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "DR. K.N. PRASANNA RANI",
@@ -3939,10 +4191,16 @@
       "value": 1
     },
     {
-      "source": "Dr. M.S.L. Karuna",
+      "source": "DR. K.N. PRASANNA RANI",
       "target": "Dr. Kaki Shiva Shanker",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. M.S.L. Karuna",
+      "target": "Dr. Kaki Shiva Shanker",
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Kaki Shiva Shanker",
@@ -3977,8 +4235,8 @@
     {
       "source": "Dr. S. Venkata Mohan",
       "target": "Dr. D. Srinivasa Reddy",
-      "weight": 1,
-      "value": 1
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. S. Venkata Mohan",
@@ -4007,12 +4265,18 @@
     {
       "source": "Dr. B.V. Subba Reddy",
       "target": "Dr. A. Venkat Narsaiah",
-      "weight": 4,
-      "value": 4
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. B.V. Subba Reddy",
       "target": "Dr. Debendra Kumar Mohapatra",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B.V. Subba Reddy",
+      "target": "Dr. Surender Singh Jadav",
       "weight": 1,
       "value": 1
     },
@@ -4061,6 +4325,30 @@
     {
       "source": "Dr. D. Srinivasa Reddy",
       "target": "Dr. Kishor L. Handore",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. K. Suresh Babu",
+      "target": "Dr. V. Ramalingam",
+      "weight": 10,
+      "value": 10
+    },
+    {
+      "source": "Dr. K. Suresh Babu",
+      "target": "Dr. Surender Singh Jadav",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. K. Suresh Babu",
+      "target": "Dr. Raju Adepu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. K. Suresh Babu",
+      "target": "Dr. Linga Banoth",
       "weight": 1,
       "value": 1
     },
@@ -4205,18 +4493,18 @@
     {
       "source": "Dr. S. Sridhar",
       "target": "Dr. Nivedita Sahu",
-      "weight": 7,
-      "value": 7
-    },
-    {
-      "source": "Dr. T. Prathap Kumar",
-      "target": "Dr. Vineet Aniya",
-      "weight": 8,
-      "value": 8
+      "weight": 9,
+      "value": 9
     },
     {
       "source": "Dr. T. Prathap Kumar",
       "target": "Dr. Alka Kumari",
+      "weight": 10,
+      "value": 10
+    },
+    {
+      "source": "Dr. T. Prathap Kumar",
+      "target": "Dr. Vineet Aniya",
       "weight": 9,
       "value": 9
     },
@@ -4241,8 +4529,8 @@
     {
       "source": "Dr. Alka Kumari",
       "target": "Dr. Siddhartha Moulik",
-      "weight": 1,
-      "value": 1
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Reddi Kamesh",
@@ -4279,12 +4567,6 @@
       "target": "Dr. Arindam Chakrabarty",
       "weight": 3,
       "value": 3
-    },
-    {
-      "source": "Dr. Sidhanath Vishwanath Bhosale",
-      "target": "Dr. Manjusha V. Shelke",
-      "weight": 1,
-      "value": 1
     },
     {
       "source": "Dr. S.N. Raju Kutcherlapati",
@@ -4366,6 +4648,12 @@
     },
     {
       "source": "Dr. Amol A. Kulkarni",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Amol A. Kulkarni",
       "target": "Dr. Jayant Gajbhiye",
       "weight": 1,
       "value": 1
@@ -4401,12 +4689,6 @@
       "value": 1
     },
     {
-      "source": "Dr. Amol A. Kulkarni",
-      "target": "Dr. Satyam Naidu Vasireddy",
-      "weight": 1,
-      "value": 1
-    },
-    {
       "source": "Dr. Anu Raghunathan",
       "target": "Dr. Durba Sengupta",
       "weight": 1,
@@ -4435,6 +4717,12 @@
       "target": "Dr. Premnath Venugopalan",
       "weight": 4,
       "value": 4
+    },
+    {
+      "source": "Dr. Anuya Nisal",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Arun Torris",
@@ -4517,6 +4805,12 @@
     {
       "source": "Dr. Arun Torris",
       "target": "Dr. Rajesh Kanawade",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Arun Torris",
+      "target": "Dr. T.G.Ajithkumar",
       "weight": 1,
       "value": 1
     },
@@ -4671,6 +4965,12 @@
       "value": 2
     },
     {
+      "source": "Dr. Ashok Giri",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
       "source": "Dr. Ashwini Kumar Nangia",
       "target": "Dr. Rambabu Dandela",
       "weight": 3,
@@ -4685,6 +4985,12 @@
     {
       "source": "Dr. Ashwini Kumar Nangia",
       "target": "Dr. Vinod C Prabhakaran",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ashwini Kumar Nangia",
+      "target": "Dr. T.G.Ajithkumar",
       "weight": 1,
       "value": 1
     },
@@ -4750,6 +5056,12 @@
     },
     {
       "source": "Dr. Asmita Prabhune",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Asmita Prabhune",
       "target": "Dr. Kiran A. Kulkarni",
       "weight": 1,
       "value": 1
@@ -4765,12 +5077,6 @@
       "target": "Dr. Sayan Bagchi",
       "weight": 1,
       "value": 1
-    },
-    {
-      "source": "Dr. Atanu Das",
-      "target": "Dr. Santosh Kumar Jha",
-      "weight": 3,
-      "value": 3
     },
     {
       "source": "Dr. Atanu Das",
@@ -4852,9 +5158,33 @@
     },
     {
       "source": "Dr. Bhushan P. Chaudhari",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Bhushan P. Chaudhari",
       "target": "Dr. Koteswara V.",
       "weight": 4,
       "value": 4
+    },
+    {
+      "source": "Dr. C. G. Suresh",
+      "target": "Dr. Dhiman Sarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. C. G. Suresh",
+      "target": "Dr. Sureshkumar Ramasamy",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. C. G. Suresh",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Chepuri V. Ramana",
@@ -4897,6 +5227,12 @@
       "target": "Dr. Sureshkumar Ramasamy",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Dhanasekaran Shanmugam",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Dhanasekaran Shanmugam",
@@ -4972,12 +5308,6 @@
     },
     {
       "source": "Dr. Dhiman Sarkar",
-      "target": "Dr. Vrushali H. Jadhav",
-      "weight": 1,
-      "value": 1
-    },
-    {
-      "source": "Dr. Dhiman Sarkar",
       "target": "Dr. Prakash Wadgaonkar",
       "weight": 2,
       "value": 2
@@ -4997,6 +5327,12 @@
     {
       "source": "Dr. Dhiman Sarkar",
       "target": "Dr. Moneesha Fernandes",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. Mahesh S. Dharne",
       "weight": 1,
       "value": 1
     },
@@ -5147,8 +5483,8 @@
     {
       "source": "Dr. Jayant Gajbhiye",
       "target": "Dr. Pradeep Kumar, FNA",
-      "weight": 4,
-      "value": 4
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. Jayaraj Nithyanandhan",
@@ -5191,6 +5527,12 @@
       "target": "Dr. Santhosh Babu Sukumaran",
       "weight": 3,
       "value": 3
+    },
+    {
+      "source": "Dr. K. Krishnamoorthy",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. K. Krishnamoorthy",
@@ -5321,8 +5663,8 @@
     {
       "source": "Dr. Kirandeep Singh",
       "target": "Dr. Kumar Vanka",
-      "weight": 1,
-      "value": 1
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Kirandeep Singh",
@@ -5333,8 +5675,8 @@
     {
       "source": "Dr. Kirandeep Singh",
       "target": "Dr. Sakya S. Sen",
-      "weight": 1,
-      "value": 1
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Kishor L. Handore",
@@ -5362,13 +5704,13 @@
     },
     {
       "source": "Dr. Koteswara V.",
-      "target": "Dr. Rajesh G. Gonnade",
-      "weight": 1,
-      "value": 1
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Koteswara V.",
-      "target": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Rajesh G. Gonnade",
       "weight": 1,
       "value": 1
     },
@@ -5389,6 +5731,12 @@
       "target": "Dr. Sakya S. Sen",
       "weight": 49,
       "value": 49
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Kumar Vanka",
@@ -5482,6 +5830,12 @@
     },
     {
       "source": "Dr. Kushal Bhatte",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kushal Bhatte",
       "target": "Dr. Shubhangi B Umbarkar",
       "weight": 2,
       "value": 2
@@ -5523,10 +5877,28 @@
       "value": 1
     },
     {
-      "source": "Dr. Mahesh S. Dharne",
-      "target": "Dr. Sanjay P. Kamble",
+      "source": "Dr. Mahesh J Kulkarni",
+      "target": "Dr. Mahesh S. Dharne",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Sandip S. Shinde",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Shubhangi B Umbarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Sanjay P. Kamble",
+      "weight": 12,
+      "value": 12
     },
     {
       "source": "Dr. Mahesh S. Dharne",
@@ -5661,12 +6033,6 @@
       "value": 2
     },
     {
-      "source": "Dr. Paresh L. Dhepe",
-      "target": "Dr. Satyam Naidu Vasireddy",
-      "weight": 1,
-      "value": 1
-    },
-    {
       "source": "Dr. Pradeep Kumar, FNA",
       "target": "Dr. Sandip S. Shinde",
       "weight": 3,
@@ -5746,12 +6112,6 @@
     },
     {
       "source": "Dr. R. Nandini Devi",
-      "target": "Dr. Satyam Naidu Vasireddy",
-      "weight": 1,
-      "value": 1
-    },
-    {
-      "source": "Dr. R. Nandini Devi",
       "target": "Dr. Sachin U. Nandanwar",
       "weight": 1,
       "value": 1
@@ -5759,8 +6119,8 @@
     {
       "source": "Dr. Rahul Shevate",
       "target": "Dr. Rajesh Kanawade",
-      "weight": 3,
-      "value": 3
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Rajesh G. Gonnade",
@@ -5825,6 +6185,12 @@
     {
       "source": "Dr. Rajesh G. Gonnade",
       "target": "Dr. Sreekumar Kurungot",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. T.G.Ajithkumar",
       "weight": 1,
       "value": 1
     },
@@ -5901,6 +6267,12 @@
       "value": 1
     },
     {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
       "source": "Dr. Samir H. Chikkali",
       "target": "Dr. Sreekumar Kurungot",
       "weight": 1,
@@ -5962,6 +6334,12 @@
     },
     {
       "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
       "target": "Dr. Suresh Bhat",
       "weight": 7,
       "value": 7
@@ -5980,6 +6358,12 @@
     },
     {
       "source": "Dr. Suresh Bhat",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Suresh Bhat",
       "target": "Dr. Vinod C Prabhakaran",
       "weight": 1,
       "value": 1
@@ -5991,6 +6375,12 @@
       "value": 1
     },
     {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 5,
+      "value": 5
+    },
+    {
       "source": "Dr. Vijay Bokade",
       "target": "Dr. Vinod C Prabhakaran",
       "weight": 1,
@@ -5999,32 +6389,32 @@
   ],
   "metrics": {
     "total_cadre_faculty": 306,
-    "connected_faculty": 234,
-    "edges": 553,
-    "density": 0.0118,
-    "k_mean": 3.61,
-    "beta_c": 0.1024,
-    "clustering": 0.283,
-    "modularity": 0.682,
-    "lcc_nodes": 228,
+    "connected_faculty": 238,
+    "edges": 627,
+    "density": 0.0134,
+    "k_mean": 4.1,
+    "beta_c": 0.0917,
+    "clustering": 0.317,
+    "modularity": 0.689,
+    "lcc_nodes": 234,
     "shown_nodes": 180
   },
   "collab_matrix": [
     {
       "pair": "CSIR-NCL \u2194 CSIR-NCL",
-      "joint_papers": 869
+      "joint_papers": 923
     },
     {
       "pair": "CSIR-IICT \u2194 CSIR-IICT",
-      "joint_papers": 485
+      "joint_papers": 738
     },
     {
       "pair": "CSIR-CECRI \u2194 CSIR-CECRI",
-      "joint_papers": 36
+      "joint_papers": 63
     },
     {
       "pair": "CSIR-IICT \u2194 CSIR-NCL",
-      "joint_papers": 15
+      "joint_papers": 16
     },
     {
       "pair": "CSIR-CECRI \u2194 CSIR-IICT",
@@ -6032,121 +6422,121 @@
     },
     {
       "pair": "CSIR-CECRI \u2194 CSIR-NCL",
-      "joint_papers": 3
+      "joint_papers": 4
     }
   ],
   "top_degree": [
     {
       "name": "Dr. Rajesh G. Gonnade",
       "lab": "CSIR-NCL",
-      "degree": 38,
-      "strength": 196
+      "degree": 39,
+      "strength": 197
     },
     {
       "name": "Dr. Kumar Vanka",
       "lab": "CSIR-NCL",
-      "degree": 31,
-      "strength": 152
-    },
-    {
-      "name": "Dr. Jagadeesh Babu Nanubolu",
-      "lab": "CSIR-IICT",
-      "degree": 22,
-      "strength": 79
+      "degree": 32,
+      "strength": 154
     },
     {
       "name": "Dr. Sunil Misra",
       "lab": "CSIR-IICT",
-      "degree": 22,
-      "strength": 52
+      "degree": 30,
+      "strength": 75
+    },
+    {
+      "name": "Dr. B. Sridhar",
+      "lab": "CSIR-IICT",
+      "degree": 29,
+      "strength": 170
+    },
+    {
+      "name": "Dr. Jagadeesh Babu Nanubolu",
+      "lab": "CSIR-IICT",
+      "degree": 24,
+      "strength": 100
     },
     {
       "name": "Dr. Dhiman Sarkar",
       "lab": "CSIR-NCL",
-      "degree": 21,
-      "strength": 29
+      "degree": 22,
+      "strength": 30
     },
     {
       "name": "Dr. Sailaja Krishnamurty",
       "lab": "CSIR-NCL",
-      "degree": 20,
-      "strength": 78
+      "degree": 21,
+      "strength": 79
     },
     {
       "name": "Dr. Andugulapati Sai Balagi",
       "lab": "CSIR-IICT",
-      "degree": 19,
-      "strength": 44
+      "degree": 20,
+      "strength": 49
     },
     {
       "name": "Dr. Arun Torris",
       "lab": "CSIR-NCL",
-      "degree": 19,
-      "strength": 75
+      "degree": 20,
+      "strength": 77
     },
     {
       "name": "Dr. Sreekumar Kurungot",
       "lab": "CSIR-NCL",
       "degree": 18,
-      "strength": 79
-    },
-    {
-      "name": "Dr. R. Nandini Devi",
-      "lab": "CSIR-NCL",
-      "degree": 15,
-      "strength": 35
+      "strength": 81
     }
   ],
   "top_betweenness": [
     {
-      "name": "Dr. Jagadeesh Babu Nanubolu",
+      "name": "Dr. Sunil Misra",
       "lab": "CSIR-IICT",
-      "betweenness": 0.2432
+      "betweenness": 0.2264
     },
     {
       "name": "Dr. Dhiman Sarkar",
       "lab": "CSIR-NCL",
-      "betweenness": 0.2088
+      "betweenness": 0.2183
+    },
+    {
+      "name": "Dr. Jagadeesh Babu Nanubolu",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.2055
     },
     {
       "name": "Dr. Kumar Vanka",
       "lab": "CSIR-NCL",
-      "betweenness": 0.1984
-    },
-    {
-      "name": "Dr. Sunil Misra",
-      "lab": "CSIR-IICT",
-      "betweenness": 0.1963
+      "betweenness": 0.1736
     },
     {
       "name": "Dr. Rajesh G. Gonnade",
       "lab": "CSIR-NCL",
-      "betweenness": 0.163
-    },
-    {
-      "name": "Dr. B.V. Subba Reddy",
-      "lab": "CSIR-IICT",
-      "betweenness": 0.0917
-    },
-    {
-      "name": "Dr. Andugulapati Sai Balagi",
-      "lab": "CSIR-IICT",
-      "betweenness": 0.0914
+      "betweenness": 0.1558
     },
     {
       "name": "Dr Subrata Kundu",
       "lab": "CSIR-CECRI",
-      "betweenness": 0.0848
+      "betweenness": 0.1243
+    },
+    {
+      "name": "Dr. B. Sridhar",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.0952
+    },
+    {
+      "name": "Dr. B.V. Subba Reddy",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.0858
+    },
+    {
+      "name": "Dr. Andugulapati Sai Balagi",
+      "lab": "CSIR-IICT",
+      "betweenness": 0.0618
     },
     {
       "name": "Dr. Haridas B. Rode",
       "lab": "CSIR-IICT",
-      "betweenness": 0.0623
-    },
-    {
-      "name": "Dr. Vinod C Prabhakaran",
-      "lab": "CSIR-NCL",
-      "betweenness": 0.0585
+      "betweenness": 0.0545
     }
   ]
 }

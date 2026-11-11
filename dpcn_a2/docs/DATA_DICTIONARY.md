@@ -42,9 +42,9 @@ The extended dataset retains the identical row order and row count as `group24_d
 | `work_id` | String | OpenAlex work ID (e.g. `https://openalex.org/W2108183120`). |
 | `author_openalex_id` | String | OpenAlex author entity ID (e.g. `https://openalex.org/A5102958597`). |
 | `faculty_id` | String | Internal roster identifier (e.g. `FAC_NCL_0001`) if matched to an active scientific cadre roster member; blank otherwise. |
-| `author_role` | String | Inferred author role: `faculty` (active scientific staff matched to institute directory), `probable_former_faculty` (high output, unlisted in current directory), or `affiliated_author` (student, postdoc, or visiting scholar). |
+| `author_role` | String | Inferred author role: `faculty` (active scientific staff matched to institute directory), `probable_former_faculty` (review flag: ≥ 10 papers in ≥ 3 years at the lab, not on the current roster, not the student pattern; designation blank, department "Unassigned"; D-40), or `affiliated_author` (student, postdoc, or visiting scholar). |
 | `department` | String | Department or scientific division from the official faculty directory. |
-| `designation` | String | Official cadre rank (e.g., Scientist, Senior Scientist, Principal Scientist, Chief Scientist, Director). |
+| `designation` | String | Official cadre rank. IICT and CECRI: CSIR grade with letter, e.g. `Senior Principal Scientist (Scientist-F)` (C Scientist, D Senior Scientist, E Principal, F Senior Principal, G Chief Scientist; D-41); NCL: `Scientist` (no grade on the roster page); also `Director`, `Emeritus Scientist`. |
 | `is_corresponding` | Boolean | True if OpenAlex indicates corresponding author status. |
 | `author_position` | String | Position in the author list: `first`, `middle`, or `last`. |
 | `source_id` | String | OpenAlex source/venue identifier (e.g. `https://openalex.org/S1983995261`). |
@@ -164,6 +164,7 @@ IDs keep their original numbers; 07 (sleeping beauties) and 10 (succession risk)
 |---|---|
 | `data/final/work_author_counts.csv` | Per corpus paper: `n_authors` (all authors in OpenAlex, max 100), `authors_capped` (TRUE = 100 or more), `n_institutions`, `n_countries`, `countries`, `institution_ids`, `author_ids` (short OpenAlex ids). Step 21, from cached OpenAlex responses. |
 | `data/final/citing_works.csv` | Indian papers outside the corpus citing >= 1 corpus paper: `work_id`, `doi`, `year`, `cited_by_count`, `n_authors`, `author_ids`, `institution_ids`, `n_references`, `n_references_to_corpus`. |
+| `config/overrides/author_profile_merges.csv` | Reviewed list of split OpenAlex profiles joined to one person (D-41): `keep_faculty_id` (roster `FAC_` or flagged `FORMER_` id), `lab`, `merge_author_id`, `merge_name`, `merge_papers`, `evidence`, `decided_on`. Applied by Step 19; candidates from `python -m src.collect.19_roster_cleanup --propose`. |
 | `data/final/institutions_seen.csv` | Every institution on a corpus or citing paper: OpenAlex `display_name`, `country_code`, `type`, `sector` (Indian name rules; "Foreign" otherwise), `corpus_papers`, `citing_papers`. Sector corrections: `config/overrides/sector_overrides.csv`. |
 | `stats/tables/phase2_overview*.csv` | Per lab / year: faculty, papers, Q1 papers, Q1 in IF > 5 and IF > 10 journals, papers with < 10 / >= 10 / >= 30 / 100+ authors, collaborating institutions (Indian / foreign), countries, international papers %. |
 | `stats/tables/phase2_faculty_comparison.csv` | Per scientist: papers, Q1 (IF > 5, IF > 10), citations, h, faculty co-authors, collaborating institutions, international papers, >= 10-author papers, max authors, % citations from >= 10-author papers, flags, ranks. |
@@ -200,7 +201,8 @@ Rules: `config/global_benchmark.yaml`; hand-reviewed rule-2b exclusions: `config
 | `global_summary.csv` | per institution 2016–2025: papers_all, papers_scope, scope_share_pct, papers_2016, papers_2025, cagr_pct, top10_pct, top1_pct, above_world_pct, intl_pct, top10_pct_early (2016–20), top10_pct_late (2021–25) |
 | `global_by_year.csv` | per institution and year: papers_scope, index_2016 (2016 = 100), top10_pct, intl_pct |
 | `global_countries.csv` | per country and year: papers_scope, world_share_pct, top10_pct, top1_pct |
-| `global_links.csv` | per lab and peer: coauthored_papers, peer_papers_citing_lab, peer_papers_cited_by_lab (both excluding papers co-authored with the lab), exchange_ratio = citing ÷ cited_by, is_twin |
+| `global_links.csv` | per lab and peer: coauthored_papers, peer_papers_citing_lab, peer_papers_cited_by_lab (both excluding papers co-authored with the lab and both counting only peer papers published 2016–2026, D-40), exchange_ratio = citing ÷ cited_by, is_twin |
+| `global_world_baseline.csv` | the world's own share of top 10% / top 1% papers in the scope: period (2016–2025, 2016–2020, 2021–2025), papers_scope, top10_pct, top1_pct (the impact charts' reference line) |
 | `global_country_relations.csv` | every foreign country on the labs' curated papers 2016–2026: rank, papers, share_of_foreign_coauthored_pct, papers per lab, papers 2016–20 and 2021–26, partner_institutions, top_partners |
 | `global_rule_funnel.csv` | per country: pool size and institutions removed by each rule |
 | `global_similarity.csv` | every institution that reached the similarity test |
@@ -225,5 +227,5 @@ Page: `dashboard/insights11.html` (data `dashboard/data/g24_insights11_suite.js`
 
 | File | Content |
 |---|---|
-| `stats/tables/global_indian_universities.csv` | Former Study 1.1 (Academic Bridge): per university (9 IITs + IISc, 6 state universities) and lab (plus "All three", distinct papers): `papers_citing_lab` (university papers citing ≥ 1 lab paper), `papers_cited_by_lab` (university papers cited by ≥ 1 lab paper), both without papers co-authored with the lab; `exchange_ratio` = citing ÷ cited_by; `coauthored_papers` (indian_connections.csv). From `citation_network.csv`, exact institution names |
+| `stats/tables/global_indian_universities.csv` | Former Study 1.1 (Academic Bridge): per university (9 IITs + IISc, 6 state universities) and lab (plus "All three", distinct papers): `papers_citing_lab` (university papers citing ≥ 1 lab paper), `papers_cited_by_lab` (university papers cited by ≥ 1 lab paper), both without papers co-authored with the lab and both counting only university papers published 2016–2026 (D-40); `exchange_ratio` = citing ÷ cited_by; `coauthored_papers` (indian_connections.csv). From `citation_network.csv`, exact institution names |
 | `dashboard/data/g24_global_teaser.js` | Numbers for the Global Benchmark card on the home screen (copied from the global tables) |

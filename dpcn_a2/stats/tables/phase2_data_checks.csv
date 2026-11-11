@@ -1,6 +1,6 @@
 check,count,detail,handling
 Two different scientists with the same name,1,Dr. Amitava Das (CSIR-IICT); Dr. Amitava Das (CSIR-NCL),Kept as separate people (one faculty_id each) in all faculty tables and networks
-Lab author names that stand for > 1 OpenAlex author,110,,"Faculty analyses use faculty_id, not names; the all-author network is labelled 'by name'"
+Lab author names that stand for > 1 OpenAlex author,141,,"Faculty analyses use faculty_id, not names; the all-author network is labelled 'by name'"
 Scientists whose OpenAlex profile also has papers at another lab,9,108 papers,Not counted for the scientist (possible merged profile)
 Author rows without an OpenAlex author ID,1568,,Kept in paper statistics; never counted as faculty
 Papers with >= 30 authors,17,,Flagged (phase2_large_author_papers.csv)

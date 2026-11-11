@@ -9,37 +9,37 @@ citation,max in-degree,129
 citation,cross-lab citation links,1639
 citation,largest weakly connected component (papers),8917
 citation,citation links to/from outside Indian papers (raw data only),164844
-authorship,authors (nodes),7853
-authorship,co-author pairs (unique edges),35392
+authorship,authors (nodes),7820
+authorship,co-author pairs (unique edges),35014
 authorship,"co-authorship links (edge rows, one per paper)",64419
-authorship,mean degree (distinct co-authors),9.01
-authorship,density,0.001148
-authorship,Louvain communities,134
-authorship,communities with >= 10 authors,35
-authorship,modularity,0.8162
-authorship,largest connected component (authors),7523
-authorship,largest component share pct,95.8
+authorship,mean degree (distinct co-authors),8.95
+authorship,density,0.001145
+authorship,Louvain communities,136
+authorship,communities with >= 10 authors,39
+authorship,modularity,0.8173
+authorship,largest connected component (authors),7490
+authorship,largest component share pct,95.78
 authorship,cross-lab co-author pairs (edge rows),514
 authorship,edges to Indian partner co-authors (raw data only),43310
 authorship,betweenness sample size (source nodes),1000
 authorship,of which roster faculty (nodes),283
-authorship,"of which other lab authors: students, project staff, former staff (nodes)",7570
+authorship,"of which other lab authors: students, project staff, former staff (nodes)",7537
 faculty_coauthorship,nodes (roster scientists with >= 1 paper),306
-faculty_coauthorship,scientists with >= 1 faculty co-author,234
-faculty_coauthorship,co-author pairs (unique edges),553
-faculty_coauthorship,shared papers summed over pairs,1412
-faculty_coauthorship,mean degree (distinct faculty co-authors),3.61
-faculty_coauthorship,density,0.01185
-faculty_coauthorship,average clustering (connected scientists),0.283
-faculty_coauthorship,Louvain communities (connected scientists),14
-faculty_coauthorship,modularity,0.682
-faculty_coauthorship,largest connected component (scientists),228
-faculty_coauthorship,cross-lab co-author pairs,16
+faculty_coauthorship,scientists with >= 1 faculty co-author,238
+faculty_coauthorship,co-author pairs (unique edges),627
+faculty_coauthorship,shared papers summed over pairs,1748
+faculty_coauthorship,mean degree (distinct faculty co-authors),4.1
+faculty_coauthorship,density,0.013436
+faculty_coauthorship,average clustering (connected scientists),0.317
+faculty_coauthorship,Louvain communities (connected scientists),12
+faculty_coauthorship,modularity,0.689
+faculty_coauthorship,largest connected component (scientists),234
+faculty_coauthorship,cross-lab co-author pairs,17
 faculty_citation,nodes (roster scientists with >= 1 paper),306
-faculty_citation,scientists citing or cited by another scientist,246
-faculty_citation,directed edges (scientist A cites scientist B),1534
-faculty_citation,citation links summed over edges (paper pairs),7757
-faculty_citation,self-citations left out (paper pairs),13363
-faculty_citation,reciprocity,0.492
-faculty_citation,density,0.016436
-faculty_citation,cross-lab citation edges,294
+faculty_citation,scientists citing or cited by another scientist,247
+faculty_citation,directed edges (scientist A cites scientist B),1739
+faculty_citation,citation links summed over edges (paper pairs),9219
+faculty_citation,self-citations left out (paper pairs),14383
+faculty_citation,reciprocity,0.506
+faculty_citation,density,0.018633
+faculty_citation,cross-lab citation edges,342

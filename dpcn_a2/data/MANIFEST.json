@@ -40,7 +40,7 @@
     },
     "authorship_network.csv": {
       "path": "data/final/authorship_network.csv",
-      "sha256": "748c0573eacf3646eb77090265706eaf33663f905d3ac2eaf2814c727809294d",
+      "sha256": "582c480723944bee9728a62616313a5fab862a68703aecbed1571de6caca9043",
       "rows": 107729,
       "columns": 6
     },
@@ -52,8 +52,8 @@
     },
     "faculty_master.csv": {
       "path": "data/final/faculty_master.csv",
-      "sha256": "4cc8fcf6b78b178fe8c60fab4c40b87502a85df0752676978ba072f21487807a",
-      "rows": 385
+      "sha256": "e5f8ff1c5b84f2a0fb97ee6762a1d90860c2ed29d8227b243bc7f81caf7202aa",
+      "rows": 382
     },
     "citation_edges_raw.parquet": {
       "path": "data/final/citation_edges_raw.parquet",
@@ -79,8 +79,13 @@
   "indian_links_query": "OpenAlex /works filter cited_by:<100 ids>,authorships.countries:IN and cites:<100 ids>,authorships.countries:IN (core corpus)",
   "roster_cleanup": {
     "technical_staff_removed": 119,
+    "not_a_person_removed": 3,
     "duplicates_removed": 1,
     "wrong_matches_cleared": 3,
-    "author_names_cleaned": 282
+    "page_label_departments_cleared": 12,
+    "former_faculty_student_pattern": 2,
+    "author_names_cleaned": 950,
+    "designations_corrected": 152,
+    "rows_from_merged_profiles": 2
   }
 }

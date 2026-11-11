@@ -4,12 +4,12 @@
   "claims": [
     {
       "id": "C1",
-      "claim": "An idea started by a well-connected scientist reaches half of all 7,735 authors in 9 steps (median of 300 runs); among faculty alone half is reached in 13 steps (59.52% reached by step 15 vs 88.72%).",
+      "claim": "An idea started by a well-connected scientist reaches half of all 7,678 authors in 9 steps (median of 300 runs); among faculty alone half is reached in 12 steps (64.52% reached by step 15 vs 88.88%).",
       "value": {
         "T50_full": 9.0,
-        "T50_faculty": 13.0,
-        "reach15_full": 88.72,
-        "reach15_faculty": 59.52
+        "T50_faculty": 12.0,
+        "reach15_full": 88.88,
+        "reach15_faculty": 64.52
       },
       "source": "11_nimfa_vs_si_comparison.json (full_coauthorship / faculty_coauthorship, Combined)",
       "check": "Monte Carlo, same rule and seeds-per-run on both networks; T50 is the censored median over runs",
@@ -17,12 +17,12 @@
     },
     {
       "id": "C2",
-      "claim": "If each person passes an idea on only once with probability 0.2, a large outbreak covers 59% of the full network but only 24% of the faculty-only network: 0.2 is above the full network's measured threshold (0.065) and below the faculty network's (0.3).",
+      "claim": "If each person passes an idea on only once with probability 0.2, a large outbreak covers 59% of the full network but only 30% of the faculty-only network: 0.2 is above the full network's measured threshold (0.06) and below the faculty network's (0.215).",
       "value": {
-        "S_full_T0.2": 0.59,
-        "S_faculty_T0.2": 0.236,
-        "T_peak_full": 0.065,
-        "T_peak_faculty": 0.3
+        "S_full_T0.2": 0.588,
+        "S_faculty_T0.2": 0.297,
+        "T_peak_full": 0.06,
+        "T_peak_faculty": 0.215
       },
       "source": "11_threshold_check.json",
       "check": "bond percolation, 100 repeats per T; S = mean largest-cluster share",
@@ -30,20 +30,20 @@
     },
     {
       "id": "C3",
-      "claim": "The textbook threshold <k>/(<k²>−<k>) underestimates the measured one in all 8 networks: the simulated threshold is 1.53–2.63 times the formula, because co-authorship is clustered (clustering 0.696 in the full network) and the formula assumes no clustering.",
+      "claim": "The textbook threshold <k>/(<k²>−<k>) underestimates the measured one in all 8 networks: the simulated threshold is 1.54–2.32 times the formula, because co-authorship is clustered (clustering 0.7 in the full network) and the formula assumes no clustering.",
       "value": {
         "ratios": {
-          "full_coauthorship": 1.94,
-          "faculty_coauthorship": 2.63,
-          "field_Chemistry": 2.08,
-          "field_Materials": 1.58,
-          "field_Engineering": 1.53,
+          "full_coauthorship": 1.87,
+          "faculty_coauthorship": 2.13,
+          "field_Chemistry": 2.06,
+          "field_Materials": 1.59,
+          "field_Engineering": 1.54,
           "field_Energy": 1.73,
-          "field_Biochemistry": 2.15,
-          "field_Medicine": 2.16
+          "field_Biochemistry": 1.97,
+          "field_Medicine": 2.32
         },
-        "clustering_full": 0.696,
-        "clustering_faculty": 0.283
+        "clustering_full": 0.7,
+        "clustering_faculty": 0.317
       },
       "source": "11_threshold_check.json",
       "check": "peak of the mean small-outbreak size chi(T) vs the configuration-model formula",
@@ -51,11 +51,11 @@
     },
     {
       "id": "C4",
-      "claim": "The mean-field model (NIMFA) never predicts less spreading than the simulation: across all 28 network × field runs the smallest gap is -0.37 percentage points (simulation noise), the largest 12.73.",
+      "claim": "The mean-field model (NIMFA) never predicts less spreading than the simulation: across all 28 network × field runs the smallest gap is -0.26 percentage points (simulation noise), the largest 12.49.",
       "value": {
         "runs": 28,
-        "min_gap_pp": -0.37,
-        "max_gap_pp": 12.73,
+        "min_gap_pp": -0.26,
+        "max_gap_pp": 12.49,
         "runs_below_noise": 0
       },
       "source": "11_simulation_grid_metrics.csv",
@@ -64,7 +64,7 @@
     },
     {
       "id": "C5",
-      "claim": "The simulations are converged: for the top seed in every field, rerunning with 25, 50 and 100 runs changes T50 by at most 0 steps (or leaves it 'not reached' every time) and final reach by at most 1.33 percentage points.",
+      "claim": "The simulations are converged: for the top seed in every field, rerunning with 25, 50 and 100 runs changes T50 by at most 0 steps (or leaves it 'not reached' every time) and final reach by at most 0.89 percentage points.",
       "value": [
         {
           "field": "Chemistry",
@@ -74,12 +74,12 @@
             7.0
           ],
           "final_reach_by_trials": [
-            0.7874,
-            0.7857,
-            0.7867
+            0.7882,
+            0.7866,
+            0.7884
           ],
           "t50_spread": 0.0,
-          "reach_spread_pp": 0.17
+          "reach_spread_pp": 0.18
         },
         {
           "field": "Materials",
@@ -89,12 +89,12 @@
             null
           ],
           "final_reach_by_trials": [
-            0.2348,
-            0.2293,
-            0.2225
+            0.2323,
+            0.2274,
+            0.2234
           ],
           "t50_spread": 0.0,
-          "reach_spread_pp": 1.23
+          "reach_spread_pp": 0.89
         },
         {
           "field": "Engineering",
@@ -104,12 +104,12 @@
             null
           ],
           "final_reach_by_trials": [
-            0.316,
-            0.321,
-            0.3166
+            0.3826,
+            0.3832,
+            0.39
           ],
           "t50_spread": 0.0,
-          "reach_spread_pp": 0.5
+          "reach_spread_pp": 0.74
         },
         {
           "field": "Energy",
@@ -119,12 +119,12 @@
             11.0
           ],
           "final_reach_by_trials": [
-            0.6528,
-            0.6487,
-            0.6501
+            0.6524,
+            0.6477,
+            0.6496
           ],
           "t50_spread": 0.0,
-          "reach_spread_pp": 0.41
+          "reach_spread_pp": 0.47
         },
         {
           "field": "Biochemistry",
@@ -134,12 +134,12 @@
             null
           ],
           "final_reach_by_trials": [
-            0.4509,
-            0.4518,
-            0.4495
+            0.4645,
+            0.4609,
+            0.4635
           ],
           "t50_spread": 0.0,
-          "reach_spread_pp": 0.23
+          "reach_spread_pp": 0.36
         },
         {
           "field": "Medicine",
@@ -149,12 +149,12 @@
             null
           ],
           "final_reach_by_trials": [
-            0.3925,
-            0.3838,
-            0.3792
+            0.3882,
+            0.3829,
+            0.3828
           ],
           "t50_spread": 0.0,
-          "reach_spread_pp": 1.33
+          "reach_spread_pp": 0.54
         }
       ],
       "source": "11_information_diffusion.json (condition_a.convergence_check)",
@@ -163,22 +163,22 @@
     },
     {
       "id": "C6",
-      "claim": "Mean field and simulation rank the seeds the same way: Spearman ρ between their early-reach rankings is 0.86–0.99 on the co-authorship networks (median 0.97 over all runs).",
+      "claim": "Mean field and simulation rank the seeds the same way: Spearman ρ between their early-reach rankings is 0.91–1.00 on the co-authorship networks (median 0.97 over all runs).",
       "value": {
-        "full_coauthorship/Chemistry": 0.982,
-        "full_coauthorship/Materials": 0.993,
-        "full_coauthorship/Engineering": 0.968,
-        "full_coauthorship/Energy": 0.975,
-        "full_coauthorship/Biochemistry": 0.982,
-        "full_coauthorship/Medicine": 0.979,
-        "full_coauthorship/Combined": 0.989,
-        "faculty_coauthorship/Chemistry": 0.857,
-        "faculty_coauthorship/Materials": 0.986,
-        "faculty_coauthorship/Engineering": 0.979,
-        "faculty_coauthorship/Energy": 0.913,
-        "faculty_coauthorship/Biochemistry": 0.99,
-        "faculty_coauthorship/Medicine": 0.972,
-        "faculty_coauthorship/Combined": 0.933,
+        "full_coauthorship/Chemistry": 0.996,
+        "full_coauthorship/Materials": 0.989,
+        "full_coauthorship/Engineering": 0.982,
+        "full_coauthorship/Energy": 0.996,
+        "full_coauthorship/Biochemistry": 0.993,
+        "full_coauthorship/Medicine": 0.989,
+        "full_coauthorship/Combined": 0.993,
+        "faculty_coauthorship/Chemistry": 0.94,
+        "faculty_coauthorship/Materials": 0.906,
+        "faculty_coauthorship/Engineering": 0.954,
+        "faculty_coauthorship/Energy": 0.942,
+        "faculty_coauthorship/Biochemistry": 0.919,
+        "faculty_coauthorship/Medicine": 0.941,
+        "faculty_coauthorship/Combined": 0.941,
         "full_citation/Chemistry": 0.987,
         "full_citation/Materials": 0.996,
         "full_citation/Engineering": 0.956,
@@ -186,13 +186,13 @@
         "full_citation/Biochemistry": 0.954,
         "full_citation/Medicine": 0.974,
         "full_citation/Combined": 0.996,
-        "faculty_citation/Chemistry": 0.957,
-        "faculty_citation/Materials": 0.924,
+        "faculty_citation/Chemistry": 0.943,
+        "faculty_citation/Materials": 0.957,
         "faculty_citation/Engineering": 0.993,
-        "faculty_citation/Energy": 0.938,
-        "faculty_citation/Biochemistry": 0.975,
-        "faculty_citation/Medicine": 0.95,
-        "faculty_citation/Combined": 0.921
+        "faculty_citation/Energy": 0.963,
+        "faculty_citation/Biochemistry": 0.964,
+        "faculty_citation/Medicine": 0.971,
+        "faculty_citation/Combined": 0.943
       },
       "source": "11_simulation_grid_metrics.csv (rank_agreement_spearman)",
       "check": "ρ ≥ 0.7 on every co-authorship run",
@@ -200,10 +200,10 @@
     },
     {
       "id": "C7",
-      "claim": "When transmission depends on topic overlap, ideas stay in their field: 76.41% of Chemistry researchers adopt by step 15, but only 2.42% of researchers outside Chemistry.",
+      "claim": "When transmission depends on topic overlap, ideas stay in their field: 76.59% of Chemistry researchers adopt by step 15, but only 2.46% of researchers outside Chemistry.",
       "value": {
-        "chemistry_reach": 76.41,
-        "outside_reach": 2.42
+        "chemistry_reach": 76.59,
+        "outside_reach": 2.46
       },
       "source": "11_information_diffusion.json (fields_data.Chemistry.condition_a)",
       "check": "in-field reach > 5 × outside reach",
@@ -223,21 +223,21 @@
     },
     {
       "id": "C9",
-      "claim": "On the faculty network, ideas started by CSIR-NCL faculty spread fastest early on (step-3 reach CSIR-NCL 4.78%, CSIR-IICT 4.05%, CSIR-CECRI 0.88%).",
+      "claim": "On the faculty network, ideas started by CSIR-IICT faculty spread fastest early on (step-3 reach CSIR-IICT 5.98%, CSIR-NCL 4.92%, CSIR-CECRI 1.23%).",
       "value": {
         "iict": {
-          "mc_step3": 4.05,
-          "nimfa_step3": 4.21,
-          "mc_t50": 14.0
+          "mc_step3": 5.98,
+          "nimfa_step3": 6.03,
+          "mc_t50": 12.0
         },
         "ncl": {
-          "mc_step3": 4.78,
-          "nimfa_step3": 5.05,
-          "mc_t50": 13.0
+          "mc_step3": 4.92,
+          "nimfa_step3": 5.03,
+          "mc_t50": 12.0
         },
         "cecri": {
-          "mc_step3": 0.88,
-          "nimfa_step3": 0.94,
+          "mc_step3": 1.23,
+          "nimfa_step3": 1.3,
           "mc_t50": null
         }
       },
@@ -247,11 +247,11 @@
     },
     {
       "id": "C10",
-      "claim": "Faculty = 385 scientists on the institutes' rosters after removing 120 technical staff and duplicates from 505 scraped entries; 306 have papers in 2016–2026.",
+      "claim": "Faculty = 382 scientists on the institutes' rosters after removing 123 technical staff, duplicates and page-text entries from 505 scraped entries; 306 have papers in 2016–2026.",
       "value": {
         "raw": 505,
-        "excluded": 120,
-        "roster": 385,
+        "excluded": 123,
+        "roster": 382,
         "active": 306
       },
       "source": "11_data_cleaning_stats.json; data/final/faculty_master.csv; data/review/roster_excluded.csv",
@@ -260,11 +260,11 @@
     },
     {
       "id": "C11",
-      "claim": "The faculty co-authorship network here is the main dashboard's: 234 scientists, 553 co-author pairs.",
+      "claim": "The faculty co-authorship network here is the main dashboard's: 238 scientists, 627 co-author pairs.",
       "value": {
-        "nodes": 234,
-        "edges": 553,
-        "network_summary_pairs": 553
+        "nodes": 238,
+        "edges": 627,
+        "network_summary_pairs": 627
       },
       "source": "11_nimfa_vs_si_comparison.json; stats/tables/network_summary.csv",
       "check": "edge counts equal",

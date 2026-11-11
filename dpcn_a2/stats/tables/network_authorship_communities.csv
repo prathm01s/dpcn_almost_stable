@@ -1,16 +1,16 @@
 community,authors,share_pct,authors_iict,authors_ncl,authors_cecri,dominant_institution,multi_lab,top_authors
-1,781,9.95,2,2,777,CSIR-CECRI,TRUE,Dr Subrata Kundu; Marappan Sathish; Murugavel Kathiresan
-2,529,6.74,3,497,29,CSIR-NCL,TRUE,Dr. Sreekumar Kurungot; Dr. Arun Torris; Dr. Sailaja Krishnamurty
-3,499,6.35,498,1,0,CSIR-IICT,TRUE,Balasubramanian Sridhar; Dr. B.V. Subba Reddy; Jhillu Singh Yadav
-4,458,5.83,1,456,1,CSIR-NCL,TRUE,Dr. Rajesh G. Gonnade; Dr. Kumar Vanka; Dr. Samir H. Chikkali
-5,447,5.69,3,444,0,CSIR-NCL,TRUE,Dr. Ashok Giri; Dr. Mahesh J Kulkarni; Dr. Narendra Kadoo
-6,421,5.36,421,0,0,CSIR-IICT,FALSE,Dr. Andugulapati Sai Balagi; Ramakrishna Sistla; Srihari Pabbaraja
-7,414,5.27,413,1,0,CSIR-IICT,TRUE,Dr. Jagadeesh Babu Nanubolu; Prathama S. Mainkar; Dr. C. Chandrasekhar
-8,337,4.29,336,1,0,CSIR-IICT,TRUE,Chityal Ganesh Kumar; Ähmed Kamal; Ahmed Kamal
-9,332,4.23,326,1,5,CSIR-IICT,TRUE,Dr. Sunil Misra; Dr. Pratyay Basak; Dr. Ramanuj Narayan
-10,306,3.9,306,0,0,CSIR-IICT,FALSE,Dr. S. Nishant Jain; Katragadda Suresh Babu; Dr. Surender Singh Jadav
-11,296,3.77,296,0,0,CSIR-IICT,FALSE,S. Prabhakar; V. Jayathirtha Rao; Srinivas Kantevari
-12,274,3.49,271,3,0,CSIR-IICT,TRUE,Reddy Shetty Prakasham; Lingamallu Giribabu; Dr. S. Venkata Mohan
-13,246,3.13,2,244,0,CSIR-NCL,TRUE,Dr. Sanjay P. Kamble; Mahesh Shantappa Dharne; Syed Gulam Dastager
-14,244,3.11,242,2,0,CSIR-IICT,TRUE,Bankupalli Satyavathi; Dr. Vineet Aniya; Dr. S. Sridhar
-15,221,2.81,220,1,0,CSIR-IICT,TRUE,Bojja Sreedhar; Dr. Ujjwal Pal; Vijayanand Perupogu
+1,534,6.83,5,3,526,CSIR-CECRI,TRUE,Murugavel Kathiresan; Dr B Subramanian; Dr P Ragupathy
+2,507,6.48,1,505,1,CSIR-NCL,TRUE,Dr. Rajesh G. Gonnade; Dr. Kumar Vanka; Dr. Samir H. Chikkali
+3,474,6.06,3,468,3,CSIR-NCL,TRUE,Dr. Sreekumar Kurungot; Dr. Arun Torris; Dr. Sailaja Krishnamurty
+4,449,5.74,3,446,0,CSIR-NCL,TRUE,Dr. Ashok Giri; Dr. Mahesh J Kulkarni; Dr. Narendra Kadoo
+5,443,5.66,442,1,0,CSIR-IICT,TRUE,Dr. B. Sridhar; Dr. B.V. Subba Reddy; Jhillu Singh Yadav
+6,381,4.87,381,0,0,CSIR-IICT,FALSE,Dr. Andugulapati Sai Balagi; Ramakrishna Sistla; Dr. S. Nishant Jain
+7,371,4.74,365,1,5,CSIR-IICT,TRUE,Dr. Sunil Misra; Dr. Pratyay Basak; Dr. Ramanuj Narayan
+8,358,4.58,357,1,0,CSIR-IICT,TRUE,Srihari Pabbaraja; Bojja Sreedhar; Sumana Chakravarty
+9,327,4.18,327,0,0,CSIR-IICT,FALSE,S. Prabhakar; V. Jayathirtha Rao; Srinivas Kantevari
+10,312,3.99,311,1,0,CSIR-IICT,TRUE,Ähmed Kamal; Chityal Ganesh Kumar; Manika Pal Bhadra
+11,271,3.47,2,269,0,CSIR-NCL,TRUE,Dr. Mahesh S. Dharne; Dr. Sanjay P. Kamble; Syed Gulam Dastager
+12,269,3.44,2,0,267,CSIR-CECRI,TRUE,Dr Subrata Kundu; Subbiah Ravichandran; Singaram Vengatesan
+13,234,2.99,232,2,0,CSIR-IICT,TRUE,Dr. S. Sridhar; Bankupalli Satyavathi; Dr. Vineet Aniya
+14,232,2.97,0,1,231,CSIR-CECRI,TRUE,Marappan Sathish; Dr P Murugan; Dr A Pandikumar
+15,231,2.95,218,13,0,CSIR-IICT,TRUE,Prathama S. Mainkar; Dr. C. Chandrasekhar; Chada Raji Reddy

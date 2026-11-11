@@ -231,12 +231,13 @@
       formatter: cell => { cell.getElement().setAttribute("style", cell.getElement().getAttribute("style") + ";" + shade(cell.getValue())); return (cell.getValue() == null ? "–" : Number(cell.getValue()).toFixed(2)) + (cell.getRow().getData().selected_twin_of === lab ? " ★" : ""); },
     });
     const best = [...foreign].sort((a, b) => b.similarity - a.similarity)[0];
-    const noTwin = Object.values(D.meta.countries).flatMap(cn => LABS.filter(l => !foreign.some(p => p.group === cn && p.twin_of === l)).map(l => `${l} in ${cn}`));
+    const noTwinIn = LABS.map(l => [l, Object.values(D.meta.countries).filter(cn => !foreign.some(p => p.group === cn && p.twin_of === l))])
+      .filter(([, cs]) => cs.length).map(([l, cs]) => `${l} in ${cs.length > 1 ? cs.slice(0, -1).join(", ") + " or " + cs[cs.length - 1] : cs[0]}`);
     const nInd = peers.filter(p => p.group === "India").length;
     $("n-scope").textContent = D.scope.length;
     answer("peers", `<b>${foreign.length + nInd} comparison institutes.</b> ${foreign.length} foreign government labs were picked by six fixed rules ` +
       `as the most similar "twin" of each CSIR lab in each country (closest: ${esc(best.short)} for ${esc(best.twin_of)}, similarity ${Number(best.similarity).toFixed(2)}), ` +
-      `plus ${nInd} leading Indian institutes chosen by the team.` + (noTwin.length ? ` No twin was similar enough for ${esc(noTwin.join(" and "))}.` : ""));
+      `plus ${nInd} leading Indian institutes chosen by the team.` + (noTwinIn.length ? ` No institute was similar enough to be a twin of ${esc(noTwinIn.join("; "))}.` : ""));
     whenOpen("tbl-sim", () => new Tabulator("#tbl-sim", {
       data: D.similarity, layout: "fitColumns", height: 420, groupBy: "country",
       columns: [
@@ -317,9 +318,10 @@
   }
 
   // ---------- 04 Impact ----------
+  const W = D.meta.world;  // the world's own top 10% / top 1% shares in the scope (stats/tables/global_world_baseline.csv)
   const METRICS = {
-    top10_pct: { label: "World top 10%", title: "Share of papers in the world's top 10%", ref: 10, note: "A paper is in the top 10% when it is among the most cited 10% of papers of the same subfield, type and year worldwide (OpenAlex citation_normalized_percentile). The dashed line is the world expectation: 10%." },
-    top1_pct: { label: "World top 1%", title: "Share of papers in the world's top 1%", ref: 1, note: "Among the most cited 1% of papers of the same subfield, type and year worldwide. The dashed line is the world expectation: 1%." },
+    top10_pct: { label: "World top 10%", title: "Share of papers in the world's top 10%", ref: W.top10_pct, note: `A paper is in the top 10% when it is among the most cited 10% of papers of the same subfield, type and year worldwide (OpenAlex citation_normalized_percentile). The dashed line is the world's own share in these subfields, ${W.top10_pct}% (OpenAlex counts ties at the threshold, so it is a little above 10%).` },
+    top1_pct: { label: "World top 1%", title: "Share of papers in the world's top 1%", ref: W.top1_pct, note: `Among the most cited 1% of papers of the same subfield, type and year worldwide. The dashed line is the world's own share in these subfields, ${W.top1_pct}%.` },
     above_world_pct: { label: "Above world average", title: "Share of papers cited above the world average", ref: null, note: "Papers with field-weighted citation impact (FWCI) above 1, i.e. cited more than the world average for their subfield, type and year." },
     intl_pct: { label: "International", title: "Share of papers with a co-author in another country", ref: null, note: "Papers with authors in two or more countries. Not an impact measure; shown for context." },
   };
@@ -371,7 +373,7 @@
     const indMed = median(peers.filter(p => p.group === "India").map(p => sumById[p.institution_id].top10_pct));
     const best = labs.reduce((a, b) => (b.top10_pct > a.top10_pct ? b : a));
     answer("impact", `${labs.map(r => `${esc(r.short.replace("CSIR-", ""))} <b>${pct(r.top10_pct)}</b>`).join(", ")} of papers are among the world's 10% most cited in their subject and year ` +
-      `(the world average is 10%). The foreign twins reach ${pct(twinMed)} (median) and the Indian reference group ${pct(indMed)}; ` +
+      `(the world's own share in these subfields is ${pct(W.top10_pct)}). The foreign twins reach ${pct(twinMed)} (median) and the Indian reference group ${pct(indMed)}; ` +
       `${esc(best.short)} is the best-placed CSIR lab, #${rank.indexOf(best) + 1} of ${rank.length}.`);
   }
 
@@ -469,9 +471,13 @@
       const a = r.reduce((t, x) => t + x.peer_papers_citing_lab, 0), b = r.reduce((t, x) => t + x.peer_papers_cited_by_lab, 0);
       return `${esc(g)} ${b ? (a / b).toFixed(2) : "–"}`;
     });
+    const ratioF = outF ? inF / outF : null;
+    const fy = D.meta.flow_years;
+    const drawWord = ratioF == null ? "" : ratioF < 0.9 ? "The labs draw on the foreign peers more than the peers draw on them" :
+      ratioF > 1.1 ? "The foreign peers draw on the labs more than the labs draw on them" : "Citations run about equally in both directions";
     answer("links", `The labs barely write papers with their foreign peers: <b>${fmt(forCo)}</b> co-authored papers with the ${nForeign} foreign peers in ${y0}–${y1}, ` +
-      `against <b>${fmt(indCo)}</b> with the six Indian institutes. They also draw on the foreign peers more than the peers draw on them: ` +
-      `${fmt(inF)} of the peers' papers cite the labs while the labs cite ${fmt(outF)} of theirs (exchange ratio <b>${outF ? (inF / outF).toFixed(2) : "–"}</b>; by country ${byCountry.join(", ")}).`);
+      `against <b>${fmt(indCo)}</b> with the six Indian institutes. ${drawWord}: ` +
+      `${fmt(inF)} of the peers' ${fy.start}–${fy.end} papers cite the labs while the labs cite ${fmt(outF)} of their ${fy.start}–${fy.end} papers (exchange ratio <b>${ratioF == null ? "–" : ratioF.toFixed(2)}</b>; by country ${byCountry.join(", ")}).`);
   }
 
   // ---------- 07 Indian universities (formerly the "Academic Bridge" page) ----------
@@ -507,7 +513,10 @@
     const tier = t => { const r = all.filter(x => x.tier === t); return sum(r, "papers_cited_by_lab") ? sum(r, "papers_citing_lab") / sum(r, "papers_cited_by_lab") : null; };
     const sorted = [...all].filter(r => r.exchange_ratio != null).sort((a, b) => b.exchange_ratio - a.exchange_ratio);
     const top = sorted[0], bottom = sorted[sorted.length - 1];
-    answer("india", `The exchange is close to balanced but the labs draw slightly more on the universities than the other way round: ratio <b>${n2(tier("IISc / IIT"))}</b> with IISc and the IITs ` +
+    const rI = tier("IISc / IIT"), rS = tier("State university");
+    const indiaWord = rI > 1.1 && rS > 1.1 ? "The universities draw on the labs more than the labs draw on them" :
+      rI < 0.9 && rS < 0.9 ? "The labs draw on the universities more than the universities draw on them" : "The exchange is close to balanced";
+    answer("india", `${indiaWord}: ratio <b>${n2(rI)}</b> with IISc and the IITs ` +
       `and <b>${n2(tier("State university"))}</b> with the six state universities. ${esc(top.university)} draws on the labs most (${n2(top.exchange_ratio)}); ` +
       `${esc(bottom.university)} least (${n2(bottom.exchange_ratio)}: the labs cite ${fmt(bottom.papers_cited_by_lab)} of its papers, ${fmt(bottom.papers_citing_lab)} of its papers cite the labs).`);
 
@@ -572,23 +581,32 @@
   }
 
   // ---------- 07 Method ----------
+  // Countries where a lab has no twin (no candidate reaches the similarity floor), from the peer list
+  function noTwin() {
+    const countries = Object.values(D.meta.countries);
+    const parts = LABS.map(lab => [lab, countries.filter(c => !D.peers.some(p => p.group === c && p.twin_of === lab))])
+      .filter(([, cs]) => cs.length).map(([lab, cs]) => `${esc(lab)} has no twin in ${cs.join(", ")}`);
+    return parts.length ? `${parts.join("; ")}: no government institute there reaches the floor.` : "";
+  }
   function renderMethod() {
     const m = D.meta;
     $("g-sources").innerHTML = [
       `OpenAlex works API, queried ${esc(m.built)} with one rule for every institution: papers of the institution and its sub-units (authorships.institutions.lineage), ${y0}–${y1}, ${esc(m.work_types.join(" and "))}s, in the benchmark subfields.`,
       `Field-normalised impact: OpenAlex citation_normalized_percentile (top 10% / top 1%) and field-weighted citation impact (fwci), both computed by OpenAlex against all papers worldwide of the same subfield, type and year.`,
       `Country context: the same scope for all papers with an author in each country, and for the whole world.`,
-      `Links: co-authored papers from the same queries; citation flows from the labs' ${fmt(m.corpus_papers)} curated papers (filters cites: and cited_by:, in batches of 100), keeping papers of the peers.`,
+      `Links: co-authored papers from the same queries; citation flows from the labs' ${fmt(m.corpus_papers)} curated papers (filters cites: and cited_by:, in batches of 100), keeping papers of the peers. Both directions count only partner papers published ${m.flow_years.start}–${m.flow_years.end}, the years of the labs' own papers: the labs also cite older papers, which no partner paper citing the labs can match.`,
       `Partner countries (section 01): every author affiliation on the labs' curated papers, 2016–2026 (main dataset, collected ${esc(m.collection_date)}).`,
       `Indian universities (section 07, formerly the "Academic Bridge" study): the dataset's citation network of Indian papers citing or cited by the labs (citation_network.csv, 2016–2026) and co-authored papers (indian_connections.csv); institutions matched by exact name.`,
       `Files: config/global_benchmark.yaml (rules), config/overrides/global_peer_exclusions.csv (rule 2b), data/final/global/ (raw benchmark data), stats/tables/global_*.csv (every number on this page).`,
     ].map(t => `<li>${t}</li>`).join("");
     $("g-caveats").innerHTML = [
       `Our labs' numbers here come from the same raw OpenAlex query as the peers, not from the cleaned dataset used on the main dashboard, so they differ slightly from it (duplicates and non-research items are not removed for anyone).`,
-      `OpenAlex affiliation quality varies: some institutes' papers are partly credited to a parent or a renamed entity. A sudden drop for one institute (for example a split or renamed unit) can be an artefact.`,
+      `OpenAlex affiliation quality varies: some institutes' papers are partly credited to a parent or a renamed entity. A sudden drop for one institute (for example a split or renamed unit) can be an artefact. CSIRO Manufacturing (−8% a year) is a business unit of CSIRO whose papers are often credited to CSIRO as a whole, so its trend is not reliable.`,
+      `ANSTO and ORNL run user facilities (neutron sources; ANSTO also the Australian Synchrotron), so some of their papers come from visiting users; this raises their international share.`,
+      `Country shares of world papers use all OpenAlex papers in the scope as the denominator, including papers with no known country. Early years have more such papers, so the rise of China (and of India) is partly better affiliation data.`,
       `Top 10% / top 1% shares for the latest years are less settled: recent papers have had little time to be cited.`,
-      `The twins are the most similar government institutes, not identical ones. US national labs publish more physics and materials science than the CSIR labs, so their similarity scores are lower (no US or Australian institute is close enough to CSIR-IICT).`,
-      `Rule 2b and the similarity floor (${m.min_similarity}) are judgment calls, recorded in docs/DECISIONS.md (D-35). The Indian reference group was chosen by the team, not by the rules.`,
+      `The twins are the most similar government institutes, not identical ones. US national labs publish more physics and materials science than the CSIR labs, so their similarity scores are lower. ${noTwin()}`,
+      `Rule 2b and the similarity floor (${m.min_similarity}) are judgment calls, recorded in docs/DECISIONS.md (D-35, D-40). The Indian reference group was chosen by the team, not by the rules.`,
       `Counts are whole counts: a paper with authors at two institutions counts fully for both.`,
     ].map(t => `<li>${t}</li>`).join("");
   }

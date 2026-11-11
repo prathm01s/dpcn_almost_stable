@@ -8,7 +8,7 @@
       "faculty_id": "FAC_CECRI_0459",
       "in_degree": 10,
       "out_degree": 16,
-      "pagerank": 0.00186,
+      "pagerank": 0.00166,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -19,9 +19,35 @@
       "lab": "CSIR-CECRI",
       "dept": "ELECTROCHEMICAL POWER SOURCES",
       "faculty_id": "FAC_CECRI_0466",
-      "in_degree": 15,
-      "out_degree": 8,
-      "pagerank": 0.00188,
+      "in_degree": 17,
+      "out_degree": 10,
+      "pagerank": 0.00185,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr P Ragupathy",
+      "name": "Dr P Ragupathy",
+      "lab": "CSIR-CECRI",
+      "dept": "ELECTROCHEMICAL POWER SOURCES",
+      "faculty_id": "FAC_CECRI_0468",
+      "in_degree": 26,
+      "out_degree": 22,
+      "pagerank": 0.00345,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr B Subramanian",
+      "name": "Dr B Subramanian",
+      "lab": "CSIR-CECRI",
+      "dept": "ELECTROPLATING AND ELECTROMETALLURGY",
+      "faculty_id": "FAC_CECRI_0471",
+      "in_degree": 138,
+      "out_degree": 89,
+      "pagerank": 0.01287,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -33,8 +59,8 @@
       "dept": "ELECTRODICS AND ELECTROCATALYSIS",
       "faculty_id": "FAC_CECRI_0475",
       "in_degree": 19,
-      "out_degree": 43,
-      "pagerank": 0.00264,
+      "out_degree": 44,
+      "pagerank": 0.00223,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -45,9 +71,9 @@
       "lab": "CSIR-CECRI",
       "dept": "ELECTRODICS AND ELECTROCATALYSIS",
       "faculty_id": "FAC_CECRI_0478",
-      "in_degree": 14,
-      "out_degree": 13,
-      "pagerank": 0.00142,
+      "in_degree": 15,
+      "out_degree": 16,
+      "pagerank": 0.0014,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -58,9 +84,22 @@
       "lab": "CSIR-CECRI",
       "dept": "ELECTROCHEMICAL PROCESS ENGINEERING",
       "faculty_id": "FAC_CECRI_0480",
-      "in_degree": 179,
-      "out_degree": 98,
-      "pagerank": 0.01564,
+      "in_degree": 226,
+      "out_degree": 194,
+      "pagerank": 0.0188,
+      "itemStyle": {
+        "color": "#ea580c"
+      }
+    },
+    {
+      "id": "Dr S Vasudevan",
+      "name": "Dr S Vasudevan",
+      "lab": "CSIR-CECRI",
+      "dept": "ELECTROCHEMICAL PROCESS ENGINEERING",
+      "faculty_id": "FAC_CECRI_0484",
+      "in_degree": 5,
+      "out_degree": 15,
+      "pagerank": 0.00122,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -71,9 +110,9 @@
       "lab": "CSIR-CECRI",
       "dept": "ELECTROCHEMICAL PROCESS ENGINEERING",
       "faculty_id": "FAC_CECRI_0487",
-      "in_degree": 29,
-      "out_degree": 27,
-      "pagerank": 0.00318,
+      "in_degree": 36,
+      "out_degree": 33,
+      "pagerank": 0.00347,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -84,9 +123,9 @@
       "lab": "CSIR-CECRI",
       "dept": "CENTRAL INSTRUMENTATION FACILITY",
       "faculty_id": "FAC_CECRI_0492",
-      "in_degree": 63,
-      "out_degree": 82,
-      "pagerank": 0.00873,
+      "in_degree": 74,
+      "out_degree": 92,
+      "pagerank": 0.00757,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -97,9 +136,9 @@
       "lab": "CSIR-CECRI",
       "dept": "CENTRAL INSTRUMENTATION FACILITY",
       "faculty_id": "FAC_CECRI_0496",
-      "in_degree": 11,
-      "out_degree": 23,
-      "pagerank": 0.00192,
+      "in_degree": 33,
+      "out_degree": 36,
+      "pagerank": 0.00421,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -112,7 +151,7 @@
       "faculty_id": "FAC_CECRI_0499",
       "in_degree": 9,
       "out_degree": 4,
-      "pagerank": 0.00249,
+      "pagerank": 0.00166,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -123,9 +162,9 @@
       "lab": "CSIR-CECRI",
       "dept": "CECRI CHENNAI UNIT",
       "faculty_id": "FAC_CECRI_0500",
-      "in_degree": 23,
-      "out_degree": 16,
-      "pagerank": 0.00405,
+      "in_degree": 24,
+      "out_degree": 19,
+      "pagerank": 0.00344,
       "itemStyle": {
         "color": "#ea580c"
       }
@@ -136,22 +175,9 @@
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
       "faculty_id": "FAC_IICT_0169",
-      "in_degree": 3,
-      "out_degree": 22,
-      "pagerank": 0.00083,
-      "itemStyle": {
-        "color": "#2563eb"
-      }
-    },
-    {
-      "id": "Dr. U.V.R. Vijaya Sarathi",
-      "name": "Dr. U.V.R. Vijaya Sarathi",
-      "lab": "CSIR-IICT",
-      "dept": "Analytical & Structural Chemistry",
-      "faculty_id": "FAC_IICT_0171",
-      "in_degree": 3,
-      "out_degree": 7,
-      "pagerank": 0.00098,
+      "in_degree": 345,
+      "out_degree": 349,
+      "pagerank": 0.02465,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -164,7 +190,7 @@
       "faculty_id": "FAC_IICT_0172",
       "in_degree": 21,
       "out_degree": 20,
-      "pagerank": 0.00379,
+      "pagerank": 0.00357,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -175,9 +201,9 @@
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
       "faculty_id": "FAC_IICT_0173",
-      "in_degree": 43,
-      "out_degree": 34,
-      "pagerank": 0.00612,
+      "in_degree": 53,
+      "out_degree": 44,
+      "pagerank": 0.00579,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -188,9 +214,9 @@
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
       "faculty_id": "FAC_IICT_0174",
-      "in_degree": 363,
-      "out_degree": 310,
-      "pagerank": 0.03297,
+      "in_degree": 393,
+      "out_degree": 409,
+      "pagerank": 0.02642,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -201,9 +227,9 @@
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
       "faculty_id": "FAC_IICT_0177",
-      "in_degree": 17,
-      "out_degree": 25,
-      "pagerank": 0.00197,
+      "in_degree": 20,
+      "out_degree": 35,
+      "pagerank": 0.00185,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -214,9 +240,9 @@
       "lab": "CSIR-IICT",
       "dept": "Analytical & Structural Chemistry",
       "faculty_id": "FAC_IICT_0179",
-      "in_degree": 27,
-      "out_degree": 67,
-      "pagerank": 0.00325,
+      "in_degree": 35,
+      "out_degree": 85,
+      "pagerank": 0.00313,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -228,8 +254,8 @@
       "dept": "Analytical & Structural Chemistry",
       "faculty_id": "FAC_IICT_0180",
       "in_degree": 1,
-      "out_degree": 10,
-      "pagerank": 0.00107,
+      "out_degree": 12,
+      "pagerank": 0.00102,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -242,7 +268,7 @@
       "faculty_id": "FAC_IICT_0202",
       "in_degree": 16,
       "out_degree": 32,
-      "pagerank": 0.00199,
+      "pagerank": 0.00163,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -255,7 +281,7 @@
       "faculty_id": "FAC_IICT_0203",
       "in_degree": 20,
       "out_degree": 15,
-      "pagerank": 0.00264,
+      "pagerank": 0.00234,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -266,9 +292,9 @@
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
       "faculty_id": "FAC_IICT_0204",
-      "in_degree": 18,
-      "out_degree": 1,
-      "pagerank": 0.00268,
+      "in_degree": 19,
+      "out_degree": 8,
+      "pagerank": 0.00224,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -279,9 +305,9 @@
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
       "faculty_id": "FAC_IICT_0205",
-      "in_degree": 65,
-      "out_degree": 27,
-      "pagerank": 0.0059,
+      "in_degree": 69,
+      "out_degree": 28,
+      "pagerank": 0.0049,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -292,9 +318,9 @@
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
       "faculty_id": "FAC_IICT_0206",
-      "in_degree": 134,
-      "out_degree": 148,
-      "pagerank": 0.01325,
+      "in_degree": 163,
+      "out_degree": 189,
+      "pagerank": 0.0129,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -305,9 +331,9 @@
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
       "faculty_id": "FAC_IICT_0207",
-      "in_degree": 61,
-      "out_degree": 58,
-      "pagerank": 0.00796,
+      "in_degree": 79,
+      "out_degree": 71,
+      "pagerank": 0.00827,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -318,9 +344,9 @@
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
       "faculty_id": "FAC_IICT_0210",
-      "in_degree": 32,
-      "out_degree": 7,
-      "pagerank": 0.0053,
+      "in_degree": 39,
+      "out_degree": 13,
+      "pagerank": 0.00527,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -331,9 +357,9 @@
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
       "faculty_id": "FAC_IICT_0211",
-      "in_degree": 114,
-      "out_degree": 97,
-      "pagerank": 0.01289,
+      "in_degree": 128,
+      "out_degree": 125,
+      "pagerank": 0.01199,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -344,9 +370,9 @@
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
       "faculty_id": "FAC_IICT_0212",
-      "in_degree": 13,
-      "out_degree": 27,
-      "pagerank": 0.00253,
+      "in_degree": 15,
+      "out_degree": 31,
+      "pagerank": 0.0022,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -359,7 +385,7 @@
       "faculty_id": "FAC_IICT_0213",
       "in_degree": 13,
       "out_degree": 4,
-      "pagerank": 0.00346,
+      "pagerank": 0.00326,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -370,9 +396,9 @@
       "lab": "CSIR-IICT",
       "dept": "Applied Biology",
       "faculty_id": "FAC_IICT_0215",
-      "in_degree": 10,
-      "out_degree": 18,
-      "pagerank": 0.0016,
+      "in_degree": 14,
+      "out_degree": 19,
+      "pagerank": 0.00168,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -385,7 +411,7 @@
       "faculty_id": "FAC_IICT_0219",
       "in_degree": 16,
       "out_degree": 30,
-      "pagerank": 0.00204,
+      "pagerank": 0.00169,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -397,8 +423,8 @@
       "dept": "Catalysis & Fine Chemicals",
       "faculty_id": "FAC_IICT_0231",
       "in_degree": 20,
-      "out_degree": 4,
-      "pagerank": 0.00186,
+      "out_degree": 5,
+      "pagerank": 0.00178,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -409,9 +435,9 @@
       "lab": "CSIR-IICT",
       "dept": "Catalysis & Fine Chemicals",
       "faculty_id": "FAC_IICT_0232",
-      "in_degree": 15,
-      "out_degree": 17,
-      "pagerank": 0.00357,
+      "in_degree": 29,
+      "out_degree": 38,
+      "pagerank": 0.00253,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -422,9 +448,9 @@
       "lab": "CSIR-IICT",
       "dept": "Catalysis & Fine Chemicals",
       "faculty_id": "FAC_IICT_0234",
-      "in_degree": 8,
-      "out_degree": 2,
-      "pagerank": 0.00364,
+      "in_degree": 21,
+      "out_degree": 23,
+      "pagerank": 0.00241,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -437,7 +463,7 @@
       "faculty_id": "FAC_IICT_0235",
       "in_degree": 8,
       "out_degree": 9,
-      "pagerank": 0.00111,
+      "pagerank": 0.00103,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -448,9 +474,9 @@
       "lab": "CSIR-IICT",
       "dept": "Catalysis & Fine Chemicals",
       "faculty_id": "FAC_IICT_0236",
-      "in_degree": 62,
-      "out_degree": 110,
-      "pagerank": 0.0069,
+      "in_degree": 63,
+      "out_degree": 111,
+      "pagerank": 0.0058,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -463,7 +489,7 @@
       "faculty_id": "FAC_IICT_0237",
       "in_degree": 0,
       "out_degree": 13,
-      "pagerank": 0.00064,
+      "pagerank": 0.00063,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -474,9 +500,9 @@
       "lab": "CSIR-IICT",
       "dept": "Oils, Lipid Science & Technology",
       "faculty_id": "FAC_IICT_0253",
-      "in_degree": 3,
-      "out_degree": 11,
-      "pagerank": 0.00114,
+      "in_degree": 6,
+      "out_degree": 16,
+      "pagerank": 0.00147,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -487,9 +513,9 @@
       "lab": "CSIR-IICT",
       "dept": "Oils, Lipid Science & Technology",
       "faculty_id": "FAC_IICT_0256",
-      "in_degree": 33,
-      "out_degree": 46,
-      "pagerank": 0.00424,
+      "in_degree": 44,
+      "out_degree": 48,
+      "pagerank": 0.00459,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -500,9 +526,9 @@
       "lab": "CSIR-IICT",
       "dept": "Oils, Lipid Science & Technology",
       "faculty_id": "FAC_IICT_0257",
-      "in_degree": 10,
+      "in_degree": 13,
       "out_degree": 13,
-      "pagerank": 0.00165,
+      "pagerank": 0.00174,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -513,9 +539,9 @@
       "lab": "CSIR-IICT",
       "dept": "Energy & Environmental Engg.",
       "faculty_id": "FAC_IICT_0269",
-      "in_degree": 109,
+      "in_degree": 114,
       "out_degree": 46,
-      "pagerank": 0.01166,
+      "pagerank": 0.01013,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -528,7 +554,7 @@
       "faculty_id": "FAC_IICT_0272",
       "in_degree": 11,
       "out_degree": 19,
-      "pagerank": 0.00508,
+      "pagerank": 0.00474,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -541,7 +567,7 @@
       "faculty_id": "FAC_IICT_0274",
       "in_degree": 33,
       "out_degree": 84,
-      "pagerank": 0.00776,
+      "pagerank": 0.00681,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -552,9 +578,9 @@
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
       "faculty_id": "FAC_IICT_0288",
-      "in_degree": 66,
-      "out_degree": 77,
-      "pagerank": 0.00591,
+      "in_degree": 199,
+      "out_degree": 220,
+      "pagerank": 0.01365,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -565,9 +591,9 @@
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
       "faculty_id": "FAC_IICT_0290",
-      "in_degree": 12,
-      "out_degree": 20,
-      "pagerank": 0.00135,
+      "in_degree": 14,
+      "out_degree": 31,
+      "pagerank": 0.00139,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -578,9 +604,9 @@
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
       "faculty_id": "FAC_IICT_0291",
-      "in_degree": 15,
-      "out_degree": 14,
-      "pagerank": 0.00265,
+      "in_degree": 22,
+      "out_degree": 19,
+      "pagerank": 0.00246,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -591,9 +617,9 @@
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
       "faculty_id": "FAC_IICT_0294",
-      "in_degree": 19,
-      "out_degree": 20,
-      "pagerank": 0.00257,
+      "in_degree": 26,
+      "out_degree": 25,
+      "pagerank": 0.00254,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -604,9 +630,9 @@
       "lab": "CSIR-IICT",
       "dept": "Fluoro-Agrochemicals",
       "faculty_id": "FAC_IICT_0295",
-      "in_degree": 28,
-      "out_degree": 20,
-      "pagerank": 0.00447,
+      "in_degree": 35,
+      "out_degree": 23,
+      "pagerank": 0.00423,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -619,7 +645,7 @@
       "faculty_id": "FAC_IICT_0296",
       "in_degree": 14,
       "out_degree": 21,
-      "pagerank": 0.00148,
+      "pagerank": 0.0012,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -632,7 +658,7 @@
       "faculty_id": "FAC_IICT_0299",
       "in_degree": 15,
       "out_degree": 22,
-      "pagerank": 0.00369,
+      "pagerank": 0.00315,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -644,8 +670,8 @@
       "dept": "Natural Products & Medicinal Chemistry",
       "faculty_id": "FAC_IICT_0314",
       "in_degree": 11,
-      "out_degree": 20,
-      "pagerank": 0.00179,
+      "out_degree": 22,
+      "pagerank": 0.00146,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -656,9 +682,9 @@
       "lab": "CSIR-IICT",
       "dept": "Natural Products & Medicinal Chemistry",
       "faculty_id": "FAC_IICT_0315",
-      "in_degree": 7,
-      "out_degree": 24,
-      "pagerank": 0.00194,
+      "in_degree": 10,
+      "out_degree": 30,
+      "pagerank": 0.00216,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -669,9 +695,9 @@
       "lab": "CSIR-IICT",
       "dept": "Natural Products & Medicinal Chemistry",
       "faculty_id": "FAC_IICT_0317",
-      "in_degree": 10,
-      "out_degree": 7,
-      "pagerank": 0.0016,
+      "in_degree": 128,
+      "out_degree": 81,
+      "pagerank": 0.01286,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -682,9 +708,9 @@
       "lab": "CSIR-IICT",
       "dept": "Natural Products & Medicinal Chemistry",
       "faculty_id": "FAC_IICT_0318",
-      "in_degree": 59,
-      "out_degree": 55,
-      "pagerank": 0.00649,
+      "in_degree": 82,
+      "out_degree": 67,
+      "pagerank": 0.00624,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -697,7 +723,7 @@
       "faculty_id": "FAC_IICT_0319",
       "in_degree": 12,
       "out_degree": 8,
-      "pagerank": 0.00186,
+      "pagerank": 0.0017,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -708,9 +734,9 @@
       "lab": "CSIR-IICT",
       "dept": "Natural Products & Medicinal Chemistry",
       "faculty_id": "FAC_IICT_0322",
-      "in_degree": 111,
-      "out_degree": 62,
-      "pagerank": 0.0117,
+      "in_degree": 141,
+      "out_degree": 93,
+      "pagerank": 0.01239,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -721,9 +747,22 @@
       "lab": "CSIR-IICT",
       "dept": "Natural Products & Medicinal Chemistry",
       "faculty_id": "FAC_IICT_0323",
-      "in_degree": 31,
-      "out_degree": 86,
-      "pagerank": 0.00847,
+      "in_degree": 35,
+      "out_degree": 106,
+      "pagerank": 0.00495,
+      "itemStyle": {
+        "color": "#2563eb"
+      }
+    },
+    {
+      "id": "Dr. Remya Ramesh",
+      "name": "Dr. Remya Ramesh",
+      "lab": "CSIR-IICT",
+      "dept": "Natural Products & Medicinal Chemistry",
+      "faculty_id": "FAC_IICT_0324",
+      "in_degree": 7,
+      "out_degree": 4,
+      "pagerank": 0.00102,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -734,9 +773,9 @@
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
       "faculty_id": "FAC_IICT_0333",
-      "in_degree": 26,
-      "out_degree": 37,
-      "pagerank": 0.00322,
+      "in_degree": 30,
+      "out_degree": 39,
+      "pagerank": 0.00321,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -747,9 +786,9 @@
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
       "faculty_id": "FAC_IICT_0335",
-      "in_degree": 29,
-      "out_degree": 27,
-      "pagerank": 0.00583,
+      "in_degree": 31,
+      "out_degree": 29,
+      "pagerank": 0.00521,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -760,9 +799,9 @@
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
       "faculty_id": "FAC_IICT_0336",
-      "in_degree": 160,
-      "out_degree": 141,
-      "pagerank": 0.01522,
+      "in_degree": 203,
+      "out_degree": 163,
+      "pagerank": 0.0121,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -774,8 +813,8 @@
       "dept": "Organic Synthesis & Process Chemistry",
       "faculty_id": "FAC_IICT_0337",
       "in_degree": 8,
-      "out_degree": 13,
-      "pagerank": 0.00172,
+      "out_degree": 16,
+      "pagerank": 0.00138,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -788,7 +827,7 @@
       "faculty_id": "FAC_IICT_0338",
       "in_degree": 30,
       "out_degree": 15,
-      "pagerank": 0.005,
+      "pagerank": 0.00426,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -799,9 +838,9 @@
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
       "faculty_id": "FAC_IICT_0339",
-      "in_degree": 65,
-      "out_degree": 120,
-      "pagerank": 0.00737,
+      "in_degree": 85,
+      "out_degree": 123,
+      "pagerank": 0.00664,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -812,9 +851,9 @@
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
       "faculty_id": "FAC_IICT_0340",
-      "in_degree": 110,
-      "out_degree": 82,
-      "pagerank": 0.00906,
+      "in_degree": 116,
+      "out_degree": 83,
+      "pagerank": 0.00686,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -827,7 +866,7 @@
       "faculty_id": "FAC_IICT_0341",
       "in_degree": 13,
       "out_degree": 13,
-      "pagerank": 0.00239,
+      "pagerank": 0.00225,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -840,7 +879,7 @@
       "faculty_id": "FAC_IICT_0342",
       "in_degree": 51,
       "out_degree": 39,
-      "pagerank": 0.00437,
+      "pagerank": 0.00398,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -851,9 +890,9 @@
       "lab": "CSIR-IICT",
       "dept": "Organic Synthesis & Process Chemistry",
       "faculty_id": "FAC_IICT_0343",
-      "in_degree": 14,
-      "out_degree": 20,
-      "pagerank": 0.00196,
+      "in_degree": 22,
+      "out_degree": 24,
+      "pagerank": 0.00213,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -865,8 +904,8 @@
       "dept": "Organic Synthesis & Process Chemistry",
       "faculty_id": "FAC_IICT_0348",
       "in_degree": 5,
-      "out_degree": 30,
-      "pagerank": 0.00109,
+      "out_degree": 36,
+      "pagerank": 0.00098,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -877,9 +916,9 @@
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
       "faculty_id": "FAC_IICT_0363",
-      "in_degree": 46,
-      "out_degree": 30,
-      "pagerank": 0.00956,
+      "in_degree": 48,
+      "out_degree": 34,
+      "pagerank": 0.00947,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -890,9 +929,9 @@
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
       "faculty_id": "FAC_IICT_0365",
-      "in_degree": 50,
-      "out_degree": 32,
-      "pagerank": 0.00483,
+      "in_degree": 60,
+      "out_degree": 35,
+      "pagerank": 0.00496,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -903,9 +942,9 @@
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
       "faculty_id": "FAC_IICT_0369",
-      "in_degree": 40,
-      "out_degree": 18,
-      "pagerank": 0.00642,
+      "in_degree": 45,
+      "out_degree": 19,
+      "pagerank": 0.00634,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -918,7 +957,7 @@
       "faculty_id": "FAC_IICT_0370",
       "in_degree": 1,
       "out_degree": 11,
-      "pagerank": 0.00091,
+      "pagerank": 0.00087,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -929,9 +968,9 @@
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
       "faculty_id": "FAC_IICT_0372",
-      "in_degree": 45,
-      "out_degree": 52,
-      "pagerank": 0.00515,
+      "in_degree": 47,
+      "out_degree": 60,
+      "pagerank": 0.00511,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -944,7 +983,7 @@
       "faculty_id": "FAC_IICT_0373",
       "in_degree": 9,
       "out_degree": 3,
-      "pagerank": 0.00217,
+      "pagerank": 0.00186,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -956,8 +995,8 @@
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
       "faculty_id": "FAC_IICT_0374",
       "in_degree": 50,
-      "out_degree": 75,
-      "pagerank": 0.0053,
+      "out_degree": 80,
+      "pagerank": 0.00486,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -970,7 +1009,7 @@
       "faculty_id": "FAC_IICT_0375",
       "in_degree": 19,
       "out_degree": 1,
-      "pagerank": 0.00754,
+      "pagerank": 0.00701,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -981,9 +1020,9 @@
       "lab": "CSIR-IICT",
       "dept": "Chemical Engg. & Process Technology (CE & PT)",
       "faculty_id": "FAC_IICT_0376",
-      "in_degree": 35,
-      "out_degree": 38,
-      "pagerank": 0.01698,
+      "in_degree": 41,
+      "out_degree": 39,
+      "pagerank": 0.01611,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -994,9 +1033,9 @@
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
       "faculty_id": "FAC_IICT_0394",
-      "in_degree": 6,
-      "out_degree": 30,
-      "pagerank": 0.00118,
+      "in_degree": 7,
+      "out_degree": 35,
+      "pagerank": 0.00115,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -1007,7 +1046,7 @@
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
       "faculty_id": "FAC_IICT_0397",
-      "in_degree": 18,
+      "in_degree": 22,
       "out_degree": 3,
       "pagerank": 0.00209,
       "itemStyle": {
@@ -1022,7 +1061,7 @@
       "faculty_id": "FAC_IICT_0398",
       "in_degree": 9,
       "out_degree": 29,
-      "pagerank": 0.00151,
+      "pagerank": 0.00141,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -1033,9 +1072,9 @@
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
       "faculty_id": "FAC_IICT_0399",
-      "in_degree": 73,
+      "in_degree": 75,
       "out_degree": 52,
-      "pagerank": 0.00716,
+      "pagerank": 0.00656,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -1047,8 +1086,8 @@
       "dept": "Polymers & Functional Materials",
       "faculty_id": "FAC_IICT_0400",
       "in_degree": 66,
-      "out_degree": 60,
-      "pagerank": 0.00678,
+      "out_degree": 61,
+      "pagerank": 0.00618,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -1059,9 +1098,9 @@
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
       "faculty_id": "FAC_IICT_0401",
-      "in_degree": 42,
+      "in_degree": 47,
       "out_degree": 16,
-      "pagerank": 0.00554,
+      "pagerank": 0.00543,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -1074,7 +1113,7 @@
       "faculty_id": "FAC_IICT_0402",
       "in_degree": 18,
       "out_degree": 42,
-      "pagerank": 0.00247,
+      "pagerank": 0.00223,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -1085,9 +1124,9 @@
       "lab": "CSIR-IICT",
       "dept": "Polymers & Functional Materials",
       "faculty_id": "FAC_IICT_0403",
-      "in_degree": 4,
-      "out_degree": 11,
-      "pagerank": 0.00093,
+      "in_degree": 6,
+      "out_degree": 14,
+      "pagerank": 0.00098,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -1100,7 +1139,7 @@
       "faculty_id": "FAC_IICT_0407",
       "in_degree": 10,
       "out_degree": 31,
-      "pagerank": 0.00152,
+      "pagerank": 0.00139,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -1113,20 +1152,7 @@
       "faculty_id": "FAC_IICT_0408",
       "in_degree": 12,
       "out_degree": 12,
-      "pagerank": 0.00162,
-      "itemStyle": {
-        "color": "#2563eb"
-      }
-    },
-    {
-      "id": "SRI. G. NAGA SRINIVAS",
-      "name": "SRI. G. NAGA SRINIVAS",
-      "lab": "CSIR-IICT",
-      "dept": "Centre for I.T. Services",
-      "faculty_id": "FAC_IICT_0432",
-      "in_degree": 2,
-      "out_degree": 8,
-      "pagerank": 0.00122,
+      "pagerank": 0.00154,
       "itemStyle": {
         "color": "#2563eb"
       }
@@ -1137,9 +1163,9 @@
       "lab": "CSIR-NCL",
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0001",
-      "in_degree": 71,
+      "in_degree": 74,
       "out_degree": 12,
-      "pagerank": 0.00634,
+      "pagerank": 0.00576,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1152,7 +1178,7 @@
       "faculty_id": "FAC_NCL_0002",
       "in_degree": 4,
       "out_degree": 28,
-      "pagerank": 0.00176,
+      "pagerank": 0.00169,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1163,9 +1189,9 @@
       "lab": "CSIR-NCL",
       "dept": "Chemical Engineering & Process Development",
       "faculty_id": "FAC_NCL_0004",
-      "in_degree": 22,
-      "out_degree": 19,
-      "pagerank": 0.00389,
+      "in_degree": 25,
+      "out_degree": 21,
+      "pagerank": 0.00382,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1176,22 +1202,9 @@
       "lab": "CSIR-NCL",
       "dept": "Polymer Science and Engineering Division",
       "faculty_id": "FAC_NCL_0008",
-      "in_degree": 23,
-      "out_degree": 27,
-      "pagerank": 0.00376,
-      "itemStyle": {
-        "color": "#16a34a"
-      }
-    },
-    {
-      "id": "Dr. Archana Kumari",
-      "name": "Dr. Archana Kumari",
-      "lab": "CSIR-NCL",
-      "dept": "Biochemical Science Division",
-      "faculty_id": "FAC_NCL_0009",
-      "in_degree": 4,
-      "out_degree": 5,
-      "pagerank": 0.00104,
+      "in_degree": 27,
+      "out_degree": 32,
+      "pagerank": 0.00381,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1202,9 +1215,9 @@
       "lab": "CSIR-NCL",
       "dept": "Polymer Science and Engineering Division",
       "faculty_id": "FAC_NCL_0010",
-      "in_degree": 108,
-      "out_degree": 114,
-      "pagerank": 0.01519,
+      "in_degree": 110,
+      "out_degree": 116,
+      "pagerank": 0.01355,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1217,7 +1230,7 @@
       "faculty_id": "FAC_NCL_0011",
       "in_degree": 11,
       "out_degree": 26,
-      "pagerank": 0.00137,
+      "pagerank": 0.00123,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1228,9 +1241,9 @@
       "lab": "CSIR-NCL",
       "dept": "Polymer Science and Engineering Division",
       "faculty_id": "FAC_NCL_0012",
-      "in_degree": 25,
+      "in_degree": 26,
       "out_degree": 17,
-      "pagerank": 0.00313,
+      "pagerank": 0.00302,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1243,7 +1256,7 @@
       "faculty_id": "FAC_NCL_0013",
       "in_degree": 9,
       "out_degree": 2,
-      "pagerank": 0.00147,
+      "pagerank": 0.00138,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1254,9 +1267,9 @@
       "lab": "CSIR-NCL",
       "dept": "Biochemical Science Division",
       "faculty_id": "FAC_NCL_0015",
-      "in_degree": 39,
+      "in_degree": 40,
       "out_degree": 58,
-      "pagerank": 0.008,
+      "pagerank": 0.00739,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1265,11 +1278,11 @@
       "id": "Dr. Ashwini Kumar Nangia",
       "name": "Dr. Ashwini Kumar Nangia",
       "lab": "CSIR-NCL",
-      "dept": "Contact Number:",
+      "dept": "",
       "faculty_id": "FAC_NCL_0017",
-      "in_degree": 64,
-      "out_degree": 22,
-      "pagerank": 0.0077,
+      "in_degree": 74,
+      "out_degree": 24,
+      "pagerank": 0.00719,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1282,7 +1295,7 @@
       "faculty_id": "FAC_NCL_0018",
       "in_degree": 28,
       "out_degree": 14,
-      "pagerank": 0.00313,
+      "pagerank": 0.00289,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1293,9 +1306,9 @@
       "lab": "CSIR-NCL",
       "dept": "Biochemical Science Division",
       "faculty_id": "FAC_NCL_0019",
-      "in_degree": 20,
-      "out_degree": 25,
-      "pagerank": 0.00306,
+      "in_degree": 23,
+      "out_degree": 26,
+      "pagerank": 0.00299,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1308,7 +1321,7 @@
       "faculty_id": "FAC_NCL_0020",
       "in_degree": 12,
       "out_degree": 20,
-      "pagerank": 0.00377,
+      "pagerank": 0.00364,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1320,8 +1333,8 @@
       "dept": "Catalysis Division",
       "faculty_id": "FAC_NCL_0022",
       "in_degree": 3,
-      "out_degree": 12,
-      "pagerank": 0.00097,
+      "out_degree": 13,
+      "pagerank": 0.00093,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1334,7 +1347,7 @@
       "faculty_id": "FAC_NCL_0027",
       "in_degree": 9,
       "out_degree": 9,
-      "pagerank": 0.00182,
+      "pagerank": 0.00168,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1345,9 +1358,9 @@
       "lab": "CSIR-NCL",
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0028",
-      "in_degree": 131,
+      "in_degree": 135,
       "out_degree": 176,
-      "pagerank": 0.00844,
+      "pagerank": 0.00779,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1359,8 +1372,8 @@
       "dept": "Biochemical Science Division",
       "faculty_id": "FAC_NCL_0029",
       "in_degree": 11,
-      "out_degree": 18,
-      "pagerank": 0.00268,
+      "out_degree": 19,
+      "pagerank": 0.00245,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1372,21 +1385,8 @@
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0033",
       "in_degree": 15,
-      "out_degree": 28,
-      "pagerank": 0.00197,
-      "itemStyle": {
-        "color": "#16a34a"
-      }
-    },
-    {
-      "id": "Dr. Chetan Gadgil",
-      "name": "Dr. Chetan Gadgil",
-      "lab": "CSIR-NCL",
-      "dept": "Chemical Engineering & Process Development",
-      "faculty_id": "FAC_NCL_0034",
-      "in_degree": 4,
-      "out_degree": 5,
-      "pagerank": 0.00428,
+      "out_degree": 29,
+      "pagerank": 0.00183,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1399,7 +1399,7 @@
       "faculty_id": "FAC_NCL_0035",
       "in_degree": 6,
       "out_degree": 9,
-      "pagerank": 0.00135,
+      "pagerank": 0.00129,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1410,9 +1410,9 @@
       "lab": "CSIR-NCL",
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0038",
-      "in_degree": 9,
+      "in_degree": 10,
       "out_degree": 1,
-      "pagerank": 0.00183,
+      "pagerank": 0.00181,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1423,9 +1423,9 @@
       "lab": "CSIR-NCL",
       "dept": "Biochemical Science Division",
       "faculty_id": "FAC_NCL_0039",
-      "in_degree": 11,
-      "out_degree": 6,
-      "pagerank": 0.00246,
+      "in_degree": 12,
+      "out_degree": 8,
+      "pagerank": 0.00229,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1437,8 +1437,8 @@
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0040",
       "in_degree": 1,
-      "out_degree": 9,
-      "pagerank": 0.00071,
+      "out_degree": 11,
+      "pagerank": 0.00069,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1449,9 +1449,9 @@
       "lab": "CSIR-NCL",
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0041",
-      "in_degree": 45,
-      "out_degree": 30,
-      "pagerank": 0.00627,
+      "in_degree": 50,
+      "out_degree": 31,
+      "pagerank": 0.00588,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1464,7 +1464,7 @@
       "faculty_id": "FAC_NCL_0043",
       "in_degree": 14,
       "out_degree": 6,
-      "pagerank": 0.00296,
+      "pagerank": 0.00283,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1477,7 +1477,7 @@
       "faculty_id": "FAC_NCL_0045",
       "in_degree": 11,
       "out_degree": 2,
-      "pagerank": 0.00176,
+      "pagerank": 0.00163,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1490,7 +1490,7 @@
       "faculty_id": "FAC_NCL_0047",
       "in_degree": 19,
       "out_degree": 19,
-      "pagerank": 0.0024,
+      "pagerank": 0.0022,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1502,8 +1502,8 @@
       "dept": "Chemical Engineering & Process Development",
       "faculty_id": "FAC_NCL_0049",
       "in_degree": 18,
-      "out_degree": 16,
-      "pagerank": 0.00207,
+      "out_degree": 17,
+      "pagerank": 0.00181,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1516,7 +1516,7 @@
       "faculty_id": "FAC_NCL_0053",
       "in_degree": 6,
       "out_degree": 19,
-      "pagerank": 0.00103,
+      "pagerank": 0.00096,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1529,7 +1529,7 @@
       "faculty_id": "FAC_NCL_0054",
       "in_degree": 12,
       "out_degree": 27,
-      "pagerank": 0.00143,
+      "pagerank": 0.00135,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1540,9 +1540,9 @@
       "lab": "CSIR-NCL",
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0058",
-      "in_degree": 13,
-      "out_degree": 28,
-      "pagerank": 0.00248,
+      "in_degree": 15,
+      "out_degree": 31,
+      "pagerank": 0.00269,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1555,7 +1555,7 @@
       "faculty_id": "FAC_NCL_0059",
       "in_degree": 274,
       "out_degree": 98,
-      "pagerank": 0.01617,
+      "pagerank": 0.01466,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1568,7 +1568,7 @@
       "faculty_id": "FAC_NCL_0061",
       "in_degree": 140,
       "out_degree": 189,
-      "pagerank": 0.01319,
+      "pagerank": 0.01188,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1581,7 +1581,7 @@
       "faculty_id": "FAC_NCL_0062",
       "in_degree": 33,
       "out_degree": 47,
-      "pagerank": 0.00387,
+      "pagerank": 0.00349,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1593,8 +1593,8 @@
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0063",
       "in_degree": 37,
-      "out_degree": 29,
-      "pagerank": 0.00475,
+      "out_degree": 30,
+      "pagerank": 0.00421,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1607,20 +1607,7 @@
       "faculty_id": "FAC_NCL_0064",
       "in_degree": 16,
       "out_degree": 19,
-      "pagerank": 0.00272,
-      "itemStyle": {
-        "color": "#16a34a"
-      }
-    },
-    {
-      "id": "Dr. Kiran Pandare",
-      "name": "Dr. Kiran Pandare",
-      "lab": "CSIR-NCL",
-      "dept": "Polymer Science and Engineering Division",
-      "faculty_id": "FAC_NCL_0065",
-      "in_degree": 9,
-      "out_degree": 0,
-      "pagerank": 0.00209,
+      "pagerank": 0.00256,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1631,9 +1618,9 @@
       "lab": "CSIR-NCL",
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0066",
-      "in_degree": 5,
-      "out_degree": 27,
-      "pagerank": 0.00094,
+      "in_degree": 10,
+      "out_degree": 34,
+      "pagerank": 0.00117,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1645,8 +1632,8 @@
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0067",
       "in_degree": 5,
-      "out_degree": 4,
-      "pagerank": 0.00216,
+      "out_degree": 6,
+      "pagerank": 0.00187,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1657,9 +1644,9 @@
       "lab": "CSIR-NCL",
       "dept": "Biochemical Science Division",
       "faculty_id": "FAC_NCL_0068",
-      "in_degree": 20,
-      "out_degree": 28,
-      "pagerank": 0.00259,
+      "in_degree": 23,
+      "out_degree": 31,
+      "pagerank": 0.00258,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1670,9 +1657,9 @@
       "lab": "CSIR-NCL",
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0069",
-      "in_degree": 560,
-      "out_degree": 530,
-      "pagerank": 0.03843,
+      "in_degree": 567,
+      "out_degree": 533,
+      "pagerank": 0.03466,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1681,11 +1668,11 @@
       "id": "Dr. Kushal Bhatte",
       "name": "Dr. Kushal Bhatte",
       "lab": "CSIR-NCL",
-      "dept": "Contact Number:",
+      "dept": "",
       "faculty_id": "FAC_NCL_0070",
       "in_degree": 1,
       "out_degree": 12,
-      "pagerank": 0.00078,
+      "pagerank": 0.00075,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1697,8 +1684,8 @@
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0072",
       "in_degree": 13,
-      "out_degree": 30,
-      "pagerank": 0.0018,
+      "out_degree": 31,
+      "pagerank": 0.00163,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1711,7 +1698,7 @@
       "faculty_id": "FAC_NCL_0073",
       "in_degree": 7,
       "out_degree": 5,
-      "pagerank": 0.00108,
+      "pagerank": 0.00103,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1722,9 +1709,9 @@
       "lab": "CSIR-NCL",
       "dept": "Biochemical Science Division",
       "faculty_id": "FAC_NCL_0075",
-      "in_degree": 39,
+      "in_degree": 40,
       "out_degree": 26,
-      "pagerank": 0.00575,
+      "pagerank": 0.00545,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1735,9 +1722,9 @@
       "lab": "CSIR-NCL",
       "dept": "Biochemical Science Division",
       "faculty_id": "FAC_NCL_0076",
-      "in_degree": 0,
-      "out_degree": 9,
-      "pagerank": 0.00064,
+      "in_degree": 28,
+      "out_degree": 51,
+      "pagerank": 0.00425,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1749,8 +1736,8 @@
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0078",
       "in_degree": 4,
-      "out_degree": 8,
-      "pagerank": 0.00085,
+      "out_degree": 9,
+      "pagerank": 0.00082,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1762,8 +1749,8 @@
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0079",
       "in_degree": 25,
-      "out_degree": 31,
-      "pagerank": 0.00259,
+      "out_degree": 34,
+      "pagerank": 0.00242,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1776,7 +1763,7 @@
       "faculty_id": "FAC_NCL_0080",
       "in_degree": 52,
       "out_degree": 23,
-      "pagerank": 0.0084,
+      "pagerank": 0.0074,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1789,7 +1776,7 @@
       "faculty_id": "FAC_NCL_0082",
       "in_degree": 8,
       "out_degree": 14,
-      "pagerank": 0.00257,
+      "pagerank": 0.00248,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1802,7 +1789,7 @@
       "faculty_id": "FAC_NCL_0085",
       "in_degree": 9,
       "out_degree": 7,
-      "pagerank": 0.00116,
+      "pagerank": 0.0011,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1815,7 +1802,7 @@
       "faculty_id": "FAC_NCL_0086",
       "in_degree": 11,
       "out_degree": 14,
-      "pagerank": 0.00203,
+      "pagerank": 0.00191,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1828,7 +1815,7 @@
       "faculty_id": "FAC_NCL_0093",
       "in_degree": 14,
       "out_degree": 10,
-      "pagerank": 0.00178,
+      "pagerank": 0.00166,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1839,9 +1826,9 @@
       "lab": "CSIR-NCL",
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0095",
-      "in_degree": 25,
+      "in_degree": 27,
       "out_degree": 2,
-      "pagerank": 0.00235,
+      "pagerank": 0.00222,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1854,7 +1841,7 @@
       "faculty_id": "FAC_NCL_0097",
       "in_degree": 23,
       "out_degree": 13,
-      "pagerank": 0.00415,
+      "pagerank": 0.00367,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1867,7 +1854,7 @@
       "faculty_id": "FAC_NCL_0099",
       "in_degree": 4,
       "out_degree": 7,
-      "pagerank": 0.00135,
+      "pagerank": 0.00121,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1879,8 +1866,8 @@
       "dept": "Catalysis Division",
       "faculty_id": "FAC_NCL_0100",
       "in_degree": 29,
-      "out_degree": 21,
-      "pagerank": 0.00445,
+      "out_degree": 22,
+      "pagerank": 0.00399,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1889,11 +1876,11 @@
       "id": "Dr. Pradeep Kumar, FNA",
       "name": "Dr. Pradeep Kumar, FNA",
       "lab": "CSIR-NCL",
-      "dept": "Contact Number:",
+      "dept": "",
       "faculty_id": "FAC_NCL_0102",
-      "in_degree": 35,
-      "out_degree": 17,
-      "pagerank": 0.00575,
+      "in_degree": 36,
+      "out_degree": 18,
+      "pagerank": 0.00538,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1904,9 +1891,9 @@
       "lab": "CSIR-NCL",
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0103",
-      "in_degree": 25,
+      "in_degree": 26,
       "out_degree": 24,
-      "pagerank": 0.00388,
+      "pagerank": 0.0036,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1917,9 +1904,9 @@
       "lab": "CSIR-NCL",
       "dept": "Polymer Science and Engineering Division",
       "faculty_id": "FAC_NCL_0105",
-      "in_degree": 18,
+      "in_degree": 19,
       "out_degree": 16,
-      "pagerank": 0.00283,
+      "pagerank": 0.00268,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1932,7 +1919,7 @@
       "faculty_id": "FAC_NCL_0107",
       "in_degree": 10,
       "out_degree": 8,
-      "pagerank": 0.00181,
+      "pagerank": 0.00164,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1943,9 +1930,9 @@
       "lab": "CSIR-NCL",
       "dept": "Catalysis Division",
       "faculty_id": "FAC_NCL_0109",
-      "in_degree": 71,
-      "out_degree": 43,
-      "pagerank": 0.00923,
+      "in_degree": 72,
+      "out_degree": 45,
+      "pagerank": 0.008,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1956,9 +1943,9 @@
       "lab": "CSIR-NCL",
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0113",
-      "in_degree": 541,
-      "out_degree": 562,
-      "pagerank": 0.0417,
+      "in_degree": 548,
+      "out_degree": 565,
+      "pagerank": 0.03799,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1970,8 +1957,8 @@
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0114",
       "in_degree": 5,
-      "out_degree": 17,
-      "pagerank": 0.00123,
+      "out_degree": 18,
+      "pagerank": 0.00118,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1984,7 +1971,7 @@
       "faculty_id": "FAC_NCL_0116",
       "in_degree": 8,
       "out_degree": 11,
-      "pagerank": 0.00261,
+      "pagerank": 0.00229,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -1995,9 +1982,9 @@
       "lab": "CSIR-NCL",
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0119",
-      "in_degree": 49,
-      "out_degree": 73,
-      "pagerank": 0.00421,
+      "in_degree": 51,
+      "out_degree": 74,
+      "pagerank": 0.00381,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2010,7 +1997,7 @@
       "faculty_id": "FAC_NCL_0122",
       "in_degree": 22,
       "out_degree": 39,
-      "pagerank": 0.0037,
+      "pagerank": 0.00338,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2021,9 +2008,9 @@
       "lab": "CSIR-NCL",
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0123",
-      "in_degree": 163,
-      "out_degree": 329,
-      "pagerank": 0.01504,
+      "in_degree": 164,
+      "out_degree": 330,
+      "pagerank": 0.01364,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2034,9 +2021,9 @@
       "lab": "CSIR-NCL",
       "dept": "Catalysis Division",
       "faculty_id": "FAC_NCL_0125",
-      "in_degree": 364,
-      "out_degree": 351,
-      "pagerank": 0.02285,
+      "in_degree": 368,
+      "out_degree": 353,
+      "pagerank": 0.02077,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2049,7 +2036,7 @@
       "faculty_id": "FAC_NCL_0126",
       "in_degree": 79,
       "out_degree": 100,
-      "pagerank": 0.00662,
+      "pagerank": 0.00608,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2060,9 +2047,9 @@
       "lab": "CSIR-NCL",
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0127",
-      "in_degree": 20,
-      "out_degree": 5,
-      "pagerank": 0.00408,
+      "in_degree": 29,
+      "out_degree": 6,
+      "pagerank": 0.00436,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2073,9 +2060,9 @@
       "lab": "CSIR-NCL",
       "dept": "Chemical Engineering & Process Development",
       "faculty_id": "FAC_NCL_0128",
-      "in_degree": 4,
-      "out_degree": 9,
-      "pagerank": 0.00157,
+      "in_degree": 20,
+      "out_degree": 21,
+      "pagerank": 0.00262,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2088,7 +2075,7 @@
       "faculty_id": "FAC_NCL_0129",
       "in_degree": 52,
       "out_degree": 88,
-      "pagerank": 0.00428,
+      "pagerank": 0.00384,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2099,9 +2086,9 @@
       "lab": "CSIR-NCL",
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0130",
-      "in_degree": 17,
-      "out_degree": 29,
-      "pagerank": 0.00191,
+      "in_degree": 19,
+      "out_degree": 30,
+      "pagerank": 0.0018,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2114,7 +2101,7 @@
       "faculty_id": "FAC_NCL_0131",
       "in_degree": 13,
       "out_degree": 10,
-      "pagerank": 0.00272,
+      "pagerank": 0.00264,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2127,7 +2114,7 @@
       "faculty_id": "FAC_NCL_0138",
       "in_degree": 11,
       "out_degree": 5,
-      "pagerank": 0.00228,
+      "pagerank": 0.00211,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2140,7 +2127,7 @@
       "faculty_id": "FAC_NCL_0139",
       "in_degree": 25,
       "out_degree": 27,
-      "pagerank": 0.0023,
+      "pagerank": 0.00211,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2153,7 +2140,7 @@
       "faculty_id": "FAC_NCL_0142",
       "in_degree": 12,
       "out_degree": 26,
-      "pagerank": 0.00189,
+      "pagerank": 0.00158,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2166,7 +2153,7 @@
       "faculty_id": "FAC_NCL_0143",
       "in_degree": 7,
       "out_degree": 14,
-      "pagerank": 0.00198,
+      "pagerank": 0.00189,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2177,9 +2164,9 @@
       "lab": "CSIR-NCL",
       "dept": "Physical and Materials Chemistry Division",
       "faculty_id": "FAC_NCL_0144",
-      "in_degree": 316,
-      "out_degree": 215,
-      "pagerank": 0.03819,
+      "in_degree": 332,
+      "out_degree": 219,
+      "pagerank": 0.03383,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2192,7 +2179,7 @@
       "faculty_id": "FAC_NCL_0145",
       "in_degree": 12,
       "out_degree": 55,
-      "pagerank": 0.00456,
+      "pagerank": 0.00406,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2205,7 +2192,7 @@
       "faculty_id": "FAC_NCL_0146",
       "in_degree": 26,
       "out_degree": 21,
-      "pagerank": 0.00281,
+      "pagerank": 0.0026,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2218,7 +2205,7 @@
       "faculty_id": "FAC_NCL_0147",
       "in_degree": 18,
       "out_degree": 3,
-      "pagerank": 0.0022,
+      "pagerank": 0.00209,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2230,8 +2217,8 @@
       "dept": "Polymer Science and Engineering Division",
       "faculty_id": "FAC_NCL_0149",
       "in_degree": 47,
-      "out_degree": 39,
-      "pagerank": 0.00621,
+      "out_degree": 41,
+      "pagerank": 0.00545,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2242,9 +2229,22 @@
       "lab": "CSIR-NCL",
       "dept": "Biochemical Science Division",
       "faculty_id": "FAC_NCL_0152",
-      "in_degree": 41,
-      "out_degree": 4,
-      "pagerank": 0.00525,
+      "in_degree": 42,
+      "out_degree": 8,
+      "pagerank": 0.00914,
+      "itemStyle": {
+        "color": "#16a34a"
+      }
+    },
+    {
+      "id": "Dr. T.G.Ajithkumar",
+      "name": "Dr. T.G.Ajithkumar",
+      "lab": "CSIR-NCL",
+      "dept": "Physical and Materials Chemistry Division",
+      "faculty_id": "FAC_NCL_0154",
+      "in_degree": 34,
+      "out_degree": 51,
+      "pagerank": 0.00356,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2257,7 +2257,7 @@
       "faculty_id": "FAC_NCL_0156",
       "in_degree": 65,
       "out_degree": 27,
-      "pagerank": 0.00698,
+      "pagerank": 0.00624,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2268,9 +2268,9 @@
       "lab": "CSIR-NCL",
       "dept": "Polymer Science and Engineering Division",
       "faculty_id": "FAC_NCL_0157",
-      "in_degree": 29,
-      "out_degree": 11,
-      "pagerank": 0.00494,
+      "in_degree": 36,
+      "out_degree": 12,
+      "pagerank": 0.00481,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2282,8 +2282,8 @@
       "dept": "Organic Chemistry Division",
       "faculty_id": "FAC_NCL_0159",
       "in_degree": 19,
-      "out_degree": 34,
-      "pagerank": 0.00198,
+      "out_degree": 35,
+      "pagerank": 0.00179,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2295,8 +2295,8 @@
       "dept": "Catalysis Division",
       "faculty_id": "FAC_NCL_0161",
       "in_degree": 33,
-      "out_degree": 22,
-      "pagerank": 0.00378,
+      "out_degree": 24,
+      "pagerank": 0.00348,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2307,9 +2307,9 @@
       "lab": "CSIR-NCL",
       "dept": "Chemical Engineering & Process Development",
       "faculty_id": "FAC_NCL_0163",
-      "in_degree": 17,
+      "in_degree": 18,
       "out_degree": 13,
-      "pagerank": 0.0056,
+      "pagerank": 0.00527,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2320,9 +2320,9 @@
       "lab": "CSIR-NCL",
       "dept": "Catalysis Division",
       "faculty_id": "FAC_NCL_0165",
-      "in_degree": 165,
-      "out_degree": 137,
-      "pagerank": 0.01459,
+      "in_degree": 176,
+      "out_degree": 153,
+      "pagerank": 0.0137,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2333,9 +2333,9 @@
       "lab": "CSIR-NCL",
       "dept": "Catalysis Division",
       "faculty_id": "FAC_NCL_0166",
-      "in_degree": 6,
+      "in_degree": 7,
       "out_degree": 5,
-      "pagerank": 0.00132,
+      "pagerank": 0.00129,
       "itemStyle": {
         "color": "#16a34a"
       }
@@ -2386,6 +2386,12 @@
     },
     {
       "source": "Dr A Manuel Stephan",
+      "target": "Dr P Ragupathy",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr A Manuel Stephan",
       "target": "Dr Subbiah Alwarappan",
       "weight": 2,
       "value": 2
@@ -2405,6 +2411,90 @@
     {
       "source": "Dr A Manuel Stephan",
       "target": "Dr. Sreekumar Kurungot",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr P Ragupathy",
+      "target": "Dr B Subramanian",
+      "weight": 14,
+      "value": 14
+    },
+    {
+      "source": "Dr P Ragupathy",
+      "target": "Dr. Sailaja Krishnamurty",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr P Ragupathy",
+      "target": "Dr Subrata Kundu",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr P Ragupathy",
+      "target": "Dr A Manuel Stephan",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr P Ragupathy",
+      "target": "Dr. Asha S.K.",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr P Ragupathy",
+      "target": "Dr S Vasudevan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr Subrata Kundu",
+      "weight": 38,
+      "value": 38
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr A Pandikumar",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr P Murugan",
+      "weight": 10,
+      "value": 10
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr P Ragupathy",
+      "weight": 9,
+      "value": 9
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Mr T Mathankumar",
+      "weight": 22,
+      "value": 22
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr. Dattatray Late",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr M Pandiaraj",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr B Subramanian",
+      "target": "Dr. Ujjwal Pal",
       "weight": 1,
       "value": 1
     },
@@ -2437,6 +2527,12 @@
       "target": "Dr M Pandiaraj",
       "weight": 13,
       "value": 13
+    },
+    {
+      "source": "Dr Subbiah Alwarappan",
+      "target": "Dr B Subramanian",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr Subbiah Alwarappan",
@@ -2476,6 +2572,12 @@
     },
     {
       "source": "Dr M Pandiaraj",
+      "target": "Dr B Subramanian",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr M Pandiaraj",
       "target": "Dr. Chittaranjan Patra",
       "weight": 2,
       "value": 2
@@ -2497,6 +2599,12 @@
       "target": "Mr T Mathankumar",
       "weight": 2,
       "value": 2
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr B Subramanian",
+      "weight": 89,
+      "value": 89
     },
     {
       "source": "Dr Subrata Kundu",
@@ -2533,6 +2641,18 @@
       "target": "Dr. Kumar Vanka",
       "weight": 2,
       "value": 2
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr Subrata Kundu",
+      "target": "Dr P Ragupathy",
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr Subrata Kundu",
@@ -2607,6 +2727,30 @@
       "value": 1
     },
     {
+      "source": "Dr S Vasudevan",
+      "target": "Dr Subrata Kundu",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr S Vasudevan",
+      "target": "Dr P Murugan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr S Vasudevan",
+      "target": "Dr (Mrs) D Kalpana",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr S Vasudevan",
+      "target": "Dr P Ragupathy",
+      "weight": 6,
+      "value": 6
+    },
+    {
       "source": "Dr A Pandikumar",
       "target": "Dr Subbiah Alwarappan",
       "weight": 3,
@@ -2662,7 +2806,19 @@
     },
     {
       "source": "Dr A Pandikumar",
+      "target": "Dr B Subramanian",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr A Pandikumar",
       "target": "Dr. Avijit Jana",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr A Pandikumar",
+      "target": "Dr P Ragupathy",
       "weight": 1,
       "value": 1
     },
@@ -2680,6 +2836,12 @@
     },
     {
       "source": "Dr P Murugan",
+      "target": "Dr B Subramanian",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr P Murugan",
       "target": "Dr A Pandikumar",
       "weight": 27,
       "value": 27
@@ -2687,8 +2849,8 @@
     {
       "source": "Dr P Murugan",
       "target": "Dr Akhila Kumar Sahu",
-      "weight": 6,
-      "value": 6
+      "weight": 7,
+      "value": 7
     },
     {
       "source": "Dr P Murugan",
@@ -2704,6 +2866,12 @@
     },
     {
       "source": "Dr P Murugan",
+      "target": "Dr P Ragupathy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr P Murugan",
       "target": "Dr. Jayaraj Nithyanandhan",
       "weight": 1,
       "value": 1
@@ -2713,6 +2881,12 @@
       "target": "Dr Subrata Kundu",
       "weight": 19,
       "value": 19
+    },
+    {
+      "source": "Mr T Mathankumar",
+      "target": "Dr B Subramanian",
+      "weight": 13,
+      "value": 13
     },
     {
       "source": "Mr T Mathankumar",
@@ -2735,6 +2909,12 @@
     {
       "source": "Dr (Mrs) D Kalpana",
       "target": "Dr. K. Krishnamoorthy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr Akhila Kumar Sahu",
+      "target": "Dr P Ragupathy",
       "weight": 1,
       "value": 1
     },
@@ -2776,37 +2956,283 @@
     },
     {
       "source": "Dr Akhila Kumar Sahu",
+      "target": "Dr. S. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr Akhila Kumar Sahu",
+      "target": "Dr. Nivedita Sahu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr Akhila Kumar Sahu",
       "target": "Dr V Ganesh",
       "weight": 1,
       "value": 1
     },
     {
       "source": "Dr. B. Sridhar",
-      "target": "Dr. B.V. Subba Reddy",
-      "weight": 19,
-      "value": 19
+      "target": "Dr. Sunil Misra",
+      "weight": 9,
+      "value": 9
     },
     {
       "source": "Dr. B. Sridhar",
-      "target": "Dr. A. Venkat Narsaiah",
+      "target": "Dr. Rohit Kumar Rana",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Haridas B. Rode",
+      "weight": 14,
+      "value": 14
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Ramesh Ummanni",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Surisetti Suresh",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Bathini Nagendra Babu",
+      "weight": 6,
+      "value": 6
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 143,
+      "value": 143
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Rajiv Trivedi",
+      "weight": 13,
+      "value": 13
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Ashwini Kumar Nangia",
+      "weight": 9,
+      "value": 9
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Jagadeesh Babu Nanubolu",
+      "weight": 23,
+      "value": 23
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Nitin T. Patil",
       "weight": 2,
       "value": 2
     },
     {
       "source": "Dr. B. Sridhar",
-      "target": "Dr. Debendra Kumar Mohapatra",
-      "weight": 1,
-      "value": 1
-    },
-    {
-      "source": "Dr. U.V.R. Vijaya Sarathi",
-      "target": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. Rajesh G. Gonnade",
       "weight": 6,
       "value": 6
     },
     {
-      "source": "Dr. U.V.R. Vijaya Sarathi",
-      "target": "Dr. Ramars Amanchy",
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Rambabu Chegondi",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Santosh B. Mhaske",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Akkattu T. Biju",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Maddi Sridhar Reddy",
+      "weight": 15,
+      "value": 15
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Dhiman Sarkar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Sandip S. Shinde",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Pravin R. Likhar",
+      "weight": 13,
+      "value": 13
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Surya Prakash Singh",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Remya Ramesh",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Amitava Das (IICT)",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Nayani Kiranmai",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Benudhar Punji",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Andugulapati Sai Balagi",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. V. Ramalingam",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Surender Singh Jadav",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Subhash Ghosh",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Nivedita Sahu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Debendra Kumar Mohapatra",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Ravindar Kontham",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Kaki Shiva Shanker",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. S. Nishant Jain",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Ram Chandra Reddy Jala",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. A. Venkat Narsaiah",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Mohana Krishna Reddy Mudiam",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Debasish Swain",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Sunil Kumar N.",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Bonam Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B. Sridhar",
+      "target": "Dr. Pradip Maity",
       "weight": 1,
       "value": 1
     },
@@ -2845,6 +3271,18 @@
       "target": "Dr. V. Ramalingam",
       "weight": 11,
       "value": 11
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. B. Sridhar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 8,
+      "value": 8
     },
     {
       "source": "Dr. Mohana Krishna Reddy Mudiam",
@@ -2909,8 +3347,14 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Pravin R. Likhar",
-      "weight": 6,
-      "value": 6
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. B. Sridhar",
+      "weight": 26,
+      "value": 26
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -2927,14 +3371,14 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Surisetti Suresh",
-      "weight": 43,
-      "value": 43
+      "weight": 55,
+      "value": 55
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Akkattu T. Biju",
-      "weight": 4,
-      "value": 4
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -2951,14 +3395,14 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Rambabu Chegondi",
-      "weight": 54,
-      "value": 54
+      "weight": 57,
+      "value": 57
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Maddi Sridhar Reddy",
-      "weight": 140,
-      "value": 140
+      "weight": 168,
+      "value": 168
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -2975,8 +3419,8 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Ravindra Motiram Kumbhare",
-      "weight": 1,
-      "value": 1
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -3023,8 +3467,8 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Kumar Vanka",
-      "weight": 7,
-      "value": 7
+      "weight": 8,
+      "value": 8
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -3047,8 +3491,8 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Sunil Misra",
-      "weight": 1,
-      "value": 1
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
@@ -3059,18 +3503,24 @@
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Punna Nagender",
-      "weight": 2,
-      "value": 2
+      "weight": 9,
+      "value": 9
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Haridas B. Rode",
-      "weight": 3,
-      "value": 3
+      "weight": 12,
+      "value": 12
     },
     {
       "source": "Dr. Jagadeesh Babu Nanubolu",
       "target": "Dr. Nayani Kiranmai",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jagadeesh Babu Nanubolu",
+      "target": "Dr. K. Suresh Babu",
       "weight": 1,
       "value": 1
     },
@@ -3112,6 +3562,12 @@
     },
     {
       "source": "Dr. Debasish Swain",
+      "target": "Dr. B. Sridhar",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Debasish Swain",
       "target": "Dr. Mohana Krishna Reddy Mudiam",
       "weight": 2,
       "value": 2
@@ -3125,6 +3581,12 @@
     {
       "source": "Dr. Debasish Swain",
       "target": "Dr. Sunil Misra",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Debasish Swain",
+      "target": "Dr. B.V. Subba Reddy",
       "weight": 1,
       "value": 1
     },
@@ -3136,15 +3598,15 @@
     },
     {
       "source": "Dr. Debasish Swain",
-      "target": "Dr. Siddhartha Moulik",
-      "weight": 3,
-      "value": 3
+      "target": "Dr. Alka Kumari",
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Debasish Swain",
-      "target": "Dr. Alka Kumari",
-      "weight": 1,
-      "value": 1
+      "target": "Dr. Siddhartha Moulik",
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Sunil Kumar N.",
@@ -3202,7 +3664,25 @@
     },
     {
       "source": "Dr. Sunil Kumar N.",
+      "target": "Dr. B. Sridhar",
+      "weight": 15,
+      "value": 15
+    },
+    {
+      "source": "Dr. Sunil Kumar N.",
       "target": "Dr. Sunil Misra",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sunil Kumar N.",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Kumar N.",
+      "target": "Dr. K. Suresh Babu",
       "weight": 1,
       "value": 1
     },
@@ -3233,6 +3713,12 @@
     {
       "source": "Dr. Nagaraju Rajana",
       "target": "Dr. Sunil Misra",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Nagaraju Rajana",
+      "target": "Dr. K. Suresh Babu",
       "weight": 1,
       "value": 1
     },
@@ -3334,6 +3820,12 @@
     },
     {
       "source": "Dr. Amitava Das (IICT)",
+      "target": "Dr. B. Sridhar",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Amitava Das (IICT)",
       "target": "Dr. Surender Singh Jadav",
       "weight": 1,
       "value": 1
@@ -3370,6 +3862,12 @@
     },
     {
       "source": "Dr. Chittaranjan Patra",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Chittaranjan Patra",
       "target": "Dr. Ramars Amanchy",
       "weight": 7,
       "value": 7
@@ -3389,8 +3887,14 @@
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Rohit Kumar Rana",
-      "weight": 11,
-      "value": 11
+      "weight": 14,
+      "value": 14
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Chittaranjan Patra",
+      "weight": 29,
+      "value": 29
     },
     {
       "source": "Dr. Sunil Misra",
@@ -3401,8 +3905,8 @@
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Nivedita Sahu",
-      "weight": 7,
-      "value": 7
+      "weight": 8,
+      "value": 8
     },
     {
       "source": "Dr. Sunil Misra",
@@ -3419,12 +3923,6 @@
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Kaki Shiva Shanker",
-      "weight": 17,
-      "value": 17
-    },
-    {
-      "source": "Dr. Sunil Misra",
-      "target": "Dr. Chittaranjan Patra",
       "weight": 26,
       "value": 26
     },
@@ -3433,6 +3931,12 @@
       "target": "Dr. Ramanuj Narayan",
       "weight": 11,
       "value": 11
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. B. Sridhar",
+      "weight": 7,
+      "value": 7
     },
     {
       "source": "Dr. Sunil Misra",
@@ -3455,8 +3959,8 @@
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Ravindra Motiram Kumbhare",
-      "weight": 4,
-      "value": 4
+      "weight": 7,
+      "value": 7
     },
     {
       "source": "Dr. Sunil Misra",
@@ -3467,20 +3971,20 @@
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Ram Chandra Reddy Jala",
-      "weight": 2,
-      "value": 2
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Ramars Amanchy",
-      "weight": 2,
-      "value": 2
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. B.V. Subba Reddy",
-      "weight": 2,
-      "value": 2
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Sunil Misra",
@@ -3491,14 +3995,14 @@
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Sutapa Ghosh",
-      "weight": 3,
-      "value": 3
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Sunil Misra",
       "target": "Dr. Bonam Srinivasa Reddy",
-      "weight": 2,
-      "value": 2
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. Sunil Misra",
@@ -3520,7 +4024,31 @@
     },
     {
       "source": "Dr. Sunil Misra",
+      "target": "Dr. Vasundhara Mutta",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
       "target": "Dr. Bathini Nagendra Babu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Debasish Swain",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sunil Misra",
+      "target": "Dr. Sunil Kumar N.",
       "weight": 1,
       "value": 1
     },
@@ -3556,15 +4084,15 @@
     },
     {
       "source": "Dr. S. Nishant Jain",
-      "target": "Dr. Surisetti Suresh",
-      "weight": 3,
-      "value": 3
+      "target": "Dr. K. Suresh Babu",
+      "weight": 17,
+      "value": 17
     },
     {
       "source": "Dr. S. Nishant Jain",
-      "target": "Dr. K. Suresh Babu",
-      "weight": 4,
-      "value": 4
+      "target": "Dr. Surisetti Suresh",
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. S. Nishant Jain",
@@ -3639,6 +4167,12 @@
       "value": 2
     },
     {
+      "source": "Dr. Ramesh Ummanni",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 6,
+      "value": 6
+    },
+    {
       "source": "Dr. Andugulapati Sai Balagi",
       "target": "Dr. Anthony Addlagatta",
       "weight": 5,
@@ -3670,15 +4204,15 @@
     },
     {
       "source": "Dr. Andugulapati Sai Balagi",
-      "target": "Dr. Srigiridhar Kotamraju",
-      "weight": 5,
-      "value": 5
+      "target": "Dr. K. Suresh Babu",
+      "weight": 24,
+      "value": 24
     },
     {
       "source": "Dr. Andugulapati Sai Balagi",
-      "target": "Dr. U.V.R. Vijaya Sarathi",
-      "weight": 3,
-      "value": 3
+      "target": "Dr. Srigiridhar Kotamraju",
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. Andugulapati Sai Balagi",
@@ -3730,6 +4264,12 @@
     },
     {
       "source": "Dr. Andugulapati Sai Balagi",
+      "target": "Dr. B. Sridhar",
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "source": "Dr. Andugulapati Sai Balagi",
       "target": "Dr. Sunil Misra",
       "weight": 1,
       "value": 1
@@ -3751,6 +4291,12 @@
       "target": "Dr. D. Srinivasa Reddy",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Ramars Amanchy",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Ramars Amanchy",
@@ -3790,6 +4336,12 @@
     },
     {
       "source": "Dr. Ramars Amanchy",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ramars Amanchy",
       "target": "Dr. Debasish Swain",
       "weight": 1,
       "value": 1
@@ -3805,6 +4357,12 @@
       "target": "Dr. Ravindra Motiram Kumbhare",
       "weight": 3,
       "value": 3
+    },
+    {
+      "source": "Dr. Ramars Amanchy",
+      "target": "Dr. Jagadeesh Babu Nanubolu",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. K. Srinivasan",
@@ -3839,8 +4397,8 @@
     {
       "source": "Dr. Bonam Srinivasa Reddy",
       "target": "Dr. Sunil Misra",
-      "weight": 4,
-      "value": 4
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. Bonam Srinivasa Reddy",
@@ -3857,6 +4415,12 @@
     {
       "source": "Dr. Bonam Srinivasa Reddy",
       "target": "Dr. Sunil Kumar N.",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Bonam Srinivasa Reddy",
+      "target": "Dr. Remya Ramesh",
       "weight": 1,
       "value": 1
     },
@@ -3910,6 +4474,12 @@
     },
     {
       "source": "Dr. A. Venugopal",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. A. Venugopal",
       "target": "Dr. Reddi Kamesh",
       "weight": 3,
       "value": 3
@@ -3925,6 +4495,12 @@
       "target": "Dr. Jagadeesh Babu Nanubolu",
       "weight": 8,
       "value": 8
+    },
+    {
+      "source": "Dr. Pravin R. Likhar",
+      "target": "Dr. B. Sridhar",
+      "weight": 21,
+      "value": 21
     },
     {
       "source": "Dr. Pravin R. Likhar",
@@ -3958,6 +4534,12 @@
     },
     {
       "source": "Dr. Rajiv Trivedi",
+      "target": "Dr. B. Sridhar",
+      "weight": 21,
+      "value": 21
+    },
+    {
+      "source": "Dr. Rajiv Trivedi",
       "target": "Dr. Pravin R. Likhar",
       "weight": 1,
       "value": 1
@@ -3967,6 +4549,12 @@
       "target": "Dr. Ujjwal Pal",
       "weight": 9,
       "value": 9
+    },
+    {
+      "source": "Dr. Ujjwal Pal",
+      "target": "Dr B Subramanian",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Ujjwal Pal",
@@ -4072,6 +4660,12 @@
     },
     {
       "source": "Dr. Ujjwal Pal",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ujjwal Pal",
       "target": "Dr Subbiah Alwarappan",
       "weight": 1,
       "value": 1
@@ -4097,8 +4691,8 @@
     {
       "source": "DR. K.N. PRASANNA RANI",
       "target": "Dr. T. Prathap Kumar",
-      "weight": 4,
-      "value": 4
+      "weight": 8,
+      "value": 8
     },
     {
       "source": "DR. K.N. PRASANNA RANI",
@@ -4139,8 +4733,8 @@
     {
       "source": "Dr. Kaki Shiva Shanker",
       "target": "Dr. Sunil Misra",
-      "weight": 27,
-      "value": 27
+      "weight": 28,
+      "value": 28
     },
     {
       "source": "Dr. Kaki Shiva Shanker",
@@ -4306,6 +4900,12 @@
     },
     {
       "source": "Dr. B.V. Subba Reddy",
+      "target": "Dr. B. Sridhar",
+      "weight": 134,
+      "value": 134
+    },
+    {
+      "source": "Dr. B.V. Subba Reddy",
       "target": "Dr. Nitin T. Patil",
       "weight": 1,
       "value": 1
@@ -4348,9 +4948,15 @@
     },
     {
       "source": "Dr. B.V. Subba Reddy",
-      "target": "Dr. A. Venkat Narsaiah",
+      "target": "Dr. Sunil Misra",
       "weight": 9,
       "value": 9
+    },
+    {
+      "source": "Dr. B.V. Subba Reddy",
+      "target": "Dr. A. Venkat Narsaiah",
+      "weight": 10,
+      "value": 10
     },
     {
       "source": "Dr. B.V. Subba Reddy",
@@ -4360,25 +4966,25 @@
     },
     {
       "source": "Dr. B.V. Subba Reddy",
-      "target": "Dr. B. Sridhar",
-      "weight": 2,
-      "value": 2
-    },
-    {
-      "source": "Dr. B.V. Subba Reddy",
       "target": "Dr. S. Nishant Jain",
-      "weight": 2,
-      "value": 2
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. B.V. Subba Reddy",
       "target": "Dr. Benudhar Punji",
-      "weight": 2,
-      "value": 2
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. B.V. Subba Reddy",
       "target": "Dr. Gurunath Suryavanshi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B.V. Subba Reddy",
+      "target": "Dr. Chittaranjan Patra",
       "weight": 1,
       "value": 1
     },
@@ -4403,20 +5009,14 @@
     {
       "source": "Dr. B.V. Subba Reddy",
       "target": "Dr. Debendra Kumar Mohapatra",
-      "weight": 3,
-      "value": 3
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. B.V. Subba Reddy",
       "target": "Dr. G. Sudhakar",
       "weight": 2,
       "value": 2
-    },
-    {
-      "source": "Dr. B.V. Subba Reddy",
-      "target": "Dr. Sunil Misra",
-      "weight": 5,
-      "value": 5
     },
     {
       "source": "Dr. B.V. Subba Reddy",
@@ -4433,6 +5033,18 @@
     {
       "source": "Dr. B.V. Subba Reddy",
       "target": "Dr. Surisetti Suresh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B.V. Subba Reddy",
+      "target": "Dr. Dhiman Sarkar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. B.V. Subba Reddy",
+      "target": "Dr. Prakash Wadgaonkar",
       "weight": 1,
       "value": 1
     },
@@ -4463,18 +5075,18 @@
     {
       "source": "Dr. A. Venkat Narsaiah",
       "target": "Dr. B.V. Subba Reddy",
-      "weight": 11,
-      "value": 11
-    },
-    {
-      "source": "Dr. A. Venkat Narsaiah",
-      "target": "Dr. Ram Chandra Reddy Jala",
-      "weight": 1,
-      "value": 1
+      "weight": 13,
+      "value": 13
     },
     {
       "source": "Dr. A. Venkat Narsaiah",
       "target": "Dr. B. Sridhar",
+      "weight": 10,
+      "value": 10
+    },
+    {
+      "source": "Dr. A. Venkat Narsaiah",
+      "target": "Dr. Ram Chandra Reddy Jala",
       "weight": 1,
       "value": 1
     },
@@ -4504,15 +5116,27 @@
     },
     {
       "source": "Dr. Ravindra Motiram Kumbhare",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ravindra Motiram Kumbhare",
       "target": "Dr. Jagadeesh Babu Nanubolu",
-      "weight": 2,
-      "value": 2
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Ravindra Motiram Kumbhare",
       "target": "Dr. Sunil Misra",
-      "weight": 4,
-      "value": 4
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Ravindra Motiram Kumbhare",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Bathini Nagendra Babu",
@@ -4531,6 +5155,12 @@
       "target": "Dr. Jagadeesh Babu Nanubolu",
       "weight": 6,
       "value": 6
+    },
+    {
+      "source": "Dr. Bathini Nagendra Babu",
+      "target": "Dr. B. Sridhar",
+      "weight": 5,
+      "value": 5
     },
     {
       "source": "Dr. Bathini Nagendra Babu",
@@ -4561,6 +5191,12 @@
       "target": "Dr. Krishna Swaroop Desireddy",
       "weight": 8,
       "value": 8
+    },
+    {
+      "source": "Dr. Punna Nagender",
+      "target": "Dr. B. Sridhar",
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Punna Nagender",
@@ -4654,6 +5290,12 @@
     },
     {
       "source": "Dr. Sandip B. Bharate",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sandip B. Bharate",
       "target": "Dr. Raju Adepu",
       "weight": 1,
       "value": 1
@@ -4663,6 +5305,18 @@
       "target": "Dr. Bathini Nagendra Babu",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Sandip B. Bharate",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. D. Srinivasa Reddy",
+      "target": "Dr. B. Sridhar",
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. D. Srinivasa Reddy",
@@ -4684,15 +5338,15 @@
     },
     {
       "source": "Dr. D. Srinivasa Reddy",
-      "target": "Dr. Ramesh Ummanni",
-      "weight": 1,
-      "value": 1
+      "target": "Dr. S. Venkata Mohan",
+      "weight": 6,
+      "value": 6
     },
     {
       "source": "Dr. D. Srinivasa Reddy",
-      "target": "Dr. S. Venkata Mohan",
-      "weight": 4,
-      "value": 4
+      "target": "Dr. Ramesh Ummanni",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. D. Srinivasa Reddy",
@@ -4709,26 +5363,50 @@
     {
       "source": "Dr. K. Suresh Babu",
       "target": "Dr. S. Nishant Jain",
-      "weight": 3,
-      "value": 3
+      "weight": 19,
+      "value": 19
     },
     {
       "source": "Dr. K. Suresh Babu",
-      "target": "Dr. Mohana Krishna Reddy Mudiam",
+      "target": "Dr. B. Sridhar",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. K. Suresh Babu",
+      "target": "Dr. Bathini Nagendra Babu",
       "weight": 1,
       "value": 1
     },
     {
       "source": "Dr. K. Suresh Babu",
       "target": "Dr. V. Ramalingam",
-      "weight": 2,
-      "value": 2
+      "weight": 28,
+      "value": 28
+    },
+    {
+      "source": "Dr. K. Suresh Babu",
+      "target": "Dr. Andugulapati Sai Balagi",
+      "weight": 12,
+      "value": 12
+    },
+    {
+      "source": "Dr. K. Suresh Babu",
+      "target": "Dr. Mohana Krishna Reddy Mudiam",
+      "weight": 8,
+      "value": 8
+    },
+    {
+      "source": "Dr. K. Suresh Babu",
+      "target": "Dr. Ramesh Ummanni",
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. K. Suresh Babu",
       "target": "Dr. Surender Singh Jadav",
-      "weight": 1,
-      "value": 1
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Haridas B. Rode",
@@ -4759,6 +5437,12 @@
       "target": "Dr. Sandip S. Shinde",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Haridas B. Rode",
+      "target": "Dr. B. Sridhar",
+      "weight": 11,
+      "value": 11
     },
     {
       "source": "Dr. Haridas B. Rode",
@@ -4815,6 +5499,12 @@
       "value": 1
     },
     {
+      "source": "Dr. Haridas B. Rode",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 1,
+      "value": 1
+    },
+    {
       "source": "Dr. Avijit Jana",
       "target": "Dr. Ajay Kumar Singh",
       "weight": 3,
@@ -4864,6 +5554,12 @@
     },
     {
       "source": "Dr. V. Ramalingam",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 30,
+      "value": 30
+    },
+    {
+      "source": "Dr. V. Ramalingam",
       "target": "Dr. Mohana Krishna Reddy Mudiam",
       "weight": 17,
       "value": 17
@@ -4906,6 +5602,12 @@
     },
     {
       "source": "Dr. V. Ramalingam",
+      "target": "Dr. B. Sridhar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. V. Ramalingam",
       "target": "Dr. Sunil Misra",
       "weight": 1,
       "value": 1
@@ -4915,12 +5617,6 @@
       "target": "Dr. Surender Singh Jadav",
       "weight": 4,
       "value": 4
-    },
-    {
-      "source": "Dr. V. Ramalingam",
-      "target": "Dr. K. Suresh Babu",
-      "weight": 1,
-      "value": 1
     },
     {
       "source": "Dr. V. Ramalingam",
@@ -4942,9 +5638,21 @@
     },
     {
       "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. B. Sridhar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
       "target": "Dr. Amitava Das (IICT)",
       "weight": 2,
       "value": 2
+    },
+    {
+      "source": "Dr. Surender Singh Jadav",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 20,
+      "value": 20
     },
     {
       "source": "Dr. Surender Singh Jadav",
@@ -5008,12 +5716,6 @@
     },
     {
       "source": "Dr. Surender Singh Jadav",
-      "target": "Dr. K. Suresh Babu",
-      "weight": 2,
-      "value": 2
-    },
-    {
-      "source": "Dr. Surender Singh Jadav",
       "target": "Dr. Surisetti Suresh",
       "weight": 2,
       "value": 2
@@ -5021,6 +5723,30 @@
     {
       "source": "Dr. Surender Singh Jadav",
       "target": "Dr. Jagadeesh Babu Nanubolu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Remya Ramesh",
+      "target": "Dr. Rajesh G. Gonnade",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Remya Ramesh",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Remya Ramesh",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Remya Ramesh",
+      "target": "Dr. Punna Nagender",
       "weight": 1,
       "value": 1
     },
@@ -5035,6 +5761,12 @@
       "target": "Dr. Amitava Das (IICT)",
       "weight": 5,
       "value": 5
+    },
+    {
+      "source": "Dr. Subhash Ghosh",
+      "target": "Dr. B. Sridhar",
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Subhash Ghosh",
@@ -5110,15 +5842,27 @@
     },
     {
       "source": "Dr. Debendra Kumar Mohapatra",
+      "target": "Dr. B. Sridhar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Debendra Kumar Mohapatra",
       "target": "Dr. Rajiv Trivedi",
       "weight": 1,
       "value": 1
     },
     {
       "source": "Dr. Maddi Sridhar Reddy",
+      "target": "Dr. B. Sridhar",
+      "weight": 19,
+      "value": 19
+    },
+    {
+      "source": "Dr. Maddi Sridhar Reddy",
       "target": "Dr. Jagadeesh Babu Nanubolu",
-      "weight": 136,
-      "value": 136
+      "weight": 139,
+      "value": 139
     },
     {
       "source": "Dr. Maddi Sridhar Reddy",
@@ -5164,6 +5908,12 @@
     },
     {
       "source": "Dr. Saibal Das",
+      "target": "Dr. B. Sridhar",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Saibal Das",
       "target": "Dr. Pravin R. Likhar",
       "weight": 2,
       "value": 2
@@ -5189,8 +5939,8 @@
     {
       "source": "Dr. Surisetti Suresh",
       "target": "Dr. Jagadeesh Babu Nanubolu",
-      "weight": 67,
-      "value": 67
+      "weight": 68,
+      "value": 68
     },
     {
       "source": "Dr. Surisetti Suresh",
@@ -5230,6 +5980,18 @@
     },
     {
       "source": "Dr. Surisetti Suresh",
+      "target": "Dr. B. Sridhar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Surisetti Suresh",
+      "target": "Dr. Remya Ramesh",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Surisetti Suresh",
       "target": "Dr. Nayani Kiranmai",
       "weight": 1,
       "value": 1
@@ -5251,6 +6013,12 @@
       "target": "Dr. Jagadeesh Babu Nanubolu",
       "weight": 66,
       "value": 66
+    },
+    {
+      "source": "Dr. Rambabu Chegondi",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Rambabu Chegondi",
@@ -5380,6 +6148,18 @@
     },
     {
       "source": "Dr. Nayani Kiranmai",
+      "target": "Dr. B. Sridhar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Nayani Kiranmai",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Nayani Kiranmai",
       "target": "Dr. Kishor L. Handore",
       "weight": 1,
       "value": 1
@@ -5399,8 +6179,8 @@
     {
       "source": "Dr. Nayani Kiranmai",
       "target": "Dr. Sunil Misra",
-      "weight": 1,
-      "value": 1
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Nayani Kiranmai",
@@ -5470,6 +6250,18 @@
     },
     {
       "source": "Dr. Raju Adepu",
+      "target": "Dr. B. Sridhar",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Raju Adepu",
+      "target": "Dr. K. Suresh Babu",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Raju Adepu",
       "target": "Dr. Jayant Gajbhiye",
       "weight": 2,
       "value": 2
@@ -5483,8 +6275,8 @@
     {
       "source": "Dr. S. Sridhar",
       "target": "Dr. Siddhartha Moulik",
-      "weight": 9,
-      "value": 9
+      "weight": 10,
+      "value": 10
     },
     {
       "source": "Dr. S. Sridhar",
@@ -5507,18 +6299,12 @@
     {
       "source": "Dr. S. Sridhar",
       "target": "Dr. Nivedita Sahu",
-      "weight": 13,
-      "value": 13
+      "weight": 15,
+      "value": 15
     },
     {
       "source": "Dr. S. Sridhar",
       "target": "Dr. Sreepriya Vedantam",
-      "weight": 1,
-      "value": 1
-    },
-    {
-      "source": "Dr. S. Sridhar",
-      "target": "SRI. G. NAGA SRINIVAS",
       "weight": 1,
       "value": 1
     },
@@ -5536,21 +6322,21 @@
     },
     {
       "source": "Dr. T. Prathap Kumar",
-      "target": "Dr. Kaki Shiva Shanker",
-      "weight": 1,
-      "value": 1
+      "target": "DR. K.N. PRASANNA RANI",
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. T. Prathap Kumar",
-      "target": "DR. K.N. PRASANNA RANI",
+      "target": "Dr. Kaki Shiva Shanker",
       "weight": 1,
       "value": 1
     },
     {
       "source": "Dr. Nivedita Sahu",
       "target": "Dr. S. Sridhar",
-      "weight": 12,
-      "value": 12
+      "weight": 13,
+      "value": 13
     },
     {
       "source": "Dr. Nivedita Sahu",
@@ -5561,12 +6347,6 @@
     {
       "source": "Dr. Nivedita Sahu",
       "target": "Dr Akhila Kumar Sahu",
-      "weight": 1,
-      "value": 1
-    },
-    {
-      "source": "Dr. Nivedita Sahu",
-      "target": "SRI. G. NAGA SRINIVAS",
       "weight": 1,
       "value": 1
     },
@@ -5597,8 +6377,8 @@
     {
       "source": "Dr. Alka Kumari",
       "target": "Dr. T. Prathap Kumar",
-      "weight": 22,
-      "value": 22
+      "weight": 24,
+      "value": 24
     },
     {
       "source": "Dr. Alka Kumari",
@@ -5609,8 +6389,8 @@
     {
       "source": "Dr. Alka Kumari",
       "target": "Dr. Siddhartha Moulik",
-      "weight": 2,
-      "value": 2
+      "weight": 7,
+      "value": 7
     },
     {
       "source": "Dr. Alka Kumari",
@@ -5645,8 +6425,8 @@
     {
       "source": "Dr. Alka Kumari",
       "target": "Dr. Vinay M. Bhandari",
-      "weight": 2,
-      "value": 2
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Reddi Kamesh",
@@ -5663,8 +6443,8 @@
     {
       "source": "Dr. Vineet Aniya",
       "target": "Dr. T. Prathap Kumar",
-      "weight": 21,
-      "value": 21
+      "weight": 25,
+      "value": 25
     },
     {
       "source": "Dr. Vineet Aniya",
@@ -5716,6 +6496,12 @@
     },
     {
       "source": "Dr. Vineet Aniya",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Vineet Aniya",
       "target": "Dr. Siddhartha Moulik",
       "weight": 1,
       "value": 1
@@ -5747,8 +6533,8 @@
     {
       "source": "Dr. Siddhartha Moulik",
       "target": "Dr. Alka Kumari",
-      "weight": 2,
-      "value": 2
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Siddhartha Moulik",
@@ -5771,8 +6557,8 @@
     {
       "source": "Dr. Sutapa Ghosh",
       "target": "Dr. Sunil Misra",
-      "weight": 11,
-      "value": 11
+      "weight": 15,
+      "value": 15
     },
     {
       "source": "Dr. Sutapa Ghosh",
@@ -5807,6 +6593,12 @@
     {
       "source": "Dr. Sutapa Ghosh",
       "target": "Dr. Ramanuj Narayan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sutapa Ghosh",
+      "target": "Dr. Ramars Amanchy",
       "weight": 1,
       "value": 1
     },
@@ -5915,6 +6707,12 @@
     {
       "source": "Dr. Ramanuj Narayan",
       "target": "Dr. S.N. Raju Kutcherlapati",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Pratyay Basak",
+      "target": "Dr. B. Sridhar",
       "weight": 1,
       "value": 1
     },
@@ -6130,6 +6928,12 @@
     },
     {
       "source": "Dr. Vasundhara Mutta",
+      "target": "Dr B Subramanian",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Vasundhara Mutta",
       "target": "Dr. Sidhanath Vishwanath Bhosale",
       "weight": 1,
       "value": 1
@@ -6137,6 +6941,12 @@
     {
       "source": "Dr. Vasundhara Mutta",
       "target": "Dr. Sunil Misra",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Vasundhara Mutta",
+      "target": "Dr. K. Suresh Babu",
       "weight": 1,
       "value": 1
     },
@@ -6193,18 +7003,6 @@
       "target": "Dr. Kaki Shiva Shanker",
       "weight": 1,
       "value": 1
-    },
-    {
-      "source": "SRI. G. NAGA SRINIVAS",
-      "target": "Dr. S. Sridhar",
-      "weight": 5,
-      "value": 5
-    },
-    {
-      "source": "SRI. G. NAGA SRINIVAS",
-      "target": "Dr. Nivedita Sahu",
-      "weight": 3,
-      "value": 3
     },
     {
       "source": "Dr. Akkattu T. Biju",
@@ -6299,14 +7097,20 @@
     {
       "source": "Dr. Amol A. Kulkarni",
       "target": "Dr. Jayant Gajbhiye",
-      "weight": 5,
-      "value": 5
+      "weight": 6,
+      "value": 6
     },
     {
       "source": "Dr. Amol A. Kulkarni",
       "target": "Dr. Subhash P. Chavan",
       "weight": 4,
       "value": 4
+    },
+    {
+      "source": "Dr. Amol A. Kulkarni",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Amol A. Kulkarni",
@@ -6340,12 +7144,6 @@
     },
     {
       "source": "Dr. Amol A. Kulkarni",
-      "target": "Dr. Kiran Pandare",
-      "weight": 1,
-      "value": 1
-    },
-    {
-      "source": "Dr. Amol A. Kulkarni",
       "target": "Dr. Nilesh A Mali",
       "weight": 1,
       "value": 1
@@ -6370,6 +7168,12 @@
     },
     {
       "source": "Dr. Anuya Nisal",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 5,
+      "value": 5
+    },
+    {
+      "source": "Dr. Anuya Nisal",
       "target": "Dr. Bhushan P. Chaudhari",
       "weight": 2,
       "value": 2
@@ -6381,16 +7185,16 @@
       "value": 2
     },
     {
-      "source": "Dr. Archana Kumari",
-      "target": "Dr. Ashok Giri",
-      "weight": 5,
-      "value": 5
-    },
-    {
       "source": "Dr. Arun Torris",
       "target": "Dr. Ulhas K. Kharul",
       "weight": 3,
       "value": 3
+    },
+    {
+      "source": "Dr. Arun Torris",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Arun Torris",
@@ -6634,12 +7438,6 @@
     },
     {
       "source": "Dr. Ashok Giri",
-      "target": "Dr. Archana Kumari",
-      "weight": 3,
-      "value": 3
-    },
-    {
-      "source": "Dr. Ashok Giri",
       "target": "Dr. Durba Sengupta",
       "weight": 2,
       "value": 2
@@ -6697,6 +7495,12 @@
       "target": "Dr. Subashchandrabose Chinnathambi",
       "weight": 5,
       "value": 5
+    },
+    {
+      "source": "Dr. Ashwini Kumar Nangia",
+      "target": "Dr. B. Sridhar",
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Ashwini Kumar Nangia",
@@ -6761,6 +7565,12 @@
     {
       "source": "Dr. Asmita Prabhune",
       "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Asmita Prabhune",
+      "target": "Dr. Mahesh S. Dharne",
       "weight": 1,
       "value": 1
     },
@@ -6845,6 +7655,12 @@
     {
       "source": "Dr. Avishek Saha",
       "target": "Dr. Suresh Bhat",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Avishek Saha",
+      "target": "Dr S Vasudevan",
       "weight": 1,
       "value": 1
     },
@@ -6982,6 +7798,12 @@
     },
     {
       "source": "Dr. Bhushan P. Chaudhari",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Bhushan P. Chaudhari",
       "target": "Dr. Selvaraj Kaliaperumal",
       "weight": 2,
       "value": 2
@@ -7037,6 +7859,12 @@
     {
       "source": "Dr. Chepuri V. Ramana",
       "target": "Dr. Subhash Ghosh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Chepuri V. Ramana",
+      "target": "Dr. B. Sridhar",
       "weight": 1,
       "value": 1
     },
@@ -7126,6 +7954,12 @@
     },
     {
       "source": "Dr. Dhanasekaran Shanmugam",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Dhanasekaran Shanmugam",
       "target": "Dr. Koteswara V.",
       "weight": 1,
       "value": 1
@@ -7168,6 +8002,12 @@
     },
     {
       "source": "Dr. Dhanraj B Shinde",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Dhanraj B Shinde",
       "target": "Dr A Manuel Stephan",
       "weight": 1,
       "value": 1
@@ -7201,6 +8041,12 @@
       "target": "Dr. Sandip S. Shinde",
       "weight": 7,
       "value": 7
+    },
+    {
+      "source": "Dr. Dhiman Sarkar",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Dhiman Sarkar",
@@ -7309,6 +8155,12 @@
       "target": "Dr. Kumar Vanka",
       "weight": 8,
       "value": 8
+    },
+    {
+      "source": "Dr. Gurunath Suryavanshi",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Gurunath Suryavanshi",
@@ -7463,14 +8315,14 @@
     {
       "source": "Dr. Jayant Gajbhiye",
       "target": "Dr. Pradeep Kumar, FNA",
-      "weight": 9,
-      "value": 9
+      "weight": 10,
+      "value": 10
     },
     {
       "source": "Dr. Jayant Gajbhiye",
       "target": "Dr. Sandip S. Shinde",
-      "weight": 5,
-      "value": 5
+      "weight": 6,
+      "value": 6
     },
     {
       "source": "Dr. Jayant Gajbhiye",
@@ -7511,6 +8363,12 @@
     {
       "source": "Dr. Jayant Gajbhiye",
       "target": "Dr. Subhash P. Chavan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Jayant Gajbhiye",
+      "target": "Dr. Vrushali H. Jadhav",
       "weight": 1,
       "value": 1
     },
@@ -7720,6 +8578,12 @@
     },
     {
       "source": "Dr. Kavita Joshi",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kavita Joshi",
       "target": "Dr. Rajiv Trivedi",
       "weight": 1,
       "value": 1
@@ -7817,20 +8681,32 @@
     {
       "source": "Dr. Kirandeep Singh",
       "target": "Dr. Sakya S. Sen",
-      "weight": 10,
-      "value": 10
+      "weight": 14,
+      "value": 14
     },
     {
       "source": "Dr. Kirandeep Singh",
       "target": "Dr. Kumar Vanka",
-      "weight": 6,
-      "value": 6
+      "weight": 9,
+      "value": 9
     },
     {
       "source": "Dr. Kishor L. Handore",
       "target": "Dr. S. Venkata Mohan",
       "weight": 3,
       "value": 3
+    },
+    {
+      "source": "Dr. Kishor L. Handore",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Kishor L. Handore",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Kishor L. Handore",
@@ -7855,6 +8731,12 @@
       "target": "Dr. Rajesh G. Gonnade",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Koteswara V.",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Koteswara V.",
@@ -8033,8 +8915,8 @@
     {
       "source": "Dr. Kumar Vanka",
       "target": "Dr. Kirandeep Singh",
-      "weight": 2,
-      "value": 2
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Kumar Vanka",
@@ -8047,6 +8929,12 @@
       "target": "Dr. Vinod C Prabhakaran",
       "weight": 11,
       "value": 11
+    },
+    {
+      "source": "Dr. Kumar Vanka",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Kumar Vanka",
@@ -8164,6 +9052,18 @@
     },
     {
       "source": "Dr. M. Muthukrishnan",
+      "target": "Dr. B.V. Subba Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. M. Muthukrishnan",
+      "target": "Dr. Remya Ramesh",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. M. Muthukrishnan",
       "target": "Dr. Punna Nagender",
       "weight": 1,
       "value": 1
@@ -8218,31 +9118,73 @@
     },
     {
       "source": "Dr. Mahesh S. Dharne",
-      "target": "Dr. Sanjay P. Kamble",
+      "target": "Dr. Sandip S. Shinde",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. S. Venkata Mohan",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Ashok Giri",
       "weight": 1,
       "value": 1
     },
     {
       "source": "Dr. Mahesh S. Dharne",
-      "target": "Dr. Koteswara V.",
+      "target": "Dr. Sanjay P. Kamble",
+      "weight": 16,
+      "value": 16
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Amol A. Kulkarni",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Dhiman Sarkar",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Asmita Prabhune",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Anuya Nisal",
       "weight": 4,
       "value": 4
     },
     {
       "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Koteswara V.",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
       "target": "Dr. Ravindar Kontham",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Mahesh S. Dharne",
+      "target": "Dr. Mahesh J Kulkarni",
       "weight": 1,
       "value": 1
     },
     {
       "source": "Dr. Mahesh S. Dharne",
       "target": "Dr. Bhushan P. Chaudhari",
-      "weight": 1,
-      "value": 1
-    },
-    {
-      "source": "Dr. Mahesh S. Dharne",
-      "target": "Dr. Dhiman Sarkar",
       "weight": 1,
       "value": 1
     },
@@ -8257,6 +9199,12 @@
       "target": "Dr. Utpal Das",
       "weight": 6,
       "value": 6
+    },
+    {
+      "source": "Dr. Manish Kumar Mishra",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Manish Kumar Mishra",
@@ -8329,6 +9277,12 @@
       "target": "Dr. Sailaja Krishnamurty",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Manjusha V. Shelke",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Manjusha V. Shelke",
@@ -8554,6 +9508,12 @@
     },
     {
       "source": "Dr. Paresh L. Dhepe",
+      "target": "Dr B Subramanian",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Paresh L. Dhepe",
       "target": "Dr. Sailaja Krishnamurty",
       "weight": 2,
       "value": 2
@@ -8621,8 +9581,8 @@
     {
       "source": "Dr. Pradeep Kumar, FNA",
       "target": "Dr. Jayant Gajbhiye",
-      "weight": 2,
-      "value": 2
+      "weight": 3,
+      "value": 3
     },
     {
       "source": "Dr. Pradeep Kumar, FNA",
@@ -8758,7 +9718,19 @@
     },
     {
       "source": "Dr. R. Nandini Devi",
+      "target": "Dr S Vasudevan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
       "target": "Dr. Amol A. Kulkarni",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. R. Nandini Devi",
+      "target": "Dr B Subramanian",
       "weight": 1,
       "value": 1
     },
@@ -8962,6 +9934,12 @@
     },
     {
       "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
       "target": "Dr. Utpal Das",
       "weight": 3,
       "value": 3
@@ -8987,8 +9965,8 @@
     {
       "source": "Dr. Rajesh G. Gonnade",
       "target": "Dr. Kirandeep Singh",
-      "weight": 1,
-      "value": 1
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Rajesh G. Gonnade",
@@ -9013,6 +9991,12 @@
       "target": "Dr. M. S. Shashidhar",
       "weight": 7,
       "value": 7
+    },
+    {
+      "source": "Dr. Rajesh G. Gonnade",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Rajesh G. Gonnade",
@@ -9172,6 +10156,12 @@
     },
     {
       "source": "Dr. Ravindar Kontham",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ravindar Kontham",
       "target": "Dr. Kumar Vanka",
       "weight": 6,
       "value": 6
@@ -9193,12 +10183,6 @@
       "target": "Dr. Mahesh J Kulkarni",
       "weight": 3,
       "value": 3
-    },
-    {
-      "source": "Dr. Ravindar Kontham",
-      "target": "Dr. Archana Kumari",
-      "weight": 1,
-      "value": 1
     },
     {
       "source": "Dr. Ravindar Kontham",
@@ -9259,12 +10243,6 @@
       "target": "Dr. Nilesh A Mali",
       "weight": 8,
       "value": 8
-    },
-    {
-      "source": "Dr. Sachin U. Nandanwar",
-      "target": "Dr. Kiran Pandare",
-      "weight": 2,
-      "value": 2
     },
     {
       "source": "Dr. Sachin U. Nandanwar",
@@ -9495,6 +10473,12 @@
       "value": 1
     },
     {
+      "source": "Dr. Sailaja Krishnamurty",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
       "source": "Dr. Sakya S. Sen",
       "target": "Dr. Rajesh G. Gonnade",
       "weight": 102,
@@ -9515,8 +10499,8 @@
     {
       "source": "Dr. Sakya S. Sen",
       "target": "Dr. Kirandeep Singh",
-      "weight": 2,
-      "value": 2
+      "weight": 4,
+      "value": 4
     },
     {
       "source": "Dr. Samir H. Chikkali",
@@ -9574,6 +10558,12 @@
     },
     {
       "source": "Dr. Sandip S. Shinde",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sandip S. Shinde",
       "target": "Dr. Krishna Swaroop Desireddy",
       "weight": 1,
       "value": 1
@@ -9601,6 +10591,12 @@
       "target": "Dr. Ashok Giri",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Sanjay P. Kamble",
+      "target": "Dr. Mahesh S. Dharne",
+      "weight": 12,
+      "value": 12
     },
     {
       "source": "Dr. Sanjay P. Kamble",
@@ -9725,6 +10721,12 @@
     {
       "source": "Dr. Santosh B. Mhaske",
       "target": "Dr. Gurunath Suryavanshi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Santosh B. Mhaske",
+      "target": "Dr. B. Sridhar",
       "weight": 1,
       "value": 1
     },
@@ -9934,6 +10936,12 @@
     },
     {
       "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
       "target": "Dr. P. R. Suresha",
       "weight": 7,
       "value": 7
@@ -9973,6 +10981,18 @@
       "target": "Dr. Asha S.K.",
       "weight": 5,
       "value": 5
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr P Ragupathy",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. Sreekumar Kurungot",
+      "target": "Dr S Vasudevan",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Sreekumar Kurungot",
@@ -10132,7 +11152,19 @@
     },
     {
       "source": "Dr. Suresh Bhat",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Suresh Bhat",
       "target": "Dr. Kavita Joshi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Suresh Bhat",
+      "target": "Dr S Vasudevan",
       "weight": 1,
       "value": 1
     },
@@ -10187,6 +11219,90 @@
     {
       "source": "Dr. Sureshkumar Ramasamy",
       "target": "Dr. Dhanasekaran Shanmugam",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Ulhas K. Kharul",
+      "weight": 7,
+      "value": 7
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Arun Torris",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Sreekumar Kurungot",
+      "weight": 17,
+      "value": 17
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Kumar Vanka",
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Vinod C Prabhakaran",
+      "weight": 11,
+      "value": 11
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Sanjay P. Kamble",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Ramanuj Narayan",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Surya Prakash Singh",
+      "weight": 2,
+      "value": 2
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. R. Nandini Devi",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Ashwini Kumar Nangia",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Rajesh G. Gonnade",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. S. Venkata Mohan",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. D. Srinivasa Reddy",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. T.G.Ajithkumar",
+      "target": "Dr. Kishor L. Handore",
       "weight": 1,
       "value": 1
     },
@@ -10252,6 +11368,12 @@
     },
     {
       "source": "Dr. Ulhas K. Kharul",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Ulhas K. Kharul",
       "target": "Dr. Kumar Vanka",
       "weight": 1,
       "value": 1
@@ -10259,12 +11381,6 @@
     {
       "source": "Dr. Ulhas K. Kharul",
       "target": "Dr. Prakash Wadgaonkar",
-      "weight": 1,
-      "value": 1
-    },
-    {
-      "source": "Dr. Ulhas K. Kharul",
-      "target": "Dr. Kiran Pandare",
       "weight": 1,
       "value": 1
     },
@@ -10312,6 +11428,12 @@
     },
     {
       "source": "Dr. Utpal Das",
+      "target": "Dr. B. Sridhar",
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "source": "Dr. Utpal Das",
       "target": "Dr. Rambabu Chegondi",
       "weight": 10,
       "value": 10
@@ -10348,12 +11470,6 @@
     },
     {
       "source": "Dr. Vijay Bokade",
-      "target": "Dr. Kiran Pandare",
-      "weight": 5,
-      "value": 5
-    },
-    {
-      "source": "Dr. Vijay Bokade",
       "target": "Dr. Asmita Prabhune",
       "weight": 1,
       "value": 1
@@ -10375,6 +11491,12 @@
       "target": "Dr. Nilesh A Mali",
       "weight": 1,
       "value": 1
+    },
+    {
+      "source": "Dr. Vijay Bokade",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 2,
+      "value": 2
     },
     {
       "source": "Dr. Vijay Bokade",
@@ -10411,6 +11533,12 @@
       "target": "Dr. Sreekumar Kurungot",
       "weight": 67,
       "value": 67
+    },
+    {
+      "source": "Dr. Vinod C Prabhakaran",
+      "target": "Dr. T.G.Ajithkumar",
+      "weight": 15,
+      "value": 15
     },
     {
       "source": "Dr. Vinod C Prabhakaran",
@@ -10471,6 +11599,12 @@
       "target": "Dr Subrata Kundu",
       "weight": 6,
       "value": 6
+    },
+    {
+      "source": "Dr. Vinod C Prabhakaran",
+      "target": "Dr B Subramanian",
+      "weight": 1,
+      "value": 1
     },
     {
       "source": "Dr. Vinod C Prabhakaran",
@@ -10553,173 +11687,173 @@
   ],
   "metrics": {
     "total_cadre_faculty": 306,
-    "connected_faculty": 246,
-    "edges": 1534,
-    "citation_links": 7757,
-    "self_citation_pairs_excluded": 13363,
-    "reciprocity": 0.492,
-    "density": 0.0164,
+    "connected_faculty": 247,
+    "edges": 1739,
+    "citation_links": 9219,
+    "self_citation_pairs_excluded": 14383,
+    "reciprocity": 0.506,
+    "density": 0.0186,
     "shown_nodes": 180
   },
   "top_cited_faculty": [
     {
       "name": "Dr. Kumar Vanka",
       "lab": "CSIR-NCL",
-      "in_citations": 560,
-      "pagerank": 0.0384
+      "in_citations": 567,
+      "pagerank": 0.0347
     },
     {
       "name": "Dr. Rajesh G. Gonnade",
       "lab": "CSIR-NCL",
-      "in_citations": 541,
-      "pagerank": 0.0417
-    },
-    {
-      "name": "Dr. Sakya S. Sen",
-      "lab": "CSIR-NCL",
-      "in_citations": 364,
-      "pagerank": 0.0229
+      "in_citations": 548,
+      "pagerank": 0.038
     },
     {
       "name": "Dr. Jagadeesh Babu Nanubolu",
       "lab": "CSIR-IICT",
-      "in_citations": 363,
-      "pagerank": 0.033
+      "in_citations": 393,
+      "pagerank": 0.0264
+    },
+    {
+      "name": "Dr. Sakya S. Sen",
+      "lab": "CSIR-NCL",
+      "in_citations": 368,
+      "pagerank": 0.0208
+    },
+    {
+      "name": "Dr. B. Sridhar",
+      "lab": "CSIR-IICT",
+      "in_citations": 345,
+      "pagerank": 0.0246
     },
     {
       "name": "Dr. Sreekumar Kurungot",
       "lab": "CSIR-NCL",
-      "in_citations": 316,
-      "pagerank": 0.0382
+      "in_citations": 332,
+      "pagerank": 0.0338
     },
     {
       "name": "Dr. Jayaraj Nithyanandhan",
       "lab": "CSIR-NCL",
       "in_citations": 274,
-      "pagerank": 0.0162
+      "pagerank": 0.0147
     },
     {
       "name": "Dr Subrata Kundu",
       "lab": "CSIR-CECRI",
-      "in_citations": 179,
-      "pagerank": 0.0156
-    },
-    {
-      "name": "Dr. Vinod C Prabhakaran",
-      "lab": "CSIR-NCL",
-      "in_citations": 165,
-      "pagerank": 0.0146
-    },
-    {
-      "name": "Dr. Sailaja Krishnamurty",
-      "lab": "CSIR-NCL",
-      "in_citations": 163,
-      "pagerank": 0.015
+      "in_citations": 226,
+      "pagerank": 0.0188
     },
     {
       "name": "Dr. Maddi Sridhar Reddy",
       "lab": "CSIR-IICT",
-      "in_citations": 160,
-      "pagerank": 0.0152
+      "in_citations": 203,
+      "pagerank": 0.0121
+    },
+    {
+      "name": "Dr. B.V. Subba Reddy",
+      "lab": "CSIR-IICT",
+      "in_citations": 199,
+      "pagerank": 0.0137
     }
   ],
   "top_citing_faculty": [
     {
       "name": "Dr. Rajesh G. Gonnade",
       "lab": "CSIR-NCL",
-      "out_citations": 562
+      "out_citations": 565
     },
     {
       "name": "Dr. Kumar Vanka",
       "lab": "CSIR-NCL",
-      "out_citations": 530
-    },
-    {
-      "name": "Dr. Sakya S. Sen",
-      "lab": "CSIR-NCL",
-      "out_citations": 351
-    },
-    {
-      "name": "Dr. Sailaja Krishnamurty",
-      "lab": "CSIR-NCL",
-      "out_citations": 329
+      "out_citations": 533
     },
     {
       "name": "Dr. Jagadeesh Babu Nanubolu",
       "lab": "CSIR-IICT",
-      "out_citations": 310
+      "out_citations": 409
+    },
+    {
+      "name": "Dr. Sakya S. Sen",
+      "lab": "CSIR-NCL",
+      "out_citations": 353
+    },
+    {
+      "name": "Dr. B. Sridhar",
+      "lab": "CSIR-IICT",
+      "out_citations": 349
+    },
+    {
+      "name": "Dr. Sailaja Krishnamurty",
+      "lab": "CSIR-NCL",
+      "out_citations": 330
+    },
+    {
+      "name": "Dr. B.V. Subba Reddy",
+      "lab": "CSIR-IICT",
+      "out_citations": 220
     },
     {
       "name": "Dr. Sreekumar Kurungot",
       "lab": "CSIR-NCL",
-      "out_citations": 215
+      "out_citations": 219
+    },
+    {
+      "name": "Dr Subrata Kundu",
+      "lab": "CSIR-CECRI",
+      "out_citations": 194
     },
     {
       "name": "Dr. K. Krishnamoorthy",
       "lab": "CSIR-NCL",
       "out_citations": 189
-    },
-    {
-      "name": "Dr. Benudhar Punji",
-      "lab": "CSIR-NCL",
-      "out_citations": 176
-    },
-    {
-      "name": "Dr. Sunil Misra",
-      "lab": "CSIR-IICT",
-      "out_citations": 148
-    },
-    {
-      "name": "Dr. Maddi Sridhar Reddy",
-      "lab": "CSIR-IICT",
-      "out_citations": 141
     }
   ],
   "citation_flow_matrix": [
     {
       "source_lab": "CSIR-NCL",
       "target_lab": "CSIR-NCL",
-      "citations": 4234
+      "citations": 4396
     },
     {
       "source_lab": "CSIR-IICT",
       "target_lab": "CSIR-IICT",
-      "citations": 2609
-    },
-    {
-      "source_lab": "CSIR-IICT",
-      "target_lab": "CSIR-NCL",
-      "citations": 281
+      "citations": 3581
     },
     {
       "source_lab": "CSIR-CECRI",
       "target_lab": "CSIR-CECRI",
-      "citations": 258
+      "citations": 506
+    },
+    {
+      "source_lab": "CSIR-IICT",
+      "target_lab": "CSIR-NCL",
+      "citations": 320
     },
     {
       "source_lab": "CSIR-NCL",
       "target_lab": "CSIR-IICT",
-      "citations": 182
+      "citations": 203
     },
     {
       "source_lab": "CSIR-IICT",
+      "target_lab": "CSIR-CECRI",
+      "citations": 64
+    },
+    {
+      "source_lab": "CSIR-NCL",
       "target_lab": "CSIR-CECRI",
       "citations": 63
     },
     {
-      "source_lab": "CSIR-NCL",
-      "target_lab": "CSIR-CECRI",
-      "citations": 54
-    },
-    {
       "source_lab": "CSIR-CECRI",
       "target_lab": "CSIR-NCL",
-      "citations": 49
+      "citations": 56
     },
     {
       "source_lab": "CSIR-CECRI",
       "target_lab": "CSIR-IICT",
-      "citations": 27
+      "citations": 30
     }
   ]
 }

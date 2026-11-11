@@ -136,7 +136,7 @@ def build_claims() -> dict:
     ex = pd.read_csv("data/review/roster_excluded.csv", dtype=str, keep_default_na=False)
     active = int((fm["n_papers_corpus"].astype(int) > 0).sum())
     add("C10", f"Faculty = {f['stage_3_clean_roster']['total']} scientists on the institutes' rosters after removing "
-               f"{f['stage_2_excluded_technical_and_duplicates']['total_excluded']} technical staff and duplicates from "
+               f"{f['stage_2_excluded_technical_and_duplicates']['total_excluded']} technical staff, duplicates and page-text entries from "
                f"{f['stage_1_raw_scraped']['total']} scraped entries; {f['stage_4_active_cadre_with_papers']['total']} have papers in 2016–2026.",
          {"raw": f["stage_1_raw_scraped"]["total"], "excluded": f["stage_2_excluded_technical_and_duplicates"]["total_excluded"],
           "roster": f["stage_3_clean_roster"]["total"], "active": f["stage_4_active_cadre_with_papers"]["total"]},

@@ -99,12 +99,12 @@ def audit_data_cleaning() -> dict:
                 "technical_staff_excluded": tech_staff_count,
                 "duplicates_removed": dup_count,
                 "unmatched_wrong_profiles": unmatched_count,
-                "description": "Rule-based filtering removing non-scientific cadre staff (Technical Officers/Technicians) and duplicate listings."
+                "description": "Rule-based filtering removing non-scientific cadre staff (Technical Officers/Technicians), duplicate listings and page text scraped as names (D-40)."
             },
             "stage_3_clean_roster": {
                 "total": clean_roster_total,
                 "by_lab": clean_roster_by_lab,
-                "description": "Legitimate permanent scientific cadre (Scientist, Sr. Scientist, Principal Scientist, Chief Scientist, Director)."
+                "description": "Legitimate permanent scientific cadre (Scientist, Senior Scientist, Principal Scientist, Senior Principal Scientist, Chief Scientist, Director)."
             },
             "stage_4_active_cadre_with_papers": {
                 "total": active_total,

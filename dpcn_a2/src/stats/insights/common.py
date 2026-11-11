@@ -100,15 +100,21 @@ def ordered_subgraph(G: nx.Graph, nodes) -> nx.Graph:
 
 
 def author_key(df: pd.DataFrame) -> pd.Series:
-    """One identity per person: OpenAlex author ID, else the name.
+    """One identity per person: the faculty_id of a roster scientist or flagged former member (which
+    joins OpenAlex profiles split over one person, D-41), else the OpenAlex author ID, else the name.
 
-    Not faculty_id: the 1,579 rows without an author ID all carry FORMER_CECRI_0005 (936 different names).
+    faculty_id is used only on rows with an author ID: Step 07 once gave all ID-less rows one
+    FORMER_ id (FORMER_CECRI_0005, 936 different names; cleared by Step 20).
     """
-    return df["author_openalex_id"].where(df["author_openalex_id"] != "", "name:" + df["author"])
+    key = df["author_openalex_id"].where(df["author_openalex_id"] != "", "name:" + df["author"])
+    if "faculty_id" in df.columns:
+        person = (df["faculty_id"] != "") & (df["author_openalex_id"] != "")
+        key = key.where(~person, df["faculty_id"])
+    return key
 
 
 def coauthor_graph(max_authors: int = 30) -> nx.Graph:
-    """Undirected co-authorship graph of the three labs' authors, keyed by OpenAlex author ID.
+    """Undirected co-authorship graph of the three labs' authors, one node per person (author_key).
 
     Built from group24_data_extended.csv (one row per paper x lab author), so a person with
     several spellings is one node and two people with the same name stay apart. Edge weight =
@@ -145,7 +151,7 @@ def coauthor_graph(max_authors: int = 30) -> nx.Graph:
     lab_of = df_ext.groupby("key")["institution"].agg(modal)
     fac = faculty()
     roster = dict(zip(fac["author_id"], fac["lab"]))
-    fid_of = df_ext[df_ext["faculty_id"].isin(roster)].groupby("key")["faculty_id"].first()
+    fid_of = df_ext[df_ext["faculty_id"].isin(roster) & (df_ext["key"] == df_ext["faculty_id"])].groupby("key")["faculty_id"].first()
 
     G = nx.Graph()
     for _, keys in df_ext.groupby("work_id", sort=True)["key"]:

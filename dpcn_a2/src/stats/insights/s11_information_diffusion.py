@@ -82,7 +82,7 @@ def build_author_profiles() -> Tuple[Dict[str, np.ndarray], Dict[str, Dict[str, 
     logger.info("Building author subfield and field profile vectors...")
     df_ext = pd.read_csv(
         DATA_FINAL / "group24_data_extended.csv",
-        usecols=["author", "author_openalex_id", "field", "subfield"],
+        usecols=["author", "author_openalex_id", "faculty_id", "field", "subfield"],
         dtype=str,
         keep_default_na=False,
     )

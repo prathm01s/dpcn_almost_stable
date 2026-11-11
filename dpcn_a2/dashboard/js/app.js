@@ -2000,16 +2000,17 @@ document.addEventListener("DOMContentLoaded", () => {
         ["Foreign twins (median)", g.top10_twin_median, "#fbbf24"],
         ["Indian peers (median)", g.top10_india_median, "#fb923c"],
       ];
+      const world = g.world_top10_pct ?? 10;
       const max = Math.max(30, ...rows.map(r => r[1] || 0));
       bars.innerHTML = '<span class="lead-bars">' + rows.map(([k, v, c]) =>
         `<span class="lead-bar"><span>${esc(k)}</span><span class="lb-track"><span class="lb-fill" style="width:${(100 * v / max).toFixed(1)}%;background:${c}"></span>` +
-        `<span class="lb-world" style="left:${(100 * 10 / max).toFixed(1)}%"></span></span><b>${pc(v)}</b></span>`).join("") +
-        '</span><span class="lead-bars-cap">Share of papers among the world’s 10% most cited in their subject and year (dashed line: world average, 10%)</span>';
+        `<span class="lb-world" style="left:${(100 * world / max).toFixed(1)}%"></span></span><b>${pc(v)}</b></span>`).join("") +
+        `</span><span class="lead-bars-cap">Share of papers among the world’s 10% most cited in their subject and year (dashed line: the world’s own share, ${pc(world)})</span>`;
       const low = Object.entries(g.cagr || {}).sort((a, b) => a[1] - b[1])[0];
       document.getElementById("lead-global-stats").innerHTML =
         stat(fmtN(g.countries), `countries co-author with the labs (${pc(g.foreign_share_pct)} of papers)`) +
         stat(low ? `${low[1].toFixed(1)}%` : "–", low ? `yearly change in ${low[0]}'s output, 2016–2025, while its peers grew` : "") +
-        stat(g.exchange_ratio_foreign == null ? "–" : g.exchange_ratio_foreign.toFixed(2), "foreign peers cite the labs per paper the labs cite of theirs");
+        stat(g.exchange_ratio_foreign == null ? "–" : g.exchange_ratio_foreign.toFixed(2), "foreign peers' papers citing the labs per peer paper the labs cite (2016–2026 papers)");
     }
 
     const t = window.G24_I11_TEASER;

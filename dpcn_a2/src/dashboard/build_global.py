@@ -46,6 +46,8 @@ def run_build_global() -> None:
             "candidates": cfg["candidates"], "peers_per_country": cfg["peers_per_country"],
             "min_similarity": cfg["min_similarity"],
             "corpus_papers": int(len(wac)), "foreign_coauthored_papers": int(foreign.sum()),
+            "flow_years": settings["years"],
+            "world": _records(pd.read_csv(T / "global_world_baseline.csv"))[0],
         },
         "peers": _records(pd.read_csv(T / "global_peers.csv", dtype={"institution_id": str})),
         "summary": _records(pd.read_csv(T / "global_summary.csv", dtype={"institution_id": str})),
@@ -85,6 +87,7 @@ def write_teaser(payload: dict) -> None:
         "top10_twin_median": med([r["top10_pct"] for r in foreign]),
         "top10_india_median": med([r["top10_pct"] for r in india]),
         "cagr": {r["short"]: r["cagr_pct"] for r in labs},
+        "world_top10_pct": payload["meta"]["world"]["top10_pct"],
         "exchange_ratio_foreign": round(inn / out, 2) if out else None,
     }
     path = OUT.parent / "g24_global_teaser.js"

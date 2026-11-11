@@ -1,0 +1,60 @@
+keep_faculty_id,lab,merge_author_id,merge_name,merge_papers,evidence,decided_on
+FAC_CECRI_0468,CSIR-CECRI,https://openalex.org/A5005269888,Pitchai Ragupathy,59,compatible name; 0 shared papers; 5 shared co-authors (71%),2026-11-11
+FAC_CECRI_0471,CSIR-CECRI,https://openalex.org/A5007178745,Balasubramanian Subramanian,84,compatible name; 0 shared papers; 11 shared co-authors (73%),2026-11-11
+FAC_CECRI_0471,CSIR-CECRI,https://openalex.org/A5112276915,Balasubramanian Subramanian,6,compatible name; 0 shared papers; 11 shared co-authors (73%),2026-11-11
+FAC_CECRI_0484,CSIR-CECRI,https://openalex.org/A5015914213,Subramanyan Vasudevan,21,compatible name; 0 shared papers; 5 shared co-authors (33%),2026-11-11
+FAC_CECRI_0500,CSIR-CECRI,https://openalex.org/A5110675970,Akhila Kumar Sahu,6,compatible name; 0 shared papers; 6 shared co-authors (67%),2026-11-11
+FORMER_CECRI_0009,CSIR-CECRI,https://openalex.org/A5152078827,V. Suryanarayanan,1,compatible name; 0 shared papers; 3 shared co-authors (100%),2026-11-11
+FORMER_CECRI_0037,CSIR-CECRI,https://openalex.org/A5103091637,Krishnan Giribabu,6,compatible name; 0 shared papers; 9 shared co-authors (64%),2026-11-11
+FORMER_CECRI_0074,CSIR-CECRI,https://openalex.org/A5112892403,Santoshkumar Dattatray Bhat,35,compatible name; 0 shared papers; 9 shared co-authors (32%),2026-11-11
+FORMER_CECRI_0109,CSIR-CECRI,https://openalex.org/A5103970158,Prabhakaran Dhanasekaran,5,compatible name; 0 shared papers; 5 shared co-authors (45%),2026-11-11
+FAC_IICT_0169,CSIR-IICT,https://openalex.org/A5091727141,Balasubramanian Sridhar,272,compatible name; 0 shared papers; 20 shared co-authors (65%),2026-11-11
+FAC_IICT_0169,CSIR-IICT,https://openalex.org/A5102027277,Balasubramanian Sridhar,6,compatible name; 0 shared papers; 11 shared co-authors (73%),2026-11-11
+FAC_IICT_0169,CSIR-IICT,https://openalex.org/A5108930938,Balasubramanyan Sridhar,33,compatible name; 0 shared papers; 10 shared co-authors (27%),2026-11-11
+FAC_IICT_0169,CSIR-IICT,https://openalex.org/A5114163284,Balasubramanian Sridhar,9,compatible name; 0 shared papers; 20 shared co-authors (65%),2026-11-11
+FAC_IICT_0174,CSIR-IICT,https://openalex.org/A5111223405,Jagadeesh Babu Nanubolu,18,compatible name; 0 shared papers; 20 shared co-authors (43%),2026-11-11
+FAC_IICT_0206,CSIR-IICT,https://openalex.org/A5114063543,Sunil Misra,16,compatible name; 0 shared papers; 23 shared co-authors (48%),2026-11-11
+FAC_IICT_0253,CSIR-IICT,https://openalex.org/A5102823007,Karna Narayana Prasanna Rani,4,compatible name; 0 shared papers; 7 shared co-authors (50%),2026-11-11
+FAC_IICT_0254,CSIR-IICT,https://openalex.org/A5108266038,Mallampalli Sri Lakshmi Karuna,27,compatible name; 0 shared papers; 11 shared co-authors (52%),2026-11-11
+FAC_IICT_0288,CSIR-IICT,https://openalex.org/A5044441008,Basireddy V. Subba Reddy,4,compatible name; 0 shared papers; 4 shared co-authors (36%),2026-11-11
+FAC_IICT_0288,CSIR-IICT,https://openalex.org/A5109184378,B. V. Subba Reddy,5,compatible name; 0 shared papers; 5 shared co-authors (33%),2026-11-11
+FAC_IICT_0288,CSIR-IICT,https://openalex.org/A5111623919,B. V. Subba Reddy,30,compatible name; 0 shared papers; 37 shared co-authors (63%),2026-11-11
+FAC_IICT_0315,CSIR-IICT,https://openalex.org/A5103176032,Devarapu Srinivasa Reddy,8,compatible name; 0 shared papers; 10 shared co-authors (50%),2026-11-11
+FAC_IICT_0317,CSIR-IICT,https://openalex.org/A5064761850,Katragadda Suresh Babu,52,compatible name; 0 shared papers; 12 shared co-authors (92%),2026-11-11
+FAC_IICT_0333,CSIR-IICT,https://openalex.org/A5054340995,Subhash Chandra Ghosh,2,compatible name; 0 shared papers; 3 shared co-authors (75%),2026-11-11
+FAC_IICT_0363,CSIR-IICT,https://openalex.org/A5126075764,Sundergopal Sridhar,4,compatible name; 0 shared papers; 8 shared co-authors (62%),2026-11-11
+FAC_IICT_0365,CSIR-IICT,https://openalex.org/A5108417908,Thella Prathap Kumar,6,compatible name; 0 shared papers; 7 shared co-authors (70%),2026-11-11
+FAC_IICT_0369,CSIR-IICT,https://openalex.org/A5152370942,Nivedita Sahu,1,compatible name; 0 shared papers; 3 shared co-authors (60%),2026-11-11
+FAC_IICT_0372,CSIR-IICT,https://openalex.org/A5101950200,Alka Kumari,1,compatible name; 0 shared papers; 3 shared co-authors (60%),2026-11-11
+FAC_IICT_0394,CSIR-IICT,https://openalex.org/A5104062691,Sutapa Ghosh,2,compatible name; 0 shared papers; 4 shared co-authors (80%),2026-11-11
+FORMER_IICT_0161,CSIR-IICT,https://openalex.org/A5112845496,Sheshanath V. Bhosale,8,compatible name; 0 shared papers; 9 shared co-authors (82%),2026-11-11
+FORMER_IICT_0161,CSIR-IICT,https://openalex.org/A5136028972,Sheshanath  Vishwanath Bhosale,1,compatible name; 0 shared papers; 3 shared co-authors (75%),2026-11-11
+FORMER_IICT_0169,CSIR-IICT,https://openalex.org/A5101967351,Sourav Das,1,compatible name; 0 shared papers; 4 shared co-authors (100%),2026-11-11
+FORMER_IICT_0188,CSIR-IICT,https://openalex.org/A5091137105,Hitesh Kulhari,1,compatible name; 0 shared papers; 3 shared co-authors (100%),2026-11-11
+FORMER_IICT_0190,CSIR-IICT,https://openalex.org/A5111915519,Ramakrishna Sistla,3,compatible name; 0 shared papers; 8 shared co-authors (80%),2026-11-11
+FORMER_IICT_0210,CSIR-IICT,https://openalex.org/A5110216101,Ahmed Kamal,35,compatible name; 0 shared papers; 36 shared co-authors (59%),2026-11-11
+FORMER_IICT_0229,CSIR-IICT,https://openalex.org/A5102027074,Bankupalli Satyavathi,7,compatible name; 0 shared papers; 9 shared co-authors (50%),2026-11-11
+FORMER_IICT_0229,CSIR-IICT,https://openalex.org/A5113883311,Bankupalli Satyavathi,9,compatible name; 0 shared papers; 8 shared co-authors (80%),2026-11-11
+FORMER_IICT_0258,CSIR-IICT,https://openalex.org/A5102727626,B. Narsaiah,8,compatible name; 0 shared papers; 10 shared co-authors (42%),2026-11-11
+FORMER_IICT_0292,CSIR-IICT,https://openalex.org/A5101593428,Manika Pal Bhadra,9,compatible name; 0 shared papers; 7 shared co-authors (44%),2026-11-11
+FORMER_IICT_0297,CSIR-IICT,https://openalex.org/A5103444976,Rachapudi Badari Narayana Prasad,13,compatible name; 0 shared papers; 6 shared co-authors (25%),2026-11-11
+FORMER_IICT_0321,CSIR-IICT,https://openalex.org/A5102298751,Ryakala Uday Kumar,1,compatible name; 0 shared papers; 3 shared co-authors (100%),2026-11-11
+FORMER_IICT_0399,CSIR-IICT,https://openalex.org/A5101711646,H. M. Meshram,15,compatible name; 0 shared papers; 20 shared co-authors (65%),2026-11-11
+FORMER_IICT_0399,CSIR-IICT,https://openalex.org/A5103406242,Harshadas Mitaram Meshram,3,compatible name; 0 shared papers; 4 shared co-authors (29%),2026-11-11
+FORMER_IICT_0435,CSIR-IICT,https://openalex.org/A5101799193,Malapaka Chandrasekharam,5,compatible name; 0 shared papers; 4 shared co-authors (57%),2026-11-11
+FORMER_IICT_0472,CSIR-IICT,https://openalex.org/A5055701112,J. S. Yadav,3,compatible name; 0 shared papers; 6 shared co-authors (67%),2026-11-11
+FORMER_IICT_0475,CSIR-IICT,https://openalex.org/A5110277388,P. Padmaja,7,compatible name; 0 shared papers; 3 shared co-authors (38%),2026-11-11
+FAC_NCL_0030,CSIR-NCL,https://openalex.org/A5111715102,Cheravakattu Gopalan Suresh,6,compatible name; 0 shared papers; 3 shared co-authors (38%),2026-11-11
+FAC_NCL_0058,CSIR-NCL,https://openalex.org/A5112472687,J. M. Gajbhiye,2,compatible name; 0 shared papers; 3 shared co-authors (60%),2026-11-11
+FAC_NCL_0066,CSIR-NCL,https://openalex.org/A5044691410,Kirandeep Singh,2,compatible name; 0 shared papers; 3 shared co-authors (43%),2026-11-11
+FAC_NCL_0076,CSIR-NCL,https://openalex.org/A5043402675,Mahesh Shantappa Dharne,79,compatible name; 0 shared papers; 8 shared co-authors (50%),2026-11-11
+FAC_NCL_0086,CSIR-NCL,https://openalex.org/A5035712180,Narendra Kadoo,1,compatible name; 0 shared papers; 3 shared co-authors (75%),2026-11-11
+FAC_NCL_0114,CSIR-NCL,https://openalex.org/A5109491505,Rajesh Kanawade,2,compatible name; 0 shared papers; 11 shared co-authors (92%),2026-11-11
+FAC_NCL_0128,CSIR-NCL,https://openalex.org/A5126076400,Sanjay Kamble,2,compatible name; 0 shared papers; 4 shared co-authors (67%),2026-11-11
+FAC_NCL_0154,CSIR-NCL,https://openalex.org/A5070945761,Thalasseril Govindankuttykaimal Ajithkumar,58,compatible name; 0 shared papers; 6 shared co-authors (86%),2026-11-11
+FORMER_NCL_0534,CSIR-NCL,https://openalex.org/A5124132673,Rakesh S. Joshi,3,compatible name; 0 shared papers; 6 shared co-authors (100%),2026-11-11
+FORMER_NCL_0600,CSIR-NCL,https://openalex.org/A5055930478,Tamal Das,2,compatible name; 0 shared papers; 6 shared co-authors (67%),2026-11-11
+FORMER_NCL_0600,CSIR-NCL,https://openalex.org/A5104304788,Tamal C. Das,1,compatible name; 0 shared papers; 4 shared co-authors (80%),2026-11-11
+FORMER_NCL_0638,CSIR-NCL,https://openalex.org/A5007483452,Pranjal Gogoi,2,compatible name; 0 shared papers; 5 shared co-authors (71%),2026-11-11
+FORMER_NCL_0732,CSIR-NCL,https://openalex.org/A5123958110,Akram A. Khan,1,compatible name; 0 shared papers; 3 shared co-authors (100%),2026-11-11
+FORMER_NCL_0739,CSIR-NCL,https://openalex.org/A5051270812,Akash Ravindra Bhatkar,1,compatible name; 0 shared papers; 5 shared co-authors (62%),2026-11-11

@@ -157,3 +157,24 @@ def test_home_teaser_matches_tables():
     for lab, v in t["top10"].items():
         assert abs(v - s.at[lab, "top10_pct"]) < 1e-9
     assert t["countries"] == len(pd.read_csv(T / "global_country_relations.csv"))
+
+
+def test_citation_flows_use_the_same_window():
+    """D-40: both directions count only partner papers from the dataset's years (2016-2026)."""
+    from src.stats.global_benchmark import _flow_years
+    y0, y1 = _flow_years()
+    fl = pd.read_csv(G / "citation_flows.csv", dtype={"institution_id": str})
+    fl = fl[(fl["coauthored_with_lab"].astype(str).str.upper() != "TRUE") & fl["year"].between(y0, y1)]
+    lk = pd.read_csv(T / "global_links.csv", dtype={"institution_id": str})
+    for _, r in lk.iterrows():
+        g = fl[(fl["lab"] == r["lab"]) & (fl["institution_id"] == r["institution_id"])]
+        assert g[g["direction"] == "peer_cites_lab"]["work_id"].nunique() == r["peer_papers_citing_lab"]
+        assert g[g["direction"] == "lab_cites_peer"]["work_id"].nunique() == r["peer_papers_cited_by_lab"]
+
+
+def test_world_baseline_is_measured():
+    w = pd.read_csv(T / "global_world_baseline.csv")
+    c = pd.read_csv(G / "country_by_year.csv")
+    world = c[c["country_code"] == "WORLD"]
+    assert abs(w["top10_pct"].iloc[0] - 100 * world["top10"].sum() / world["papers_scope"].sum()) < 0.01
+    assert 9.5 < w["top10_pct"].iloc[0] < 12.5 and 0.9 < w["top1_pct"].iloc[0] < 1.3

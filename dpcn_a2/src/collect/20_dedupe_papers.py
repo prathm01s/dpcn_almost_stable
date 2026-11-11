@@ -152,7 +152,14 @@ def run_step_20() -> None:
     papers = df.drop_duplicates("work_id")
     dups = find_duplicates(papers)
     REVIEW.mkdir(parents=True, exist_ok=True)
-    write(dups, REVIEW / "duplicate_papers_removed.csv")
+    log = REVIEW / "duplicate_papers_removed.csv"
+    # appended, so a re-run (which finds nothing new) keeps the record of earlier removals
+    if log.exists():
+        dups_log = pd.concat([pd.read_csv(log, dtype=str, keep_default_na=False), dups.astype(str)])
+        dups_log = dups_log.drop_duplicates("work_id", keep="last")
+    else:
+        dups_log = dups
+    write(dups_log, log)
     logger.info(f"{len(dups)} papers removed or merged: {dups['reason'].value_counts().to_dict()}")
 
     # ---- re-point author rows of merged papers to the kept record, drop removed papers

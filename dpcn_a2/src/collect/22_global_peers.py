@@ -233,5 +233,58 @@ def run_step_22() -> None:
     logger.info(f"Peers: {len(peer_rows)} rows -> {OUT / 'peers.csv'}")
 
 
+def reapply_exclusions() -> None:
+    """Re-apply rule 2b and rule 4 after config/overrides/global_peer_exclusions.csv changed, from the
+    saved candidates.csv (no API calls). Exact as long as no excluded institution made another one an
+    umbrella body and no candidate is newly promoted into the tested set; otherwise run Step 22 again."""
+    cfg = load_cfg()
+    ex = pd.read_csv("config/overrides/global_peer_exclusions.csv", dtype=str)
+    excluded = dict(zip(ex["institution_id"], ex["reason"]))
+    cand = pd.read_csv(OUT / "candidates.csv", dtype={"institution_id": str})
+    peers = pd.read_csv(OUT / "peers.csv", dtype={"institution_id": str})
+    sim_cols = [f"sim_{lab}" for lab in LABS.values()]
+    # Rule order as in run_step_22: country, type, 2b, umbrella, size. A candidate rejected by a later rule
+    # only gets the rule 2b reason; one that reached the similarity test also changes the twins.
+    why = cand["rejected_because"].fillna("")
+    later = why.str.startswith(("umbrella", "below size", "not among"))
+    relabel = cand["institution_id"].isin(excluded) & later
+    cand.loc[relabel, "rejected_because"] = ["not a stand-alone institute (rule 2b): " + excluded[i] for i in cand.loc[relabel, "institution_id"]]
+    for n in cand.loc[relabel, "name"]:
+        logger.info(f"Rule 2b reason recorded for {n}")
+    newly = cand["institution_id"].isin(excluded) & why.eq("")
+    if not newly.any():
+        if relabel.any():
+            cand.to_csv(OUT / "candidates.csv", index=False)
+        logger.info("No new exclusions; candidates.csv and peers.csv unchanged")
+        return
+    for iid in cand.loc[newly, "institution_id"]:
+        logger.info(f"Rule 2b: {cand.loc[cand['institution_id'] == iid, 'name'].iloc[0]} ({iid}) excluded: {excluded[iid]}")
+    countries = cand.loc[newly, "country"].unique()
+    overflow = cand["rejected_because"].fillna("").str.startswith("not among the")
+    if cand.loc[overflow, "country"].isin(countries).any():
+        raise RuntimeError("An excluded candidate frees a place in the similarity test; run Step 22 with the API")
+    cand.loc[newly, "rejected_because"] = ["not a stand-alone institute (rule 2b): " + excluded[i] for i in cand.loc[newly, "institution_id"]]
+    cand.loc[newly, sim_cols] = None
+
+    twins_of = {}
+    for cname in countries:
+        c = cand[(cand["country"] == cname) & cand[sim_cols[0]].notna()].set_index("institution_id")
+        twins = assign_twins(c[sim_cols].rename(columns=lambda x: x[len("sim_"):]), cfg["peers_per_country"], cfg["min_similarity"])
+        sel = cand["country"] == cname
+        cand.loc[sel, "selected_twin_of"] = cand.loc[sel, "institution_id"].map(twins)
+        twins_of[cname] = twins
+        logger.info(f"{cname}: twins {twins}")
+    old = {(g, i): t for g, i, t in zip(peers["group"], peers["institution_id"], peers["twin_of"])}
+    if any(old.get((cname, i)) != lab for cname, tw in twins_of.items() for i, lab in tw.items()):
+        raise RuntimeError("The exclusion changes another twin; run Step 22 with the API")
+    still_twin = pd.Series([twins_of.get(g, {}).get(i) == t for g, i, t in
+                            zip(peers["group"], peers["institution_id"], peers["twin_of"])], index=peers.index)
+    out = peers[~peers["group"].isin(countries) | still_twin]
+    cand.to_csv(OUT / "candidates.csv", index=False)
+    out.to_csv(OUT / "peers.csv", index=False)
+    logger.info(f"Peers: {len(out)} rows -> {OUT / 'peers.csv'}")
+
+
 if __name__ == "__main__":
-    run_step_22()
+    import sys
+    reapply_exclusions() if "--offline" in sys.argv else run_step_22()
