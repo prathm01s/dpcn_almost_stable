@@ -1,0 +1,97 @@
+institution,field,paper_count,share_pct,macro_discipline
+CSIR-IICT,Chemistry,2298,37.53,Physical Sciences
+CSIR-IICT,Materials Science,863,14.09,Physical Sciences
+CSIR-IICT,Engineering,802,13.1,Engineering & Technology
+CSIR-IICT,"Biochemistry, Genetics and Molecular Biology",503,8.21,Life Sciences
+CSIR-IICT,Medicine,499,8.15,Clinical & Health
+CSIR-IICT,Energy,336,5.49,Engineering & Technology
+CSIR-IICT,Environmental Science,232,3.79,Environmental Sciences
+CSIR-IICT,Agricultural and Biological Sciences,154,2.52,Life Sciences
+CSIR-IICT,Chemical Engineering,128,2.09,Engineering & Technology
+CSIR-IICT,"Pharmacology, Toxicology and Pharmaceutics",95,1.55,Clinical & Health
+CSIR-IICT,Computer Science,90,1.47,Engineering & Technology
+CSIR-IICT,Neuroscience,42,0.69,Life Sciences
+CSIR-IICT,Immunology and Microbiology,31,0.51,Life Sciences
+CSIR-IICT,Nursing,9,0.15,Clinical & Health
+CSIR-IICT,Earth and Planetary Sciences,8,0.13,Physical Sciences
+CSIR-IICT,Health Professions,7,0.11,Clinical & Health
+CSIR-IICT,Physics and Astronomy,7,0.11,Physical Sciences
+CSIR-IICT,Social Sciences,6,0.1,Social Sciences
+CSIR-IICT,Decision Sciences,5,0.08,Mathematics & Data Science
+CSIR-IICT,"Business, Management and Accounting",3,0.05,Business & Economics
+CSIR-IICT,Mathematics,2,0.03,Mathematics & Data Science
+CSIR-IICT,Dentistry,1,0.02,Clinical & Health
+CSIR-IICT,Unclassified,1,0.02,Physical Sciences
+CSIR-IICT,Arts and Humanities,1,0.02,Arts & Humanities
+CSIR-NCL,Chemistry,1424,26.79,Physical Sciences
+CSIR-NCL,Materials Science,1030,19.38,Physical Sciences
+CSIR-NCL,Engineering,871,16.38,Engineering & Technology
+CSIR-NCL,"Biochemistry, Genetics and Molecular Biology",574,10.8,Life Sciences
+CSIR-NCL,Energy,404,7.6,Engineering & Technology
+CSIR-NCL,Medicine,320,6.02,Clinical & Health
+CSIR-NCL,Agricultural and Biological Sciences,164,3.09,Life Sciences
+CSIR-NCL,Environmental Science,159,2.99,Environmental Sciences
+CSIR-NCL,Chemical Engineering,144,2.71,Engineering & Technology
+CSIR-NCL,Physics and Astronomy,77,1.45,Physical Sciences
+CSIR-NCL,"Pharmacology, Toxicology and Pharmaceutics",37,0.7,Clinical & Health
+CSIR-NCL,Computer Science,35,0.66,Engineering & Technology
+CSIR-NCL,Immunology and Microbiology,23,0.43,Life Sciences
+CSIR-NCL,Neuroscience,22,0.41,Life Sciences
+CSIR-NCL,"Business, Management and Accounting",6,0.11,Business & Economics
+CSIR-NCL,Nursing,6,0.11,Clinical & Health
+CSIR-NCL,Arts and Humanities,5,0.09,Arts & Humanities
+CSIR-NCL,Social Sciences,3,0.06,Social Sciences
+CSIR-NCL,Earth and Planetary Sciences,3,0.06,Physical Sciences
+CSIR-NCL,Mathematics,2,0.04,Mathematics & Data Science
+CSIR-NCL,Dentistry,2,0.04,Clinical & Health
+CSIR-NCL,Health Professions,1,0.02,Clinical & Health
+CSIR-NCL,Unclassified,1,0.02,Physical Sciences
+CSIR-NCL,"Economics, Econometrics and Finance",1,0.02,Business & Economics
+CSIR-NCL,Decision Sciences,1,0.02,Mathematics & Data Science
+CSIR-NCL,Veterinary,1,0.02,Life Sciences
+CSIR-CECRI,Engineering,1072,37.35,Engineering & Technology
+CSIR-CECRI,Energy,765,26.66,Engineering & Technology
+CSIR-CECRI,Materials Science,694,24.18,Physical Sciences
+CSIR-CECRI,Chemistry,123,4.29,Physical Sciences
+CSIR-CECRI,Environmental Science,85,2.96,Environmental Sciences
+CSIR-CECRI,"Biochemistry, Genetics and Molecular Biology",47,1.64,Life Sciences
+CSIR-CECRI,Chemical Engineering,29,1.01,Engineering & Technology
+CSIR-CECRI,Medicine,16,0.56,Clinical & Health
+CSIR-CECRI,Physics and Astronomy,9,0.31,Physical Sciences
+CSIR-CECRI,Computer Science,9,0.31,Engineering & Technology
+CSIR-CECRI,Decision Sciences,6,0.21,Mathematics & Data Science
+CSIR-CECRI,Agricultural and Biological Sciences,5,0.17,Life Sciences
+CSIR-CECRI,Earth and Planetary Sciences,3,0.1,Physical Sciences
+CSIR-CECRI,Social Sciences,2,0.07,Social Sciences
+CSIR-CECRI,Arts and Humanities,1,0.03,Arts & Humanities
+CSIR-CECRI,"Business, Management and Accounting",1,0.03,Business & Economics
+CSIR-CECRI,Psychology,1,0.03,Social Sciences
+CSIR-CECRI,Dentistry,1,0.03,Clinical & Health
+CSIR-CECRI,"Pharmacology, Toxicology and Pharmaceutics",1,0.03,Clinical & Health
+Group 24 Combined,Chemistry,3829,26.95,Physical Sciences
+Group 24 Combined,Engineering,2731,19.22,Engineering & Technology
+Group 24 Combined,Materials Science,2564,18.05,Physical Sciences
+Group 24 Combined,Energy,1488,10.47,Engineering & Technology
+Group 24 Combined,"Biochemistry, Genetics and Molecular Biology",1116,7.85,Life Sciences
+Group 24 Combined,Medicine,824,5.8,Clinical & Health
+Group 24 Combined,Environmental Science,470,3.31,Environmental Sciences
+Group 24 Combined,Agricultural and Biological Sciences,323,2.27,Life Sciences
+Group 24 Combined,Chemical Engineering,297,2.09,Engineering & Technology
+Group 24 Combined,Computer Science,133,0.94,Engineering & Technology
+Group 24 Combined,"Pharmacology, Toxicology and Pharmaceutics",133,0.94,Clinical & Health
+Group 24 Combined,Physics and Astronomy,93,0.65,Physical Sciences
+Group 24 Combined,Neuroscience,64,0.45,Life Sciences
+Group 24 Combined,Immunology and Microbiology,54,0.38,Life Sciences
+Group 24 Combined,Nursing,15,0.11,Clinical & Health
+Group 24 Combined,Earth and Planetary Sciences,14,0.1,Physical Sciences
+Group 24 Combined,Decision Sciences,12,0.08,Mathematics & Data Science
+Group 24 Combined,Social Sciences,10,0.07,Social Sciences
+Group 24 Combined,"Business, Management and Accounting",10,0.07,Business & Economics
+Group 24 Combined,Health Professions,8,0.06,Clinical & Health
+Group 24 Combined,Arts and Humanities,7,0.05,Arts & Humanities
+Group 24 Combined,Dentistry,4,0.03,Clinical & Health
+Group 24 Combined,Mathematics,4,0.03,Mathematics & Data Science
+Group 24 Combined,Unclassified,2,0.01,Physical Sciences
+Group 24 Combined,Psychology,1,0.01,Social Sciences
+Group 24 Combined,"Economics, Econometrics and Finance",1,0.01,Business & Economics
+Group 24 Combined,Veterinary,1,0.01,Life Sciences

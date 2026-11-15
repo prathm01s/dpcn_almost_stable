@@ -31,7 +31,8 @@
           <a href="#coauthorship" class="nav-link" data-sec="coauthorship">Co-authorship</a>
           <a href="#institutions" class="nav-link" data-sec="institutions">Institutions</a>
           <a href="#india" class="nav-link" data-sec="india">India Links</a>
-          <a href="#data" class="nav-link" data-sec="data">Data & Methods</a>
+          <a href="#advanced-bibliometrics" class="nav-link" data-sec="advanced-bibliometrics">Advanced Hub</a>
+          <a href="#data" class="nav-link" data-sec="data">Data &amp; Methods</a>
       </nav>
       <button class="nav-menu-btn" id="nav-menu-btn" aria-expanded="false" aria-controls="nav-links">☰ Sections</button>
       <span class="theme-slot" data-theme-slot></span>
@@ -1148,14 +1149,164 @@
         </div>
       </div>
     </div>
-      <a class="next-sec" href="#data" aria-label="Next section: Data, Downloads &amp; Methods"><span class="next-sec-label">Next · Data, Downloads &amp; Methods</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+      <a class="next-sec" href="#advanced-bibliometrics" aria-label="Next section: Advanced Bibliometrics &amp; Specialization Hub"><span class="next-sec-label">Next · Advanced Bibliometrics Hub</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
   </section>
 
-    <!-- Tab 9: Documentation & Data Downloads -->
-  <section id="data" class="page-section" data-label="Data & Methods">
+  <!-- 10 Advanced Bibliometrics & Specialization Hub -->
+  <section id="advanced-bibliometrics" class="page-section" data-label="Advanced Hub">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">10</span> / 10</div>
+        <div class="section-eyebrow"><span class="section-num">10</span> / 11</div>
+        <h2 class="section-title">Advanced Bibliometrics &amp; Specialization Hub</h2>
+        <p class="section-lead">Multi-dimensional scientometrics inspired by global evaluation frameworks: self-citation diffusion dynamics, 2D faculty productivity-impact segmentation, and 360° radial disciplinary concentration.</p>
+      </header>
+
+      <!-- Panel 1: Self-Citation Dynamics & Knowledge Diffusion (Screenshot 2) -->
+      <div class="card p2-card" id="card-self-citations" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Self-Citation Dynamics &amp; Knowledge Diffusion</div>
+            <div class="card-subtitle">Tracking internal lab knowledge reuse vs. external Indian and international citation diffusion over the 2016–2026 window.</div>
+          </div>
+          <div class="self-cites-controls">
+            <div class="self-scope-toggle segmented-mini" role="group" aria-label="Self citation scope">
+              <button class="mini-btn active" id="btn-self-inst" data-scope="inst">Institutional Scope</button>
+              <button class="mini-btn" id="btn-self-author" data-scope="author">Author Scope</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 KPI Cards Row -->
+        <div class="kpi-grid self-kpi-grid" style="margin-bottom: 1.25rem;">
+          <div class="kpi-card">
+            <span class="kpi-num" id="self-kpi-total">192.4K</span>
+            <span class="kpi-label">Total Network Citations</span>
+            <small class="kpi-desc">Verified directed citation edges</small>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-num" id="self-kpi-self">37.6K</span>
+            <span class="kpi-label">Self-Citations</span>
+            <small class="kpi-desc">Internal knowledge reuse</small>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-num" id="self-kpi-pct" style="color: var(--primary);">19.55%</span>
+            <span class="kpi-label">Overall Self-Citation Rate</span>
+            <small class="kpi-desc">Cluster aggregate percentage</small>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-num" id="self-kpi-yearly">3,420</span>
+            <span class="kpi-label">Avg Self-Citations / Year</span>
+            <small class="kpi-desc">Annual internal citations</small>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-num" id="self-kpi-perpub">2.65</span>
+            <span class="kpi-label">Self-Citations / Paper</span>
+            <small class="kpi-desc">Mean per distinct publication</small>
+          </div>
+        </div>
+
+        <!-- Charts Grid: Left Stacked Bar, Right Diffusion Rate Curve -->
+        <div class="grid-2" style="align-items: stretch; margin-bottom: 0;">
+          <div class="sub-chart-box">
+            <div class="sub-chart-title">Annual Citation Volume: Self vs. External Diffusion</div>
+            <div id="chart-self-cites-stacked" class="chart-container" style="height: 320px;" role="img" aria-label="Annual citations decomposed by self vs external"></div>
+          </div>
+          <div class="sub-chart-box">
+            <div class="sub-chart-title">Self-Citation Trajectory: Outward Knowledge Adoption (%)</div>
+            <div id="chart-self-cites-pct" class="chart-container" style="height: 320px;" role="img" aria-label="Percentage self-citations by year"></div>
+          </div>
+        </div>
+        <div class="net-note" style="margin-top: 1rem;">
+          <strong>Analytical Takeaway:</strong> In 2016, <strong>30.32%</strong> of all citations were internal self-citations. By 2026, this dropped to <strong>12.68%</strong> (a 58% reduction), demonstrating healthy scientific maturation and expanding global adoption of discoveries originating from the CSIR chemistry cluster.
+        </div>
+      </div>
+
+      <!-- Panel 2: Faculty Productivity vs. Impact 2D Scatter Map (Screenshot 3) -->
+      <div class="card p2-card" id="card-faculty-scatter" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Faculty Productivity vs. Citation Impact 2D Scatter Map</div>
+            <div class="card-subtitle">Mapping all 306 active scientific cadre faculty across Publications (X) and Citations (Y). Bubble size scaled to h-index; divided by median benchmark thresholds (17 papers, 192 citations).</div>
+          </div>
+          <div class="scatter-campus-filters segmented-mini" id="scatter-campus-filters" role="group" aria-label="Campus filter">
+            <button class="mini-btn active" data-campus="all">All Labs</button>
+            <button class="mini-btn" data-campus="iict">CSIR-IICT</button>
+            <button class="mini-btn" data-campus="ncl">CSIR-NCL</button>
+            <button class="mini-btn" data-campus="cecri">CSIR-CECRI</button>
+          </div>
+        </div>
+
+        <div id="chart-faculty-scatter" class="chart-container" style="height: 480px; width: 100%;" role="img" aria-label="Faculty productivity vs impact scatter plot"></div>
+
+        <div class="quadrant-legend-bar">
+          <div class="quad-item quad-q1"><span class="quad-dot dot-q1"></span> <strong>High-Impact Giants</strong> (≥17 pubs, ≥192 cites · 112 faculty)</div>
+          <div class="quad-item quad-q2"><span class="quad-dot dot-q2"></span> <strong>High-Efficiency Specialists</strong> (&lt;17 pubs, ≥192 cites · 41 faculty)</div>
+          <div class="quad-item quad-q3"><span class="quad-dot dot-q3"></span> <strong>Prolific Contributors</strong> (≥17 pubs, &lt;192 cites · 41 faculty)</div>
+          <div class="quad-item quad-q4"><span class="quad-dot dot-q4"></span> <strong>Emerging Faculty</strong> (&lt;17 pubs, &lt;192 cites · 112 faculty)</div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Disciplinary Radial Research Profile (Screenshots 1 & 4) -->
+      <div class="card p2-card" id="card-disciplinary-radial" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">360° Disciplinary Radial Research Profile</div>
+            <div class="card-subtitle">Radial distribution of scientific output across academic fields, illustrating deep specialization in Chemical and Physical Sciences against multi-faculty university benchmarks.</div>
+          </div>
+          <div class="radial-granularity-toggle segmented-mini" id="radial-granularity-toggle" role="group" aria-label="Granularity">
+            <button class="mini-btn active" id="btn-radial-macro" data-gran="macro">9 Broad Disciplines</button>
+            <button class="mini-btn" id="btn-radial-detailed" data-gran="detailed">27 QS/Scopus Fields</button>
+          </div>
+        </div>
+
+        <div class="grid-2" style="align-items: center; margin-bottom: 0;">
+          <div class="radial-chart-box">
+            <div id="chart-disciplinary-radial" class="chart-container" style="height: 440px; width: 100%;" role="img" aria-label="360 degree disciplinary radial chart"></div>
+          </div>
+          <div class="radial-kpi-sidebar">
+            <div class="radial-sidebar-card">
+              <div class="sidebar-title">Disciplinary Concentration Indicators</div>
+              <div class="radial-stat-row">
+                <span class="stat-name">Chemistry Dominance</span>
+                <span class="stat-val" style="color: var(--primary);">37.5%</span>
+              </div>
+              <div class="radial-stat-row">
+                <span class="stat-name">Materials Science</span>
+                <span class="stat-val">14.1%</span>
+              </div>
+              <div class="radial-stat-row">
+                <span class="stat-name">Chemical Engineering</span>
+                <span class="stat-val">8.2%</span>
+              </div>
+              <div class="radial-stat-divider"></div>
+              <div class="radial-stat-row">
+                <span class="stat-name">Cluster i10-Index</span>
+                <span class="stat-val" style="color: var(--good-ink);">1,842</span>
+              </div>
+              <div class="radial-stat-row">
+                <span class="stat-name">Cited Publications %</span>
+                <span class="stat-val" style="color: var(--good-ink);">88.6%</span>
+              </div>
+              <div class="radial-stat-row">
+                <span class="stat-name">Mean Citation Velocity</span>
+                <span class="stat-val">25.6 cites/paper</span>
+              </div>
+            </div>
+            <div class="net-note" style="margin-top: 0.75rem;">
+              <strong>Specialization Index:</strong> Unlike comprehensive universities which disperse funding across 20+ disciplines, the CSIR chemistry cluster concentrates <strong>97.5%</strong> of its research in physical and engineering chemical sciences, achieving world-class citation velocity.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="next-sec" href="#data" aria-label="Next section: Data, Downloads &amp; Methods"><span class="next-sec-label">Next · Data, Downloads &amp; Methods</span><span class="next-sec-arrow" aria-hidden="true"></span></a>
+  </section>
+
+  <!-- Tab 11: Documentation & Data Downloads -->
+  <section id="data" class="page-section" data-label="Data &amp; Methods">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">11</span> / 11</div>
         <h2 class="section-title">Data, Downloads &amp; Methods</h2>
         <p class="section-lead">The submitted files, the report, and the rules behind every number on this page.</p>
       </header>

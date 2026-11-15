@@ -1272,3 +1272,190 @@ body.on-hero .dot-nav a.active .dot { background: #fff; }
   line-height: 1.35;
 }
 
+/* ==========================================================================
+   Advanced Bibliometrics & Specialization Hub Styles (D-43)
+   ========================================================================== */
+
+/* Mini Segmented Controls */
+.segmented-mini {
+  display: inline-flex;
+  align-items: center;
+  background: var(--surface-3);
+  padding: 2px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  gap: 2px;
+}
+.mini-btn {
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+.mini-btn:hover {
+  color: var(--text);
+}
+.mini-btn.active {
+  background: var(--surface);
+  color: var(--primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+[data-theme="dark"] .mini-btn.active {
+  background: var(--surface-2);
+  color: var(--primary-light);
+}
+
+/* Self-Citations Panel */
+.self-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+.sub-chart-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.sub-chart-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+/* Faculty Scatter Plot */
+.quadrant-legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-top: 0.75rem;
+  font-size: 0.76rem;
+  color: var(--text-2);
+}
+.quad-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.quad-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-q1 { background: #d95f02; }
+.dot-q2 { background: #0288d1; }
+.dot-q3 { background: #2e7d32; }
+.dot-q4 { background: #94a3b8; }
+
+/* Disciplinary Radial Web */
+.radial-chart-box {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+}
+.radial-kpi-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+.radial-sidebar-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.sidebar-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+.radial-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+}
+.radial-stat-row .stat-name {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.radial-stat-row .stat-val {
+  font-weight: 800;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.radial-stat-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.2rem 0;
+}
+
+/* Bi-directional Hover Sync for Radar */
+.row-active-hover {
+  background: rgba(26, 35, 126, 0.08) !important;
+  border-left: 3.5px solid var(--primary) !important;
+  transform: translateX(2px);
+}
+[data-theme="dark"] .row-active-hover {
+  background: rgba(165, 180, 252, 0.12) !important;
+  border-left: 3.5px solid var(--primary-light) !important;
+}
+
+/* Column hover styles for institutional comparison table */
+#table-radar-metrics .col-hover {
+  background: rgba(37, 99, 235, 0.08) !important;
+  transition: background 0.15s ease;
+}
+#table-radar-metrics.hover-col-iict .th-iict,
+#table-radar-metrics.hover-col-iict .col-iict {
+  background: rgba(37, 99, 235, 0.12) !important;
+}
+#table-radar-metrics.hover-col-ncl .th-ncl,
+#table-radar-metrics.hover-col-ncl .col-ncl {
+  background: rgba(22, 163, 74, 0.12) !important;
+}
+#table-radar-metrics.hover-col-cecri .th-cecri,
+#table-radar-metrics.hover-col-cecri .col-cecri {
+  background: rgba(234, 88, 12, 0.12) !important;
+}
+[data-theme="dark"] #table-radar-metrics.hover-col-iict .th-iict,
+[data-theme="dark"] #table-radar-metrics.hover-col-iict .col-iict {
+  background: rgba(59, 130, 246, 0.18) !important;
+}
+[data-theme="dark"] #table-radar-metrics.hover-col-ncl .th-ncl,
+[data-theme="dark"] #table-radar-metrics.hover-col-ncl .col-ncl {
+  background: rgba(34, 197, 94, 0.18) !important;
+}
+[data-theme="dark"] #table-radar-metrics.hover-col-cecri .th-cecri,
+[data-theme="dark"] #table-radar-metrics.hover-col-cecri .col-cecri {
+  background: rgba(249, 115, 22, 0.18) !important;
+}
+.spec-card-active {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(-3px) !important;
+  border-width: 1.5px !important;
+}
+
+

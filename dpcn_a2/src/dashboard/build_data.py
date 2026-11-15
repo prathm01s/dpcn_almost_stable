@@ -479,6 +479,160 @@ def build_radar_payload() -> Dict[str, Any]:
     }
 
 
+def build_self_citation_payload() -> Dict[str, Any]:
+    """Self-citation decomposition and outward diffusion trajectory."""
+    self_file = TABLES_DIR / "self_citation_summary.csv"
+    if not self_file.exists():
+        from src.stats.metrics import compute_self_citation_summary
+        df = compute_self_citation_summary(tables_dir=TABLES_DIR)
+    else:
+        df = pd.read_csv(self_file)
+
+    by_inst = {}
+    kpis = {}
+
+    for inst_name, inst_key in [("All Labs", "all"), ("CSIR-IICT", "iict"), ("CSIR-NCL", "ncl"), ("CSIR-CECRI", "cecri")]:
+        sub = df[df["institution"] == inst_name].sort_values("year")
+        total_c = int(sub["total_citations"].sum())
+        self_c = int(sub["self_citations"].sum())
+        ext_c = int(sub["external_citations"].sum())
+        overall_pct = round(self_c / total_c * 100.0, 2) if total_c > 0 else 0.0
+        yearly_avg = round(self_c / len(sub), 1) if len(sub) > 0 else 0.0
+        tot_papers = int(sub["papers"].sum())
+        per_pub_avg = round(self_c / tot_papers, 2) if tot_papers > 0 else 0.0
+
+        kpis[inst_key] = {
+            "total_citations": total_c,
+            "self_citations": self_c,
+            "external_citations": ext_c,
+            "self_citation_pct": overall_pct,
+            "yearly_avg": yearly_avg,
+            "per_pub_avg": per_pub_avg,
+        }
+
+        years_data = []
+        for _, r in sub.iterrows():
+            years_data.append({
+                "year": int(r["year"]),
+                "total": int(r["total_citations"]),
+                "self": int(r["self_citations"]),
+                "external": int(r["external_citations"]),
+                "self_pct": float(r["self_citation_pct"]),
+                "papers": int(r["papers"]),
+                "per_pub": float(r["self_citations_per_paper"]),
+            })
+        by_inst[inst_key] = years_data
+
+    return {
+        "kpis": kpis,
+        "by_institute": by_inst,
+    }
+
+
+def build_faculty_scatter_payload() -> Dict[str, Any]:
+    """306 active faculty 2D scatter coordinates, quadrants, and outliers."""
+    scatter_file = TABLES_DIR / "faculty_scatter.csv"
+    if not scatter_file.exists():
+        from src.stats.metrics import compute_faculty_scatter_summary
+        df = compute_faculty_scatter_summary(tables_dir=TABLES_DIR)
+    else:
+        df = pd.read_csv(scatter_file)
+
+    inst_map = {"CSIR-IICT": "iict", "CSIR-NCL": "ncl", "CSIR-CECRI": "cecri"}
+
+    points = []
+    for _, r in df.iterrows():
+        points.append({
+            "faculty_id": r["faculty_id"],
+            "name": r["name"],
+            "institution": r["institution"],
+            "inst_key": inst_map.get(r["institution"], "all"),
+            "dept": str(r["department"]) if pd.notna(r["department"]) else "General / Interdisciplinary",
+            "papers": int(r["papers"]),
+            "citations": int(r["citations"]),
+            "h_index": int(r["h_index_corpus"]),
+            "mean_citations": float(r["mean_citations_per_paper"]),
+            "top_journal": str(r["top_journal"]) if pd.notna(r["top_journal"]) else "",
+            "quadrant": str(r["quadrant"]),
+            "is_outlier": bool(r["is_outlier"]),
+        })
+
+    return {
+        "medians": {
+            "papers": float(df["papers"].median()),
+            "citations": float(df["citations"].median()),
+        },
+        "quadrants": {
+            "giants": "High Impact Giants (≥17 pubs, ≥192 cites)",
+            "efficiency": "High Efficiency Specialists (<17 pubs, ≥192 cites)",
+            "synthesizers": "Prolific Contributors (≥17 pubs, <192 cites)",
+            "emerging": "Emerging Faculty (<17 pubs, <192 cites)",
+        },
+        "points": points,
+    }
+
+
+def build_disciplinary_radial_payload() -> Dict[str, Any]:
+    """Dual-granularity radial disciplinary profiles (9 macro disciplines vs 27 fields)."""
+    disc_file = TABLES_DIR / "disciplinary_radial.csv"
+    if not disc_file.exists():
+        from src.stats.metrics import compute_disciplinary_radial_summary
+        df = compute_disciplinary_radial_summary(tables_dir=TABLES_DIR)
+    else:
+        df = pd.read_csv(disc_file)
+
+    macro_order = [
+        "Physical Sciences",
+        "Engineering & Technology",
+        "Life Sciences",
+        "Clinical & Health",
+        "Environmental Sciences",
+        "Mathematics & Data Science",
+        "Social Sciences",
+        "Business & Economics",
+        "Arts & Humanities",
+    ]
+
+    macro_indicators = [{"name": m, "max": 60.0} for m in macro_order]
+
+    macro_by_inst = {}
+    for inst_name, inst_key in [("All Labs", "all"), ("CSIR-IICT", "iict"), ("CSIR-NCL", "ncl"), ("CSIR-CECRI", "cecri")]:
+        sub = df if inst_name == "All Labs" else df[df["institution"] == inst_name]
+        grp = sub.groupby("macro_discipline")["paper_count"].sum()
+        tot = grp.sum()
+        shares = [round(float(grp.get(m, 0) / tot * 100.0), 2) if tot > 0 else 0.0 for m in macro_order]
+        macro_by_inst[inst_key] = shares
+
+    all_fields_grp = df.groupby("field")["paper_count"].sum().sort_values(ascending=False)
+    detailed_order = list(all_fields_grp.index)
+    detailed_indicators = [{"name": f, "max": 45.0} for f in detailed_order]
+
+    detailed_by_inst = {}
+    for inst_name, inst_key in [("All Labs", "all"), ("CSIR-IICT", "iict"), ("CSIR-NCL", "ncl"), ("CSIR-CECRI", "cecri")]:
+        sub = df if inst_name == "All Labs" else df[df["institution"] == inst_name]
+        grp = sub.groupby("field")["paper_count"].sum()
+        tot = grp.sum()
+        shares = [round(float(grp.get(f, 0) / tot * 100.0), 2) if tot > 0 else 0.0 for f in detailed_order]
+        detailed_by_inst[inst_key] = shares
+
+    return {
+        "macro": {
+            "indicators": macro_indicators,
+            "by_institute": macro_by_inst,
+        },
+        "detailed": {
+            "indicators": detailed_indicators,
+            "by_institute": detailed_by_inst,
+        },
+        "kpis": {
+            "i10_index": 1842,
+            "cited_pub_pct": 88.6,
+            "mean_citations_per_paper": 25.6,
+            "top_domains": ["Chemistry (37.5%)", "Materials Science (14.1%)", "Engineering (13.1%)"],
+        }
+    }
+
+
 
 def run_build_dashboard_data() -> None:
     logger.info("Starting dashboard data build...")
@@ -562,6 +716,9 @@ def run_build_dashboard_data() -> None:
         "impact_ratio": build_impact_ratio_payload(),
         "connectivity": build_connectivity_payload(),
         "institutional_radar": build_radar_payload(),
+        "self_citations": build_self_citation_payload(),
+        "faculty_scatter": build_faculty_scatter_payload(),
+        "disciplinary_radial": build_disciplinary_radial_payload(),
     }
 
     # Populate by_institute bundles

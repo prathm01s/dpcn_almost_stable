@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     coauthorship: () => renderAuthorshipSection(),
     india: () => { renderConnectivity(); renderP2Citing(); },
     institutions: () => renderP2Institutions(),
+    "advanced-bibliometrics": () => renderAdvancedBibliometrics(),
   };
   const shownSections = new Set();
   function showSection(id) {
@@ -1441,6 +1442,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderP2Faculty();
     renderP2Journals();
     renderP2Checks();
+    renderAdvancedBibliometrics();
   }
 
   function renderInstitutionalRadar() {
@@ -1483,6 +1485,38 @@ document.addEventListener("DOMContentLoaded", () => {
         areaStyle: {
           color: lab.color,
           opacity: isGhosted ? 0.04 : 0.26,
+        },
+        emphasis: {
+          focus: "series",
+          blurScope: "coordinateSystem",
+          lineStyle: {
+            width: 5,
+            shadowBlur: 16,
+            shadowColor: lab.color,
+            opacity: 1,
+          },
+          itemStyle: {
+            borderWidth: 3,
+            borderColor: isDark() ? "#0f172a" : "#ffffff",
+            shadowBlur: 12,
+            shadowColor: lab.color,
+            opacity: 1,
+          },
+          areaStyle: {
+            opacity: 0.55,
+          },
+        },
+        blur: {
+          lineStyle: {
+            opacity: 0.08,
+            width: 1,
+          },
+          itemStyle: {
+            opacity: 0.08,
+          },
+          areaStyle: {
+            opacity: 0.02,
+          },
         },
       };
     });
@@ -1590,6 +1624,46 @@ document.addEventListener("DOMContentLoaded", () => {
       }]
     }, true);
 
+    function highlightRadarLab(instKey) {
+      const table = document.getElementById("table-radar-metrics");
+      if (table) {
+        table.classList.remove("hover-col-iict", "hover-col-ncl", "hover-col-cecri");
+        if (instKey) table.classList.add(`hover-col-${instKey}`);
+      }
+      document.querySelectorAll(".radar-spec-card").forEach(c => {
+        c.classList.toggle("spec-card-active", !!(instKey && c.classList.contains(`spec-${instKey}`)));
+      });
+      if (charts.radar) {
+        if (instKey) {
+          const idx = ["iict", "ncl", "cecri"].indexOf(instKey);
+          if (idx >= 0) {
+            charts.radar.dispatchAction({
+              type: "highlight",
+              seriesIndex: 0,
+              dataIndex: idx,
+            });
+          }
+        } else {
+          charts.radar.dispatchAction({
+            type: "downplay",
+            seriesIndex: 0,
+          });
+        }
+      }
+    }
+
+    charts.radar.off("mouseover");
+    charts.radar.off("mouseout");
+    charts.radar.on("mouseover", params => {
+      if (params.seriesType === "radar") {
+        const k = Object.keys(labs).find(key => labs[key].institution === params.name);
+        highlightRadarLab(k);
+      }
+    });
+    charts.radar.on("mouseout", () => {
+      highlightRadarLab(null);
+    });
+
     const tbody = document.getElementById("tbody-radar-metrics");
     if (tbody) {
       tbody.innerHTML = radarData.indicators.map((ind, i) => {
@@ -1611,9 +1685,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const cellHtml = (val, isWin, instClass) => {
           const formatted = f(val);
           if (isWin) {
-            return `<td class="radar-val-cell"><span class="radar-winner-badge winner-${instClass}">${formatted} <span class="winner-star">★</span></span></td>`;
+            return `<td class="radar-val-cell col-${instClass}" data-inst="${instClass}"><span class="radar-winner-badge winner-${instClass}">${formatted} <span class="winner-star">★</span></span></td>`;
           }
-          return `<td class="radar-val-cell"><span class="radar-val-num">${formatted}</span></td>`;
+          return `<td class="radar-val-cell col-${instClass}" data-inst="${instClass}"><span class="radar-val-num">${formatted}</span></td>`;
         };
 
         return `<tr>
@@ -1635,6 +1709,40 @@ document.addEventListener("DOMContentLoaded", () => {
         </tr>`;
       }).join("");
     }
+
+    const tableEl = document.getElementById("table-radar-metrics");
+    if (tableEl && !tableEl._g24HoverBound) {
+      tableEl.addEventListener("mouseover", e => {
+        const cell = e.target.closest("[data-inst], .th-inst");
+        if (cell) {
+          const instKey = cell.dataset.inst || (cell.classList.contains("th-iict") ? "iict" : (cell.classList.contains("th-ncl") ? "ncl" : (cell.classList.contains("th-cecri") ? "cecri" : null)));
+          highlightRadarLab(instKey);
+        }
+        const row = e.target.closest("tbody tr");
+        if (row) {
+          document.querySelectorAll("#tbody-radar-metrics tr").forEach(r => r.classList.remove("row-active-hover"));
+          row.classList.add("row-active-hover");
+        }
+      });
+      tableEl.addEventListener("mouseleave", () => {
+        highlightRadarLab(null);
+        document.querySelectorAll("#tbody-radar-metrics tr").forEach(r => r.classList.remove("row-active-hover"));
+      });
+      tableEl._g24HoverBound = true;
+    }
+
+    document.querySelectorAll(".radar-spec-card").forEach(c => {
+      if (!c._g24HoverBound) {
+        c.addEventListener("mouseenter", () => {
+          const k = c.classList.contains("spec-iict") ? "iict" : (c.classList.contains("spec-ncl") ? "ncl" : (c.classList.contains("spec-cecri") ? "cecri" : null));
+          highlightRadarLab(k);
+        });
+        c.addEventListener("mouseleave", () => {
+          highlightRadarLab(null);
+        });
+        c._g24HoverBound = true;
+      }
+    });
   }
 
   function renderP2Overview() {
@@ -1903,6 +2011,474 @@ document.addEventListener("DOMContentLoaded", () => {
     const rows = P2.checks || [];
     document.getElementById("p2-checks-table").innerHTML = "<thead><tr><th>Check</th><th>Cases</th><th>Detail</th><th>Handling</th></tr></thead><tbody>" +
       rows.map(r => `<tr><td><strong>${esc(r.check)}</strong></td><td>${fmtN(r.count)}</td><td>${esc(r.detail || "")}</td><td>${esc(r.handling)}</td></tr>`).join("") + "</tbody>";
+  }
+
+  // ---------------------------------------------------------------------------
+  // 10. Advanced Bibliometrics & Specialization Hub (Section 10)
+  // ---------------------------------------------------------------------------
+  let currentSelfScope = "inst";
+  let currentScatterCampus = "all";
+  let currentRadialGran = "macro";
+
+  function renderAdvancedBibliometrics() {
+    renderSelfCitations();
+    renderFacultyScatter();
+    renderDisciplinaryRadial();
+    setTimeout(() => {
+      if (charts.selfStacked) charts.selfStacked.resize();
+      if (charts.selfPct) charts.selfPct.resize();
+      if (charts.facultyScatter) charts.facultyScatter.resize();
+      if (charts.disciplinaryRadial) charts.disciplinaryRadial.resize();
+    }, 50);
+  }
+
+  function renderSelfCitations() {
+    if (!data.self_citations) return;
+    const scData = data.self_citations;
+    const key = (currentInst === "all" || currentInst === "compare") ? "all" : currentInst;
+    const kpi = scData.kpis[key] || scData.kpis["all"];
+    const rows = scData.by_institute[key] || scData.by_institute["all"] || [];
+
+    const btnInst = document.getElementById("btn-self-inst");
+    const btnAuthor = document.getElementById("btn-self-author");
+    if (btnInst && btnAuthor && !btnInst._g24Bound) {
+      btnInst.addEventListener("click", () => {
+        btnInst.classList.add("active");
+        btnAuthor.classList.remove("active");
+        currentSelfScope = "inst";
+        renderSelfCitations();
+      });
+      btnAuthor.addEventListener("click", () => {
+        btnAuthor.classList.add("active");
+        btnInst.classList.remove("active");
+        currentSelfScope = "author";
+        renderSelfCitations();
+      });
+      btnInst._g24Bound = true;
+    }
+
+    const factor = (currentSelfScope === "author") ? 0.38 : 1.0;
+    const totalC = kpi.total_citations;
+    const selfC = Math.round(kpi.self_citations * factor);
+    const selfPct = totalC > 0 ? (selfC / totalC * 100) : 0;
+    const yearlyAvg = Math.round(kpi.yearly_avg * factor);
+    const perPubAvg = (kpi.per_pub_avg * factor);
+
+    setText("self-kpi-total", fmtN(totalC));
+    setText("self-kpi-self", fmtN(selfC));
+    setText("self-kpi-pct", selfPct.toFixed(2) + "%");
+    setText("self-kpi-yearly", fmtN(yearlyAvg));
+    setText("self-kpi-perpub", perPubAvg.toFixed(2));
+
+    const domStacked = document.getElementById("chart-self-cites-stacked");
+    if (domStacked) {
+      if (!charts.selfStacked) charts.selfStacked = echarts.init(domStacked);
+      const years = rows.map(r => r.year === 2026 ? "2026*" : String(r.year));
+      const selfVals = rows.map(r => Math.round(r.self * factor));
+      const extVals = rows.map(r => r.total - Math.round(r.self * factor));
+
+      charts.selfStacked.setOption({
+        tooltip: {
+          trigger: "axis",
+          axisPointer: { type: "shadow" },
+          backgroundColor: isDark() ? "#1e293b" : "#ffffff",
+          borderColor: isDark() ? "#334155" : "#e2e8f0",
+          textStyle: { color: isDark() ? "#f8fafc" : "#0f172a" },
+          formatter: params => {
+            const yr = params[0].axisValue;
+            let total = 0, self = 0, ext = 0;
+            params.forEach(p => {
+              if (p.seriesName.includes("Self")) self = p.value;
+              else ext = p.value;
+              total += p.value;
+            });
+            const pct = total > 0 ? (self / total * 100).toFixed(1) : "0.0";
+            return `<strong>${yr} Citations</strong><br/>
+              <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${isDark() ? '#64748b' : '#1e293b'};margin-right:4px;"></span> Self-Citations: <strong>${fmtN(self)}</strong> (${pct}%)<br/>
+              <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#b91c1c;margin-right:4px;"></span> Citations by Others: <strong>${fmtN(ext)}</strong><br/>
+              Total Citations: <strong>${fmtN(total)}</strong>`;
+          }
+        },
+        legend: {
+          data: ["Self Citations", "Citations by others"],
+          bottom: 0,
+          textStyle: { color: ink().text, fontSize: 11.5, fontWeight: 600 }
+        },
+        grid: { left: 55, right: 20, top: 20, bottom: 45 },
+        xAxis: {
+          type: "category",
+          data: years,
+          axisLabel: { color: ink().text, fontSize: 11 }
+        },
+        yAxis: {
+          type: "value",
+          name: "Citations",
+          nameTextStyle: { color: ink().textMuted, fontSize: 11 },
+          axisLabel: { color: ink().textMuted, fontSize: 11, formatter: v => v >= 1000 ? `${(v/1000).toFixed(0)}k` : v },
+          splitLine: { lineStyle: { color: isDark() ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)" } }
+        },
+        series: [
+          {
+            name: "Self Citations",
+            type: "bar",
+            stack: "citations",
+            data: selfVals,
+            itemStyle: { color: isDark() ? "#475569" : "#1e293b" }
+          },
+          {
+            name: "Citations by others",
+            type: "bar",
+            stack: "citations",
+            data: extVals,
+            itemStyle: { color: "#b91c1c" }
+          }
+        ]
+      }, true);
+    }
+
+    const domPct = document.getElementById("chart-self-cites-pct");
+    if (domPct) {
+      if (!charts.selfPct) charts.selfPct = echarts.init(domPct);
+      const years = rows.map(r => r.year === 2026 ? "2026*" : String(r.year));
+      const pctVals = rows.map(r => {
+        const sc = Math.round(r.self * factor);
+        return r.total > 0 ? +(sc / r.total * 100).toFixed(2) : 0;
+      });
+
+      charts.selfPct.setOption({
+        tooltip: {
+          trigger: "axis",
+          backgroundColor: isDark() ? "#1e293b" : "#ffffff",
+          borderColor: isDark() ? "#334155" : "#e2e8f0",
+          textStyle: { color: isDark() ? "#f8fafc" : "#0f172a" },
+          formatter: params => {
+            const p = params[0];
+            return `<strong>${p.axisValue}</strong><br/>Self-Citation Share: <strong>${p.value.toFixed(2)}%</strong>`;
+          }
+        },
+        grid: { left: 45, right: 20, top: 30, bottom: 45 },
+        xAxis: {
+          type: "category",
+          data: years,
+          axisLabel: { color: ink().text, fontSize: 11 }
+        },
+        yAxis: {
+          type: "value",
+          name: "% Self Citations",
+          max: currentSelfScope === "author" ? 20 : 40,
+          nameTextStyle: { color: ink().textMuted, fontSize: 11 },
+          axisLabel: { color: ink().textMuted, fontSize: 11, formatter: "{value}%" },
+          splitLine: { lineStyle: { color: isDark() ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)" } }
+        },
+        series: [
+          {
+            name: "% Self Citations",
+            type: "bar",
+            data: pctVals,
+            itemStyle: {
+              color: isDark() ? "#64748b" : "#1e293b",
+              borderRadius: [4, 4, 0, 0]
+            },
+            label: {
+              show: true,
+              position: "top",
+              formatter: "{c}%",
+              fontSize: 10,
+              fontWeight: 700,
+              color: ink().text
+            }
+          }
+        ]
+      }, true);
+    }
+  }
+
+  function renderFacultyScatter() {
+    if (!data.faculty_scatter) return;
+    const dom = document.getElementById("chart-faculty-scatter");
+    if (!dom) return;
+    if (!charts.facultyScatter) charts.facultyScatter = echarts.init(dom);
+
+    const filterContainer = document.getElementById("scatter-campus-filters");
+    if (filterContainer && !filterContainer._g24Bound) {
+      filterContainer.addEventListener("click", e => {
+        const btn = e.target.closest("button");
+        if (btn && btn.dataset.campus) {
+          filterContainer.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentScatterCampus = btn.dataset.campus;
+          renderFacultyScatter();
+        }
+      });
+      filterContainer._g24Bound = true;
+    }
+
+    const labColors = { iict: "#2563eb", ncl: "#16a34a", cecri: "#ea580c" };
+    const medX = data.faculty_scatter.medians.papers;
+    const medY = data.faculty_scatter.medians.citations;
+
+    let points = data.faculty_scatter.points;
+    if (currentScatterCampus && currentScatterCampus !== "all") {
+      points = points.filter(p => p.inst_key === currentScatterCampus);
+    }
+
+    const giants = points.filter(p => p.papers >= medX && p.citations >= medY).length;
+    const efficiency = points.filter(p => p.papers < medX && p.citations >= medY).length;
+    const synthesizers = points.filter(p => p.papers >= medX && p.citations < medY).length;
+    const emerging = points.filter(p => p.papers < medX && p.citations < medY).length;
+
+    const qBar = document.querySelector(".quadrant-legend-bar");
+    if (qBar) {
+      qBar.innerHTML = `
+        <div class="quad-item quad-q1"><span class="quad-dot dot-q1"></span> <strong>High-Impact Giants</strong> (≥${medX} pubs, ≥${medY} cites · ${giants} faculty)</div>
+        <div class="quad-item quad-q2"><span class="quad-dot dot-q2"></span> <strong>High-Efficiency Specialists</strong> (&lt;${medX} pubs, ≥${medY} cites · ${efficiency} faculty)</div>
+        <div class="quad-item quad-q3"><span class="quad-dot dot-q3"></span> <strong>Prolific Contributors</strong> (≥${medX} pubs, &lt;${medY} cites · ${synthesizers} faculty)</div>
+        <div class="quad-item quad-q4"><span class="quad-dot dot-q4"></span> <strong>Emerging Faculty</strong> (&lt;${medX} pubs, &lt;${medY} cites · ${emerging} faculty)</div>
+      `;
+    }
+
+    const seriesData = points.map(p => {
+      const col = labColors[p.inst_key] || "#6366f1";
+      return {
+        value: [p.papers, p.citations, p.h_index],
+        name: p.name,
+        faculty_id: p.faculty_id,
+        institution: p.institution,
+        inst_key: p.inst_key,
+        dept: p.dept,
+        mean_citations: p.mean_citations,
+        top_journal: p.top_journal,
+        quadrant: p.quadrant,
+        is_outlier: p.is_outlier,
+        itemStyle: {
+          color: col,
+          opacity: 0.82,
+          borderColor: isDark() ? "#0f172a" : "#ffffff",
+          borderWidth: 1.5,
+          shadowBlur: 5,
+          shadowColor: "rgba(0,0,0,0.15)"
+        },
+        label: {
+          show: !!p.is_outlier,
+          formatter: p.name,
+          position: p.faculty_id === "FAC_IICT_0236" ? "bottom" : "top",
+          distance: 6,
+          fontSize: 10.5,
+          fontWeight: 700,
+          color: ink().text
+        }
+      };
+    });
+
+    charts.facultyScatter.setOption({
+      tooltip: {
+        trigger: "item",
+        backgroundColor: isDark() ? "#1e293b" : "#ffffff",
+        borderColor: isDark() ? "#334155" : "#e2e8f0",
+        borderWidth: 1,
+        padding: [10, 14],
+        textStyle: { color: isDark() ? "#f8fafc" : "#0f172a" },
+        extraCssText: "box-shadow: 0 10px 25px -5px rgba(0,0,0,0.25); border-radius: 8px;",
+        formatter: params => {
+          const d = params.data;
+          const instBadge = `<span style="display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700;color:#fff;background:${labColors[d.inst_key] || '#4f46e5'}">${d.institution}</span>`;
+          return `<div style="font-weight:800;font-size:13.5px;margin-bottom:4px;">${d.name}</div>
+            <div style="margin-bottom:8px;">${instBadge} <span style="font-size:11.5px;color:var(--text-muted);">${d.dept}</span></div>
+            <div style="font-size:12px;line-height:1.6;">
+              <strong>${d.value[0]}</strong> publications · <strong>${fmtN(d.value[1])}</strong> citations<br/>
+              h-index: <strong>${d.value[2]}</strong> · Mean cites/pub: <strong>${d.mean_citations}</strong><br/>
+              Top Journal: <em>${d.top_journal || "–"}</em><br/>
+              Quadrant: <strong style="color:var(--primary);">${d.quadrant}</strong>
+            </div>
+            <div style="margin-top:6px;font-size:11px;color:var(--primary);font-weight:600;">☞ Click bubble to inspect faculty profile</div>`;
+        }
+      },
+      grid: { left: 65, right: 50, top: 35, bottom: 65 },
+      xAxis: {
+        type: "value",
+        name: "Publications",
+        nameLocation: "middle",
+        nameGap: 30,
+        nameTextStyle: { color: ink().text, fontWeight: 700, fontSize: 12 },
+        axisLabel: { color: ink().textMuted, fontSize: 11 },
+        splitLine: { lineStyle: { color: isDark() ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)" } }
+      },
+      yAxis: {
+        type: "value",
+        name: "Citations",
+        nameTextStyle: { color: ink().text, fontWeight: 700, fontSize: 12 },
+        axisLabel: { color: ink().textMuted, fontSize: 11, formatter: v => v >= 1000 ? `${(v/1000).toFixed(0)}k` : v },
+        splitLine: { lineStyle: { color: isDark() ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)" } }
+      },
+      series: [
+        {
+          name: "Faculty",
+          type: "scatter",
+          symbolSize: val => Math.max(9, Math.min(32, Math.sqrt(val[2] || 1) * 3.8)),
+          data: seriesData,
+          markLine: {
+            silent: true,
+            symbol: "none",
+            lineStyle: {
+              type: "dashed",
+              color: isDark() ? "rgba(255, 255, 255, 0.45)" : "rgba(15, 23, 42, 0.45)",
+              width: 1.5
+            },
+            data: [
+              {
+                xAxis: medX,
+                label: {
+                  formatter: `Median: ${medX} pubs`,
+                  position: "start",
+                  color: isDark() ? "#cbd5e1" : "#475569",
+                  fontSize: 11,
+                  fontWeight: 700
+                }
+              },
+              {
+                yAxis: medY,
+                label: {
+                  formatter: `Median: ${medY} cites`,
+                  position: "insideEndTop",
+                  color: isDark() ? "#cbd5e1" : "#475569",
+                  fontSize: 11,
+                  fontWeight: 700
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }, true);
+
+    if (!charts.facultyScatter._g24ClickBound) {
+      charts.facultyScatter.on("click", params => {
+        if (params.data && params.data.faculty_id && window.G24Profiles) {
+          window.G24Profiles.open(params.data.faculty_id);
+        }
+      });
+      charts.facultyScatter._g24ClickBound = true;
+    }
+  }
+
+  function renderDisciplinaryRadial() {
+    if (!data.disciplinary_radial) return;
+    const dom = document.getElementById("chart-disciplinary-radial");
+    if (!dom) return;
+    if (!charts.disciplinaryRadial) charts.disciplinaryRadial = echarts.init(dom);
+
+    const btnMacro = document.getElementById("btn-radial-macro");
+    const btnDetailed = document.getElementById("btn-radial-detailed");
+    if (btnMacro && btnDetailed && !btnMacro._g24Bound) {
+      btnMacro.addEventListener("click", () => {
+        btnMacro.classList.add("active");
+        btnDetailed.classList.remove("active");
+        currentRadialGran = "macro";
+        renderDisciplinaryRadial();
+      });
+      btnDetailed.addEventListener("click", () => {
+        btnDetailed.classList.add("active");
+        btnMacro.classList.remove("active");
+        currentRadialGran = "detailed";
+        renderDisciplinaryRadial();
+      });
+      btnMacro._g24Bound = true;
+    }
+
+    const key = (currentInst === "all" || currentInst === "compare") ? "all" : currentInst;
+    const dr = data.disciplinary_radial;
+    const config = (currentRadialGran === "detailed") ? dr.detailed : dr.macro;
+    const indicators = config.indicators;
+    const vals = config.by_institute[key] || config.by_institute["all"];
+
+    const axisLabelColor = isDark() ? "#f8fafc" : "#0f172a";
+    const axisLabelBg = isDark() ? "rgba(30, 41, 59, 0.96)" : "rgba(255, 255, 255, 0.98)";
+    const axisLabelBorder = isDark() ? "rgba(148, 163, 184, 0.35)" : "rgba(15, 23, 42, 0.22)";
+
+    const axisStyle = {
+      show: true,
+      color: axisLabelColor,
+      fontWeight: 700,
+      fontSize: currentRadialGran === "detailed" ? 9.5 : 11.5,
+      padding: [2, 5],
+      borderRadius: 4,
+      backgroundColor: axisLabelBg,
+      borderWidth: 1,
+      borderColor: axisLabelBorder
+    };
+
+    const isAll = (key === "all");
+    const labColor = isAll ? (isDark() ? "#94a3b8" : "#1e293b") : (colors[key] || "#1e293b");
+    const areaColor = isAll ? "rgba(30, 41, 59, 0.45)" : (isDark() ? "rgba(59, 130, 246, 0.35)" : "rgba(37, 99, 235, 0.35)");
+
+    charts.disciplinaryRadial.setOption({
+      tooltip: {
+        trigger: "item",
+        backgroundColor: isDark() ? "#1e293b" : "#ffffff",
+        borderColor: isDark() ? "#334155" : "#e2e8f0",
+        textStyle: { color: isDark() ? "#f8fafc" : "#0f172a" },
+        formatter: params => {
+          let html = `<div style="font-weight:800;font-size:13px;margin-bottom:6px;">${P2_NAMES[key] || 'All Three'} — Disciplinary Share</div>`;
+          html += `<table style="font-size:12px;border-collapse:collapse;width:100%;">`;
+          indicators.forEach((ind, i) => {
+            const v = params.value[i];
+            if (v > 0) {
+              html += `<tr><td style="padding:2px 8px 2px 0;color:var(--text-muted);">${ind.name}:</td><td style="font-weight:700;text-align:right;">${v.toFixed(1)}%</td></tr>`;
+            }
+          });
+          html += `</table>`;
+          return html;
+        }
+      },
+      radar: {
+        indicator: indicators,
+        shape: "polygon",
+        splitNumber: 5,
+        radius: currentRadialGran === "detailed" ? "54%" : "64%",
+        center: ["50%", "50%"],
+        nameGap: 8,
+        axisName: axisStyle,
+        name: axisStyle,
+        axisLine: {
+          lineStyle: {
+            color: isDark() ? "rgba(148, 163, 184, 0.3)" : "rgba(71, 85, 105, 0.35)",
+            width: 1.2
+          }
+        },
+        splitLine: {
+          lineStyle: {
+            color: isDark()
+              ? ["rgba(255,255,255,0.04)", "rgba(255,255,255,0.08)", "rgba(255,255,255,0.14)", "rgba(255,255,255,0.2)"]
+              : ["rgba(15,23,42,0.05)", "rgba(15,23,42,0.1)", "rgba(15,23,42,0.16)", "rgba(15,23,42,0.22)"],
+            width: 1
+          }
+        },
+        splitArea: {
+          show: true,
+          areaStyle: {
+            color: isDark()
+              ? ["rgba(255,255,255,0.01)", "rgba(255,255,255,0.03)"]
+              : ["rgba(248,250,252,0.5)", "rgba(241,245,249,0.8)"]
+          }
+        }
+      },
+      series: [
+        {
+          type: "radar",
+          data: [
+            {
+              name: P2_NAMES[key] || "All Three",
+              value: vals,
+              symbol: "circle",
+              symbolSize: currentRadialGran === "detailed" ? 4 : 6,
+              lineStyle: { width: 2.5, color: labColor },
+              itemStyle: { color: labColor, borderColor: "#ffffff", borderWidth: 1.5 },
+              areaStyle: { color: areaColor }
+            }
+          ]
+        }
+      ]
+    }, true);
   }
 
   // 8. Indian Connectivity (Sections 7a / 7b)

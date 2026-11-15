@@ -717,7 +717,155 @@ def compute_institutional_radar(tables_dir: Path = Path("stats/tables"), data_di
     return df_radar
 
 
+def compute_self_citation_summary(data_dir=None, tables_dir=None):
+    """Compute institutional self-citation decomposition and temporal trajectory (D-43)."""
+    data_dir = Path(data_dir or (Path(__file__).parent.parent.parent / "data"))
+    tables_dir = Path(tables_dir or (Path(__file__).parent.parent.parent / "stats" / "tables"))
+
+    cites_path = data_dir / "final" / "citation_network.csv"
+    papers_path = data_dir / "final" / "group24_data.csv"
+    if not cites_path.exists() or not papers_path.exists():
+        logger.warning("citation_network.csv or group24_data.csv not found; skipping self-citation summary.")
+        return None
+
+    df_cites = pd.read_csv(cites_path)
+    df_cites = df_cites[(df_cites["year"] >= 2016) & (df_cites["year"] <= 2026)].copy()
+    df_cites["is_self"] = df_cites["source_inst"] == df_cites["target_inst"]
+
+    df_papers = pd.read_csv(papers_path).drop_duplicates(subset=["doi"])
+
+    institutions = [
+        ("All Labs", "all"),
+        ("CSIR-IICT", "iict"),
+        ("CSIR-NCL", "ncl"),
+        ("CSIR-CECRI", "cecri"),
+    ]
+
+    all_rows = []
+    for inst_name, inst_key in institutions:
+        if inst_name == "All Labs":
+            sub_cites = df_cites
+            sub_papers = df_papers
+        else:
+            sub_cites = df_cites[df_cites["target_inst"] == inst_name]
+            sub_papers = df_papers[df_papers["institution"] == inst_name]
+
+        papers_by_year = sub_papers.groupby("year")["doi"].count()
+
+        for yr in range(2016, 2027):
+            yr_cites = sub_cites[sub_cites["year"] == yr]
+            total_c = int(len(yr_cites))
+            self_c = int(yr_cites["is_self"].sum())
+            ext_c = total_c - self_c
+            pct = round(self_c / total_c * 100.0, 2) if total_c > 0 else 0.0
+            n_papers = int(papers_by_year.get(yr, 0))
+            per_paper = round(self_c / n_papers, 2) if n_papers > 0 else 0.0
+
+            all_rows.append({
+                "institution": inst_name,
+                "inst_key": inst_key,
+                "year": yr,
+                "total_citations": total_c,
+                "self_citations": self_c,
+                "external_citations": ext_c,
+                "self_citation_pct": pct,
+                "papers": n_papers,
+                "self_citations_per_paper": per_paper,
+            })
+
+    df_summary = pd.DataFrame(all_rows)
+    df_summary.to_csv(tables_dir / "self_citation_summary.csv", index=False)
+    logger.info("✓ Saved self_citation_summary.csv to stats/tables/ successfully.")
+    return df_summary
+
+
+def compute_faculty_scatter_summary(tables_dir=None):
+    """Compute 2D scatter coordinates and quadrant assignments for 306 active faculty (D-43)."""
+    tables_dir = Path(tables_dir or (Path(__file__).parent.parent.parent / "stats" / "tables"))
+    fac_path = tables_dir / "faculty_performance.csv"
+    if not fac_path.exists():
+        logger.warning("faculty_performance.csv not found; skipping faculty scatter summary.")
+        return None
+
+    df_fac = pd.read_csv(fac_path)
+    df_active = df_fac[df_fac["papers"] > 0].copy()
+
+    med_p = float(df_active["papers"].median())
+    med_c = float(df_active["citations"].median())
+
+    def get_quadrant(r):
+        if r["papers"] >= med_p and r["citations"] >= med_c:
+            return "High Impact Giants"
+        elif r["papers"] < med_p and r["citations"] >= med_c:
+            return "High Efficiency Specialists"
+        elif r["papers"] >= med_p and r["citations"] < med_c:
+            return "Prolific Contributors"
+        else:
+            return "Emerging Faculty"
+
+    df_active["quadrant"] = df_active.apply(get_quadrant, axis=1)
+
+    # Flag top 10 outliers by citations + papers for persistent callouts
+    top_cites_ids = set(df_active.nlargest(8, "citations")["faculty_id"])
+    top_papers_ids = set(df_active.nlargest(4, "papers")["faculty_id"])
+    outlier_ids = top_cites_ids.union(top_papers_ids)
+    df_active["is_outlier"] = df_active["faculty_id"].isin(outlier_ids)
+
+    df_active.to_csv(tables_dir / "faculty_scatter.csv", index=False)
+    logger.info("✓ Saved faculty_scatter.csv to stats/tables/ successfully.")
+    return df_active
+
+
+def compute_disciplinary_radial_summary(tables_dir=None):
+    """Compute 9 broad disciplines and 27 QS/Scopus fields for radial profile (D-43)."""
+    tables_dir = Path(tables_dir or (Path(__file__).parent.parent.parent / "stats" / "tables"))
+    field_path = tables_dir / "research_areas_field.csv"
+    if not field_path.exists():
+        logger.warning("research_areas_field.csv not found; skipping disciplinary radial summary.")
+        return None
+
+    df_rf = pd.read_csv(field_path)
+
+    macro_map = {
+        "Chemistry": "Physical Sciences",
+        "Materials Science": "Physical Sciences",
+        "Physics and Astronomy": "Physical Sciences",
+        "Earth and Planetary Sciences": "Physical Sciences",
+        "Engineering": "Engineering & Technology",
+        "Chemical Engineering": "Engineering & Technology",
+        "Energy": "Engineering & Technology",
+        "Computer Science": "Engineering & Technology",
+        "Biochemistry, Genetics and Molecular Biology": "Life Sciences",
+        "Agricultural and Biological Sciences": "Life Sciences",
+        "Immunology and Microbiology": "Life Sciences",
+        "Neuroscience": "Life Sciences",
+        "Veterinary": "Life Sciences",
+        "Medicine": "Clinical & Health",
+        "Pharmacology, Toxicology and Pharmaceutics": "Clinical & Health",
+        "Health Professions": "Clinical & Health",
+        "Nursing": "Clinical & Health",
+        "Dentistry": "Clinical & Health",
+        "Environmental Science": "Environmental Sciences",
+        "Mathematics": "Mathematics & Data Science",
+        "Decision Sciences": "Mathematics & Data Science",
+        "Social Sciences": "Social Sciences",
+        "Psychology": "Social Sciences",
+        "Business, Management and Accounting": "Business & Economics",
+        "Economics, Econometrics and Finance": "Business & Economics",
+        "Arts and Humanities": "Arts & Humanities",
+        "Unclassified": "Physical Sciences",
+    }
+
+    df_rf["macro_discipline"] = df_rf["field"].map(macro_map).fillna("Physical Sciences")
+    df_rf.to_csv(tables_dir / "disciplinary_radial.csv", index=False)
+    logger.info("✓ Saved disciplinary_radial.csv to stats/tables/ successfully.")
+    return df_rf
+
+
 if __name__ == "__main__":
     run_metrics_computation()
     compute_institutional_radar()
+    compute_self_citation_summary()
+    compute_faculty_scatter_summary()
+    compute_disciplinary_radial_summary()
 
