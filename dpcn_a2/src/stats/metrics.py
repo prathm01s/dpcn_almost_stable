@@ -646,5 +646,78 @@ def run_metrics_computation() -> None:
     logger.info("✓ All 12 metric tables computed and saved to stats/tables/ successfully.")
 
 
+def compute_institutional_radar(tables_dir: Path = Path("stats/tables"), data_dir: Path = Path("data/final")) -> pd.DataFrame:
+    """Computes the 6-dimensional comparative institutional profile for IICT, NCL, and CECRI.
+
+    Dimensions:
+    1. Q1 Ratio (% of papers in Q1 journals)
+    2. International Co-authorship (% of papers with foreign co-authors)
+    3. Mean Citations per Paper (citations / distinct DOI)
+    4. Top-10% Excellence Share (% of papers in global top-10% citation decile)
+    5. Network Betweenness Centrality (structural bridge centrality in macro collaboration network)
+    6. Industry Linkage (shared papers with corporate/industry partners)
+    """
+    logger.info("Computing institutional radar metrics...")
+    p2_ov = pd.read_csv(tables_dir / "phase2_overview.csv").set_index("institution")
+    glob_sum = pd.read_csv(tables_dir / "global_summary.csv").set_index("short")
+    inst_nodes = pd.read_csv(tables_dir / "phase2_institution_network_nodes.csv")
+    cross_sum = pd.read_csv(tables_dir / "cross_cluster_summary.csv")
+    industry_sum = cross_sum[cross_sum["partner_sector"] == "Industry"].set_index("institution")
+    group24 = pd.read_csv(data_dir / "group24_data.csv")
+
+    labs = [
+        ("CSIR-IICT", "iict", "I55664587", "#2B5C8F"),
+        ("CSIR-NCL", "ncl", "I3125981224", "#2E7D32"),
+        ("CSIR-CECRI", "cecri", "I106349282", "#D95F02")
+    ]
+
+    rows = []
+    for full_name, key, openalex_id, color in labs:
+        p2 = p2_ov.loc[full_name]
+        papers = int(p2["papers"])
+        q1 = int(p2["q1_papers"])
+        q1_pct = round(q1 / papers * 100.0, 2)
+        intl_pct = round(float(p2["intl_papers_pct"]), 2)
+
+        sub_df = group24[group24["institution"] == full_name].drop_duplicates(subset=["doi"])
+        mean_cites = round(float(sub_df["citations"].mean()), 2)
+
+        top10_pct = round(float(glob_sum.loc[full_name, "top10_pct"]), 2)
+
+        node_row = inst_nodes[inst_nodes["institution_id"] == openalex_id]
+        btw = round(float(node_row["betweenness"].iloc[0]), 4)
+
+        ind_row = industry_sum.loc[full_name]
+        ind_papers = int(ind_row["shared_papers"])
+        ind_pct = round(ind_papers / papers * 100.0, 2)
+
+        rows.append({
+            "institution": full_name,
+            "inst_key": key,
+            "color": color,
+            "papers": papers,
+            "q1_pct": q1_pct,
+            "intl_coauthor_pct": intl_pct,
+            "mean_citations_per_paper": mean_cites,
+            "top10_excellence_share_pct": top10_pct,
+            "network_betweenness": btw,
+            "industry_papers": ind_papers,
+            "industry_paper_pct": ind_pct,
+            "norm_q1": round(min(100.0, q1_pct / 100.0 * 100.0), 1),
+            "norm_intl": round(min(100.0, intl_pct / 40.0 * 100.0), 1),
+            "norm_cites": round(min(100.0, mean_cites / 40.0 * 100.0), 1),
+            "norm_top10": round(min(100.0, top10_pct / 25.0 * 100.0), 1),
+            "norm_btw": round(min(100.0, btw / 0.10 * 100.0), 1),
+            "norm_industry": round(min(100.0, ind_papers / 100.0 * 100.0), 1),
+        })
+
+    df_radar = pd.DataFrame(rows)
+    df_radar.to_csv(tables_dir / "institutional_radar.csv", index=False)
+    logger.info("✓ Saved institutional_radar.csv to stats/tables/ successfully.")
+    return df_radar
+
+
 if __name__ == "__main__":
     run_metrics_computation()
+    compute_institutional_radar()
+

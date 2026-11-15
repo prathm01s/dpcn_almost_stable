@@ -258,6 +258,41 @@
         </div>
         <div class="net-note" id="p2-overview-note"></div>
       </div>
+
+      <div class="card p2-card" id="card-institutional-radar" style="margin-bottom: 1.5rem;">
+        <div class="card-header"><div>
+          <div class="card-title">Institutional Comparative Profile (Spider / Radar Chart)</div>
+          <div class="card-subtitle">Comparing CSIR-IICT, CSIR-NCL, and CSIR-CECRI across 6 normalized performance dimensions (2016–2026). Values calibrated to natural domain benchmarks.</div>
+        </div></div>
+        <div class="grid-2" style="align-items: center; margin-bottom: 0;">
+          <div id="chart-institutional-radar" class="chart-container" style="height: 400px;" role="img" aria-label="Institutional comparative radar chart"></div>
+          <div class="radar-summary-pane">
+            <div style="overflow-x: auto;">
+              <table class="net-table" id="table-radar-metrics">
+                <thead>
+                  <tr>
+                    <th>Performance Dimension</th>
+                    <th style="color: var(--c-iict); text-align: right;">CSIR-IICT</th>
+                    <th style="color: var(--c-ncl); text-align: right;">CSIR-NCL</th>
+                    <th style="color: var(--c-cecri); text-align: right;">CSIR-CECRI</th>
+                    <th style="text-align: right;">Benchmark Max</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-radar-metrics"></tbody>
+              </table>
+            </div>
+            <div class="net-note" id="radar-metric-note" style="margin-top: 0.75rem;">
+              <strong>Institutional Specialization Patterns:</strong>
+              <ul style="margin: 0.35rem 0 0; padding-left: 1.2rem; font-size: 0.8rem; line-height: 1.45;">
+                <li><strong style="color: var(--c-cecri);">CSIR-CECRI</strong> dominates in citation velocity (32.4 cites/paper), top-10% world excellence share (17.3%), and international co-authorship (30.4%), reflecting the global citation tailwind in electrochemical clean-energy storage.</li>
+                <li><strong style="color: var(--c-ncl);">CSIR-NCL</strong> leads in corporate industrial translation (81 shared papers with Reliance, TCS, Praj, etc.) and maintains balanced high performance across all research quality metrics.</li>
+                <li><strong style="color: var(--c-iict);">CSIR-IICT</strong> anchors the national network as the primary structural bridging hub (0.0786 betweenness) with high pharmaceutical industry engagement (53 corporate papers).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="grid-2">
         <div class="card">
           <div class="card-header">

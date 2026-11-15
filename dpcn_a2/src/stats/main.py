@@ -13,7 +13,7 @@ Executes:
 
 from src.stats.phase2 import run_phase2
 from src.stats.global_benchmark import run_global_benchmark
-from src.stats.metrics import run_metrics_computation
+from src.stats.metrics import run_metrics_computation, compute_institutional_radar
 from src.stats.connectivity import run_connectivity_metrics
 from src.stats.networks import run_network_metrics
 from src.stats.impact_ratio import run_impact_ratio
@@ -32,6 +32,7 @@ def main() -> None:
     run_impact_ratio()
     run_phase2()
     run_global_benchmark()
+    compute_institutional_radar()
     run_figure_generation()
     run_report_generation()
     logger.info("=== Phase 2 Completed Successfully! ===")

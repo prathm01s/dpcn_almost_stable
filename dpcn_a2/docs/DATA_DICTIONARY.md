@@ -229,3 +229,10 @@ Page: `dashboard/insights11.html` (data `dashboard/data/g24_insights11_suite.js`
 |---|---|
 | `stats/tables/global_indian_universities.csv` | Former Study 1.1 (Academic Bridge): per university (9 IITs + IISc, 6 state universities) and lab (plus "All three", distinct papers): `papers_citing_lab` (university papers citing ≥ 1 lab paper), `papers_cited_by_lab` (university papers cited by ≥ 1 lab paper), both without papers co-authored with the lab and both counting only university papers published 2016–2026 (D-40); `exchange_ratio` = citing ÷ cited_by; `coauthored_papers` (indian_connections.csv). From `citation_network.csv`, exact institution names |
 | `dashboard/data/g24_global_teaser.js` | Numbers for the Global Benchmark card on the home screen (copied from the global tables) |
+
+## Institutional Radar Profile (D-42)
+
+| File | Content |
+|---|---|
+| `stats/tables/institutional_radar.csv` | 6-dimensional institutional performance profile comparing CSIR-IICT, CSIR-NCL, and CSIR-CECRI (2016–2026): `q1_pct`, `intl_coauthor_pct`, `mean_citations_per_paper`, `top10_excellence_share_pct`, `network_betweenness`, `industry_papers`, `industry_paper_pct`, plus normalized values `norm_*` scaled relative to natural domain benchmarks (Q1: 100%, International: 40%, Citations: 40, Top 10%: 25%, Centrality: 0.10, Industry: 100 papers). Embedded in `g24_data.js` as `institutional_radar`. |
+

@@ -399,6 +399,13 @@ def run_tests():
         top30 = client.evaluate("Tabulator.findTable('#table-p2-top30')[0].getDataCount()")
         print(f"✓ Phase II faculty comparison rows={fac_rows}, top-30 by IF rows={top30}")
         assert fac_rows == int(p2o["Group 24 Combined"]["active_faculty"]) and top30 == 30
+        
+        # Multi-dimensional radar chart verification
+        radar_canvas = client.evaluate("document.querySelectorAll('#chart-institutional-radar canvas').length")
+        radar_rows = client.evaluate("document.querySelectorAll('#table-radar-metrics tbody tr').length")
+        print(f"✓ Institutional Radar: Canvas={radar_canvas}, Metric rows={radar_rows}")
+        assert radar_canvas >= 1, "Radar chart canvas did not render"
+        assert radar_rows == 6, f"Expected 6 radar metric rows, got {radar_rows}"
         time.sleep(0.3)
 
         # Filter Year: 2020 - 2024

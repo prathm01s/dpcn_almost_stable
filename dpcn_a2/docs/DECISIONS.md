@@ -350,3 +350,16 @@ Follow-up to the D-40 audit: the suspicious numbers that the repository's own da
 - **Fix — Step 20 overwrote its review log**: a re-run that found no duplicates replaced `data/review/duplicate_papers_removed.csv` (144 rows) with a header. It now appends.
 - **Fix — Step 19 student rule per person**: judged per (lab, faculty_id) instead of per OpenAlex profile, so a one-paper split profile isn't moved out of the person it belongs to (keeps Step 19 idempotent).
 - **Flagged, not changed**: B. Sridhar now ranks first for productivity; 260 of his 329 papers are middle-author (X-ray structures for others' syntheses). Splits that fail the rule stay apart (e.g. Rajesh G. vs C. Gonnade). NCL roster 166 vs 126 in the annual report, CSIRO Manufacturing's trend, ANSTO's international share, China's 2016 world share and the period fall in top-10% shares remain as in D-40: they need the API or outside records.
+
+## D-42: Institutional Comparative Spider / Radar Chart (2026-11-15)
+- **Context**: The evaluation of the three laboratories (CSIR-IICT, CSIR-NCL, and CSIR-CECRI) required a multidimensional synthesis capturing distinct institutional specialization profiles beyond single-variable rankings.
+- **Decision**: Added an interactive Apache ECharts radar chart comparing the three labs across 6 normalized performance dimensions:
+  1. **Q1 Ratio**: % of publications in SCImago Q1 journals (benchmark max 100%; CECRI 70.0%, NCL 64.2%, IICT 51.3%).
+  2. **International Co-authorship**: % of papers with foreign co-authors (benchmark max 40%; CECRI 30.4%, IICT 22.1%, NCL 18.2%).
+  3. **Mean Citations per Paper**: citations per distinct publication (benchmark max 40; CECRI 32.4, NCL 25.2, IICT 20.5).
+  4. **Top-10% Excellence Share**: % of papers in global top 10% citation decile (benchmark max 25%; CECRI 17.3%, NCL 12.3%, IICT 8.9% vs world baseline 10.83%).
+  5. **Network Betweenness Centrality**: structural bridging capacity in institutional co-authorship (benchmark max 0.10; IICT 0.0786, NCL 0.0681, CECRI 0.0486).
+  6. **Industry Linkage**: volume of publications co-authored with corporate industry partners (benchmark max 100 papers; NCL 81 papers / 1.52%, IICT 53 papers / 0.87%, CECRI 8 papers / 0.28%).
+- **UI/UX Placement**: Placed in Section 02 (`#trends`) directly below the Institutional Overview table, featuring a side-by-side layout: the 6-spoke radar canvas on the left, and a comparative KPI table with lab badges on the right. Interactivity: selecting an individual lab in the header highlights its polygon while ghosting others; selecting *All Three* or *Compare* renders all three profiles.
+- **Data & Verification**: Grounded in audited files `phase2_overview.csv`, `global_summary.csv`, `phase2_institution_network_nodes.csv`, and `cross_cluster_summary.csv`. Exported to `stats/tables/institutional_radar.csv` and bundled into `dashboard/data/g24_data.js`. Tested in `tests/test_dashboard_data.py` (100% pass) and headless browser suite (0 console errors).
+

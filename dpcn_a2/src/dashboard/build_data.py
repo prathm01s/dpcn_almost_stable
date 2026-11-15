@@ -421,6 +421,65 @@ def build_connectivity_payload() -> Dict[str, Any]:
     }
 
 
+def build_radar_payload() -> Dict[str, Any]:
+    """6-dimensional comparative institutional profile for IICT, NCL, and CECRI."""
+    radar_file = TABLES_DIR / "institutional_radar.csv"
+    if not radar_file.exists():
+        from src.stats.metrics import compute_institutional_radar
+        df = compute_institutional_radar(tables_dir=TABLES_DIR)
+    else:
+        df = pd.read_csv(radar_file)
+
+    indicators = [
+        {"key": "q1_pct", "name": "Q1 Journal Ratio", "unit": "%", "max": 100.0, "desc": "Share of publications in SCImago Q1 journals"},
+        {"key": "intl_coauthor_pct", "name": "Internationalization", "unit": "%", "max": 40.0, "desc": "Share of papers with foreign co-authors"},
+        {"key": "mean_citations_per_paper", "name": "Mean Citations", "unit": "cites", "max": 40.0, "desc": "Average citations per distinct publication"},
+        {"key": "top10_excellence_share_pct", "name": "Top-10% Excellence", "unit": "%", "max": 25.0, "desc": "Share of papers in world top-10% citation decile"},
+        {"key": "network_betweenness", "name": "Network Centrality", "unit": "score", "max": 0.10, "desc": "Betweenness bridging centrality in macro collaboration network"},
+        {"key": "industry_papers", "name": "Industry Linkage", "unit": "papers", "max": 100.0, "desc": "Number of co-authored papers with corporate partners"},
+    ]
+
+    labs = {}
+    for _, r in df.iterrows():
+        labs[r["inst_key"]] = {
+            "institution": r["institution"],
+            "name": r["institution"],
+            "color": r["color"],
+            "papers": int(r["papers"]),
+            "values": [
+                float(r["q1_pct"]),
+                float(r["intl_coauthor_pct"]),
+                float(r["mean_citations_per_paper"]),
+                float(r["top10_excellence_share_pct"]),
+                float(r["network_betweenness"]),
+                float(r["industry_papers"]),
+            ],
+            "normalized": [
+                float(r["norm_q1"]),
+                float(r["norm_intl"]),
+                float(r["norm_cites"]),
+                float(r["norm_top10"]),
+                float(r["norm_btw"]),
+                float(r["norm_industry"]),
+            ],
+            "metrics": {
+                "q1_pct": float(r["q1_pct"]),
+                "intl_coauthor_pct": float(r["intl_coauthor_pct"]),
+                "mean_citations": float(r["mean_citations_per_paper"]),
+                "top10_pct": float(r["top10_excellence_share_pct"]),
+                "betweenness": float(r["network_betweenness"]),
+                "industry_papers": int(r["industry_papers"]),
+                "industry_pct": float(r["industry_paper_pct"]),
+            }
+        }
+
+    return {
+        "indicators": indicators,
+        "labs": labs,
+    }
+
+
+
 def run_build_dashboard_data() -> None:
     logger.info("Starting dashboard data build...")
     OUTPUT_JS.parent.mkdir(parents=True, exist_ok=True)
@@ -502,6 +561,7 @@ def run_build_dashboard_data() -> None:
         "phase2": build_phase2_payload(),
         "impact_ratio": build_impact_ratio_payload(),
         "connectivity": build_connectivity_payload(),
+        "institutional_radar": build_radar_payload(),
     }
 
     # Populate by_institute bundles

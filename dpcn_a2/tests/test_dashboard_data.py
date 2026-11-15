@@ -157,3 +157,25 @@ def test_network_payload_integrity():
     assert len(a_net["top_bridges"]) == 10
     assert len(a_net["collab_matrix"]) == 3
 
+
+def test_institutional_radar_payload():
+    """Verify institutional radar payload matches stats/tables/institutional_radar.csv."""
+    data = get_dashboard_data()
+    assert "institutional_radar" in data, "institutional_radar key missing in dashboard data"
+    radar = data["institutional_radar"]
+    assert len(radar["indicators"]) == 6, "Expected 6 radar indicators"
+    assert set(radar["labs"].keys()) == {"iict", "ncl", "cecri"}
+
+    df_radar = pd.read_csv("stats/tables/institutional_radar.csv").set_index("inst_key")
+    for key in ("iict", "ncl", "cecri"):
+        lab = radar["labs"][key]
+        row = df_radar.loc[key]
+        assert lab["papers"] == int(row["papers"])
+        assert lab["values"][0] == pytest.approx(float(row["q1_pct"]))
+        assert lab["values"][1] == pytest.approx(float(row["intl_coauthor_pct"]))
+        assert lab["values"][2] == pytest.approx(float(row["mean_citations_per_paper"]))
+        assert lab["values"][3] == pytest.approx(float(row["top10_excellence_share_pct"]))
+        assert lab["values"][4] == pytest.approx(float(row["network_betweenness"]))
+        assert lab["values"][5] == pytest.approx(float(row["industry_papers"]))
+
+

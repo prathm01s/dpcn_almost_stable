@@ -221185,7 +221185,7 @@ window.G24_DATA = {
         "total_authors": 7820,
         "faculty_authors": 283,
         "communities_count": 136,
-        "modularity": 0.8173,
+        "modularity": 0.8172,
         "inter_lab_pairs": 514,
         "top_collaborator": "Dr. B. Sridhar"
       },
@@ -221299,7 +221299,7 @@ window.G24_DATA = {
           "name": "Dr. Surya Prakash Singh",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 16,
+          "community": 15,
           "department": "Polymers & Functional Materials",
           "designation": "Senior Principal Scientist (Scientist-F)",
           "degree": 88,
@@ -221312,7 +221312,7 @@ window.G24_DATA = {
           "name": "Lingamallu Giribabu",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 16,
+          "community": 15,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 116,
@@ -221390,7 +221390,7 @@ window.G24_DATA = {
           "name": "Dr. Jagadeesh Babu Nanubolu",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 17,
+          "community": 16,
           "department": "Analytical & Structural Chemistry",
           "designation": "Senior Principal Scientist (Scientist-F)",
           "degree": 308,
@@ -221403,7 +221403,7 @@ window.G24_DATA = {
           "name": "Nakka Lingaiah",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 23,
+          "community": 22,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 88,
@@ -221416,7 +221416,7 @@ window.G24_DATA = {
           "name": "Dr. Chepuri V. Ramana",
           "inst": "CSIR-NCL",
           "category": 1,
-          "community": 20,
+          "community": 18,
           "department": "Organic Chemistry Division",
           "designation": "Scientist",
           "degree": 66,
@@ -221429,7 +221429,7 @@ window.G24_DATA = {
           "name": "Dr. Dhiman Sarkar",
           "inst": "CSIR-NCL",
           "category": 1,
-          "community": 24,
+          "community": 18,
           "department": "Organic Chemistry Division",
           "designation": "Scientist",
           "degree": 95,
@@ -221468,7 +221468,7 @@ window.G24_DATA = {
           "name": "Dr. S. Venkata Mohan",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 27,
+          "community": 28,
           "department": "Energy & Environmental Engg.",
           "designation": "Chief Scientist (Scientist-G)",
           "degree": 112,
@@ -221546,7 +221546,7 @@ window.G24_DATA = {
           "name": "Dr. Vijay Bokade",
           "inst": "CSIR-NCL",
           "category": 1,
-          "community": 25,
+          "community": 24,
           "department": "Catalysis Division",
           "designation": "Scientist",
           "degree": 48,
@@ -221637,7 +221637,7 @@ window.G24_DATA = {
           "name": "Prashant S. Niphadkar",
           "inst": "CSIR-NCL",
           "category": 1,
-          "community": 25,
+          "community": 24,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 50,
@@ -221702,7 +221702,7 @@ window.G24_DATA = {
           "name": "Dr. Amol A. Kulkarni",
           "inst": "CSIR-NCL",
           "category": 1,
-          "community": 20,
+          "community": 29,
           "department": "Chemical Engineering & Process Development",
           "designation": "Scientist",
           "degree": 78,
@@ -221728,7 +221728,7 @@ window.G24_DATA = {
           "name": "David Raju Burri",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 18,
+          "community": 23,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 52,
@@ -221741,7 +221741,7 @@ window.G24_DATA = {
           "name": "Seetha Rama Rao Kamaraju",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 18,
+          "community": 23,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 49,
@@ -221962,7 +221962,7 @@ window.G24_DATA = {
           "name": "Dr. A. Venugopal",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 18,
+          "community": 25,
           "department": "Catalysis & Fine Chemicals",
           "designation": "Chief Scientist (Scientist-G)",
           "degree": 48,
@@ -221988,7 +221988,7 @@ window.G24_DATA = {
           "name": "Reddy Shetty Prakasham",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 16,
+          "community": 15,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 119,
@@ -222222,7 +222222,7 @@ window.G24_DATA = {
           "name": "Dr. Subhash Ghosh",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 21,
+          "community": 20,
           "department": "Organic Synthesis & Process Chemistry",
           "designation": "Chief Scientist (Scientist-G)",
           "degree": 79,
@@ -222235,7 +222235,7 @@ window.G24_DATA = {
           "name": "Dr. Srigiridhar Kotamraju",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 30,
+          "community": 27,
           "department": "Applied Biology",
           "designation": "Chief Scientist (Scientist-G)",
           "degree": 52,
@@ -222248,7 +222248,7 @@ window.G24_DATA = {
           "name": "Dr. D. Srinivasa Reddy",
           "inst": "CSIR-NCL",
           "category": 1,
-          "community": 15,
+          "community": 17,
           "department": "Natural Products & Medicinal Chemistry",
           "designation": "Director",
           "degree": 99,
@@ -222313,7 +222313,7 @@ window.G24_DATA = {
           "name": "Santoshkumar D. Bhat",
           "inst": "CSIR-CECRI",
           "category": 2,
-          "community": 22,
+          "community": 21,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 52,
@@ -222326,7 +222326,7 @@ window.G24_DATA = {
           "name": "Dr Akhila Kumar Sahu",
           "inst": "CSIR-CECRI",
           "category": 2,
-          "community": 22,
+          "community": 21,
           "department": "CECRI CHENNAI UNIT",
           "designation": "Senior Principal Scientist (Scientist-F)",
           "degree": 50,
@@ -222443,7 +222443,7 @@ window.G24_DATA = {
           "name": "Bhagavatula L. V. Prasad",
           "inst": "CSIR-NCL",
           "category": 1,
-          "community": 20,
+          "community": 18,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 49,
@@ -222560,7 +222560,7 @@ window.G24_DATA = {
           "name": "Seelam Prasanthkumar",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 16,
+          "community": 15,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 51,
@@ -222768,7 +222768,7 @@ window.G24_DATA = {
           "name": "Muthukumarasamy Karthikeyan",
           "inst": "CSIR-NCL",
           "category": 1,
-          "community": 24,
+          "community": 18,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 50,
@@ -222924,7 +222924,7 @@ window.G24_DATA = {
           "name": "Dr. T. Kumaraguru",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 21,
+          "community": 20,
           "department": "Organic Synthesis & Process Chemistry",
           "designation": "Principal Scientist (Scientist-E)",
           "degree": 54,
@@ -222963,7 +222963,7 @@ window.G24_DATA = {
           "name": "Dr. Dhanasekaran Shanmugam",
           "inst": "CSIR-NCL",
           "category": 1,
-          "community": 15,
+          "community": 17,
           "department": "Biochemical Science Division",
           "designation": "Scientist",
           "degree": 57,
@@ -223002,7 +223002,7 @@ window.G24_DATA = {
           "name": "Vijayanand Perupogu",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 18,
+          "community": 23,
           "department": "Scientific Cadre",
           "designation": "Scientist",
           "degree": 67,
@@ -223093,7 +223093,7 @@ window.G24_DATA = {
           "name": "Dr. Linga Banoth",
           "inst": "CSIR-IICT",
           "category": 0,
-          "community": 16,
+          "community": 15,
           "department": "Natural Products & Medicinal Chemistry",
           "designation": "Senior Scientist (Scientist-D)",
           "degree": 51,
@@ -228612,7 +228612,7 @@ window.G24_DATA = {
           "collaborators_count": 308,
           "joint_paper_links": 628,
           "betweenness": 0.0916,
-          "community_id": 17,
+          "community_id": 16,
           "institution": "CSIR-IICT"
         },
         {
@@ -298257,6 +298257,147 @@ window.G24_DATA = {
           "jaccard": 0.0789
         }
       ]
+    }
+  },
+  "institutional_radar": {
+    "indicators": [
+      {
+        "key": "q1_pct",
+        "name": "Q1 Journal Ratio",
+        "unit": "%",
+        "max": 100.0,
+        "desc": "Share of publications in SCImago Q1 journals"
+      },
+      {
+        "key": "intl_coauthor_pct",
+        "name": "Internationalization",
+        "unit": "%",
+        "max": 40.0,
+        "desc": "Share of papers with foreign co-authors"
+      },
+      {
+        "key": "mean_citations_per_paper",
+        "name": "Mean Citations",
+        "unit": "cites",
+        "max": 40.0,
+        "desc": "Average citations per distinct publication"
+      },
+      {
+        "key": "top10_excellence_share_pct",
+        "name": "Top-10% Excellence",
+        "unit": "%",
+        "max": 25.0,
+        "desc": "Share of papers in world top-10% citation decile"
+      },
+      {
+        "key": "network_betweenness",
+        "name": "Network Centrality",
+        "unit": "score",
+        "max": 0.1,
+        "desc": "Betweenness bridging centrality in macro collaboration network"
+      },
+      {
+        "key": "industry_papers",
+        "name": "Industry Linkage",
+        "unit": "papers",
+        "max": 100.0,
+        "desc": "Number of co-authored papers with corporate partners"
+      }
+    ],
+    "labs": {
+      "iict": {
+        "institution": "CSIR-IICT",
+        "name": "CSIR-IICT",
+        "color": "#2B5C8F",
+        "papers": 6123,
+        "values": [
+          51.25,
+          22.11,
+          20.49,
+          8.93,
+          0.0786,
+          53.0
+        ],
+        "normalized": [
+          51.2,
+          55.3,
+          51.2,
+          35.7,
+          78.6,
+          53.0
+        ],
+        "metrics": {
+          "q1_pct": 51.25,
+          "intl_coauthor_pct": 22.11,
+          "mean_citations": 20.49,
+          "top10_pct": 8.93,
+          "betweenness": 0.0786,
+          "industry_papers": 53,
+          "industry_pct": 0.87
+        }
+      },
+      "ncl": {
+        "institution": "CSIR-NCL",
+        "name": "CSIR-NCL",
+        "color": "#2E7D32",
+        "papers": 5316,
+        "values": [
+          64.22,
+          18.19,
+          25.21,
+          12.34,
+          0.0681,
+          81.0
+        ],
+        "normalized": [
+          64.2,
+          45.5,
+          63.0,
+          49.4,
+          68.1,
+          81.0
+        ],
+        "metrics": {
+          "q1_pct": 64.22,
+          "intl_coauthor_pct": 18.19,
+          "mean_citations": 25.21,
+          "top10_pct": 12.34,
+          "betweenness": 0.0681,
+          "industry_papers": 81,
+          "industry_pct": 1.52
+        }
+      },
+      "cecri": {
+        "institution": "CSIR-CECRI",
+        "name": "CSIR-CECRI",
+        "color": "#D95F02",
+        "papers": 2870,
+        "values": [
+          70.03,
+          30.35,
+          32.44,
+          17.29,
+          0.0486,
+          8.0
+        ],
+        "normalized": [
+          70.0,
+          75.9,
+          81.1,
+          69.2,
+          48.6,
+          8.0
+        ],
+        "metrics": {
+          "q1_pct": 70.03,
+          "intl_coauthor_pct": 30.35,
+          "mean_citations": 32.44,
+          "top10_pct": 17.29,
+          "betweenness": 0.0486,
+          "industry_papers": 8,
+          "industry_pct": 0.28
+        }
+      }
     }
   }
 };

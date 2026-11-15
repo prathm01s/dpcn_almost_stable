@@ -1,18 +1,18 @@
 your_inst,partner_inst,shared_papers,total_citations
-CSIR-CECRI,Alagappa University,168,5309
-CSIR-CECRI,Academy of Scientific and Innovative Research,111,2692
-CSIR-CECRI,SRM Institute of Science and Technology,67,1753
-CSIR-CECRI,Council of Scientific and Industrial Research,66,2152
+CSIR-CECRI,Alagappa University,167,5309
+CSIR-CECRI,Academy of Scientific and Innovative Research,108,2677
+CSIR-CECRI,SRM Institute of Science and Technology,66,1753
+CSIR-CECRI,Council of Scientific and Industrial Research,65,2152
 CSIR-CECRI,Indian Institute of Technology Madras,61,1334
 CSIR-CECRI,National Institute of Technology Tiruchirappalli,51,1405
 CSIR-CECRI,"Anna University, Chennai",50,1944
-CSIR-CECRI,Central Salt and Marine Chemicals Research Institute,47,1268
+CSIR-CECRI,Central Salt and Marine Chemicals Research Institute,46,1268
 CSIR-CECRI,Bharathidasan University,40,774
 CSIR-CECRI,Bharathiar University,37,1797
 CSIR-CECRI,Vellore Institute of Technology University,36,1344
 CSIR-CECRI,Mahatma Gandhi University,34,1091
-CSIR-CECRI,CSIR-NCL,31,727
 CSIR-CECRI,University of Madras,31,1142
+CSIR-CECRI,CSIR-NCL,30,727
 CSIR-CECRI,CSIR National Physical Laboratory of India,28,1140
 CSIR-CECRI,Jain University,28,867
 CSIR-CECRI,SASTRA University,28,1176
@@ -36,12 +36,12 @@ CSIR-CECRI,CSIR-IICT,16,444
 CSIR-CECRI,Indian Institute of Science Bangalore,16,376
 CSIR-CECRI,Homi Bhabha National Institute,15,412
 CSIR-CECRI,Pondicherry University,15,506
-CSIR-CECRI,Bishop Heber College,14,231
-CSIR-CECRI,Indian Institute of Science Education and Research Kolkata,14,265
 CSIR-CECRI,Indian Institute of Technology Delhi,14,271
-CSIR-CECRI,Indian Institute of Technology Indore,14,335
 CSIR-CECRI,Sri Sivasubramaniya Nadar College of Engineering,14,247
 CSIR-CECRI,Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology,14,251
+CSIR-CECRI,Bishop Heber College,13,231
+CSIR-CECRI,Indian Institute of Science Education and Research Kolkata,13,263
+CSIR-CECRI,Indian Institute of Technology Indore,13,333
 CSIR-CECRI,Periyar University,13,455
 CSIR-CECRI,Sathyabama Institute of Science and Technology,13,192
 CSIR-CECRI,Saveetha University,13,193
@@ -362,52 +362,52 @@ CSIR-CECRI,West Bengal State University,1,1
 CSIR-CECRI,Women's Christian College,1,12
 CSIR-CECRI,Yenepoya Research Centre,1,18
 CSIR-CECRI,Yenepoya University,1,18
-CSIR-IICT,Academy of Scientific and Innovative Research,321,4834
-CSIR-IICT,Osmania University,262,4281
+CSIR-IICT,Academy of Scientific and Innovative Research,319,4825
+CSIR-IICT,Osmania University,258,4280
 CSIR-IICT,National Institute of Pharmaceutical Education and Research,184,4599
 CSIR-IICT,Centre for Cellular and Molecular Biology,183,4675
-CSIR-IICT,Council of Scientific and Industrial Research,159,2947
-CSIR-IICT,University of Hyderabad,111,2077
+CSIR-IICT,Council of Scientific and Industrial Research,158,2938
+CSIR-IICT,University of Hyderabad,109,2071
 CSIR-IICT,Birla Institute of Technology and Science - Hyderabad Campus,99,2579
 CSIR-IICT,"Birla Institute of Technology and Science, Pilani",94,1895
 CSIR-IICT,GITAM University,83,815
-CSIR-IICT,"Jawaharlal Nehru Technological University, Hyderabad",76,1071
+CSIR-IICT,"Jawaharlal Nehru Technological University, Hyderabad",75,1070
 CSIR-IICT,Bhabha Atomic Research Centre,59,1677
-CSIR-IICT,Indian Institute of Technology Hyderabad,59,1022
-CSIR-IICT,CSIR-NCL,58,969
+CSIR-IICT,Indian Institute of Technology Hyderabad,58,1022
 CSIR-IICT,National Institute of Technology Warangal,57,3052
+CSIR-IICT,CSIR-NCL,56,969
 CSIR-IICT,Central Drug Research Institute,49,1091
 CSIR-IICT,Andhra University,47,1030
-CSIR-IICT,Indian Institute of Technology Kanpur,47,1595
-CSIR-IICT,CSIR National Physical Laboratory of India,43,882
+CSIR-IICT,Indian Institute of Technology Kanpur,45,1594
+CSIR-IICT,CSIR National Physical Laboratory of India,42,873
 CSIR-IICT,Yogi Vemana University,42,1186
 CSIR-IICT,Goa University,39,582
 CSIR-IICT,Sri Venkateswara University,39,964
-CSIR-IICT,National Institute for Interdisciplinary Science and Technology,38,446
 CSIR-IICT,North East Institute of Science and Technology,38,721
-CSIR-IICT,Kakatiya University,37,819
-CSIR-IICT,Swami Ramanand Teerth Marathwada University,35,387
+CSIR-IICT,National Institute for Interdisciplinary Science and Technology,37,446
+CSIR-IICT,Kakatiya University,36,812
+CSIR-IICT,Swami Ramanand Teerth Marathwada University,34,387
 CSIR-IICT,Jadavpur University,33,2856
-CSIR-IICT,Indian Institute of Technology BHU,30,388
 CSIR-IICT,Acharya Nagarjuna University,29,569
 CSIR-IICT,Banaras Hindu University,29,404
 CSIR-IICT,Homi Bhabha National Institute,29,487
+CSIR-IICT,Indian Institute of Technology BHU,28,388
 CSIR-IICT,Koneru Lakshmaiah Education Foundation,28,660
 CSIR-IICT,Central University of Gujarat,27,1126
-CSIR-IICT,Indian Institute of Technology Kharagpur,27,541
+CSIR-IICT,Indian Institute of Technology Kharagpur,26,541
 CSIR-IICT,Central University of Rajasthan,25,2169
 CSIR-IICT,National Institute of Nutrition,25,552
 CSIR-IICT,Indian Institute of Integrative Medicine,24,243
 CSIR-IICT,Manipal Academy of Higher Education,24,339
 CSIR-IICT,Sambalpur University,24,187
-CSIR-IICT,Indian Institute of Petroleum,22,605
+CSIR-IICT,Indian Institute of Petroleum,21,605
 CSIR-IICT,Indian Institute of Technology Bombay,21,388
 CSIR-IICT,Jamia Hamdard,21,388
 CSIR-IICT,LNM Institute of Information Technology,21,292
 CSIR-IICT,"SRM University, Andhra Pradesh",21,350
 CSIR-IICT,Central Salt and Marine Chemicals Research Institute,20,426
-CSIR-IICT,Indian Institute of Science Bangalore,20,445
 CSIR-IICT,Tezpur University,20,347
+CSIR-IICT,Indian Institute of Science Bangalore,19,445
 CSIR-IICT,Indian Institute of Toxicology Research,19,465
 CSIR-IICT,Telangana University,19,200
 CSIR-IICT,Indian Association for the Cultivation of Science,18,825
@@ -419,7 +419,6 @@ CSIR-IICT,CSIR-CECRI,16,444
 CSIR-IICT,Chaitanya Bharathi Institute of Technology,16,157
 CSIR-IICT,Indian Institute of Science Education and Research Kolkata,16,342
 CSIR-IICT,Indrashil University,16,137
-CSIR-IICT,Institute of Chemical Technology,16,200
 CSIR-IICT,Jain University,16,381
 CSIR-IICT,Pondicherry University,16,299
 CSIR-IICT,Savitribai Phule Pune University,16,439
@@ -428,6 +427,7 @@ CSIR-IICT,Vellore Institute of Technology University,16,320
 CSIR-IICT,Amrita Vishwa Vidyapeetham,15,399
 CSIR-IICT,Central Institute of Medicinal and Aromatic Plants,15,141
 CSIR-IICT,Indian Institute of Chemical Biology,15,144
+CSIR-IICT,Institute of Chemical Technology,15,200
 CSIR-IICT,Institute of Minerals and Materials Technology,15,271
 CSIR-IICT,Pandit Deendayal Energy University,15,196
 CSIR-IICT,Central University of Karnataka,14,78
@@ -438,19 +438,19 @@ CSIR-IICT,Indian Institute of Technology Roorkee,13,487
 CSIR-IICT,Indian Statistical Institute,13,742
 CSIR-IICT,SASTRA University,13,525
 CSIR-IICT,University of Delhi,13,356
-CSIR-IICT,Annamalai University,12,375
 CSIR-IICT,Central Leather Research Institute,12,243
 CSIR-IICT,Government of Andhra Pradesh,12,92
-CSIR-IICT,Jawaharlal Nehru Centre for Advanced Scientific Research,12,429
 CSIR-IICT,Patna University,12,561
 CSIR-IICT,University of Mumbai,12,131
-CSIR-IICT,All India Institute of Medical Sciences,11,129
 CSIR-IICT,"Anna University, Chennai",11,327
+CSIR-IICT,Annamalai University,11,375
 CSIR-IICT,GVK (India),11,196
 CSIR-IICT,Indian Institute of Technology Delhi,11,328
 CSIR-IICT,Institute for Stem Cell Biology and Regenerative Medicine,11,269
+CSIR-IICT,Jawaharlal Nehru Centre for Advanced Scientific Research,11,428
 CSIR-IICT,National Environmental Engineering Research Institute,11,351
 CSIR-IICT,Adikavi Nannaya University,10,52
+CSIR-IICT,All India Institute of Medical Sciences,10,129
 CSIR-IICT,Amity University,10,1977
 CSIR-IICT,Banasthali University,10,136
 CSIR-IICT,Dr. Babasaheb Ambedkar Marathwada University,10,370
@@ -462,7 +462,6 @@ CSIR-IICT,Bharathidasan University,9,118
 CSIR-IICT,"Birla Institute of Technology, Mesra",9,320
 CSIR-IICT,Center for Excellence in Basic Sciences,9,119
 CSIR-IICT,Centre of Biomedical Research,9,156
-CSIR-IICT,Defence Metallurgical Research Laboratory,9,270
 CSIR-IICT,"Indian Institute of Science Education and Research, Bhopal",9,156
 CSIR-IICT,National Aerospace Laboratories,9,193
 CSIR-IICT,National Geophysical Research Institute,9,111
@@ -476,6 +475,7 @@ CSIR-IICT,Bose Institute,8,92
 CSIR-IICT,Central Agricultural University,8,65
 CSIR-IICT,"Christian Medical College, Vellore",8,102
 CSIR-IICT,Cipla (India),8,28
+CSIR-IICT,Defence Metallurgical Research Laboratory,8,270
 CSIR-IICT,Fourth Paradigm Institute,8,205
 CSIR-IICT,Guru Ghasidas Vishwavidyalaya,8,259
 CSIR-IICT,ICMR-National Institute of Virology,8,202
@@ -512,7 +512,6 @@ CSIR-IICT,Kalasalingam Academy of Research and Education,6,122
 CSIR-IICT,National Institute of Technology Karnataka,6,146
 CSIR-IICT,National Institute of Technology Kurukshetra,6,118
 CSIR-IICT,National Institute of Technology Rourkela,6,98
-CSIR-IICT,Periyar University,6,182
 CSIR-IICT,SRM University,6,39
 CSIR-IICT,Sanjay Gandhi Post Graduate Institute of Medical Sciences,6,102
 CSIR-IICT,Sri Balaji Vidyapeeth University,6,38
@@ -522,7 +521,6 @@ CSIR-IICT,Visvesvaraya National Institute of Technology,6,80
 CSIR-IICT,Aligarh Muslim University,5,74
 CSIR-IICT,"All India Institute of Ayurveda, New Delhi",5,46
 CSIR-IICT,Amrita Institute of Medical Sciences and Research Centre,5,193
-CSIR-IICT,Assam University,5,29
 CSIR-IICT,Babu Banarasi Das University,5,95
 CSIR-IICT,Central Food Technological Research Institute,5,134
 CSIR-IICT,Chaitanya,5,102
@@ -540,12 +538,14 @@ CSIR-IICT,National Institute of Research in Tuberculosis,5,124
 CSIR-IICT,National Institute of Technology Calicut,5,274
 CSIR-IICT,National Metallurgical Laboratory,5,55
 CSIR-IICT,Palamuru University,5,83
+CSIR-IICT,Periyar University,5,175
 CSIR-IICT,REVA University,5,203
 CSIR-IICT,Siksha O Anusandhan University,5,64
 CSIR-IICT,Tata Institute of Fundamental Research,5,28
 CSIR-IICT,University of Kalyani,5,373
 CSIR-IICT,All India Institute of Medical Sciences Bibinagar,4,32
 CSIR-IICT,Assam Agricultural University,4,21
+CSIR-IICT,Assam University,4,29
 CSIR-IICT,Bharathiar University,4,116
 CSIR-IICT,Bidhannagar College,4,56
 CSIR-IICT,Central Scientific Instruments Organisation,4,54
@@ -580,7 +580,6 @@ CSIR-IICT,Central Electronics Engineering Research Institute,3,41
 CSIR-IICT,Central Institute of Mining and Fuel Research,3,41
 CSIR-IICT,Central Mechanical Engineering Research Institute,3,68
 CSIR-IICT,Centre for Nano and Soft Matter Sciences,3,12
-CSIR-IICT,Centurion University of Technology and Management,3,5
 CSIR-IICT,Dayananda Sagar College of Engineering,3,3
 CSIR-IICT,Dhirubhai Ambani University,3,47
 CSIR-IICT,Dibrugarh University,3,172
@@ -647,6 +646,7 @@ CSIR-IICT,Central Building Research Institute,2,41
 CSIR-IICT,Central Glass and Ceramic Research Institute,2,23
 CSIR-IICT,Central University of Kerala,2,89
 CSIR-IICT,Central University of South Bihar,2,14
+CSIR-IICT,Centurion University of Technology and Management,2,5
 CSIR-IICT,Chhatrapati Shahu Ji Maharaj University,2,47
 CSIR-IICT,Cochin University of Science and Technology,2,26
 CSIR-IICT,D.Y. Patil University,2,14
@@ -788,7 +788,6 @@ CSIR-IICT,Harish-Chandra Research Institute,1,18
 CSIR-IICT,Hemwati Nandan Bahuguna Garhwal University,1,14
 CSIR-IICT,Hindustan Petroleum Corporation Limited (India),1,50
 CSIR-IICT,Hislop College,1,15
-CSIR-IICT,Honeywell (India),1,0
 CSIR-IICT,ICAR Research Complex for NEH Region,1,3
 CSIR-IICT,ICAR-Indian Institute of Maize Research,1,43
 CSIR-IICT,India Meteorological Department,1,18
@@ -931,78 +930,77 @@ CSIR-IICT,Wadia Institute of Himalayan Geology,1,10
 CSIR-IICT,West Bengal University of Health Sciences,1,22
 CSIR-IICT,Wipro (India),1,0
 CSIR-IICT,Woxsen School of Business,1,0
-CSIR-NCL,Savitribai Phule Pune University,358,8723
-CSIR-NCL,Indian Institute of Science Education and Research Pune,245,7036
-CSIR-NCL,Academy of Scientific and Innovative Research,226,5370
-CSIR-NCL,Council of Scientific and Industrial Research,117,3289
-CSIR-NCL,Bhabha Atomic Research Centre,102,1872
-CSIR-NCL,Indian Institute of Science Education and Research Kolkata,86,6118
-CSIR-NCL,Indian Institute of Technology Bombay,86,1732
+CSIR-NCL,Savitribai Phule Pune University,355,8704
+CSIR-NCL,Indian Institute of Science Education and Research Pune,230,6842
+CSIR-NCL,Academy of Scientific and Innovative Research,225,5333
+CSIR-NCL,Council of Scientific and Industrial Research,116,3252
+CSIR-NCL,Bhabha Atomic Research Centre,101,1871
+CSIR-NCL,Indian Institute of Technology Bombay,84,1692
+CSIR-NCL,Indian Institute of Science Education and Research Kolkata,82,5974
 CSIR-NCL,Shivaji University,66,1582
-CSIR-NCL,Indian Institute of Science Bangalore,65,2868
-CSIR-NCL,CSIR-IICT,58,969
-CSIR-NCL,Jawaharlal Nehru Centre for Advanced Scientific Research,50,1911
+CSIR-NCL,Indian Institute of Science Bangalore,62,2829
+CSIR-NCL,CSIR-IICT,56,969
 CSIR-NCL,Institute of Chemical Technology,49,1177
 CSIR-NCL,National Centre for Cell Science,49,1283
 CSIR-NCL,University of Hyderabad,49,2059
 CSIR-NCL,Bharati Vidyapeeth (Deemed to be University),48,1981
+CSIR-NCL,Jawaharlal Nehru Centre for Advanced Scientific Research,48,1903
 CSIR-NCL,Central Salt and Marine Chemicals Research Institute,45,1258
 CSIR-NCL,Homi Bhabha National Institute,42,871
 CSIR-NCL,Indian Institute of Technology Madras,40,1010
-CSIR-NCL,Symbiosis International University,39,888
-CSIR-NCL,"Indian Institute of Science Education and Research, Tirupati",38,1187
 CSIR-NCL,Centre for Materials for Electronics Technology,37,1134
+CSIR-NCL,"Indian Institute of Science Education and Research, Tirupati",36,1181
 CSIR-NCL,Institute of Genomics and Integrative Biology,36,1082
+CSIR-NCL,Symbiosis International University,36,881
 CSIR-NCL,Indian Institute of Technology Delhi,35,835
 CSIR-NCL,University of Mumbai,35,826
 CSIR-NCL,Visvesvaraya National Institute of Technology,34,1689
-CSIR-NCL,"Indian Institute of Science Education and Research, Bhopal",33,2177
 CSIR-NCL,Dr. Babasaheb Ambedkar Marathwada University,32,1165
 CSIR-NCL,SRM Institute of Science and Technology,32,688
-CSIR-NCL,CSIR-CECRI,31,727
-CSIR-NCL,National Institute for Interdisciplinary Science and Technology,31,1232
-CSIR-NCL,Indian Institute of Technology Hyderabad,28,607
+CSIR-NCL,"Indian Institute of Science Education and Research, Bhopal",31,2163
+CSIR-NCL,CSIR-CECRI,30,727
+CSIR-NCL,National Institute for Interdisciplinary Science and Technology,30,1195
 CSIR-NCL,Cochin University of Science and Technology,27,492
+CSIR-NCL,Indian Institute of Technology Hyderabad,27,607
 CSIR-NCL,Solapur University,26,872
 CSIR-NCL,Indian Institute of Petroleum,25,589
-CSIR-NCL,Agharkar Research Institute,24,741
 CSIR-NCL,Defence Institute of Advanced Technology,24,727
 CSIR-NCL,Abasaheb Garware College,23,759
+CSIR-NCL,Agharkar Research Institute,23,727
 CSIR-NCL,Indian Institute of Integrative Medicine,22,163
 CSIR-NCL,Indian Institute of Science Education and Research Mohali,22,714
 CSIR-NCL,Manipal Academy of Higher Education,22,500
 CSIR-NCL,University of Delhi,22,920
-CSIR-NCL,Banaras Hindu University,21,258
 CSIR-NCL,Centre for Cellular and Molecular Biology,21,664
-CSIR-NCL,Centre for Nano and Soft Matter Sciences,21,255
 CSIR-NCL,Vellore Institute of Technology University,21,631
+CSIR-NCL,Banaras Hindu University,20,255
 CSIR-NCL,Indian Institute of Technology Roorkee,20,564
+CSIR-NCL,Centre for Nano and Soft Matter Sciences,19,249
 CSIR-NCL,Indian Association for the Cultivation of Science,19,357
 CSIR-NCL,MIT World Peace University,19,69
-CSIR-NCL,Tata Institute of Fundamental Research,19,329
-CSIR-NCL,Indian Institute of Technology Kharagpur,17,2591
 CSIR-NCL,National Institute of Technology Warangal,17,420
 CSIR-NCL,Reliance Industries (India),17,408
 CSIR-NCL,Central Drug Research Institute,16,296
 CSIR-NCL,Central Food Technological Research Institute,16,414
+CSIR-NCL,Indian Institute of Technology Kharagpur,16,2531
 CSIR-NCL,National Environmental Engineering Research Institute,16,231
 CSIR-NCL,Kavayitri Bahinabai Chaudhari North Maharashtra University,15,248
+CSIR-NCL,Tata Institute of Fundamental Research,15,326
 CSIR-NCL,"Birla Institute of Technology and Science, Pilani",14,334
 CSIR-NCL,Central Leather Research Institute,14,284
-CSIR-NCL,Goa University,14,209
 CSIR-NCL,Indian Institute of Technology Jodhpur,14,206
 CSIR-NCL,Institute of Microbial Technology,14,265
 CSIR-NCL,Jain University,14,366
 CSIR-NCL,North East Institute of Science and Technology,14,542
 CSIR-NCL,Osmania University,14,262
 CSIR-NCL,Central Institute of Medicinal and Aromatic Plants,13,290
+CSIR-NCL,Goa University,13,203
 CSIR-NCL,Shiv Nadar University,13,311
 CSIR-NCL,Swami Ramanand Teerth Marathwada University,13,231
 CSIR-NCL,Alliance University,12,278
 CSIR-NCL,CSIR National Physical Laboratory of India,12,271
 CSIR-NCL,Central Glass and Ceramic Research Institute,12,263
 CSIR-NCL,Central University of Gujarat,12,349
-CSIR-NCL,Indian Institute of Science Education and Research Thiruvananthapuram,12,170
 CSIR-NCL,Indian Institute of Technology Bhubaneswar,12,582
 CSIR-NCL,Indian Institute of Technology Guwahati,12,315
 CSIR-NCL,Indian Institute of Technology Indore,12,365
@@ -1011,14 +1009,12 @@ CSIR-NCL,Indira Gandhi Centre for Atomic Research,12,630
 CSIR-NCL,Jawaharlal Nehru University,12,163
 CSIR-NCL,"MIT Art, Design and Technology University",12,118
 CSIR-NCL,Maharaja Sayajirao University of Baroda,12,175
-CSIR-NCL,National Centre for Biological Sciences,12,53
-CSIR-NCL,Acharya Institute of Technology,11,131
 CSIR-NCL,Central Scientific Instruments Organisation,11,207
+CSIR-NCL,Indian Institute of Science Education and Research Thiruvananthapuram,11,152
 CSIR-NCL,KIIT University,11,349
 CSIR-NCL,National Institute of Immunology,11,156
 CSIR-NCL,Rashtrasant Tukadoji Maharaj Nagpur University,11,55
-CSIR-NCL,SRM University,11,296
-CSIR-NCL,Armament Research and Development Establishment,10,286
+CSIR-NCL,Acharya Institute of Technology,10,124
 CSIR-NCL,Ashoka University,10,34
 CSIR-NCL,Birla Institute of Technology and Science - Hyderabad Campus,10,125
 CSIR-NCL,Fergusson College,10,115
@@ -1036,22 +1032,24 @@ CSIR-NCL,UGC DAE Consortium for Scientific Research,10,184
 CSIR-NCL,Vishwakarma Institute of Technology,10,384
 CSIR-NCL,Amity University Mumbai,9,159
 CSIR-NCL,Government of India,9,249
-CSIR-NCL,Indian Institute of Technology Kanpur,9,998
 CSIR-NCL,Rajiv Gandhi Centre for Biotechnology,9,211
+CSIR-NCL,SRM University,9,296
 CSIR-NCL,Visvesvaraya Technological University,9,238
 CSIR-NCL,Aligarh Muslim University,8,341
 CSIR-NCL,Amity University,8,91
+CSIR-NCL,Armament Research and Development Establishment,8,252
 CSIR-NCL,Indian Institute of Technology Dhanbad,8,550
+CSIR-NCL,Indian Institute of Technology Kanpur,8,963
 CSIR-NCL,Institute of Minerals and Materials Technology,8,221
 CSIR-NCL,International Centre for Genetic Engineering and Biotechnology,8,123
 CSIR-NCL,Madurai Kamaraj University,8,186
+CSIR-NCL,National Centre for Biological Sciences,8,50
 CSIR-NCL,National Research Centre for Grapes,8,146
 CSIR-NCL,University of Calcutta,8,75
 CSIR-NCL,University of Kerala,8,169
 CSIR-NCL,University of Madras,8,166
 CSIR-NCL,Aditya Birla (India),7,190
 CSIR-NCL,All India Institute of Medical Sciences,7,273
-CSIR-NCL,Amrita Vishwa Vidyapeetham,7,214
 CSIR-NCL,"Birla Institute of Technology, Mesra",7,125
 CSIR-NCL,D.Y. Patil University,7,606
 CSIR-NCL,Dr. Hari Singh Gour University,7,445
@@ -1062,13 +1060,13 @@ CSIR-NCL,Mahatma Gandhi University,7,108
 CSIR-NCL,National Institute of Technology Karnataka,7,200
 CSIR-NCL,Periyar University,7,74
 CSIR-NCL,University of Mysore,7,143
+CSIR-NCL,Amrita Vishwa Vidyapeetham,6,197
 CSIR-NCL,Bhavnagar University,6,231
 CSIR-NCL,Central University of Kerala,6,38
 CSIR-NCL,Chellaram Hospital,6,51
 CSIR-NCL,Dayananda Sagar University,6,275
 CSIR-NCL,Gauhati University,6,224
 CSIR-NCL,Guru Ghasidas Vishwavidyalaya,6,201
-CSIR-NCL,Harish-Chandra Research Institute,6,207
 CSIR-NCL,High Energy Materials Research Laboratory,6,164
 CSIR-NCL,Indian Institute of Technology Bhilai,6,111
 CSIR-NCL,Ministry of Electronics and Information Technology,6,224
@@ -1079,11 +1077,11 @@ CSIR-NCL,Nitte University,6,62
 CSIR-NCL,Praj (India),6,94
 CSIR-NCL,Saha Institute of Nuclear Physics,6,50
 CSIR-NCL,University of Allahabad,6,63
-CSIR-NCL,BAIF Development Research Foundation,5,24
 CSIR-NCL,Central Electronics Engineering Research Institute,5,282
 CSIR-NCL,"Dr. D.Y. Patil Vidyapeeth, Pune",5,41
 CSIR-NCL,GITAM University,5,11
 CSIR-NCL,Gondwana University,5,32
+CSIR-NCL,Harish-Chandra Research Institute,5,206
 CSIR-NCL,Indian Institute of Technology Patna,5,397
 CSIR-NCL,Inter-University Accelerator Centre,5,78
 CSIR-NCL,"International Institute of Information Technology, Hyderabad",5,113
@@ -1097,13 +1095,13 @@ CSIR-NCL,National Aerospace Laboratories,5,132
 CSIR-NCL,National Institute of Technology Srinagar,5,61
 CSIR-NCL,Poornaprajna Institute of Scientific Research,5,101
 CSIR-NCL,Regional Centre for Biotechnology,5,89
-CSIR-NCL,"SRM University, Andhra Pradesh",5,51
 CSIR-NCL,Sathyabama Institute of Science and Technology,5,82
 CSIR-NCL,Siksha O Anusandhan University,5,112
 CSIR-NCL,University of Kashmir,5,76
 CSIR-NCL,Advanced Materials and Processes Research Institute,4,143
 CSIR-NCL,"Anna University, Chennai",4,66
 CSIR-NCL,B. J. Medical College & Sassoon Hospital,4,17
+CSIR-NCL,BAIF Development Research Foundation,4,23
 CSIR-NCL,BRIC-National Agri-Food and Biomanufacturing Institute,4,105
 CSIR-NCL,Bharat Petroleum (India),4,97
 CSIR-NCL,"Bharati Vidyapeeth College of Pharmacy, Kolhapur",4,73
@@ -1122,7 +1120,6 @@ CSIR-NCL,Jamia Hamdard,4,51
 CSIR-NCL,Karunya University,4,244
 CSIR-NCL,M S Ramaiah University of Applied Sciences,4,100
 CSIR-NCL,Madras Diabetes Research Foundation,4,41
-CSIR-NCL,Mangalore University,4,82
 CSIR-NCL,Manipur University,4,130
 CSIR-NCL,National AIDS Research Institute,4,48
 CSIR-NCL,National Institute of Oceanography,4,41
@@ -1133,7 +1130,6 @@ CSIR-NCL,Saurashtra University,4,19
 CSIR-NCL,Saveetha University,4,10
 CSIR-NCL,Shell (India),4,78
 CSIR-NCL,Shri Govindram Seksaria Institute of Technology and Science,4,127
-CSIR-NCL,TCG Crest,4,66
 CSIR-NCL,Tamil Nadu Agricultural University,4,18
 CSIR-NCL,Translational Health Science and Technology Institute,4,73
 CSIR-NCL,"University of Agricultural Sciences, Bangalore",4,101
@@ -1158,12 +1154,11 @@ CSIR-NCL,Indian Institute of Sugarcane Research,3,4
 CSIR-NCL,Indian Institute of Technology Gandhinagar,3,19
 CSIR-NCL,Indian Institute of Technology Mandi,3,51
 CSIR-NCL,Indian Institute of Technology Ropar,3,9
-CSIR-NCL,Institute of Medical Sciences,3,51
 CSIR-NCL,Integral University,3,118
-CSIR-NCL,International Centre for Theoretical Sciences,3,40
 CSIR-NCL,Kuvempu University,3,86
 CSIR-NCL,Lovely Professional University,3,75
 CSIR-NCL,Maharshi Dayanand University,3,84
+CSIR-NCL,Mangalore University,3,82
 CSIR-NCL,Maulana Azad National Institute of Technology,3,52
 CSIR-NCL,National Brain Research Centre,3,38
 CSIR-NCL,National Institute of Malaria Research,3,23
@@ -1177,10 +1172,12 @@ CSIR-NCL,Pandit Ravishankar Shukla University,3,147
 CSIR-NCL,Piramal (India),3,112
 CSIR-NCL,RK University,3,91
 CSIR-NCL,Raja Ramanna Centre for Advanced Technology,3,6
+CSIR-NCL,"SRM University, Andhra Pradesh",3,51
 CSIR-NCL,Sacred Heart College,3,239
 CSIR-NCL,Sami Labs (India),3,54
 CSIR-NCL,Sri Sivasubramaniya Nadar College of Engineering,3,30
 CSIR-NCL,Sugarcane Breeding Institute,3,4
+CSIR-NCL,TCG Crest,3,65
 CSIR-NCL,TIFR Centre for Interdisciplinary Sciences,3,23
 CSIR-NCL,Tata Memorial Hospital,3,36
 CSIR-NCL,Tripura University,3,107
@@ -1190,7 +1187,6 @@ CSIR-NCL,"Vignan's Foundation for Science, Technology & Research",3,11
 CSIR-NCL,Visva-Bharati University,3,17
 CSIR-NCL,Yenepoya Research Centre,3,53
 CSIR-NCL,Yenepoya University,3,53
-CSIR-NCL,Advanced Enzyme Technologies Limited (India),2,1
 CSIR-NCL,Alagappa University,2,25
 CSIR-NCL,Amity University Gurugram,2,30
 CSIR-NCL,"Annasaheb Magar Mahavidyalaya, Hadapsar, Pune",2,1
@@ -1221,8 +1217,10 @@ CSIR-NCL,Indraprastha Institute of Information Technology Delhi,2,31
 CSIR-NCL,Institute for Stem Cell Biology and Regenerative Medicine,2,28
 CSIR-NCL,Institute of Advanced Study in Science and Technology,2,36
 CSIR-NCL,Institute of Life Sciences,2,14
+CSIR-NCL,Institute of Medical Sciences,2,48
 CSIR-NCL,Institute of Nuclear Medicine & Allied Sciences,2,32
 CSIR-NCL,"Institute of Physics, Bhubaneshwar",2,32
+CSIR-NCL,International Centre for Theoretical Sciences,2,34
 CSIR-NCL,Jamia Millia Islamia,2,25
 CSIR-NCL,Jawaharlal Nehru Technological University Anantapur,2,10
 CSIR-NCL,Jaypee University of Information Technology,2,51
@@ -1274,6 +1272,7 @@ CSIR-NCL,Veer Narmad South Gujarat University,2,20
 CSIR-NCL,Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology,2,21
 CSIR-NCL,West Bengal State University,2,6
 CSIR-NCL,Adamas University,1,35
+CSIR-NCL,Advanced Enzyme Technologies Limited (India),1,0
 CSIR-NCL,Advanced Numerical Research and Analysis Group,1,0
 CSIR-NCL,Advanced Systems Laboratory,1,32
 CSIR-NCL,Ahmedabad University,1,1

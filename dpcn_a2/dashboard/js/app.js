@@ -1437,9 +1437,125 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderPhase2() {
     if (!P2) return;
     renderP2Overview();
+    renderInstitutionalRadar();
     renderP2Faculty();
     renderP2Journals();
     renderP2Checks();
+  }
+
+  function renderInstitutionalRadar() {
+    const radarData = data.institutional_radar;
+    if (!radarData) return;
+
+    const dom = document.getElementById("chart-institutional-radar");
+    if (!dom) return;
+    if (!charts.radar) charts.radar = echarts.init(dom);
+
+    const indicators = radarData.indicators.map(ind => ({
+      name: ind.name,
+      max: ind.max,
+    }));
+
+    const labs = radarData.labs;
+    const isCompareOrAll = (currentInst === "all" || currentInst === "compare");
+
+    const seriesData = ["iict", "ncl", "cecri"].map(k => {
+      const lab = labs[k];
+      const isSelected = isCompareOrAll || (currentInst === k);
+      const isGhosted = !isCompareOrAll && (currentInst !== k);
+
+      return {
+        name: lab.institution,
+        value: lab.values,
+        lineStyle: {
+          width: isSelected ? 3 : 1,
+          color: lab.color,
+          opacity: isGhosted ? 0.2 : 1,
+        },
+        itemStyle: {
+          color: lab.color,
+          opacity: isGhosted ? 0.2 : 1,
+        },
+        areaStyle: {
+          color: lab.color,
+          opacity: isGhosted ? 0.05 : 0.25,
+        },
+      };
+    });
+
+    charts.radar.setOption({
+      tooltip: {
+        trigger: "item",
+        confine: true,
+        formatter: function(params) {
+          const k = Object.keys(labs).find(key => labs[key].institution === params.name);
+          const lab = labs[k] || {};
+          let html = `<div style="font-weight:700;margin-bottom:6px;color:${lab.color || '#333'}">${params.name}</div>`;
+          html += `<table style="font-size:12px;border-collapse:collapse;width:100%;">`;
+          radarData.indicators.forEach((ind, i) => {
+            const val = params.value[i];
+            const norm = lab.normalized ? lab.normalized[i] : (val / ind.max * 100);
+            const formattedVal = (ind.key === "network_betweenness") ? val.toFixed(4) :
+                                 (ind.unit === "%") ? `${val.toFixed(1)}%` :
+                                 (ind.unit === "cites") ? `${val.toFixed(1)}` : `${Math.round(val)}`;
+            html += `<tr>
+              <td style="padding:2px 8px 2px 0;color:var(--text-muted);">${ind.name}:</td>
+              <td style="padding:2px 0;text-align:right;font-weight:600;">${formattedVal}</td>
+              <td style="padding:2px 0 2px 6px;text-align:right;font-size:11px;color:var(--text-muted);">(${norm.toFixed(0)}% benchmark)</td>
+            </tr>`;
+          });
+          html += `</table>`;
+          return html;
+        }
+      },
+      legend: {
+        data: ["CSIR-IICT", "CSIR-NCL", "CSIR-CECRI"],
+        bottom: 5,
+        itemWidth: 14,
+        itemHeight: 14,
+        textStyle: { fontSize: 12 },
+      },
+      radar: {
+        indicator: indicators,
+        shape: "polygon",
+        splitNumber: 4,
+        radius: "68%",
+        center: ["50%", "48%"],
+      },
+      series: [{
+        type: "radar",
+        data: seriesData,
+      }]
+    }, true);
+
+    const tbody = document.getElementById("tbody-radar-metrics");
+    if (tbody) {
+      tbody.innerHTML = radarData.indicators.map((ind, i) => {
+        const vIICT = labs.iict.values[i];
+        const vNCL = labs.ncl.values[i];
+        const vCECRI = labs.cecri.values[i];
+
+        const f = (val) => (ind.key === "network_betweenness") ? val.toFixed(4) :
+                           (ind.unit === "%") ? `${val.toFixed(1)}%` :
+                           (ind.unit === "cites") ? `${val.toFixed(1)}` : `${Math.round(val)}`;
+
+        const maxVal = Math.max(vIICT, vNCL, vCECRI);
+        const hiIICT = vIICT === maxVal ? "font-weight:700;color:var(--c-iict);" : "";
+        const hiNCL = vNCL === maxVal ? "font-weight:700;color:var(--c-ncl);" : "";
+        const hiCECRI = vCECRI === maxVal ? "font-weight:700;color:var(--c-cecri);" : "";
+
+        return `<tr>
+          <td>
+            <span class="radar-dim-name">${ind.name}</span>
+            <small class="radar-dim-desc">${ind.desc}</small>
+          </td>
+          <td class="radar-val-cell" style="${hiIICT}">${f(vIICT)}</td>
+          <td class="radar-val-cell" style="${hiNCL}">${f(vNCL)}</td>
+          <td class="radar-val-cell" style="${hiCECRI}">${f(vCECRI)}</td>
+          <td class="radar-bench-cell">≤ ${ind.max}${ind.unit === "%" ? "%" : (ind.unit === "cites" ? " cites" : "")}</td>
+        </tr>`;
+      }).join("");
+    }
   }
 
   function renderP2Overview() {
