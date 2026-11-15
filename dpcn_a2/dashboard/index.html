@@ -260,35 +260,66 @@
       </div>
 
       <div class="card p2-card" id="card-institutional-radar" style="margin-bottom: 1.5rem;">
-        <div class="card-header"><div>
-          <div class="card-title">Institutional Comparative Profile (Spider / Radar Chart)</div>
-          <div class="card-subtitle">Comparing CSIR-IICT, CSIR-NCL, and CSIR-CECRI across 6 normalized performance dimensions (2016–2026). Values calibrated to natural domain benchmarks.</div>
-        </div></div>
-        <div class="grid-2" style="align-items: center; margin-bottom: 0;">
-          <div id="chart-institutional-radar" class="chart-container" style="height: 400px;" role="img" aria-label="Institutional comparative radar chart"></div>
-          <div class="radar-summary-pane">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Institutional Comparative Profile (Spider / Radar Chart)</div>
+            <div class="card-subtitle">Comparing CSIR-IICT, CSIR-NCL, and CSIR-CECRI across 6 normalized performance dimensions (2016–2026). Values calibrated to natural domain benchmarks.</div>
+          </div>
+          <div class="radar-header-badge">
+            <span class="radar-badge-pill">6 Strategic Pillars</span>
+          </div>
+        </div>
+
+        <!-- Top: Radar Chart + Performance Table -->
+        <div class="grid-2 radar-top-grid" style="align-items: center; margin-bottom: 1rem;">
+          <div class="radar-chart-card">
+            <div id="chart-institutional-radar" class="chart-container" style="height: 385px; width: 100%;" role="img" aria-label="Institutional comparative radar chart"></div>
+          </div>
+          <div class="radar-table-card">
             <div style="overflow-x: auto;">
               <table class="net-table" id="table-radar-metrics">
                 <thead>
                   <tr>
-                    <th>Performance Dimension</th>
-                    <th style="color: var(--c-iict); text-align: right;">CSIR-IICT</th>
-                    <th style="color: var(--c-ncl); text-align: right;">CSIR-NCL</th>
-                    <th style="color: var(--c-cecri); text-align: right;">CSIR-CECRI</th>
-                    <th style="text-align: right;">Benchmark Max</th>
+                    <th style="min-width: 175px;">Strategic Dimension</th>
+                    <th class="th-inst th-iict"><span class="inst-pill pill-iict"><span class="pill-dot"></span> CSIR-IICT</span></th>
+                    <th class="th-inst th-ncl"><span class="inst-pill pill-ncl"><span class="pill-dot"></span> CSIR-NCL</span></th>
+                    <th class="th-inst th-cecri"><span class="inst-pill pill-cecri"><span class="pill-dot"></span> CSIR-CECRI</span></th>
+                    <th class="th-bench"><span class="inst-pill pill-bench">Domain Cap</span></th>
                   </tr>
                 </thead>
                 <tbody id="tbody-radar-metrics"></tbody>
               </table>
             </div>
-            <div class="net-note" id="radar-metric-note" style="margin-top: 0.75rem;">
-              <strong>Institutional Specialization Patterns:</strong>
-              <ul style="margin: 0.35rem 0 0; padding-left: 1.2rem; font-size: 0.8rem; line-height: 1.45;">
-                <li><strong style="color: var(--c-cecri);">CSIR-CECRI</strong> dominates in citation velocity (32.4 cites/paper), top-10% world excellence share (17.3%), and international co-authorship (30.4%), reflecting the global citation tailwind in electrochemical clean-energy storage.</li>
-                <li><strong style="color: var(--c-ncl);">CSIR-NCL</strong> leads in corporate industrial translation (81 shared papers with Reliance, TCS, Praj, etc.) and maintains balanced high performance across all research quality metrics.</li>
-                <li><strong style="color: var(--c-iict);">CSIR-IICT</strong> anchors the national network as the primary structural bridging hub (0.0786 betweenness) with high pharmaceutical industry engagement (53 corporate papers).</li>
-              </ul>
+          </div>
+        </div>
+
+        <!-- Bottom: 3 Executive Specialization Profile Cards -->
+        <div class="radar-specialization-cards" id="radar-metric-note">
+          <div class="radar-spec-card spec-cecri">
+            <div class="spec-head">
+              <span class="spec-inst-name" style="color: var(--c-cecri);">CSIR-CECRI</span>
+              <span class="spec-tag tag-cecri">Citation Velocity &amp; Excellence Champion</span>
             </div>
+            <div class="spec-metrics"><strong>32.4</strong> cites/paper · <strong>17.3%</strong> world top-10% share · <strong>30.4%</strong> foreign co-authors</div>
+            <div class="spec-desc">Dominates in citation velocity and top-decile excellence share, propelled by global citation tailwinds in clean electrochemical energy storage and battery materials.</div>
+          </div>
+
+          <div class="radar-spec-card spec-ncl">
+            <div class="spec-head">
+              <span class="spec-inst-name" style="color: var(--c-ncl);">CSIR-NCL</span>
+              <span class="spec-tag tag-ncl">Industrial Translation Leader</span>
+            </div>
+            <div class="spec-metrics"><strong>81</strong> corporate papers (Reliance, TCS, Praj) · <strong>64.2%</strong> Q1 journal ratio</div>
+            <div class="spec-desc">Leads in corporate industrial translation and maintains balanced excellence across organic synthesis, catalysis, and polymer engineering.</div>
+          </div>
+
+          <div class="radar-spec-card spec-iict">
+            <div class="spec-head">
+              <span class="spec-inst-name" style="color: var(--c-iict);">CSIR-IICT</span>
+              <span class="spec-tag tag-iict">National Network Keystone</span>
+            </div>
+            <div class="spec-metrics"><strong>0.0786</strong> betweenness centrality · <strong>53</strong> corporate papers</div>
+            <div class="spec-desc">Anchors the national research network as the primary structural bridging hub with deep pharmaceutical and fine chemicals translation.</div>
           </div>
         </div>
       </div>

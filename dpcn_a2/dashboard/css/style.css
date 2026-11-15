@@ -998,47 +998,277 @@ body.on-hero .dot-nav a.active .dot { background: #fff; }
 }
 
 /* Multi-dimensional Institutional Radar Styles */
+.radar-header-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.radar-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--surface-3);
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.radar-chart-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 .radar-summary-pane {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
+}
+.radar-table-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 #table-radar-metrics {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.82rem;
 }
-#table-radar-metrics th, #table-radar-metrics td {
-  padding: 0.45rem 0.55rem;
+#table-radar-metrics thead th {
+  background: var(--surface-2);
+  padding: 0.6rem 0.65rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-2);
+  border-bottom: 2px solid var(--border);
+  text-align: right;
+  white-space: nowrap;
+}
+#table-radar-metrics thead th:first-child {
+  text-align: left;
+}
+.th-inst, .th-bench {
+  text-align: right;
+}
+.inst-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+.pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.pill-iict {
+  background: rgba(43, 92, 143, 0.1);
+  color: var(--c-iict);
+  border: 1px solid rgba(43, 92, 143, 0.25);
+}
+.pill-iict .pill-dot { background: var(--c-iict); }
+
+.pill-ncl {
+  background: rgba(46, 125, 50, 0.1);
+  color: var(--c-ncl);
+  border: 1px solid rgba(46, 125, 50, 0.25);
+}
+.pill-ncl .pill-dot { background: var(--c-ncl); }
+
+.pill-cecri {
+  background: rgba(217, 95, 2, 0.1);
+  color: var(--c-cecri);
+  border: 1px solid rgba(217, 95, 2, 0.25);
+}
+.pill-cecri .pill-dot { background: var(--c-cecri); }
+
+.pill-bench {
+  background: var(--surface-3);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+#table-radar-metrics tbody tr {
+  transition: background 0.15s ease, border-color 0.15s ease;
   border-bottom: 1px solid var(--border);
 }
+#table-radar-metrics tbody tr:last-child {
+  border-bottom: none;
+}
 #table-radar-metrics tbody tr:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(15, 23, 42, 0.03);
 }
 [data-theme="dark"] #table-radar-metrics tbody tr:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
+}
+#table-radar-metrics td {
+  padding: 0.5rem 0.65rem;
+  vertical-align: middle;
 }
 .radar-dim-name {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
+  font-size: 0.84rem;
   display: block;
 }
 .radar-dim-desc {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.71rem;
   color: var(--text-muted);
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.25;
+  margin-top: 1px;
 }
 .radar-val-cell {
   text-align: right;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.radar-val-num {
   font-weight: 500;
+  color: var(--text-2);
+}
+.radar-winner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+.winner-iict {
+  background: rgba(43, 92, 143, 0.12);
+  color: var(--c-iict);
+  border: 1px solid rgba(43, 92, 143, 0.3);
+}
+.winner-ncl {
+  background: rgba(46, 125, 50, 0.12);
+  color: var(--c-ncl);
+  border: 1px solid rgba(46, 125, 50, 0.3);
+}
+.winner-cecri {
+  background: rgba(217, 95, 2, 0.12);
+  color: var(--c-cecri);
+  border: 1px solid rgba(217, 95, 2, 0.3);
+}
+.winner-star {
+  font-size: 0.72rem;
+  line-height: 1;
 }
 .radar-bench-cell {
   text-align: right;
   font-variant-numeric: tabular-nums;
+  vertical-align: middle;
+  min-width: 95px;
+}
+.bench-meter-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+.bench-label {
+  font-size: 0.75rem;
+  font-weight: 600;
   color: var(--text-muted);
-  font-size: 0.78rem;
+}
+.bench-track {
+  width: 58px;
+  height: 5px;
+  background: var(--surface-3);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.bench-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* 3-Card Specialization Grid */
+.radar-specialization-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 0.85rem;
+}
+.radar-spec-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.radar-spec-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.spec-cecri {
+  border-left: 3.5px solid var(--c-cecri);
+}
+.spec-ncl {
+  border-left: 3.5px solid var(--c-ncl);
+}
+.spec-iict {
+  border-left: 3.5px solid var(--c-iict);
+}
+.spec-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+.spec-inst-name {
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+.spec-tag {
+  font-size: 0.69rem;
+  font-weight: 700;
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+}
+.tag-cecri {
+  background: rgba(217, 95, 2, 0.1);
+  color: var(--c-cecri);
+}
+.tag-ncl {
+  background: rgba(46, 125, 50, 0.1);
+  color: var(--c-ncl);
+}
+.tag-iict {
+  background: rgba(43, 92, 143, 0.1);
+  color: var(--c-iict);
+}
+.spec-metrics {
+  font-size: 0.74rem;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.35;
+  margin-bottom: 0.2rem;
+}
+.spec-metrics strong {
+  font-weight: 800;
+}
+.spec-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.35;
 }
 

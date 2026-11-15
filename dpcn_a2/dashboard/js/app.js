@@ -1467,30 +1467,61 @@ document.addEventListener("DOMContentLoaded", () => {
       return {
         name: lab.institution,
         value: lab.values,
+        symbol: "circle",
+        symbolSize: isSelected ? 6 : 4,
         lineStyle: {
-          width: isSelected ? 3 : 1,
+          width: isSelected ? 3.2 : 1.2,
           color: lab.color,
           opacity: isGhosted ? 0.2 : 1,
         },
         itemStyle: {
           color: lab.color,
+          borderColor: isDark() ? "#1e293b" : "#ffffff",
+          borderWidth: isSelected ? 2 : 1,
           opacity: isGhosted ? 0.2 : 1,
         },
         areaStyle: {
           color: lab.color,
-          opacity: isGhosted ? 0.05 : 0.25,
+          opacity: isGhosted ? 0.04 : 0.26,
         },
       };
     });
+
+    const axisLabelColor = isDark() ? "#f8fafc" : "#0f172a";
+    const axisLabelBg = isDark() ? "rgba(30, 41, 59, 0.96)" : "rgba(255, 255, 255, 0.98)";
+    const axisLabelBorder = isDark() ? "rgba(148, 163, 184, 0.35)" : "rgba(15, 23, 42, 0.22)";
+
+    const axisStyleConfig = {
+      show: true,
+      color: axisLabelColor,
+      fontWeight: 800,
+      fontSize: 12.5,
+      fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      lineHeight: 16,
+      padding: [5, 9],
+      borderRadius: 6,
+      backgroundColor: axisLabelBg,
+      borderWidth: 1.5,
+      borderColor: axisLabelBorder,
+      shadowColor: isDark() ? "rgba(0, 0, 0, 0.45)" : "rgba(15, 23, 42, 0.08)",
+      shadowBlur: 6,
+      shadowOffsetY: 2,
+    };
 
     charts.radar.setOption({
       tooltip: {
         trigger: "item",
         confine: true,
+        backgroundColor: isDark() ? "#1e293b" : "#ffffff",
+        borderColor: isDark() ? "#334155" : "#e2e8f0",
+        borderWidth: 1,
+        padding: [10, 14],
+        textStyle: { color: isDark() ? "#f8fafc" : "#0f172a" },
+        extraCssText: "box-shadow: 0 10px 25px -5px rgba(0,0,0,0.25); border-radius: 8px;",
         formatter: function(params) {
           const k = Object.keys(labs).find(key => labs[key].institution === params.name);
           const lab = labs[k] || {};
-          let html = `<div style="font-weight:700;margin-bottom:6px;color:${lab.color || '#333'}">${params.name}</div>`;
+          let html = `<div style="font-weight:800;font-size:13px;margin-bottom:8px;color:${lab.color || '#333'}">${params.name}</div>`;
           html += `<table style="font-size:12px;border-collapse:collapse;width:100%;">`;
           radarData.indicators.forEach((ind, i) => {
             const val = params.value[i];
@@ -1499,9 +1530,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                  (ind.unit === "%") ? `${val.toFixed(1)}%` :
                                  (ind.unit === "cites") ? `${val.toFixed(1)}` : `${Math.round(val)}`;
             html += `<tr>
-              <td style="padding:2px 8px 2px 0;color:var(--text-muted);">${ind.name}:</td>
-              <td style="padding:2px 0;text-align:right;font-weight:600;">${formattedVal}</td>
-              <td style="padding:2px 0 2px 6px;text-align:right;font-size:11px;color:var(--text-muted);">(${norm.toFixed(0)}% benchmark)</td>
+              <td style="padding:3px 10px 3px 0;color:var(--text-muted);font-weight:500;">${ind.name}:</td>
+              <td style="padding:3px 0;text-align:right;font-weight:700;">${formattedVal}</td>
+              <td style="padding:3px 0 3px 8px;text-align:right;font-size:11px;color:var(--text-muted);">(${norm.toFixed(0)}% cap)</td>
             </tr>`;
           });
           html += `</table>`;
@@ -1510,17 +1541,48 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       legend: {
         data: ["CSIR-IICT", "CSIR-NCL", "CSIR-CECRI"],
-        bottom: 5,
-        itemWidth: 14,
-        itemHeight: 14,
-        textStyle: { fontSize: 12 },
+        bottom: 4,
+        itemWidth: 16,
+        itemHeight: 10,
+        borderRadius: 3,
+        itemGap: 24,
+        textStyle: {
+          fontSize: 12.5,
+          fontWeight: 700,
+          color: ink().text,
+        },
       },
       radar: {
         indicator: indicators,
         shape: "polygon",
         splitNumber: 4,
-        radius: "68%",
-        center: ["50%", "48%"],
+        radius: "64%",
+        center: ["50%", "47%"],
+        nameGap: 12,
+        axisName: axisStyleConfig,
+        name: axisStyleConfig,
+        axisLine: {
+          lineStyle: {
+            color: isDark() ? "rgba(148, 163, 184, 0.28)" : "rgba(71, 85, 105, 0.35)",
+            width: 1.5,
+          }
+        },
+        splitLine: {
+          lineStyle: {
+            color: isDark()
+              ? ["rgba(255, 255, 255, 0.04)", "rgba(255, 255, 255, 0.08)", "rgba(255, 255, 255, 0.14)", "rgba(255, 255, 255, 0.22)"]
+              : ["rgba(15, 23, 42, 0.05)", "rgba(15, 23, 42, 0.10)", "rgba(15, 23, 42, 0.16)", "rgba(15, 23, 42, 0.24)"],
+            width: 1.2,
+          }
+        },
+        splitArea: {
+          show: true,
+          areaStyle: {
+            color: isDark()
+              ? ["rgba(255, 255, 255, 0.012)", "rgba(255, 255, 255, 0.035)"]
+              : ["rgba(248, 250, 252, 0.6)", "rgba(241, 245, 249, 0.85)"]
+          }
+        }
       },
       series: [{
         type: "radar",
@@ -1540,19 +1602,36 @@ document.addEventListener("DOMContentLoaded", () => {
                            (ind.unit === "cites") ? `${val.toFixed(1)}` : `${Math.round(val)}`;
 
         const maxVal = Math.max(vIICT, vNCL, vCECRI);
-        const hiIICT = vIICT === maxVal ? "font-weight:700;color:var(--c-iict);" : "";
-        const hiNCL = vNCL === maxVal ? "font-weight:700;color:var(--c-ncl);" : "";
-        const hiCECRI = vCECRI === maxVal ? "font-weight:700;color:var(--c-cecri);" : "";
+        const winIICT = vIICT === maxVal;
+        const winNCL = vNCL === maxVal;
+        const winCECRI = vCECRI === maxVal;
+        const winnerColor = winCECRI ? "var(--c-cecri)" : (winNCL ? "var(--c-ncl)" : "var(--c-iict)");
+        const attainmentPct = Math.min(100, Math.round(maxVal / ind.max * 100));
+
+        const cellHtml = (val, isWin, instClass) => {
+          const formatted = f(val);
+          if (isWin) {
+            return `<td class="radar-val-cell"><span class="radar-winner-badge winner-${instClass}">${formatted} <span class="winner-star">★</span></span></td>`;
+          }
+          return `<td class="radar-val-cell"><span class="radar-val-num">${formatted}</span></td>`;
+        };
 
         return `<tr>
           <td>
             <span class="radar-dim-name">${ind.name}</span>
             <small class="radar-dim-desc">${ind.desc}</small>
           </td>
-          <td class="radar-val-cell" style="${hiIICT}">${f(vIICT)}</td>
-          <td class="radar-val-cell" style="${hiNCL}">${f(vNCL)}</td>
-          <td class="radar-val-cell" style="${hiCECRI}">${f(vCECRI)}</td>
-          <td class="radar-bench-cell">≤ ${ind.max}${ind.unit === "%" ? "%" : (ind.unit === "cites" ? " cites" : "")}</td>
+          ${cellHtml(vIICT, winIICT, "iict")}
+          ${cellHtml(vNCL, winNCL, "ncl")}
+          ${cellHtml(vCECRI, winCECRI, "cecri")}
+          <td class="radar-bench-cell">
+            <div class="bench-meter-wrap">
+              <span class="bench-label">≤ ${ind.max}${ind.unit === "%" ? "%" : (ind.unit === "cites" ? " cites" : "")}</span>
+              <div class="bench-track" title="Top attainment: ${attainmentPct}% of domain cap">
+                <div class="bench-fill" style="width: ${attainmentPct}%; background: ${winnerColor};"></div>
+              </div>
+            </div>
+          </td>
         </tr>`;
       }).join("");
     }
