@@ -207,72 +207,112 @@
 }
 
 .c-pillar-body {
-  margin-top: 0.8rem;
+  margin-top: 1rem;
+}
+.c-punchline-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: var(--tint);
+  border: 1px solid var(--tint-border);
+  border-left: 4px solid var(--secondary);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.8rem;
+}
+.c-punchline-icon {
+  font-size: 1.2rem;
+  color: var(--secondary);
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
 }
 .c-pillar-takeaway {
   font-size: 0.96rem;
   line-height: 1.6;
   color: var(--text);
-  margin: 0 0 0.8rem;
+  margin: 0;
 }
-.c-pillar-rule {
-  font-size: 0.82rem;
-  line-height: 1.5;
-  color: var(--text-2);
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.55rem 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-.c-rule-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--tint);
+.c-pillar-takeaway strong {
   color: var(--accent-ink);
-  font-weight: 800;
-  font-size: 0.75rem;
-  flex-shrink: 0;
 }
 
-/* Bento Grid */
+.c-deep-dive {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  margin-top: 0.6rem;
+}
+.c-deep-dive summary {
+  padding: 0.55rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+.c-deep-dive summary::-webkit-details-marker { display: none; }
+.c-deep-dive summary::after { content: " ▾"; margin-left: auto; font-size: 0.75rem; color: var(--text-muted); }
+.c-deep-dive[open] summary::after { content: " ▴"; }
+.c-deep-dive-body {
+  padding: 0 0.85rem 0.75rem;
+  font-size: 0.82rem;
+  color: var(--text-2);
+  line-height: 1.5;
+  border-top: 1px dashed var(--border);
+  padding-top: 0.55rem;
+}
+
+/* Bento Grid Enhanced Visuals */
 .conclusions-bento-section {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
 }
 .conclusions-bento-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.1rem;
 }
 .bento-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem;
+  border-radius: 14px;
+  padding: 1.3rem;
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
 }
 .bento-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.12);
   border-color: var(--secondary);
 }
 .bento-card::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; height: 3px;
-  background: var(--secondary);
-  opacity: 0.7;
+  top: 0; left: 0; right: 0; height: 3.5px;
+  background: linear-gradient(90deg, var(--s1), var(--s2));
+}
+.bento-card:nth-child(2)::before {
+  background: linear-gradient(90deg, var(--s3), var(--s1));
+}
+.bento-card:nth-child(3)::before {
+  background: linear-gradient(90deg, var(--s2), var(--s4));
+}
+.bento-card:nth-child(4)::before {
+  background: linear-gradient(90deg, #f59e0b, #e11d48);
+}
+
+.bento-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 .bento-tag {
   font-size: 0.7rem;
@@ -281,42 +321,82 @@
   font-weight: 800;
   color: var(--text-muted);
 }
+.bento-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-ink);
+  background: var(--tint);
+  border: 1px solid var(--tint-border);
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+}
+
 .bento-num {
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--accent-ink);
   letter-spacing: -0.03em;
-  margin: 0.35rem 0 0.15rem;
+  margin: 0.4rem 0 0.1rem;
   font-variant-numeric: tabular-nums;
+  transition: transform 0.2s ease;
 }
+.bento-card:hover .bento-num {
+  transform: scale(1.03);
+}
+
 .bento-title {
   font-size: 1.05rem;
   font-weight: 800;
   color: var(--text);
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.35rem;
 }
 .bento-sub {
-  font-size: 0.86rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.45;
   color: var(--text-2);
-  margin: 0 0 1rem;
+  margin: 0 0 0.9rem;
   flex-grow: 1;
 }
-.bento-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
+
+/* Bento Progress Tracks */
+.bento-track-group {
+  margin-top: auto;
+  border-top: 1px solid var(--surface-3);
+  padding-top: 0.65rem;
 }
-.bento-chip {
-  font-size: 0.74rem;
-  font-weight: 600;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.2rem 0.5rem;
+.bento-track-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.76rem;
   color: var(--text-2);
+  margin-bottom: 0.25rem;
+}
+.bento-track-row strong {
+  color: var(--text);
   font-variant-numeric: tabular-nums;
 }
+.bento-progress-bar {
+  height: 6px;
+  background: var(--surface-3);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+.bento-progress-bar:last-child {
+  margin-bottom: 0;
+}
+.bento-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bento-fill.full { background: linear-gradient(90deg, #2a78d6, #60a5fa); }
+.bento-fill.fac { background: linear-gradient(90deg, #eb6834, #fb923c); }
+.bento-fill.chem { background: linear-gradient(90deg, #1baf7a, #34d399); }
+.bento-fill.spill { background: linear-gradient(90deg, #64748b, #94a3b8); }
+.bento-fill.gold { background: linear-gradient(90deg, #d97706, #f59e0b); }
+.bento-fill.silver { background: linear-gradient(90deg, #475569, #94a3b8); }
 
 /* ==========================================================================
    Section 09: Claims & Verification Deck + Methodology Hub

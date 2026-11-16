@@ -455,6 +455,107 @@
     ];
 
     const displayEl = $("conclusion-pillar-display");
+    function renderPillarChart(id) {
+      const el = $("ch-conclusion-viz");
+      if (!el) return;
+      const k = ink();
+      if (id === "students") {
+        const fullCurve = S.full_coauthorship.fields.Combined.mc_curve;
+        const facCurve = S.faculty_coauthorship.fields.Combined.mc_curve;
+        chart("ch-conclusion-viz", {
+          grid: { left: 8, right: 36, top: 44, bottom: 28, containLabel: true },
+          legend: { top: 0, textStyle: { color: k.text2 } },
+          tooltip: tip({ trigger: "axis", valueFormatter: v => pct(v) }),
+          xAxis: stepAxis(fullCurve.length),
+          yAxis: { type: "value", name: "% adopted", max: 100, ...axis() },
+          series: [
+            line("Full Community (7,678 authors)", fullCurve, css("--s1"), {
+              areaStyle: { color: "rgba(42, 120, 214, 0.16)" },
+              markLine: {
+                silent: true, symbol: "none",
+                data: [
+                  { yAxis: 50, lineStyle: { color: k.muted, type: "dashed" }, label: { formatter: "50% Target", position: "insideEndTop" } },
+                  { xAxis: 9, lineStyle: { color: css("--s1"), type: "dotted", width: 2 }, label: { formatter: "Full: Step 9", position: "insideStartTop" } },
+                  { xAxis: 12, lineStyle: { color: css("--s2"), type: "dotted", width: 2 }, label: { formatter: "Faculty: Step 12", position: "insideEndBottom" } }
+                ]
+              }
+            }),
+            line("Faculty Alone (238 scientists)", facCurve, css("--s2"), { lineStyle: { width: 3, type: "dashed" } })
+          ]
+        });
+      } else if (id === "silos") {
+        chart("ch-conclusion-viz", {
+          grid: { left: 8, right: 36, top: 44, bottom: 28, containLabel: true },
+          legend: { top: 0, textStyle: { color: k.text2 } },
+          tooltip: tip({ trigger: "axis", valueFormatter: v => pct(v) }),
+          xAxis: stepAxis(ch.adoption_curve.length),
+          yAxis: { type: "value", name: "% adopted", max: 100, ...axis() },
+          series: [
+            line("In-Field Chemistry Adoption (76.59% @ step 15)", ch.adoption_curve, css("--s3"), {
+              areaStyle: { color: "rgba(27, 175, 122, 0.18)" }
+            }),
+            line("Outside Spillover (2.46% @ step 15)", ch.spillover_curve, css("--s2"), {
+              lineStyle: { width: 3, type: "dotted" }
+            })
+          ]
+        });
+      } else if (id === "clustering") {
+        const netKeys = Object.keys(TH);
+        const labels = netKeys.map(k => netName(k).replace(" (all authors)", ""));
+        const theoryVals = netKeys.map(k => TH[k].T_c_theory);
+        const peakVals = netKeys.map(k => TH[k].T_peak_simulated);
+        chart("ch-conclusion-viz", {
+          grid: { left: 8, right: 36, top: 40, bottom: 16, containLabel: true },
+          legend: { top: 0, textStyle: { color: k.text2 } },
+          tooltip: tip({ trigger: "axis", valueFormatter: v => num(v, 3) }),
+          yAxis: { type: "category", data: labels, ...axis() },
+          xAxis: { type: "value", name: "Tipping Point Transmissibility T", ...axis() },
+          series: [
+            { name: "Textbook Formula Tc", type: "bar", data: theoryVals, itemStyle: { color: css("--s2"), borderRadius: [0, 4, 4, 0] }, barMaxWidth: 12 },
+            { name: "Real Measured Peak (Percolation)", type: "bar", data: peakVals, itemStyle: { color: css("--s3"), borderRadius: [0, 4, 4, 0] }, barMaxWidth: 12 }
+          ]
+        });
+      } else if (id === "labs") {
+        chart("ch-conclusion-viz", {
+          grid: { left: 8, right: 36, top: 44, bottom: 28, containLabel: true },
+          legend: { top: 0, textStyle: { color: k.text2 } },
+          tooltip: tip({ trigger: "axis", valueFormatter: v => pct(v) }),
+          xAxis: stepAxis(so.iict.mc_curve.length),
+          yAxis: { type: "value", name: "% cluster reached", max: 70, ...axis() },
+          series: [
+            line("CSIR-IICT Faculty Seeds (5.98% @ step 3)", so.iict.mc_curve, css(LAB_VAR["CSIR-IICT"]), { lineStyle: { width: 3 } }),
+            line("CSIR-NCL Faculty Seeds (4.92% @ step 3)", so.ncl.mc_curve, css(LAB_VAR["CSIR-NCL"]), { lineStyle: { width: 3 } }),
+            line("CSIR-CECRI Faculty Seeds (1.23% @ step 3)", so.cecri.mc_curve, css(LAB_VAR["CSIR-CECRI"]), { lineStyle: { width: 2.5, type: "dashed" } })
+          ]
+        });
+      } else if (id === "nimfa") {
+        const domains = ["Chemistry", "Materials", "Engineering", "Energy", "Biochemistry", "Medicine", "Combined"];
+        const gaps = domains.map(d => {
+          const r = S.full_coauthorship.fields[d];
+          return r ? Number((r.nimfa_final_reach - r.mc_final_reach).toFixed(2)) : 0;
+        });
+        chart("ch-conclusion-viz", {
+          grid: { left: 8, right: 36, top: 40, bottom: 28, containLabel: true },
+          legend: { top: 0, textStyle: { color: k.text2 } },
+          tooltip: tip({ trigger: "axis", valueFormatter: v => v + " pp" }),
+          xAxis: { type: "category", data: domains, ...axis() },
+          yAxis: { type: "value", name: "NIMFA - MC Gap (pp)", max: 14, ...axis() },
+          series: [
+            {
+              name: "NIMFA Overprediction Ceiling",
+              type: "bar",
+              data: gaps,
+              itemStyle: { color: css("--s1"), borderRadius: [6, 6, 0, 0] },
+              barMaxWidth: 24,
+              markLine: {
+                data: [{ type: "average", name: "Avg Gap", label: { formatter: "Mean Ceiling" } }]
+              }
+            }
+          ]
+        });
+      }
+    }
+
     function showPillar(id) {
       const p = PILLARS.find(x => x.id === id) || PILLARS[0];
       let statsHtml = "";
@@ -483,13 +584,23 @@
             </div>
             <div class="c-pillar-badge">${esc(p.badge)}</div>
           </div>
+          <div id="ch-conclusion-viz" class="g-chart" style="height:320px; width:100%; margin:0.8rem 0 1rem;"></div>
           ${statsHtml}
           <div class="c-pillar-body">
-            <p class="c-pillar-takeaway">${esc(p.takeaway)}</p>
-            <div class="c-pillar-rule"><span class="c-rule-icon">ℹ</span> <strong>Verification Rule:</strong> ${esc(p.rule)}</div>
+            <div class="c-punchline-card">
+              <span class="c-punchline-icon">⚡</span>
+              <p class="c-pillar-takeaway"><strong>Key Takeaway:</strong> ${esc(p.takeaway)}</p>
+            </div>
+            <details class="c-deep-dive">
+              <summary>Inspect Mathematical Model &amp; Verification Rule</summary>
+              <div class="c-deep-dive-body">
+                <p><strong>Rule:</strong> ${esc(p.rule)}</p>
+              </div>
+            </details>
           </div>
         </div>
       `;
+      renderPillarChart(p.id);
       if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([displayEl]);
     }
 
@@ -500,39 +611,51 @@
         tag: "Collaboration Velocity",
         num: "3×",
         title: "Student Acceleration",
-        sub: "Full network crosses 50% in 9 steps vs 12 steps for faculty (88.9% vs 64.5% final reach).",
-        chips: ["T50: 9 vs 12 steps", "Reach: 88.9% vs 64.5%", "7,678 total authors"]
+        sub: "Students build lateral bridges: without them, 50% cluster spread slows from 9 to 12 steps.",
+        track1: { label: "Full Community:", val: "88.9% (@ Step 9)", pct: 88.88, cls: "full" },
+        track2: { label: "Faculty Alone:", val: "64.5% (@ Step 12)", pct: 64.52, cls: "fac" }
       },
       {
         tag: "Disciplinary Wall",
-        num: "31×",
+        num: "31.1×",
         title: "Disciplinary Silos",
-        sub: "Topic overlap contains 76.6% of diffusion inside Chemistry with only 2.5% spillover to outside fields.",
-        chips: ["Inside: 76.59%", "Spillover: 2.46%", "Ratio: 31.1×"]
+        sub: "Topic alignment strongly confines ideas inside discipline with negligible outside spillover.",
+        track1: { label: "In-Field Chemistry:", val: "76.59% adopted", pct: 76.59, cls: "chem" },
+        track2: { label: "Outside Spillover:", val: "2.46% adopted", pct: 2.46, cls: "spill" }
       },
       {
         tag: "Epidemic Theory",
         num: "1.5–2.3×",
         title: "Clustering Reality",
-        sub: "Dense academic triangles (C = 0.700) absorb transmissions, raising real tipping points over textbook formulas.",
-        chips: ["C = 0.700 (Full)", "8 of 8 exceed", "Peak T = 0.06 vs 0.215"]
+        sub: "Triangles (C = 0.700) waste transmissions, requiring higher transmissibility than formulas predict.",
+        track1: { label: "Textbook Formula:", val: "1.0× unclustered base", pct: 45, cls: "spill" },
+        track2: { label: "Measured Real Peak:", val: "Up to 2.32× (8/8 exceed)", pct: 95, cls: "full" }
       },
       {
         tag: "Institutional Leadership",
         num: "5.98%",
         title: "CSIR-IICT Velocity",
-        sub: "IICT faculty seeds lead early cluster spread (5.98% @ step 3) ahead of NCL (4.92%) and CECRI (1.23%).",
-        chips: ["IICT: 5.98%", "NCL: 4.92%", "CECRI: 1.23%"]
+        sub: "CSIR-IICT seeds achieve the fastest early cluster diffusion, validated by both MC and NIMFA.",
+        track1: { label: "🥇 CSIR-IICT Lead:", val: "5.98% @ step 3", pct: 85, cls: "gold" },
+        track2: { label: "🥈 NCL: 4.92% | 🥉 CECRI:", val: "1.23% @ step 3", pct: 40, cls: "silver" }
       }
     ];
 
     $("conclusions-bento").innerHTML = bentoCards.map(b => `
       <div class="bento-card">
-        <div class="bento-tag">${esc(b.tag)}</div>
+        <div class="bento-card-top">
+          <span class="bento-tag">${esc(b.tag)}</span>
+          <span class="bento-badge">Verified Peak</span>
+        </div>
         <div class="bento-num">${esc(b.num)}</div>
         <h4 class="bento-title">${esc(b.title)}</h4>
         <p class="bento-sub">${esc(b.sub)}</p>
-        <div class="bento-chips">${b.chips.map(ch => `<span class="bento-chip">${esc(ch)}</span>`).join("")}</div>
+        <div class="bento-track-group">
+          <div class="bento-track-row"><span>${esc(b.track1.label)}</span> <strong>${esc(b.track1.val)}</strong></div>
+          <div class="bento-progress-bar"><div class="bento-fill ${esc(b.track1.cls)}" style="width:${b.track1.pct}%"></div></div>
+          <div class="bento-track-row"><span>${esc(b.track2.label)}</span> <strong>${esc(b.track2.val)}</strong></div>
+          <div class="bento-progress-bar"><div class="bento-fill ${esc(b.track2.cls)}" style="width:${b.track2.pct}%"></div></div>
+        </div>
       </div>
     `).join("");
   }
