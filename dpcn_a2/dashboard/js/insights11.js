@@ -133,21 +133,6 @@
         `<span class="t-a">${esc(txt)}</span><span class="t-go">Explore section →</span></a>`;
     }).join("");
   }
-  function renderGlossary() {
-    const terms = [
-      ["Adopting an idea", "Taking up a new method, technique or reagent from a collaborator. Once adopted it is kept (the SI model)."],
-      ["Step", "One round of contact between collaborators: everyone who has the idea gets one chance to pass it to each collaborator. Not a calendar unit."],
-      ["Transmission probability β", `The chance that an idea passes along one link in one step: ${P.beta0} at most, scaled down when the two people work on different topics.`],
-      ["T50", "The first step at which half of the target group has adopted. \"Not reached\" when the typical run never gets there within 15 steps."],
-      ["Monte Carlo (MC)", "Running the random spreading process many times with different random numbers and averaging the results."],
-      ["NIMFA (mean field)", "Equations for each person's probability of having adopted, assuming neighbours are independent. Fast, but it over-estimates spreading."],
-      ["Tipping point (threshold)", "If people pass an idea on only once, it dies out below a certain transmission probability and spreads widely above it."],
-      ["Super-spreader", "A seed whose idea reaches the most people early on (by step 3)."],
-      ["Gatekeeper", "A person whose removal cuts the most researchers off from the rest of a field's network."],
-      ["Spillover", "The share of researchers outside a field who adopt an idea that started inside it."],
-    ];
-    $("i-glossary").innerHTML = terms.map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("");
-  }
   function trackSection() {
     const links = [...document.querySelectorAll("#nav-links .nav-link")];
     const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
@@ -774,13 +759,13 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll(".page-section, .card, .bento-card, .claim-card").forEach(el => {
+    document.querySelectorAll(".bento-card, .claim-card, .c-stat-card").forEach(el => {
       el.classList.add("reveal-on-scroll");
       observer.observe(el);
     });
   }
 
-  renderTop(); renderGlossary(); renderData(); renderThreshold(); renderFields(); renderNetworks(); renderMeanField(); renderLabs(); renderConclusions(); renderProof(); renderToc(); trackSection(); initAnimations();
+  renderTop(); renderData(); renderThreshold(); renderFields(); renderNetworks(); renderMeanField(); renderLabs(); renderConclusions(); renderProof(); renderToc(); trackSection(); initAnimations();
   // typeset formulas inside generated tables once MathJax has loaded
   const typeset = () => (window.MathJax && MathJax.typesetPromise ? MathJax.typesetPromise() : null);
   if (!typeset()) window.addEventListener("load", () => setTimeout(typeset, 0));
