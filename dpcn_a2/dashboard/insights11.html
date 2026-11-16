@@ -32,6 +32,7 @@
         <a href="#i-networks" class="nav-link">Networks</a>
         <a href="#i-meanfield" class="nav-link">Mean field</a>
         <a href="#i-labs" class="nav-link">Labs</a>
+        <a href="#i-conclusions" class="nav-link">Conclusions</a>
         <a href="#i-proof" class="nav-link">Claims &amp; proof</a>
       </nav>
       <button class="nav-menu-btn" id="nav-menu-btn" aria-expanded="false" aria-controls="nav-links">☰ Sections</button>
@@ -54,6 +55,7 @@
       <p class="hero-note" id="i-hero-note"></p>
       <div class="hero-actions">
         <a href="#i-findings" class="btn-primary">The study in one minute</a>
+        <a href="#i-conclusions" class="btn-ghost">Conclusions</a>
         <a href="#i-proof" class="btn-ghost">Claims &amp; proof</a>
       </div>
     </div>
@@ -63,7 +65,7 @@
   <section id="i-findings" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">00</span> / 08</div>
+        <div class="section-eyebrow"><span class="section-num">00</span> / 09</div>
         <h2 class="section-title">The study in one minute</h2>
         <p class="section-lead">Seven questions, each answered from the simulations and marked when its automatic check passes. Click a card for the evidence.</p>
       </header>
@@ -75,7 +77,7 @@
   <section id="i-data" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">01</span> / 08</div>
+        <div class="section-eyebrow"><span class="section-num">01</span> / 09</div>
         <h2 class="section-title">The data: four networks</h2>
         <p class="section-q">What networks do the labs form, and who counts as faculty?</p>
         <p class="section-lead">All four are built from the project's final dataset (OpenAlex, collected <span data-meta="collection_date"></span>).
@@ -110,7 +112,7 @@
   <section id="i-model" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">02</span> / 08</div>
+        <div class="section-eyebrow"><span class="section-num">02</span> / 09</div>
         <h2 class="section-title">The model, written out</h2>
         <p class="section-q">How exactly is the spreading of an idea simulated?</p>
         <p class="section-lead">A Susceptible–Infected (SI) process in discrete steps: once a researcher adopts the idea they keep it and keep
@@ -156,7 +158,7 @@
   <section id="i-threshold" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">03</span> / 08</div>
+        <div class="section-eyebrow"><span class="section-num">03</span> / 09</div>
         <h2 class="section-title">Is there a tipping point? Theory vs. simulation</h2>
         <p class="section-q">Is there a point below which an idea dies out, and does the textbook formula find it?</p>
         <p class="section-lead">If each person passes the idea on only once (with probability \(T\)) and then stops, the outbreak from a seed is
@@ -186,7 +188,7 @@
   <section id="i-fields" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">04</span> / 08</div>
+        <div class="section-eyebrow"><span class="section-num">04</span> / 09</div>
         <h2 class="section-title">By field: does an idea stay in its discipline?</h2>
         <p class="section-q">If an idea starts among chemists, does it stay among chemists?</p>
         <p class="section-lead">Seeds: the 15 roster scientists most active in the field (field share × number of co-authors), each run
@@ -226,7 +228,7 @@
   <section id="i-networks" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">05</span> / 08</div>
+        <div class="section-eyebrow"><span class="section-num">05</span> / 09</div>
         <h2 class="section-title">Which network carries ideas best?</h2>
         <p class="section-q">Which network spreads ideas fastest, and what happens without students and project staff?</p>
         <p class="section-lead">The same rule and the same number of seeds and runs on all four networks (Monte Carlo, <span data-param="seeds_per_run"></span>
@@ -257,7 +259,7 @@
   <section id="i-meanfield" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">06</span> / 08</div>
+        <div class="section-eyebrow"><span class="section-num">06</span> / 09</div>
         <h2 class="section-title">Mean field vs. simulation</h2>
         <p class="section-q">Can a fast set of equations (NIMFA) replace thousands of simulated runs?</p>
         <p class="section-lead">Both models run from the same seeds on the same links. The gap NIMFA − simulation tells how much ignoring
@@ -289,7 +291,7 @@
   <section id="i-labs" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">07</span> / 08</div>
+        <div class="section-eyebrow"><span class="section-num">07</span> / 09</div>
         <h2 class="section-title">Does it matter which lab an idea starts in?</h2>
         <p class="section-q">Do ideas from one lab spread further than ideas from another?</p>
         <p class="section-lead">Seeds: the 10 best-connected faculty of one lab; target: the whole network. Then each lab on its own.</p>
@@ -313,35 +315,77 @@
     </div>
   </section>
 
-  <!-- 8 Claims & proof -->
+  <!-- 8 Conclusions -->
+  <section id="i-conclusions" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">08</span> / 09</div>
+        <h2 class="section-title">Conclusions: How Ideas Truly Spread</h2>
+        <p class="section-q">What are the definitive takeaways from simulating across 7,678 researchers and four networks?</p>
+        <p class="section-lead">Combining stochastic simulations, bond percolation, and mean-field physics reveals five core realities governing scientific transmission in CSIR's chemistry cluster.</p>
+      </header>
+      <div class="g-answer" id="ans-conclusions"></div>
+
+      <!-- Interactive Synthesis Studio -->
+      <div class="card i-conclusions-studio">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">Executive Takeaways Studio</h3>
+            <span class="g-note" style="margin:0">Interactive deep dive into the five pillars of scientific propagation</span>
+          </div>
+          <div class="g-seg" id="seg-conclusion-pillar" role="group" aria-label="Takeaway Pillar"></div>
+        </div>
+        <div id="conclusion-pillar-display" class="conclusion-pillar-content"></div>
+      </div>
+
+      <!-- Conclusions Bento Grid -->
+      <div class="conclusions-bento-section">
+        <div class="card-header" style="margin-bottom:0.75rem">
+          <div>
+            <h3 class="card-title">Core Empirical Matrix · At a Glance</h3>
+            <span class="g-note" style="margin:0">Key quantitative proofs establishing the mechanics of knowledge transmission</span>
+          </div>
+        </div>
+        <div class="conclusions-bento-grid" id="conclusions-bento"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 Claims & proof -->
   <section id="i-proof" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">08</span> / 08</div>
-        <h2 class="section-title">Claims &amp; proof</h2>
-        <p class="section-q">How can anyone check what this page says?</p>
-        <p class="section-lead">Every claim on this page, the numbers behind it, where they are stored, and the check that was run.
-          The project's test suite fails if any check fails, so the page cannot silently drift from the data.</p>
+        <div class="section-eyebrow"><span class="section-num">09</span> / 09</div>
+        <h2 class="section-title">Data, Methodology &amp; Verification</h2>
+        <p class="section-q">How can every statement on this page be checked and audited?</p>
+        <p class="section-lead">Every claim is bound to an automated unit test. Filter the 11 verified claims below or inspect the underlying reproduction pipeline, key terminology, and audit history.</p>
       </header>
-      <div class="card" style="margin-bottom:1.5rem">
-        <div class="card-header"><h3 class="card-title">Key terms</h3></div>
-        <dl class="g-glossary" id="i-glossary"></dl>
-      </div>
-      <div id="tbl-claims"></div>
-      <div class="grid-2 g-align-start" style="margin-top:1.5rem">
-        <div class="card">
-          <div class="card-header"><h3 class="card-title">Reproduce it</h3></div>
-          <ul class="g-list" id="i-repro"></ul>
+      <div class="g-answer" id="ans-proof"></div>
+
+      <!-- Category Filterable Claims Deck -->
+      <div class="card claims-deck-container">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">Verified Empirical Claims (11)</h3>
+            <span class="g-note" style="margin:0">Categorized findings with exact quantitative metrics and transparent mathematical checks</span>
+          </div>
+          <div class="g-seg" id="seg-claims-filter" role="group" aria-label="Filter Claims"></div>
         </div>
-        <div class="card">
-          <div class="card-header"><h3 class="card-title">Corrections made in this version</h3></div>
-          <ul class="g-list" id="i-fixes"></ul>
+        <div class="claims-deck" id="deck-claims"></div>
+      </div>
+
+      <!-- Tabbed Methodology Hub -->
+      <div class="card methodology-hub-card">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">Methodology &amp; Verification Hub</h3>
+            <span class="g-note" style="margin:0">Terminology, pipeline reproduction, version audit, and model boundaries</span>
+          </div>
+          <div class="g-seg" id="seg-methodology-tabs" role="group" aria-label="Methodology Tabs"></div>
         </div>
+        <div id="methodology-tab-body" class="methodology-tab-content"></div>
       </div>
-      <div class="card" style="margin-top:1.5rem">
-        <div class="card-header"><h3 class="card-title">Read with care</h3></div>
-        <ul class="g-list" id="i-limits"></ul>
-      </div>
+
       <a href="index.html" class="g-back-big">← Back to the main dashboard</a>
     </div>
   </section>

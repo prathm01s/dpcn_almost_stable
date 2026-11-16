@@ -1,9 +1,45 @@
 /* Insight 11 page (insights11.html). Builds on style.css and global.css. */
 
 /* Series colours: categorical slots 1-4 of the validated palette, fixed order. */
-:root { --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; }
-:root[data-theme="dark"] { --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; }
+:root {
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --glow-accent: rgba(42, 120, 214, 0.12);
+}
+:root[data-theme="dark"] {
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --glow-accent: rgba(57, 135, 229, 0.2);
+}
 
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Overview Findings */
 .i-findings { display: grid; gap: 0.9rem; }
 .i-finding {
   display: grid; grid-template-columns: auto 1fr auto; gap: 0.9rem; align-items: start;
@@ -13,12 +49,7 @@
 .i-finding p { font-size: 0.95rem; line-height: 1.55; color: var(--text); }
 .i-finding small { display: block; color: var(--text-muted); font-size: 0.78rem; margin-top: 0.3rem; }
 
-.i-badge { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.74rem; font-weight: 800; padding: 0.2rem 0.55rem;
-  border-radius: 999px; white-space: nowrap; border: 1px solid; }
-.i-pass { color: var(--good-ink); border-color: currentColor; }
-.i-fail { color: #dc2626; border-color: currentColor; }
-[data-theme="dark"] .i-fail { color: #f87171; }
-
+/* Math & Model formatting */
 .i-math p { font-size: 0.9rem; line-height: 1.6; color: var(--text-2); margin: 0.4rem 0 0.6rem; }
 .i-math .card-title { margin-top: 1rem; }
 .i-math .card-title:first-child { margin-top: 0; }
@@ -29,9 +60,442 @@
 .i-funnel .kpi-val { font-size: 1.6rem; }
 
 .g-table td code, .g-list code { font-size: 0.8rem; background: var(--surface-3); padding: 0.05rem 0.3rem; border-radius: 4px; }
-.i-claims td:first-child { font-weight: 800; color: var(--accent-ink); }
-.i-claims td { font-size: 0.84rem; line-height: 1.5; }
-.i-claims td:nth-child(2) { min-width: 320px; }
-.i-claims td:nth-child(3) { max-width: 260px; }
-.i-claims td:nth-child(4) { max-width: 220px; }
-.i-claims code { white-space: normal; word-break: break-word; display: inline-block; }
+
+/* ==========================================================================
+   Section 08: Conclusions Studio & Bento Grid
+   ========================================================================== */
+.i-conclusions-studio {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  background: var(--card-bg);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.i-conclusions-studio::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--s1), var(--s2), var(--s3));
+}
+
+.c-pillar-box {
+  padding: 1rem 0 0.2rem;
+  animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.c-pillar-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.1rem;
+}
+.c-pillar-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--secondary);
+  margin-bottom: 0.25rem;
+}
+.c-pillar-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 0.3rem;
+  letter-spacing: -0.01em;
+}
+.c-pillar-headline {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-ink);
+  margin: 0;
+}
+.c-pillar-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--tint);
+  color: var(--accent-ink);
+  border: 1px solid var(--tint-border);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Pillar Stats & Comparisons */
+.c-comparison-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.c-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+.c-comparison-table th {
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-weight: 700;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.c-comparison-table td {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--surface-3);
+}
+.c-comparison-table tr:last-child td {
+  border-bottom: none;
+}
+.c-metric-lbl {
+  font-weight: 700;
+  color: var(--text);
+}
+.c-metric-full {
+  font-weight: 800;
+  color: var(--s1);
+  font-variant-numeric: tabular-nums;
+}
+.c-metric-fac {
+  font-weight: 800;
+  color: var(--s2);
+  font-variant-numeric: tabular-nums;
+}
+
+.c-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.c-stat-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+}
+.c-stat-lbl {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.c-stat-val {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--accent-ink);
+  letter-spacing: -0.02em;
+  margin: 0.2rem 0;
+  font-variant-numeric: tabular-nums;
+}
+.c-stat-sub {
+  font-size: 0.76rem;
+  color: var(--text-2);
+}
+
+.c-pillar-body {
+  margin-top: 0.8rem;
+}
+.c-pillar-takeaway {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 0.8rem;
+}
+.c-pillar-rule {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.55rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.c-rule-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--tint);
+  color: var(--accent-ink);
+  font-weight: 800;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Bento Grid */
+.conclusions-bento-section {
+  margin-top: 1.5rem;
+}
+.conclusions-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.bento-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary);
+}
+.bento-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: var(--secondary);
+  opacity: 0.7;
+}
+.bento-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+.bento-num {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--accent-ink);
+  letter-spacing: -0.03em;
+  margin: 0.35rem 0 0.15rem;
+  font-variant-numeric: tabular-nums;
+}
+.bento-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 0.4rem;
+}
+.bento-sub {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  margin: 0 0 1rem;
+  flex-grow: 1;
+}
+.bento-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.bento-chip {
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  color: var(--text-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Section 09: Claims & Verification Deck + Methodology Hub
+   ========================================================================== */
+.claims-deck-container {
+  margin-bottom: 1.5rem;
+}
+.claims-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.claim-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.claim-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--secondary);
+  box-shadow: var(--shadow);
+}
+
+.claim-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.claim-id-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent-ink);
+  background: var(--tint);
+  border: 1px solid var(--tint-border);
+  border-radius: 6px;
+  padding: 0.15rem 0.55rem;
+}
+.claim-cat-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+.claim-headline {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.4;
+  margin: 0 0 0.6rem;
+}
+
+.claim-metric-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+.c-chip {
+  font-size: 0.74rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  color: var(--text-2);
+  font-variant-numeric: tabular-nums;
+}
+.c-chip strong {
+  color: var(--text);
+}
+
+.claim-statement {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-2);
+  margin: 0 0 0.9rem;
+  flex-grow: 1;
+}
+
+.claim-proof-drawer {
+  border-top: 1px solid var(--surface-3);
+  padding-top: 0.6rem;
+  margin-top: auto;
+}
+.claim-proof-drawer summary {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-ink);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+.claim-proof-drawer summary::-webkit-details-marker {
+  display: none;
+}
+.claim-proof-drawer summary::after {
+  content: "Show trace ▾";
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-left: auto;
+  font-weight: 600;
+}
+.claim-proof-drawer[open] summary::after {
+  content: "Hide trace ▴";
+}
+.claim-proof-drawer summary:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+.claim-proof-content {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--border);
+}
+.proof-row {
+  margin-bottom: 0.4rem;
+}
+.proof-row:last-child {
+  margin-bottom: 0;
+}
+.proof-lbl {
+  font-weight: 700;
+  color: var(--text-muted);
+  display: inline-block;
+  min-width: 95px;
+}
+.claim-proof-content code {
+  font-size: 0.75rem;
+  background: var(--surface-3);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  word-break: break-all;
+}
+.claim-proof-content pre {
+  margin: 0.35rem 0 0;
+  padding: 0.5rem;
+  background: var(--surface-3);
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.74rem;
+}
+.claim-proof-content pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* Methodology Hub Card */
+.methodology-hub-card {
+  margin-top: 1.5rem;
+}
+.methodology-tab-content {
+  padding-top: 0.8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .claims-deck {
+    grid-template-columns: 1fr;
+  }
+  .conclusions-bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .c-pillar-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1809,5 +1809,5 @@
     }
   },
   "method_note": "Susceptible-Infected (SI) Monte Carlo on the co-author LCC (7,678 researchers, keyed by OpenAlex author ID) for the 6 largest fields (980\u20133,223 active researchers each). Structural thresholds \u03b2c = <k>/<k\u00b2> and 1/\u03bb_max per field subgraph (they apply to spreading with recovery; SI itself has no threshold). Condition A: \u03b2 = \u03b20 \u00d7 subfield cosine similarity \u00d7 receiver's field share (min 0.05) on the full network; Condition B: uniform \u03b20 = 0.2 inside the field subgraph. Top 15 roster faculty per field (field share \u00d7 degree) as seeds, 50 runs each, 15 steps; T50 = median step at which 50% of the field has adopted, 'not reached' when the median run never gets there. Seeded (SEED=24) and order-independent, so reruns give identical numbers.",
-  "computed_at": "2026-11-11T12:24:36.956425+00:00"
+  "computed_at": "2026-11-16T21:11:51.962716+00:00"
 }
