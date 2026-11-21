@@ -383,5 +383,5 @@
     }
   },
   "method_note": "Linear trend fitted on 2016\u20132019 distinct papers; output was already falling, so the dashed trend projects a continued decline and 'above trend' means a smaller fall than projected, not growth. Pre-pandemic rate = compound annual change 2016\u21922019. COVID-related = title/topic matches covid, sars-cov-2, coronavirus, pandemic, antiviral, favipiravir or remdesivir. Publication lag means 2020 papers mostly reflect pre-pandemic work.",
-  "computed_at": "2026-11-02T17:41:39.224631+00:00"
+  "computed_at": "2026-11-21T09:05:54.611222+00:00"
 }

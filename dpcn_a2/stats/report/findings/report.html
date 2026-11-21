@@ -1,0 +1,179 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Group 24 findings report</title><style>
+@page { size: A4; margin: 13mm 14mm 13mm 14mm; }
+* { box-sizing: border-box; }
+body { font-family: "Source Serif 4", "Georgia", serif; font-size: 9.6pt; line-height: 1.36; color: #1a1a1a; margin: 0; }
+h1 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 16pt; margin: 0 0 2pt; color: #1d2b4f; }
+.sub { font-family: Arial, sans-serif; font-size: 8.4pt; color: #555; margin-bottom: 7pt; }
+h2 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 11pt; color: #1d2b4f; margin: 9pt 0 3pt;
+     border-bottom: 1.2px solid #1d2b4f; padding-bottom: 1pt; }
+h3 { font-family: Arial, sans-serif; font-size: 9.4pt; margin: 6pt 0 2pt; color: #333; }
+p { margin: 2pt 0 4pt; }
+ul { margin: 2pt 0 4pt 0; padding-left: 13pt; }
+li { margin: 1.2pt 0; }
+table { border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 7.9pt; margin: 3pt 0 4pt; }
+th, td { padding: 2.2pt 4pt; border-bottom: 0.6px solid #d5d9e0; text-align: right; }
+th { background: #eef1f6; color: #1d2b4f; font-weight: 600; vertical-align: bottom; }
+td:first-child, th:first-child { text-align: left; }
+tr.all td { font-weight: 600; background: #f7f7fb; }
+.box { border: 1px solid #c9d1e3; background: #f5f7fb; padding: 5pt 8pt; margin: 4pt 0 6pt; }
+.box ol { margin: 2pt 0; padding-left: 14pt; }
+.cap { font-family: Arial, sans-serif; font-size: 7.6pt; color: #555; margin: 1pt 0 5pt; }
+.fig img { width: 100%; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+.note { font-family: Arial, sans-serif; font-size: 7.5pt; color: #555; }
+.pb { break-before: page; }
+table.ins td, table.ins th { text-align: left; vertical-align: top; font-size: 7.2pt; line-height: 1.22; padding: 1.6pt 3.5pt; }
+table.ins td:first-child { font-weight: 600; width: 16pt; }
+table.ins td:nth-child(2) { width: 17%; }
+table.ins td:nth-child(3) { width: 46%; }
+table.ins { break-inside: auto; }
+table.ins tr { break-inside: avoid; }
+h2, h3 { break-after: avoid; }
+table, .fig, .box { break-inside: avoid; }
+.k { font-weight: 600; }
+</style></head><body>
+<h1>Research output and collaboration of three CSIR chemistry labs, 2016–2026</h1>
+<div class="sub">Group 24 · DPCN 2026 · CSIR-IICT (Hyderabad), CSIR-NCL (Pune), CSIR-CECRI (Karaikudi) ·
+14,208 distinct papers (14,029 journal, 179 conference) ·
+OpenAlex, collected 13 Oct 2026 (2026 is a partial year) · quartiles: SCImago (SJR) · faculty: 306 roster scientists with ≥ 1 paper</div>
+
+<div class="box"><span class="k">Main findings</span>
+<ol>
+<li><b>Output is falling, and the fall is real.</b> The three labs published 1,727 papers in 2016 and 1,208 in 2025
+(-3.9% a year). IICT (-4.9%/yr) and NCL (-4.3%/yr) drive it; CECRI is flat (+0.1%/yr).
+NCL's own 2023–24 annual report lists 467, 407 and 365 papers for 2021–2023 (docs/DATA_AUDIT_2026-11-11.md); our data has 461, 415, 417, so the scale matches.</li>
+<li><b>Fewer papers, but more in top journals.</b> Q1 papers whose journal has IF&nbsp;&gt;&nbsp;5 rose from 17.0% of output in 2016 to 39.4% in 2025
+(IF&nbsp;&gt;&nbsp;10: 1.8% → 8.5%), while the plain Q1 share fell.</li>
+<li><b>The smallest lab has the highest impact.</b> CECRI (2,870 papers) leads on every quality measure: Q1 73.1%,
+Q1&nbsp;&amp;&nbsp;IF&nbsp;&gt;&nbsp;5 39.8%, and 17.3% of papers in the world's top 10% for their field and year
+(world: 10.83%). IICT, the largest, is below the world level (8.9%).</li>
+<li><b>The three labs work as separate islands.</b> Only 0.8% of co-authorship links and 5.9% of
+citation links join two labs; every large co-author community is ≥&nbsp;94% one lab.</li>
+<li><b>Scientists read each other far more than they write together.</b> 19.7% of scientist-to-scientist citation edges cross labs,
+against 2.7% of faculty co-author pairs.</li>
+<li><b>The bridges are method specialists.</b> The most central people in the co-authorship networks are X-ray crystallographers and a computational chemist,
+who appear on many groups' papers.</li>
+</ol></div>
+
+<h2>1. Overview of the three labs</h2>
+<p class="cap"><b>Table 1.</b> Papers 2016–2026 (distinct; a paper shared by two labs counts for each lab and once in "All three"). Percentages are of all papers.
+IF = SCImago "Cites/Doc (2 years)" of the journal in its quartile year — a Scopus-based analogue of the impact factor, not Clarivate's JIF
+(IF known for 94.2% of papers). Partner institutions: all OpenAlex institutions on the papers other than the three labs.</p>
+<table><tr><th>Lab</th><th>Active<br>faculty</th><th>Papers</th><th>Q1</th><th>Q1 &amp;<br>IF&nbsp;&gt;&nbsp;5</th><th>Q1 &amp;<br>IF&nbsp;&gt;&nbsp;10</th><th>&lt;&nbsp;10<br>authors</th><th>≥&nbsp;10<br>authors</th><th>≥&nbsp;30<br>authors</th><th>Mean<br>authors</th><th>Partner inst.<br>(Indian / foreign)</th><th>Coun-<br>tries</th><th>Intl.<br>papers</th></tr><tr class=''><td>IICT</td><td>129</td><td>6,123</td><td>3,138 (51.2%)</td><td>1,442 (23.6%)</td><td>229 (3.7%)</td><td>5,743 (93.8%)</td><td>380 (6.2%)</td><td>9</td><td>5.53</td><td>1,724<br>(594&nbsp;/&nbsp;1,130)</td><td>74</td><td>22.1%</td></tr><tr class=''><td>NCL</td><td>151</td><td>5,316</td><td>3,414 (64.2%)</td><td>1,556 (29.3%)</td><td>387 (7.3%)</td><td>4,970 (93.5%)</td><td>346 (6.5%)</td><td>9</td><td>5.16</td><td>1,564<br>(571&nbsp;/&nbsp;993)</td><td>76</td><td>18.2%</td></tr><tr class=''><td>CECRI</td><td>26</td><td>2,870</td><td>2,010 (70.0%)</td><td>1,143 (39.8%)</td><td>206 (7.2%)</td><td>2,735 (95.3%)</td><td>135 (4.7%)</td><td>4</td><td>5.20</td><td>1,040<br>(376&nbsp;/&nbsp;664)</td><td>69</td><td>30.4%</td></tr><tr class='all'><td>All three</td><td>306</td><td>14,208</td><td>8,487 (59.7%)</td><td>4,098 (28.8%)</td><td>815 (5.7%)</td><td>13,364 (94.1%)</td><td>844 (5.9%)</td><td>17</td><td>5.29</td><td>3,027<br>(933&nbsp;/&nbsp;2,094)</td><td>95</td><td>22.3%</td></tr></table>
+<ul>
+<li><b>Quality (Q1, Q1&nbsp;&amp;&nbsp;IF&nbsp;&gt;&nbsp;5, Q1&nbsp;&amp;&nbsp;IF&nbsp;&gt;&nbsp;10).</b> 59.7% of the cluster's papers are in Q1 journals
+(63.2% of journal papers with a known quartile). The ranking is the reverse of size: CECRI &gt; NCL &gt; IICT at every threshold.
+At the top end NCL is strongest in absolute terms: 387 papers in Q1 journals with IF&nbsp;&gt;&nbsp;10,
+against 229 for IICT, which is larger. IICT's share of Q1&nbsp;&amp;&nbsp;IF&nbsp;&gt;&nbsp;10 papers (3.7%) is about half of NCL's and CECRI's.</li>
+<li><b>Team size (#authors).</b> 94.1% of papers have fewer than 10 authors and the mean is
+5.3: this is small-group bench chemistry, not big-team science. Only 17 papers have 30 or more authors.
+Teams are slowly growing: mean authors 4.85 in 2016 → 5.89 in 2025;
+papers with ≥&nbsp;10 authors 68 → 110.</li>
+<li><b>Collaboration.</b> The labs co-author with 3,027 institutions in 95 countries.
+22.3% of papers have a foreign co-author (CECRI 30.4%, NCL 18.2%),
+and 45.5% have another Indian institution. 88.7% cite and
+73.9% are cited by another Indian institution.</li>
+</ul>
+
+<h2>2. Output, journals and impact</h2>
+<div class="fig"><img src="fig_trends.png"></div>
+<p class="cap"><b>Figure 1.</b> (a) Distinct papers per year per lab. (b) Q1, Q1&nbsp;&amp;&nbsp;IF&nbsp;&gt;&nbsp;5 and Q1&nbsp;&amp;&nbsp;IF&nbsp;&gt;&nbsp;10 papers as a share of all papers of the three labs.
+2026 (shaded) runs to 13 Oct. Source: publication_trend.csv, phase2_overview_by_year.csv.</p>
+<p class="cap"><b>Table 2.</b> Output, journal quality, citations and faculty h-index. Growth = CAGR 2016–2025 (2026 excluded). Citations: OpenAlex counts on 13 Oct 2026, not field-normalised.
+World top-10% share: OpenAlex citation-normalised percentile, papers in the benchmark's subject scope (Global Benchmark); the world value in the same subjects is 10.83%.
+h-index: in-corpus (2016–2026 papers at the lab), roster scientists with ≥ 1 paper.</p>
+<table><tr><th>Lab</th><th>Papers<br>2016</th><th>Papers<br>2025</th><th>Growth<br>/yr</th><th>Q1 of ranked<br>journal papers</th><th>Quartile<br>coverage</th><th>Citations</th><th>Mean /<br>median</th><th>Uncited</th><th>World top-10%<br>share (field-norm.)</th><th>h-index (2016–26)<br>mean / median / max</th></tr><tr class=''><td>IICT</td><td>823</td><td>524</td><td>-4.9%</td><td>55.0%</td><td>94.4%</td><td>125,172</td><td>20.4 / 10</td><td>11.9%</td><td>8.9%</td><td>8.6 / 7 / 54</td></tr><tr class=''><td>NCL</td><td>679</td><td>457</td><td>-4.3%</td><td>67.3%</td><td>96.3%</td><td>133,859</td><td>25.2 / 11</td><td>10.6%</td><td>12.3%</td><td>10.1 / 8 / 43</td></tr><tr class=''><td>CECRI</td><td>237</td><td>238</td><td>+0.1%</td><td>73.1%</td><td>97.6%</td><td>93,099</td><td>32.4 / 17</td><td>6.5%</td><td>17.3%</td><td>14.0 / 6 / 59</td></tr><tr class='all'><td>All three</td><td>1,727</td><td>1,208</td><td>-3.9%</td><td>63.2%</td><td>95.7%</td><td>350,015</td><td>24.6 / 11</td><td>10.3%</td><td>—</td><td>9.8 / 7 / 59</td></tr></table>
+<ul>
+<li><b>Trend.</b> The decline is steepest in 2016–2020 (IICT 823 → 497)
+and has levelled off since 2021. The 2026 bars are partial and are not a further fall.</li>
+<li><b>Q1 over time.</b> The Q1 fraction of ranked journal papers fell at IICT (64.7% in 2016 → 46.8% in 2025)
+and NCL (74.2% → 61.3%) and held at CECRI (79.2% → 74.0%).
+At the same time more papers went to high-IF Q1 journals (Fig. 1b). Journals' citation rates also grow over time, so part of this rise may be general inflation of IF;
+read it as a shift towards the top of the Q1 band rather than a measured quality gain.</li>
+<li><b>Citations.</b> 350,015 citations, mean 24.6 and median 11 per paper: a few highly cited papers
+pull the mean up. 10.3% are uncited, mostly 2025–26 papers that have had no time to be cited. Raw means favour older papers and
+fast-citing fields (energy, materials), so the field-normalised top-10% share is the fair comparison: only CECRI is clearly above the world level.</li>
+<li><b>Most-cited papers.</b> The top three are reviews or perspectives:
+Recent Trends and Perspectives in Electrochemical Water Splitting with… (<i>ACS Catalysis</i> 2016, CECRI, 2,493); Cancer chemotherapy and beyond: Current status, drug candidates, assoc… (<i>Genes &amp; Diseases</i> 2022, IICT, 1,826); Precision and correctness in the evaluation of electrocatalytic water … (<i>Energy &amp; Environmental Science</i> 2018, CECRI, 1,623).</li>
+<li><b>Journals.</b> Output is spread thin: no journal carries more than 3.1% of the cluster's papers. The most-used venue for IICT and NCL is
+<i>ChemistrySelect</i> (Q2), a high-volume mid-tier journal; CECRI's top two are Q1
+(<i>Electrochimica Acta</i>, <i>Journal of Materials Chemistry A</i>).</li>
+<li><b>Research areas</b> (OpenAlex field of the primary topic): Chemistry 26.9%, Engineering 19.2%, Materials Science 18.1%, Energy 10.5%, Biochemistry, Genetics and Molecular Biology 7.8%.
+The labs differ: IICT is Chemistry (37.5%), CECRI Engineering (37.4%) and energy,
+NCL the broadest (Chemistry 26.8%).</li>
+<li><b>Faculty and departments.</b> 37.6% of active scientists have an in-window h-index of 4 or less. CECRI is bimodal: 50% are at h&nbsp;&lt;&nbsp;5 and
+27% at h&nbsp;≥&nbsp;25 (only 26 of its scientists are matched). Highest h-indices: Subrata Kundu (CECRI, 59), S. Venkata Mohan (IICT, 54), Sreekumar Kurungot (NCL, 43).
+The most productive department is NCL's Physical and Materials Chemistry Division (1,228 papers, 74.3% Q1, mean h 14.0).</li>
+</ul>
+
+<h2 class="pb">3. Network analysis</h2>
+<p class="cap"><b>Table 3.</b> The four networks. Citation network: links between two corpus papers (citation_network.csv restricted to the corpus). Co-authorship: every lab author
+(students and project staff included) or roster faculty only (one node per scientist). Cross-lab = share of links joining two different labs. Papers with &gt; 30 authors are not dropped here.</p>
+<table><tr><th>Network (2016–2026)</th><th>Nodes</th><th>Edges</th><th>Mean degree</th><th>Density</th>
+<th>Largest component</th><th>Communities (modularity)</th><th>Cross-lab</th></tr>
+<tr><td>Citation: paper → paper, both in corpus (directed)</td><td>10,931</td>
+<td>27,099</td><td>in 1.91 (max 129)</td><td>—</td>
+<td>8,917 (weak)</td><td>—</td><td>5.9%</td></tr>
+<tr><td>Co-authorship: all lab authors (undirected)</td><td>7,820</td>
+<td>35,014</td><td>8.95</td>
+<td>0.0011</td><td>95.8%</td>
+<td>136 (0.82)</td><td>0.8%</td></tr>
+<tr><td>Co-authorship: roster faculty only</td><td>306</td>
+<td>627</td><td>4.10</td>
+<td>0.0134</td><td>234 scientists</td>
+<td>12 (0.69)</td><td>2.7%</td></tr>
+<tr><td>Citation: scientist → scientist (directed)</td><td>247</td>
+<td>1,739</td><td>—</td><td>0.0186</td>
+<td>reciprocity 0.51</td><td>—</td><td>19.7%</td></tr></table>
+<div class="fig"><img src="fig_networks.png"></div>
+<p class="cap"><b>Figure 2.</b> (a) Faculty co-authorship network, largest connected component; colour = lab, amber = a pair from two labs. (b) Share of links that cross labs in each network.</p>
+
+<h3>Co-authorship</h3>
+<ul>
+<li><b>One giant component, many tight groups.</b> 95.8% of the 7,820 lab authors are connected,
+but the network is sparse (density 0.0011) and strongly modular: Louvain finds 136 communities
+(39 with ≥&nbsp;10 authors), modularity 0.82. These communities are research groups:
+the 15 largest are each ≥&nbsp;94% one lab (median 99%).</li>
+<li><b>Labs are islands.</b> Of 64,419 co-authorship links, 514 (0.8%) join two labs.
+Among faculty, 17 of 627 pairs cross labs, and
+68 of 306 active scientists (22.2%)
+have no paper with any other roster scientist: their links run through students and project staff, not through colleagues.
+The faculty network has mean degree 4.1, clustering
+0.32 and 12 communities
+(modularity 0.69).</li>
+
+<li><b>Who bridges.</b> Highest betweenness among all authors: B. Sridhar (IICT, 0.103), Jagadeesh Babu Nanubolu (IICT, 0.092), Subrata Kundu (CECRI, 0.069), Sunil Misra (IICT, 0.063), Rajesh G. Gonnade (NCL, 0.060).
+B. Sridhar, J.&nbsp;B. Nanubolu (IICT) and R.&nbsp;G. Gonnade (NCL) run X-ray crystallography; Kumar Vanka (NCL) is a computational chemist. Structure determination
+and computation are services many groups need, so these people sit between otherwise separate groups (B. Sridhar's 329 papers are mostly middle-author).</li>
+</ul>
+
+<h3>Citations</h3>
+<ul>
+<li><b>Mostly within a lab.</b> 10,931 of 14,182 papers have at least one citation link to another corpus paper;
+mean in-degree 1.91, maximum 129. Of 27,582 links, 1,639 (5.9%) cross labs
+(IICT→NCL 587, NCL→IICT 404; CECRI sends 322 and receives 326).</li>
+<li><b>Reading crosses lab lines; writing does not.</b> Between scientists, 19.7% of citation edges cross labs, 7 times the share of
+faculty co-author pairs (2.7%). Half of citing relations are returned (reciprocity 0.51).
+The labs know each other's work but rarely publish together.</li>
+<li><b>Most central papers.</b> By PageRank, 4 of the top 5 corpus papers are CECRI's electrocatalysis papers (led by the 2016 <i>ACS Catalysis</i>
+water-splitting review). The smallest lab supplies the most-reused knowledge inside the cluster.</li>
+</ul>
+
+<h2>4. In a wider frame (Global Benchmark)</h2>
+<p>Against similar institutes, the labs' median growth (-4.5%/yr) is the lowest of all groups: Indian peers +2.9%,
+Chinese twins +7.2%, US twins +1.6%, Australian twins -3.1% (median per group; CSIRO Manufacturing's -8.1% is likely an attribution artefact). On impact the labs' median top-10% share
+(12.3%) equals the Indian peers' (12.3%) but is about half of the Chinese (27.2%)
+and US (24.3%) twins. CECRI (17.3%) is the exception.</p>
+
+<h2 class='pb'>5. The eleven insight studies</h2><p class='cap'><b>Table 4.</b> The eleven insight studies, numbered by study id; 11, "How Ideas Spread", is the lead study with its own page. Answers are each study's own generated headline (stats/tables/insights/*.json), re-run on 21 Nov 2026 on the audited data except 07, 09 and 10 (their OpenAlex caches are not in this checkout). 07 and 10 are as the website showed them before their removal on 10 Nov 2026 (D-37), computed on 2 Nov 2026, before the data audit (stats/tables/insights/withdrawn/).</p><table class='ins'><tr><th>#</th><th>Question</th><th>Answer (measured)</th><th>What it means</th></tr><tr><td>01</td><td><b>Do researchers&#x27; co-authors have more co-authors than they do?</b></td><td>93.4% of researchers have fewer co-authors than their co-authors do. The average researcher has 9.0 co-authors, but the average co-author has 32.1.</td><td>The network is built around hubs: a student or postdoc links to the cluster through a few heavily connected group leaders. Only 43% of faculty are in the paradox, because faculty are the hubs.</td></tr><tr><td>02</td><td><b>Do the most-connected scientists collaborate mainly with each other?</b></td><td>The top 1% most-connected researchers show no rich-club effect and are less interconnected than chance (ρ_norm = 0.73). 47 of 81 are CSIR faculty.</td><td>No. The best-connected people each lead their own group and seldom write together: there is no elite core, which matches the separate lab communities in Section 3.</td></tr><tr><td>03</td><td><b>How many researchers hold the cluster together?</b></td><td>Removing the top 886 bridge researchers (11.5% of the network) halves the cluster; random removal needs 3,325. Removing 675 of them separates the three labs&#x27; faculty into different components.</td><td>Robust to random loss, fragile to the loss of bridges. The top bridges are the crystallographers and Subrata Kundu (Section 3).</td></tr><tr><td>04</td><td><b>Is output concentrated in a few scientists?</b></td><td>√N = 18 scientists produce 36.9% of the cluster&#x27;s papers (Price&#x27;s law predicts 50%). The top 10% produce 49.1%; Gini = 0.61 (papers), 0.73 (citations).</td><td>Shares are of the 7,494 papers with a roster scientist, not of all papers. Concentrated, though less than Price&#x27;s law predicts; citations are more unequal than papers: a few groups collect most of the impact.</td></tr><tr><td>05</td><td><b>Is a Q1 journal a reliable signal of a highly cited paper?</b></td><td>Q1 is a strong filter but not a guarantee: 88.7% of the cluster&#x27;s top-10% most-cited papers appeared in Q1 journals, yet only 14.0% of Q1 papers reach the top 10% (vs 3.5% of Q2–Q3 papers).</td><td>Q1 is close to necessary but far from sufficient: most Q1 papers are not highly cited. Q1 shares (Table 1) measure where labs publish, not how much their papers are used. &#x27;Top 10%&#x27; here is within the cluster and publication year (2016–2023 papers).</td></tr><tr><td>06</td><td><b>Are the papers most influential inside the cluster the world&#x27;s most cited?</b></td><td>In-cluster influence and global citations correlate only moderately (Spearman ρ = 0.40). 45 papers are &#x27;hidden gems&#x27;: top-5% internal influence, below-median global citations.</td><td>Only partly. Some papers matter more to the labs&#x27; own later work than their global citation count shows.</td></tr><tr><td>07</td><td><b>Which papers were ignored for years and then suddenly took off?</b></td><td>2 of the 7 strongest candidates (top 1% of 601 papers by Ke&#x27;s B) show sustained delayed recognition; 3 are short citation spikes and 2 peaked in 2025, too recent to tell. The highest-B sustained case, ranked 4 of 7 by B, &#x27;Funnel shaped molecules containing benzo/pyrido[1,2,5]thiadiazole f…&#x27; (IICT, 2016), drew 1.4 citations/yr for 5 years, then 4.7/yr from 2021.</td><td>Delayed recognition is rare: most late risers are short spikes. A 10-year window can only show short sleeps.</td></tr><tr><td>08</td><td><b>How much output did COVID cost, and did research shift?</b></td><td>Output fell 8.6% from 2019 to 2020 (1,320 → 1,207 papers) and was 10.2% below 2019 in 2021, but it had already been falling 8.6% a year since 2016: against that trend 2020 was 2.2% above and 2021 13.9% above, so there is no COVID-specific dip. COVID-related work peaked at 5.5% of CSIR-IICT&#x27;s papers in 2021; the topic mix shifted about as much as in a normal period (JSD ratio 1.04).</td><td>COVID did not cause the decline: output was already falling, and 2020–21 were above the pre-pandemic trend.</td></tr><tr><td>09</td><td><b>How many scientists trained in India, worked abroad and came back, and did it change their research?</b></td><td>17.0% of classifiable CSIR scientists are returnees (NCL 17.7% (n=141), IICT 17.0% (n=106), CECRI 11.1% (n=18)); their abroad spell was most often in the US (25 of 45). Their papers&#x27; citations do not differ significantly from home-grown peers of similar career age (+9%, 95% CI -19% to +47%); 20.5% of returnees&#x27; papers vs 16.7% of home-grown scientists&#x27; papers have a foreign co-author.</td><td>About one in six are returnees, mostly from the US. Their citations are not measurably different; they co-author slightly more with foreign partners. Computed on 2 Nov 2026 from the OpenAlex career cache (not in this checkout); the classification is marked &#x27;validation pending&#x27; in its output.</td></tr><tr><td>10</td><td><b>How much of each lab&#x27;s output depends on scientists close to retirement?</b></td><td>In CECRI, 46.3% of recent papers (36.4–51.1% for age cut-offs 32–28; 48.6% of their citations) have only roster authors likely to retire within ~5 years (IICT 20.9%, NCL 11.7%). Highest exposure: Electrochemical Process Engineering, CECRI (74.5% of 192 papers).</td><td>CECRI carries the largest retirement risk: about half its recent papers have no younger roster author. Age is estimated from the first publication year (no birth dates).</td></tr><tr><td>11</td><td><b>How do ideas spread through the labs? (lead study, its own page)</b></td><td>In the labs&#x27; real citations an idea passes over a co-authorship tie with probability 0.81% on average, and 4.95% for the most reused ideas (cited by 10 or more lab papers): below the tipping point measured for the full network (6%) and far below the faculty network&#x27;s (21.5%). Ideas travel with people: in 78% of real pass-ons an earlier user is an author of the new paper. Measured on real citations, a tie of a student or other non-faculty author passes an idea on 2.7× as often as a faculty member&#x27;s tie. The three labs are islands that learn from abroad by reading: 1.44% of co-authorship ties link people of different labs.</td><td>Ideas travel with people, not along the network as a whole: most die after one use. Students and project staff carry them between groups. The labs learn from abroad by reading, each on its own.</td></tr></table>
+
+<h2>6. Limitations</h2>
+<ul class="note">
+<li>OpenAlex affiliations and author profiles contain errors (split profiles were joined, D-41).
+Faculty = today's website rosters (382 entries, 306 with papers); students and project staff count in paper but not faculty statistics.
+Quartiles are SJR "best quartile" (Scopus-based; JCR may differ), 2025 values for 2026 papers; "IF" is SJR's two-year cites per document, not Clarivate's JIF.
+Citations are as of 13 Oct 2026 and not field-normalised except the top-10% share; links to and from outside the corpus cover only Indian-affiliated papers.
+2026 is partial; h-index is in-corpus (2016–2026); CORE ranks do not apply (179 conference papers).</li>
+</ul>
+
+</body></html>
