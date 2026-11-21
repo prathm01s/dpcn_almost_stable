@@ -50,6 +50,7 @@ def run_target(target: str) -> None:
         import importlib
         importlib.import_module("src.collect.22_global_peers").run_step_22()
         importlib.import_module("src.collect.23_global_benchmark").run_step_23()
+        importlib.import_module("src.collect.25_global_journals").run_step_25()  # journals for Q1 / IF (D-47)
         from src.stats.global_benchmark import run_global_benchmark
         from src.dashboard.build_global import run_build_global
         run_global_benchmark()

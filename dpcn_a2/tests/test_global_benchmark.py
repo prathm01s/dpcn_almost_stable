@@ -178,3 +178,19 @@ def test_world_baseline_is_measured():
     world = c[c["country_code"] == "WORLD"]
     assert abs(w["top10_pct"].iloc[0] - 100 * world["top10"].sum() / world["papers_scope"].sum()) < 0.01
     assert 9.5 < w["top10_pct"].iloc[0] < 12.5 and 0.9 < w["top1_pct"].iloc[0] < 1.3
+
+
+def test_journal_quality_covers_the_benchmark_papers_and_matches_the_dataset():
+    """D-47: the journal pull (Step 25) counts the same papers as the benchmark, and the labs' Q1 / Q1 & IF>5 / Q1 & IF>10 shares
+    from the raw benchmark query agree with the curated dataset's overview (two independent routes) within 3 points."""
+    s = pd.read_csv("stats/tables/global_summary.csv")
+    assert {"q1_pct", "q1_if5_pct", "q1_if10_pct"} <= set(s.columns)
+    rel = (s["papers_journal_counted"] - s["papers_scope"]).abs() / s["papers_scope"]
+    assert rel.max() < 0.03, rel.max()  # pulled on different days (Step 23: 15 Nov, Step 25: 21 Nov); OpenAlex counts drift (max 2.0%, KRICT)
+    assert (s["q1_if10_pct"] <= s["q1_if5_pct"]).all() and (s["q1_if5_pct"] <= s["q1_pct"]).all()
+    ov = pd.read_csv("stats/tables/phase2_overview.csv").set_index("institution")
+    for _, r in s[s["group"] == "CSIR lab"].iterrows():
+        o = ov.loc[r["short"]]
+        for col, ocol in (("q1_pct", "q1_papers"), ("q1_if5_pct", "q1_if_gt5"), ("q1_if10_pct", "q1_if_gt10")):
+            # different paper sets (benchmark: subject scope, articles+reviews, 2016-2025; dataset: all types, 2016-2026)
+            assert abs(r[col] - 100 * o[ocol] / o["papers"]) < 3.0, (r["short"], col, r[col], 100 * o[ocol] / o["papers"])

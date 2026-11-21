@@ -15,3 +15,7 @@ logs/*.log
 
 # Personal explainer for the professor (not part of the submission)
 INSIGHTS_EXPLAINED.md
+
+# Submission package (built by scripts/make_submission.py; copies of files already in the repo)
+Group24_Submission/
+Group24_Submission.zip

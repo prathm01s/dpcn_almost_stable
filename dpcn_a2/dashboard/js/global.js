@@ -406,6 +406,9 @@
     top1_pct: { label: "World top 1%", title: "Share of papers in the world's top 1%", ref: W.top1_pct, note: `Among the most cited 1% of papers of the same subfield, type and year worldwide. The dashed line is the world's own share in these subfields, ${W.top1_pct}%.` },
     above_world_pct: { label: "Above world average", title: "Share of papers cited above the world average", ref: null, note: "Papers with field-weighted citation impact (FWCI) above 1, i.e. cited more than the world average for their subfield, type and year." },
     intl_pct: { label: "International", title: "Share of papers with a co-author in another country", ref: null, note: "Papers with authors in two or more countries. Not an impact measure; shown for context." },
+    q1_pct: { label: "Q1", title: "Share of papers in Q1 journals", ref: null, note: "Papers in journals in the top quartile of their subject (SCImago best quartile in the paper's year), as a share of all in-scope papers. Same rule as the main dashboard, applied to every institution's journals (D-47)." },
+    q1_if5_pct: { label: "Q1 & IF > 5", title: "Share of papers in Q1 journals with IF above 5", ref: null, note: "Q1 journals whose impact-factor analogue (SCImago two-year cites per document in the paper's year; not Clarivate's JIF) is above 5, as a share of all in-scope papers." },
+    q1_if10_pct: { label: "Q1 & IF > 10", title: "Share of papers in Q1 journals with IF above 10", ref: null, note: "Q1 journals with SCImago two-year cites per document above 10 in the paper's year (the most selective journals), as a share of all in-scope papers." },
   };
   function renderImpact() {
     const k = ink();
@@ -413,7 +416,7 @@
       const M = METRICS[key];
       $("impact-title").textContent = M.title;
       $("impact-note").textContent = M.note;
-      const rows = [...D.summary].sort((a, b) => a[key] - b[key]);
+      const rows = [...D.summary].filter(r => r[key] != null).sort((a, b) => a[key] - b[key]);
       chart("ch-impact", {
         grid: { left: 8, right: 60, top: 8, bottom: 8, containLabel: true },
         tooltip: { ...tooltipBase(), trigger: "item", formatter: p => { const r = rows[p.dataIndex]; return `<b>${esc(r.short)}</b> (${esc(GROUP_LABEL[r.group])})<br>${esc(M.title)}: ${pct(r[key])}<br>${fmt(r.papers_scope)} in-scope papers, ${y0}–${y1}`; } },
@@ -446,6 +449,9 @@
         { title: "Top 1%", field: "top1_pct", hozAlign: "right", width: 80, formatter: c => pct(c.getValue(), 2) },
         { title: "Above world", field: "above_world_pct", hozAlign: "right", width: 95, formatter: c => pct(c.getValue()) },
         { title: "International", field: "intl_pct", hozAlign: "right", width: 100, formatter: c => pct(c.getValue()) },
+        { title: "Q1", field: "q1_pct", hozAlign: "right", width: 70, formatter: c => pct(c.getValue()) },
+        { title: "Q1 & IF>5", field: "q1_if5_pct", hozAlign: "right", width: 90, formatter: c => pct(c.getValue()) },
+        { title: "Q1 & IF>10", field: "q1_if10_pct", hozAlign: "right", width: 95, formatter: c => pct(c.getValue()) },
       ],
     }));
 
@@ -456,7 +462,9 @@
     const best = labs.reduce((a, b) => (b.top10_pct > a.top10_pct ? b : a));
     answer("impact", `${labs.map(r => `${esc(r.short.replace("CSIR-", ""))} <b>${pct(r.top10_pct)}</b>`).join(", ")} of papers are among the world's 10% most cited in their subject and year ` +
       `(the world's own share in these subfields is ${pct(W.top10_pct)}). The foreign twins reach ${pct(twinMed)} (median) and the Indian reference group ${pct(indMed)}; ` +
-      `${esc(best.short)} is the best-placed CSIR lab, #${rank.indexOf(best) + 1} of ${rank.length}.`);
+      `${esc(best.short)} is the best-placed CSIR lab, #${rank.indexOf(best) + 1} of ${rank.length}.` +
+      (labs[0].q1_if10_pct != null ? ` The journals tell the same story: ${labs.map(r => `${esc(r.short.replace("CSIR-", ""))} ${pct(r.q1_if10_pct)}`).join(", ")} of papers are in Q1 journals with IF above 10, ` +
+        `against ${pct(median(foreign.map(p => sumById[p.institution_id].q1_if10_pct)))} for the foreign twins (median) and ${pct(median(peers.filter(p => p.group === "India").map(p => sumById[p.institution_id].q1_if10_pct)))} for the Indian reference group.` : ""));
   }
 
   // ---------- 05 Profiles ----------

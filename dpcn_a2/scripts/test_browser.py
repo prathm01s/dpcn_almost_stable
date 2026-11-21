@@ -622,7 +622,7 @@ def run_tests():
         client_g.evaluate("document.querySelectorAll('#seg-index button, #seg-impact button, #seg-flows button').forEach(b => b.click())")
         time.sleep(0.5)
         title_now = client_g.evaluate("document.getElementById('impact-title').textContent")
-        assert "international" in title_now.lower() or "country" in title_now.lower(), title_now
+        assert "if above 10" in title_now.lower(), title_now  # last measure button: Q1 & IF > 10 (D-47)
         if client_g.console_errors:
             for err in client_g.console_errors:
                 print("  ERROR:", err)

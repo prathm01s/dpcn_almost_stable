@@ -304,6 +304,72 @@ def profiles_table(peers: pd.DataFrame, n_sub: int = 12) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def journal_quality() -> pd.DataFrame:
+    """Per institution: share of in-scope papers in Q1 journals, Q1 & IF > 5, Q1 & IF > 10 (D-47).
+
+    Journals per institution and year come from Step 25 (journal_by_year.csv, sources.csv). Quartile and IF follow the
+    labs' own rule (src/stats/journal_if.py, step 08): the journal's SCImago best quartile and 'Cites / Doc. (2 years)'
+    in the paper's year, matched on any ISSN, then on the cleaned title. IF is SCImago's two-year cites per document,
+    a Scopus analogue of the impact factor (not Clarivate's JIF). Shares are of all in-scope papers (as on the main
+    dashboard) and, for Q1, also of papers in a ranked journal.
+    """
+    jp, sp = G / "journal_by_year.csv", G / "sources.csv"
+    if not (jp.exists() and sp.exists()):
+        return pd.DataFrame()
+    import importlib
+    import pyreadr
+    from src.common.issn import to_sjr_issn
+    step08 = importlib.import_module("src.collect.08_resolve_quartiles")
+    sjr = list(pyreadr.read_r("data/external/sjr_journals.rda").values())[0]
+    sjr = sjr[sjr["year"] >= 2014]
+    by_issn, by_title = {}, {}
+    for yr, issns, title, q, cd in zip(sjr["year"].astype(int), sjr["issn"], sjr["title"], sjr["sjr_best_quartile"], sjr["citations_doc_2years"]):
+        val = (str(q or "").strip().upper(), None if pd.isna(cd) else float(cd))
+        for i in step08.parse_issns_from_sjr(issns):
+            by_issn.setdefault((yr, i), val)
+        t = step08.clean_title_for_match(title)
+        if t:
+            by_title.setdefault((yr, t), val)
+    src = pd.read_csv(sp, dtype=str, keep_default_na=False).set_index("source_id")
+    jb = pd.read_csv(jp, dtype={"institution_id": str, "source_id": str}, keep_default_na=False)
+    cache = {}
+
+    def look(sid, y):
+        k = (sid, y)
+        if k not in cache:
+            val = None
+            if sid and sid in src.index:
+                r = src.loc[sid]
+                keys = [to_sjr_issn(x) for x in [r["issn_l"], *str(r["issn"]).split(";")] if x]
+                val = next((by_issn[(y, k2)] for k2 in keys if k2 and (y, k2) in by_issn), None)
+                if val is None:
+                    val = by_title.get((y, step08.clean_title_for_match(r["display_name"])))
+            cache[k] = val
+        return cache[k]
+
+    rows = []
+    for iid, g in jb.groupby("institution_id"):
+        tot = ranked = q1 = q5 = q10 = with_if = 0
+        for sid, y, n in zip(g["source_id"], g["year"].astype(int), g["papers"].astype(int)):
+            tot += n
+            v = look(sid, y)
+            if not v or v[0] not in ("Q1", "Q2", "Q3", "Q4"):
+                continue
+            ranked += n
+            if v[1] is not None:
+                with_if += n
+            if v[0] == "Q1":
+                q1 += n
+                if v[1] is not None and v[1] > 5:
+                    q5 += n
+                if v[1] is not None and v[1] > 10:
+                    q10 += n
+        rows.append({"institution_id": iid, "papers_journal_counted": tot, "papers_ranked": ranked,
+                     "quartile_coverage_pct": _pct(ranked, tot), "q1_pct": _pct(q1, tot), "q1_of_ranked_pct": _pct(q1, ranked),
+                     "q1_if5_pct": _pct(q5, tot), "q1_if10_pct": _pct(q10, tot), "q1_papers": q1, "q1_if5_papers": q5, "q1_if10_papers": q10})
+    return pd.DataFrame(rows)
+
+
 def run_global_benchmark() -> None:
     if not (G / "bench_by_year.csv").exists():
         logger.warning("data/final/global/bench_by_year.csv missing; run collect steps 22-23 first")
@@ -313,6 +379,9 @@ def run_global_benchmark() -> None:
     peers = peers_table(cfg)
     peers.to_csv(T / "global_peers.csv", index=False)
     summ, by_year = summary_tables(peers, cfg)
+    jq = journal_quality()
+    if len(jq):
+        summ = summ.merge(jq, on="institution_id", how="left")
     summ.to_csv(T / "global_summary.csv", index=False)
     by_year.to_csv(T / "global_by_year.csv", index=False)
     countries_table().to_csv(T / "global_countries.csv", index=False)
