@@ -256,10 +256,11 @@ def fig_flows(D, path):
     b.barh(y, ind, left=car, color="#9cc3ef", height=0.6, label="used independently")
     for yi, c in zip(y, cats):
         b.text(c[1]["T_pct"] + 0.4, yi, f"{c[1]['T_pct']:.2f}%", va="center", fontsize=5.8)
-    for v, lab, col in ((100 * tp["full_coauthorship"], "tipping point,\nall authors", "#eb6834"), (100 * tp["faculty_coauthorship"], "tipping point,\nfaculty only", "#c98500")):
+    for v, lab, col, yy in ((100 * tp["full_coauthorship"], "tipping point, all authors", "#eb6834", -1.0),
+                            (100 * tp["faculty_coauthorship"], "faculty only", "#c98500", -0.45)):
         b.axvline(v, color=col, ls="--", lw=1)
         right = v > 15  # the faculty line sits near the right edge: label it on its left
-        b.text(v - 0.4 if right else v + 0.4, -0.75, f"{lab} ({v:g}%)", fontsize=5.2, color=col, va="center", ha="right" if right else "left")
+        b.text(v - 0.4 if right else v + 0.4, yy, f"{lab} ({v:g}%)", fontsize=5.4, color=col, va="center", ha="right" if right else "left")
     b.set_yticks(y)
     b.set_yticklabels([c[0] for c in cats], fontsize=6)
     b.set_ylim(len(cats) - 0.5, -1.3)
@@ -472,6 +473,93 @@ def values(D):
     return V
 
 
+def extra_values(D):
+    """Journals, fields, faculty, departments, Indian links and citation flows (ideas from the teammate's findings report)."""
+    V = {}
+    tj, ra, hd, fac, dept, ind, qy, cfm = D["tj"], D["ra"], D["hd"], D["fac"], D["dept"], D["ind"], D["qy"], D["cfm"]
+    V["tj_max"] = p1(tj[tj["institution"] == ALL]["share_pct"].max())
+    for l in LABS:
+        k = SHORT[l].lower()
+        t = tj[tj["institution"] == l].sort_values("rank")
+        V[f"tj_{k}"], V[f"tj_{k}_q"] = tex_escape(t.iloc[0]["journal_name"]), t.iloc[0]["quartile"]
+        V[f"tj2_{k}"], V[f"tj2_{k}_q"] = tex_escape(t.iloc[1]["journal_name"]), t.iloc[1]["quartile"]
+        r = ra[ra["institution"] == l].sort_values("paper_count", ascending=False).iloc[0]
+        V[f"ra_{k}"] = f"{tex_escape(r['field'])} {r['share_pct']:.1f}\\%"
+        q = qy[qy["institution"] == l]
+        for y in (2016, 2025):
+            V[f"qy_{k}{str(y)[2:]}"] = p1(q[q["year"].astype(str) == str(y)]["q1_fraction_primary_pct"].iloc[0])
+    ra_all = ra[ra["institution"] == ALL].sort_values("paper_count", ascending=False).head(4)
+    V["ra_all"] = ", ".join(f"{tex_escape(r.field)} {r.share_pct:.1f}\\%" for r in ra_all.itertuples())
+    V["low_h"] = p1(hd[(hd["institution"] == ALL) & (hd["bin_label"] == "0-4")]["share_pct"].iloc[0])
+    ce = hd[hd["institution"] == "CSIR-CECRI"]
+    V["ce_low"], V["ce_high"] = f"{ce[ce['bin_lower'] < 5]['share_pct'].sum():.0f}", f"{ce[ce['bin_lower'] >= 25]['share_pct'].sum():.0f}"
+    top_h = fac.sort_values("h_index_corpus", ascending=False).head(3)
+    V["top_h"] = ", ".join(f"{tex_escape(r.name.replace('Dr. ', '').replace('Dr ', ''))} ({SHORT[r.institution]}, {r.h_index_corpus})" for r in top_h.itertuples())
+    d = dept.sort_values("papers", ascending=False).iloc[0]
+    V.update(dept=tex_escape(str(d["department"]).title().replace(" And ", " and ")), dept_lab=SHORT[d["institution"]], dept_n=f0(d["papers"]),
+             dept_q1=p1(d["q1_share_pct"]), dept_h=p1(d["mean_faculty_h_index"]))
+    V.update(ind_co=p1(ind.at[ALL, "indian_coauthor_pct"]), ind_cites=p1(ind.at[ALL, "cites_indian_inst_pct"]),
+             ind_cited=p1(ind.at[ALL, "cited_by_indian_inst_pct"]))
+    _, (a_cross, a_tot, c_cross, c_tot) = D["shares"], D["counts"]
+    V.update(c_cross=f0(c_cross), c_tot=f0(c_tot), f_in=f0(cfm.at["CSIR-IICT", "CSIR-NCL"]), f_ni=f0(cfm.at["CSIR-NCL", "CSIR-IICT"]),
+             f_cs=f0(cfm.loc["CSIR-CECRI", ["CSIR-IICT", "CSIR-NCL"]].sum()), f_cr=f0(cfm.loc[["CSIR-IICT", "CSIR-NCL"], "CSIR-CECRI"].sum()))
+    V["uncited"] = p1(D["cit"].at[ALL, "uncited_share_pct"])
+    return V
+
+
+def table_lab_vs_twins(D):
+    """Each lab against the median of its own foreign twins (Global Benchmark)."""
+    gs = D["gs"]
+    out = []
+    for l in LABS:
+        me = gs[gs["short"] == l].iloc[0]
+        tw = gs[(gs["twin_of"] == l) & ~gs["group"].isin(["CSIR lab", "India"])]
+        names = ", ".join(tex_escape(s.replace(" Manufacturing", " Mfg.").replace(" (ex-NREL)", "")) for s in tw["short"])
+        cell = lambda c, d=1, sign=False: (f"{me[c]:+.{d}f} / {med(tw[c]):+.{d}f}" if sign else f"{me[c]:.{d}f} / {med(tw[c]):.{d}f}")
+        out.append(f"{SHORT[l]} & {len(tw)} & {cell('cagr_pct', sign=True)} & {cell('top10_pct')} & {cell('q1_if5_pct')} & {cell('q1_if10_pct')} & {cell('intl_pct')} \\\\")
+        out.append(f"\\multicolumn{{7}}{{@{{}}l}}{{\\scriptsize\\color{{muted}} twins: {names}}} \\\\[1pt]")
+    return "\n".join(out)
+
+
+def table_findings():
+    """The eight key findings shown on the dashboard's main page (INSIGHT_ORDER in dashboard/js/app.js), from their outputs."""
+    I = T / "insights"
+    m = {k: json.loads((I / f"{k}.json").read_text(encoding="utf-8"))["metrics"] for k in
+         ["01_friendship_paradox", "02_rich_club", "03_fragility", "04_price_law", "05_quartile_vs_impact",
+          "06_pagerank_vs_citations", "08_covid_shock", "09_brain_circulation"]}
+    a, b, c, d = m["01_friendship_paradox"], m["02_rich_club"], m["03_fragility"], m["04_price_law"]
+    e, f, g, h = m["05_quartile_vs_impact"], m["06_pagerank_vs_citations"], m["08_covid_shock"], m["09_brain_circulation"]
+    hc = h["top_host_countries"]
+    us = hc.get("US", 0)
+    rows = [
+        ("Friendship paradox", "Network",
+         f"{a['share_paradox']:.1f}\\% of the {a['n_nodes']:,} researchers have fewer co-authors than their co-authors (mean {a['mean_k']:.1f} vs {a['mean_neighbour_k']:.1f}); only {a['faculty_share_paradox']:.1f}\\% of faculty do.",
+         "Hub and spoke: students and project staff reach the cluster through a few group leaders, who are the hubs."),
+        ("No rich club", "Network",
+         f"The best-connected 1\\% ({b['n_top1_percent']} researchers, {b['n_top1_faculty']} of them faculty) are less linked to each other than in randomised networks ($\\rho_{{norm}} = {b['rho_norm_at_k_star']:.2f}$, {b['n_nulls']} nulls).",
+         "No elite core: each leader runs a separate group, matching the separate communities of Section~3."),
+        ("Fragility", "Network",
+         f"Removing the {c['n50_betweenness']:,} highest-betweenness researchers ({c['n50_betweenness_pct']:.1f}\\%) halves the largest component; random removal needs {c['n50_random']:,}. Removing {c['n_labsplit']:,} of them separates the three labs' faculty.",
+         "Robust to random loss, fragile to the loss of a few bridges, who are worth protecting."),
+        ("Price's law", "Productivity",
+         f"$\\sqrt{{N}} = {d['n_sqrt']}$ of {d['N_active_faculty']} scientists write {d['price_share_pct']:.1f}\\% of faculty papers (the law predicts 50\\%); the top 10\\% write {d['top10_share_pct']:.1f}\\%. Gini {d['gini_papers']:.2f} (papers), {d['gini_citations']:.2f} (citations).",
+         "Output is concentrated, impact more so: a few groups collect most of the citations."),
+        ("Q1 vs. impact", "Journals",
+         f"{100 - e['pct_top10_from_nonQ1']:.1f}\\% of the cluster's top-10\\% most-cited papers are in Q1 journals, yet only {e['pct_Q1_in_top10']:.1f}\\% of Q1 papers reach the top 10\\% (Q2--Q3: {e['pct_Q2Q3_in_top10']:.1f}\\%; {e['eligible_papers']:,} papers).",
+         "Q1 is close to necessary but far from sufficient, so the benchmark also uses field-normalised citations."),
+        ("Hidden gems", "Citations",
+         f"In-cluster PageRank and global citations correlate only moderately (Spearman $\\rho = {f['spearman_rho']:.2f}$, {f['n_eligible_papers']:,} papers); {f['n_hidden_gems']} papers are in the top 5\\% inside the cluster but below the median worldwide.",
+         "Some papers matter more to the labs' own later work than their citation counts show."),
+        ("COVID shock", "Trends",
+         f"Output fell {abs(g['combined_change_2020_vs_2019_pct']):.1f}\\% from 2019 to 2020 ({g['combined_papers_2019']:,} $\\to$ {g['combined_papers_2020']:,}), but had been falling {abs(g['pre_pandemic_annual_change_pct']):.1f}\\% a year before; against that trend 2020 was {g['combined_gap_2020_pct']:.1f}\\% and 2021 {g['combined_gap_2021_pct']:.1f}\\% above. Topic shift: JSD ratio {g['jsd_ratio']:.2f}.",
+         "No COVID-specific dip: the decline predates the pandemic, and the research mix barely changed."),
+        ("Brain circulation", "Careers",
+         f"{h['returnee_pct_overall']:.1f}\\% of {h['n_classifiable']} classifiable scientists trained in India, worked abroad and returned ({us} of {h['n_returnees']} in the USA). Their citations do not differ from peers of similar career age ({h['ols_adjusted_diff_pct']:+.0f}\\%, $p = {h['ols_pvalue']:.2f}$); {h['returnee_foreign_coauthor_pct']:.1f}\\% vs {h['homegrown_foreign_coauthor_pct']:.1f}\\% of papers have a foreign co-author.",
+         "Time abroad shows up in foreign links, not in citations (classification awaiting manual validation)."),
+    ]
+    return "\n".join(f"\\textbf{{{t}}}\\newline{{\\color{{muted}}\\scriptsize {tag}}} & {meas} & {mean} \\\\" for t, tag, meas, mean in rows)
+
+
 # ------------------------------------------------------------------ LaTeX
 TEX = r"""
 \documentclass[10pt,a4paper,twocolumn]{article}
@@ -549,11 +637,15 @@ Lab & Papers & Q1 (\%) & Q1\,\&\,IF$>$5 & Q1\,\&\,IF$>$10 & $<$10 authors & Mean
 
 \obs{Output is falling, and the fall is real.} The labs published <<p2016>> papers in 2016 and <<p2025>> in 2025 (<<g_allthree>>\% a year). IICT (<<g_iict>>\%) and NCL (<<g_ncl>>\%) drive the decline; CECRI is flat (<<g_cecri>>\%). The steepest fall was 2016--2020; output has levelled since.
 
-\obs{Quality moved up while volume fell.} <<q1>>\% of all papers are in Q1 journals, <<q1if5>>\% in Q1 journals with IF\,$>$\,5 and <<q1if10>>\% with IF\,$>$\,10. Over time the plain Q1 share dipped (<<q1_2016>>\% $\to$ <<q1_2025>>\%) but the high-IF shares rose sharply (Fig.~1b), so papers moved towards the top of the Q1 band (journal citation rates also drift upwards, so part of this is inflation of IF).
+\obs{Quality moved up while volume fell.} <<q1>>\% of all papers are in Q1 journals, <<q1if5>>\% in Q1 journals with IF\,$>$\,5 and <<q1if10>>\% with IF\,$>$\,10. Over time the plain Q1 share dipped (<<q1_2016>>\% $\to$ <<q1_2025>>\%) but the high-IF shares rose sharply (Fig.~1b), so papers moved towards the top of the Q1 band (journal citation rates also drift upwards, so part of this is inflation of IF). By lab, the Q1 share of ranked journal papers fell at IICT (<<qy_iict16>>\% $\to$ <<qy_iict25>>\%) and NCL (<<qy_ncl16>>\% $\to$ <<qy_ncl25>>\%) and held at CECRI (<<qy_cecri16>>\% $\to$ <<qy_cecri25>>\%).
 
 \obs{The smallest lab has the highest quality.} CECRI (<<n_cecri>> papers) leads at every threshold: Q1 <<q1_cecri>>\%, Q1\,\&\,IF\,$>$\,5 <<if5_cecri>>\%. NCL has the most papers in IF\,$>$\,10 Q1 journals (<<n10_ncl>>); IICT, the largest lab, has about half NCL's share at that level (<<if10_iict>>\% vs <<if10_ncl>>\%).
 
-\obs{Small teams, wide partnerships.} <<lt10>>\% of papers have fewer than 10 authors (mean <<mean_auth>>, rising from <<auth_2016>> to <<auth_2025>>; only <<ge30>> papers have 30 or more): this is small-group bench chemistry. Yet the labs co-author with <<partners>> institutions in <<countries>> countries, and <<intl>>\% of papers have a foreign co-author.
+\obs{Small teams, wide partnerships.} <<lt10>>\% of papers have fewer than 10 authors (mean <<mean_auth>>, rising from <<auth_2016>> to <<auth_2025>>; only <<ge30>> papers have 30 or more): this is small-group bench chemistry. Yet the labs co-author with <<partners>> institutions in <<countries>> countries: <<intl>>\% of papers have a foreign co-author and <<ind_co>>\% another Indian institution, and <<ind_cites>>\% cite and <<ind_cited>>\% are cited by another Indian institution.
+
+\obs{Journals and fields.} Output is spread thin: no journal carries more than <<tj_max>>\% of the papers. The most-used venue is \textit{<<tj_iict>>} (<<tj_iict_q>>) for IICT and \textit{<<tj_ncl>>} (<<tj_ncl_q>>) for NCL, while CECRI's top two are \textit{<<tj_cecri>>} (<<tj_cecri_q>>) and \textit{<<tj2_cecri>>} (<<tj2_cecri_q>>). By OpenAlex field the cluster is <<ra_all>>; IICT is mainly <<ra_iict>>, CECRI <<ra_cecri>>, NCL the broadest (<<ra_ncl>>).
+
+\obs{Faculty and departments.} <<low_h>>\% of active scientists have an h-index (2016--2026 papers) of 4 or less, and CECRI is bimodal (<<ce_low>>\% below 5, <<ce_high>>\% at 25 or more). The highest are <<top_h>>. The most productive department is <<dept>> (<<dept_lab>>; <<dept_n>> papers, <<dept_q1>>\% Q1, mean h <<dept_h>>).
 
 \obs{Citations are concentrated.} <<cites>> citations, mean <<cmean>> but median <<cmed>> per paper; the most cited is a review, \textit{<<top_title>>} (<<top_j>>, <<top_y>>; <<top_c>> citations). Output is concentrated too: <<pl_n>> scientists ($\sqrt{N}$) write <<pl_share>>\% of faculty papers (Price's law predicts 50\%); Gini <<gini>> for papers, <<gini_c>> for citations.
 
@@ -579,16 +671,16 @@ Network & Nodes & Links & $\langle k\rangle$ & Comm. ($Q$) & Cross (\%) \\
 
 \obs{The labs are islands.} Only <<x_auth>>\% of co-authorship links and <<fac_cross>> of <<fac_pairs>> faculty pairs join two labs; <<n_iso>> of <<n_fac>> scientists (<<iso_pct>>\%) have no paper with another roster scientist and connect only through students and project staff.
 
-\obs{They read each other, but do not write together.} <<x_sci>>\% of citations between scientists cross labs, <<x_ratio>> times the share of faculty co-author pairs, and half of citing relations are returned (reciprocity <<recip>>).
+\obs{They read each other, but do not write together.} <<x_sci>>\% of citations between scientists cross labs, <<x_ratio>> times the share of faculty co-author pairs, and half of citing relations are returned (reciprocity <<recip>>). Between papers, <<c_cross>> of <<c_tot>> citation links (<<x_cit>>\%) cross labs: IICT$\to$NCL <<f_in>>, NCL$\to$IICT <<f_ni>>; CECRI sends <<f_cs>> and receives <<f_cr>>.
 
-\obs{Hubs, not a club.} <<fp>>\% of researchers have fewer co-authors than their co-authors (mean <<fp_k>> vs <<fp_nk>>: the friendship paradox), yet the best-connected researchers avoid each other (rich-club coefficient <<rc>> of random): each runs a separate group. Removing the <<fr_n>> best bridges (<<fr_pct>>\%) halves the network; random removal needs <<fr_rand>>. The top bridges are method specialists, <<bridges>>: X-ray crystallography and electrochemistry services that many groups use. By PageRank, <<pr_cecri>> of the 5 most central papers are CECRI's electrocatalysis papers.
+\obs{Hubs, not a club.} <<fp>>\% of researchers have fewer co-authors than their co-authors (mean <<fp_k>> vs <<fp_nk>>: the friendship paradox), yet the best-connected researchers avoid each other (rich-club coefficient <<rc>> of random): each runs a separate group. Removing the <<fr_n>> best bridges (<<fr_pct>>\%) halves the network; random removal needs <<fr_rand>> (Table~\ref{tab:findings}). The top bridges by betweenness are <<bridges>>; the two IICT scientists run X-ray crystallography, a service that appears on many groups' papers. By PageRank, <<pr_cecri>> of the 5 most central papers are CECRI's electrocatalysis papers: the smallest lab supplies the most-reused knowledge inside the cluster.
 
 \section{The labs in a global frame}
-\textbf{Choosing fair comparators.} We first asked whom the labs actually work with: <<intl>>\% of papers have a co-author in one of <<c_n>> countries, led by the USA (<<c_us>> papers), South Korea (<<c_kr>>) and Australia (<<c_au>>). These three, plus China, the world's largest producer in these subjects (share of world papers <<cn16>>\% $\to$ <<cn25>>\% in 2016--2025) although only the labs' \#<<c_cn_rank>> partner, are the benchmark countries. Everyone is measured on the same \textbf{scope}, the <<n_scope>> subfields that make up 90\% of the labs' papers, with the same OpenAlex queries (articles and reviews, 2016--2025). In each country a ``twin'' for each lab was selected by fixed rules: the 200 largest institutions in scope; government or facility institutes only, as CSIR labs are (umbrella bodies and <<n_excl>> hand-reviewed university-hosted labs, consortia and ministries removed, each with a written reason); at least half the size of the smallest lab; and the highest \textbf{cosine similarity} of subfield profiles, one twin per lab, minimum 0.4. Of <<pool>> candidates, <<tested>> reached the similarity test and <<twins>> became twins (Table~3). Six leading Indian institutes (IISc, IIT Bombay, IIT Madras, ICT Mumbai, IACS, IISER Pune) are the home reference.
+\textbf{Choosing fair comparators.} We first asked whom the labs actually work with: <<intl>>\% of papers have a co-author in one of <<c_n>> countries, led by the USA (<<c_us>> papers), South Korea (<<c_kr>>) and Australia (<<c_au>>). These three, plus China, the world's largest producer in these subjects (share of world papers <<cn16>>\% $\to$ <<cn25>>\% in 2016--2025) although only the labs' \#<<c_cn_rank>> partner, are the benchmark countries. Everyone is measured on the same \textbf{scope}, the <<n_scope>> subfields that make up 90\% of the labs' papers, with the same OpenAlex queries (articles and reviews, 2016--2025). In each country a ``twin'' for each lab was selected by fixed rules: the 200 largest institutions in scope; government or facility institutes only, as CSIR labs are (umbrella bodies and <<n_excl>> hand-reviewed university-hosted labs, consortia and ministries removed, each with a written reason); at least half the size of the smallest lab; and the highest \textbf{cosine similarity} of subfield profiles, one twin per lab, minimum 0.4. Of <<pool>> candidates, <<tested>> reached the similarity test and <<twins>> became twins (Table~\ref{tab:peers}). Six leading Indian institutes (IISc, IIT Bombay, IIT Madras, ICT Mumbai, IACS, IISER Pune) are the home reference.
 
 \begin{table}[t]
 \centering\footnotesize\setlength{\tabcolsep}{2.6pt}
-\caption{Final peer list: each lab's twin per country with its similarity (1 = identical mix of subfields). ---: no twin; in brackets the most similar institute not already another lab's twin (below 0.4).}
+\caption{Final peer list: each lab's twin per country with its similarity (1 = identical mix of subfields). ---: no twin; in brackets the most similar institute not already another lab's twin (below 0.4).}\label{tab:peers}
 \begin{tabular}{@{}l>{\raggedright}p{1.42cm}>{\raggedright}p{1.42cm}>{\raggedright}p{1.42cm}>{\raggedright\arraybackslash}p{1.42cm}r@{}}
 \toprule
 Lab & USA & China & S.\ Korea & Australia & Twins \\
@@ -611,6 +703,21 @@ Lab & USA & China & S.\ Korea & Australia & Twins \\
 
 \obs{The higher the bar, the wider the gap.} In plain Q1 share the twins are <<gap_q1>>$\times$ ahead (median <<gq1_tw>>\% vs <<gq1_lab>>\%), with IF\,$>$\,5 <<gap_if5>>$\times$ (<<gif5_tw>>\% vs <<gif5_lab>>\%), and with IF\,$>$\,10 <<gap_if10>>$\times$ (<<gif10_tw>>\% vs <<gif10_lab>>\%; twins <<if10_tw_min>>--<<if10_tw_max>>\%, labs <<if10_lab_min>>--<<if10_lab_max>>\%, DICP <<dicp_if10>>\%). The Indian reference group sits with the labs (<<gif10_in>>\%). The labs' journal shares computed this way agree with the curated dataset (Table~1) within 3 points.
 
+\begin{table}[t]
+\centering\footnotesize\setlength{\tabcolsep}{2.4pt}
+\caption{Each lab against its own foreign twins: lab value / twins' median (papers in the benchmark subfields, 2016--2025).}\label{tab:twins}
+\begin{tabular}{@{}lcrrrrr@{}}
+\toprule
+Lab & Twins & Growth & Top 10\% & Q1\,\&\,IF$>$5 & Q1\,\&\,IF$>$10 & Intl. \\
+ & & (\%/yr) & (\%) & (\%) & (\%) & (\%) \\
+\midrule
+<<table_lab_twins>>
+\bottomrule
+\end{tabular}
+\end{table}
+
+\obs{Each lab, against its own twins.} The comparison holds lab by lab (Table~\ref{tab:twins}): every lab trails its own twins on growth, field-normalised impact and top-journal share. CECRI comes closest on impact, and IICT is furthest from its single twin, SIOC. Only in international co-authorship are IICT and CECRI ahead of their twins.
+
 \obs{Who learns from whom.} The labs co-authored only <<co_for>> papers with the nine foreign twins and other foreign peers (<<co_twin>> with the twins themselves) against <<co_ind>> with the six Indian institutes. Citations run inwards (Fig.~4a): the peers' 2016--2026 papers cite the labs <<in_for>> times while the labs cite <<out_for>> of theirs (exchange ratio <<r_for>>; USA <<r_us>>). At home the direction reverses: the Indian institutes' ratio is <<r_ind>>, and fifteen Indian universities draw on the labs more than the labs draw on them (IISc and IITs <<r_iit>>, state universities <<r_state>>); two independent counts of these flows agree within <<xcheck>>\%.
 
 \begin{figure}[t]
@@ -619,9 +726,26 @@ Lab & USA & China & S.\ Korea & Australia & Twins \\
 \end{figure}
 
 \section{How ideas spread through the labs}
+\begin{table*}[t]
+\centering\footnotesize\renewcommand{\arraystretch}{1.18}
+\caption{Eight findings shown on the dashboard's main page (one script and one output file each; method notes on the dashboard).}\label{tab:findings}
+\begin{tabular}{@{}>{\raggedright}p{2.35cm}>{\raggedright}p{9.0cm}>{\raggedright\arraybackslash}p{5.8cm}@{}}
+\toprule
+Finding & What we measured & What it means \\
+\midrule
+<<table_findings>>
+\bottomrule
+\end{tabular}
+\end{table*}
+
 \textbf{Model.} An idea (a method or reagent) spreads over the co-authorship network (SI dynamics, Monte Carlo and the NIMFA mean-field equations; bond percolation for tipping points). It reaches half of all <<n_full>> authors in <<t50f>> steps but half of the faculty-only network in <<t50k>>; without students the tipping point is <<tpx>>$\times$ higher (<<tpk>> vs <<tpf>>). Because co-authors form tight triangles (clustering <<clus>>), the measured tipping point is <<rr_min>>--<<rr_max>>$\times$ the textbook value $\langle k\rangle/(\langle k^2\rangle-\langle k\rangle)$ in all networks. When transmission depends on topic overlap, ideas stay in their field (<<chem>>\% of chemists adopt, <<outside>>\% outside). The mean-field equations never under-predict the simulation (<<nruns>> runs) and rank the best seeds the same way ($\rho \ge$ <<rho_min>>).
 
 \textbf{Tested on real citations.} Each of the <<real_ideas>> works the labs cite is an idea; a person adopts it with their first lab paper citing it (<<real_cites>> citations). Over a co-authorship tie an idea is passed on \textbf{<<T_all>>\%} of the time, <<T_top>>\% for the most reused ideas: below the full network's tipping point (<<tp_full_pct>>\%; Fig.~4b), so most ideas die after one paper (<<single>>\% of cited works are used once). A student's tie passes ideas <<T_ratio>>$\times$ as often as a faculty member's (<<T_stu>>\% vs <<T_fac>>\%), though faculty have <<co_fac>> co-authors against <<co_stu>>. Ideas travel with people: in <<carried>>\% of pass-ons an earlier user is an author of the new paper; one informed co-author barely changes a researcher's own use (<<l1>>$\times$), three or more do (<<l3>>$\times$). Only <<xlab>>\% of ties cross labs, and a foreign twin's paper reaches a second lab through a person in <<via_for>>\% of cases (the labs' own papers <<via_own>>\%): together with Section~4, knowledge from abroad reaches each lab separately, by reading. All <<nclaims>> claims of this study pass automatic checks (<<npassed>>/<<nclaims>>).
+
+\section{Further findings on the dashboard}
+Beyond the two lead studies, the dashboard's main page carries eight focused findings, each computed by its own script with its method on the page; Table~\ref{tab:findings} gives what was measured and how to read it. Together they sharpen the picture above: a hub-and-spoke cluster held together by a few bridges, output and impact concentrated in a few groups, journal tier a weak proxy for a paper's use, and a decline that predates the pandemic.
+
+
 
 \section{Validation and limitations}
 Recall was boosted with raw-affiliation and roster searches, split author profiles joined and duplicates removed; peer rules and exclusions are stored with reasons, and every number is produced by tested code with fixed seeds. Limits: OpenAlex affiliations contain errors; faculty are today's rosters; IF is SCImago's two-year cites per document, not Clarivate's JIF, and SJR quartiles may differ from JCR; citations are a proxy for influence, not quality or patents; 2026 is a partial year.
@@ -629,8 +753,16 @@ Recall was boosted with raw-affiliation and roster searches, split author profil
 \section{Conclusion}
 The three laboratories are strong national performers: level with India's best institutes on field-normalised impact, a net source of knowledge for Indian universities, and moving their papers into higher-impact journals. Measured against government institutes abroad that do the same science, however, they publish less, are shrinking while the peers grow, and trail most at the very top (Q1 with IF\,$>$\,10), while hardly working with those peers or with each other. Closer collaboration across the three labs and with their foreign twins is the clearest lever the data points to.
 
-\vspace{3pt}
-{\footnotesize\color{muted}\textbf{Data and code.} Dataset (group24\_data.csv and network files), benchmark and study tables, and this report accompany the submission; the dashboard at \url{<<site>>} shows every figure interactively.\par}
+\textbf{What the data points to.}
+\begin{itemize}
+\item \textbf{Connect the islands.} Only <<x_auth>>\% of co-authorship links cross labs, while <<x_sci>>\% of scientists' citations already do: the shared interest exists, the joint work does not.
+\item \textbf{Work with the twins, not only read them.} The labs cite <<out_for>> of their foreign peers' papers but co-authored <<co_for>>; ideas in these labs travel with people (<<carried>>\% of real pass-ons), so joint papers are the channel that moves knowledge.
+\item \textbf{Protect the bridges.} Removing <<fr_pct>>\% of researchers, the best-connected bridges, halves the network; shared facilities such as crystallography already join groups that otherwise do not meet.
+\item \textbf{Aim at the top band.} The gap to the twins is widest for Q1 journals with IF\,$>$\,10 (<<gap_if10>>$\times$), and the labs' share there is rising (<<if10_2016>>\% $\to$ <<if10_2025>>\%).
+\end{itemize}
+
+\textbf{Data package.} The submission contains the dataset (\texttt{group24\_data.csv}, 14 required columns, and an extended version), the citation, co-authorship and Indian-connection networks, every table behind this report, the Global Benchmark's rules, exclusions, peer list and raw counts, the idea-spreading outputs with their checks, and an offline copy of the dashboard.
+
 \end{document}
 """
 
@@ -643,6 +775,7 @@ def build():
     fig_global(D, OUT / "fig_global.pdf")
     fig_flows(D, OUT / "fig_flows.pdf")
     V = values(D)
+    V.update(extra_values(D), table_findings=table_findings(), table_lab_twins=table_lab_vs_twins(D))
     V.update(members=" $\\cdot$ ".join(MEMBERS), site=SITE, table_overview=table_overview(D), table_networks=table_networks(D),
              table_peers=table_peers(D), tp_full_pct=f"{100 * D['claims']['C2']['value']['T_peak_full']:g}")
     tex = TEX
