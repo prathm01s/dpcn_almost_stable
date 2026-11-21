@@ -517,11 +517,16 @@ def run_tests():
         assert "Insight 11" in title_i11, title_i11
         for cid in ["ch-faculty", "ch-threshold", "ch-field", "ch-overlay", "ch-meanfield", "ch-origin"]:
             assert client_i11.evaluate(f"document.querySelectorAll('#{cid} canvas').length") > 0, f"{cid} not rendered"
-        assert client_i11.evaluate("document.querySelectorAll('#i-toc a').length") == 8
-        assert client_i11.evaluate("document.querySelectorAll('.g-answer').length") == 7
-        claims = client_i11.evaluate("[document.querySelectorAll('#tbl-claims tbody tr').length, document.querySelectorAll('#tbl-claims .i-fail').length]")
-        print(f"✓ insights11.html: 6 charts; claims table {claims[0]} rows, {claims[1]} failed")
-        assert claims[0] >= 10 and claims[1] == 0
+        # contents cards: at least the 8 study sections, each linking to a section that exists (the Conclusions section was added in Nov 2026)
+        toc = client_i11.evaluate("[document.querySelectorAll('#i-toc a').length, [...document.querySelectorAll('#i-toc a')].filter(a => document.querySelector(a.getAttribute('href'))).length]")
+        assert toc[0] >= 8 and toc[0] == toc[1], toc
+        assert client_i11.evaluate("document.querySelectorAll('.g-answer').length") >= 7
+        assert client_i11.evaluate("[...document.querySelectorAll('.g-answer')].every(e => e.textContent.trim().length > 20)"), "Empty answer box on insights11.html"
+        # claims are shown as cards (#deck-claims, Nov 2026 redesign); every claim in the data must pass and have a card
+        claims = client_i11.evaluate("[document.querySelectorAll('#deck-claims .claim-card').length, window.G24_I11.claims.claims.length, "
+                                     "window.G24_I11.claims.claims.filter(c => !c.passed).length, document.querySelectorAll('.i-fail').length]")
+        print(f"✓ insights11.html: 6 charts; {claims[0]} claim cards for {claims[1]} claims, {claims[2]} failed")
+        assert claims[1] >= 10 and claims[0] == claims[1] and claims[2] == 0 and claims[3] == 0, claims
         # every switch redraws
         client_i11.evaluate("document.querySelectorAll('.g-seg button').forEach(b => b.click())")
         time.sleep(1.0)
@@ -581,6 +586,17 @@ def run_tests():
             assert rows > 0, f"Table {tid} empty on global.html"
         assert client_g.evaluate("document.querySelectorAll('#g-rules li').length") >= 6, "Peer rules missing"
         assert client_g.evaluate("document.querySelectorAll('#peer-cards .g-peer').length") >= 10, "Peer cards missing"
+        # Final peer list (lab x country): every lab and country has a cell; twins + "No twin" cells = 12, and they agree with the peer list
+        import csv as _csv
+        with open("stats/tables/global_peers.csv", encoding="utf-8") as f:
+            n_twins = sum(1 for r in _csv.DictReader(f) if r["group"] not in ("CSIR lab", "India"))
+        m = client_g.evaluate("[document.querySelectorAll('#tbl-matrix tbody tr').length, document.querySelectorAll('#tbl-matrix .g-m-yes').length, "
+                              "document.querySelectorAll('#tbl-matrix .g-m-no').length, document.getElementById('ins-notwin').textContent]")
+        assert m[0] == 3 and m[1] == n_twins and m[1] + m[2] == 12, m
+        assert (m[2] == 0) == (m[3].strip() == ""), "No-twin explanation out of step with the table"
+        # every institution name on the charts carries its country (legend below the chart)
+        assert client_g.evaluate("document.querySelectorAll('.g-legend').length") >= 8, "Country legends missing"
+        print(f"  ✓ Final peer list: {m[1]} twins, {m[2]} 'No twin' cells explained")
         # every switch redraws without errors
         client_g.evaluate("document.querySelectorAll('#seg-index button, #seg-impact button, #seg-flows button').forEach(b => b.click())")
         time.sleep(0.5)

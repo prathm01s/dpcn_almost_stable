@@ -138,3 +138,23 @@ details.g-more > .g-more-body { padding: 0 1rem 1rem; }
 .g-glossary dd { font-size: 0.86rem; color: var(--text-2); line-height: 1.5; margin-top: 0.15rem; }
 
 .nav-link.current { color: var(--accent-ink); background: var(--tint); }
+
+/* Country legends below the charts, and the final peer list (lab x country) */
+.g-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.9rem; font-size: 0.8rem; color: var(--text-2); margin: 0.5rem 0 0.25rem;
+  padding-top: 0.5rem; border-top: 1px dashed var(--surface-3); }
+.g-legend-title { font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.72rem; }
+.g-legend-item { display: inline-flex; align-items: center; gap: 0.35rem; }
+.g-matrix th[scope="row"] { white-space: nowrap; color: var(--text); font-size: 0.84rem; text-transform: none; letter-spacing: 0; background: var(--surface); }
+.g-matrix td { min-width: 150px; }
+.g-matrix td b { display: block; color: var(--text); }
+.g-matrix .g-m-yes { border-left: 4px solid var(--c); }
+.g-matrix .g-m-full, .g-matrix .g-m-sim, .g-matrix .g-m-taken { display: block; font-size: 0.75rem; color: var(--text-muted); line-height: 1.35; }
+.g-matrix .g-m-sim b, .g-matrix .g-m-count b { display: inline; }
+.g-matrix .g-m-no { background: var(--surface-2); border-left: 4px dashed var(--g-other); }
+.g-matrix .g-m-no > b { color: var(--text-2); }
+.g-matrix .g-m-taken { margin-top: 0.25rem; font-style: italic; }
+.g-matrix .g-m-count { font-size: 0.95rem; white-space: nowrap; }
+.g-matrix .g-m-low b { color: var(--g-india); }
+.g-mbar { position: relative; display: block; height: 6px; margin-top: 0.3rem; background: var(--surface-3); border-radius: 3px; max-width: 160px; }
+.g-mbar i { position: absolute; inset: 0 auto 0 0; background: var(--g-seq-hi); border-radius: 3px; }
+.g-mbar u { position: absolute; top: -3px; bottom: -3px; width: 0; border-left: 2px solid var(--text-muted); }

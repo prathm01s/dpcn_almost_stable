@@ -19,7 +19,10 @@
   const LABS = ["CSIR-NCL", "CSIR-IICT", "CSIR-CECRI"];
   const GROUPS = ["CSIR lab", "India", "USA", "China", "South Korea", "Australia"];
   const GROUP_VAR = { "CSIR lab": "--g-csir", "India": "--g-india", "USA": "--g-usa", "China": "--g-china", "South Korea": "--g-korea", "Australia": "--g-australia" };
-  const GROUP_LABEL = { "CSIR lab": "CSIR labs", "India": "India (reference)", "USA": "USA", "China": "China", "South Korea": "South Korea", "Australia": "Australia" };
+  const GROUP_LABEL = { "CSIR lab": "CSIR labs (India)", "India": "India – reference institutes", "USA": "USA", "China": "China", "South Korea": "South Korea", "Australia": "Australia", "Other": "Other countries" };
+  // Country tag printed after every institution name on the charts, so the country never depends on colour alone
+  const GROUP_KEY = { "CSIR lab": "csir", "India": "india", "USA": "usa", "China": "china", "South Korea": "korea", "Australia": "australia" };
+  const GROUP_TAG = { "CSIR lab": "CSIR", "India": "India", "USA": "USA", "China": "China", "South Korea": "S. Korea", "Australia": "Australia" };
   const CC_GROUP = { US: "USA", CN: "China", KR: "South Korea", AU: "Australia", IN: "India" };
   const gc = g => css(GROUP_VAR[g] || "--g-other");
   const fmt = n => (n == null || Number.isNaN(n) ? "–" : Number(n).toLocaleString("en-US"));
@@ -58,15 +61,32 @@
     const k = ink();
     return { confine: true, backgroundColor: css("--surface"), borderColor: css("--border-strong"), textStyle: { color: k.text } };
   }
-  function legendHTML(groups) {
-    return '<div class="g-legend" style="display:flex;flex-wrap:wrap;gap:.9rem;font-size:.8rem;color:var(--text-2);margin:.25rem 0 .5rem">' +
-      groups.map(g => `<span style="display:inline-flex;align-items:center;gap:.35rem"><span class="g-swatch" style="background:${gc(g)}"></span>${esc(GROUP_LABEL[g])}</span>`).join("") + "</div>";
+  // Country legend, placed directly below the chart it explains
+  function legendHTML(groups, title = "Country") {
+    return `<div class="g-legend"><span class="g-legend-title">${esc(title)}:</span>` +
+      groups.map(g => `<span class="g-legend-item"><span class="g-swatch" style="background:${gc(g)}"></span>${esc(GROUP_LABEL[g] || g)}</span>`).join("") + "</div>";
   }
-  function addLegend(chartId, groups) {
+  function addLegend(chartId, groups, title) {
     const el = $(chartId);
-    if (el.previousElementSibling && el.previousElementSibling.classList.contains("g-legend")) el.previousElementSibling.remove();
-    el.insertAdjacentHTML("beforebegin", legendHTML(groups));
+    if (el.nextElementSibling && el.nextElementSibling.classList.contains("g-legend")) el.nextElementSibling.remove();
+    el.insertAdjacentHTML("afterend", legendHTML(groups, title));
   }
+  // Institution names on chart axes: coloured country marker + name + country tag, e.g. "■ DICP  China"
+  const groupOf = short => { const p = peers.find(x => x.short === short); return p ? p.group : null; };
+  function nameRich() {
+    const k = ink();
+    const r = { b: { fontWeight: 800, color: k.text }, n: { color: k.text2 }, cty: { color: k.muted, fontSize: 11 } };
+    Object.entries(GROUP_KEY).forEach(([g, key]) => { r[key] = { color: gc(g), fontSize: 14 }; });
+    return r;
+  }
+  function nameFmt(v) {
+    const raw = String(v).replace(/ ★$/, ""), star = raw !== String(v) ? " ★" : "";
+    const g = groupOf(raw);
+    if (!g) return v;
+    return g === "CSIR lab" ? `{${GROUP_KEY[g]}|■} {b|${raw}}${star}` : `{${GROUP_KEY[g]}|■} {n|${raw}${star}}  {cty|${GROUP_TAG[g]}}`;
+  }
+  const nameAxisLabel = (extra = {}) => ({ color: ink().text2, formatter: nameFmt, rich: nameRich(), ...extra });
+  const withCountry = short => { const g = groupOf(short); return g && g !== "CSIR lab" ? `${short} (${GROUP_TAG[g]})` : short; };
   function seg(id, items, active, onPick) {
     const box = $(id);
     box.innerHTML = items.map(([v, label]) => `<button type="button" data-v="${esc(v)}" class="${v === active ? "active" : ""}" aria-pressed="${v === active}">${esc(label)}</button>`).join("");
@@ -153,6 +173,7 @@
         label: { show: true, position: "right", color: k.text2, formatter: p => fmt(p.value) } }],
     });
 
+    addLegend("ch-countries", [...focusCC.map(c => CC_GROUP[c]), "Other"], "Colour");
     const total = D.meta.foreign_coauthored_papers;
     $("focus-countries").innerHTML = focusCC.map(cc => {
       const r = cr.find(x => x.country_code === cc);
@@ -214,7 +235,7 @@
       const missing = g === "India" ? [] : LABS.filter(l => !ps.some(p => p.twin_of === l));
       return `<div class="g-peer-group"><h4><span class="g-swatch" style="background:${gc(g)}"></span>${esc(GROUP_LABEL[g])}</h4><div class="g-peer-row">` +
         ps.map(p => `<div class="g-peer" style="--c:${gc(g)}"><b>${esc(p.short)}</b><span>${esc(p.short !== p.name ? p.name + " · " : "")}${esc(p.city)}<br>${g === "India" ? "closest to" : "twin of"} ${esc(p.twin_of)} · similarity ${Number(p.similarity).toFixed(2)}</span></div>`).join("") +
-        missing.map(l => `<div class="g-peer"><b>No twin for ${esc(l)}</b><span>no institute reached similarity ${m.min_similarity}</span></div>`).join("") +
+        missing.map(l => `<div class="g-peer"><b>No twin for ${esc(l)}</b><span>no institute still free reached similarity ${m.min_similarity} (see the final peer list)</span></div>`).join("") +
         "</div></div>";
     }).join("");
 
@@ -237,7 +258,7 @@
     $("n-scope").textContent = D.scope.length;
     answer("peers", `<b>${foreign.length + nInd} comparison institutes.</b> ${foreign.length} foreign government labs were picked by six fixed rules ` +
       `as the most similar "twin" of each CSIR lab in each country (closest: ${esc(best.short)} for ${esc(best.twin_of)}, similarity ${Number(best.similarity).toFixed(2)}), ` +
-      `plus ${nInd} leading Indian institutes chosen by the team.` + (noTwinIn.length ? ` No institute was similar enough to be a twin of ${esc(noTwinIn.join("; "))}.` : ""));
+      `plus ${nInd} leading Indian institutes chosen by the team.` + (noTwinIn.length ? ` No institute still free was similar enough to be a twin of ${esc(noTwinIn.join("; "))}; the final peer list below shows the closest candidates.` : ""));
     whenOpen("tbl-sim", () => new Tabulator("#tbl-sim", {
       data: D.similarity, layout: "fitColumns", height: 420, groupBy: "country",
       columns: [
@@ -254,6 +275,67 @@
     $("tbl-scope").style.maxHeight = "420px"; $("tbl-scope").style.overflow = "auto";
   }
 
+
+  // ---------- 02 Final peer list: lab x country, with the closest candidates where there is no twin ----------
+  // Built from the similarity table (every candidate tested, D.similarity): for a lab without a twin in a country it shows
+  // (a) the most similar candidate that no other lab took and (b) a closer candidate that is already another lab's twin.
+  function renderMatrix() {
+    const floor = D.meta.min_similarity;
+    const countries = Object.values(D.meta.countries);
+    const s2 = v => Number(v).toFixed(2);
+    const bar = v => `<span class="g-mbar" aria-hidden="true"><i style="width:${Math.max(0, Math.min(1, v)) * 100}%"></i><u style="left:${floor * 100}%"></u></span>`;
+    const nameOf = r => (peerById[r.institution_id] ? peerById[r.institution_id].short : r.name);
+    const cellFor = (lab, cn) => {
+      const twin = foreign.find(p => p.group === cn && p.twin_of === lab);
+      if (twin) {
+        return { twin, html: `<td class="g-m-yes" style="--c:${gc(cn)}"><b>${esc(twin.short)}</b><span class="g-m-full">${esc(twin.short !== twin.name ? twin.name : twin.city || "")}</span>` +
+          `<span class="g-m-sim">similarity <b>${s2(twin.similarity)}</b></span>${bar(twin.similarity)}</td>` };
+      }
+      const key = `sim_${lab}`;
+      const rows = D.similarity.filter(r => r.country === cn && r[key] != null);
+      const free = rows.filter(r => !r.selected_twin_of).sort((a, b) => b[key] - a[key])[0];
+      const taken = rows.filter(r => r.selected_twin_of && r.selected_twin_of !== lab && r[key] >= floor).sort((a, b) => b[key] - a[key])[0];
+      return { free, taken, html: `<td class="g-m-no"><b>No twin</b>` +
+        (free ? `<span class="g-m-sim">closest free candidate: ${esc(nameOf(free))} <b>${s2(free[key])}</b> (below ${floor})</span>${bar(free[key])}` : `<span class="g-m-sim">no candidate left</span>`) +
+        (taken ? `<span class="g-m-taken">${esc(nameOf(taken))} (${s2(taken[key])}) is closer, but is already ${esc(taken.selected_twin_of)}'s twin (${s2(taken[`sim_${taken.selected_twin_of}`])})</span>` : "") + "</td>" };
+    };
+    const grid = LABS.map(lab => ({ lab, cells: countries.map(cn => ({ cn, ...cellFor(lab, cn) })) }));
+    $("tbl-matrix").innerHTML = '<div class="g-table-wrap"><table class="g-table g-matrix"><thead><tr><th>CSIR lab</th>' +
+      countries.map(cn => `<th><span class="g-swatch" style="background:${gc(cn)}"></span> ${esc(cn)}</th>`).join("") + '<th class="num">Twins found</th></tr></thead><tbody>' +
+      grid.map(g => {
+        const n = g.cells.filter(c => c.twin).length;
+        return `<tr><th scope="row"><span class="g-swatch" style="background:${gc("CSIR lab")}"></span> ${esc(g.lab)}</th>${g.cells.map(c => c.html).join("")}` +
+          `<td class="num g-m-count${n < countries.length ? " g-m-low" : ""}"><b>${n}</b> of ${countries.length}</td></tr>`;
+      }).join("") + "</tbody></table></div>";
+
+    // The "no twin" result, explained from the data
+    const lacking = grid.filter(g => g.cells.some(c => !c.twin));
+    if (!lacking.length) return;
+    const topSub = short => D.profiles.filter(r => r.short === short).sort((a, b) => b.share_pct - a.share_pct)[0];
+    $("ins-notwin").innerHTML = lacking.map(g => {
+      const has = g.cells.filter(c => c.twin), none = g.cells.filter(c => !c.twin);
+      const nothing = none.filter(c => !c.taken), takenIn = none.filter(c => c.taken);
+      const key = `sim_${g.lab}`;
+      const t = topSub(g.lab);
+      let why = "";
+      if (t) {
+        const share = sh => { const r = D.profiles.find(x => x.short === sh && x.subfield === t.subfield); return r ? r.share_pct : 0; };
+        const twins = has.map(c => c.twin.short);
+        const others = foreign.filter(p => !twins.includes(p.short)).map(p => [p.short, share(p.short)]).sort((a, b) => b[1] - a[1]);
+        why = ` <b>Why:</b> ${pct(t.share_pct, 0)} of ${esc(g.lab)}'s papers are in ${esc(t.subfield)}` +
+          (twins.length ? `; its twin ${esc(twins.join(", "))} has ${twins.map(x => pct(share(x), 0)).join(", ")}` : "") +
+          (others.length ? `, while none of the other foreign twins has more than ${pct(others[0][1], 0)} (${esc(others[0][0])})` : "") + ".";
+      }
+      return box(`<b class="g-big">${esc(g.lab)}: a twin in ${has.length} of ${g.cells.length} countries</b>` +
+        (has.length ? `Only ${esc(has.map(c => `${c.cn} (${c.twin.short}, ${s2(c.twin.similarity)})`).join(", "))} has a government institute with a similar research profile. ` : "") +
+        (nothing.length ? `In ${esc(nothing.map(c => (c.cn === "USA" ? "the USA" : c.cn)).join(" and "))} no institute reaches ${floor}; the closest ${nothing.length > 1 ? "are" : "is"} ` +
+          `${esc(nothing.map(c => (c.free ? `${nameOf(c.free)} (${s2(c.free[key])})` : "none")).join(" and "))}. ` : "") +
+        (takenIn.length ? `In ${esc(takenIn.map(c => c.cn).join(" and "))} one institute is similar enough, but it is even closer to another CSIR lab and became that lab's twin: ` +
+          `${esc(takenIn.map(c => `${nameOf(c.taken)} (${s2(c.taken[key])} to ${g.lab}, ${s2(c.taken[`sim_${c.taken.selected_twin_of}`])} to ${c.taken.selected_twin_of})`).join("; "))}. ` : "") +
+        `The missing twins are a result, not a gap in the data: ${esc(g.lab)}'s mix of topics is rare among government research institutes abroad.` + why);
+    }).join("");
+  }
+
   // ---------- 03 Output ----------
   function renderOutput() {
     const k = ink();
@@ -263,7 +345,7 @@
       for (let y = y0; y <= y1; y++) years.push(y);
       addLegend("ch-index", ["CSIR lab", ...set.slice(1).map(p => p.group)]);
       chart("ch-index", {
-        grid: { left: 8, right: 160, top: 16, bottom: 8, containLabel: true },
+        grid: { left: 8, right: 240, top: 16, bottom: 8, containLabel: true },
         tooltip: { ...tooltipBase(), trigger: "axis", valueFormatter: v => (v == null ? "–" : v.toFixed(0)) },
         xAxis: { type: "category", data: years, boundaryGap: false, ...axisCommon() },
         yAxis: { type: "value", name: "2016 = 100", ...axisCommon() },
@@ -272,7 +354,7 @@
           return {
             type: "line", name: p.short, symbolSize: 8, lineStyle: { width: 2 }, itemStyle: { color: gc(p.group), borderColor: css("--surface"), borderWidth: 2 },
             data: years.map(y => { const r = rows.find(x => x.year === y); return r ? r.index_2016 : null; }),
-            endLabel: { show: true, color: k.text2, formatter: s => s.seriesName },
+            endLabel: { show: true, color: gc(p.group), fontWeight: 700, formatter: s => withCountry(s.seriesName) },
             markLine: p.group === "CSIR lab" ? { silent: true, symbol: "none", lineStyle: { color: k.muted, type: "dashed" }, data: [{ yAxis: 100 }], label: { show: false } } : undefined,
           };
         }),
@@ -286,7 +368,7 @@
       grid: { left: 8, right: 56, top: 8, bottom: 8, containLabel: true },
       tooltip: { ...tooltipBase(), trigger: "item", formatter: p => { const r = rows[p.dataIndex]; return `<b>${esc(r.short)}</b> (${esc(GROUP_LABEL[r.group])})<br>${fmt(r[`papers_${y0}`])} papers in ${y0} → ${fmt(r[`papers_${y1}`])} in ${y1}<br>${pct(r.cagr_pct)} a year`; } },
       xAxis: { type: "value", axisLabel: { color: k.text2, formatter: v => `${v}%` }, splitLine: { lineStyle: { color: k.split } } },
-      yAxis: { type: "category", data: rows.map(r => r.short), ...axisCommon(), axisTick: { show: false } },
+      yAxis: { type: "category", data: rows.map(r => r.short), ...axisCommon(), axisTick: { show: false }, axisLabel: nameAxisLabel() },
       series: [{ type: "bar", barMaxWidth: 18, data: rows.map(r => ({ value: r.cagr_pct, itemStyle: { color: gc(r.group), borderRadius: r.cagr_pct >= 0 ? [0, 4, 4, 0] : [4, 0, 0, 4] } })),
         label: { show: true, position: "right", color: k.text2, formatter: p => pct(p.value) },
         markLine: { silent: true, symbol: "none", lineStyle: { color: k.muted }, data: [{ xAxis: 0 }], label: { show: false } } }],
@@ -336,8 +418,7 @@
         grid: { left: 8, right: 60, top: 8, bottom: 8, containLabel: true },
         tooltip: { ...tooltipBase(), trigger: "item", formatter: p => { const r = rows[p.dataIndex]; return `<b>${esc(r.short)}</b> (${esc(GROUP_LABEL[r.group])})<br>${esc(M.title)}: ${pct(r[key])}<br>${fmt(r.papers_scope)} in-scope papers, ${y0}–${y1}`; } },
         xAxis: { type: "value", axisLabel: { color: k.text2, formatter: v => `${v}%` }, splitLine: { lineStyle: { color: k.split } } },
-        yAxis: { type: "category", data: rows.map(r => r.short), ...axisCommon(), axisTick: { show: false },
-          axisLabel: { color: k.text2, formatter: v => (LABS.includes(v) ? `{b|${v}}` : v), rich: { b: { fontWeight: 800, color: k.text } } } },
+        yAxis: { type: "category", data: rows.map(r => r.short), ...axisCommon(), axisTick: { show: false }, axisLabel: nameAxisLabel() },
         series: [{ type: "bar", barMaxWidth: 18, data: rows.map(r => ({ value: r[key], itemStyle: { color: gc(r.group), borderRadius: [0, 4, 4, 0] } })),
           label: { show: true, position: "right", color: k.text2, formatter: p => pct(p.value) },
           markLine: M.ref == null ? undefined : { silent: true, symbol: "none", lineStyle: { color: k.muted, type: "dashed" }, data: [{ xAxis: M.ref }], label: { color: k.muted, formatter: "world" } } }],
@@ -346,6 +427,7 @@
     addLegend("ch-impact", GROUPS);
     seg("seg-impact", Object.entries(METRICS).map(([k2, v]) => [k2, v.label]), "top10_pct", draw);
 
+    $("n-inst").textContent = D.summary.length;
     whenOpen("tbl-summary", () => new Tabulator("#tbl-summary", {
       data: D.summary, layout: "fitColumns", height: 460,
       rowFormatter: row => { row.getElement().style.boxShadow = `inset 4px 0 0 ${gc(row.getData().group)}`; },
@@ -389,8 +471,7 @@
       grid: { left: 8, right: 16, top: 8, bottom: 70, containLabel: true },
       tooltip: { ...tooltipBase(), formatter: p => `<b>${esc(inst[p.value[1]])}</b><br>${esc(subs[p.value[0]])}: ${pct(p.value[2])} of its papers` },
       xAxis: { type: "category", data: subs, ...axisCommon(), axisLabel: { color: k.text2, rotate: 35, interval: 0, width: 150, overflow: "truncate" }, splitArea: { show: false } },
-      yAxis: { type: "category", data: inst, inverse: true, ...axisCommon(),
-        axisLabel: { color: k.text2, formatter: v => (LABS.includes(v) ? `{b|${v}}` : v), rich: { b: { fontWeight: 800, color: k.text } } } },
+      yAxis: { type: "category", data: inst, inverse: true, ...axisCommon(), axisLabel: nameAxisLabel() },
       visualMap: { min: 0, max: cap, calculable: false, orient: "horizontal", left: "center", bottom: 0, itemHeight: 160,
         inRange: { color: [css("--g-seq-lo"), css("--g-seq-hi")] }, textStyle: { color: k.text2 }, formatter: v => (v >= cap ? `${cap}%+` : `${Math.round(v)}%`) },
       series: [{ type: "heatmap", itemStyle: { borderColor: css("--surface"), borderWidth: 2 },
@@ -399,6 +480,7 @@
         data: data.map(d => ({ value: d, label: { color: d[2] / cap > 0.55 ? onStrong() : k.text } })),
         emphasis: { itemStyle: { borderColor: k.text, borderWidth: 1 } } }],
     });
+    addLegend("ch-profiles", GROUPS);
     const bySim = [...foreign].sort((a, b) => b.similarity - a.similarity);
     const lo = bySim[bySim.length - 1], hi = bySim[0];
     const us = foreign.filter(p => p.group === "USA");
@@ -418,14 +500,15 @@
     chart("ch-collab", {
       grid: { left: 8, right: 16, top: 8, bottom: 60, containLabel: true },
       tooltip: { ...tooltipBase(), formatter: p => `<b>${esc(LABS[p.value[1]])} × ${esc(others[p.value[0]].short)}</b><br>${fmt(p.value[2])} co-authored papers, ${y0}–${y1}` },
-      xAxis: { type: "category", data: others.map(p => p.short), ...axisCommon(), axisLabel: { color: k.text2, rotate: 35, interval: 0 }, splitArea: { show: false } },
-      yAxis: { type: "category", data: LABS, inverse: true, ...axisCommon() },
+      xAxis: { type: "category", data: others.map(p => p.short), ...axisCommon(), axisLabel: nameAxisLabel({ rotate: 35, interval: 0 }), splitArea: { show: false } },
+      yAxis: { type: "category", data: LABS, inverse: true, ...axisCommon(), axisLabel: nameAxisLabel() },
       visualMap: { show: false, min: 0, max, inRange: { color: [css("--g-seq-lo"), css("--g-seq-hi")] } },
       series: [{ type: "heatmap", itemStyle: { borderColor: css("--surface"), borderWidth: 2 },
         label: { show: true, formatter: p => fmt(p.value[2]), textBorderWidth: 0 },
         data: data.map(d => ({ value: d, label: { color: d[2] / max > 0.55 ? onStrong() : k.text } })) }],
     });
 
+    addLegend("ch-collab", GROUPS.filter(g => g !== "CSIR lab"));
     const s1 = window.G24Theme && window.G24Theme.isDark() ? "#9085e9" : "#6250d6";
     const s2 = window.G24Theme && window.G24Theme.isDark() ? "#e66767" : "#e34948";
     const draw = lab => {
@@ -438,13 +521,14 @@
           return `<b>${esc(r.short)}</b> (${esc(GROUP_LABEL[r.group])})<br>${fmt(r.peer_papers_citing_lab)} of its papers cite ${esc(lab)}<br>${fmt(r.peer_papers_cited_by_lab)} of its papers are cited by ${esc(lab)}<br>Exchange ratio ${r.exchange_ratio == null ? "–" : r.exchange_ratio.toFixed(2)}`;
         } },
         xAxis: { type: "value", ...axisCommon() },
-        yAxis: { type: "category", data: rows.map(r => r.short + (r.is_twin ? " ★" : "")), ...axisCommon(), axisTick: { show: false } },
+        yAxis: { type: "category", data: rows.map(r => r.short + (r.is_twin ? " ★" : "")), ...axisCommon(), axisTick: { show: false }, axisLabel: nameAxisLabel() },
         series: [
           { name: `Peer papers citing ${lab}`, type: "bar", barMaxWidth: 12, barGap: "20%", itemStyle: { color: s1, borderRadius: [0, 4, 4, 0] }, data: rows.map(r => r.peer_papers_citing_lab) },
           { name: `Peer papers cited by ${lab}`, type: "bar", barMaxWidth: 12, itemStyle: { color: s2, borderRadius: [0, 4, 4, 0] }, data: rows.map(r => r.peer_papers_cited_by_lab) },
         ],
       });
     };
+    addLegend("ch-flows", GROUPS.filter(g => g !== "CSIR lab"), "Country of the peer (marker before each name)");
     seg("seg-flows", LABS.map(l => [l, l]), LABS[0], draw);
 
     whenOpen("tbl-links", () => new Tabulator("#tbl-links", {
@@ -504,8 +588,8 @@
           markLine: { silent: true, symbol: "none", lineStyle: { color: k.muted, type: "dashed" }, data: [{ xAxis: 1 }], label: { color: k.muted, formatter: "balanced" } } }],
       });
     };
-    $("ch-india").insertAdjacentHTML("beforebegin", '<div class="g-legend" style="display:flex;gap:.9rem;font-size:.8rem;color:var(--text-2);margin:.25rem 0 .5rem">' +
-      Object.entries(TIER_VAR).map(([t, v]) => `<span style="display:inline-flex;align-items:center;gap:.35rem"><span class="g-swatch" style="background:${css(v)}"></span>${esc(t)}</span>`).join("") + "</div>");
+    $("ch-india").insertAdjacentHTML("afterend", '<div class="g-legend"><span class="g-legend-title">All in India:</span>' +
+      Object.entries(TIER_VAR).map(([t, v]) => `<span class="g-legend-item"><span class="g-swatch" style="background:${css(v)}"></span>${esc(t)}</span>`).join("") + "</div>");
     seg("seg-india", [["All three", "All three labs"], ...LABS.map(l => [l, l])], "All three", draw);
 
     const all = U.filter(r => r.lab === "All three");
@@ -586,7 +670,7 @@
     const countries = Object.values(D.meta.countries);
     const parts = LABS.map(lab => [lab, countries.filter(c => !D.peers.some(p => p.group === c && p.twin_of === lab))])
       .filter(([, cs]) => cs.length).map(([lab, cs]) => `${esc(lab)} has no twin in ${cs.join(", ")}`);
-    return parts.length ? `${parts.join("; ")}: no government institute there reaches the floor.` : "";
+    return parts.length ? `${parts.join("; ")}: no institute there that is not already another lab's closer twin reaches the floor.` : "";
   }
   function renderMethod() {
     const m = D.meta;
@@ -615,6 +699,7 @@
   renderGlossary();
   renderCountries();
   renderPeers();
+  renderMatrix();
   renderOutput();
   renderImpact();
   renderProfiles();

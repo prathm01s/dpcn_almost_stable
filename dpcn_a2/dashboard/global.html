@@ -89,7 +89,7 @@
         </div>
       </div>
       <details class="g-more">
-        <summary>All <span id="n-countries"></span> partner countries (table, CSV)</summary>
+        <summary><span>All <span id="n-countries"></span> partner countries (table, CSV)</span></summary>
         <div class="g-more-body">
           <div style="text-align:right;margin-bottom:.5rem"><button class="g-dl" data-dl="country_relations">Download CSV</button></div>
           <div id="tbl-countries"></div>
@@ -109,6 +109,14 @@
         <p class="section-q">Which institutes are fair comparisons, and how were they picked?</p>
       </header>
       <div class="g-answer" id="ans-peers"></div>
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">Final peer list: each lab's twin in each country</h3></div>
+        <div id="tbl-matrix"></div>
+        <p class="g-howto">Each cell is the government institute chosen as the lab's twin in that country, with its similarity score (cosine similarity of
+          research profiles: 1 = the same mix of topics). The bar shows the score and the tick marks the minimum of 0.4. A "No twin" cell shows the closest
+          candidate, so it can be read as a result: no institute in that country works on a similar enough mix of topics.</p>
+      </div>
+      <div class="g-insight" id="ins-notwin"></div>
       <div class="grid-2 g-align-start">
         <div class="card">
           <div class="card-header"><h3 class="card-title">The selected peers</h3></div>
@@ -138,7 +146,7 @@
         <div class="g-more-body"><div id="tbl-ex"></div></div>
       </details>
       <details class="g-more">
-        <summary>The <span id="n-scope"></span> research subfields measured</summary>
+        <summary><span>The <span id="n-scope"></span> research subfields measured</span></summary>
         <div class="g-more-body"><div id="tbl-scope"></div></div>
       </details>
     </div>
@@ -195,7 +203,7 @@
         <p class="g-howto" id="impact-note"></p>
       </div>
       <details class="g-more">
-        <summary>All benchmark numbers for the 19 institutions (table, CSV)</summary>
+        <summary><span>All benchmark numbers for the <span id="n-inst"></span> institutions (table, CSV)</span></summary>
         <div class="g-more-body">
           <div style="text-align:right;margin-bottom:.5rem"><button class="g-dl" data-dl="summary">Download CSV</button></div>
           <div id="tbl-summary"></div>

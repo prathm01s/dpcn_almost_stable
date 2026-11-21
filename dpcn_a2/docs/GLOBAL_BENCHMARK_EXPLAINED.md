@@ -165,12 +165,16 @@ This is called greedy one-to-one matching. It stops two of our labs from sharing
 | Our lab | USA | China | South Korea | Australia |
 |---|---|---|---|---|
 | **NCL** (Pune) | Oak Ridge National Laboratory (0.48) | Dalian Inst. of Chemical Physics (0.77) | KRICT, Korea Research Inst. of Chemical Technology (0.66) | CSIRO Manufacturing (0.70) |
-| **IICT** (Hyderabad) | none above 0.4 | Shanghai Inst. of Organic Chemistry (0.97) | none above 0.4 | none above 0.4 |
+| **IICT** (Hyderabad) | **No twin**: closest is PNNL (0.25) | Shanghai Inst. of Organic Chemistry (0.97) | **No twin**: KRICT (0.47) is closer to NCL (0.66); next free is KBSI (0.38) | **No twin**: CSIRO Manufacturing (0.54) is closer to NCL (0.70); next free is QIMR Berghofer (0.09) |
 | **CECRI** (Karaikudi) | National Laboratory of the Rockies, formerly NREL (0.78) | Fujian Inst. of Research on the Structure of Matter (0.82) | Korea Institute of Energy Research (0.81) | ANSTO, Australian Nuclear Science & Technology Org. (0.61) |
 
 **9 foreign twins in total.** The pattern makes sense:
 - **CECRI** (electrochemistry, batteries, energy) gets energy institutes: NREL, KIER, FJIRSM.
-- **IICT** (organic synthesis, drugs, agrochemicals) gets SIOC. Few government labs abroad are as purely organic-chemistry as IICT, so it has no twin in the USA, Korea or Australia. This is a **finding**, not a gap: IICT's profile is unusual.
+- **IICT** (organic synthesis, drugs, agrochemicals) gets SIOC, and **only SIOC: a twin in 1 of 4 countries**. This is a **finding**, not a gap in the data:
+  - **USA**: no government lab comes close; the best is Pacific Northwest National Laboratory at 0.25. US national labs work on energy, materials and physics, not organic synthesis.
+  - **South Korea and Australia**: one institute in each passes 0.4 for IICT (KRICT 0.47, CSIRO Manufacturing 0.54), but each is *even closer to NCL* (0.66 and 0.70). The rule gives each foreign institute to only one lab, the closer one, so it became NCL's twin. The next free candidates are far below 0.4 (KBSI 0.38, QIMR Berghofer 0.09).
+  - **Why**: 37% of IICT's papers are organic chemistry. Its twin SIOC has 64%, and no other foreign twin has more than 8%. Government labs with IICT's organic-chemistry focus exist in China but not in the other three countries.
+  - On the page this is the **"Final peer list"** table in section 02: one row per lab, one column per country, the similarity score as a bar with the 0.4 minimum marked, and for every "No twin" cell the closest candidate and why it was not chosen.
 - **NCL** (broad: organic, materials, polymers, catalysis) gets broad chemistry institutes: DICP, KRICT, CSIRO Manufacturing, ORNL.
 
 ### The Indian reference group (chosen by the team, not by the rules)
@@ -300,7 +304,7 @@ All 15 universities have a ratio above 1 (from 1.22 for IISc to 2.62 for Alagapp
 
 1. **OpenAlex is not perfect.** Affiliations are sometimes missing or wrong, which affects everyone, but probably Indian government labs more. Our cleaned dataset recovers some missed papers; the benchmark uses the raw query for everyone to stay fair.
 2. **"Twins" are the closest available, not perfect copies.** ORNL (0.48) is a much larger, physics-heavy lab, and similarity only looks at *topics*, not budget, staff or mission.
-3. **IICT has only one twin** (China), because no other country has a government lab with such a strong organic-chemistry focus above 0.4.
+3. **IICT has only one twin** (China). In the USA nothing comes close (0.25). In Korea and Australia the one close institute is closer to NCL and became NCL's twin. Under a different matching rule IICT could share it; we kept one twin per institute so that no two labs are measured against the same comparator.
 4. **The Indian group was chosen by us**, not by the rules. We say so on the page.
 5. **CSIRO Manufacturing's −8.1% a year** is probably an artefact: OpenAlex credits some papers to "CSIRO" as a whole instead of the division.
 6. **ANSTO and ORNL run large user facilities.** Visiting scientists' papers raise their output and international share (ANSTO: 71% international).
@@ -359,5 +363,7 @@ A: The labs are national leaders and a knowledge source for Indian universities.
 | Decisions and their reasons | `docs/DECISIONS.md`: D-35 (design), D-39 (universities merged), D-40 (audit fixes) |
 | Tests | `tests/test_global_benchmark.py`, `scripts/test_browser.py` |
 | Rebuild everything | `python run.py global` (uses the cache; no new API cost) |
+
+**Reading the charts:** every institution name on the charts has a coloured square and its country after it (e.g. "■ DICP  China"), and a colour key for the countries sits below each chart.
 
 **Page sections, in order:** Overview (one-minute summary) → 01 Countries → 02 Peers and rules → 03 Output and growth → 04 Impact → 05 Research topics → 06 Links (co-authorship and citations) → 07 Indian universities → 08 Method, sources and key terms.
