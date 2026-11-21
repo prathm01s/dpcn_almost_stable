@@ -3,11 +3,11 @@
     python scripts/make_submission.py
 
 Copies, never recomputes: the report PDF, the dataset, the network files, the tables behind the report and the
-dashboard, the Global Benchmark and idea-spreading data, an offline copy of the dashboard, a README and SHA-256
-checksums. No API key, cache or raw response is included.
+dashboard, the Global Benchmark and idea-spreading data, an offline copy of the dashboard and a README.
+No API key, cache or raw response is included.
 """
 
-import hashlib
+
 import json
 import shutil
 import zipfile
@@ -75,14 +75,6 @@ FILES = {
 DASH_SKIP = {"screenshots"}
 
 
-def sha(p: Path) -> str:
-    h = hashlib.sha256()
-    with open(p, "rb") as f:
-        for chunk in iter(lambda: f.read(1 << 20), b""):
-            h.update(chunk)
-    return h.hexdigest()
-
-
 def rows(p: Path):
     if p.suffix != ".csv":
         return ""
@@ -109,7 +101,7 @@ def main():
 
 **Members:** {", ".join(MEMBERS)}
 **Interactive dashboard:** {SITE}
-**Report:** `Group24_CSIR_Chemistry_Report.pdf` (key observations, 3 pages)
+**Report:** `Group24_CSIR_Chemistry_Report.pdf` (key observations, 4 pages)
 **Data:** OpenAlex, collected {man.get("collection_date", "13 Oct 2026")} (2026 is a partial year); quartiles and impact factor: SCImago.
 Package built {date.today().isoformat()}.
 
@@ -129,19 +121,16 @@ Package built {date.today().isoformat()}.
 | File | Rows |
 |---|---|
 {listing}
-
-`CHECKSUMS.sha256` lists a SHA-256 hash for every file (`sha256sum -c CHECKSUMS.sha256`).
 """
     (OUT / "README.md").write_text(readme, encoding="utf-8")
-    files = sorted(p for p in OUT.rglob("*") if p.is_file() and p.name != "CHECKSUMS.sha256")
-    (OUT / "CHECKSUMS.sha256").write_text("".join(f"{sha(p)}  {p.relative_to(OUT).as_posix()}\n" for p in files), encoding="utf-8")
+    files = sorted(p for p in OUT.rglob("*") if p.is_file())
     zf = Path(f"{OUT}.zip")
     with zipfile.ZipFile(zf, "w", zipfile.ZIP_DEFLATED) as z:
         for p in sorted(OUT.rglob("*")):
             if p.is_file():
                 z.write(p, Path(OUT.name) / p.relative_to(OUT))
     size = sum(p.stat().st_size for p in OUT.rglob("*") if p.is_file())
-    print(f"{OUT}/: {len(files) + 1} files, {size / 1e6:.1f} MB; {zf}: {zf.stat().st_size / 1e6:.1f} MB")
+    print(f"{OUT}/: {len(files)} files, {size / 1e6:.1f} MB; {zf}: {zf.stat().st_size / 1e6:.1f} MB")
 
 
 if __name__ == "__main__":
