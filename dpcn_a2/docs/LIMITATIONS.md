@@ -88,7 +88,7 @@
 4. **Returnee classification is unvalidated** until `true_class` is filled in `stats/tables/insights/09_validation_sample.csv`.
 5. **Insight co-author graph vs Task 4 network**: Insights 1–3 and 11 use a co-author graph keyed by OpenAlex author ID (7,752 researchers in the LCC); the Task 4 authorship network in the report and dashboard is keyed by name. Their node counts and centralities therefore differ slightly.
 6. **Rows without an author ID**: the 1,579 dataset rows without an OpenAlex author ID all carry `faculty_id = FORMER_CECRI_0005` (936 different names), an artefact of the probable-former-faculty step. These rows are not roster faculty and do not affect faculty statistics, but `FORMER_CECRI_0005` should not be read as one person.
-7. **Insight 11 is a stylised model**: β0 = 0.20 per step is chosen, not estimated, and the networks merge 2016–2026 into one static network. SI spreading has no threshold (any β > 0 eventually reaches the connected network); the structural thresholds reported (⟨k⟩/⟨k²⟩, 1/λmax) apply to spreading with recovery, and the measured SIR threshold is 1.5–2.6× the configuration-model formula because the networks are clustered (D-38). The comparison between networks, fields, conditions and labs is the result, not the absolute speed.
+7. **"How Ideas Spread" (formerly Insight 11) is a stylised model**: β0 = 0.20 per step is chosen, not estimated, and the networks merge 2016–2026 into one static network. SI spreading has no threshold (any β > 0 eventually reaches the connected network); the structural thresholds reported (⟨k⟩/⟨k²⟩, 1/λmax) apply to spreading with recovery, and the measured SIR threshold is 1.5–2.6× the configuration-model formula because the networks are clustered (D-38). The comparison between networks, fields, conditions and labs is the result, not the absolute speed.
 
 
 ## Global benchmark (D-35)
@@ -100,3 +100,12 @@
 - Country shares of world papers divide by all OpenAlex papers in the scope, including papers with no known country; early years have more of those, so the rise of China (14.0% → 31.6%) and India is partly improved affiliation data.
 - ANSTO and ORNL run user facilities (neutron sources; ANSTO also the Australian Synchrotron); part of their output is visiting users' papers, which raises their international share (ANSTO 70.8%).
 - Citation flows use the labs' curated papers (2016–2026) and count any peer paper in any subject, but in both directions only peer papers published 2016–2026 (D-40). Before D-40 the papers the labs cite included older ones (about half from before 2016), which no peer paper citing the labs can match, so every partner looked like a net source of knowledge. Papers co-authored by the lab and the peer are left out. Counts are not scaled by size: a large peer has more papers both to cite and to be cited.
+
+## Real-citation test of the idea-spreading model (D-44)
+
+- A citation is the visible trace of using an idea, not proof that a method was adopted; a person "adopts" a cited work in the year of their first lab paper citing it.
+- People who work together also read the same literature. The rise in adoption with two or more informed co-authors may partly be shared reading rather than influence; a timing-shuffle test could not separate the two because the co-authorship network grows over time. The share of pass-ons carried by an earlier user on the paper (78%) does not depend on this.
+- Only the labs' own authors are in the network, so a path between two labs through an outside co-author is not seen: "via a person" between labs is a lower bound.
+- The exposure-response chart uses a fixed random sample of ideas (25% of those cited by two or more lab papers, 2% of those cited once; seed 24), weighted back to the full set.
+- Reference lists (Step 24) were read from OpenAlex on 2026-11-21, after the main collection; reference lists do not drift like citation counts.
+

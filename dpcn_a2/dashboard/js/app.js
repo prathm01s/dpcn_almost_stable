@@ -2793,10 +2793,14 @@ document.addEventListener("DOMContentLoaded", () => {
       svg.innerHTML = `<line x1="${pad}" x2="${W - pad}" y1="${y50}" y2="${y50}" stroke="rgba(255,255,255,0.45)" stroke-dasharray="2 4"/>` +
         `<polyline points="${pts(t.faculty_curve)}" fill="none" stroke="#fcd34d" stroke-width="2.5" stroke-dasharray="6 4"/>` +
         `<polyline points="${pts(t.full_curve)}" fill="none" stroke="#ffffff" stroke-width="3"/>`;
-      document.getElementById("lead-i11-stats").innerHTML =
-        stat(t.t50_full == null ? "> 15" : `${t.t50_full} steps`, `for an idea to reach half of all ${fmtN(t.n_full)} authors`) +
-        stat(t.t50_faculty == null ? "> 15" : `${t.t50_faculty} steps`, "for the same among faculty alone, without students and project staff") +
-        stat(`${t.spillover}%`, "of researchers outside the field adopt an idea that starts in chemistry");
+      document.getElementById("lead-i11-stats").innerHTML = t.real_T_pct != null
+        ? stat(`${t.real_T_pct.toFixed(2)}%`, `real chance a co-author picks up an idea, below the ${t.tipping_full_pct}% tipping point`) +
+          stat(`${t.student_vs_faculty}×`, "more often over a student's tie than a professor's, measured in real citations") +
+          stat(`${t.cross_lab_pct}%`, "of co-authorship ties cross labs: ideas from abroad arrive by reading")
+        : stat(t.t50_full == null ? "> 15" : `${t.t50_full} steps`, `for an idea to reach half of all ${fmtN(t.n_full)} authors`) +
+          stat(t.t50_faculty == null ? "> 15" : `${t.t50_faculty} steps`, "for the same among faculty alone, without students and project staff") +
+          stat(`${t.spillover}%`, "of researchers outside the field adopt an idea that starts in chemistry");
+      if (t.citations) document.getElementById("lead-i11-cites").textContent = fmtN(t.citations);
       if (t.claims_total) document.getElementById("lead-i11-check").textContent = `✓ ${t.claims_passed}/${t.claims_total} claims verified`;
     }
   }

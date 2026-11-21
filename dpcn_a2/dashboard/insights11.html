@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark light">
   <script src="js/theme.js"></script>
-  <title>Insight 11: How Ideas Spread — Group 24</title>
+  <title>How Ideas Spread — Group 24</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/insight11.css?v=20261117">
+  <link rel="stylesheet" href="css/insight11.css?v=20261121">
   <script>
     window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] }, svg: { fontCache: "global" } };
   </script>
@@ -19,8 +19,8 @@
   <header class="site-header">
     <div class="topnav">
       <a href="index.html" class="brand" title="Back to the main dashboard">
-        <span class="brand-mark">11</span>
-        <span class="brand-text"><strong>How Ideas Spread</strong><small>Insight 11 · full study</small></span>
+        <span class="brand-mark">G24</span>
+        <span class="brand-text"><strong>How Ideas Spread</strong><small>Lead study 2 · idea diffusion</small></span>
       </a>
       <nav class="nav-links" id="nav-links" aria-label="Sections">
         <a href="#i-top" class="nav-link" data-sec="home">Top</a>
@@ -32,6 +32,7 @@
         <a href="#i-networks" class="nav-link">Networks</a>
         <a href="#i-meanfield" class="nav-link">Mean field</a>
         <a href="#i-labs" class="nav-link">Labs</a>
+        <a href="#i-real" class="nav-link">Real data</a>
         <a href="#i-conclusions" class="nav-link">Conclusions</a>
         <a href="#i-proof" class="nav-link">Claims &amp; proof</a>
       </nav>
@@ -46,15 +47,17 @@
   <!-- Top -->
   <section id="i-top" class="page-section hero g-hero">
     <div class="section-inner hero-inner">
-      <div class="hero-eyebrow">DPCN 2026 · Group 24 · Insight 11</div>
+      <div class="hero-eyebrow">DPCN 2026 · Group 24 · Lead study 2</div>
       <h1 class="hero-title">How does a new idea spread through CSIR's chemistry labs?</h1>
-      <p class="hero-lead">We let a new method or reagent "infect" the labs' collaboration and citation networks and watch how far and how
-        fast it travels: through everyone who publishes, through faculty alone, along citations, by field and by lab of origin.
-        Every number below is computed from our data, every formula is written out, and every claim is checked automatically.</p>
+      <p class="hero-lead">We model a new method or reagent spreading through the labs' collaboration and citation networks, and then test
+        the model against what really happened: <span data-real="citations"></span> citations in the labs' own papers, followed person by person. Every number is
+        computed from our data, every formula is written out, and every claim is checked automatically.</p>
+      <div class="i-board" id="i-board" aria-label="Key findings, each linked to its evidence"></div>
       <div class="kpi-grid hero-kpis" id="i-kpis"></div>
       <p class="hero-note" id="i-hero-note"></p>
       <div class="hero-actions">
-        <a href="#i-findings" class="btn-primary">The study in one minute</a>
+        <a href="#i-real" class="btn-primary">The real-data test</a>
+        <a href="#i-findings" class="btn-ghost">The study in one minute</a>
         <a href="#i-conclusions" class="btn-ghost">Conclusions</a>
         <a href="#i-proof" class="btn-ghost">Claims &amp; proof</a>
       </div>
@@ -65,9 +68,9 @@
   <section id="i-findings" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">00</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">00</span> / 10</div>
         <h2 class="section-title">The study in one minute</h2>
-        <p class="section-lead">Seven questions, each answered from the simulations and marked when its automatic check passes. Click a card for the evidence.</p>
+        <p class="section-lead">One question per section, each answered from the data. Click a card for the evidence.</p>
       </header>
       <nav class="g-toc" id="i-toc" aria-label="Sections with their answers"></nav>
     </div>
@@ -77,7 +80,7 @@
   <section id="i-data" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">01</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">01</span> / 10</div>
         <h2 class="section-title">The data: four networks</h2>
         <p class="section-q">What networks do the labs form, and who counts as faculty?</p>
         <p class="section-lead">All four are built from the project's final dataset (OpenAlex, collected <span data-meta="collection_date"></span>).
@@ -112,7 +115,7 @@
   <section id="i-model" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">02</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">02</span> / 10</div>
         <h2 class="section-title">The model, written out</h2>
         <p class="section-q">How exactly is the spreading of an idea simulated?</p>
         <p class="section-lead">A Susceptible–Infected (SI) process in discrete steps: once a researcher adopts the idea they keep it and keep
@@ -158,7 +161,7 @@
   <section id="i-threshold" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">03</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">03</span> / 10</div>
         <h2 class="section-title">Is there a tipping point? Theory vs. simulation</h2>
         <p class="section-q">Is there a point below which an idea dies out, and does the textbook formula find it?</p>
         <p class="section-lead">If each person passes the idea on only once (with probability \(T\)) and then stops, the outbreak from a seed is
@@ -188,7 +191,7 @@
   <section id="i-fields" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">04</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">04</span> / 10</div>
         <h2 class="section-title">By field: does an idea stay in its discipline?</h2>
         <p class="section-q">If an idea starts among chemists, does it stay among chemists?</p>
         <p class="section-lead">Seeds: the 15 roster scientists most active in the field (field share × number of co-authors), each run
@@ -228,7 +231,7 @@
   <section id="i-networks" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">05</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">05</span> / 10</div>
         <h2 class="section-title">Which network carries ideas best?</h2>
         <p class="section-q">Which network spreads ideas fastest, and what happens without students and project staff?</p>
         <p class="section-lead">The same rule and the same number of seeds and runs on all four networks (Monte Carlo, <span data-param="seeds_per_run"></span>
@@ -259,7 +262,7 @@
   <section id="i-meanfield" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">06</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">06</span> / 10</div>
         <h2 class="section-title">Mean field vs. simulation</h2>
         <p class="section-q">Can a fast set of equations (NIMFA) replace thousands of simulated runs?</p>
         <p class="section-lead">Both models run from the same seeds on the same links. The gap NIMFA − simulation tells how much ignoring
@@ -291,7 +294,7 @@
   <section id="i-labs" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">07</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">07</span> / 10</div>
         <h2 class="section-title">Does it matter which lab an idea starts in?</h2>
         <p class="section-q">Do ideas from one lab spread further than ideas from another?</p>
         <p class="section-lead">Seeds: the 10 best-connected faculty of one lab; target: the whole network. Then each lab on its own.</p>
@@ -315,14 +318,85 @@
     </div>
   </section>
 
-  <!-- 8 Conclusions -->
+
+  <!-- 8 Real citations -->
+  <section id="i-real" class="page-section">
+    <div class="section-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="section-num">08</span> / 10</div>
+        <h2 class="section-title">Testing the model on real citations</h2>
+        <p class="section-q">Does what the model assumes actually happen in the labs' papers?</p>
+        <p class="section-lead">Sections 01–07 simulate an idea. Here we follow real ones. Every work a lab paper cites is an idea, and a person
+          <b>adopts</b> it in the year of their first lab paper that cites it. If ideas travel along co-authorship, a researcher should adopt an
+          idea after a co-author did. We count how often that happens, for <span id="real-n-ideas"></span> cited works and
+          <span id="real-n-cites"></span> citations.</p>
+      </header>
+      <div class="g-answer" id="ans-real"></div>
+
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">How the real test works</h3></div>
+        <div class="i-steps">
+          <div><b>1 · Adoption</b>A person adopts cited work W in year t: their first lab paper citing W appears in year t.</div>
+          <div><b>2 · Ties at risk</b>For every adopter u, every co-author v who had a joint paper with u by then, still publishes afterwards and has not
+            used W yet.</div>
+          <div><b>3 · Transmissibility</b>\(T = \dfrac{\text{ties where } v \text{ later adopts } W}{\text{all ties at risk}}\), the same quantity whose
+            tipping point section 03 measures: an outbreak needs \(T\) above it.</div>
+          <div><b>4 · Carried or independent</b>"Carried" if someone who used W earlier is an author of v's adopting paper; otherwise v used it on their own.</div>
+        </div>
+      </div>
+
+      <div class="card" id="i-real-tip">
+        <div class="card-header"><h3 class="card-title">Real transmissibility vs. the tipping point</h3></div>
+        <div id="ch-real-tip" class="g-chart" role="img" aria-label="Real per-tie transmissibility by how widely an idea is reused, with the tipping points"></div>
+        <p class="g-howto">Each bar is the share of (co-author tie, idea) pairs where the co-author later used the idea; dark part carried by an earlier user
+          on the new paper, light part used independently. Dashed lines: the tipping points measured in section 03 for the full network and for faculty alone.
+          An idea that stays left of a line dies out in that network.</p>
+      </div>
+      <div class="g-insight" id="ins-real-tip"></div>
+
+      <div class="card" id="i-real-roles">
+        <div class="card-header"><h3 class="card-title">Whose ties pass ideas on? Students vs. faculty, measured</h3></div>
+        <div id="ch-real-roles" class="g-chart" role="img" aria-label="Real per-tie transmissibility by the role of the earlier adopter"></div>
+        <div id="real-roles-stats" class="i-mini-stats"></div>
+        <p class="g-howto">Transmissibility of ties by the role of the person who used the idea first, within each reuse group (so popular ideas do not
+          favour one group). Faculty = roster scientists; frequent non-roster authors = 10+ papers over 3+ years, not on today's roster.</p>
+      </div>
+      <div class="g-insight" id="ins-real-roles"></div>
+
+      <div class="card" id="i-real-people">
+        <div class="card-header"><h3 class="card-title">One informed co-author or several?</h3></div>
+        <div id="ch-real-exposure" class="g-chart" role="img" aria-label="Yearly adoption chance by number of co-authors who used the idea before"></div>
+        <p class="g-howto">Chance per year that a researcher uses an idea, by how many of their co-authors used it before (k). k = 0: researchers active that
+          year in the same subfield as the earlier users, with no such co-author. Dark: carried by an earlier user on the paper; light: used on their own.
+          Lift is relative to k = 0.</p>
+      </div>
+      <div class="g-insight" id="ins-real-people"></div>
+
+      <div class="card" id="i-real-islands">
+        <div class="card-header"><h3 class="card-title">Between the labs, and knowledge from abroad (with the Global Benchmark)</h3></div>
+        <div id="real-islands-kpis" class="i-mini-stats"></div>
+        <div id="tbl-real-origin"></div>
+        <p class="g-howto">Ideas grouped by where they come from: papers of the nine foreign twins and of the six Indian reference institutes that the labs
+          cite (from the <a href="global.html#g-links">Global Benchmark</a>), the labs' own papers, and everything else. "Via a person": when the idea
+          first appears in a second or third lab, someone on that paper used it before or has a co-author who did.</p>
+      </div>
+      <div class="g-insight" id="ins-real-islands"></div>
+
+      <details class="g-more">
+        <summary>Method details, checks and what this test cannot show</summary>
+        <div class="g-more-body"><ul class="g-list" id="real-method"></ul></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 9 Conclusions -->
   <section id="i-conclusions" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">08</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">09</span> / 10</div>
         <h2 class="section-title">Conclusions: How Ideas Truly Spread</h2>
         <p class="section-q">What are the definitive takeaways from simulating across 7,678 researchers and four networks?</p>
-        <p class="section-lead">Combining stochastic simulations, bond percolation, and mean-field physics reveals five core realities governing scientific transmission in CSIR's chemistry cluster.</p>
+        <p class="section-lead">Stochastic simulations, bond percolation, mean-field equations and a test on the labs' own citations: the core realities of how ideas move through CSIR's chemistry cluster.</p>
       </header>
       <div class="g-answer" id="ans-conclusions"></div>
 
@@ -331,7 +405,7 @@
         <div class="card-header">
           <div>
             <h3 class="card-title">Executive Takeaways Studio</h3>
-            <span class="g-note" style="margin:0">Interactive deep dive into the five pillars of scientific propagation</span>
+            <span class="g-note" style="margin:0">Interactive deep dive into each takeaway, from the real-citation test to the model</span>
           </div>
           <div class="g-seg" id="seg-conclusion-pillar" role="group" aria-label="Takeaway Pillar"></div>
         </div>
@@ -351,14 +425,14 @@
     </div>
   </section>
 
-  <!-- 9 Claims & proof -->
+  <!-- 10 Claims & proof -->
   <section id="i-proof" class="page-section">
     <div class="section-inner">
       <header class="section-head">
-        <div class="section-eyebrow"><span class="section-num">09</span> / 09</div>
+        <div class="section-eyebrow"><span class="section-num">10</span> / 10</div>
         <h2 class="section-title">Data, Methodology &amp; Verification</h2>
         <p class="section-q">How can every statement on this page be checked and audited?</p>
-        <p class="section-lead">Every claim is bound to an automated unit test. Filter the 11 verified claims below or inspect the underlying reproduction pipeline, key terminology, and audit history.</p>
+        <p class="section-lead">Every claim is bound to an automated unit test. Filter the verified claims below or inspect the underlying reproduction pipeline, key terminology, and audit history.</p>
       </header>
       <div class="g-answer" id="ans-proof"></div>
 
@@ -366,7 +440,7 @@
       <div class="card claims-deck-container">
         <div class="card-header">
           <div>
-            <h3 class="card-title">Verified Empirical Claims (11)</h3>
+            <h3 class="card-title">Verified Empirical Claims (<span id="n-claims"></span>)</h3>
             <span class="g-note" style="margin:0">Categorized findings with exact quantitative metrics and transparent mathematical checks</span>
           </div>
           <div class="g-seg" id="seg-claims-filter" role="group" aria-label="Filter Claims"></div>
@@ -393,7 +467,7 @@
   </main>
 
   <script src="vendor/echarts.min.js"></script>
-  <script src="data/g24_insights11_suite.js?v=20261117"></script>
-  <script src="js/insights11.js?v=20261117"></script>
+  <script src="data/g24_insights11_suite.js?v=20261121"></script>
+  <script src="js/insights11.js?v=20261121"></script>
 </body>
 </html>

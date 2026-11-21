@@ -15,12 +15,14 @@ logger = get_logger("insights_run_all")
 
 def run_insight11() -> None:
     """Insight 11 (D-38), from data/final only: faculty networks and roster audit, part 1 field study,
-    part 2 four networks / mean field / labs, part 3 threshold test, part 4 claims, then the page data."""
+    part 2 four networks / mean field / labs, part 3 threshold test, part 5 real-citation test (D-44), part 4 claims,
+    then the page data."""
     from src.stats.insights.s11_cadre_networks import extract_cadre_networks
     from src.stats.insights.s11_data_cleaning_audit import audit_data_cleaning
     from src.stats.insights.s11_information_diffusion import run as run_diffusion
     from src.stats.insights.s11_nimfa_spreading import run_all_simulations
     from src.stats.insights.s11_threshold_check import run_threshold_check
+    from src.stats.insights.s11_real_diffusion import run as run_real_diffusion
     from src.stats.insights.s11_claims import build_claims
     from src.dashboard.build_insights11_suite import build_suite_js
     extract_cadre_networks()
@@ -28,6 +30,7 @@ def run_insight11() -> None:
     run_diffusion()
     run_all_simulations()
     run_threshold_check()
+    run_real_diffusion()
     claims = build_claims()
     build_suite_js()
     if claims["n_passed"] != claims["n_claims"]:

@@ -92,6 +92,7 @@ Network analysis (PageRank, Louvain, centralities) uses only the within-cluster 
 
 | File / field | Definition |
 |---|---|
+| `data/final/work_references.csv.gz` | Step 24 (D-44): `work_id`, `referenced_work_id` (OpenAlex IDs), one row per (corpus paper, work it cites), from the paper's `referenced_works` (752,258 rows for 13,830 papers; papers without references have no row). Used by the real-citation test of the "How Ideas Spread" study. |
 | `data/final/work_reference_counts.csv` | `work_id`, `references_count` = number of works in the paper's OpenAlex `referenced_works` (citations made); `has_foreign_coauthor` = TRUE if any authorship institution has a country code other than IN (used by Insight 9). Blank for the one work OpenAlex no longer returns. |
 | Paper impact ratio (IR) | `citations` ÷ `references_count`; undefined when `references_count` = 0 |
 | IR-Q1 | IR > 0.60, the 75th percentile of paper IR over all papers (`config/settings.yaml` → `impact_ratio.quartile_percentile`), i.e. the top 25% of papers |
@@ -208,9 +209,9 @@ Rules: `config/global_benchmark.yaml`; hand-reviewed rule-2b exclusions: `config
 | `global_similarity.csv` | every institution that reached the similarity test |
 | `global_profiles.csv` | share of each institution's papers in the 12 largest scope subfields |
 
-## Insight 11 files (D-38)
+## "How Ideas Spread" files (formerly Insight 11; D-38, D-44)
 
-Page: `dashboard/insights11.html` (data `dashboard/data/g24_insights11_suite.js`). Rebuild: `python run.py insight11` (no API calls).
+Page: `dashboard/insights11.html` (data `dashboard/data/g24_insights11_suite.js`). Rebuild: `python run.py insight11` (no API calls; Step 24 reads the reference lists from the cache).
 
 | File (`stats/tables/insights/`) | Content |
 |---|---|
@@ -219,7 +220,8 @@ Page: `dashboard/insights11.html` (data `dashboard/data/g24_insights11_suite.js`
 | `11_simulation_grid_metrics.csv` | One row per network × field of the above |
 | `11_seed_origin_comparison.csv`, `11_intra_institute_comparison.csv` | Lab-of-origin and inside-each-lab results |
 | `11_threshold_check.json` / `.csv` | Part 3: bond-percolation sweep (= one-shot SIR) on the full and faculty co-authorship networks and the six field networks: S(T) largest-outbreak share, χ(T) mean small-outbreak size, formula T_c, measured peak, ratio, clustering |
-| `11_claims.json` | Part 4: every claim on the page with its numbers, source file, check and pass/fail; `tests/test_insight11.py` requires all to pass |
+| `11_real_diffusion.json` | Part 5 (D-44), the model tested on real citations. An idea = a work cited by a lab paper; a person adopts it in the year of their first lab paper citing it. `ideas` (count, citations, reuse groups, `single_use_pct`); `tipping_points` (from `11_threshold_check.json`); `transmissibility` = per-tie T: share of (co-author tie, idea) pairs (joint paper by the adopter's year, co-author still publishing afterwards and not yet a user) where the co-author later cites the work; overall, `by_bucket` (ideas cited by 2-4 / 5-9 / 10+ lab papers), `by_role` (role of the earlier adopter), `by_bucket_role`, `by_strength` (joint papers by then), each split into `carried` (an earlier user is an author of the adopting paper) and `independent`; `roles` (people, co-authors per person, share of ties with 5+ joint papers); `exposure` = yearly adoption chance by k co-authors who used the idea before (k = 0: researchers active in the same subfield as the earlier adopting papers), on a fixed sample of ideas (seed 24), weighted; `between_labs` (cross-lab ties; per idea origin: foreign twins' and Indian reference institutes' papers from `data/final/global/citation_flows.csv`, the labs' own papers, the rest: reuse and whether the idea reached a second or third lab through a person); `global_link` (foreign peers' papers cited and co-authored, from `global_links.csv`) |
+| `11_claims.json` | Part 4: every claim on the page with its numbers, source file, check and pass/fail (C1-C11 model, C12-C15 real-citation test); `tests/test_insight11.py` requires all to pass |
 | `11_cadre_networks_summary.csv`, `11_cadre_coauthorship_graph.json`, `11_cadre_citation_graph.json` | Faculty networks (same as the dashboard's) |
 | `11_data_cleaning_stats.json` | Roster funnel (505 scraped → 120 removed → 385 roster → 306 with papers) and `excluded_staff_publishing` (removed staff who are authors) |
 

@@ -1,6 +1,6 @@
 {
-  "n_claims": 11,
-  "n_passed": 11,
+  "n_claims": 15,
+  "n_passed": 15,
   "claims": [
     {
       "id": "C1",
@@ -268,6 +268,86 @@
       },
       "source": "11_nimfa_vs_si_comparison.json; stats/tables/network_summary.csv",
       "check": "edge counts equal",
+      "passed": true
+    },
+    {
+      "id": "C12",
+      "claim": "In the labs' real citations an idea passes over a co-authorship tie with probability 0.81% on average, and 4.95% for the most reused ideas (cited by 10 or more lab papers): below the tipping point measured for the full network (6%) and far below the faculty network's (21.5%). 79% of the 511,832 works the labs cite are cited by one lab paper only.",
+      "value": {
+        "T_all_pct": 0.8135,
+        "T_most_reused_pct": 4.9504,
+        "tipping_full_pct": 6.0,
+        "tipping_faculty_pct": 21.5,
+        "single_use_pct": 79.0,
+        "ideas": 511832,
+        "tie_idea_pairs": 15563677
+      },
+      "source": "11_real_diffusion.json (from data/final/work_references.csv.gz and group24_data_extended.csv); 11_threshold_check.json",
+      "check": "per-tie transmissibility of all ideas and of the most reused ones both below the full network's measured tipping point",
+      "passed": true
+    },
+    {
+      "id": "C13",
+      "claim": "Measured on real citations, a tie of a student or other non-faculty author passes an idea on 2.7× as often as a faculty member's tie (1.51% vs 0.56%; 2.3–2.6× within every reuse group), but a faculty member has 35 co-authors on average against 5.6.",
+      "value": {
+        "T_affiliated_pct": 1.5148,
+        "T_faculty_pct": 0.5585,
+        "ratio": 2.71,
+        "ratio_by_reuse": [
+          2.61,
+          2.56,
+          2.35
+        ],
+        "coauthors_faculty": 35.0,
+        "coauthors_affiliated": 5.6
+      },
+      "source": "11_real_diffusion.json (from data/final/work_references.csv.gz and group24_data_extended.csv)",
+      "check": "ratio above 1 in every reuse group and faculty have more co-authors",
+      "passed": true
+    },
+    {
+      "id": "C14",
+      "claim": "Ideas travel with people: in 78% of real pass-ons an earlier user is an author of the new paper. One co-author who used an idea makes a researcher only slightly more likely to use it on their own (0.038% a year vs 0.032% for researchers in the same subfield without such a co-author, 1.17×); three or more raise it 3.5×.",
+      "value": {
+        "carried_share_pct": 78.1,
+        "P_independent_pct": {
+          "0": 0.0323,
+          "1": 0.0376,
+          "2": 0.0609,
+          "3+": 0.1142
+        },
+        "lift_independent": {
+          "0": 1.0,
+          "1": 1.17,
+          "2": 1.89,
+          "3+": 3.54
+        },
+        "sample": {
+          "ideas_multi": 107551,
+          "ideas_single": 404281,
+          "fraction_multi": 0.25,
+          "fraction_single": 0.02,
+          "seed": 24
+        }
+      },
+      "source": "11_real_diffusion.json (from data/final/work_references.csv.gz and group24_data_extended.csv)",
+      "check": "carried share above 50% and the independent-adoption lift grows from one to three or more adopting co-authors",
+      "passed": true
+    },
+    {
+      "id": "C15",
+      "claim": "The three labs are islands that learn from abroad by reading: 1.44% of co-authorship ties link people of different labs, and when a paper of the foreign twins is cited by a second lab, a person links it to the first lab's users in only 3.8% of cases (the labs' own papers: 22.8%). The labs cite 4,461 papers of their 9 foreign peers but co-authored 49 with them.",
+      "value": {
+        "cross_lab_ties_pct": 1.44,
+        "via_person_foreign_pct": 3.8,
+        "via_person_own_pct": 22.8,
+        "later_lab_adoptions_foreign": 956,
+        "foreign_peer_papers_cited": 4461,
+        "foreign_coauthored_papers": 49,
+        "foreign_peers": 9
+      },
+      "source": "11_real_diffusion.json (from data/final/work_references.csv.gz and group24_data_extended.csv); stats/tables/global_links.csv",
+      "check": "cross-lab ties under 5%, foreign ideas reach other labs through a person in under 10% of cases and less often than the labs' own papers",
       "passed": true
     }
   ]

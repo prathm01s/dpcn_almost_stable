@@ -154,6 +154,58 @@ def build_claims() -> dict:
          "11_nimfa_vs_si_comparison.json; stats/tables/network_summary.csv", "edge counts equal",
          pairs == nim["faculty_coauthorship"]["edges"])
 
+    # 12-15. The model tested on the labs' real citations (part 5, D-44)
+    if (T / "11_real_diffusion.json").exists():
+        rd = _load("11_real_diffusion.json")
+        src = "11_real_diffusion.json (from data/final/work_references.csv.gz and group24_data_extended.csv)"
+        tr, tp, ideas = rd["transmissibility"], rd["tipping_points"], rd["ideas"]
+        t_all, t_top = tr["overall"]["T_pct"], tr["by_bucket"]["10+ papers"]["T_pct"]
+        tp_full, tp_fac = 100 * tp["full_coauthorship"], 100 * tp["faculty_coauthorship"]
+        add("C12", f"In the labs' real citations an idea passes over a co-authorship tie with probability {t_all:.2f}% on average, and "
+                   f"{t_top:.2f}% for the most reused ideas (cited by 10 or more lab papers): below the tipping point measured for the full "
+                   f"network ({tp_full:g}%) and far below the faculty network's ({tp_fac:g}%). {ideas['single_use_pct']:g}% of the "
+                   f"{ideas['n']:,} works the labs cite are cited by one lab paper only.",
+            {"T_all_pct": t_all, "T_most_reused_pct": t_top, "tipping_full_pct": tp_full, "tipping_faculty_pct": tp_fac,
+             "single_use_pct": ideas["single_use_pct"], "ideas": ideas["n"], "tie_idea_pairs": tr["overall"]["pairs"]},
+            src + "; 11_threshold_check.json", "per-tie transmissibility of all ideas and of the most reused ones both below the full network's measured tipping point",
+            t_all < tp_full and t_top < tp_full)
+
+        fa, aff = tr["by_role"]["faculty"]["T_pct"], tr["by_role"]["affiliated_author"]["T_pct"]
+        ratios = [tr["by_bucket_role"][b]["affiliated_author"]["T_pct"] / tr["by_bucket_role"][b]["faculty"]["T_pct"]
+                  for b in tr["by_bucket_role"] if tr["by_bucket_role"][b]["faculty"]["T_pct"]]
+        cf, ca = rd["roles"]["faculty"]["coauthors_per_person"], rd["roles"]["affiliated_author"]["coauthors_per_person"]
+        add("C13", f"Measured on real citations, a tie of a student or other non-faculty author passes an idea on {aff / fa:.1f}× as often as a "
+                   f"faculty member's tie ({aff:.2f}% vs {fa:.2f}%; {min(ratios):.1f}–{max(ratios):.1f}× within every reuse group), but a "
+                   f"faculty member has {cf:g} co-authors on average against {ca:g}.",
+            {"T_affiliated_pct": aff, "T_faculty_pct": fa, "ratio": round(aff / fa, 2), "ratio_by_reuse": [round(r, 2) for r in ratios],
+             "coauthors_faculty": cf, "coauthors_affiliated": ca},
+            src, "ratio above 1 in every reuse group and faculty have more co-authors", all(r > 1 for r in ratios) and cf > ca)
+
+        rows = {r["k"]: r for r in rd["exposure"]["rows"]}
+        carried = 100 * tr["overall"]["carried"] / max(1, tr["overall"]["carried"] + tr["overall"]["independent"])
+        l1, l3 = rows["1"]["lift_independent"], rows["3+"]["lift_independent"]
+        word = "no more likely" if l1 <= 1.1 else "only slightly more likely" if l1 <= 1.5 else "more likely"
+        add("C14", f"Ideas travel with people: in {carried:.0f}% of real pass-ons an earlier user is an author of the new paper. One co-author who "
+                   f"used an idea makes a researcher {word} to use it on their own ({rows['1']['P_independent_pct']:.3f}% a year vs "
+                   f"{rows['0']['P_independent_pct']:.3f}% for researchers in the same subfield without such a co-author, {l1:.2f}×); three or "
+                   f"more raise it {l3:.1f}×.",
+            {"carried_share_pct": round(carried, 1), "P_independent_pct": {k: r["P_independent_pct"] for k, r in rows.items()},
+             "lift_independent": {k: r["lift_independent"] for k, r in rows.items()}, "sample": rd["exposure"]["sample"]},
+            src, "carried share above 50% and the independent-adoption lift grows from one to three or more adopting co-authors",
+            carried > 50 and l3 > l1)
+
+        bl, gl = rd["between_labs"], rd["global_link"]
+        org = {r["origin"]: r for r in bl["by_origin"]}
+        vf, vo = org["foreign"]["via_person_pct"], org["own"]["via_person_pct"]
+        add("C15", f"The three labs are islands that learn from abroad by reading: {bl['cross_lab_pct']:g}% of co-authorship ties link people "
+                   f"of different labs, and when a paper of the foreign twins is cited by a second lab, a person links it to the first lab's "
+                   f"users in only {vf:g}% of cases (the labs' own papers: {vo:g}%). The labs cite {gl['foreign_peer_papers_cited']:,} papers "
+                   f"of their {gl['foreign_peers']} foreign peers but co-authored {gl['foreign_coauthored_papers']} with them.",
+            {"cross_lab_ties_pct": bl["cross_lab_pct"], "via_person_foreign_pct": vf, "via_person_own_pct": vo,
+             "later_lab_adoptions_foreign": org["foreign"]["later_lab_adoptions"], **gl},
+            src + "; stats/tables/global_links.csv", "cross-lab ties under 5%, foreign ideas reach other labs through a person in under 10% of cases and less often than the labs' own papers",
+            bl["cross_lab_pct"] < 5 and vf < 10 and vf < vo)
+
     out = {"n_claims": len(claims), "n_passed": sum(c["passed"] for c in claims), "claims": claims}
     (T / "11_claims.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
     logger.info(f"Insight 11 claims: {out['n_passed']}/{out['n_claims']} checks pass")

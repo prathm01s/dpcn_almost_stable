@@ -139,15 +139,15 @@ def test_takeaway_5_nimfa_validity():
     assert pc["nodes_in_cycles"] == 22
 
 
-# ---------------------------------------------------------------- All 11 Claims Verification
+# ---------------------------------------------------------------- All Claims Verification
 def test_claims_payload_integrity():
-    """Verify that all 11 claims in 11_claims.json are present, passed, and correctly formatted."""
+    """Verify that every claim in 11_claims.json (C1-C11 model, C12-C15 real-citation test, D-44) is present, passed and formatted."""
     cl = _load_json("11_claims.json")
-    assert cl["n_claims"] == 11
-    assert cl["n_passed"] == 11
-    
+    assert cl["n_claims"] == 15
+    assert cl["n_passed"] == 15
+
     c_ids = [c["id"] for c in cl["claims"]]
-    assert c_ids == [f"C{i}" for i in range(1, 12)]
+    assert c_ids == [f"C{i}" for i in range(1, 16)]
     for c in cl["claims"]:
         assert c["passed"] is True, f"Claim {c['id']} did not pass"
         assert c["claim"], f"Claim {c['id']} missing text"
@@ -157,7 +157,7 @@ def test_claims_payload_integrity():
 
 # ---------------------------------------------------------------- DOM & Navigation Structure
 def test_insights11_html_navigation_and_section_structure():
-    """Verify HTML nav links, section IDs, and sequence 00 through 09 in insights11.html."""
+    """Verify HTML nav links, section IDs, and sequence 00 through 10 in insights11.html."""
     html_path = Path("dashboard/insights11.html")
     assert html_path.exists()
     content = html_path.read_text(encoding="utf-8")
@@ -165,7 +165,7 @@ def test_insights11_html_navigation_and_section_structure():
     # Check topnav links
     expected_nav_links = [
         "#i-top", "#i-findings", "#i-data", "#i-model", "#i-threshold",
-        "#i-fields", "#i-networks", "#i-meanfield", "#i-labs",
+        "#i-fields", "#i-networks", "#i-meanfield", "#i-labs", "#i-real",
         "#i-conclusions", "#i-proof"
     ]
     for target in expected_nav_links:
@@ -173,7 +173,7 @@ def test_insights11_html_navigation_and_section_structure():
         section_id = target.lstrip("#")
         assert f'id="{section_id}"' in content, f"Target section id='{section_id}' missing in insights11.html"
     
-    # Check section numbers 00 through 09
-    for i in range(10):
-        expected_badge = f'<span class="section-num">{i:02d}</span> / 09'
+    # Check section numbers 00 through 10
+    for i in range(11):
+        expected_badge = f'<span class="section-num">{i:02d}</span> / 10'
         assert expected_badge in content, f"Missing section badge '{expected_badge}' in insights11.html"

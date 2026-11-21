@@ -56,8 +56,10 @@ def run_target(target: str) -> None:
         run_build_global()
     elif target == "insight11":
         # Insight 11 only (D-38): every analysis behind dashboard/insights11.html, then both page payloads
+        import importlib
         from src.stats.insights.run_all import run_insight11
         from src.dashboard.build_insights_js import build_insights_js
+        importlib.import_module("src.collect.24_work_references").run_step_24()  # reference lists, from the API cache (D-44)
         run_insight11()
         build_insights_js()
     elif target == "test":

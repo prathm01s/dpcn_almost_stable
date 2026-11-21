@@ -47,6 +47,7 @@ def build_suite_js() -> Path:
         "faculty_citation_graph": {k: v for k, v in _json("11_cadre_citation_graph.json").items() if k not in ("nodes", "links")},
         "cleaning": _json("11_data_cleaning_stats.json"),
         "claims": _json("11_claims.json"),
+        "real": _json("11_real_diffusion.json"),
     }
     OUTPUT_JS.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_JS.write_text("window.G24_I11 = " + json.dumps(payload, separators=(",", ":"), ensure_ascii=False) + ";\n",

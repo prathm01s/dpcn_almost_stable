@@ -15,7 +15,7 @@ OUTPUT_JS = Path("dashboard/data/g24_insights.js")
 
 
 def insight11_teaser() -> dict:
-    """Numbers for the Insight 11 card on the home screen, copied from the Insight 11 outputs."""
+    """Numbers for the "How Ideas Spread" card on the home screen, copied from the study's outputs."""
     try:
         nim = json.loads((TABLES_DIR / "11_nimfa_vs_si_comparison.json").read_text(encoding="utf-8"))
         cl = json.loads((TABLES_DIR / "11_claims.json").read_text(encoding="utf-8"))
@@ -24,7 +24,15 @@ def insight11_teaser() -> dict:
         return {}
     full, fac = nim["full_coauthorship"]["fields"]["Combined"], nim["faculty_coauthorship"]["fields"]["Combined"]
     chem = dif["fields_data"]["Chemistry"]["condition_a"]
-    return {"full_curve": full["mc_curve"], "faculty_curve": fac["mc_curve"], "t50_full": full["mc_t50"],
+    real = {}
+    rp = TABLES_DIR / "11_real_diffusion.json"
+    if rp.exists():
+        rd = json.loads(rp.read_text(encoding="utf-8"))
+        tr = rd["transmissibility"]
+        real = {"real_T_pct": tr["overall"]["T_pct"], "tipping_full_pct": 100 * rd["tipping_points"]["full_coauthorship"],
+                "student_vs_faculty": round(tr["by_role"]["affiliated_author"]["T_pct"] / tr["by_role"]["faculty"]["T_pct"], 1),
+                "cross_lab_pct": rd["between_labs"]["cross_lab_pct"], "citations": rd["ideas"]["citations"]}
+    return {**real, "full_curve": full["mc_curve"], "faculty_curve": fac["mc_curve"], "t50_full": full["mc_t50"],
             "t50_faculty": fac["mc_t50"], "n_full": nim["full_coauthorship"]["nodes"],
             "n_faculty": nim["faculty_coauthorship"]["nodes"], "spillover": chem["spillover_curve"][-1],
             "claims_passed": cl["n_passed"], "claims_total": cl["n_claims"]}

@@ -148,3 +148,56 @@ def test_study_networks_have_a_fixed_node_order():
     outs = {subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, check=True,
                            env={**os.environ, "PYTHONHASHSEED": h}).stdout.strip().splitlines()[-1] for h in ("1", "987")}
     assert len(outs) == 1
+
+
+# ---------------------------------------------------------------- part 5: the model tested on real citations (D-44)
+def _toy():
+    from src.stats.insights.s11_real_diffusion import index
+    papers = [
+        {"wid": "P0", "year": 2016, "persons": ("a", "c"), "labs": ("L1",), "subfield": "s"},   # a-c tie from 2016
+        {"wid": "P1", "year": 2016, "persons": ("a", "b"), "labs": ("L1",), "subfield": "s"},   # a and b adopt X
+        {"wid": "P2", "year": 2017, "persons": ("b", "c"), "labs": ("L2",), "subfield": "s"},   # c adopts X, b is on the paper
+        {"wid": "P3", "year": 2018, "persons": ("a",), "labs": ("L1",), "subfield": "s"},
+        {"wid": "P4", "year": 2018, "persons": ("c",), "labs": ("L2",), "subfield": "s"},       # c adopts Y alone
+        {"wid": "P5", "year": 2019, "persons": ("b",), "labs": ("L1",), "subfield": "s"},
+    ]
+    refs = {"P1": ["X"], "P2": ["X"], "P4": ["Y"]}
+    role = {"a": "faculty", "b": "affiliated_author", "c": "affiliated_author"}
+    return papers, refs, role, index(papers, refs)
+
+
+def test_real_transmissibility_on_a_hand_worked_example():
+    """X: a, b adopt in 2016, c in 2017. Ties at risk: a->c (joint paper 2016, c publishes later) -> transmitted, carried by b
+    on c's paper. b->c is not at risk (their first joint paper is c's adopting paper). Y: c adopts in 2018; at risk c->b
+    (b still publishes in 2019), not c->a (a stops in 2018). So 1 transmission (carried) out of 2 pairs."""
+    from src.stats.insights.s11_real_diffusion import transmissibility
+    papers, refs, role, (ties, nbr, last, by_idea) = _toy()
+    tr = transmissibility(papers, by_idea, nbr, ties, last, role)
+    assert tr["overall"]["pairs"] == 2 and tr["overall"]["carried"] == 1 and tr["overall"]["independent"] == 0
+    assert tr["by_role"]["faculty"]["pairs"] == 1 and tr["by_role"]["faculty"]["carried"] == 1
+    assert tr["by_role"]["affiliated_author"]["pairs"] == 1 and tr["by_role"]["affiliated_author"]["carried"] == 0
+
+
+def test_real_between_labs_on_a_hand_worked_example():
+    """X reaches lab L2 in 2017 on a paper with b, an earlier user: via a person."""
+    from src.stats.insights.s11_real_diffusion import between_labs
+    papers, refs, role, (ties, nbr, last, by_idea) = _toy()
+    bl = between_labs(papers, by_idea, nbr, role, {"X": "foreign"})
+    f = {r["origin"]: r for r in bl["by_origin"]}["foreign"]
+    assert f["later_lab_adoptions"] == 1 and f["via_person_pct"] == 100.0
+    assert bl["ties"] == 3 and bl["cross_lab_ties"] == 2   # homes: a L1, b L1 (2 of 3 papers), c L2
+
+
+def test_real_diffusion_output_is_consistent():
+    r = json.loads((T / "11_real_diffusion.json").read_text(encoding="utf-8"))
+    tr = r["transmissibility"]
+    assert sum(r["ideas"]["by_reuse"].values()) == r["ideas"]["n"]
+    # the overall rate is the pooled rate of the role groups
+    roles = tr["by_role"].values()
+    assert sum(x["pairs"] for x in roles) == tr["overall"]["pairs"]
+    assert sum(x["carried"] + x["independent"] for x in roles) == tr["overall"]["carried"] + tr["overall"]["independent"]
+    assert abs(tr["overall"]["T_pct"] - tr["overall"]["T_carried_pct"] - tr["overall"]["T_independent_pct"]) < 1e-3
+    assert r["tipping_points"]["full_coauthorship"] == json.loads((T / "11_threshold_check.json").read_text(encoding="utf-8"))["networks"]["full_coauthorship"]["T_peak_simulated"]
+    text = Path("dashboard/data/g24_insights11_suite.js").read_text(encoding="utf-8")
+    d = json.loads(text[len("window.G24_I11 = "):].rstrip().rstrip(";"))
+    assert d["real"] == r

@@ -344,7 +344,7 @@ def run_tests():
                     canv = client.evaluate("document.querySelectorAll('#ins-body canvas, #ins-body svg').length")
                     assert shown and canv > 0, f"Finding {i + 1}: modal shown={shown}, chart elements={canv}"
                 print(f"  ✓ All {card_count} finding modals open with a chart")
-                # Insight 11 is a featured card on the home screen linking to its own page (D-38)
+                # "How Ideas Spread" (formerly Insight 11) is a featured card on the home screen linking to its own page (D-38, D-44)
                 # The two lead studies are large cards on the home screen, filled from the data (D-39)
                 lead = client.evaluate("[document.querySelectorAll('#lead-i11-spark polyline').length, document.getElementById('lead-i11-check').textContent, "
                                        "document.querySelector('#lead-i11').getAttribute('href'), document.querySelectorAll('#lead-global-bars .lead-bar').length, "
@@ -514,7 +514,7 @@ def run_tests():
                 break
             time.sleep(0.25)
         title_i11 = client_i11.evaluate("document.title")
-        assert "Insight 11" in title_i11, title_i11
+        assert "How Ideas Spread" in title_i11, title_i11  # renamed from "Insight 11" (D-44)
         for cid in ["ch-faculty", "ch-threshold", "ch-field", "ch-overlay", "ch-meanfield", "ch-origin"]:
             assert client_i11.evaluate(f"document.querySelectorAll('#{cid} canvas').length") > 0, f"{cid} not rendered"
         # contents cards: at least the 8 study sections, each linking to a section that exists (the Conclusions section was added in Nov 2026)
@@ -522,6 +522,17 @@ def run_tests():
         assert toc[0] >= 8 and toc[0] == toc[1], toc
         assert client_i11.evaluate("document.querySelectorAll('.g-answer').length") >= 7
         assert client_i11.evaluate("[...document.querySelectorAll('.g-answer')].every(e => e.textContent.trim().length > 20)"), "Empty answer box on insights11.html"
+        # findings board in the title area (D-44): one card per finding, each linking to a section that exists, each with a passing check
+        board = client_i11.evaluate("[document.querySelectorAll('#i-board .i-fcard').length, "
+                                    "[...document.querySelectorAll('#i-board .i-fcard')].every(a => document.querySelector(a.getAttribute('href'))), "
+                                    "document.querySelectorAll('#i-board .i-fc-check.ok').length, document.title]")
+        assert board[0] >= 10 and board[1] and board[2] == board[0] and "Insight 11" not in board[3], board
+        # section 08: the real-citation test
+        for cid in ["ch-real-tip", "ch-real-roles", "ch-real-exposure"]:
+            assert client_i11.evaluate(f"document.querySelectorAll('#{cid} canvas').length") > 0, f"{cid} not rendered"
+        assert client_i11.evaluate("document.querySelectorAll('#tbl-real-origin tbody tr').length") == 4
+        assert client_i11.evaluate("document.querySelectorAll('#ins-real-tip .i-pass, #ins-real-roles .i-pass, #ins-real-people .i-pass, #ins-real-islands .i-pass').length") == 4
+        print(f"  ✓ Findings board: {board[0]} cards, all linked and verified; real-citation section rendered")
         # claims are shown as cards (#deck-claims, Nov 2026 redesign); every claim in the data must pass and have a card
         claims = client_i11.evaluate("[document.querySelectorAll('#deck-claims .claim-card').length, window.G24_I11.claims.claims.length, "
                                      "window.G24_I11.claims.claims.filter(c => !c.passed).length, document.querySelectorAll('.i-fail').length]")

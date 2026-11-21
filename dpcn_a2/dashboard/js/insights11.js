@@ -1,5 +1,6 @@
 /**
- * Insight 11 page (insights11.html): how ideas spread through the labs' networks.
+ * "How Ideas Spread" page (insights11.html; formerly Insight 11): how ideas spread through the labs' networks,
+ * simulated (sections 01-07) and tested on the labs' real citations (section 08, D-44).
  * Data: window.G24_I11 from data/g24_insights11_suite.js (src/dashboard/build_insights11_suite.py), which copies
  * stats/tables/insights/11_*. Every number and sentence here is read from that payload.
  */
@@ -8,7 +9,7 @@
   const D = window.G24_I11;
   if (!D || !D.spreading || !D.spreading.full_coauthorship) {
     document.querySelector("main").insertAdjacentHTML("afterbegin",
-      '<p style="padding:2rem">Insight 11 data not found (data/g24_insights11_suite.js). Run <code>python run.py insight11</code>.</p>');
+      '<p style="padding:2rem">Study data not found (data/g24_insights11_suite.js). Run <code>python run.py insight11</code>.</p>');
     return;
   }
 
@@ -86,11 +87,13 @@
       ["…of faculty, faculty-only network", fac.mc_t50 == null ? "> 15" : fac.mc_t50, `${fmt(S.faculty_coauthorship.nodes)} connected scientists`],
       ["Real tipping point vs. formula", `${Math.min(...ratios).toFixed(1)}–${Math.max(...ratios).toFixed(1)}×`, "measured / textbook threshold"],
       ["Ideas leaving their field", pct(ch.spillover_curve[ch.spillover_curve.length - 1]), "outside Chemistry by step 15"],
-      ["Monte Carlo runs", fmt(runs), "network comparison alone"],
-      ["Claims verified", `${c.n_passed || 0} / ${c.n_claims || 0}`, "automatic checks, section 09"],
+      R ? ["Real chance a tie passes an idea on", pct(R.transmissibility.overall.T_pct, 2), `tipping point ${pct(100 * R.tipping_points.full_coauthorship, 0)} (section 08)`]
+        : ["Monte Carlo runs", fmt(runs), "network comparison alone"],
+      ["Claims verified", `${c.n_passed || 0} / ${c.n_claims || 0}`, "automatic checks, section 10"],
     ];
     $("i-kpis").innerHTML = kpis.map(([l, v, s]) => `<div class="kpi-card"><div class="kpi-label">${esc(l)}</div><div class="kpi-val">${esc(v)}</div><div class="kpi-sub">${esc(s)}</div></div>`).join("");
     $("i-hero-note").textContent = `Data: OpenAlex, collected ${D.meta.collection_date}; simulations built ${D.meta.built}. One step = one round of contact between collaborators.`;
+    document.querySelectorAll("[data-real]").forEach(el => { if (R) el.textContent = fmt(R.ideas[el.dataset.real]); });
     renderAnswers();
   }
 
@@ -111,8 +114,25 @@
       `who work on similar topics. We simulate this thousands of times (Monte Carlo) and also solve it with mean-field equations (NIMFA).`);
     const map = { threshold: "C2", fields: "C7", networks: "C1", meanfield: "C4", labs: "C9" };
     Object.entries(map).forEach(([k, id]) => { const c = claim(id); if (c) setAnswer(k, c.claim); });
-    setAnswer("conclusions", "Five structural realities: junior researchers accelerate cluster-wide spread by 3×; scientific domains impose 31× containment barriers; network clustering raises real tipping points 1.5–2.3× above textbook equations; CSIR-IICT seeds achieve the fastest early velocity; and NIMFA mean-field equations provide an exact, millisecond analytical upper bound.");
-    setAnswer("proof", "All 11 empirical claims are verified against automated unit test suites. Every figure, threshold, and parameter is traceable directly to pipeline outputs with zero manual fabrication.");
+    const c2 = (claim("C2") || {}).value || {}, c3 = (claim("C3") || {}).value || {}, c7 = (claim("C7") || {}).value || {};
+    const rr = Object.values(c3.ratios || {});
+    const tipRatio = c2.T_peak_full ? c2.T_peak_faculty / c2.T_peak_full : null;
+    let concl = `Without students and project staff the faculty network's tipping point is ${num(tipRatio, 1)}× higher (${c2.T_peak_faculty} vs ${c2.T_peak_full}); ` +
+      `disciplines act as firewalls (${pct(c7.chemistry_reach)} of chemists adopt vs ${pct(c7.outside_reach)} outside); clustering puts the real tipping point ` +
+      `${num(Math.min(...rr))}–${num(Math.max(...rr))}× above the textbook formula; mean-field equations bound the simulation and rank the seeds correctly.`;
+    if (R) {
+      const t = R.transmissibility, cr = 100 * t.overall.carried / (t.overall.carried + t.overall.independent);
+      setAnswer("real", `Real ideas stay below the tipping point: a co-author picks up a cited work ${pct(t.overall.T_pct, 2)} of the time per tie ` +
+        `(${pct(t.by_bucket["10+ papers"].T_pct, 2)} for the most reused) against the ${pct(100 * R.tipping_points.full_coauthorship, 0)} an outbreak needs. ` +
+        `${pct(cr, 0)} of pass-ons are carried by an earlier user on the new paper, a student's tie passes ideas ${num(t.by_role.affiliated_author.T_pct / t.by_role.faculty.T_pct, 1)}× ` +
+        `as often as a professor's, and only ${pct(R.between_labs.cross_lab_pct, 1)} of ties cross labs.`);
+      concl = `Tested on real citations: ideas stay below the tipping point (${pct(t.overall.T_pct, 2)} per tie vs ${pct(100 * R.tipping_points.full_coauthorship, 0)}), ` +
+        `travel with people (${pct(cr, 0)} carried), pass ${num(t.by_role.affiliated_author.T_pct / t.by_role.faculty.T_pct, 1)}× more often over a student's tie than a professor's, ` +
+        `and move between the labs through reading, not people. From the model: ` + concl.charAt(0).toLowerCase() + concl.slice(1);
+    }
+    setAnswer("conclusions", concl);
+    const cl = D.claims || {};
+    setAnswer("proof", `${cl.n_passed} of ${cl.n_claims} claims pass their automatic check. Every figure, threshold and parameter on this page is read from the pipeline's output files, and the tests rerun the checks.`);
   }
   function renderToc() {
     const items = [
@@ -123,8 +143,9 @@
       ["i-networks", "05", "Networks", "Which network spreads ideas fastest?", "networks"],
       ["i-meanfield", "06", "Mean field", "Can equations replace the simulations?", "meanfield"],
       ["i-labs", "07", "Labs", "Does the lab of origin matter?", "labs"],
-      ["i-conclusions", "08", "Conclusions", "What are the definitive takeaways?", "conclusions"],
-      ["i-proof", "09", "Methodology & proof", "How can anyone check this page?", "proof"],
+      ["i-real", "08", "Real data", "Does what the model assumes really happen?", "real"],
+      ["i-conclusions", "09", "Conclusions", "What are the definitive takeaways?", "conclusions"],
+      ["i-proof", "10", "Methodology & proof", "How can anyone check this page?", "proof"],
     ];
     $("i-toc").innerHTML = items.map(([id, n, t, q, key]) => {
       const a = key && ANS[key];
@@ -140,6 +161,164 @@
       if (e.isIntersecting && byId[e.target.id]) { links.forEach(a => a.classList.remove("current")); byId[e.target.id].classList.add("current"); }
     }), { rootMargin: "-45% 0px -50% 0px" });
     document.querySelectorAll("section.page-section").forEach(sec => obs.observe(sec));
+  }
+
+
+  // ---------- Findings board in the title area: every finding, each linked to its evidence ----------
+  const R = D.real && D.real.transmissibility ? D.real : null;
+  function renderBoard() {
+    const cv = id => (claim(id) || {}).value || {};
+    const chk = id => { const c = claim(id); return c ? `<span class="i-fc-check ${c.passed ? "ok" : "bad"}">${c.passed ? "✓" : "✗"} ${esc(id)} ${c.passed ? "verified" : "check failed"}</span>` : ""; };
+    const cards = [];
+    if (R) {
+      const t = R.transmissibility, tp = R.tipping_points, bl = R.between_labs, gl = R.global_link;
+      const org = Object.fromEntries(bl.by_origin.map(r => [r.origin, r]));
+      const ex = Object.fromEntries(R.exposure.rows.map(r => [r.k, r]));
+      const fa = t.by_role.faculty.T_pct, st = t.by_role.affiliated_author.T_pct;
+      const cr = 100 * t.overall.carried / (t.overall.carried + t.overall.independent);
+      cards.push(
+        { grp: "real", href: "#i-real-tip", num: pct(t.overall.T_pct, 2), claim: "C12", title: "Real ideas stay below the tipping point",
+          text: `Over a real co-authorship tie a cited work is picked up ${pct(t.overall.T_pct, 2)} of the time. Even the ${fmt(R.ideas.by_reuse["10+ papers"])} most reused ideas reach only ` +
+            `${pct(t.by_bucket["10+ papers"].T_pct, 2)}, short of the ${pct(100 * tp.full_coauthorship, 0)} the network needs for an outbreak. That is why ${pct(R.ideas.single_use_pct, 0)} of cited works are used once.` },
+        { grp: "real", href: "#i-real-roles", num: `${num(st / fa, 1)}×`, claim: "C13", title: "A student's tie carries ideas further than a professor's",
+          text: `Measured, not simulated: ${pct(st, 2)} vs ${pct(fa, 2)} per tie, and in every reuse group. Professors make up for it in reach, with ` +
+            `${R.roles.faculty.coauthors_per_person} co-authors each against ${R.roles.affiliated_author.coauthors_per_person}.` },
+        { grp: "real", href: "#i-real-people", num: pct(cr, 0), claim: "C14", title: "Ideas travel with people, not by word of mouth",
+          text: `In ${pct(cr, 0)} of real pass-ons someone who already used the idea is an author of the new paper. One informed co-author barely changes a researcher's ` +
+            `own use (${num(ex["1"].lift_independent)}×); three or more do (${num(ex["3+"].lift_independent, 1)}×). Ideas need reinforcement.` },
+        { grp: "real", href: "#i-real-islands", num: pct(bl.cross_lab_pct, 1), claim: "C15", tag: "With the Global Benchmark", title: "Three islands that learn from abroad by reading",
+          text: `Only ${pct(bl.cross_lab_pct, 1)} of co-authorship ties cross labs. When a foreign twin's paper reaches a second lab, a person carried it there in ` +
+            `${pct(org.foreign.via_person_pct, 1)} of cases. The labs cite ${fmt(gl.foreign_peer_papers_cited)} papers of their foreign peers but co-authored ${fmt(gl.foreign_coauthored_papers)}.` },
+      );
+    }
+    const c1 = cv("C1"), c2 = cv("C2"), c3 = cv("C3"), c4 = cv("C4"), c7 = cv("C7"), c8 = cv("C8"), c9 = cv("C9");
+    const rr = Object.values(c3.ratios || {}), rho = Object.values(cv("C6")).filter(v => typeof v === "number");
+    cards.push(
+      { grp: "model", href: "#i-threshold", num: `${num(c2.T_peak_faculty / c2.T_peak_full, 1)}×`, claim: "C2", title: "Without students, the network sits below its tipping point",
+        text: `Faculty alone need a ${num(c2.T_peak_faculty / c2.T_peak_full, 1)}× higher transmissibility (${c2.T_peak_faculty} vs ${c2.T_peak_full}) before an idea can break out. ` +
+          `At 0.2 an outbreak covers ${pct(100 * c2["S_full_T0.2"], 0)} of everyone but ${pct(100 * c2["S_faculty_T0.2"], 0)} of faculty; half is reached in ${c1.T50_full} vs ${c1.T50_faculty} steps.` },
+      { grp: "model", href: "#i-threshold", num: `${num(Math.min(...rr))}–${num(Math.max(...rr))}×`, claim: "C3", title: "The textbook epidemic formula fails for science",
+        text: `In all ${rr.length} networks the measured tipping point is ${num(Math.min(...rr))}–${num(Math.max(...rr))}× the textbook value: co-authors form tight triangles ` +
+          `(clustering ${num(c3.clustering_full)}), so an idea keeps reaching people who already have it.` },
+      { grp: "model", href: "#i-fields", num: `${Math.round(c7.chemistry_reach / c7.outside_reach)}×`, claim: "C7", title: "Disciplines act as firewalls",
+        text: `When passing an idea depends on shared topics, ${pct(c7.chemistry_reach, 2)} of chemists adopt it by step 15 but only ${pct(c7.outside_reach, 2)} of researchers outside chemistry.` },
+      { grp: "model", href: "#i-networks", num: pct(c8.reach, 2), claim: "C8", title: "Citations carry ideas only forward in time",
+        text: `Started from the most-cited papers, an idea travelling along citations reaches ${pct(c8.reach, 2)} of papers by step 15: citations point back in time, so ideas cannot loop back and grow.` },
+      { grp: "model", href: "#i-meanfield", num: `ρ ${num(Math.min(...rho))}–${num(Math.max(...rho))}`, claim: "C6", title: "Equations find the best seeds without simulation",
+        text: `Mean-field equations (NIMFA) never under-predict the simulation (${c4.runs} of ${c4.runs} runs, largest gap ${num(c4.max_gap_pp, 1)} points) and rank the best seeds the same way.` },
+      { grp: "model", href: "#i-labs", num: pct(c9.iict ? c9.iict.mc_step3 : null, 2), claim: "C9", title: "Where an idea starts matters, in the model",
+        text: c9.iict ? `IICT's faculty spread an idea fastest early on (${pct(c9.iict.mc_step3, 2)} at step 3; NCL ${pct(c9.ncl.mc_step3, 2)}, CECRI ${pct(c9.cecri.mc_step3, 2)}). ` +
+          (R ? `The real test adds a caveat: only ${pct(R.between_labs.cross_lab_pct, 1)} of ties cross labs.` : "") : "" },
+    );
+    const card = c => `<a class="i-fcard i-fc-${c.grp}" href="${c.href}"><span class="i-fc-top"><span class="i-fc-tag">${esc(c.tag || (c.grp === "real" ? "Measured in real citations" : "From the network model"))}</span>${chk(c.claim)}</span>` +
+      `<span class="i-fc-num">${esc(c.num)}</span><span class="i-fc-title">${esc(c.title)}</span><span class="i-fc-text">${esc(c.text)}</span><span class="i-fc-go">Read the evidence →</span></a>`;
+    const grp = (g, h, sub) => { const cs = cards.filter(c => c.grp === g); return cs.length ? `<div class="i-board-group"><div class="i-board-head"><b>${esc(h)}</b><span>${esc(sub)}</span></div><div class="i-board-grid">${cs.map(card).join("")}</div></div>` : ""; };
+    $("i-board").innerHTML = grp("real", "Measured in the labs' real citations", "What actually happened in 752,000 citations, person by person (section 08)").replace("752,000", R ? fmt(R.ideas.citations) : "752,000") +
+      grp("model", "Shown by the network model", "Simulations, percolation and mean-field equations on the labs' networks (sections 03–07)");
+  }
+
+  // ---------- 08 Real citations (stats/tables/insights/11_real_diffusion.json) ----------
+  const REUSE = ["2-4 papers", "5-9 papers", "10+ papers"];
+  // lighter tint of a series colour (for the "independent" part of a stacked bar) without fading its label
+  const fade = (hex, a) => { const h = hex.replace("#", ""); const n = parseInt(h.length === 3 ? h.split("").map(x => x + x).join("") : h, 16);
+    return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`; };
+  const reuseLabel = b => `Cited by ${b.replace(" papers", "")} lab papers`;
+  const ROLE_ORDER = ["faculty", "probable_former_faculty", "affiliated_author"];
+  const ROLE_COLOR = { faculty: "--s1", probable_former_faculty: "--s4", affiliated_author: "--s2" };
+  function drawTip(elId) {
+    const k = ink(), t = R.transmissibility, tp = R.tipping_points;
+    const tpF = 100 * tp.full_coauthorship, tpK = 100 * tp.faculty_coauthorship;
+    const cats = [["overall", "All cited works"], ...REUSE.map(b => [b, reuseLabel(b)])];
+    const get = key => (key === "overall" ? t.overall : t.by_bucket[key]);
+    chart(elId, {
+      grid: { left: 20, right: 70, top: 36, bottom: 8, containLabel: true },
+      legend: legend(),
+      tooltip: tip({ trigger: "axis", axisPointer: { type: "shadow" }, formatter: ps => {
+        const c = cats[ps[0].dataIndex], r = get(c[0]);
+        return `<b>${esc(c[1])}</b><br>T = ${pct(r.T_pct, 2)}: ${fmt(r.carried + r.independent)} of ${fmt(r.pairs)} (tie, idea) pairs<br>carried ${pct(r.T_carried_pct, 2)} · independent ${pct(r.T_independent_pct, 2)}`;
+      } }),
+      yAxis: { type: "category", data: cats.map(c => c[1]), inverse: true, ...axis(), axisTick: { show: false } },
+      xAxis: { type: "value", max: Math.ceil(tpK / 5) * 5 + 5, ...axis(), axisLabel: { color: k.text2, formatter: v => `${v}%` } },
+      series: [
+        { name: "Carried by an earlier user", type: "bar", stack: "t", barMaxWidth: 24, itemStyle: { color: css("--s1") }, data: cats.map(c => get(c[0]).T_carried_pct),
+          markLine: { silent: true, symbol: "none", data: [
+            { xAxis: tpF, lineStyle: { color: css("--s2"), type: "dashed", width: 2 }, label: { formatter: `tipping point, all authors (${tpF}%)`, color: k.text2, position: "insideEndTop" } },
+            { xAxis: tpK, lineStyle: { color: css("--s4"), type: "dashed", width: 2 }, label: { formatter: `faculty only (${tpK}%)`, color: k.text2, position: "insideEndTop" } }] } },
+        { name: "Used independently", type: "bar", stack: "t", barMaxWidth: 24, itemStyle: { color: fade(css("--s1"), 0.42), borderRadius: [0, 4, 4, 0] },
+          data: cats.map(c => get(c[0]).T_independent_pct),
+          label: { show: true, position: "right", color: k.text, fontWeight: 700, formatter: p => pct(get(cats[p.dataIndex][0]).T_pct, 2) } },
+      ],
+    });
+  }
+  function renderReal() {
+    if (!R) { $("i-real").style.display = "none"; return; }
+    const k = ink(), t = R.transmissibility;
+    $("real-n-ideas").textContent = fmt(R.ideas.n);
+    $("real-n-cites").textContent = fmt(R.ideas.citations);
+    const ins = (el, id) => { const c = claim(id); $(el).innerHTML = c ? box(`${badge(c.passed)}<p style="margin-top:.4rem">${esc(c.claim)}</p>`) : ""; };
+    drawTip("ch-real-tip");
+    ins("ins-real-tip", "C12");
+
+    chart("ch-real-roles", {
+      grid: { left: 8, right: 16, top: 36, bottom: 8, containLabel: true },
+      legend: legend(),
+      tooltip: tip({ trigger: "axis", axisPointer: { type: "shadow" }, valueFormatter: v => pct(v, 2) }),
+      xAxis: { type: "category", data: REUSE.map(reuseLabel), ...axis() },
+      yAxis: { type: "value", name: "per-tie transmissibility", nameLocation: "middle", nameGap: 44, ...axis(), axisLabel: { color: k.text2, formatter: v => `${v}%` } },
+      series: ROLE_ORDER.map(r => ({ name: R.roles[r].label, type: "bar", barMaxWidth: 26, itemStyle: { color: css(ROLE_COLOR[r]), borderRadius: [4, 4, 0, 0] },
+        data: REUSE.map(b => t.by_bucket_role[b][r].T_pct), label: { show: true, position: "top", color: k.text2, formatter: p => pct(p.value, 1) } })),
+    });
+    $("real-roles-stats").innerHTML = ROLE_ORDER.map(r => { const x = R.roles[r], tr = t.by_role[r];
+      return `<div class="i-ms" style="--c:var(${ROLE_COLOR[r]})"><b>${esc(x.label)}</b><span>${fmt(x.people)} people · ${x.coauthors_per_person} co-authors each · ` +
+        `${pct(x.strong_tie_pct)} of ties with 5+ joint papers</span><span>passes an idea on over <b>${pct(tr.T_pct, 2)}</b> of ties</span></div>`; }).join("");
+    ins("ins-real-roles", "C13");
+
+    const rows = R.exposure.rows;
+    chart("ch-real-exposure", {
+      grid: { left: 8, right: 16, top: 36, bottom: 8, containLabel: true },
+      legend: legend(),
+      tooltip: tip({ trigger: "axis", axisPointer: { type: "shadow" }, formatter: ps => { const r = rows[ps[0].dataIndex];
+        return `<b>k = ${esc(r.k)}</b> co-authors used it before<br>${pct(r.P_pct, 3)} a year (lift ${num(r.lift)}×)<br>on their own: ${pct(r.P_independent_pct, 3)} (lift ${num(r.lift_independent)}×)<br>` +
+          `weighted at-risk researcher-years ${fmt(r.at_risk)}`; } }),
+      xAxis: { type: "category", data: rows.map(r => r.k === "0" ? "k = 0 (baseline)" : `k = ${r.k}`), ...axis() },
+      yAxis: { type: "value", name: "chance of adopting per year", nameLocation: "middle", nameGap: 52, ...axis(), axisLabel: { color: k.text2, formatter: v => `${v}%` } },
+      series: [
+        { name: "Carried by an earlier user on the paper", type: "bar", stack: "p", barMaxWidth: 46, itemStyle: { color: css("--s3") }, data: rows.map(r => r.P_pct - r.P_independent_pct) },
+        { name: "Used on their own", type: "bar", stack: "p", barMaxWidth: 46, itemStyle: { color: fade(css("--s3"), 0.42), borderRadius: [4, 4, 0, 0] }, data: rows.map(r => r.P_independent_pct),
+          label: { show: true, position: "top", color: k.text, formatter: p => `${num(rows[p.dataIndex].lift, 1)}× · own ${num(rows[p.dataIndex].lift_independent, 1)}×` } },
+      ],
+    });
+    ins("ins-real-people", "C14");
+
+    const bl = R.between_labs, gl = R.global_link, org = Object.fromEntries(bl.by_origin.map(r => [r.origin, r]));
+    $("real-islands-kpis").innerHTML = [
+      [pct(bl.cross_lab_pct, 2), `of ${fmt(bl.ties)} co-authorship ties link people of different labs`],
+      [pct(org.foreign.via_person_pct, 1), "of foreign twins' papers reach a second lab through a person"],
+      [pct(org.own.via_person_pct, 1), "of the labs' own papers do"],
+      [`${fmt(gl.foreign_peer_papers_cited)} : ${fmt(gl.foreign_coauthored_papers)}`, `foreign peers' papers cited : papers co-authored with them (Global Benchmark)`],
+    ].map(([v, l]) => `<div class="i-ms"><b class="i-ms-big">${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
+    table("tbl-real-origin", [
+      { title: "Where the cited work comes from", field: "label" },
+      { title: "Cited works", field: "ideas", num: true, fmt: fmt },
+      { title: "Used by one lab paper only", field: "single_use_pct", num: true, fmt: v => pct(v) },
+      { title: "Lab papers citing each", field: "mean_citing_papers", num: true, fmt: v => num(v) },
+      { title: "Reaches 2+ labs", field: "multi_lab_pct", num: true, fmt: v => pct(v) },
+      { title: "Arrivals in a 2nd/3rd lab", field: "later_lab_adoptions", num: true, fmt: fmt },
+      { title: "…via a person", field: "via_person_pct", num: true, fmt: v => pct(v) },
+    ], bl.by_origin);
+    ins("ins-real-islands", "C15");
+
+    const ex = R.exposure.sample, st = t.by_strength;
+    $("real-method").innerHTML = [
+      `References: <code>data/final/work_references.csv.gz</code> (Step 24, the OpenAlex reference list of every corpus paper); ${fmt(R.ideas.papers_with_references)} of ${fmt(R.ideas.papers)} papers have references in OpenAlex. Script: <code>src/stats/insights/s11_real_diffusion.py</code>; output <code>stats/tables/insights/11_real_diffusion.json</code>.`,
+      `People are the same nodes as in the co-authorship network (one node per person, split OpenAlex profiles joined). Roles: faculty = roster scientists; frequent non-roster authors = 10+ papers over 3+ years, not on today's roster; everyone else (mostly students and project staff).`,
+      `A co-author counts as "at risk" only if they had a joint paper with the adopter by the adoption year and published again afterwards, so people who left are not counted as failures. Co-authors on the same adopting paper adopt together and are not counted as a transmission.`,
+      `The tipping points (${R.tipping_points.full_coauthorship} and ${R.tipping_points.faculty_coauthorship}) are those measured by bond percolation in section 03, the same quantity as T here: the probability that an idea ever crosses a given tie.`,
+      `Tie strength does not explain the student–faculty gap: T is ${pct(st["1 joint paper"].T_pct, 2)} over ties with 1 joint paper, ${pct(st["2-4 joint papers"].T_pct, 2)} with 2–4 and ${pct(st["5+ joint papers"].T_pct, 2)} with 5+, and students have fewer strong ties than faculty.`,
+      `The exposure chart uses a fixed random sample (seed ${ex.seed}) of ${Math.round(ex.fraction_multi * 100)}% of the ${fmt(ex.ideas_multi)} works cited by two or more lab papers and ${Math.round(ex.fraction_single * 100)}% of the ${fmt(ex.ideas_single)} cited once, weighted back to the full set.`,
+      `What this cannot show: researchers who work together also read the same literature, so part of the rise with k ≥ 2 may be shared reading rather than influence (a timing-shuffle test could not separate the two because the network grows over time). The share of pass-ons carried by an earlier user on the paper does not depend on this.`,
+      `Only the labs' own authors are in the network: a path through an outside co-author (for example at an IIT) is not seen, so "via a person" between labs is a lower bound. A citation is the visible trace of using an idea, not proof of using a method.`,
+    ].map(x => `<li>${x}</li>`).join("");
   }
 
   // ---------- 01 Data ----------
@@ -370,6 +549,7 @@
     const ratios = Object.values(TH).map(t => t.peak_over_theory);
     const so = S.seed_origins.faculty_coauthorship;
     const grid = D.grid || [];
+    const c2v = (claim("C2") || {}).value || {};
 
     const PILLARS = [
       {
@@ -377,16 +557,18 @@
         label: "Student Multiplier",
         tag: "Network Architecture",
         title: "Students & Junior Scholars as the Critical Network Glue",
-        headline: "Removing students fractures network cohesion and slows cluster diffusion velocity in half",
+        headline: `Without students the tipping point is ${num(c2v.T_peak_faculty / c2v.T_peak_full, 1)}× higher (${c2v.T_peak_faculty} vs ${c2v.T_peak_full}) and half the network is reached in ${fac.mc_t50} steps instead of ${full.mc_t50}`,
         stats: [
           { label: "Community Size", full: `${fmt(S.full_coauthorship.nodes)} authors`, fac: `${fmt(S.faculty_coauthorship.nodes)} connected faculty` },
           { label: "Median Steps to 50% (T50)", full: `${full.mc_t50} steps`, fac: `${fac.mc_t50} steps` },
           { label: "Final Reach @ Step 15", full: pct(full.mc_final_reach), fac: pct(fac.mc_final_reach) },
-          { label: "Outbreak @ Transmissibility 0.2", full: "58.8% of network", fac: "29.7% of network" },
+          { label: "Outbreak @ Transmissibility 0.2", full: `${pct(100 * c2v["S_full_T0.2"])} of network`, fac: `${pct(100 * c2v["S_faculty_T0.2"])} of network` },
+          { label: "Tipping point (percolation)", full: String(c2v.T_peak_full), fac: String(c2v.T_peak_faculty) },
         ],
-        takeaway: "In academic laboratories, principal investigators rarely co-author directly with peer faculty in distinct groups unless co-advising PhD students or sharing project personnel. Junior researchers create essential lateral pathways across departments. With students included, an idea crosses 50% adoption in 9 steps (reaching 88.9% by step 15). Among faculty alone, diffusion takes 12 steps and only reaches 64.5%.",
+        takeaway: `With students and project staff included, an idea crosses 50% adoption in ${full.mc_t50} steps (reaching ${pct(full.mc_final_reach)} by step 15); among faculty alone it takes ${fac.mc_t50} steps and reaches ${pct(fac.mc_final_reach)}.` +
+          (R ? ` The real citations show the mechanism, not just the size: a student's tie passes an idea on ${num(R.transmissibility.by_role.affiliated_author.T_pct / R.transmissibility.by_role.faculty.T_pct, 1)}× as often as a faculty member's (section 08).` : ""),
         rule: "Simulated via Monte Carlo SI on identical seeds and parameters; tipping point measured via bond percolation across 100 repeats per T.",
-        badge: "3× Acceleration Factor"
+        badge: `${num(c2v.T_peak_faculty / c2v.T_peak_full, 1)}× higher tipping point without students`
       },
       {
         id: "silos",
@@ -454,11 +636,31 @@
       }
     ];
 
+    if (R) {
+      const t = R.transmissibility, cr = 100 * t.overall.carried / (t.overall.carried + t.overall.independent);
+      PILLARS.unshift({
+        id: "reality", label: "Reality Check", tag: "Real-citation test",
+        title: "The Labs' Real Citations Stay Below the Tipping Point",
+        headline: `A co-author picks up a cited work ${pct(t.overall.T_pct, 2)} of the time per tie; the network needs ${pct(100 * R.tipping_points.full_coauthorship, 0)} for an outbreak`,
+        stats: [
+          { label: "Real per-tie transmissibility", val: pct(t.overall.T_pct, 2), note: `${fmt(t.overall.pairs)} (tie, idea) pairs` },
+          { label: "Most reused ideas (10+ papers)", val: pct(t.by_bucket["10+ papers"].T_pct, 2), note: "still below the tipping point" },
+          { label: "Carried by an earlier user", val: pct(cr, 0), note: "of real pass-ons" },
+          { label: "Ties crossing labs", val: pct(R.between_labs.cross_lab_pct, 2), note: "the three labs are islands" },
+        ],
+        takeaway: `The model's tipping point is a property of the network; the real citations tell us where the labs' ideas sit relative to it. ` +
+          `Ideas spread when people carry them into new papers, single contacts rarely convert a researcher, and between the labs knowledge arrives through the literature: ` +
+          `${pct(R.ideas.single_use_pct, 0)} of cited works are used once.`,
+        rule: `Per-tie transmissibility T = ties where the co-author later cites the work ÷ all ties at risk (co-author by the adoption year, still publishing afterwards, not yet a user), from ${fmt(R.ideas.citations)} citations (Step 24).`,
+        badge: `${pct(t.overall.T_pct, 2)} vs ${pct(100 * R.tipping_points.full_coauthorship, 0)} tipping point`,
+      });
+    }
     const displayEl = $("conclusion-pillar-display");
     function renderPillarChart(id) {
       const el = $("ch-conclusion-viz");
       if (!el) return;
       const k = ink();
+      if (id === "reality") { drawTip("ch-conclusion-viz"); return; }
       if (id === "students") {
         const fullCurve = S.full_coauthorship.fields.Combined.mc_curve;
         const facCurve = S.faculty_coauthorship.fields.Combined.mc_curve;
@@ -604,16 +806,16 @@
       if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([displayEl]);
     }
 
-    seg("seg-conclusion-pillar", PILLARS.map(p => [p.id, p.label]), "students", showPillar);
+    seg("seg-conclusion-pillar", PILLARS.map(p => [p.id, p.label]), PILLARS[0].id, showPillar);
 
     const bentoCards = [
       {
         tag: "Collaboration Velocity",
-        num: "3×",
-        title: "Student Acceleration",
-        sub: "Students build lateral bridges: without them, 50% cluster spread slows from 9 to 12 steps.",
-        track1: { label: "Full Community:", val: "88.9% (@ Step 9)", pct: 88.88, cls: "full" },
-        track2: { label: "Faculty Alone:", val: "64.5% (@ Step 12)", pct: 64.52, cls: "fac" }
+        num: `${num(c2v.T_peak_faculty / c2v.T_peak_full, 1)}×`,
+        title: "Students Lift the Network",
+        sub: `Without students the tipping point is ${num(c2v.T_peak_faculty / c2v.T_peak_full, 1)}× higher, and half the network is reached in ${fac.mc_t50} instead of ${full.mc_t50} steps.`,
+        track1: { label: "Full Community:", val: `${pct(full.mc_final_reach)} by step 15`, pct: full.mc_final_reach, cls: "full" },
+        track2: { label: "Faculty Alone:", val: `${pct(fac.mc_final_reach)} by step 15`, pct: fac.mc_final_reach, cls: "fac" }
       },
       {
         tag: "Disciplinary Wall",
@@ -772,6 +974,25 @@
       }
     };
 
+    const vC = id => (claim(id) || {}).value || {};
+    if (claim("C12")) {
+      const v12 = vC("C12"), v13 = vC("C13"), v14 = vC("C14"), v15 = vC("C15");
+      Object.assign(CLAIM_META, {
+        C12: { cat: "real", catLabel: "Real-citation test", headline: "Real Ideas Stay Below the Network's Tipping Point",
+          chips: [{ label: "Per-tie T", val: pct(v12.T_all_pct, 2) }, { label: "Most reused", val: pct(v12.T_most_reused_pct, 2) },
+                  { label: "Tipping point", val: pct(v12.tipping_full_pct, 1) }, { label: "Used once", val: pct(v12.single_use_pct) }] },
+        C13: { cat: "real", catLabel: "Real-citation test", headline: "A Student's Tie Passes Ideas On More Often Than a Professor's",
+          chips: [{ label: "Student tie", val: pct(v13.T_affiliated_pct, 2) }, { label: "Faculty tie", val: pct(v13.T_faculty_pct, 2) },
+                  { label: "Ratio", val: `${num(v13.ratio, 1)}×` }, { label: "Co-authors", val: `${v13.coauthors_faculty} vs ${v13.coauthors_affiliated}` }] },
+        C14: { cat: "real", catLabel: "Real-citation test", headline: "Ideas Travel With People and Need Reinforcement",
+          chips: [{ label: "Carried", val: pct(v14.carried_share_pct, 0) }, { label: "Own use, 1 contact", val: `${num(v14.lift_independent["1"])}×` },
+                  { label: "Own use, 3+ contacts", val: `${num(v14.lift_independent["3+"], 1)}×` }] },
+        C15: { cat: "real", catLabel: "Real-citation test", headline: "Three Islands That Learn From Abroad by Reading",
+          chips: [{ label: "Cross-lab ties", val: pct(v15.cross_lab_ties_pct, 2) }, { label: "Foreign via person", val: pct(v15.via_person_foreign_pct, 1) },
+                  { label: "Own papers via person", val: pct(v15.via_person_own_pct, 1) }, { label: "Cited : co-authored", val: `${fmt(v15.foreign_peer_papers_cited)} : ${v15.foreign_coauthored_papers}` }] },
+      });
+    }
+    $("n-claims").textContent = cl.length;
     const deckEl = $("deck-claims");
     function filterClaims(cat) {
       const filtered = cat === "all" ? cl : cl.filter(c => CLAIM_META[c.id] && CLAIM_META[c.id].cat === cat);
@@ -802,7 +1023,8 @@
     }
 
     seg("seg-claims-filter", [
-      ["all", "All Claims (11)"],
+      ["all", `All Claims (${cl.length})`],
+      ["real", "Real-citation tests"],
       ["dynamics", "Spreading Dynamics"],
       ["theory", "Theory & Thresholds"],
       ["domains", "Disciplines & Labs"],
@@ -827,14 +1049,16 @@
       ["Super-spreader", "A seed whose idea reaches the most people early on (by step 3)."],
       ["Gatekeeper", "A person whose removal cuts the most researchers off from the rest of a field's network."],
       ["Spillover", "The share of researchers outside a field who adopt an idea that started inside it."],
+      ["Real per-tie transmissibility", "From the labs' citations: the share of (co-author tie, cited work) pairs where the co-author cites the work after the first user did (section 08)."],
+      ["Carried / independent", "A pass-on is carried when someone who used the idea earlier is an author of the new paper, independent when not."],
     ];
 
     const reproItems = [
       "<code>python run.py insight11</code> rebuilds everything on this page from <code>data/final/</code> (no API calls): faculty networks, roster audit, the field study, the network comparison, the threshold test, the claims and the page data.",
-      "Scripts: <code>src/stats/insights/s11_information_diffusion.py</code> (field study), <code>s11_nimfa_spreading.py</code> (four networks, mean field, labs), <code>s11_threshold_check.py</code> (percolation), <code>s11_claims.py</code> (checks), <code>s11_cadre_networks.py</code>, <code>s11_data_cleaning_audit.py</code>.",
+      "Scripts: <code>src/stats/insights/s11_information_diffusion.py</code> (field study), <code>s11_nimfa_spreading.py</code> (four networks, mean field, labs), <code>s11_threshold_check.py</code> (percolation), <code>s11_real_diffusion.py</code> (real-citation test, section 08), <code>s11_claims.py</code> (checks), <code>s11_cadre_networks.py</code>, <code>s11_data_cleaning_audit.py</code>; <code>src/collect/24_work_references.py</code> writes the reference lists from the API cache.",
       `All randomness comes from numpy RandomState with fixed seeds (${P.rng_seed}); nodes are processed in a fixed order, so a rerun gives identical numbers (tested under different PYTHONHASHSEED values).`,
       "Outputs: <code>stats/tables/insights/11_*.json / .csv</code>. Tests: <code>tests/test_insight11.py</code> (every claim passes, NIMFA equation and SI step checked on small graphs by brute force), <code>tests/test_insights.py</code>, <code>tests/test_cadre_networks.py</code>.",
-      "Inputs: <code>group24_data_extended.csv</code>, <code>faculty_master.csv</code>, <code>citation_network.csv</code>, <code>data/review/roster_excluded.csv</code>.",
+      "Inputs: <code>group24_data_extended.csv</code>, <code>faculty_master.csv</code>, <code>citation_network.csv</code>, <code>work_references.csv.gz</code>, <code>data/review/roster_excluded.csv</code>, and the Global Benchmark's <code>citation_flows.csv</code> and <code>global_links.csv</code>.",
     ];
 
     const fixItems = [
@@ -849,7 +1073,7 @@
     ];
 
     const limitItems = [
-      "The model is stylised: β0 = 0.2 per step is chosen, not estimated. The results compare networks, fields and labs under the same rule; they do not predict how many months an idea takes.",
+      "The model is stylised: β0 = 0.2 per step is chosen, not estimated. The results compare networks, fields and labs under the same rule; they do not predict how many months an idea takes. Section 08 measures the real per-tie transmissibility from citations, which is far lower.",
       "Links are co-authorships and citations from 2016–2026 merged into one static network; who worked with whom changed over the decade.",
       "The full network includes students and project staff identified only by their OpenAlex profile; profile errors (split or merged people) remain possible.",
       "Field shares come from OpenAlex's topic classification of each paper.",
@@ -888,7 +1112,7 @@
     });
   }
 
-  renderTop(); renderData(); renderThreshold(); renderFields(); renderNetworks(); renderMeanField(); renderLabs(); renderConclusions(); renderProof(); renderToc(); trackSection(); initAnimations();
+  renderTop(); renderBoard(); renderData(); renderThreshold(); renderFields(); renderNetworks(); renderMeanField(); renderLabs(); renderReal(); renderConclusions(); renderProof(); renderToc(); trackSection(); initAnimations();
   // typeset formulas inside generated tables once MathJax has loaded
   const typeset = () => (window.MathJax && MathJax.typesetPromise ? MathJax.typesetPromise() : null);
   if (!typeset()) window.addEventListener("load", () => setTimeout(typeset, 0));

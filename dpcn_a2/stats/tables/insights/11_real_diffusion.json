@@ -1,0 +1,325 @@
+{
+  "ideas": {
+    "n": 511832,
+    "citations": 752074,
+    "papers": 14208,
+    "papers_with_references": 13827,
+    "by_reuse": {
+      "1 paper": 404281,
+      "2-4 papers": 93191,
+      "5-9 papers": 11223,
+      "10+ papers": 3137
+    },
+    "single_use_pct": 79.0
+  },
+  "tipping_points": {
+    "full_coauthorship": 0.06,
+    "faculty_coauthorship": 0.215
+  },
+  "transmissibility": {
+    "overall": {
+      "pairs": 15563677,
+      "carried": 98856,
+      "independent": 27756,
+      "T_pct": 0.8135,
+      "T_carried_pct": 0.6352,
+      "T_independent_pct": 0.1783
+    },
+    "by_bucket": {
+      "2-4 papers": {
+        "pairs": 4563758,
+        "carried": 47064,
+        "independent": 13148,
+        "T_pct": 1.3194,
+        "T_carried_pct": 1.0313,
+        "T_independent_pct": 0.2881
+      },
+      "5-9 papers": {
+        "pairs": 1122785,
+        "carried": 27588,
+        "independent": 6954,
+        "T_pct": 3.0765,
+        "T_carried_pct": 2.4571,
+        "T_independent_pct": 0.6194
+      },
+      "10+ papers": {
+        "pairs": 643538,
+        "carried": 24204,
+        "independent": 7654,
+        "T_pct": 4.9504,
+        "T_carried_pct": 3.7611,
+        "T_independent_pct": 1.1894
+      }
+    },
+    "by_role": {
+      "faculty": {
+        "pairs": 7860943,
+        "carried": 33708,
+        "independent": 10195,
+        "T_pct": 0.5585,
+        "T_carried_pct": 0.4288,
+        "T_independent_pct": 0.1297
+      },
+      "probable_former_faculty": {
+        "pairs": 6276847,
+        "carried": 48222,
+        "independent": 12888,
+        "T_pct": 0.9736,
+        "T_carried_pct": 0.7683,
+        "T_independent_pct": 0.2053
+      },
+      "affiliated_author": {
+        "pairs": 1425887,
+        "carried": 16926,
+        "independent": 4673,
+        "T_pct": 1.5148,
+        "T_carried_pct": 1.1871,
+        "T_independent_pct": 0.3277
+      }
+    },
+    "by_bucket_role": {
+      "2-4 papers": {
+        "faculty": {
+          "pairs": 2301591,
+          "carried": 17316,
+          "independent": 4717,
+          "T_pct": 0.9573,
+          "T_carried_pct": 0.7523,
+          "T_independent_pct": 0.2049
+        },
+        "probable_former_faculty": {
+          "pairs": 1849352,
+          "carried": 21756,
+          "independent": 6117,
+          "T_pct": 1.5072,
+          "T_carried_pct": 1.1764,
+          "T_independent_pct": 0.3308
+        },
+        "affiliated_author": {
+          "pairs": 412815,
+          "carried": 7992,
+          "independent": 2314,
+          "T_pct": 2.4965,
+          "T_carried_pct": 1.936,
+          "T_independent_pct": 0.5605
+        }
+      },
+      "5-9 papers": {
+        "faculty": {
+          "pairs": 543918,
+          "carried": 9008,
+          "independent": 2564,
+          "T_pct": 2.1275,
+          "T_carried_pct": 1.6561,
+          "T_independent_pct": 0.4714
+        },
+        "probable_former_faculty": {
+          "pairs": 468912,
+          "carried": 13743,
+          "independent": 3229,
+          "T_pct": 3.6194,
+          "T_carried_pct": 2.9308,
+          "T_independent_pct": 0.6886
+        },
+        "affiliated_author": {
+          "pairs": 109955,
+          "carried": 4837,
+          "independent": 1161,
+          "T_pct": 5.455,
+          "T_carried_pct": 4.3991,
+          "T_independent_pct": 1.0559
+        }
+      },
+      "10+ papers": {
+        "faculty": {
+          "pairs": 302964,
+          "carried": 7384,
+          "independent": 2914,
+          "T_pct": 3.3991,
+          "T_carried_pct": 2.4373,
+          "T_independent_pct": 0.9618
+        },
+        "probable_former_faculty": {
+          "pairs": 274194,
+          "carried": 12723,
+          "independent": 3542,
+          "T_pct": 5.9319,
+          "T_carried_pct": 4.6401,
+          "T_independent_pct": 1.2918
+        },
+        "affiliated_author": {
+          "pairs": 66380,
+          "carried": 4097,
+          "independent": 1198,
+          "T_pct": 7.9768,
+          "T_carried_pct": 6.172,
+          "T_independent_pct": 1.8048
+        }
+      }
+    },
+    "by_strength": {
+      "1 joint paper": {
+        "pairs": 9291423,
+        "carried": 51311,
+        "independent": 15221,
+        "T_pct": 0.7161,
+        "T_carried_pct": 0.5522,
+        "T_independent_pct": 0.1638
+      },
+      "2-4 joint papers": {
+        "pairs": 4595107,
+        "carried": 33028,
+        "independent": 9243,
+        "T_pct": 0.9199,
+        "T_carried_pct": 0.7188,
+        "T_independent_pct": 0.2011
+      },
+      "5+ joint papers": {
+        "pairs": 1677147,
+        "carried": 14517,
+        "independent": 3292,
+        "T_pct": 1.0619,
+        "T_carried_pct": 0.8656,
+        "T_independent_pct": 0.1963
+      }
+    }
+  },
+  "roles": {
+    "faculty": {
+      "label": "Faculty (roster scientists)",
+      "people": 306,
+      "coauthors_per_person": 35.0,
+      "strong_tie_pct": 10.7
+    },
+    "probable_former_faculty": {
+      "label": "Frequent non-roster authors",
+      "people": 690,
+      "coauthors_per_person": 26.6,
+      "strong_tie_pct": 11.3
+    },
+    "affiliated_author": {
+      "label": "Students, project staff and other authors",
+      "people": 7446,
+      "coauthors_per_person": 5.6,
+      "strong_tie_pct": 3.0
+    }
+  },
+  "exposure": {
+    "sample": {
+      "ideas_multi": 107551,
+      "ideas_single": 404281,
+      "fraction_multi": 0.25,
+      "fraction_single": 0.02,
+      "seed": 24
+    },
+    "rows": [
+      {
+        "k": "0",
+        "at_risk": 532309646,
+        "adopted": 229428,
+        "independent": 171696,
+        "P_pct": 0.0431,
+        "P_independent_pct": 0.0323,
+        "lift": 1.0,
+        "lift_independent": 1.0,
+        "carried_share_pct": 25.2
+      },
+      {
+        "k": "1",
+        "at_risk": 43785360,
+        "adopted": 47272,
+        "independent": 16472,
+        "P_pct": 0.108,
+        "P_independent_pct": 0.0376,
+        "lift": 2.5,
+        "lift_independent": 1.17,
+        "carried_share_pct": 65.2
+      },
+      {
+        "k": "2",
+        "at_risk": 8463986,
+        "adopted": 26960,
+        "independent": 5152,
+        "P_pct": 0.3185,
+        "P_independent_pct": 0.0609,
+        "lift": 7.39,
+        "lift_independent": 1.89,
+        "carried_share_pct": 80.9
+      },
+      {
+        "k": "3+",
+        "at_risk": 3322940,
+        "adopted": 26444,
+        "independent": 3796,
+        "P_pct": 0.7958,
+        "P_independent_pct": 0.1142,
+        "lift": 18.46,
+        "lift_independent": 3.54,
+        "carried_share_pct": 85.6
+      }
+    ]
+  },
+  "between_labs": {
+    "ties": 35449,
+    "cross_lab_ties": 512,
+    "cross_lab_pct": 1.44,
+    "by_origin": [
+      {
+        "origin": "foreign",
+        "label": "Papers of the foreign twins",
+        "ideas": 8356,
+        "single_use_pct": 72.5,
+        "mean_citing_papers": 1.6,
+        "multi_lab_pct": 12.7,
+        "entry_with_faculty_pct": 59.2,
+        "later_lab_adoptions": 956,
+        "via_person_pct": 3.8
+      },
+      {
+        "origin": "indian",
+        "label": "Papers of the Indian reference institutes",
+        "ideas": 5981,
+        "single_use_pct": 69.8,
+        "mean_citing_papers": 1.63,
+        "multi_lab_pct": 11.3,
+        "entry_with_faculty_pct": 55.2,
+        "later_lab_adoptions": 547,
+        "via_person_pct": 5.3
+      },
+      {
+        "origin": "own",
+        "label": "The labs' own papers",
+        "ideas": 7700,
+        "single_use_pct": 35.3,
+        "mean_citing_papers": 3.57,
+        "multi_lab_pct": 9.6,
+        "entry_with_faculty_pct": 60.7,
+        "later_lab_adoptions": 600,
+        "via_person_pct": 22.8
+      },
+      {
+        "origin": "other",
+        "label": "Everything else the labs cite",
+        "ideas": 489795,
+        "single_use_pct": 79.9,
+        "mean_citing_papers": 1.43,
+        "multi_lab_pct": 8.2,
+        "entry_with_faculty_pct": 54.1,
+        "later_lab_adoptions": 34325,
+        "via_person_pct": 3.9
+      }
+    ]
+  },
+  "global_link": {
+    "foreign_peer_papers_cited": 4461,
+    "foreign_coauthored_papers": 49,
+    "foreign_peers": 9
+  },
+  "method": {
+    "adoption": "first lab paper of a person citing the work",
+    "max_year": 2026,
+    "live_coauthor": "co-author with a joint paper in a year <= the adopter's adoption year and a lab paper after it",
+    "exposure_baseline": "researchers active that year in a subfield of the earlier adopting papers, no adopting co-author",
+    "sample_seed": 24
+  }
+}
