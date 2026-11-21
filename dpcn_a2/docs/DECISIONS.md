@@ -382,3 +382,9 @@ Follow-up to the D-40 audit: the suspicious numbers that the repository's own da
 - **Home card**: renamed; its numbers are the real-citation results (`G24_I11_TEASER`).
 - **Tests**: hand-worked examples of the transmissibility and between-lab rules, output consistency and payload equality (`tests/test_insight11.py`); the UI test now expects 15 claims and 10 sections; the browser test checks the board (every card linked and verified) and section 08.
 
+
+## D-45: "How Ideas Spread" front page — findings as four newspaper headlines (2026-11-21)
+- **Context**: the ten finding cards in the title area (D-44) were too many to take in; the request was a few headlines that give the intuition at a glance, each followed directly by its explanation and numbers.
+- **Change** (`renderBoard()` in `dashboard/js/insights11.js`, styles `.np-*` in `css/insight11.css`): related findings are grouped into one lead story and three headline stories, plus a short "Also checked" brief, laid out as a newspaper front page (serif headlines, kicker, explanatory paragraph, key figures, links to the evidence, the claim checks behind each story). Lead: most ideas die after a single paper (C12, C3). Then: students carry ideas, professors spread them wide (C13, C2, C1); ideas travel with people, not by word of mouth (C14); ideas stay where they start, in their lab and their field, with the Global Benchmark (C15, C7). Brief: mean field, citations, labs, all claims (C4, C6, C8, C9). Every number is read from the claims file and `11_real_diffusion.json`, as before.
+- **Removed**: the six number boxes under the title, which repeated figures the headlines now carry.
+- **Tests**: the browser test checks 4–6 stories, every in-page link resolves, every claim chip passes.

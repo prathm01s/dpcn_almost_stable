@@ -510,7 +510,7 @@ def run_tests():
     try:
         client_i11.start(f"file://{os.path.abspath('dashboard/insights11.html')}")
         for _ in range(40):
-            if client_i11.evaluate("document.querySelectorAll('#i-kpis .kpi-card').length") > 0:
+            if client_i11.evaluate("document.querySelectorAll('#i-board .np-story').length") > 0:
                 break
             time.sleep(0.25)
         title_i11 = client_i11.evaluate("document.title")
@@ -522,17 +522,17 @@ def run_tests():
         assert toc[0] >= 8 and toc[0] == toc[1], toc
         assert client_i11.evaluate("document.querySelectorAll('.g-answer').length") >= 7
         assert client_i11.evaluate("[...document.querySelectorAll('.g-answer')].every(e => e.textContent.trim().length > 20)"), "Empty answer box on insights11.html"
-        # findings board in the title area (D-44): one card per finding, each linking to a section that exists, each with a passing check
-        board = client_i11.evaluate("[document.querySelectorAll('#i-board .i-fcard').length, "
-                                    "[...document.querySelectorAll('#i-board .i-fcard')].every(a => document.querySelector(a.getAttribute('href'))), "
-                                    "document.querySelectorAll('#i-board .i-fc-check.ok').length, document.title]")
-        assert board[0] >= 10 and board[1] and board[2] == board[0] and "Insight 11" not in board[3], board
+        # front page in the title area (D-45): a few headline stories; every link reaches a section, every claim chip passes
+        board = client_i11.evaluate("[document.querySelectorAll('#i-board .np-story').length, "
+                                    "[...document.querySelectorAll('#i-board .np-story a')].filter(a => a.getAttribute('href').startsWith('#')).every(a => document.querySelector(a.getAttribute('href'))), "
+                                    "document.querySelectorAll('#i-board .np-check.bad').length, document.querySelectorAll('#i-board .np-check.ok').length, document.title]")
+        assert 4 <= board[0] <= 6 and board[1] and board[2] == 0 and board[3] >= 10 and "Insight 11" not in board[4], board
         # section 08: the real-citation test
         for cid in ["ch-real-tip", "ch-real-roles", "ch-real-exposure"]:
             assert client_i11.evaluate(f"document.querySelectorAll('#{cid} canvas').length") > 0, f"{cid} not rendered"
         assert client_i11.evaluate("document.querySelectorAll('#tbl-real-origin tbody tr').length") == 4
         assert client_i11.evaluate("document.querySelectorAll('#ins-real-tip .i-pass, #ins-real-roles .i-pass, #ins-real-people .i-pass, #ins-real-islands .i-pass').length") == 4
-        print(f"  ✓ Findings board: {board[0]} cards, all linked and verified; real-citation section rendered")
+        print(f"  ✓ Front page: {board[0]} headline stories, {board[3]} verified claim chips, all links resolve; real-citation section rendered")
         # claims are shown as cards (#deck-claims, Nov 2026 redesign); every claim in the data must pass and have a card
         claims = client_i11.evaluate("[document.querySelectorAll('#deck-claims .claim-card').length, window.G24_I11.claims.claims.length, "
                                      "window.G24_I11.claims.claims.filter(c => !c.passed).length, document.querySelectorAll('.i-fail').length]")
