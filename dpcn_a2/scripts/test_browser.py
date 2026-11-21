@@ -166,6 +166,16 @@ def run_tests():
         light = client.evaluate("document.documentElement.dataset.theme")
         print(f"✓ Theme toggle: light -> {dark} -> {light}, charts redrawn: {trend_ok}")
         assert dark == "dark" and light == "light" and trend_ok
+        # A new visit always opens light (D-46): a "dark" left in localStorage by the old version is ignored and removed
+        client.evaluate("localStorage.setItem('g24-theme', 'dark'); sessionStorage.removeItem('g24-theme'); setTimeout(() => location.reload(), 50); true")
+        time.sleep(2.5)
+        for _ in range(60):
+            if client.evaluate("document.getElementById('kpi-total-papers') && document.getElementById('kpi-total-papers').textContent") not in (None, "-"):
+                break
+            time.sleep(0.25)
+        fresh = client.evaluate("[document.documentElement.dataset.theme, localStorage.getItem('g24-theme')]")
+        assert fresh == ["light", None], f"A new visit should open light and drop the stale setting: {fresh}"
+        print("✓ New visit opens in the light theme even with an old dark setting saved")
 
         total_papers = client.evaluate("document.getElementById('kpi-total-papers').textContent")
         journal_papers = client.evaluate("document.getElementById('kpi-journal-papers').textContent")
@@ -526,13 +536,13 @@ def run_tests():
         board = client_i11.evaluate("[document.querySelectorAll('#i-board .np-story').length, "
                                     "[...document.querySelectorAll('#i-board .np-story a')].filter(a => a.getAttribute('href').startsWith('#')).every(a => document.querySelector(a.getAttribute('href'))), "
                                     "document.querySelectorAll('#i-board .np-check.bad').length, document.querySelectorAll('#i-board .np-check.ok').length, document.title]")
-        assert 4 <= board[0] <= 6 and board[1] and board[2] == 0 and board[3] >= 10 and "Insight 11" not in board[4], board
+        assert 4 <= board[0] <= 6 and board[1] and board[2] == 0 and board[3] == board[0] and "Insight 11" not in board[4], board
         # section 08: the real-citation test
         for cid in ["ch-real-tip", "ch-real-roles", "ch-real-exposure"]:
             assert client_i11.evaluate(f"document.querySelectorAll('#{cid} canvas').length") > 0, f"{cid} not rendered"
         assert client_i11.evaluate("document.querySelectorAll('#tbl-real-origin tbody tr').length") == 4
         assert client_i11.evaluate("document.querySelectorAll('#ins-real-tip .i-pass, #ins-real-roles .i-pass, #ins-real-people .i-pass, #ins-real-islands .i-pass').length") == 4
-        print(f"  ✓ Front page: {board[0]} headline stories, {board[3]} verified claim chips, all links resolve; real-citation section rendered")
+        print(f"  ✓ Front page: {board[0]} headline stories, {board[3]} verified marks, all links resolve; real-citation section rendered")
         # claims are shown as cards (#deck-claims, Nov 2026 redesign); every claim in the data must pass and have a card
         claims = client_i11.evaluate("[document.querySelectorAll('#deck-claims .claim-card').length, window.G24_I11.claims.claims.length, "
                                      "window.G24_I11.claims.claims.filter(c => !c.passed).length, document.querySelectorAll('.i-fail').length]")

@@ -170,7 +170,10 @@
   const R = D.real && D.real.transmissibility ? D.real : null;
   function renderBoard() {
     const cv = id => (claim(id) || {}).value || {};
-    const chk = ids => ids.map(id => { const c = claim(id); return c ? `<span class="np-check ${c.passed ? "ok" : "bad"}" title="${esc(c.claim)}">${c.passed ? "✓" : "✗"} ${esc(id)}</span>` : ""; }).join("");
+    // one "verified" mark per story (no claim numbers); it turns into "check failed" if any claim behind the story fails
+    const chk = ids => { const cs = ids.map(claim).filter(Boolean); if (!cs.length) return "";
+      const ok = cs.every(c => c.passed);
+      return `<span class="np-check ${ok ? "ok" : "bad"}" title="${esc(cs.map(c => c.claim).join(" | "))}">${ok ? "✓ verified" : "✗ check failed"}</span>`; };
     const fig = (v, l) => `<div class="np-fig"><b>${esc(v)}</b><span>${esc(l)}</span></div>`;
     const links = ls => `<div class="np-links">${ls.map(([h, t]) => `<a href="${h}">${esc(t)} →</a>`).join("")}</div>`;
     const c1 = cv("C1"), c2 = cv("C2"), c3 = cv("C3"), c4 = cv("C4"), c7 = cv("C7"), c8 = cv("C8"), c9 = cv("C9");

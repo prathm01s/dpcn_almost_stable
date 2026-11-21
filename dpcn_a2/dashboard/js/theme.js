@@ -3,7 +3,9 @@
  * Load in <head> (before the stylesheets apply) so the page never flashes the wrong theme.
  *
  * - Sets <html data-theme="dark|light">; the CSS defines both colour sets.
- * - Remembers the viewer's choice in localStorage when the browser allows it.
+ * - Every visit opens in light (D-46). A choice made with the toggle is kept for that browser tab only
+ *   (sessionStorage), so it carries across pages and reloads but a new visit starts light again. A value
+ *   left in localStorage by the earlier version (which made dark stick across visits) is removed.
  * - Makes every ECharts chart use a matching theme (echarts.init is wrapped).
  * - Adds a toggle button: into [data-theme-slot] if the page has one, else floating.
  * - Pages that redraw their own charts set window.G24Theme.handlesCharts = true and listen
@@ -13,7 +15,8 @@
   const KEY = "g24-theme";
   const root = document.documentElement;
   let saved = null;
-  try { saved = localStorage.getItem(KEY); } catch (e) { /* storage blocked: use the default */ }
+  try { localStorage.removeItem(KEY); } catch (e) { /* storage blocked */ }
+  try { saved = sessionStorage.getItem(KEY); } catch (e) { /* storage blocked: use the default */ }
   let theme = saved === "light" || saved === "dark" ? saved : "light";
   root.setAttribute("data-theme", theme);
 
@@ -32,7 +35,7 @@
       theme = t;
       root.setAttribute("data-theme", t);
       let stored = false;
-      try { localStorage.setItem(KEY, t); stored = localStorage.getItem(KEY) === t; } catch (e) { stored = false; }
+      try { sessionStorage.setItem(KEY, t); stored = sessionStorage.getItem(KEY) === t; } catch (e) { stored = false; }
       updateButtons();
       if (api.handlesCharts) {
         document.dispatchEvent(new CustomEvent("g24:theme", { detail: { theme: t } }));
